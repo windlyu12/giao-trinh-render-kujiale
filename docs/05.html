@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 5. Vật liệu — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#f2ecd8;--accent-soft:color-mix(in srgb, #f2ecd8 13%, transparent);}</style>
+</head>
+<body data-slug="05">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">5</div>
+    <div class="ch-meta"><span class="tag">Chương 5</span><span class="tag ghost">≈ 19 phút đọc</span></div>
+    <h1 class="ch-title">Vật liệu</h1>
+    <p class="ch-hook">Melamine, acrylic, đá, vải, kính hiện rõ chất — và cách lọc vật liệu xịn trong thư viện.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#51-quen-pbr-chuan-i-kujiale-dung-he-4-kenh-rieng">5.1. Quên PBR chuẩn đi — Kujiale dùng hệ 4 kênh riêng</a></li><li><a href="#52-hai-uong-vao-chinh-vat-lieu">5.2. Hai đường vào chỉnh vật liệu</a></li><li><a href="#53-loc-vat-lieu-xin-trong-thu-vien-ung-nhat-bua">5.3. Lọc vật liệu "xịn" trong thư viện — đừng nhặt bừa</a></li><li><a href="#54-trong-tam-nghe-melaminelaminate-mo-vs-acrylic-bong-guong">5.4. Trọng tâm nghề: melamine/laminate mờ vs acrylic bóng gương</a></li><li><a href="#55-nam-nhom-vat-lieu-con-lai-bang-tra-nhanh">5.5. Năm nhóm vật liệu còn lại — bảng tra nhanh</a></li><li><a href="#56-vat-lieu-anh-sang-vi-sao-map-chuan-van-ra-bet">5.6. Vật liệu × ánh sáng — vì sao map chuẩn vẫn ra bệt</a></li><li><a href="#57-chan-oan-4-buoc-bet-do-en-hay-do-map">5.7. Chẩn đoán 4 bước: "bệt do đèn hay do map?"</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Chỉnh vật liệu bằng hệ 4 kênh của Kujiale (反射颜色 / 反射光泽度 / 凹凸比例 / 折射) mà không lạc sang tư duy Metallic/Roughness
+- Làm đúng chất 2 vật liệu nuôi sống công ty: melamine/laminate mờ và acrylic bóng gương
+- Lọc được vật liệu "xịn" trong thư viện: 实时材质通用库, nhãn 精选, 品牌馆, hậu tố "-4K"
+- Chẩn đoán 4 bước "ảnh bệt do đèn hay do map" — không đổ oan cho texture
+- Tự dựng bảng mẫu 5 mốc độ bóng làm chuẩn nội bộ công ty</p>
+</blockquote>
+<hr>
+<h2 id="51-quen-pbr-chuan-i-kujiale-dung-he-4-kenh-rieng">5.1. Quên PBR chuẩn đi — Kujiale dùng hệ 4 kênh riêng</h2>
+<p>Nếu bạn từng học V-Ray, Blender hay bất kỳ tài liệu PBR nào, hãy tạm cất tư duy đó: <strong>Kujiale KHÔNG có thanh Metallic, KHÔNG có thanh Roughness.</strong> Ai vào tìm "kéo Roughness lên cho mờ" sẽ chỉnh sai từ đầu. Ở đây, chất của một bề mặt được quyết định bằng 4 cần gạt:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kênh</th>
+<th>Nó điều khiển gì</th>
+<th>Thang đo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>反射颜色</strong> (màu phản xạ)</td>
+<td><strong>Cường độ</strong> phản xạ. Quy tắc chính thức: đen = không phản xạ, trắng = phản xạ toàn phần</td>
+<td>Màu xám đen↔trắng (KHÔNG phải con số)</td>
+</tr>
+<tr>
+<td><strong>反射光泽度</strong> (độ bóng phản xạ)</td>
+<td><strong>Độ nét/mờ</strong> của phản xạ = cảm giác bóng hay lì. Chính thức: "0 = bề mặt nhám, 1 = rất bóng"</td>
+<td>Số 0–1</td>
+</tr>
+<tr>
+<td><strong>凹凸比例</strong> (tỉ lệ lồi lõm — bump)</td>
+<td>Vân nổi tế vi trên bề mặt, dùng ảnh đen-trắng: trắng lồi, đen lõm</td>
+<td>Số thực, xem 5.4</td>
+</tr>
+<tr>
+<td><strong>折射</strong> (khúc xạ: 折射颜色 + 折射光泽度)</td>
+<td>Độ trong suốt + độ mờ của vật trong suốt (kính, acrylic trong)</td>
+<td>Màu + số 0–1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dịch tư duy nhanh: <strong>Roughness của thế giới ngoài ≈ nghịch đảo của 反射光泽度; Metallic ≈ 反射颜色 đẩy sáng lên + nhuộm màu kim loại.</strong> Ba cần gạt đầu quyết định 90% chuyện "đúng chất" với đồ gỗ công nghiệp.</p>
+<p>Các kênh phụ sẽ gặp trong 材质编辑 (trình chỉnh vật liệu): 基础颜色/漫反射 (màu gốc + ảnh vân), 法线 (normal — bump nâng cao, ảnh xanh tím), 自发光 (tự phát sáng — LED, màn hình), 不透明度 (độ mờ đục, thang 0–100), 菲涅尔 (Fresnel — chính thức khuyên <strong>để mặc định, không đụng</strong>), VR颜色 (lớp màu nhân chồng kiểu Multiply để chỉnh tông không phá ảnh gốc).</p>
+<blockquote class="tip">
+<p>💡 <strong>Bẫy thang đo hỗn hợp:</strong> UI trộn ba kiểu thang — 反射光泽度/折射光泽度 chạy 0–1, 不透明度 chạy 0–100, còn 反射颜色/折射颜色 là <strong>màu xám</strong> chứ không phải số. Trao đổi với đồng nghiệp phải nói rõ "thang nào", đừng chỉ hô "để 0.7".</p>
+</blockquote>
+<p>Mở app lần đầu học chương này: mở 材质编辑 một vật liệu gỗ bất kỳ, đối chiếu đủ 4 kênh trên → điền <strong>Phiếu verify mục C1 (Phụ lục B)</strong>.</p>
+<h2 id="52-hai-uong-vao-chinh-vat-lieu">5.2. Hai đường vào chỉnh vật liệu</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tình huống</th>
+<th>Công cụ</th>
+<th>Đường vào</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đổi/chỉnh nhanh 1 bề mặt trong phương án (dùng hằng ngày)</td>
+<td>材质替换 (thay vật liệu) → 材质编辑</td>
+<td>Chọn bề mặt → 材质替换 → chọn vật liệu → 材质编辑</td>
+</tr>
+<tr>
+<td>Tạo vật liệu chuẩn công ty từ texture riêng (đủ bộ map, làm 1 lần dùng mãi)</td>
+<td>实时材质制作工具 (công cụ tạo vật liệu thời gian thực)</td>
+<td>商家后台 (hậu trường doanh nghiệp) → 企业商品库 → 创建素材 → 贴图 → 实时材质制作工具</td>
+</tr>
+</tbody>
+</table></div>
+<p>Theo tài liệu chính thức, thư viện vật liệu, công cụ lát gạch, sơn và tủ định chế <strong>đều đã dùng chung</strong> hệ 实时材质 (vật liệu thời gian thực) — nghĩa là bộ 4 kênh ở mục 5.1 áp dụng cho mọi chỗ, học một lần dùng khắp nơi.</p>
+<p>Lưu ý theo UI mới từ 8/2025: chế độ 实时轻量 <strong>không cho thay vật liệu</strong> — muốn vừa xem trước vừa thử chất liệu thì vào 实时专业 hoặc 离线模式 (xem Chương 2).</p>
+<h2 id="53-loc-vat-lieu-xin-trong-thu-vien-ung-nhat-bua">5.3. Lọc vật liệu "xịn" trong thư viện — đừng nhặt bừa</h2>
+<p>Thư viện Kujiale hàng triệu vật liệu, phần lớn là đồ cũ chỉ có <strong>một ảnh màu duy nhất</strong> — gán lên là bệt, không cứu được. Bốn dấu hiệu nhận diện đồ tốt:</p>
+<ol>
+<li><strong>Dòng 实时材质 / 实时材质通用库 (thư viện vật liệu thời gian thực dùng chung):</strong> đủ bộ map 漫反射 + 反射 + 光泽度 + 凹凸, cho chỉnh sửa từng kênh. Đây là dòng ưu tiên số 1 cho render nội thất.</li>
+<li><strong>Hậu tố "-4K" trong tên:</strong> ví dụ mẫu chính thức "克拉洛胡桃-哑光-4K" (óc chó Claro mờ), "橡木-高光-4K" (sồi bóng), "大理石-4K" (marble). Bản 4K = vân nét + đủ map. Chú ý tên vật liệu gỗ luôn ghi rõ <strong>哑光 (mờ) / 高光 (bóng)</strong> — chọn đúng ngay từ tên, đỡ chỉnh.</li>
+<li><strong>Nhãn 精选 (chọn lọc):</strong> góc tem trong thư viện, hàng đã được duyệt chất lượng.</li>
+<li><strong>品牌馆 (gian thương hiệu):</strong> vật liệu chính hãng từ nhà sản xuất — độ tin cậy cao nhất.</li>
+</ol>
+<p><strong>Thao tác kiểm tra cuối trước khi gán:</strong> mở <strong>材质详情 (chi tiết vật liệu)</strong> → xem có đủ map 反射 + 凹凸 không. Chỉ có 1 map màu → bỏ, tìm bản khác.</p>
+<blockquote class="tip">
+<p>💡 Tìm được vật liệu ưng ý, copy <strong>酷口令</strong> (mã lệnh chia sẻ) gửi nhóm Zalo/WeChat công ty — đồng nghiệp dán mã là lấy được đúng vật liệu đó, khỏi mô tả bằng lời.</p>
+</blockquote>
+<p>Vị trí chính xác của các bộ lọc này trong UI hiện tại → xác nhận theo <strong>Phiếu verify mục C3</strong>.</p>
+<h2 id="54-trong-tam-nghe-melaminelaminate-mo-vs-acrylic-bong-guong">5.4. Trọng tâm nghề: melamine/laminate mờ vs acrylic bóng gương</h2>
+<p>Đây là mục quan trọng nhất chương — hai chất liệu này phủ 80% diện tích tủ trong mọi công trình của công ty.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Melamine / Laminate mờ (哑光)</th>
+<th>Acrylic bóng gương (高光)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vật liệu nền nên chọn</td>
+<td>V覆膜木纹哑光 hoặc V饰面木纹哑光 (gỗ phủ phim/phủ mặt mờ)</td>
+<td>亚克力 (acrylic) hoặc dòng 高光</td>
+</tr>
+<tr>
+<td>漫反射</td>
+<td>Ảnh vân gỗ thật, seamless, 2000px trở lên</td>
+<td>Màu trơn sạch hoặc vân, không tì vết</td>
+</tr>
+<tr>
+<td>反射颜色</td>
+<td>Quy tắc chính thức: quanh mặc định <strong>±10</strong> — ảnh sẫm màu +10, ảnh nhạt −10</td>
+<td>Đẩy sáng (gần trắng) cho phản xạ mạnh</td>
+</tr>
+<tr>
+<td>反射光泽度</td>
+<td>⚠️ Thấp–trung, tham chiếu ngành <strong>0.5–0.7</strong> (không có số chính thức)</td>
+<td>⚠️ <strong>~0.97–0.98</strong> — số từ tutorial chính thức nhưng cho kim loại bóng/kính, loại suy sang acrylic</td>
+</tr>
+<tr>
+<td>凹凸比例</td>
+<td><strong>0.03–0.1, mặc định 0.05</strong> (số chính thức). Nguyên văn: lệch 0.01 thôi hiệu quả đã khác nhiều</td>
+<td>Gần <strong>0</strong> — acrylic phẳng lì, có bump là sai chất</td>
+</tr>
+<tr>
+<td>Kết quả cần đạt</td>
+<td>Mặt lì, vân nổi tế vi, phản xạ khuếch tán mềm</td>
+<td>Mặt gương, phản chiếu môi trường rõ, cạnh sắc</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ Các số 反射光泽度 theo nhóm trong chương này (0.5–0.7 melamine, 0.97 acrylic...) là <strong>tham chiếu ngành, KHÔNG phải số chính thức của Kujiale</strong> — hãng chỉ công bố chắc chắn 3 điều: thang 0–1, quy tắc 反射颜色 ±10, và 凹凸比例 0.03–0.1 mặc định 0.05. <strong>Pilot nội bộ sẽ render bảng mẫu (bài thực hành cuối chương) để lập bảng số chuẩn của công ty</strong> — khi bảng đó có, dùng số công ty, không dùng số sách.</p>
+</blockquote>
+<p><strong>Ba việc bắt buộc khi làm tủ gỗ công nghiệp:</strong></p>
+<ol>
+<li><strong>Nhập kích thước thật (尺寸):</strong> khi upload/chỉnh vân, nhập đúng khổ ván <strong>1220 × 2440mm</strong> theo ô "dài ngang × rộng dọc". Công cụ mặc định để 1000mm — quên sửa là vân bị phóng sai tỉ lệ, mắt nghề nhìn ra ngay.</li>
+<li><strong>Hướng vân đúng từng cánh:</strong> vân dọc/ngang sai trên một cánh tủ là lỗi bị khách soi nhiều nhất. Sửa bằng <strong>定制纹理刷 (chổi vân tủ định chế)</strong> đổi 横纹 (vân ngang) ⇄ 竖纹 (vân dọc); dùng <strong>定制样式刷 (chổi kiểu — phím N)</strong> copy từ cánh mẫu đúng sang hàng loạt.</li>
+<li><strong>Đồng bộ toàn nhà:</strong> dùng <strong>材质刷 (chổi vật liệu — phím M)</strong> quét cùng một vật liệu sang mọi mặt tủ để thống nhất tông — tuyệt đối không gán tay từng mặt.</li>
+</ol>
+<p><strong>Giả lập vân nổi "sờ được" (同步纹):</strong> melamine cao cấp ngoài đời có vân sờ nổi trùng khớp vân in. ⚠️ Kujiale <strong>không có tính năng tên này</strong> — mẹo thay thế (do người biên soạn đề xuất, không phải quy trình chính thức): dùng <strong>cùng một ảnh vân</strong> làm cả 漫反射 lẫn ảnh 凹凸 (bản đen-trắng, làm trong Photoshop: 图像 → 调整 → 黑白 rồi chỉnh 色阶), đặt 凹凸比例 0.05–0.08 để rãnh lõm trùng đường vân.</p>
+<p><strong>Chuẩn upload texture công ty:</strong> các luồng upload có giới hạn khác nhau (2MB vs 5MB tùy đường vào) — chuẩn an toàn dùng chung: <strong>JPG, hệ màu RGB, cạnh 2000–5000px, ≤2MB</strong>. TGA không được tài liệu chính thức nhắc — đừng dùng. Ảnh phải đạt 3 điều kiện chất lượng chính thức: (1) <strong>seamless/四方连续</strong> — không lộ đường ghép (kiểm trong Photoshop: 滤镜 → 其他 → 位移); (2) <strong>không có sẵn bóng/vệt sáng</strong> trong ảnh — render sẽ tự đánh sáng, ảnh có sẵn bóng là chồng sáng giả; (3) đủ bộ map chứ không chỉ 1 ảnh màu. Giới hạn dung lượng thật trên UI hiện tại → điền <strong>Phiếu verify mục C2</strong>.</p>
+<h2 id="55-nam-nhom-vat-lieu-con-lai-bang-tra-nhanh">5.5. Năm nhóm vật liệu còn lại — bảng tra nhanh</h2>
+<p>Mọi số độ bóng dưới đây là ⚠️ tham chiếu ngành (trừ chỗ ghi "chính thức") — chờ bảng chuẩn nội bộ từ pilot.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Chọn gì / kênh chính</th>
+<th>Số tham chiếu</th>
+<th>Mẹo đúng chất</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gỗ tự nhiên / veneer (木饰面)</strong></td>
+<td>实木擦黑封闭漆（哑光）hoặc 木饰面</td>
+<td>反射光泽度 ~0.6–0.75 ⚠️; 凹凸比例 <strong>0.08–0.15</strong> ⚠️ (cao hơn melamine)</td>
+<td>Veneer khác melamine ở thớ SÂU — cần đèn xiên mới thấy thớ</td>
+</tr>
+<tr>
+<td><strong>Đá: marble bóng / đá thiêu kết / terrazzo</strong></td>
+<td>Dòng đá trong 实时材质, bản "-4K"</td>
+<td>Marble bóng ~0.9 ⚠️; 岩板 mờ ~0.6–0.7 ⚠️; 水磨石 ~0.5–0.7 ⚠️</td>
+<td>Muốn mờ mà render ra bóng lộn → hạ 反射光泽度 + giảm độ trắng 反射颜色. Đá "chết" không phản xạ → tăng 环境反射亮度 (mục 5.6)</td>
+</tr>
+<tr>
+<td><strong>Vải: nỉ sofa / voan / chăn ga</strong></td>
+<td>实时材质-布艺 (vải), 窗纱 (voan)</td>
+<td>Nỉ: 反射光泽度 rất thấp, 反射颜色 gần đen; voan: dùng preset 窗纱 + chỉnh 不透明度</td>
+<td>Vải mà bóng lên là sai ngay. Voan đừng tự chế kênh trong suốt — preset 窗纱 ổn định hơn</td>
+</tr>
+<tr>
+<td><strong>Kim loại: inox, champagne, đen mờ</strong></td>
+<td>实时材质-金属</td>
+<td>Inox bóng ~0.95 ⚠️; xước/champagne ~0.97 (tutorial chính thức) kèm ảnh 凹凸 vân xước đúng chiều — trông quá gương thì hạ về 0.7–0.85 ⚠️; đen mờ ~0.3–0.5 ⚠️</td>
+<td>Không có thanh Metallic → kim loại = 反射颜色 <strong>nhuộm màu</strong> (vàng champagne, xám đen) + độ bóng cao</td>
+</tr>
+<tr>
+<td><strong>Kính / gương</strong></td>
+<td>Preset 白玻璃 (kính trong), 磨砂玻璃 (kính mờ), 镜子 (gương)</td>
+<td>Kính mờ: 折射光泽度 <strong>0.7 (chính thức)</strong> — càng cao càng trong, càng thấp càng mờ</td>
+<td>Kính đen kịt/méo → đổi kính 折射率 (chiết suất) thấp, model phải dựng 2 mặt. Gương không phản chiếu → bật 镜面真实反射 (mục 5.6)</td>
+</tr>
+<tr>
+<td><strong>Sơn tường / giấy dán / gạch ốp</strong></td>
+<td>乳胶漆（哑光）(sơn nước mờ); 墙纸 (giấy dán); gạch dùng <strong>硬装铺贴工具</strong> (công cụ lát phần thô) chứ không phải 材质编辑</td>
+<td>Gạch: nhập đúng cỡ viên (300×600, 600×600, 800×800...); mạch 砖缝 mặc định phổ thông 1mm, 600×600 ~3mm ⚠️</td>
+<td>Sơn tường gần như không phản xạ — tường bóng là sai. Gạch dùng 材质刷 (M) quét sang các tường khác cho thẳng mạch</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="56-vat-lieu-anh-sang-vi-sao-map-chuan-van-ra-bet">5.6. Vật liệu × ánh sáng — vì sao map chuẩn vẫn ra bệt</h2>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO phiên bản:</strong> tài liệu vật liệu cũ (kể cả nguồn của chương này) hay dặn "duyệt chất liệu bằng template 写实". Từ 8–10/2025 Kujiale đã <strong>gộp UI render về 3 chế độ và gỡ nhiều template cũ</strong> — dòng hiện hành chỉ còn 极速3.0/3.1, 室内白天/夜晚 (2.1–3.1), 实时白天/夜晚. Quy tắc chuyển đổi của sách: <strong>soi chất liệu = 离线模式 + template dòng 室内白天/夜晚</strong> (dòng chất lượng cao hiện hành); ⚠️ tên template chất lượng cao trên UI của bạn có thể khác — chụp lại theo <strong>Phiếu verify mục B3</strong>. Tuyệt đối <strong>không duyệt chất liệu bằng dòng 极速</strong> — dòng này không render được vật liệu phức tạp (displacement/3S), vân sẽ "mất tích" oan.</p>
+</blockquote>
+<p>Kiến thức cốt lõi được chính Kujiale khẳng định: <strong>hiệu ứng 凹凸 phụ thuộc ánh sáng.</strong> Nguyên văn tài liệu chính thức: cùng một vật liệu vân nổi, sang cảnh đèn yếu thì "hiệu ứng lồi lõm biến mất hoàn toàn" — vì bump chỉ hiện khi có bóng đổ vào rãnh vân. Đây chính là lý do số 1 của "material chuẩn mà render ra bệt".</p>
+<p><strong>Muốn vân gỗ nổi, cần ánh sáng tạt ngang (掠射光):</strong></p>
+<ul>
+<li><strong>灯带 (đèn hắt khe)</strong> kéo dọc cánh tủ — nguồn sáng gần song song mặt ván, bóng đổ vào từng rãnh vân → melamine "hiện vân" đẹp nhất. Số đèn xem Chương 4.</li>
+<li><strong>射灯 / 筒灯 (đèn rọi / đèn âm trần)</strong> — chính thức khuyên dùng để "thể hiện hiệu quả lồi lõm", tạo tương phản sáng tối cục bộ.</li>
+<li>Ánh đèn phẳng, đều, chiếu vuông góc = kẻ thù của vân. Phòng sáng đều tăm tắp thì tủ nào cũng bệt.</li>
+</ul>
+<p><strong>Các công tắc 高级设置 (cài đặt nâng cao) ảnh hưởng trực tiếp chất liệu:</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Công tắc</th>
+<th>Khi nào đụng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>渲染复杂材质 (render vật liệu phức tạp)</td>
+<td><strong>Bật</strong> khi cảnh có displacement/3S (đá vân sâu, voan xuyên sáng). Tắt = các vật liệu này render sai</td>
+</tr>
+<tr>
+<td>镜面真实反射 (phản xạ gương thật)</td>
+<td>Mặc định TẮT. Gương trong ảnh "chết đen" không phản chiếu → bật</td>
+</tr>
+<tr>
+<td>影响高光 (ảnh hưởng đốm sáng)</td>
+<td>Mặt bàn/đá lỗ chỗ đốm trắng của đèn → tắt để bỏ đốm</td>
+</tr>
+<tr>
+<td>溢色修正 (sửa loang màu)</td>
+<td>Sàn gỗ/thảm màu mạnh hắt màu lên tủ trắng, trần → bật</td>
+</tr>
+<tr>
+<td>环境阻光 (che sáng môi trường — AO)</td>
+<td>Mặc định bật — giữ nguyên, giúp khe vân và góc cạnh nét khối hơn</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>环境反射亮度 (độ sáng phản xạ môi trường) — cứu tinh của mặt bóng "chết":</strong> nằm ở mục 外景 (ngoại cảnh) trong giao diện render. Số chính thức minh họa: <strong>2 → 6 → 12</strong> tăng dần độ phản chiếu môi trường lên mặt vật liệu. Acrylic, đá, kim loại trông "chết" dù độ bóng đã cao → tăng dần thanh này; nhưng quá tay sẽ cháy sáng cục bộ.</p>
+<p><strong>Về màu ấm/lạnh của gỗ:</strong> Kujiale ⚠️ không có thanh cân bằng trắng hậu kỳ riêng trong UI render công khai — tông nóng/lạnh chỉnh bằng <strong>色温 (nhiệt độ màu) của từng đèn</strong>. Muốn soi màu vân trung thực khi duyệt vật liệu: dùng đèn trắng ~4000–4500K; đèn vàng ấm sẽ nhuộm vàng cả vân, dễ chọn sai tông ván.</p>
+<h2 id="57-chan-oan-4-buoc-bet-do-en-hay-do-map">5.7. Chẩn đoán 4 bước: "bệt do đèn hay do map?"</h2>
+<p>Render ra bệt/nhựa/xám, đừng vội đổ cho texture rồi ngồi thay map cả buổi. Chạy đúng thứ tự 4 bước — thứ tự này xếp theo xác suất thủ phạm từ cao xuống thấp:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Kiểm tra</th>
+<th>Nếu trúng → sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Đèn có tạt ngang không?</strong> (thủ phạm số 1)</td>
+<td>Cảnh có 灯带/射灯 chiếu xiên vào mặt tủ không, hay toàn sáng phẳng đều?</td>
+<td>Thêm 1 dải đèn hắt dọc cánh tủ hoặc 射灯 xiên → render nháp lại. Đa số case dừng ở đây</td>
+</tr>
+<tr>
+<td><strong>2. Render bằng gì?</strong></td>
+<td>Đang dùng dòng 极速? 渲染复杂材质 đang tắt?</td>
+<td>Chuyển 离线模式 + template chất lượng cao, bật 渲染复杂材质</td>
+</tr>
+<tr>
+<td><strong>3. Phản xạ môi trường đủ chưa?</strong></td>
+<td>Mặt bóng (acrylic/đá/kim loại) không phản chiếu gì, nhìn "chết"?</td>
+<td>Tăng 环境反射亮度 theo nấc 2 → 6 → 12, dừng trước khi cháy</td>
+</tr>
+<tr>
+<td><strong>4. Map có đủ kênh không?</strong> (lúc này mới là lỗi map)</td>
+<td>Mở 材质详情: chỉ có 1 ảnh màu, không 反射 không 凹凸?</td>
+<td>Thay bằng bản 实时材质 "-4K", hoặc tự bổ sung ảnh 凹凸 + đặt 凹凸比例 0.05</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 Kết luận từ tài liệu chính thức: đa số ảnh "bệt" là do <strong>ánh sáng và thiết lập render</strong>, không phải do map. Chỉ khi vật liệu đúng là "một ảnh màu trần trụi" mới được kết tội map.</p>
+</blockquote>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-bang-mau-5-moc-o-bong-bai-quan-trong-nhat-chuong-ket-qua-nop-lam-chuan-cong-ty">Bài 1 — Bảng mẫu 5 mốc độ bóng (bài quan trọng nhất chương, kết quả nộp làm chuẩn công ty)</h3>
+<ol>
+<li>Mở căn hộ mẫu, dựng 5 tấm ván đứng cạnh nhau (mỗi tấm ~600 × 2000mm, cách nhau 100mm) trong một phòng trống.</li>
+<li>Gán cả 5 tấm <strong>cùng một vật liệu melamine</strong> — ưu tiên bản "哑光-4K" trong 实时材质通用库, hoặc texture vân công ty tự upload (đúng chuẩn mục 5.4, nhập 尺寸 1220×2440).</li>
+<li>Vào 材质编辑 từng tấm, đặt 反射光泽度 lần lượt: <strong>0.5 / 0.6 / 0.7 / 0.85 / 0.97</strong>. Giữ 凹凸比例 = 0.05 cho cả 5 tấm, các kênh khác giữ nguyên.</li>
+<li>Đặt 1 dải 灯带 chạy dọc phía trên 5 tấm (ánh sáng tạt ngang) + 1 射灯 chiếu xiên 45°. Đèn trắng 4000–4500K để không nhuộm màu vân.</li>
+<li>Render <strong>离线模式</strong>, template chất lượng cao (dòng 室内白天), bật 渲染复杂材质, độ phân giải thấp nhất cho nhanh.</li>
+<li>Mở ảnh render cạnh <strong>tấm mẫu melamine thật + tấm acrylic thật của công ty</strong> (mượn ở showroom). Ghi lại: mốc nào giống melamine thật nhất, mốc nào bắt đầu "nhựa hóa", mốc nào khớp acrylic.</li>
+<li>Nộp ảnh + kết luận cho quản lý → vào bảng số chuẩn nội bộ. Nhân tiện điền Phiếu verify mục C1 + C2.</li>
+</ol>
+<p><strong>Tiêu chí đạt:</strong> che nhãn số, nhìn ảnh render gọi đúng tên từng mốc gloss (tự kiểm tra kiểu "thi mù"); chốt được 1 con số đề xuất cho melamine mờ và 1 cho acrylic của công ty, kèm lý do một câu.</p>
+<h3 id="bai-2-chay-chan-oan-4-buoc-tren-anh-bet-that">Bài 2 — Chạy chẩn đoán 4 bước trên ảnh bệt thật</h3>
+<ol>
+<li>Lấy 1 cảnh tủ áo/tủ bếp bạn từng render mà tự thấy "bệt, giả".</li>
+<li>Chạy lần lượt 4 bước ở mục 5.7, mỗi bước sửa xong render nháp 1 ảnh, đặt tên ảnh theo bước (b1-den, b2-template...).</li>
+<li>So 4 ảnh: bước nào tạo khác biệt lớn nhất → đó là thủ phạm của cảnh này.</li>
+</ol>
+<p><strong>Tiêu chí đạt:</strong> ảnh cuối vân gỗ nhìn rõ nổi ở khu vực gần đèn; nói được bằng 1 câu "cảnh này bệt do X".</p>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="05-t1"><span>Nói vo được 4 kênh chính của vật liệu Kujiale + kênh nào điều khiển cường độ, kênh nào điều khiển độ nét phản xạ</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t2"><span>Biết 3 số chính thức duy nhất: 凹凸比例 0.03–0.1 (mặc định 0.05), thang gloss 0–1, quy tắc 反射颜色 ±10</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t3"><span>Nhận diện được vật liệu xịn qua 4 dấu hiệu: 实时材质通用库 / "-4K" / 精选 / 品牌馆 — và biết mở 材质详情 kiểm map</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t4"><span>Tủ melamine trong phương án: đúng khổ vân 1220×2440, đúng hướng vân từng cánh, đồng bộ bằng 材质刷</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t5"><span>Phân biệt được cách xử lý melamine mờ (có bump nhẹ) vs acrylic (bóng cao, không bump)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t6"><span>Thuộc thứ tự chẩn đoán bệt: đèn → template/công tắc → 环境反射亮度 → map</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t7"><span>Đã render xong bảng mẫu 5 mốc gloss và nộp kết quả</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="05-t8"><span>Đã điền Phiếu verify mục C1, C2, C3</span></label></li>
+</ul>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vân gỗ bị kéo giãn, to bất thường</td>
+<td>尺寸 sai (còn để mặc định 1000mm) hoặc scale ngang/dọc lệch</td>
+<td>材质编辑 → nhập đúng khổ 1220×2440; chỉnh 横向/纵向缩放</td>
+</tr>
+<tr>
+<td>Vân lặp ô rõ rệt trên mảng tủ lớn</td>
+<td>Ảnh không seamless</td>
+<td>Kiểm bằng Photoshop 滤镜→其他→位移; xử lý seamless hoặc dùng phần mềm ngoài (PixPlant) phá lặp</td>
+</tr>
+<tr>
+<td>Mặt tủ như nhựa (塑料感)</td>
+<td>Gloss sai chất + thiếu bump + đèn phẳng</td>
+<td>Hạ 反射光泽度 về dải mờ; 凹凸比例 0.05; thêm đèn tạt ngang</td>
+</tr>
+<tr>
+<td>Vân như dán đề can nổi lên</td>
+<td>Thiếu bump/phản xạ, hoặc ảnh texture có sẵn bóng sáng</td>
+<td>Thêm 凹凸 nhẹ; thay ảnh "không có sẵn bóng"</td>
+</tr>
+<tr>
+<td>Vân gỗ sai chiều trên vài cánh tủ</td>
+<td>Cánh đặt 横纹/竖纹 sai</td>
+<td>定制纹理刷 đổi chiều; 定制样式刷 (N) copy từ cánh đúng</td>
+</tr>
+<tr>
+<td>Phản xạ cháy trắng trên mặt bóng</td>
+<td>环境反射亮度 quá cao; 影响高光 bật với đèn mạnh</td>
+<td>Hạ 环境反射亮度; tắt 影响高光; hạ đèn</td>
+</tr>
+<tr>
+<td>Gương không phản chiếu đồ đạc</td>
+<td>镜面真实反射 mặc định tắt</td>
+<td>Bật trong 高级设置</td>
+</tr>
+<tr>
+<td>Kính đen kịt / méo hình cầu</td>
+<td>Chiết suất quá cao; model kính 1 mặt</td>
+<td>Đổi kính 折射率 thấp; dựng kính 2 mặt</td>
+</tr>
+<tr>
+<td>Cùng vật liệu, đổi cảnh thì mất vân</td>
+<td>Bump nhạy với đèn — cảnh mới đèn yếu/phẳng</td>
+<td>Thêm 射灯/灯带 tạt ngang; đây là hành vi bình thường, không phải hỏng vật liệu</td>
+</tr>
+<tr>
+<td>Cùng vật liệu, đổi góc camera thì đổi màu</td>
+<td>Phản xạ môi trường + hiệu ứng Fresnel theo góc nhìn</td>
+<td>Hành vi vật lý bình thường ("vật liệu tắc kè") — không cần sửa</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức (help center / ask kujiale.com, có mã bài):</strong>
+- Bộ kênh 材质编辑: bài 3FO4K4WP0MUJ (cập nhật 2025-06-25); thang gloss 0–1, quy tắc ±10, 凹凸比例 0.05 (0.03–0.1): bài 3FO4K8ET1FL0
+- Chuẩn upload texture: 3FO4K4VPE026 (jpg/png ≤5000px ≤5MB RGB) + 3FO4K4WFSI07 (sổ tay chuẩn: ≥2000px, seamless, không bóng sẵn) — các luồng khác giới hạn khác nhau, chuẩn an toàn của sách lấy mức chặt nhất
+- Công tắc 高级设置: 3FO4K4VWISQV (2025-01-10); 环境反射亮度 minh họa 2/6/12: 3FO4K4VQ5WY8; bump phụ thuộc đèn: 3FO4K4VPCD7O
+- Kính mờ 折射光泽度 0.7: 3FO4K4WP0G6H; chỉnh chiều vân tủ: 3FO4K4WOA1QV; scale/xoay vân: 3FO4K0MK32JE
+- Lọc vật liệu xịn ("-4K", 实时材质, 酷口令): 3FO4K4WPW9M0; UI 3 chế độ render + 实时轻量 không thay vật liệu: 3FO4K4WCDICB (2025-08-18); template hiện hành: 3FO4K4WCL5TL (2025-10-27)</p>
+<p><strong>Cộng đồng / tutorial (dùng có đánh dấu ⚠️):</strong>
+- Gloss kim loại xước ~0.97, kính 0.98: video tutorial Kujiale chính thức trên Douyin — số cho kim loại/kính, loại suy sang acrylic
+- Trị kính đen (chiết suất thấp, dựng 2 mặt): jb51.net; số gloss theo nhóm chất liệu: đối chiếu chuẩn ngành V-Ray (Zhihu)</p>
+<p><strong>Số chờ verify trên UI hiện tại (Phụ lục B):</strong>
+- Mục C1 — bộ kênh 材质编辑 đúng như mục 5.1
+- Mục C2 — giới hạn dung lượng upload thật (2MB hay 5MB)
+- Mục C3 — vị trí bộ lọc 精选 / 实时材质 / 品牌馆 trong UI mới
+- Mục B3 — tên template chất lượng cao hiện hành để soi chất liệu (thay cụm "写实" cũ)</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="04.html"><span class="dir">← Trước</span><div class="t">Chương 4 · Đèn thủ công</div></a><a class="next" href="06.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 6 · Camera, bố cục, hậu kỳ</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

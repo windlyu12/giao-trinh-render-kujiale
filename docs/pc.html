@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phụ lục C. Cheat sheet thuật ngữ — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#d4b9ff;--accent-soft:color-mix(in srgb, #d4b9ff 13%, transparent);}</style>
+</head>
+<body data-slug="pc">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">C</div>
+    <div class="ch-meta"><span class="tag">Phụ lục C</span><span class="tag ghost">≈ 13 phút đọc</span></div>
+    <h1 class="ch-title">Cheat sheet thuật ngữ</h1>
+    <p class="ch-hook">97 thuật ngữ Trung – Việt chia 6 nhóm, in ra dán cạnh màn hình.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#nhom-1-menu-ieu-huong-chinh-12-muc">Nhóm 1 — Menu &amp; điều hướng chính (12 mục)</a></li><li><a href="#nhom-2-dung-hinh-co-ban-16-muc">Nhóm 2 — Dựng hình cơ bản (16 mục)</a></li><li><a href="#nhom-3-render-23-muc">Nhóm 3 — Render (23 mục)</a></li><li><a href="#nhom-4-anh-sang-21-muc-trong-tam-nang-cao">Nhóm 4 — Ánh sáng 布光 (21 mục — trọng tâm nâng cao)</a></li><li><a href="#nhom-5-vat-lieu-15-muc">Nhóm 5 — Vật liệu 材质 (15 mục)</a></li><li><a href="#nhom-6-camera-xuat-anh-10-muc">Nhóm 6 — Camera &amp; xuất ảnh (10 mục)</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><p><strong>Cách dùng:</strong> In khổ A3 ngang (hoặc 2 tờ A4), dán cạnh màn hình. Đây là công cụ số 1 để sống với giao diện tiếng Trung — chữ trong khu thiết kế vẽ bằng đồ họa nên tiện ích dịch trang không dịch được (xem C1). Hai nhóm dùng dày nhất khi học render là <strong>Nhóm 3 (Render)</strong> và <strong>Nhóm 4 (Ánh sáng)</strong> — nên in nổi bật hoặc dán gần tầm mắt nhất.</p>
+<p>Cột "Tiếng Anh" đối chiếu theo bản quốc tế Coohom khi có mục tương đương; nơi không có thì dùng thuật ngữ đồ họa 3D thông dụng — để bạn tra thêm tài liệu tiếng Anh khi cần. Ghi chú UI đã quy đổi theo giao diện mới từ 08/2025.</p>
+<hr>
+<h2 id="nhom-1-menu-ieu-huong-chinh-12-muc">Nhóm 1 — Menu &amp; điều hướng chính (12 mục)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chữ Hán</th>
+<th>Pinyin</th>
+<th>Tiếng Anh</th>
+<th>Nghĩa tiếng Việt</th>
+<th>Ghi chú UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工具</td>
+<td>gōngjù</td>
+<td>Tools</td>
+<td>Công cụ</td>
+<td>Thanh menu trên cùng</td>
+</tr>
+<tr>
+<td>渲染</td>
+<td>xuànrǎn</td>
+<td>Render</td>
+<td>Kết xuất / render</td>
+<td>Nút trên thanh công cụ — rê chuột hiện 3 chế độ (xem C1)</td>
+</tr>
+<tr>
+<td>保存</td>
+<td>bǎocún</td>
+<td>Save</td>
+<td>Lưu</td>
+<td>Ctrl+S; lưu 方案</td>
+</tr>
+<tr>
+<td>方案</td>
+<td>fāng'àn</td>
+<td>Design / Project</td>
+<td>Phương án thiết kế</td>
+<td>Tài khoản miễn phí chỉ giữ 30 ngày — luôn làm trên tài khoản công ty</td>
+</tr>
+<tr>
+<td>工作台</td>
+<td>gōngzuòtái</td>
+<td>Workbench / Dashboard</td>
+<td>Bàn làm việc</td>
+<td>Góc phải trên, quản lý mọi 方案</td>
+</tr>
+<tr>
+<td>素材库</td>
+<td>sùcáikù</td>
+<td>Asset / Model library</td>
+<td>Thư viện mô hình – vật liệu</td>
+<td>Kéo–thả mô hình vào cảnh</td>
+</tr>
+<tr>
+<td>我的素材</td>
+<td>wǒ de sùcái</td>
+<td>My assets</td>
+<td>Kho tư liệu của tôi</td>
+<td>Nơi tự tải mô hình/贴图 lên</td>
+</tr>
+<tr>
+<td>回收站</td>
+<td>huíshōuzhàn</td>
+<td>Recycle bin</td>
+<td>Thùng rác</td>
+<td>Góc trái dưới, khôi phục 方案 đã xóa</td>
+</tr>
+<tr>
+<td>复制方案</td>
+<td>fùzhì fāng'àn</td>
+<td>Duplicate</td>
+<td>Nhân bản phương án</td>
+<td>Menu 3 chấm của 方案</td>
+</tr>
+<tr>
+<td>账号设置</td>
+<td>zhànghào shèzhì</td>
+<td>Account settings</td>
+<td>Cài đặt tài khoản</td>
+<td>Rê chuột vào avatar</td>
+</tr>
+<tr>
+<td>会员中心</td>
+<td>huìyuán zhōngxīn</td>
+<td>Membership center</td>
+<td>Trung tâm hội viên</td>
+<td>Nơi lĩnh phiếu 6K mỗi tuần, xem 核豆 còn lại</td>
+</tr>
+<tr>
+<td>帮助</td>
+<td>bāngzhù</td>
+<td>Help</td>
+<td>Trợ giúp</td>
+<td>Góc phải trên trong giao diện render</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nhom-2-dung-hinh-co-ban-16-muc">Nhóm 2 — Dựng hình cơ bản (16 mục)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chữ Hán</th>
+<th>Pinyin</th>
+<th>Tiếng Anh</th>
+<th>Nghĩa tiếng Việt</th>
+<th>Ghi chú UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>户型</td>
+<td>hùxíng</td>
+<td>Floor plan</td>
+<td>Mặt bằng căn hộ</td>
+<td>Bước đầu tiên khi tạo 方案</td>
+</tr>
+<tr>
+<td>户型翻转</td>
+<td>hùxíng fānzhuǎn</td>
+<td>Flip floor plan</td>
+<td>Lật / đối xứng mặt bằng</td>
+<td>Trong menu 工具</td>
+</tr>
+<tr>
+<td>墙体</td>
+<td>qiángtǐ</td>
+<td>Wall</td>
+<td>Tường</td>
+<td>Vẽ tường chịu lực / tường ngăn</td>
+</tr>
+<tr>
+<td>门窗</td>
+<td>ménchuāng</td>
+<td>Door &amp; window</td>
+<td>Cửa đi &amp; cửa sổ</td>
+<td>Kéo vào tường</td>
+</tr>
+<tr>
+<td>吊顶</td>
+<td>diàodǐng</td>
+<td>Ceiling</td>
+<td>Trần thả / trần giật cấp</td>
+<td>Chế độ 2D mặc định ẩn trần để dễ đặt đèn</td>
+</tr>
+<tr>
+<td>地面</td>
+<td>dìmiàn</td>
+<td>Floor / Ground</td>
+<td>Sàn / mặt nền</td>
+<td>Gán vật liệu sàn</td>
+</tr>
+<tr>
+<td>层高</td>
+<td>cénggāo</td>
+<td>Ceiling height</td>
+<td>Chiều cao tầng</td>
+<td>Chỉnh trong tham số tổng thể</td>
+</tr>
+<tr>
+<td>踢脚线</td>
+<td>tījiǎoxiàn</td>
+<td>Skirting / Baseboard</td>
+<td>Len chân tường</td>
+<td>Chi tiết nhỏ nhưng thiếu là ảnh mất thật</td>
+</tr>
+<tr>
+<td>墙面</td>
+<td>qiángmiàn</td>
+<td>Wall face</td>
+<td>Bề mặt tường</td>
+<td>Gán vật liệu / ốp tường</td>
+</tr>
+<tr>
+<td>背景墙</td>
+<td>bèijǐngqiáng</td>
+<td>Feature wall</td>
+<td>Tường trang trí (vách TV)</td>
+<td>Chủ đề của các khóa 硬装 nâng cao</td>
+</tr>
+<tr>
+<td>全屋定制</td>
+<td>quánwū dìngzhì</td>
+<td>Whole-house custom</td>
+<td>Nội thất đặt đóng toàn nhà</td>
+<td>Tủ bếp / tủ áo theo module — đúng nghề công ty</td>
+</tr>
+<tr>
+<td>柜体</td>
+<td>guìtǐ</td>
+<td>Cabinet</td>
+<td>Thân tủ</td>
+<td>Trong nhóm tủ đặt đóng</td>
+</tr>
+<tr>
+<td>硬装</td>
+<td>yìngzhuāng</td>
+<td>Hard finishing</td>
+<td>Phần cứng cố định</td>
+<td>Trần, tường, sàn, ốp</td>
+</tr>
+<tr>
+<td>软装</td>
+<td>ruǎnzhuāng</td>
+<td>Soft furnishing</td>
+<td>Đồ rời trang trí</td>
+<td>Sofa, rèm, thảm, đồ decor</td>
+</tr>
+<tr>
+<td>多层结构</td>
+<td>duōcéng jiégòu</td>
+<td>Multi-level structure</td>
+<td>Kết cấu nhiều tầng</td>
+<td>Biệt thự, thông tầng</td>
+</tr>
+<tr>
+<td>楼梯</td>
+<td>lóutī</td>
+<td>Staircase</td>
+<td>Cầu thang</td>
+<td>Có chuyên đề vẽ cầu thang riêng</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nhom-3-render-23-muc">Nhóm 3 — Render (23 mục)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chữ Hán</th>
+<th>Pinyin</th>
+<th>Tiếng Anh</th>
+<th>Nghĩa tiếng Việt</th>
+<th>Ghi chú UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>效果图</td>
+<td>xiàoguǒtú</td>
+<td>Rendering / Still image</td>
+<td>Ảnh phối cảnh (render tĩnh)</td>
+<td>Sản phẩm chính của bạn</td>
+</tr>
+<tr>
+<td>普通图</td>
+<td>pǔtōngtú</td>
+<td>Standard image</td>
+<td>Ảnh thường (1 khung tĩnh)</td>
+<td>Loại ảnh cơ bản; render trong 离线模式</td>
+</tr>
+<tr>
+<td>全景图</td>
+<td>quánjǐngtú</td>
+<td>Panorama (360°)</td>
+<td>Ảnh toàn cảnh</td>
+<td>Khách quét mã xem VR</td>
+</tr>
+<tr>
+<td>俯视图</td>
+<td>fǔshìtú</td>
+<td>Top view</td>
+<td>Ảnh nhìn từ trên xuống</td>
+<td>Chỉ render được ở 离线模式</td>
+</tr>
+<tr>
+<td>漫游视频 / 漫游</td>
+<td>mànyóu shìpín / mànyóu</td>
+<td>Walkthrough video</td>
+<td>Video dạo quanh không gian</td>
+<td>Chỉ render được ở 离线模式</td>
+</tr>
+<tr>
+<td>照片级</td>
+<td>zhàopiànjí</td>
+<td>Photorealistic</td>
+<td>Chân thực như ảnh chụp</td>
+<td>Mục tiêu của giáo trình này</td>
+</tr>
+<tr>
+<td>分辨率</td>
+<td>fēnbiànlǜ</td>
+<td>Resolution</td>
+<td>Độ phân giải (3K/4K/6K/8K…)</td>
+<td>Chọn trước khi render — độ phân giải càng cao càng tốn điểm</td>
+</tr>
+<tr>
+<td>高级设置</td>
+<td>gāojí shèzhì</td>
+<td>Advanced settings</td>
+<td>Thiết lập nâng cao</td>
+<td>Nơi bật 镜面反射, HDR (xem C2)</td>
+</tr>
+<tr>
+<td>高级参数</td>
+<td>gāojí cānshù</td>
+<td>Advanced parameters</td>
+<td>Tham số nâng cao</td>
+<td>AO, vật liệu phức tạp (xem C2)</td>
+</tr>
+<tr>
+<td>降噪</td>
+<td>jiàngzào</td>
+<td>Denoise</td>
+<td>Khử nhiễu (hạt)</td>
+<td>Làm ảnh mịn</td>
+</tr>
+<tr>
+<td>炫光 / 辉光</td>
+<td>xuànguāng / huīguāng</td>
+<td>Glare / Bloom</td>
+<td>Quầng sáng / hiệu ứng lóa</td>
+<td>Tăng độ thật cho đèn</td>
+</tr>
+<tr>
+<td>体积光</td>
+<td>tǐjīguāng</td>
+<td>Volumetric light</td>
+<td>Ánh sáng thể tích (vệt tia nắng)</td>
+<td>Tính năng cao cấp — xem C3</td>
+</tr>
+<tr>
+<td>环境阻光</td>
+<td>huánjìng zǔguāng</td>
+<td>Ambient Occlusion (AO)</td>
+<td>Bóng tiếp xúc / AO</td>
+<td>Bật để khối nổi, rõ đường ghép góc</td>
+</tr>
+<tr>
+<td>镜面反射</td>
+<td>jìngmiàn fǎnshè</td>
+<td>Specular reflection</td>
+<td>Phản xạ gương</td>
+<td>Ảnh hưởng lớn tới thời gian render</td>
+</tr>
+<tr>
+<td>实时渲染</td>
+<td>shíshí xuànrǎn</td>
+<td>Real-time render</td>
+<td>Render thời gian thực</td>
+<td>Nay tách thành 实时轻量 / 实时专业; tính phí theo thời lượng ⚠️ chờ verify</td>
+</tr>
+<tr>
+<td>离线渲染</td>
+<td>líxiàn xuànrǎn</td>
+<td>Offline render</td>
+<td>Render offline (hàng đợi, chất lượng cao)</td>
+<td>Nay là 离线模式 — chế độ duy nhất render video/俯视图</td>
+</tr>
+<tr>
+<td>加速渲染</td>
+<td>jiāsù xuànrǎn</td>
+<td>Accelerated render</td>
+<td>Render tăng tốc</td>
+<td>Tốn thêm phiếu/điểm</td>
+</tr>
+<tr>
+<td>优先渲染队列</td>
+<td>yōuxiān xuànrǎn duìliè</td>
+<td>Priority render queue</td>
+<td>Hàng đợi ưu tiên</td>
+<td>Đặc quyền hội viên / bản doanh nghiệp</td>
+</tr>
+<tr>
+<td>闲时渲染</td>
+<td>xiánshí xuànrǎn</td>
+<td>Off-peak render</td>
+<td>Render giờ vắng (đêm)</td>
+<td>Bậc cao cấp: 4K/5K không giới hạn khung 20:00–8:00</td>
+</tr>
+<tr>
+<td>出图</td>
+<td>chūtú</td>
+<td>Output image</td>
+<td>Xuất ảnh</td>
+<td>Bấm phát lệnh render</td>
+</tr>
+<tr>
+<td>渲染券</td>
+<td>xuànrǎnquàn</td>
+<td>Render coupon</td>
+<td>Phiếu render</td>
+<td>Phát cả gói đầu chu kỳ; riêng phiếu 6K lĩnh tay theo tuần</td>
+</tr>
+<tr>
+<td>核豆</td>
+<td>hédòu</td>
+<td>Render credits</td>
+<td>Điểm 核豆 (hệ mới từ 01/03/2026)</td>
+<td>Số tiêu mỗi ảnh CHỈ xem trong app:「核豆消耗-查看详情」</td>
+</tr>
+<tr>
+<td>酷币</td>
+<td>kùbì</td>
+<td>Kubi (coins)</td>
+<td>Xu 酷币 (tiền ảo hệ cũ)</td>
+<td>Nạp để render/tải khi hết phiếu — ít dùng từ khi có 核豆</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nhom-4-anh-sang-21-muc-trong-tam-nang-cao">Nhóm 4 — Ánh sáng 布光 (21 mục — trọng tâm nâng cao)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chữ Hán</th>
+<th>Pinyin</th>
+<th>Tiếng Anh</th>
+<th>Nghĩa tiếng Việt</th>
+<th>Ghi chú UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>灯光</td>
+<td>dēngguāng</td>
+<td>Lighting</td>
+<td>Ánh sáng / đèn</td>
+<td>Vào từ giao diện 渲染</td>
+</tr>
+<tr>
+<td>布光</td>
+<td>bùguāng</td>
+<td>Light setup</td>
+<td>Bố trí ánh sáng</td>
+<td>Kỹ năng lõi của render đẹp (C4)</td>
+</tr>
+<tr>
+<td>灯光模板</td>
+<td>dēngguāng múbǎn</td>
+<td>Lighting template</td>
+<td>Mẫu ánh sáng (tự động)</td>
+<td>Hiện hành: 极速3.0/3.1, 室内白天/夜晚, 实时白天/夜晚 (xem C3)</td>
+</tr>
+<tr>
+<td>手动灯光</td>
+<td>shǒudòng dēngguāng</td>
+<td>Manual lighting</td>
+<td>Đèn chỉnh tay</td>
+<td>Chỉ có ở 离线模式 và 实时专业</td>
+</tr>
+<tr>
+<td>面光源</td>
+<td>miànguāngyuán</td>
+<td>Area light</td>
+<td>Đèn mặt (nguồn sáng dạng tấm)</td>
+<td>Nguồn nền chính; cần sáng 2 mặt thì bật 双面光</td>
+</tr>
+<tr>
+<td>点光源</td>
+<td>diǎnguāngyuán</td>
+<td>Point light</td>
+<td>Đèn điểm</td>
+<td>Đèn bàn, đèn nhấn nhỏ</td>
+</tr>
+<tr>
+<td>射灯</td>
+<td>shèdēng</td>
+<td>Spotlight</td>
+<td>Đèn rọi</td>
+<td>Nhấn vật thể / tranh</td>
+</tr>
+<tr>
+<td>筒灯</td>
+<td>tǒngdēng</td>
+<td>Downlight</td>
+<td>Đèn âm trần (downlight)</td>
+<td>Chiếu nền đều</td>
+</tr>
+<tr>
+<td>灯带</td>
+<td>dēngdài</td>
+<td>LED strip</td>
+<td>Dải LED hắt</td>
+<td>Sau rèm, trong khe trần giật cấp</td>
+</tr>
+<tr>
+<td>层板灯</td>
+<td>céngbǎndēng</td>
+<td>Shelf light</td>
+<td>Đèn hắt kệ / đợt tủ</td>
+<td>Điểm nhấn tủ đặt đóng — đúng nghề công ty</td>
+</tr>
+<tr>
+<td>太阳光 / 阳光</td>
+<td>tàiyángguāng / yángguāng</td>
+<td>Sunlight</td>
+<td>Ánh nắng mặt trời</td>
+<td>Chỉnh được góc chiếu — canh khớp hướng cửa sổ</td>
+</tr>
+<tr>
+<td>天光</td>
+<td>tiānguāng</td>
+<td>Sky light</td>
+<td>Ánh sáng trời (khuếch tán)</td>
+<td>Lớp sáng nền tự nhiên (xem C3)</td>
+</tr>
+<tr>
+<td>环境光</td>
+<td>huánjìngguāng</td>
+<td>Ambient light</td>
+<td>Ánh sáng môi trường</td>
+<td>Nâng sáng tổng thể</td>
+</tr>
+<tr>
+<td>外景</td>
+<td>wàijǐng</td>
+<td>Background scene</td>
+<td>Ngoại cảnh ngoài cửa sổ</td>
+<td>Cột trái giao diện render; nhận PNG/JPG 2:1, KHÔNG nhận file .hdr</td>
+</tr>
+<tr>
+<td>色温</td>
+<td>sèwēn</td>
+<td>Color temperature (K)</td>
+<td>Nhiệt độ màu</td>
+<td>Vàng ấm phòng ngủ / trắng ấm phòng khách</td>
+</tr>
+<tr>
+<td>亮度</td>
+<td>liàngdù</td>
+<td>Brightness / Intensity</td>
+<td>Độ sáng / cường độ đèn</td>
+<td>⚠️ UI mới hiển thị 瓦 = thang cũ ÷10 — đọc kỹ hộp cảnh báo C4</td>
+</tr>
+<tr>
+<td>光域网</td>
+<td>guāngyùwǎng</td>
+<td>IES profile</td>
+<td>File phân bố sáng IES</td>
+<td>Tạo vệt sáng thật của đèn rọi</td>
+</tr>
+<tr>
+<td>双面光</td>
+<td>shuāngmiànguāng</td>
+<td>Double-sided light</td>
+<td>Đèn phát sáng 2 mặt</td>
+<td>Tùy chọn trong 面光源</td>
+</tr>
+<tr>
+<td>色彩 / 灯光颜色</td>
+<td>sècǎi / dēngguāng yánsè</td>
+<td>Light color</td>
+<td>Màu ánh sáng</td>
+<td>Chỉnh bằng bảng màu hoặc 色温</td>
+</tr>
+<tr>
+<td>写实模板</td>
+<td>xiěshí múbǎn</td>
+<td>Realistic template</td>
+<td>Mẫu ánh sáng tả thực</td>
+<td>Nhóm template 写实类 — điều kiện để tự tải 外景</td>
+</tr>
+<tr>
+<td>均衡模板</td>
+<td>jūnhéng múbǎn</td>
+<td>Balanced template</td>
+<td>Mẫu cân bằng sáng</td>
+<td>Trong danh sách mẫu mở rộng</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nhom-5-vat-lieu-15-muc">Nhóm 5 — Vật liệu 材质 (15 mục)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chữ Hán</th>
+<th>Pinyin</th>
+<th>Tiếng Anh</th>
+<th>Nghĩa tiếng Việt</th>
+<th>Ghi chú UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>材质</td>
+<td>cáizhì</td>
+<td>Material</td>
+<td>Vật liệu</td>
+<td>Gán lên bề mặt mô hình (C5)</td>
+</tr>
+<tr>
+<td>材质替换</td>
+<td>cáizhì tìhuàn</td>
+<td>Replace material</td>
+<td>Thay vật liệu</td>
+<td>Có ở 离线模式 và 实时专业, KHÔNG có ở 实时轻量</td>
+</tr>
+<tr>
+<td>贴图</td>
+<td>tiētú</td>
+<td>Texture map</td>
+<td>Ảnh bề mặt (texture)</td>
+<td>jpg/png/tif — ảnh vân gỗ, vân đá</td>
+</tr>
+<tr>
+<td>反射</td>
+<td>fǎnshè</td>
+<td>Reflection</td>
+<td>Độ phản xạ</td>
+<td>Đi cặp với 反射光泽; vật liệu xịn phải đủ map này</td>
+</tr>
+<tr>
+<td>反射光泽</td>
+<td>fǎnshè guāngzé</td>
+<td>Reflection glossiness</td>
+<td>Độ bóng của phản xạ</td>
+<td>Bóng gương ↔ mờ mịn</td>
+</tr>
+<tr>
+<td>粗糙度</td>
+<td>cūcāodù</td>
+<td>Roughness</td>
+<td>Độ nhám</td>
+<td>Khái niệm PBR chung; bảng chỉnh của Kujiale thiên về cặp 反射/光泽度 (xem C5)</td>
+</tr>
+<tr>
+<td>凹凸</td>
+<td>āotū</td>
+<td>Bump</td>
+<td>Độ lồi lõm (bump)</td>
+<td>Tạo gồ ghề ảo không cần dựng thêm khối</td>
+</tr>
+<tr>
+<td>法线</td>
+<td>fǎxiàn</td>
+<td>Normal map</td>
+<td>Bản đồ pháp tuyến</td>
+<td>Lồi lõm chi tiết mức cao hơn 凹凸</td>
+</tr>
+<tr>
+<td>菲涅尔</td>
+<td>fēinièěr</td>
+<td>Fresnel</td>
+<td>Hệ số Fresnel</td>
+<td>Phản xạ mạnh dần ở góc nghiêng — vải, sơn</td>
+</tr>
+<tr>
+<td>自发光</td>
+<td>zìfāguāng</td>
+<td>Emissive</td>
+<td>Vật liệu tự phát sáng</td>
+<td>Màn LED, hộp đèn; lưu ý nó hắt sáng lên sàn gạch</td>
+</tr>
+<tr>
+<td>透明度</td>
+<td>tòumíngdù</td>
+<td>Opacity / Transparency</td>
+<td>Độ trong suốt</td>
+<td>Kính, rèm voan</td>
+</tr>
+<tr>
+<td>金属度</td>
+<td>jīnshǔdù</td>
+<td>Metalness</td>
+<td>Độ kim loại</td>
+<td>Khái niệm PBR chung; đối chiếu bảng tham số thật trong app (xem C5)</td>
+</tr>
+<tr>
+<td>置换</td>
+<td>zhìhuàn</td>
+<td>Displacement</td>
+<td>Dịch chuyển bề mặt</td>
+<td>Vật liệu phức tạp, tốn render — bật trong 高级参数</td>
+</tr>
+<tr>
+<td>高光</td>
+<td>gāoguāng</td>
+<td>Highlight / Specular</td>
+<td>Điểm sáng phản chiếu</td>
+<td>Bật/tắt trong 高级参数; cũng nghĩa là "bóng" trong tên vật liệu (高光 = bóng, 哑光 = mờ)</td>
+</tr>
+<tr>
+<td>实时材质</td>
+<td>shíshí cáizhì</td>
+<td>Real-time material</td>
+<td>Vật liệu thời gian thực (PBR đủ map)</td>
+<td>Dòng vật liệu nên ưu tiên; mẹo lọc "-4K" (xem C5)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nhom-6-camera-xuat-anh-10-muc">Nhóm 6 — Camera &amp; xuất ảnh (10 mục)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chữ Hán</th>
+<th>Pinyin</th>
+<th>Tiếng Anh</th>
+<th>Nghĩa tiếng Việt</th>
+<th>Ghi chú UI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相机</td>
+<td>xiàngjī</td>
+<td>Camera</td>
+<td>Máy ảnh (góc nhìn)</td>
+<td>Chọn camera ảnh tĩnh / toàn cảnh</td>
+</tr>
+<tr>
+<td>焦距</td>
+<td>jiāojù</td>
+<td>Focal length</td>
+<td>Tiêu cự</td>
+<td>Rộng/hẹp khung, méo phối cảnh — xem C6</td>
+</tr>
+<tr>
+<td>视角</td>
+<td>shìjiǎo</td>
+<td>Field of view</td>
+<td>Góc nhìn</td>
+<td>Lưu vào 我的视角 để khỏi mất góc đẹp</td>
+</tr>
+<tr>
+<td>视高</td>
+<td>shìgāo</td>
+<td>Camera height</td>
+<td>Độ cao điểm nhìn</td>
+<td>Ngang tầm mắt cho ảnh tự nhiên (số chuẩn xem C6)</td>
+</tr>
+<tr>
+<td>构图</td>
+<td>gòutú</td>
+<td>Composition</td>
+<td>Bố cục khung hình</td>
+<td>Bố cục tốt nâng hẳn "độ cao cấp" của ảnh</td>
+</tr>
+<tr>
+<td>构图比例</td>
+<td>gòutú bǐlì</td>
+<td>Aspect ratio</td>
+<td>Tỉ lệ khung (16:9 / 4:3 / 3:4 / 1:1)</td>
+<td>Đổi tỉ lệ không đổi phạm vi ống kính</td>
+</tr>
+<tr>
+<td>保存视角</td>
+<td>bǎocún shìjiǎo</td>
+<td>Save view</td>
+<td>Lưu góc nhìn</td>
+<td>我的视角 → 保存视角</td>
+</tr>
+<tr>
+<td>相机高度</td>
+<td>xiàngjī gāodù</td>
+<td>Camera position height</td>
+<td>Chiều cao / vị trí đặt camera</td>
+<td>Chỉnh trong khung nhìn 2D</td>
+</tr>
+<tr>
+<td>镜头</td>
+<td>jìngtóu</td>
+<td>Lens / Shot</td>
+<td>Ống kính / cú máy</td>
+<td>Khung 3D phản hồi ngay khi chỉnh</td>
+</tr>
+<tr>
+<td>出图比例</td>
+<td>chūtú bǐlì</td>
+<td>Output ratio</td>
+<td>Tỉ lệ ảnh xuất</td>
+<td>Chốt trước khi bấm 出图</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<ul>
+<li>Bảng thuật ngữ gốc: nghiên cứu R1 (đối chiếu thuật ngữ tiếng Anh theo bản quốc tế Coohom; các mục không có bản đối chiếu dùng thuật ngữ đồ họa 3D thông dụng).</li>
+<li>Ghi chú UI đã quy đổi theo giao diện render mới từ 08/2025 — nguồn chính thức: 《三种渲染模式功能详解》 article 3FO4K4WCDICB (2025-08-18) và 《灯光模板…下线通知》 article 3FO4K4WCL5TL (2025-10-27).</li>
+<li>Ghi chú về 核豆 / phiếu render: 《2026年个人会员权益变更说明》 article 3FO4K4WPKVPL (2026-08-04). Ghi chú 外景 PNG/JPG: bài 3FO4K4VRPUKN (2021 — cũ, ⚠️ đối chiếu app theo Phụ lục B).</li>
+<li>Các ghi chú trỏ "xem C4/C5/C6" là kiến thức chi tiết nằm ở chương tương ứng — cheat sheet này chỉ để tra nhanh mặt chữ, không chứa bộ số tham số.</li>
+</ul></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="pb.html"><span class="dir">← Trước</span><div class="t">Phụ lục B · Phiếu khám phá app</div></a><a class="next" href="pd.html"><span class="dir">Tiếp theo →</span><div class="t">Phụ lục D · Từ vựng prompt AI</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

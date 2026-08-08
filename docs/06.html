@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 6. Camera, bố cục, hậu kỳ — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#d9e4ee;--accent-soft:color-mix(in srgb, #d9e4ee 13%, transparent);}</style>
+</head>
+<body data-slug="06">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">6</div>
+    <div class="ch-meta"><span class="tag">Chương 6</span><span class="tag ghost">≈ 18 phút đọc</span></div>
+    <h1 class="ch-title">Camera, bố cục, hậu kỳ</h1>
+    <p class="ch-hook">Khung hình như nhiếp ảnh nội thất và hậu kỳ nhẹ tay đúng liều.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#61-camera-kujiale-noi-o-khong-noi-mm">6.1. Camera Kujiale nói "độ", không nói "mm"</a></li><li><a href="#62-chieu-cao-camera-bang-chinh-thuc-hiem-hoi-hoc-thuoc">6.2. Chiều cao camera — bảng chính thức hiếm hoi, học thuộc</a></li><li><a href="#63-ba-cong-cu-camera-phai-biet">6.3. Ba công cụ camera phải biết</a></li><li><a href="#64-bon-kieu-bo-cuc-theo-muc-ich-anh">6.4. Bốn kiểu bố cục theo mục đích ảnh</a></li><li><a href="#65-hau-ky-trong-app-nhe-tay-la-vua">6.5. Hậu kỳ trong app — 图片美化, nhẹ tay là vua</a></li><li><a href="#66-hau-ky-ngoai-app-checklist-8-buoc-510-phut">6.6. Hậu kỳ ngoài app + checklist 8 bước 5–10 phút</a></li><li><a href="#67-chuan-xuat-theo-kenh-ung-ot">6.7. Chuẩn xuất theo kênh — đừng đốt 核豆</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Cài camera "chất ảnh chụp": chiều cao theo bảng chính thức, trường nhìn hợp mục đích, cột dọc thẳng đứng
+- Dùng đúng lúc 3 công cụ: 相机矫正 (nắn méo phối cảnh), 相机剪裁 (cắt cảnh chụp phòng hẹp), 景深 (xóa phông)
+- Dựng 4 kiểu bố cục theo mục đích ảnh: duyệt phương án / tạp chí / catalogue cận / dọc cho Facebook–TikTok
+- Hậu kỳ 图片美化 trong app nhẹ tay đúng biên độ, chạy checklist 8 bước dưới 10 phút mỗi ảnh
+- Chọn đúng cỡ render theo kênh xuất — không đốt 核豆 vô ích</p>
+</blockquote>
+<hr>
+<h2 id="61-camera-kujiale-noi-o-khong-noi-mm">6.1. Camera Kujiale nói "độ", không nói "mm"</h2>
+<p>Điều đầu tiên phải gỡ khỏi đầu: <strong>Kujiale không có ô nhập tiêu cự tính bằng mm.</strong> Bảng camera chỉ có <strong>视野 (trường nhìn — Field of View/FOV, đơn vị: độ)</strong>, mặc định <strong>60° = 标准 (chuẩn)</strong>. Tăng độ = góc rộng hơn — tài liệu Kujiale ví tăng 视野 giống bật chế độ siêu rộng trên camera điện thoại. Mọi lời khuyên kiểu "chỉnh ống 24mm/35mm" của giới nhiếp ảnh phải quy sang độ để hình dung:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ống kính máy ảnh</th>
+<th>FOV tương đương</th>
+<th>Cảm giác ảnh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24mm</td>
+<td>≈ 84°</td>
+<td>Rất rộng — phòng trông to nhưng méo rìa mạnh, đồ sát mép bị kéo dài</td>
+</tr>
+<tr>
+<td>35mm</td>
+<td>≈ 63°</td>
+<td>Góc "ảnh nội thất tạp chí" quen mắt — gần mặc định 60° của Kujiale</td>
+</tr>
+<tr>
+<td>50mm</td>
+<td>≈ 46°</td>
+<td>Nén phối cảnh, tự nhiên như mắt nhìn — hợp ảnh cận đồ vật</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ Bảng quy đổi trên chỉ để <strong>hình dung</strong> (tham chiếu nhiếp ảnh, không phải tài liệu Kujiale). Trong app bạn chỉ nhập độ. Con số duy nhất Kujiale nêu chính thức là 60° = chuẩn.</p>
+</blockquote>
+<p>Bảng camera nằm trong trang render, mục <strong>相机参数 (tham số camera)</strong>, gồm: <strong>俯仰角 (góc ngẩng/cúi)</strong>, <strong>高度 (chiều cao)</strong>, 视野, 相机剪裁, 相机矫正, <strong>保存视角 (lưu góc nhìn)</strong>.</p>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO UI:</strong> từ 8/2025 Kujiale gộp render về 3 chế độ 实时轻量 / 实时专业 / 离线模式 (xem Chương 2). Các bài help về camera viết theo UI cũ nên vị trí nút có thể xê dịch đôi chút — tên tham số thì không đổi. Không thấy nút ở đâu thì tìm trong panel camera của chế độ render đang mở.</p>
+<p>💡 Hai thói quen nhỏ lãi to: (1) giữ <strong>俯仰角 = 0</strong> (máy ngang — 平视) trừ khi cố ý chụp góc đặc biệt, camera ngửa/cúi là nguồn méo số 1; (2) bấm <strong>保存视角</strong> sau khi căn xong góc đẹp — chỉnh đèn, đổi vật liệu xong quay lại render đúng góc cũ để so sánh trước/sau.</p>
+</blockquote>
+<p>Đừng nhầm: module chụp sản phẩm 棚拍 có mục 镜头选择 ("chọn ống kính") nhưng thực chất chỉ là tick chọn các shot dựng sẵn, <strong>không phải chọn tiêu cự</strong>.</p>
+<h2 id="62-chieu-cao-camera-bang-chinh-thuc-hiem-hoi-hoc-thuoc">6.2. Chiều cao camera — bảng chính thức hiếm hoi, học thuộc</h2>
+<p>Giữa một chương toàn số kinh nghiệm, đây là <strong>bảng Kujiale công bố chính thức</strong> trên help center — dùng làm chuẩn, không phải đoán:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Loại công trình</th>
+<th>Chiều cao trần</th>
+<th>相机高度 (chiều cao camera)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nhà ở (căn hộ)</strong> — trần 2700–2800mm</td>
+<td>2700–2800mm</td>
+<td><strong>800–1200mm</strong></td>
+</tr>
+<tr>
+<td>Biệt thự — trần 3000–3500mm</td>
+<td>3000–3500mm</td>
+<td>1200–1400mm</td>
+</tr>
+<tr>
+<td>Công trình công cộng &amp; ngoại thất — trần ~5000mm</td>
+<td>~5000mm</td>
+<td>1400–1600mm</td>
+</tr>
+</tbody>
+</table></div>
+<p>Căn hộ Vinhomes Ocean Park trần thông thủy 2,6–2,7m → luôn thuộc nhóm "nhà ở": <strong>đặt camera 800–1200mm</strong>.</p>
+<blockquote class="tip">
+<p>💡 <strong>Vì sao thấp thế?</strong> 800–1200mm thấp hơn hẳn tầm mắt người đứng (~1500mm). Đây là chủ đích: ảnh nội thất chuyên nghiệp chụp ngang "tầm ngực–thắt lưng" — sàn và trần cân đối trong khung, mặt bàn/sofa không bị nhìn chúc xuống, và giữ máy ngang dễ hơn nên cột dọc ít đổ. Đặt camera 1500mm+ là dấu hiệu ảnh nghiệp dư dễ nhận nhất.</p>
+</blockquote>
+<p>Mẹo vị trí từ tài liệu Kujiale: kê camera ở <strong>4 góc phòng bắn chéo ra</strong> thường cho khung đẹp hơn đứng giữa phòng.</p>
+<h2 id="63-ba-cong-cu-camera-phai-biet">6.3. Ba công cụ camera phải biết</h2>
+<h3 id="mot-cham-giu-cot-doc-thang">相机矫正 — một chạm giữ cột dọc thẳng</h3>
+<p>Nút <strong>相机矫正 (nắn méo phối cảnh camera)</strong> chỉnh méo phối cảnh một chạm — mô tả chính thức là cho tỉ lệ bố cục hoàn hảo. Tác dụng thực tế: <strong>mọi cạnh tường, khung cửa, cạnh tủ dọc trở về thẳng đứng</strong> thay vì đổ chụm kiểu ống góc rộng. Mắt người xem cực nhạy với cột đổ — đây là ranh giới "ảnh chụp" và "hình 3D" rõ nhất. Quy tắc: <strong>bật cho gần như mọi ảnh kiến trúc – nội thất</strong>, chỉ tắt khi cố ý chụp góc nghiêng nghệ thuật.</p>
+<h3 id="chup-phong-hep-khong-can-ap-tuong">相机剪裁 — chụp phòng hẹp không cần đập tường</h3>
+<p>Phòng WC, bếp nhỏ, phòng ngủ hẹp: camera lùi hết cỡ vẫn không lấy đủ khung vì vướng tường. Bật <strong>相机剪裁 (cắt cảnh camera)</strong> → phần mềm tự <strong>ẩn tường/trần/吊顶 (trần thạch cao giật cấp) chắn trước ống kính</strong>, cho phép đặt camera lùi ra ngoài phòng nhìn vào. Kéo nút trước camera hoặc chỉnh độ sâu cắt (裁减深度) ở cột phải. Đây là cách đúng — đừng tăng 视野 lên 90°+ để "nhét" phòng vào khung, ảnh sẽ méo như mắt cá.</p>
+<h3 id="xoa-phong-cho-anh-can-chi-co-o-che-o-thoi-gian-thuc">景深 — xóa phông cho ảnh cận, chỉ có ở chế độ thời gian thực</h3>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO:</strong> <strong>景深 (độ sâu trường ảnh — DOF) chỉ có trong render thời gian thực</strong> (dòng 实时 — xem Chương 2), <strong>không có ở render 离线 thông thường</strong>. Bài help mô tả đường vào theo UI cũ (công cụ → render → 实时渲染 → panel camera → 景深); trên UI mới 3 chế độ, tìm trong panel camera của chế độ 实时 — kiểm tra lại theo Phiếu verify (Phụ lục B).</p>
+</blockquote>
+<p>Cách dùng 3 bước: (1) bật công tắc 景深; (2) <strong>click vào món đồ chủ thể</strong> để đặt điểm lấy nét — chỗ này nét nhất; (3) chỉnh <strong>模糊度 (độ mờ)</strong> để kiểm soát mức xóa phông. Dùng cho ảnh cận vật liệu, phụ kiện, tay nắm tủ — không dùng cho ảnh toàn phòng (toàn phòng phải nét hết).</p>
+<h2 id="64-bon-kieu-bo-cuc-theo-muc-ich-anh">6.4. Bốn kiểu bố cục theo mục đích ảnh</h2>
+<p>Trước khi đặt camera, trả lời: <strong>ảnh này để làm gì?</strong> Mỗi mục đích một công thức:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kiểu</th>
+<th>Mục đích</th>
+<th>相机高度</th>
+<th>视野</th>
+<th>相机矫正</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A — toàn phòng 1 điểm tụ</td>
+<td>Khách duyệt phương án</td>
+<td>800–1200mm (chính thức)</td>
+<td>60°; phòng chật nâng ~70–80° ⚠️</td>
+<td>BẬT</td>
+</tr>
+<tr>
+<td>B — góc 1/3 kiểu tạp chí</td>
+<td>Ảnh đẹp đăng fanpage, hồ sơ năng lực</td>
+<td>~1000–1200mm ⚠️</td>
+<td>55–60° ⚠️</td>
+<td>BẬT</td>
+</tr>
+<tr>
+<td>C — cận vật liệu/phụ kiện</td>
+<td>Catalogue, chi tiết gỗ – phụ kiện</td>
+<td>Ngang tầm món đồ ⚠️</td>
+<td>40–50° ⚠️</td>
+<td>Tùy</td>
+</tr>
+<tr>
+<td>D — dọc 3:4 / 9:16</td>
+<td>Facebook, TikTok, Zalo video</td>
+<td>900–1200mm ⚠️</td>
+<td>55–65° ⚠️</td>
+<td>BẬT (rất quan trọng)</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ Các giá trị 视野 theo loại ảnh (40–50° cận, 55–65° dọc...) là <strong>suy luận từ kinh nghiệm nhiếp ảnh nội thất</strong>, không phải bảng chính thức Kujiale — chỉ 60° chuẩn và chiều cao nhóm "nhà ở" là số chính thức. Coi đây là điểm xuất phát, render nháp rồi tự chỉnh.</p>
+</blockquote>
+<h3 id="kieu-a-toan-phong-mot-iem-tu-cho-khach-duyet-phuong-an">Kiểu A — toàn phòng một điểm tụ (一点透视) cho khách duyệt phương án</h3>
+<ol>
+<li>Chuyển màn 2D, đặt camera áp sát tường sau, hướng <strong>vuông góc thẳng vào tường đối diện</strong>.</li>
+<li>Hạ 高度 về 800–1200mm.</li>
+<li>Giữ 视野 ~60°; phòng nhỏ không đủ khung → tăng 视野 hoặc bật 相机剪裁 (đừng lạm dụng tăng độ).</li>
+<li><strong>Bật 相机矫正</strong> — mọi cạnh dọc thẳng đứng.</li>
+<li>Để điểm tụ (灭点) <strong>lệch nhẹ khỏi tâm</strong> — đối xứng tuyệt đối trông máy móc.</li>
+<li>Khung 4:3 hoặc 16:9. Phối cảnh 1 điểm tụ cho cảm giác phòng rộng rãi, sáng sủa, ngay ngắn — đúng thứ khách cần khi duyệt phương án.</li>
+</ol>
+<h3 id="kieu-b-goc-13-kieu-tap-chi">Kiểu B — góc 1/3 kiểu tạp chí (两点透视)</h3>
+<ol>
+<li>Đặt camera ở <strong>một góc phòng</strong>, xoay thấy 2 bức tường tạo góc (thành 2 điểm tụ — 成角透视).</li>
+<li>Cao ~1000–1200mm ⚠️, 视野 55–60° ⚠️.</li>
+<li>Áp <strong>quy tắc 1/3 (三分法)</strong>: chủ thể (sofa, giường, đảo bếp) đặt tại giao điểm lưới 3×3, không đặt giữa khung.</li>
+<li>Đường chân trời để <strong>1/3 dưới hoặc 1/3 trên</strong>, tránh cắt đôi khung.</li>
+<li>Chừa <strong>khoảng thở (留白)</strong> — một mảng tường/trần trống dẫn mắt về chủ thể. Đủ chỗ thở, mắt người xem mới đậu vào đúng món chủ lực.</li>
+<li>Bật 相机矫正.</li>
+</ol>
+<h3 id="kieu-c-can-vat-lieuphu-kien-catalogue">Kiểu C — cận vật liệu/phụ kiện (catalogue)</h3>
+<ol>
+<li>Vào chế độ thời gian thực, hạ camera <strong>ngang tầm món đồ</strong> (mẫu melamine, tay nắm, bình hoa).</li>
+<li>视野 hẹp 40–50° ⚠️ — nén phối cảnh, giảm méo cận cảnh.</li>
+<li>Bật <strong>景深</strong>, click chủ thể làm điểm nét, tăng 模糊度 cho phông sau mờ mịn.</li>
+<li>Chủ thể lấp gần đầy khung, chừa khoảng thở một phía.</li>
+<li>Thêm đạo cụ: sách, cây nhỏ, ly cà phê, vải rũ — khung hình "có người sống".</li>
+</ol>
+<h3 id="kieu-d-doc-34-916-cho-facebooktiktok">Kiểu D — dọc 3:4 / 9:16 cho Facebook–TikTok</h3>
+<ol>
+<li><strong>Đổi tỉ lệ khung TRƯỚC khi render.</strong> Kujiale xác nhận đổi tỉ lệ không kéo giãn phạm vi ống kính. Danh sách tỉ lệ có nguồn: <strong>16:9, 4:3, 3:4, 1:1</strong> — riêng 9:16 chưa thấy nguồn xác nhận có sẵn trong mọi chế độ ⚠️ kiểm tra lại theo Phiếu verify mục A2; nếu app không có 9:16 thì render 3:4 khổ lớn rồi crop dọc khi hậu kỳ.</li>
+<li>Bố cục dọc: chủ thể ở <strong>1/3 dưới</strong>, chừa 1/3 trên cho trần + đèn thả tạo chiều cao.</li>
+<li>Cao 900–1200mm ⚠️, 视野 55–65° ⚠️.</li>
+<li><strong>Bật 相机矫正</strong> — khung dọc phóng to mọi lỗi cột đổ, đây là kiểu ảnh cần nó nhất.</li>
+</ol>
+<blockquote class="tip">
+<p>💡 <strong>Đạo cụ làm khung hình sống</strong> (áp cho cả 4 kiểu): cây xanh/bình hoa (mảng màu sống), vải mềm rũ (rèm, khăn, thảm), một nguồn sáng ấm cục bộ (đèn bàn, đèn hắt), đồ cá nhân nhỏ (sách, tách, tranh). Và nhớ nguyên tắc từ Chương 4: ánh sáng phải <strong>có lớp lang</strong> — sáng dần từ nguồn, không phẳng lì; "càng sáng càng tốt" là hiểu lầm.</p>
+</blockquote>
+<h2 id="65-hau-ky-trong-app-nhe-tay-la-vua">6.5. Hậu kỳ trong app — 图片美化, nhẹ tay là vua</h2>
+<p>Kujiale có công cụ hậu kỳ tích hợp <strong>图片美化 (làm đẹp ảnh)</strong>. Đường vào: <strong>图册 (album ảnh) → chọn ảnh → 编辑 (sửa) → 美化 (làm đẹp)</strong>. Hai mức: <strong>整体美化 (chỉnh toàn ảnh)</strong> và <strong>局部美化 (chỉnh cục bộ)</strong> — mức cục bộ bật <strong>通道图 (bản đồ kênh)</strong> để chọn đúng vùng cần sửa. Mục tiêu Kujiale đặt cho tính năng này: khỏi cần mở Photoshop cho việc chỉnh màu thường ngày.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Tác dụng</th>
+<th>Mức khuyến nghị ⚠️ (kinh nghiệm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>亮度 (độ sáng)</td>
+<td>Sáng tổng thể</td>
+<td>±5 → ±15</td>
+</tr>
+<tr>
+<td>对比度 (tương phản)</td>
+<td>Sáng/tối gắt hay dịu</td>
+<td>+5 → +15, đừng gắt</td>
+</tr>
+<tr>
+<td>饱和度 (bão hòa màu)</td>
+<td>Màu đậm/nhạt</td>
+<td>+5 → +10; quá tay ra "màu nhựa"</td>
+</tr>
+<tr>
+<td>色温 (nhiệt độ màu)</td>
+<td>Ám vàng/xanh</td>
+<td>Chỉnh nhẹ về trắng trung tính</td>
+</tr>
+<tr>
+<td>滤镜 (bộ lọc màu)</td>
+<td>Filter sẵn</td>
+<td>Chọn 1 cái, giảm cường độ ~50%</td>
+</tr>
+<tr>
+<td>曝光 (phơi sáng)</td>
+<td>Sáng kiểu máy ảnh</td>
+<td>±0.2 → ±0.5</td>
+</tr>
+<tr>
+<td>高光 (vùng sáng)</td>
+<td>Cứu vùng cháy</td>
+<td>−10 → −30 nếu cửa sổ cháy trắng</td>
+</tr>
+<tr>
+<td>阴影 (vùng tối)</td>
+<td>Cứu góc tối chết</td>
+<td>+10 → +25</td>
+</tr>
+<tr>
+<td>局部美化</td>
+<td>Chỉnh riêng 1 vùng qua 通道图</td>
+<td>Khi chỉ 1 vùng lệch màu</td>
+</tr>
+<tr>
+<td>AI降噪 (khử nhiễu AI)</td>
+<td>Hết lốm đốm</td>
+<td>Bật khi ảnh có hạt</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nguyên tắc vàng: biên độ nhỏ ±10–15.</strong> ⚠️ (biên độ là kinh nghiệm chung, không phải khuyến nghị chính thức). Ưu tiên cân bằng trắng + cứu 高光/阴影 hơn là đẩy 饱和度; <strong>một filter là đủ</strong>. Đẩy bão hòa + filter mạnh là nguyên nhân số 1 khiến render lộ vẻ "giả".</p>
+<p><strong>Chỉnh từ khâu render để đỡ phải hậu kỳ màu</strong> (nguồn chính thức — 4 việc):</p>
+<ol>
+<li>Chọn mẫu đèn dòng <strong>写实 (tả thực)</strong> — 室内白天/夜晚 hiện hành, cảnh gamma 2.2. Mẫu đời cũ gamma 1.0 gây sai màu nặng.</li>
+<li>Tick <strong>溢色修正 (sửa ám màu tràn)</strong> góc dưới trái — giảm màu môi trường loang lên đồ (tường đỏ hắt hồng lên tủ trắng).</li>
+<li><strong>色彩增强 (tăng cường màu) giữ 0/1, không để 2/3</strong> — mức cao gây màu đậm/tối bất thường.</li>
+<li>Tự đánh đèn: 面光源 dùng <strong>色温 6500–7000K</strong> ánh trắng để giảm sai màu.</li>
+</ol>
+<h2 id="66-hau-ky-ngoai-app-checklist-8-buoc-510-phut">6.6. Hậu kỳ ngoài app + checklist 8 bước 5–10 phút</h2>
+<p>Ảnh quan trọng (gửi khách chốt, in ấn, chạy quảng cáo) nên qua một vòng ngoài app: xuất <strong>PNG chất lượng cao</strong> → chỉnh trên PC (<strong>Photoshop / Lightroom Classic</strong>) hoặc điện thoại (<strong>Snapseed / Lightroom Mobile / 醒图 Xingtu / Polarr</strong>). Công cụ AI tăng cường (AI写实增强 của Kujiale, Generative Fill, Topaz) — xem quy định dùng ở Chương 8, chương này không bàn.</p>
+<p>Những việc app làm chưa đủ tinh:</p>
+<ul>
+<li><strong>曲线 (đường cong — Curves):</strong> kéo <strong>chữ S nhẹ</strong> (điểm sáng nhích lên, điểm tối nhích xuống) → ảnh trong, có chút "chất phim". Histogram tràn 2 đầu (cháy trắng/đen chết) → kéo 2 đầu về tìm lại chi tiết.</li>
+<li><strong>Cân bằng trắng:</strong> khử ám vàng đèn hoặc ám tím.</li>
+<li><strong>Cứu cháy sáng:</strong> kéo Highlights + Whites xuống, nhất là vùng cửa sổ.</li>
+<li><strong>Thêm hạt (颗粒 — grain) rất nhẹ:</strong> phá cái mịn "nhựa CG" — nghịch lý nghề render: thêm một tí nhiễu ảnh lại thật hơn.</li>
+<li><strong>HSL:</strong> chỉnh riêng từng dải màu — gỗ ấm hơn, lá cây tươi hơn, không đụng màu khác.</li>
+</ul>
+<p><strong>Checklist hậu kỳ 8 bước — 5–10 phút/ảnh</strong> ⚠️ (quy trình kinh nghiệm, thời lượng ước tính):</p>
+<ol>
+<li><strong>[0:30]</strong> Nắn thẳng + crop theo tỉ lệ kênh; soát chân tường/trần không bị cắt cụt.</li>
+<li><strong>[1:00]</strong> Cân bằng trắng: khử ám vàng/tím.</li>
+<li><strong>[1:00]</strong> 曝光 + Curves chữ S nhẹ.</li>
+<li><strong>[1:00]</strong> Kéo 高光 xuống (cứu cửa sổ) + nâng 阴影 (cứu góc tối).</li>
+<li><strong>[0:45]</strong> 饱和度/Vibrance +5~10; HSL tinh chỉnh gỗ và cây.</li>
+<li><strong>[0:30]</strong> Sharpen nhẹ + khử nhiễu nếu có hạt.</li>
+<li><strong>[0:30]</strong> Thêm grain rất nhẹ.</li>
+<li><strong>[0:30]</strong> Xuất đúng kích thước/định dạng theo kênh (mục 6.7).</li>
+</ol>
+<h2 id="67-chuan-xuat-theo-kenh-ung-ot">6.7. Chuẩn xuất theo kênh — đừng đốt 核豆</h2>
+<p>Kích thước pixel Kujiale công bố (nguồn ask chính thức):</p>
+<ul>
+<li><strong>普通图 (ảnh thường):</strong> 800×450 · 1920×1080 · 2560×1440</li>
+<li><strong>全景图 (ảnh toàn cảnh 360°):</strong> 2000×1000 · 3000×1500 · 4000×2000</li>
+<li><strong>俯视图 (ảnh nhìn từ trên xuống):</strong> 800×450 · 1920×1080</li>
+</ul>
+<p>Kujiale gọi 2560×1440 là "3K" (nhãn riêng của hãng, không theo chuẩn TV).</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Pixel thực của tier "4K" và "8K极清" Kujiale KHÔNG công bố</strong> — 3840×2160 / 7680×4320 chỉ là chuẩn ngành, chưa xác nhận cho Kujiale (bản HD lịch sử từng là 3200×2400, tỉ lệ 4:3, lệch hẳn chuẩn TV). Kiểm tra lại theo Phiếu verify mục A3.</p>
+</blockquote>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kênh</th>
+<th>Render cỡ nào là đủ</th>
+<th>Kích thước đích</th>
+<th>Định dạng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zalo / Facebook (feed)</td>
+<td>2K (1920×1080)</td>
+<td>1920×1080 (16:9) hoặc 1080×1350 (4:5)</td>
+<td>JPG/PNG</td>
+</tr>
+<tr>
+<td>TikTok / Reels (dọc)</td>
+<td>2K</td>
+<td>1080×1920 (9:16)</td>
+<td>JPG/PNG</td>
+</tr>
+<tr>
+<td>Khách duyệt trên điện thoại</td>
+<td>2K–3K</td>
+<td>2560×1440</td>
+<td>JPG</td>
+</tr>
+<tr>
+<td><strong>In A4 (catalogue, hồ sơ năng lực)</strong></td>
+<td>4K trở lên</td>
+<td><strong>2480×3508 px (A4 dọc @300DPI)</strong> / 3508×2480 (ngang)</td>
+<td>PNG/TIFF</td>
+</tr>
+<tr>
+<td>Màn hình lớn / triển lãm</td>
+<td>4K+</td>
+<td>3840×2160+</td>
+<td>PNG</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Quy tắc tiết kiệm:</strong> mạng xã hội nén ảnh về ~2K — <strong>render 8K cho ảnh đăng Facebook/Zalo/TikTok là ném 核豆 qua cửa sổ</strong>. Tier cao nhất chỉ dành cho in ấn và màn hình lớn (8K平面图 được Kujiale mô tả là chất lượng in ấn). Số 核豆 tiêu cho từng cỡ ảnh <strong>chỉ xem được trong app</strong> qua 「核豆消耗 - 查看详情」khi bấm render — ghi lại theo Phiếu verify mục A1; hệ điểm 核豆 và vé render xem Chương 1.</p>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<p><strong>Bài 1 — Kiểu A cho khách duyệt (căn hộ mẫu, phòng khách):</strong>
+Đặt camera áp tường sau, vuông góc tường đối diện, 高度 1000mm, 视野 60°, 俯仰角 0, bật 相机矫正, điểm tụ lệch nhẹ khỏi tâm, khung 16:9, 保存视角 rồi render 1920×1080.
+<em>Tiêu chí đạt:</em> mọi cạnh dọc (khung cửa, cạnh tủ) thẳng đứng tuyệt đối; thấy đủ sàn + trần cân đối; chân tường không bị cắt cụt.</p>
+<p><strong>Bài 2 — Cùng phòng, kiểu B tạp chí:</strong>
+Dời camera sang góc phòng thấy 2 bức tường, 高度 1100mm, 视野 55–60°, sofa đặt tại giao điểm lưới 1/3, chân trời ở 1/3 dưới, chừa khoảng thở phía trên, bật 相机矫正, render rồi <strong>đặt cạnh ảnh bài 1 so sánh</strong>.
+<em>Tiêu chí đạt:</em> chỉ ra được bằng lời ảnh nào hợp gửi khách duyệt, ảnh nào hợp đăng fanpage và vì sao (1 điểm tụ = rõ ràng dễ hiểu; 2 điểm tụ = có chiều sâu, "chất tạp chí").</p>
+<p><strong>Bài 3 — Hậu kỳ + xuất 2 kênh:</strong>
+Lấy ảnh bài 2, chạy đủ checklist 8 bước mục 6.6 trong app (美化) hoặc Snapseed, bấm giờ. Xuất 2 bản: 1920×1080 cho Facebook và bản dọc 1080×1350 crop từ cùng ảnh.
+<em>Tiêu chí đạt:</em> tổng thời gian hậu kỳ ≤ 10 phút; mọi thanh chỉnh nằm trong biên độ mục 6.5; bản trước/sau đặt cạnh nhau — bản sau trong hơn, cửa sổ hết cháy, nhưng người ngoài nhìn <strong>không nhận ra là đã qua chỉnh</strong>.</p>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="06-t1"><span>Nói được ngay: Kujiale chỉnh camera bằng đơn vị gì, mặc định bao nhiêu là chuẩn</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t2"><span>Thuộc lòng chiều cao camera nhóm nhà ở (số chính thức)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t3"><span>Biết khi nào bật 相机矫正 và giải thích được nó sửa cái gì</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t4"><span>Chụp được phòng WC/bếp hẹp bằng 相机剪裁 mà không tăng 视野 quá 80°</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t5"><span>Bật được 景深 đúng chế độ, đặt điểm nét bằng click vào chủ thể</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t6"><span>Dựng đủ 4 kiểu bố cục và nói được mỗi kiểu phục vụ mục đích gì</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t7"><span>Hậu kỳ 1 ảnh trong ≤ 10 phút, các thanh không vượt biên độ khuyến nghị</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="06-t8"><span>Chọn đúng cỡ render cho từng kênh — giải thích được vì sao không render 8K đăng Facebook</span></label></li>
+</ul>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cột/tường đổ nghiêng (méo phối cảnh)</td>
+<td>视野 quá rộng; camera ngửa/cúi</td>
+<td>Giảm 视野; đưa 俯仰角 về 0; <strong>bật 相机矫正</strong></td>
+</tr>
+<tr>
+<td>Chân tường/trần bị cắt cụt vô duyên</td>
+<td>Camera quá thấp/cao; khung chưa căn</td>
+<td>Chỉnh 高度 theo bảng 6.2; đổi tỉ lệ khung; phòng hẹp dùng 相机剪裁; crop lại khi hậu kỳ</td>
+</tr>
+<tr>
+<td>Ảnh nghiêng lệch</td>
+<td>Camera không cân</td>
+<td>Bật 相机矫正; nắn thẳng khi hậu kỳ</td>
+</tr>
+<tr>
+<td>Màu ám/gắt sau render</td>
+<td>色彩增强 để 2/3; sai cân bằng trắng; đẩy bão hòa quá tay</td>
+<td>色彩增强 về 0/1; tick 溢色修正; kéo 饱和度 về; sửa cân bằng trắng</td>
+</tr>
+<tr>
+<td>Cửa sổ cháy trắng</td>
+<td>Nắng/thiên quang ngoài quá mạnh</td>
+<td>Giảm đèn theo Chương 4; hậu kỳ kéo 高光 xuống</td>
+</tr>
+<tr>
+<td>Ảnh phẳng lì thiếu chiều sâu</td>
+<td>Ánh sáng thiếu lớp</td>
+<td>Đánh đèn 3 lớp theo Chương 4; thêm điểm nhấn sáng ấm cục bộ trong khung</td>
+</tr>
+<tr>
+<td>Màu render lệch vật liệu thật</td>
+<td>Dùng mẫu đèn gamma 1.0 đời cũ</td>
+<td>Đổi mẫu 写实 gamma 2.2; tick 溢色修正; 面光源 6500–7000K</td>
+</tr>
+<tr>
+<td>Ảnh nhiều nhiễu hạt</td>
+<td>Cỡ render/mẫu đèn thấp</td>
+<td>Bật khử nhiễu khi render; AI降噪 trong 美化</td>
+</tr>
+<tr>
+<td>Phòng nhỏ không lấy đủ khung</td>
+<td>Camera bị tường chặn</td>
+<td>Bật 相机剪裁; hạ camera + tăng 视野 vừa phải</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức (Kujiale help center / ask):</strong>
+- Chiều cao camera theo loại công trình: article 3FO4K4W2BGW1 (số chính thức duy nhất của chương)
+- 景深: article 3FO4K4WHJ68C · 相机矫正: article 3FO4K4VRLK4D · 图片美化: article 3FO4K4WI8C6K
+- Giảm sai màu khi render (gamma 2.2 / 溢色修正 / 色彩增强 / 6500–7000K): article 3FO4K4WO8BKD
+- Kích thước pixel 普通图/全景图/俯视图 + danh sách tỉ lệ khung 16:9·4:3·3:4·1:1: ask.kujiale.com (3FO4K0CVWOUR, 3FO4K865KV2O)</p>
+<p><strong>Cộng đồng / kinh nghiệm (đã đánh ⚠️ trong bài):</strong>
+- 视野 khuyến nghị theo loại ảnh, chiều cao kiểu B/C/D, biên độ thanh 美化, checklist 8 bước: kinh nghiệm nhiếp ảnh nội thất + Zhihu (zhuanlan 656678535, 258558912)
+- Bảng quy đổi mm ↔ FOV: tham chiếu nhiếp ảnh, chỉ để hình dung</p>
+<p><strong>Chờ verify trên app (Phụ lục B):</strong>
+- Mục A1 — số 核豆 tiêu theo cỡ ảnh · Mục A2 — có tỉ lệ 9:16 sẵn không · Mục A3 — pixel thực tier "4K"/"8K"
+- Vị trí panel 景深 trên UI 3 chế độ mới</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="05.html"><span class="dir">← Trước</span><div class="t">Chương 5 · Vật liệu</div></a><a class="next" href="07.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 7 · Photorealism và case thực chiến</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

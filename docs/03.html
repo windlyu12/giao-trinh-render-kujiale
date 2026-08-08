@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 3. Ánh sáng tự nhiên — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#ffd89a;--accent-soft:color-mix(in srgb, #ffd89a 13%, transparent);}</style>
+</head>
+<body data-slug="03">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">3</div>
+    <div class="ch-meta"><span class="tag">Chương 3</span><span class="tag ghost">≈ 17 phút đọc</span></div>
+    <h1 class="ch-title">Ánh sáng tự nhiên</h1>
+    <p class="ch-hook">Nắng, trời, ngoại cảnh — dựng ánh sáng ban ngày chân thực cho căn hộ thật.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#31-template-anh-sang-danh-sach-hien-hanh">3.1 Template ánh sáng — danh sách hiện hành</a></li><li><a href="#32-ba-lop-anh-sang-tu-nhien">3.2 Ba lớp ánh sáng tự nhiên</a></li><li><a href="#33-anh-sang-khoi-nang-xien-qua-rem">3.3 Ánh sáng khối — 体积光 (nắng xiên qua rèm)</a></li><li><a href="#34-can-bang-phoi-sang-va-chong-am-mau">3.4 Cân bằng phơi sáng và chống ám màu</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Chọn đúng template đèn (灯光模板) trong danh sách hiện hành cho từng mục đích: ảnh chính, ảnh nháp, preview nhanh
+- Dựng ánh sáng tự nhiên theo 3 lớp: nắng (太阳光) → thiên quang (天光) → ngoại cảnh (外景), sáng giảm dần từ cửa sổ vào sâu phòng
+- Đặt được ngoại cảnh tùy chỉnh bằng ảnh PNG/JPG 2:1 và khớp hướng nắng với ngoại cảnh
+- Tạo hiệu ứng nắng xiên qua rèm bằng ánh sáng khối (体积光)
+- Tự xử lý 3 tình huống thật: căn hộ 1 hướng cửa sổ, WC không cửa sổ, ảnh "nắng đổ cột" kiểu Xiaohongshu</p>
+</blockquote>
+<hr>
+<h2 id="31-template-anh-sang-danh-sach-hien-hanh">3.1 Template ánh sáng — danh sách hiện hành</h2>
+<h3 id="hai-cach-dung-template">Hai cách dùng template</h3>
+<p>Kujiale có 2 chế độ đèn:</p>
+<ul>
+<li><strong>Đèn tự động (自动灯光):</strong> chọn template → render luôn, phần mềm tự bố trí đèn. Đủ dùng cho ảnh nháp.</li>
+<li><strong>Đèn thủ công (手动灯光):</strong> chọn 1 template làm nền → vào công cụ chỉnh tay từng đèn. Đây là con đường bắt buộc nếu muốn ảnh "khó nhận ra là 3D".</li>
+</ul>
+<p>Đường vào theo UI mới (từ 8/2025): rê chuột vào nút <strong>渲染</strong> (render) trên thanh công cụ trên cùng → hiện 3 chế độ <strong>实时轻量 / 实时专业 / 离线模式</strong> (xem chi tiết C2). Ghi nhớ 2 điều:</p>
+<ol>
+<li><strong>手动灯光 chỉ có ở 离线模式 (chế độ offline) và 实时专业 (thời gian thực chuyên nghiệp).</strong> Chế độ 实时轻量 không chỉnh đèn tay được.</li>
+<li>Trong 离线模式 hoặc 实时专业, ở danh sách 灯光模板 bấm <strong>+手动灯光</strong> → chọn template nền → vào chỉnh. Đèn thủ công đã tạo KHÔNG bị ảnh hưởng khi Kujiale nâng phiên bản template — bài chỉnh tay của bạn không bị phá.</li>
+</ol>
+<p>Mỗi phương án chứa tối đa 40 kịch bản đèn (20 thủ công + 20 render thời gian thực). ⚠️ Số 40 từ tài liệu 2024, kiểm tra lại theo Phiếu verify (Phụ lục B).</p>
+<h3 id="danh-sach-template-hien-hanh-a-chot-theo-thong-bao-chinh-thuc-102025">Danh sách template hiện hành (đã chốt theo thông báo chính thức 10/2025)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Template</th>
+<th>Đặc điểm</th>
+<th>Khi nào dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>室内白天/夜晚</strong> (trong nhà ban ngày/đêm) bản 2.1 → 3.0 → 3.1</td>
+<td>Chất ảnh cao nhất: khối cảnh nổi, vùng tối giữ chi tiết, màu trung thực. Từ 3.0 tăng số lần dội sáng GI; 3.1 thêm preview ~1 giây + tự khử nhiễu</td>
+<td><strong>Mặc định cho ảnh chính</strong> — phòng khách, phòng ngủ, ảnh giao khách</td>
+</tr>
+<tr>
+<td><strong>极速3.0 / 极速3.1</strong> (cực tốc)</td>
+<td>Nhanh nhất, 4K ra trong ~60 giây. Chất kém dòng 室内 một bậc</td>
+<td>Ảnh nháp, canh bố cục, ra số lượng lớn</td>
+</tr>
+<tr>
+<td><strong>实时白天 / 实时夜晚</strong> (thời gian thực)</td>
+<td>Xem đèn + vật liệu đổi trực tiếp, chỉnh LUT, độ sâu trường ảnh. KHÔNG render trực tiếp — phải vào công cụ thời gian thực</td>
+<td>Dò góc máy, thử vật liệu trước khi render chính</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO:</strong> Dòng 极速 cũ (1.0 / 1.3 / 2.0 / 2.1 / 公装2.0) đã bị <strong>gỡ khỏi phần mềm</strong> từ 10/2025, phương án cũ tự thay bằng 极速3.0/3.1. Gặp tài liệu/video dạy theo template cũ → tên không còn tồn tại, tự quy chiếu sang danh sách trên. Nút <strong>一键升级</strong> (nâng cấp một chạm) giữ nguyên tham số đèn khi chuyển, nhưng độ sáng ngoại cảnh có thể lệch nhẹ sau nâng cấp — render nháp kiểm tra lại.</p>
+<p>⚠️ <strong>CẢNH BÁO — nâng template PHẢI hạ đèn tay:</strong> Từ bản 3.0, thuật toán dội sáng GI mạnh hơn hẳn — cùng một độ sáng đèn, vùng được chiếu rộng hơn nhiều. Help center nói thẳng: từ 3.0 đèn tự động đã bị hạ độ sáng tương ứng, và <strong>đèn chỉnh tay cũng nên giảm theo</strong> để tránh cháy sáng. Đây là nguyên nhân số 1 của ảnh cháy trắng khi mở phương án cũ bằng template mới: bộ số đèn cũ + GI mới = thừa sáng. Quy tắc: đổi lên template 3.x → giảm đồng loạt độ sáng đèn tay rồi render nháp canh lại.</p>
+</blockquote>
+<p>💡 Template 自然写实 (tự nhiên tả thực) với nút phơi sáng tự động (自动曝光) từng được khuyên cho người mới, nhưng ⚠️ chưa có tài liệu chính thức nào sau 8/2025 xác nhận template nào còn nút này trên UI hiện tại — kiểm tra lại theo Phiếu verify (Phụ lục B). Trong khi chờ, cứ dùng 室内白天 3.1 làm nền.</p>
+<hr>
+<h2 id="32-ba-lop-anh-sang-tu-nhien">3.2 Ba lớp ánh sáng tự nhiên</h2>
+<p>Ánh sáng ban ngày trong Kujiale dựng bằng 3 lớp, mỗi lớp một nhiệm vụ:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Lớp</th>
+<th>Công cụ</th>
+<th>Nhiệm vụ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Nắng</td>
+<td>太阳光 (mặt trời)</td>
+<td>Tạo vệt nắng + bóng đổ — KHÔNG phải để chiếu sáng cả phòng</td>
+</tr>
+<tr>
+<td>2. Thiên quang</td>
+<td>面光源 (đèn mặt) dựng đứng ở cửa sổ</td>
+<td>Ánh sáng bầu trời khuếch tán — nguồn sáng chính của phòng</td>
+</tr>
+<tr>
+<td>3. Ngoại cảnh</td>
+<td>外景</td>
+<td>Quyết định cảnh ngoài cửa kính + màu/cường độ sáng môi trường lọt vào + hình phản chiếu trên kính, sàn bóng</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nguyên tắc xương sống, nhắc đi nhắc lại: <strong>sáng giảm dần từ cửa sổ vào sâu phòng</strong>. Ảnh giả thường do đèn nền tống đều khắp nơi — phẳng lì, không lớp lang. Ảnh thật luôn có chỗ sáng chỗ tối.</p>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO VỀ SỐ ĐỘ SÁNG:</strong> Mọi con số độ sáng (亮度) trong chương này là <strong>thang cũ</strong> của Kujiale. UI mới hiển thị đơn vị "瓦" (watt ảo) = <strong>số thang cũ ÷ 10</strong> (ví dụ thang cũ 300 ≈ 30瓦). Đây cũng KHÔNG phải watt/lumen vật lý — chỉ là mốc tương đối trên thanh trượt. Quy đổi ÷10 chờ xác nhận trên app, kiểm tra theo Phiếu verify mục đơn vị đèn (Phụ lục B). Chi tiết đầy đủ ở đầu C4.</p>
+</blockquote>
+<h3 id="321-nang">3.2.1 Nắng — 太阳光</h3>
+<p>Tham số gồm: bật/tắt (状态), nhiệt độ màu (色温), độ mềm bóng đổ (阴影柔和度), và vị trí tùy chỉnh với góc phương vị (方位角) + góc ngẩng (俯仰角, viết tắt EL). Kéo chỉnh trực quan được ngay trên khung nhìn.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Giá trị khuyến nghị (thang cũ)</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>色温</td>
+<td>6500K ban ngày</td>
+<td>Ban đêm dùng lạnh hơn để "ngoài lạnh trong ấm"</td>
+</tr>
+<tr>
+<td>亮度 (độ sáng)</td>
+<td><strong>20–50, không vượt 50</strong> (≈ 2–5瓦)</td>
+<td>Nguồn chính thức. Nắng chỉ để tạo vệt + bóng; từ 3.0 GI mạnh → giữ thấp</td>
+</tr>
+<tr>
+<td>阴影柔和度</td>
+<td>~5 theo help center; ⚠️ nguồn cộng đồng ghi 1.5 — hai nguồn vênh nhau, tự thử trên app</td>
+<td>Càng cao bóng càng mềm; thấp quá bóng cứng như dao cắt</td>
+</tr>
+<tr>
+<td>俯仰角 (EL)</td>
+<td>25–50; ⚠️ kinh nghiệm cộng đồng: có ban công ~30, không ban công ~35</td>
+<td>Góc thấp → nắng xiên dài, lộ vân vật liệu; góc cao → nắng đứng</td>
+</tr>
+<tr>
+<td>方位角</td>
+<td>Tự chỉnh; ⚠️ kinh nghiệm: lệch ~30° so với mặt cửa sổ</td>
+<td>Hướng vệt nắng về sofa hoặc mảng tường muốn khoe vân</td>
+</tr>
+</tbody>
+</table></div>
+<p>💡 Muốn khoe vân gỗ melamine/laminate trên tủ bếp, tủ áo: hạ EL xuống 25–30 cho nắng xiên dài quét ngang bề mặt — vân nổi hơn hẳn nắng đứng.</p>
+<h3 id="322-thien-quang-o-cua-so">3.2.2 Thiên quang — 面光源 ở cửa sổ</h3>
+<p>Dựng <strong>面光源 đứng, kích thước xấp xỉ khung cửa sổ</strong>, đặt ngay ngoài cửa:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Vị trí</th>
+<th>Màu</th>
+<th>Độ sáng (thang cũ)</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ngoài cửa sổ</td>
+<td>Trắng / trắng lạnh</td>
+<td>⚠️ ~280–300 (phòng nhỏ để dưới 300; phòng lớn 600–800) — số cộng đồng. Help center Coohom ghi 300–500</td>
+<td>Cộng đồng + chính thức, hai dải vênh nhau</td>
+</tr>
+<tr>
+<td>Trong cửa (lớp đẩy sáng thứ 2)</td>
+<td>Xanh da trời rất nhạt</td>
+<td>⚠️ ~250–280, thấp hơn lớp ngoài — số cộng đồng. Coohom lại ghi lớp trong "cao hơn ngoài một chút"</td>
+<td>Hai nguồn ngược nhau — thử cả hai, tin mắt mình</td>
+</tr>
+</tbody>
+</table></div>
+<p>Phòng sâu (căn 2PN–3PN Vinhomes bố cục ống): đẩy thêm 1–2 lớp 面光源 nữa vào trong — kỹ thuật đẩy sáng (递推光) — mỗi lớp nhỏ dần, tối dần. Kinh nghiệm cộng đồng: không ban công đẩy 2 lớp, có ban công (lô gia che bớt trời) đẩy 3 lớp.</p>
+<p>💡 面光源 phải đặt <strong>cách tường/trần một khoảng</strong>, không dán sát — dán sát sinh vết sáng loang (光斑) trên bề mặt.</p>
+<h3 id="323-ngoai-canh">3.2.3 Ngoại cảnh — 外景</h3>
+<p>Ngoại cảnh chọn ở cột trái mục 外景 trong giao diện render. 4 tham số cần hiểu đúng:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Tác dụng</th>
+<th>Mặc định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平旋转 (xoay ngang)</td>
+<td>Xoay cảnh ngoài để khung nhìn qua cửa sổ đẹp nhất</td>
+<td>—</td>
+</tr>
+<tr>
+<td>外景亮度 (độ sáng ngoại cảnh)</td>
+<td>CHỈ chỉnh độ sáng cảnh ngoài cửa, <strong>không ảnh hưởng sáng trong phòng</strong></td>
+<td>Ngày ~1.8</td>
+</tr>
+<tr>
+<td>环境光亮度 (độ sáng ánh sáng môi trường)</td>
+<td>Ánh sáng <strong>xuyên qua cửa sổ vào phòng</strong> — cái này mới đổi độ sáng trong nhà. Chọn loại: 自然光 (tự nhiên)/暖光 (ấm) cho ảnh ngày, 冷光 (lạnh) cho ảnh đêm</td>
+<td>Ngày ~1.5, đêm ~1</td>
+</tr>
+<tr>
+<td>环境光反射 (phản chiếu ánh sáng môi trường)</td>
+<td>Độ "long lanh" của kính, đá bóng, sàn bóng. Quá cao → cháy sáng cục bộ</td>
+<td>Đêm ~5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ngoại cảnh tùy chỉnh (自定义外景):</strong> đường vào giao diện render → cột trái 外景 → tab 我的 (của tôi) → 上传外景 (tải lên).</p>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO:</strong> Kujiale <strong>KHÔNG nhận file HDR/EXR</strong>. Ngoại cảnh tùy chỉnh chỉ nhận <strong>ảnh PNG/JPG toàn cảnh tỷ lệ 2:1</strong>, mỗi ảnh ≤ 20MB, khuyến nghị 8000×4000 đến 16000×8000px, tối đa 10 ảnh, và <strong>chỉ template loại tả thực (写实类) mới dùng được ngoại cảnh tự tải</strong>. Đừng mất công đi tìm/mua file .hdr — không dùng được. Tài liệu gốc mục này từ 2021, đường vào trên UI mới có thể đã dời chỗ — kiểm tra lại theo Phiếu verify (Phụ lục B).</p>
+</blockquote>
+<p>💡 Khớp hướng nắng với ngoại cảnh: phần mềm không tự khớp. Sau khi chọn 外景, tự chỉnh 方位角 của 太阳光 sao cho bóng đổ trong phòng cùng phía với nguồn sáng nhìn thấy trong cảnh ngoài cửa (mặt trời, khoảng trời sáng). Lệch hướng là một trong 12 dấu hiệu ảnh giả (xem C7).</p>
+<hr>
+<h2 id="33-anh-sang-khoi-nang-xien-qua-rem">3.3 Ánh sáng khối — 体积光 (nắng xiên qua rèm)</h2>
+<p>体积光 (ánh sáng khối) là hiệu ứng tia sáng xuyên qua môi trường bụi/sương thành cột sáng nhìn thấy được — dân trong nghề gọi "ánh sáng Jesus" (耶稣之光), vật lý gọi hiệu ứng Tyndall. Kujiale có sẵn <strong>8 loại 体积光</strong> kéo thả.</p>
+<p>Quy trình (theo help center, bài cập nhật 8/2025):</p>
+<ol>
+<li>Vào <strong>渲染 → 离线模式</strong>.</li>
+<li>Chọn <strong>手动灯光</strong> → chọn template nền loại tả thực → <strong>去编辑</strong> (vào chỉnh sửa).</li>
+<li>Ở mục loại nguồn sáng chọn <strong>体积光</strong> → chọn 1 trong 8 loại, kéo thả vào phương án.</li>
+<li>Click vào nguồn vừa thả → panel bên phải chỉnh: bật/tắt, màu, 色温, độ sáng, độ cao, <strong>光柱长度</strong> (chiều dài cột sáng), <strong>底面半径</strong> (bán kính đáy), <strong>正视角度</strong> (góc chính diện).</li>
+<li>Đặt cột sáng đi qua khe rèm/cửa sổ, <strong>hướng trùng với 太阳光 đã đặt</strong> — cột sáng một đường, bóng nắng một nẻo là hỏng.</li>
+<li>Lưu template → chọn góc máy → <strong>立即渲染</strong> (render ngay).</li>
+</ol>
+<p>💡 Công thức "chất Xiaohongshu": mặt trời EL thấp (nắng xiên dài) + rèm mỏng hé khe + <strong>phòng nền hơi tối</strong> (giảm đèn bù) để cột sáng nổi. Phòng sáng trưng thì 体积光 chìm nghỉm.</p>
+<hr>
+<h2 id="34-can-bang-phoi-sang-va-chong-am-mau">3.4 Cân bằng phơi sáng và chống ám màu</h2>
+<ul>
+<li><strong>Nén phơi sáng (曝光压制):</strong> tham số hậu kỳ trong render thời gian thực bản 3.1 — giá trị càng <strong>thấp</strong>, vùng cháy sáng càng mềm, giữ được nhiều chi tiết. Ảnh cháy nhẹ vùng cửa sổ → hạ tham số này trước khi nghĩ đến đặt lại đèn.</li>
+<li><strong>Ám vàng (偏黄):</strong> do đèn quá ấm hoặc 环境光 loại 暖光. Sửa: hạ 色温, đổi 环境光 sang 自然光, thêm 1 面光源 xanh rất nhạt trong cửa để trung hòa.</li>
+<li><strong>Ám xanh/lạnh (偏蓝):</strong> thiên quang xanh quá đậm hoặc dùng nhầm 冷光 cho ảnh ngày. Sửa: giảm bão hòa xanh của 面光源, tăng 色温.</li>
+<li><strong>Tăng rực màu (色彩增艳):</strong> chỉ có ở nhóm template tả thực — tăng bão hòa màu, dùng nhẹ tay kẻo màu giả.</li>
+<li><strong>Sửa tràn màu (溢色修正):</strong> bật khi phòng có mảng màu đậm (sofa xanh cổ vịt, tường đỏ gạch) để màu không "phun" lên trần trắng, tủ trắng bên cạnh.</li>
+<li>⚠️ Phơi sáng tự động (自动曝光): chưa xác nhận template nào có trên UI hiện tại — kiểm tra theo Phiếu verify (Phụ lục B).</li>
+</ul>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<p>Ba bài dưới đây là 3 tình huống gặp hằng ngày với căn hộ Vinhomes Ocean Park. Làm tuần tự, mỗi bài render nháp ảnh nhỏ để canh trước, đạt rồi mới render bản nét cao (quy trình nháp→final tiết kiệm điểm render xem C2). Mọi số độ sáng là thang cũ — trên UI 瓦 nhớ ÷10.</p>
+<h3 id="bai-1-can-ho-1-huong-cua-so-pho-bien-nhat">Bài 1 — Căn hộ 1 hướng cửa sổ (phổ biến nhất)</h3>
+<p>Dùng căn mẫu 2PN, phòng khách liền bếp, 1 mặt thoáng.</p>
+<ol>
+<li>Vào 离线模式 → +手动灯光 → chọn nền <strong>室内白天 3.1</strong>.</li>
+<li><strong>Đặt 太阳光:</strong> 色温 6500K, 阴影柔和度 ~5, độ sáng 20–50. Vị trí tùy chỉnh: 方位角 lệch ~30° so với mặt cửa, hướng vệt nắng vào sofa hoặc mảng tủ muốn khoe vân; EL 25–35.</li>
+<li><strong>Thiên quang ngoài cửa:</strong> 面光源 đứng, to bằng khung cửa, cách cửa ~150–200mm, màu trắng, độ sáng ~280–300.</li>
+<li><strong>Đẩy sáng vào trong:</strong> copy 面光源 đặt phía trong cửa, màu xanh rất nhạt, ~250–280. Phòng sâu thêm 1 lớp nữa, nhỏ hơn, tối hơn.</li>
+<li><strong>Đèn bù vùng sâu:</strong> 面光源 nhỏ 150–200 màu vàng nhạt ở khu bếp/hành lang xa cửa — đủ để vân melamine không chìm vào tối, không hơn.</li>
+<li>Render nháp nhỏ → soi: vùng cửa có cháy không, độ dốc sáng từ cửa vào có mượt không → chỉnh → render final.</li>
+</ol>
+<p><strong>Tiêu chí đạt:</strong> vệt nắng rõ, đúng 1 hướng; sáng giảm dần từ cửa vào rõ rệt; không cháy trắng mép rèm/khung cửa; đứng ở góc xa cửa vẫn đọc được vân gỗ tủ.</p>
+<h3 id="bai-2-wc-khu-vuc-khong-cua-so">Bài 2 — WC / khu vực không cửa sổ</h3>
+<ol>
+<li><strong>TẮT 太阳光.</strong> Không có cửa cho nắng vào — để nắng bật sẽ sinh bóng "rò" phi lý xuyên tường.</li>
+<li>Chiếu sáng nền bằng đèn đúng vị trí đèn thật trên trần: đèn rọi/筒灯 (đèn âm trần) độ sáng ⚠️ 150–250 (số cộng đồng; help center Coohom ghi 300–400 — thử từ thấp lên). Chi tiết từng loại đèn xem C4.</li>
+<li>Bù sáng tổng: 面光源 đặt sát trần nhưng <strong>cách tường</strong>, màu trắng ấm, độ sáng vừa phải.</li>
+<li>Giữ lớp lang: khu bồn rửa/gương sáng hơn, góc còn lại tối hơn — không tống sáng đều.</li>
+<li>Gạch/đá tối màu nuốt sáng → tăng đèn cục bộ khu đó cao hơn khu vật liệu sáng.</li>
+<li>Chống ám vàng (WC không có thiên quang xanh trung hòa): kéo 色温 đèn về trung tính, hoặc thêm 1 面光源 xanh cực nhạt.</li>
+</ol>
+<p><strong>Tiêu chí đạt:</strong> không có bóng nắng vô lý; nhìn ảnh biết ngay đèn nào trên trần đang phát sáng; có vùng sáng vùng tối; tường trắng không ngả vàng rõ.</p>
+<h3 id="bai-3-nang-xien-qua-rem-voi">Bài 3 — Nắng xiên qua rèm với 体积光</h3>
+<ol>
+<li>Làm xong Bài 1 (đã có 太阳光 EL thấp 25–30 + thiên quang).</li>
+<li>Kéo rèm mỏng che cửa, chừa khe sáng.</li>
+<li>Theo quy trình mục 3.3: thả 1 trong 8 loại 体积光, chỉnh 光柱长度 chạm sàn, 底面半径 vừa khe rèm, hướng trùng 方位角 của nắng.</li>
+<li>Giảm đèn bù nền 30–50% so với Bài 1 cho phòng hơi tối.</li>
+<li>Render nháp → canh cột sáng và bóng nắng trên sàn ăn khớp nhau → final.</li>
+</ol>
+<p><strong>Tiêu chí đạt:</strong> cột sáng và bóng đổ cùng một hướng; cột sáng có đầu có cuối tự nhiên, không lơ lửng; vùng rèm không cháy trắng; tổng thể phòng trầm để cột sáng làm nhân vật chính.</p>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="03-t1"><span>Kể được danh sách template hiện hành và biết dòng 极速 1.x/2.x đã bị gỡ</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t2"><span>Biết 手动灯光 nằm ở 离线模式 + 实时专业, và video/俯视图 chỉ render được ở 离线模式</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t3"><span>Thuộc quy tắc: nâng template lên 3.x → hạ độ sáng đèn tay</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t4"><span>Biết số độ sáng tài liệu cũ là thang cũ, UI 瓦 mới = ÷10</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t5"><span>Dựng được 3 lớp nắng/thiên quang/ngoại cảnh cho căn 1 mặt thoáng, sáng giảm dần vào trong</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t6"><span>Phân biệt được 外景亮度 (không đổi sáng trong phòng) và 环境光亮度 (đổi sáng trong phòng)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t7"><span>Biết ngoại cảnh tùy chỉnh chỉ nhận PNG/JPG 2:1, không nhận HDR</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t8"><span>Làm được ảnh 体积光 có cột sáng khớp hướng bóng nắng</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="03-t9"><span>Cả 3 bài thực hành đạt tiêu chí, có render nháp trước final</span></label></li>
+</ul>
+<hr>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cháy sáng vùng cửa sổ (过曝)</td>
+<td>太阳光 hoặc 面光源 ngoài cửa quá sáng; số đèn cũ + GI 3.0; 环境光反射 quá cao</td>
+<td>Hạ nắng về 20–50 (thang cũ); hạ 面光源 ngoài; hạ 曝光压制; rà 环境光反射</td>
+</tr>
+<tr>
+<td>Trong nhà tối om (过暗)</td>
+<td>Thiếu lớp đẩy sáng; 面光源 trong quá yếu; vật liệu tối nuốt sáng</td>
+<td>Thêm lớp 递推光; tăng 环境光亮度; tăng đèn cục bộ khu vật liệu tối</td>
+</tr>
+<tr>
+<td>Bóng đổ cứng như dao cắt</td>
+<td>阴影柔和度 quá thấp</td>
+<td>Tăng 阴影柔和度 (~5 theo help center); thêm 面光源 lớn cho bóng mềm</td>
+</tr>
+<tr>
+<td>Ám vàng (偏黄)</td>
+<td>Đèn quá ấm; 环境光 loại 暖光; thiếu thiên quang xanh</td>
+<td>Hạ 色温; đổi 环境光 sang 自然光; thêm 面光源 xanh nhạt</td>
+</tr>
+<tr>
+<td>Ám xanh/lạnh (偏蓝)</td>
+<td>Thiên quang xanh quá đậm; dùng 冷光 cho ảnh ngày</td>
+<td>Giảm bão hòa xanh; tăng 色温; đổi tông 自然</td>
+</tr>
+<tr>
+<td>Ánh sáng phẳng, không lớp lang</td>
+<td>Đèn nền tống đều "càng sáng càng tốt"</td>
+<td>Sáng giảm dần từ cửa vào; nắng + đẩy sáng + đèn nhấn trọng điểm</td>
+</tr>
+<tr>
+<td>Vết sáng loang trên tường/trần (光斑)</td>
+<td>面光源 dán sát tường/trần</td>
+<td>Kéo 面光源 ra xa bề mặt</td>
+</tr>
+<tr>
+<td>Cột sáng một nơi, bóng nắng một nẻo</td>
+<td>体积光 không trùng hướng 太阳光</td>
+<td>Chỉnh 正视角度/vị trí cột trùng 方位角 nắng</td>
+</tr>
+<tr>
+<td>Bóng nắng trong phòng không cửa sổ</td>
+<td>Quên tắt 太阳光</td>
+<td>Tắt trạng thái 太阳光</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Nguồn chính thức (help center kujiale.com/hc, coohom.com/helpcenter):</strong>
+- 《三种渲染模式功能详解》 article 3FO4K4WCDICB (2025-08-18) — 3 chế độ render, vị trí 手动灯光
+- 《灯光模板极速1.0…公装2.0下线通知》 article 3FO4K4WCL5TL (2025-10-27) — danh sách template gỡ/hiện hành, 一键升级, cảnh báo lệch 外景亮度
+- 《离线渲染模式基础入门》 article 3FO4K4W09FRH (2025-08-29) — đường vào 离线模式
+- Bài hướng dẫn 体积光 (cập nhật 2025-08-15) — 8 loại, quy trình, tham số cột sáng
+- Bài cập nhật 室内白天/夜晚 3.1 (2024-12-19) — GI tăng từ 3.0, khuyến nghị hạ đèn tay
+- Coohom "3 bước tùy chỉnh ánh sáng" + "Manual lighting, daytime" (2024-12-10) — nắng ≤50, 6500K, 阴影柔和度 5, EL 25–50
+- 《渲染灯光模板使用说明》 article 3FO4K4WFRCUU (2024-02-22) — 自动/手动灯光, giới hạn 40 kịch bản (⚠️ tài liệu trước UI mới)
+- 《外景支持自定义上传》 article 3FO4K4VRPUKN (⚠️ 2021-11-28, cũ) — PNG/JPG 2:1, ≤20MB, tối đa 10 ảnh, chỉ 写实类</p>
+<p><strong>Nguồn cộng đồng (đánh dấu ⚠️ trong bài):</strong>
+- "Bí kíp Tiên Cô" (仙姑老师, ask.kujiale.com), Zhihu, Bách độ Kinh nghiệm — bộ số thiên quang 280–300/250–280, đèn bù 150–200, số lớp đẩy sáng, 方位角 ~30°, 阴影柔和度 1.5</p>
+<p><strong>Số chờ verify trên app (Phiếu verify — Phụ lục B):</strong>
+- Quy đổi thang cũ ÷10 sang 瓦 trên UI mới
+- Template nào còn 自动曝光
+- 阴影柔和度: 5 hay 1.5, thang min–max
+- Đường vào 上传外景 trên UI mới + giới hạn còn đúng
+- Giới hạn 40 kịch bản đèn/phương án</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="02.html"><span class="dir">← Trước</span><div class="t">Chương 2 · Quy trình render và thông số</div></a><a class="next" href="04.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 4 · Đèn thủ công</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

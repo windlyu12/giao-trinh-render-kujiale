@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 8. Công cụ AI — dùng và cấm — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#9cc2f4;--accent-soft:color-mix(in srgb, #9cc2f4 13%, transparent);}</style>
+</head>
+<body data-slug="08">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">8</div>
+    <div class="ch-meta"><span class="tag">Chương 8</span><span class="tag ghost">≈ 16 phút đọc</span></div>
+    <h1 class="ch-title">Công cụ AI — dùng và cấm</h1>
+    <p class="ch-hook">AI render ở đâu hợp lệ, ở đâu là rủi ro pháp lý với công ty bán đồ thật.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#81-vi-sao-chuong-nay-nghiem-hon-cac-chuong-khac">8.1 Vì sao chương này nghiêm hơn các chương khác</a></li><li><a href="#82-kiem-ke-ai-cua-kujiale-gom-nhung-gi">8.2 Kiểm kê: AI của Kujiale gồm những gì</a></li><li><a href="#83-an-le-anh-ai-noi-la-that-en-gap-3">8.3 Án lệ 钟某: ảnh AI nói là thật = đền gấp 3</a></li><li><a href="#84-quy-inh-noi-bo-bang-cam-cho-phep">8.4 QUY ĐỊNH NỘI BỘ: bảng CẤM / CHO PHÉP</a></li><li><a href="#85-workflow-lai-3-tang-dung-ai-ung-cho-e-nhanh-ma-khong-lieu">8.5 Workflow lai 3 tầng: dùng AI đúng chỗ để nhanh mà không liều</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Kể tên đúng các công cụ AI trong hệ Kujiale, biết mỗi cái nằm ở đâu, làm gì, và hay sai kiểu gì
+- Bật đúng hai khóa 主体保留 / 材质保留 trước khi cho AI đụng vào bất kỳ ảnh nào
+- Thuộc bảng CẤM / CHO PHÉP nội bộ và giải thích được vì sao có nó (án lệ x3 tiền)
+- Chạy workflow lai 3 tầng: AI ra ý tưởng nhanh → khách duyệt hướng → render chuẩn làm bản giao
+- Làm được vai "người soát thứ hai" trước khi bất kỳ ảnh nào rời công ty</p>
+</blockquote>
+<h2 id="81-vi-sao-chuong-nay-nghiem-hon-cac-chuong-khac">8.1 Vì sao chương này nghiêm hơn các chương khác</h2>
+<p>Bảy chương trước dạy bạn làm ảnh <strong>đúng</strong>. Chương này dạy bạn không để ảnh <strong>đẹp mà sai</strong> rời khỏi công ty.</p>
+<p>Công cụ AI của Kujiale ra ảnh rất nhanh, rất "sang" — nhưng bản chất của nó là vẽ lại ảnh theo xác suất, không phải tính toán ánh sáng trên vật liệu thật như render truyền thống. Nó có thể đổi màu gỗ, bịa thêm hoa văn, thay phản quang kim loại, thậm chí xê dịch cửa sổ. Với công ty chỉ làm ảnh cho vui thì kệ. Nhưng Newhomes <strong>bán đồ thật, thi công thật</strong>: khách cầm ảnh ra so với tủ melamine vừa lắp. Ảnh AI sai vân gỗ một lần = một lần thợ tháo ra làm lại, hoặc tệ hơn — mục 8.4 kể bạn nghe tệ hơn là thế nào.</p>
+<p>Chương này có hai nửa: nửa đầu <strong>kiểm kê công cụ</strong> (biết địch biết ta), nửa sau <strong>luật chơi nội bộ</strong> (cái gì cấm, cái gì được, quy trình soát).</p>
+<h2 id="82-kiem-ke-ai-cua-kujiale-gom-nhung-gi">8.2 Kiểm kê: AI của Kujiale gồm những gì</h2>
+<p>Kujiale có hai nhánh AI liên quan render, cộng một tính năng mới toanh.</p>
+<h3 id="nhanh-1-ai-ai-bac-thay-noi-that-vao-qua-cho-ung-dung">Nhánh 1 — AI室内大师 (AI bậc thầy nội thất), vào qua 应用市场 (chợ ứng dụng)</h3>
+<p>Đây là cụm công cụ "ảnh vào → ảnh ra" do Kujiale hợp tác với đối tác <strong>建筑学长</strong> (một thương hiệu công cụ AI kiến trúc của Trung Quốc). Ra mắt với <strong>6 chức năng gốc</strong>, sau đó nâng cấp thêm <strong>9 chức năng mới</strong>.</p>
+<p>6 chức năng gốc:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Chức năng</th>
+<th>Làm gì</th>
+<th>Hay sai kiểu gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型渲染 (render từ model)</td>
+<td>Chụp góc camera từ model Kujiale / bản dựng trắng → ảnh hiệu ứng</td>
+<td>Hãng quảng cáo "chính xác 100%", thực tế vẫn phải soát lại vật liệu + tỷ lệ</td>
+</tr>
+<tr>
+<td>风格转换 (chuyển phong cách)</td>
+<td>Giữ model, đổi không khí sang hiện đại / công nghiệp / tân Trung...</td>
+<td>Có thể đổi luôn chi tiết phần cứng (trần, ốp tường)</td>
+</tr>
+<tr>
+<td>家具替换 (thay nội thất)</td>
+<td>Thay món đồ trên ảnh, hòa nhập tự động</td>
+<td>Món AI vẽ ra <strong>không khớp mã hàng thật đang bán</strong></td>
+</tr>
+<tr>
+<td>材质替换 (đổi vật liệu)</td>
+<td>Đổi bề mặt: óc chó → sồi trắng...</td>
+<td><strong>Rủi ro cao nhất</strong> — vân AI vẽ khác vân tấm thật của xưởng</td>
+</tr>
+<tr>
+<td>局部重绘 (vẽ lại cục bộ)</td>
+<td>Bôi vùng cần sửa + mô tả → AI vẽ lại vùng đó</td>
+<td>Mô tả lệch một chút là sinh chi tiết ảo</td>
+</tr>
+<tr>
+<td>细节增强 (tăng chi tiết)</td>
+<td>Làm ảnh tinh xảo, nét hơn</td>
+<td>Có thể bịa thêm hoa văn không hề có trong model</td>
+</tr>
+</tbody>
+</table></div>
+<p>9 chức năng mới (⚠️ danh sách từ bài giới thiệu cộng đồng, chưa kiểm đủ trên tài khoản công ty — xem Phiếu verify mục D3), đáng chú ý:</p>
+<ul>
+<li>实物装修 (hoàn thiện từ ảnh thật): chụp nhà thô/nhà bàn giao + dán vật liệu → ảnh "nhà tinh". Hợp chào hàng tại chỗ, nhưng AI có thể tự thêm đá bậu cửa sổ, tự đổi trần.</li>
+<li>手绘创作 (phác tay thành ảnh): line-sketch đen trắng → ảnh hiệu ứng. Kiểm soát kích thước kém.</li>
+<li>室内照明 (chiếu sáng ngày→đêm): ảnh ban ngày → ảnh bật đèn đêm. Có 准确模式 (chế độ chính xác — giữ nguyên đồ) và 创意模式 (chế độ sáng tạo — <strong>đổi luôn vật liệu đồ đạc</strong>). Dùng thì chỉ dùng 准确模式.</li>
+<li>AI添加家具 (thêm nội thất), 杂物消除 (xóa đồ lặt vặt) và vài chức năng phụ khác.</li>
+</ul>
+<p>Chi phí: bản cơ bản miễn phí, các tính năng "ngoan" nhất (khóa vật liệu, không xếp hàng, nhiều style) nằm ở 企业版 (bản doanh nghiệp, trả phí). Tài khoản công ty đang có gì → tự kiểm và điền <strong>Phiếu verify mục D3</strong> (Phụ lục B).</p>
+<h3 id="nhanh-2-ai-ai-tang-chan-thuc-sua-anh-ai-nam-ngay-trong-pipeline-render">Nhánh 2 — AI写实增强 / AI修图 (tăng chân thực / sửa ảnh AI), nằm ngay trong pipeline render</h3>
+<p>Khác nhánh 1, cái này không phải app rời mà gắn thẳng vào ảnh bạn vừa render: vào 图册 (album ảnh) → mở 大图 (ảnh lớn) → nút <strong>AI修图</strong> → <strong>立即增强</strong> (tăng cường ngay). Trong 高级设置 (cài đặt nâng cao) có thanh trượt <strong>创造性</strong> (độ sáng tạo).</p>
+<p>Quy tắc một câu: <strong>创造性 càng cao, ảnh càng đẹp kiểu "tạp chí" — và càng xa model gốc của bạn.</strong> Quy định nội bộ: luôn để 创造性 ở mức thấp. Số lần dùng miễn phí mỗi ngày + độ phân giải ảnh ra: chưa có số công khai chắc chắn, tự kiểm theo <strong>Phiếu verify mục D2</strong>.</p>
+<h3 id="nhanh-3-ai-ai-ai-lam-ep-moi-ra-09072026">Nhánh 3 — AI+渲染 / AI美化 (AI làm đẹp) — mới ra 09/07/2026</h3>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO:</strong> tính năng này mới được công bố tại sự kiện ra mắt sản phẩm của hãng ngày 09/07/2026 — quảng cáo "một chạm tăng chất liệu, 3 giây ra ảnh", kèm bộ template 清晨 / 傍晚 / 夜景 (sáng sớm / chiều tà / cảnh đêm) đổi không khí toàn ảnh. <strong>Chưa rõ tài khoản 高级 thường của công ty đã được mở tính năng này chưa, và đường vào nằm đâu</strong> — kiểm tra theo Phiếu verify mục D1 (Phụ lục B). Về bản chất nó là chuyển phong cách toàn ảnh, tức cùng họ rủi ro với 风格转换: nhanh, đẹp, và lệch gốc.</p>
+</blockquote>
+<h3 id="co-che-khoa-sai-lech-thu-bat-buoc-bat-truoc-khi-dung-bat-ky-nhanh-nao">Cơ chế khóa sai lệch — thứ BẮT BUỘC bật trước khi dùng bất kỳ nhánh nào</h3>
+<p>Công cụ AI của Kujiale có hai công tắc:</p>
+<ul>
+<li><strong>主体保留</strong> (giữ nguyên chủ thể) — khóa bố cục, đồ đạc, kết cấu.</li>
+<li><strong>材质保留</strong> (giữ nguyên vật liệu) — khóa màu + vân bề mặt.</li>
+</ul>
+<p>Hai công tắc này <strong>không tự bật — bạn phải bật tay</strong>. Không bật thì AI được toàn quyền "sáng tác": tài liệu của chính hệ sinh thái này thừa nhận khi không khóa, AI có thể đổi màu, đổi vật liệu, và từng ghi nhận <strong>đổi cả vị trí cửa sổ</strong>. Bên 建筑学长 còn bán riêng tính năng 材质锁定 (khóa vật liệu) ở bản 企业版 với lời quảng cáo đại ý "để AI ngoan ngoãn nghe lời" — hãng tự nói vậy, tức mặc định nó <em>không</em> ngoan.</p>
+<p>Và kể cả bật đủ khóa: <strong>ảnh sinh ra vẫn phải soát bằng mắt người</strong> trước khi đi tiếp. Khóa giảm xác suất sai, không đưa nó về 0.</p>
+<blockquote class="tip">
+<p>💡 Template đèn thông minh (智能打光, 自动曝光...) cũng gắn mác AI nhưng thuộc pipeline render truyền thống — đã học ở C3/C4, không tính vào các quy định cấm của chương này.</p>
+</blockquote>
+<h2 id="83-an-le-anh-ai-noi-la-that-en-gap-3">8.3 Án lệ 钟某: ảnh AI nói là thật = đền gấp 3</h2>
+<p>Ngày 12/03/2026, Tòa án Trung cấp Quảng Châu công bố một vụ trong nhóm 10 án điển hình bảo vệ người tiêu dùng: khách hàng 钟某 mua 2 chiếc áo giá 411 tệ qua ảnh quảng cáo. Ảnh do AI sinh, nhưng người bán khẳng định "toàn bộ là ảnh chụp thật". Tòa phán đây là <strong>消费欺诈</strong> (lừa dối tiêu dùng): người kinh doanh có nghĩa vụ thẩm tra nội dung do AI sinh ra; nội dung AI khác biệt rõ với thực tế mà không nói thật, khiến khách hiểu sai và xuống tiền, là lừa dối. Kết quả: <strong>hoàn tiền + bồi thường gấp 3 lần giá mua</strong>.</p>
+<p>Chuyện áo quần, nhưng loại suy sang nội thất là một đường thẳng: khách ký hợp đồng dựa trên ảnh có vân gỗ, màu đá, ánh kim loại do AI bịa → lắp xong khác ảnh → đó chính là "货不对板" (hàng không đúng ảnh). Ở Trung Quốc, luật chống cạnh tranh không lành mạnh bản sửa đổi (hiệu lực 15/10/2025) còn nâng trần phạt quảng cáo sai lên tới 2 triệu tệ.</p>
+<p>Đây là án lệ Trung Quốc — Việt Nam chưa có án tương tự để dẫn. Nhưng đừng thở phào: cái bạn chắc chắn gặp trước tòa án là <strong>khách so ảnh với tủ vừa lắp ngay tại công trình</strong>, và một bài bóc phốt kèm ảnh so sánh trên nhóm cư dân Ocean Park. Với công ty bán đồ thật, thi công thật, <strong>sai vật liệu trên ảnh = mất tiền thật</strong> — tiền tháo lắp lại, tiền giảm giá xoa dịu, và đắt nhất là tiền uy tín không mua lại được.</p>
+<p>Một giám đốc thiết kế studio Hong Kong (⚠️ phỏng vấn báo chí 07/2026) nói gọn: AI hay sinh ra vật liệu "tìm mãi không mua được" — mọi phương án cuối vẫn phải ra công trường đo, bàn với thợ rồi mới chốt.</p>
+<h2 id="84-quy-inh-noi-bo-bang-cam-cho-phep">8.4 QUY ĐỊNH NỘI BỘ: bảng CẤM / CHO PHÉP</h2>
+<p>Đây là quy định làm việc, không phải gợi ý. Căn cứ: mục 8.3.</p>
+<h3 id="cam-tuyet-oi-dung-anh-ai-bat-buoc-render-chuan-theo-c2c6">CẤM TUYỆT ĐỐI dùng ảnh AI (bắt buộc render chuẩn 离线模式 theo C2–C6)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Loại ảnh</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ảnh chốt phương án để khách ký duyệt</td>
+<td>Khách quyết định xuống tiền dựa trên ảnh này</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ảnh đính kèm hợp đồng / báo giá</td>
+<td>Thành chứng cứ pháp lý — sai là "货不对板"</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Ảnh mô tả vật liệu cụ thể sẽ thi công (vân melamine, màu acrylic, mặt đá, vải...)</td>
+<td>AI bịa vân đẹp hơn tấm thật = tự tạo khiếu nại</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Ảnh nghiệm thu, ảnh cam kết "giống thực tế"</td>
+<td>Đây là lời hứa, không phải minh họa</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="cho-phep-dung-anh-ai-co-ieu-kien">CHO PHÉP dùng ảnh AI (có điều kiện)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Loại ảnh</th>
+<th>Điều kiện bắt buộc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ảnh ý tưởng sơ bộ, mood board, thăm dò phong cách</td>
+<td>Nói rõ với khách: "đây là ảnh minh họa hướng phong cách, không phải bản chốt"</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Ảnh marketing / đăng mạng xã hội</td>
+<td><strong>Luôn kèm watermark "Ảnh minh họa AI"</strong> trên ảnh, không chỉ trong caption</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sửa nhanh tại chỗ khi khách muốn thử đổi phong cách trong buổi tư vấn</td>
+<td>Nói rõ là bản nháp; muốn chốt thì về render chuẩn</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="quy-tac-ky-thuat-khi-uoc-phep-dung">Quy tắc kỹ thuật khi được phép dùng</h3>
+<ol>
+<li>Luôn bật <strong>主体保留 + 材质保留</strong> trước khi sinh ảnh.</li>
+<li>创造性 để mức thấp.</li>
+<li>Đồ trong ảnh phải đối chiếu được với mã hàng thật công ty đang bán — món nào AI "vẽ thêm" thì hoặc xóa, hoặc ghi chú rõ với khách.</li>
+</ol>
+<h3 id="quy-trinh-2-nguoi-soat-khong-anh-nao-roi-cong-ty-qua-tay-1-nguoi">Quy trình 2 người soát — không ảnh nào rời công ty qua tay 1 người</h3>
+<p>Mọi ảnh gửi khách (AI hay render chuẩn) phải qua một người thứ hai soát 4 điểm, đối chiếu với model gốc:</p>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="08-t1"><span>Vật liệu / màu / vân đúng với mẫu công ty đang bán?</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t2"><span>Kích thước, tỷ lệ đồ đạc hợp lý (tủ không cao xuyên trần, bàn không dài quá phòng)?</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t3"><span>Bố cục, kết cấu (cửa, cửa sổ, trần) đúng vị trí như model?</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t4"><span>Nếu là ảnh AI: đã có watermark "Ảnh minh họa AI" chưa?</span></label></li>
+</ul>
+<blockquote class="warn">
+<p>⚠️ <strong>Ngưỡng siết chặt:</strong> ngay khi công ty nhận ≥1 khiếu nại "ảnh khác thực tế", ảnh AI bị cấm dùng cả ở khâu marketing cho tới khi quy trình watermark + soát chéo được rà lại xong. Không thương lượng.</p>
+</blockquote>
+<h2 id="85-workflow-lai-3-tang-dung-ai-ung-cho-e-nhanh-ma-khong-lieu">8.5 Workflow lai 3 tầng: dùng AI đúng chỗ để nhanh mà không liều</h2>
+<p>AI không phải kẻ thù — nó chỉ bị cấm ngồi nhầm ghế. Ghế đúng của nó là <strong>đầu quy trình</strong>, chỗ tốc độ đáng giá hơn độ chính xác:</p>
+<p><strong>Tầng 1 — AI ra ý tưởng (nhanh, rẻ, được phép sai).</strong>
+Khách mới, chưa rõ thích gì → dùng 模型渲染 / 风格转换 sinh nhanh 3 hướng phong cách trên chính mặt bằng căn của khách. Thay cho việc lục 50 ảnh mạng mất cả buổi. Ảnh ở tầng này là ảnh nháp — nói rõ với khách như vậy.</p>
+<p><strong>Tầng 2 — khách duyệt hướng.</strong>
+Khách chọn 1 trong 3 hướng, góp ý màu, không khí. Muốn cho khách xem thêm biến thể → style transfer tiếp, vẫn dán nhãn minh họa. Chốt hướng xong mới sang tầng 3.</p>
+<p><strong>Tầng 3 — render chuẩn làm bản giao.</strong>
+Dựng model bằng đúng mã hàng, đúng vật liệu công ty (C5), đánh sáng (C3–C4), đặt camera (C6), render 离线模式 chất lượng cao (C2). Ảnh này mới là ảnh ký duyệt, đính hợp đồng. Được phép chạy AI修图 mức nhẹ cho sạch nhiễu — 创造性 thấp, đủ khóa, và vẫn qua 2 người soát.</p>
+<p>Ăn tiền của workflow này: tốc độ AI nằm ở khâu <strong>chưa ai cam kết gì</strong>, còn mọi lời hứa với khách đều đứng trên render chuẩn — thứ "thấy gì được nấy". ⚠️ Hãng dẫn case doanh nghiệp khoe "20 phút ra 3 phương án, chu kỳ thiết kế 7 ngày còn 2 ngày" — số nói tại sự kiện tiếp thị của chính hãng, nghe để tham khảo nhịp làm, đừng lấy làm chỉ tiêu.</p>
+<h2 id="thuc-hanh">Thực hành</h2>
+<p><strong>Bài 1 — Bắt lỗi AI bằng chính mắt mình.</strong>
+Lấy 1 góc phòng khách căn mẫu đã render chuẩn ở C4/C5. Vào 应用市场 mở AI室内大师, chạy 模型渲染 cùng góc đó (chưa bật khóa gì cả). Đặt 2 ảnh cạnh nhau, tìm tối thiểu <strong>3 điểm AI tự đổi</strong> so với model (vân gỗ, màu, phản quang, đồ bịa thêm...). <em>Đạt khi:</em> liệt kê được ≥3 khác biệt cụ thể, chỉ đúng vị trí trên ảnh. Nhân tiện điền Phiếu verify D3 (chức năng nào miễn phí / đòi 企业版).</p>
+<p><strong>Bài 2 — Thanh 创造性 nguy hiểm thế nào.</strong>
+Lấy 1 ảnh render chuẩn có tủ melamine vân gỗ. Chạy AI修图 hai lần: một lần 创造性 thấp nhất, một lần cao nhất. So vân gỗ 2 ảnh ra với vân tấm mẫu thật của công ty. <em>Đạt khi:</em> chỉ ra được bản 创造性 cao lệch vân/màu ở đâu, và tự trả lời "ảnh này gửi khách chốt được không, vì sao". Điền luôn Phiếu verify D2 (số lần miễn phí/ngày, độ phân giải ra) và D1 (tài khoản có AI美化 chưa).</p>
+<p><strong>Bài 3 — Đóng vai người soát thứ hai.</strong>
+Nhờ đồng nghiệp (hoặc tự làm mù: để ảnh nghỉ 1 ngày) đưa bạn 1 ảnh AI + model gốc. Soát theo checklist 4 điểm mục 8.4, ghi kết luận: cho đi / chặn lại, lý do. <em>Đạt khi:</em> bắt được toàn bộ điểm sai đã cài (người đưa ảnh cố tình để 创造性 cao hoặc quên watermark).</p>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="08-t5"><span>Kể được 2 nhánh AI + 1 tính năng mới 09/07/2026, và đường vào của từng cái</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t6"><span>Biết 主体保留 / 材质保留 nằm đâu và vì sao phải bật tay</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t7"><span>Kể lại được án lệ 钟某 trong 3 câu: chuyện gì, tòa phán gì, liên quan gì đến Newhomes</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t8"><span>Thuộc 4 loại ảnh CẤM dùng AI, không cần mở sách</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t9"><span>Thuộc 3 loại ảnh CHO PHÉP + điều kiện đi kèm từng loại</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t10"><span>Nói được 4 điểm người soát thứ hai phải kiểm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t11"><span>Vẽ lại được workflow 3 tầng và chỉ ra tầng nào ảnh AI bị cấm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="08-t12"><span>Đã điền Phiếu verify D1, D2, D3 (Phụ lục B)</span></label></li>
+</ul>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ảnh AI ra vân gỗ đẹp lạ, kho mẫu công ty không có tấm nào giống</td>
+<td>创造性 cao và/hoặc quên bật 材质保留</td>
+<td>Hạ 创造性, bật khóa, đối chiếu lại mã hàng; ảnh đã lỡ gửi khách → báo lại ngay là ảnh minh họa</td>
+</tr>
+<tr>
+<td>Ảnh marketing đăng lên thiếu chữ "Ảnh minh họa AI"</td>
+<td>Bỏ qua bước soát thứ hai</td>
+<td>Gỡ/sửa bài, bổ sung watermark; rà lại quy trình 2 người</td>
+</tr>
+<tr>
+<td>Ảnh AI đổi vị trí cửa sổ / thêm đá bậu cửa mà không ai nhận ra</td>
+<td>Không bật 主体保留 + soát ảnh chỉ nhìn "đẹp/xấu"</td>
+<td>Bật khóa; người soát so ảnh với model gốc từng mảng tường, không so trí nhớ</td>
+</tr>
+<tr>
+<td>Tưởng AI美化 "3 giây ra ảnh" thay được render chuẩn</td>
+<td>Nhầm bản chất: nó là chuyển phong cách toàn ảnh, không phải tính ánh sáng vật lý</td>
+<td>Bản giao khách luôn là render 离线模式; AI美化 nếu có chỉ dùng cho ảnh minh họa</td>
+</tr>
+<tr>
+<td>Khách đòi chốt ngay trên ảnh AI ở buổi tư vấn</td>
+<td>Ảnh tầng 1 quá thuyết phục</td>
+<td>Vui vẻ nhận đó là tín hiệu tốt, hẹn bản chốt render chuẩn — không ký trên ảnh nháp</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<ul>
+<li><strong>Nguồn chính thức (help center kujiale.com/hc):</strong> đường vào + hành vi AI写实增强/AI修图 (article 3FO4K4WI5A6N), 局部智能编辑 (3FO4K4WEX1D3), động thái sản phẩm AI 2026 (3FO4K4WEL6QJ).</li>
+<li><strong>Án lệ + luật (nguồn công bố chính thức Trung Quốc):</strong> vụ 钟某 kiện công ty may mặc, Tòa Trung cấp Quảng Châu công bố 12/03/2026, phán 消费欺诈, hoàn tiền + bồi thường gấp 3 theo Điều 55 Luật Bảo vệ quyền lợi người tiêu dùng TQ; luật chống cạnh tranh không lành mạnh sửa đổi hiệu lực 15/10/2025, trần phạt quảng cáo sai 200万 tệ.</li>
+<li><strong>Nguồn cộng đồng / tiếp thị (⚠️):</strong> danh sách 6+9 chức năng AI室内大师 (bài Zhihu + video Bilibili giới thiệu hợp tác 建筑学长); công bố AI+渲染/AI美化 tại sự kiện hãng 09/07/2026 (đưa tin 163.com); nhận xét template đèn dễ cháy sáng (bài test Zhihu 02/2024 — dữ liệu cũ); phát biểu hiệu quả "7 ngày → 2 ngày" của khách hàng mẫu tại sự kiện hãng.</li>
+<li><strong>Số chờ verify trong app (Phụ lục B):</strong> D1 — tài khoản công ty có AI美化/AI+渲染 chưa, đường vào; D2 — số lần AI修图 miễn phí/ngày + độ phân giải ảnh ra; D3 — chức năng AI室内大师 nào miễn phí / đòi 企业版.</li>
+</ul></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="07.html"><span class="dir">← Trước</span><div class="t">Chương 7 · Photorealism và case thực chiến</div></a><a class="next" href="09.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 9 · Luyện mắt và nguồn theo dõi</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

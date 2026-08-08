@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phụ lục A. Bộ chấm ảnh — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#8be3c6;--accent-soft:color-mix(in srgb, #8be3c6 13%, transparent);}</style>
+</head>
+<body data-slug="pa">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item active" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">A</div>
+    <div class="ch-meta"><span class="tag">Phụ lục A</span><span class="tag ghost">≈ 12 phút đọc</span></div>
+    <h1 class="ch-title">Bộ chấm ảnh</h1>
+    <p class="ch-hook">Phiếu 10 tiêu chí × 5 điểm — nghiệm thu ảnh và chấm đồ án tốt nghiệp.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#a1-cham-mot-anh-trong-10-phut-quy-trinh-5-buoc">A.1. Chấm một ảnh trong 10 phút — quy trình 5 bước</a></li><li><a href="#a2-buoc-mo-man-test-3-giay">A.2. Bước mở màn — Test 3 giây</a></li><li><a href="#a3-bon-test-tu-soi-lam-uoc-tren-moi-app-xem-anh">A.3. Bốn test tự soi — làm được trên mọi app xem ảnh</a></li><li><a href="#a4-muoi-tieu-chi-nhom-theo-4-tru-cot">A.4. Mười tiêu chí — nhóm theo 4 trụ cột</a></li><li><a href="#a5-thang-iem-va-nguong">A.5. Thang điểm và ngưỡng</a></li><li><a href="#a6-phieu-cham-in-ra-dung-cho-tung-anh">A.6. Phiếu chấm — in ra dùng cho từng ảnh</a></li><li><a href="#a7-quy-uoc-cham-o-an-tot-nghiep">A.7. Quy ước chấm đồ án tốt nghiệp</a></li><li><a href="#a8-ghi-chu-cho-nguoi-cham-khong-ranh-ky-thuat">A.8. Ghi chú cho người chấm không rành kỹ thuật</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><p>Bộ chấm này dùng cho <strong>hai việc</strong>: nghiệm thu ảnh trước khi gửi khách, và chấm đồ án tốt nghiệp của học viên. Người chấm là quản lý — <strong>không cần biết dùng Kujiale, không cần biết thuật ngữ 3D</strong>. Mọi tiêu chí đều kiểm được bằng mắt thường, câu hỏi gốc luôn là một: <em>"đặt cạnh ảnh chụp thật, cái này có lộ không?"</em></p>
+<p>Bộ chấm hợp nhất từ hai nguồn nghiên cứu độc lập (checklist 12 tiêu chí đạt/không đạt + rubric 8 tiêu chí thang 5 điểm) thành <strong>một chuẩn duy nhất: 10 tiêu chí × 5 điểm, nhóm theo 4 trụ cột</strong> — không tồn tại hai bảng song song, mọi văn bản khác trong giáo trình nhắc đến "chấm ảnh" đều là bảng này.</p>
+<hr>
+<h2 id="a1-cham-mot-anh-trong-10-phut-quy-trinh-5-buoc">A.1. Chấm một ảnh trong 10 phút — quy trình 5 bước</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Việc làm</th>
+<th>Thời gian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mở ảnh <strong>toàn màn hình</strong> trên máy tính (không chấm trên điện thoại — màn nhỏ giấu lỗi)</td>
+<td>10 giây</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Test 3 giây</strong> (mục A.2) — ghi ấn tượng đầu tiên</td>
+<td>30 giây</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Chạy <strong>4 test tự soi</strong> (mục A.3) — ghi test nào trượt</td>
+<td>3 phút</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chấm <strong>10 tiêu chí</strong> (mục A.4), điền phiếu (mục A.6)</td>
+<td>5 phút</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cộng điểm, đối chiếu ngưỡng (mục A.5), kết luận ĐẠT / SỬA LẠI / LÀM LẠI</td>
+<td>1 phút</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 Người chấm chính là "người ngoài" lý tưởng cho test 3 giây — vì bạn không phải người làm ảnh, mắt bạn chưa quen với cảnh nên chưa bị "mù lỗi".</p>
+</blockquote>
+<h2 id="a2-buoc-mo-man-test-3-giay">A.2. Bước mở màn — Test 3 giây</h2>
+<p>Cách làm: mở ảnh toàn màn hình, nhìn đúng <strong>3 giây</strong>, quay mặt đi, tự trả lời: <strong>"Vừa rồi là ảnh chụp hay ảnh 3D?"</strong></p>
+<ul>
+<li>Trả lời "ảnh chụp" hoặc "phải nghĩ đã, không chắc" → <strong>qua cửa</strong>, chấm tiếp bình thường.</li>
+<li>Trả lời "3D, biết ngay" → ghi lại <strong>cái gì tố cáo</strong> (thường là 1 trong 12 dấu hiệu ở Chương 7). Vẫn chấm tiếp 10 tiêu chí để chỉ ra chỗ sửa, nhưng ảnh trượt test 3 giây thì <strong>tối đa chỉ xếp loại SỬA LẠI</strong> dù tổng điểm cao — vì mục tiêu của cả giáo trình là "khó nhận ra là 3D".</li>
+</ul>
+<h2 id="a3-bon-test-tu-soi-lam-uoc-tren-moi-app-xem-anh">A.3. Bốn test tự soi — làm được trên mọi app xem ảnh</h2>
+<p>Bốn test này bắt lỗi mà mắt nhìn trực tiếp hay bỏ qua. Không cần phần mềm chuyên: app Ảnh/Photos trên điện thoại hoặc Preview trên Mac đều đủ.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Cách làm</th>
+<th>Câu hỏi</th>
+<th>Trượt thì lỗi nằm ở</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Khử màu</strong> (grayscale)</td>
+<td>Kéo bão hòa màu (saturation) về 0 trong app chỉnh ảnh bất kỳ</td>
+<td>Ảnh đen trắng còn thấy rõ khối và vùng sáng-tối không?</td>
+<td>Ánh sáng: thiếu tương phản → ảnh "phẳng và xám" (tiêu chí 2)</td>
+</tr>
+<tr>
+<td><strong>Nheo mắt</strong> (squint)</td>
+<td>Nheo mắt lại nhìn ảnh, để mọi thứ nhòe đi</td>
+<td>Điểm sáng nhất có nằm đúng chỗ muốn người xem nhìn không?</td>
+<td>Ánh sáng + bố cục: sáng tản mát không dẫn mắt (tiêu chí 1, 9)</td>
+</tr>
+<tr>
+<td><strong>Thu nhỏ</strong> (thumbnail)</td>
+<td>Thu ảnh về cỡ con tem — nhìn trong lưới thư viện ảnh là được</td>
+<td>Còn "đọc" được ảnh chụp gì không, bố cục còn rõ không?</td>
+<td>Bố cục: không có điểm nhấn, lớp lang (tiêu chí 9)</td>
+</tr>
+<tr>
+<td><strong>Lật gương</strong> (flip)</td>
+<td>Lật ảnh trái-phải trong app chỉnh ảnh</td>
+<td>Ảnh lật có bị lệch, nặng một bên khó chịu không?</td>
+<td>Bố cục: mất cân bằng mà mắt đã quen nên không thấy (tiêu chí 9)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ghi số test trượt vào phiếu chấm — chúng là gợi ý chấm điểm thấp cho tiêu chí tương ứng, không phải điểm riêng.</p>
+<h2 id="a4-muoi-tieu-chi-nhom-theo-4-tru-cot">A.4. Mười tiêu chí — nhóm theo 4 trụ cột</h2>
+<p>Mỗi tiêu chí chấm <strong>1–5 điểm</strong> theo thước chung:</p>
+<blockquote>
+<p><strong>5</strong> — như ảnh chụp, không bắt được lỗi ở khía cạnh này · <strong>4</strong> — lỗi rất nhỏ, phải soi kỹ mới thấy · <strong>3</strong> — có lỗi thấy được nhưng không phá tổng thể · <strong>2</strong> — lỗi rõ, người không chuyên cũng thấy · <strong>1</strong> — lỗi nặng, phá cả ảnh</p>
+</blockquote>
+<h3 id="tru-cot-1-anh-sang-5-tieu-chi-nang-nhat-vi-anh-sang-la-hat-nhan-cua-o-that">Trụ cột 1 — ÁNH SÁNG (5 tiêu chí — nặng nhất, vì ánh sáng là hạt nhân của độ thật)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tiêu chí</th>
+<th>Thế nào là ĐẠT (4–5đ)</th>
+<th>Ví dụ lỗi điển hình (1–2đ)</th>
+<th>Cách kiểm nhanh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hướng sáng rõ</td>
+<td>Nhìn bóng đổ biết ngay ánh sáng đến từ cửa sổ/đèn nào</td>
+<td>Sáng đều mọi nơi như phòng chụp giấy tờ, không rõ nguồn</td>
+<td>Tìm 1 bóng đổ bất kỳ — có hướng thống nhất không?</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tương phản sáng-tối</td>
+<td>Có vùng sáng, vùng tối; ảnh "dám để tối" chỗ phụ</td>
+<td>Ảnh phẳng và xám, khử màu xong mọi thứ na ná nhau</td>
+<td>Test khử màu + nheo mắt</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Cửa sổ không cháy trắng</td>
+<td>Nhìn qua cửa sổ vẫn thấy cảnh bên ngoài (trời, nhà, cây)</td>
+<td>Ngoài cửa trắng xóa như bị đèn flash rọi</td>
+<td>Nhìn thẳng vào ô cửa sổ trong ảnh</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Nhiệt độ màu có chủ đích</td>
+<td>Tông ấm/lạnh nhất quán; nếu trộn (đèn ấm trong nhà + trời lạnh ngoài cửa) thì trộn có lý do</td>
+<td>Chỗ vàng chỗ xanh loang lổ không lý do; hoặc cả ảnh một màu vàng đè lên mọi thứ</td>
+<td>Màu trắng trong ảnh (tủ, ga giường) có bị ám màu lạ không?</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sạch nhiễu</td>
+<td>Không đốm hạt, không vệt sáng/tối lạ trên trần, góc tường</td>
+<td>Lấm tấm hạt ở vùng tối, vệt sáng rọi từ chỗ không có đèn</td>
+<td>Phóng to 100% xem góc tường và trần</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tru-cot-2-vat-lieu-2-tieu-chi">Trụ cột 2 — VẬT LIỆU (2 tiêu chí)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tiêu chí</th>
+<th>Thế nào là ĐẠT (4–5đ)</th>
+<th>Ví dụ lỗi điển hình (1–2đ)</th>
+<th>Cách kiểm nhanh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>Bề mặt có chi tiết, không "quá mới quá sạch"</td>
+<td>Sàn gỗ có vân khác nhau từng tấm; bề mặt có dấu vết sử dụng kín đáo</td>
+<td>Sàn/tường phẳng lì như nhựa; vân gỗ lặp giống hệt nhau hàng loạt</td>
+<td>Phóng to sàn gỗ: đếm xem có 2 tấm vân y hệt cạnh nhau không</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Phản chiếu và chất liệu đúng đời thực</td>
+<td>Sàn/đá phản chiếu mờ tự nhiên; cây có lá chuyển màu; vải/da nhìn ra chất vải/da</td>
+<td>Sàn bóng như gương soi; cây xanh lè một màu "xanh nhựa"; da sofa bóng như ni lông</td>
+<td>Soi sàn, cây, sofa — 3 thứ hay lộ nhất</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tru-cot-3-bo-cuc-may-anh-2-tieu-chi">Trụ cột 3 — BỐ CỤC &amp; MÁY ẢNH (2 tiêu chí)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tiêu chí</th>
+<th>Thế nào là ĐẠT (4–5đ)</th>
+<th>Ví dụ lỗi điển hình (1–2đ)</th>
+<th>Cách kiểm nhanh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>Góc máy như người đứng chụp</td>
+<td>Ngang tầm mắt; mép tường, khung cửa thẳng đứng; đồ đạc đúng tỉ lệ với nhau</td>
+<td>Tường nghiêng đổ như sắp sập; ghế to hơn bàn; góc nhìn từ trần nhìn xuống vô lý</td>
+<td>Áp thước/cạnh tờ giấy vào mép tường dọc trong ảnh — có song song không? So ghế với cửa</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Bố cục có lớp lang, đồ bày như có người sống</td>
+<td>Có tiền cảnh-trung cảnh-hậu cảnh; mắt có chỗ dừng; vài dấu vết sinh hoạt (sách mở, cốc nước, chăn hơi nhăn)</td>
+<td>Đồ xếp đối xứng máy móc như phòng trưng bày; hoặc trống trơn vô hồn; mọi thứ thẳng hàng tăm tắp</td>
+<td>Test thu nhỏ + lật gương; tìm 1 chi tiết "đang có người dùng"</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="tru-cot-4-hau-ky-tong-the-1-tieu-chi">Trụ cột 4 — HẬU KỲ &amp; TỔNG THỂ (1 tiêu chí)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tiêu chí</th>
+<th>Thế nào là ĐẠT (4–5đ)</th>
+<th>Ví dụ lỗi điển hình (1–2đ)</th>
+<th>Cách kiểm nhanh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Hậu kỳ tiết chế, màu tự nhiên</td>
+<td>Màu như mắt thấy ngoài đời; trắng không chói gắt, đen không đặc kịt</td>
+<td>Màu bão hòa lòe loẹt như filter mạng xã hội; ảnh gắt hoặc trắng lóa</td>
+<td>So với 1 ảnh chụp thật cùng loại phòng đặt cạnh — bên nào "no màu" hơn hẳn?</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="a5-thang-iem-va-nguong">A.5. Thang điểm và ngưỡng</h2>
+<p><strong>Tổng tối đa: 50 điểm.</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kết quả</th>
+<th>Điều kiện</th>
+<th>Hành động</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ĐẠT</strong></td>
+<td>Tổng ≥ 40/50 <strong>và</strong> không tiêu chí nào ≤ 2 <strong>và</strong> qua test 3 giây</td>
+<td>Nghiệm thu — được gửi khách / tính hoàn thành bài</td>
+</tr>
+<tr>
+<td><strong>SỬA LẠI</strong></td>
+<td>Tổng 30–39, <strong>hoặc</strong> có đúng 1 tiêu chí ≤ 2, <strong>hoặc</strong> trượt test 3 giây</td>
+<td>Trả về kèm phiếu chấm — sửa đúng các tiêu chí điểm thấp, không làm lại từ đầu</td>
+</tr>
+<tr>
+<td><strong>LÀM LẠI</strong></td>
+<td>Tổng &lt; 30, <strong>hoặc</strong> từ 2 tiêu chí ≤ 2 trở lên</td>
+<td>Làm lại từ khâu bố sáng — ảnh hỏng từ gốc, vá không nổi</td>
+</tr>
+</tbody>
+</table></div>
+<p>Vì sao có điều kiện "không tiêu chí nào ≤ 2": một lỗi nặng duy nhất (ví dụ cửa sổ cháy trắng xóa) đủ tố cáo ảnh 3D dù mọi thứ khác hoàn hảo — không cho phép điểm cao chỗ khác "gánh" lỗi chết người.</p>
+<p>⚠️ Các ngưỡng 40/30 là <strong>quy ước nội bộ Newhomes</strong> đặt tương đương mức ~80% của cả hai nguồn nghiên cứu gốc (10/12 và 32/40) — sau 2–3 đợt chấm thật, quản lý xem phân bố điểm rồi hiệu chỉnh nếu quá dễ/quá khó.</p>
+<h2 id="a6-phieu-cham-in-ra-dung-cho-tung-anh">A.6. Phiếu chấm — in ra dùng cho từng ảnh</h2>
+<p>```
+PHIẾU CHẤM ẢNH RENDER — Newhomes
+Ảnh số/tên: ............................  Người làm: ....................
+Người chấm: ............................  Ngày: .........................</p>
+<p>Test 3 giây:      [ ] Qua      [ ] Trượt — cái gì tố cáo: ...............
+Test tự soi trượt: [ ] Khử màu  [ ] Nheo mắt  [ ] Thu nhỏ  [ ] Lật gương</p>
+<ol>
+<li>Hướng sáng rõ ................................ __ /5</li>
+<li>Tương phản sáng-tối .......................... __ /5</li>
+<li>Cửa sổ không cháy trắng ...................... __ /5</li>
+<li>Nhiệt độ màu có chủ đích ..................... __ /5</li>
+<li>Sạch nhiễu ................................... __ /5</li>
+<li>Bề mặt có chi tiết, không quá mới ............ __ /5</li>
+<li>Phản chiếu &amp; chất liệu đúng đời thực ......... __ /5</li>
+<li>Góc máy như người đứng chụp .................. __ /5</li>
+<li>Bố cục lớp lang, đồ bày có sự sống ........... __ /5</li>
+<li>Hậu kỳ tiết chế, màu tự nhiên ................ __ /5</li>
+</ol>
+<p>TỔNG: __ /50    Số tiêu chí ≤ 2 điểm: __
+KẾT LUẬN:  [ ] ĐẠT (≥40, không mục ≤2, qua 3 giây)
+           [ ] SỬA LẠI (30–39 / 1 mục ≤2 / trượt 3 giây) — mục cần sửa: ......
+           [ ] LÀM LẠI (&lt;30 / ≥2 mục ≤2)
+```</p>
+<h2 id="a7-quy-uoc-cham-o-an-tot-nghiep">A.7. Quy ước chấm đồ án tốt nghiệp</h2>
+<p>Đồ án tốt nghiệp (kết thúc giáo trình, xem Chương 9) nộp <strong>bộ 3 ảnh final của cùng một căn hộ</strong>: 1 phòng khách + 1 phòng ngủ + 1 bếp hoặc WC. Chấm từng ảnh bằng phiếu A.6, tốt nghiệp khi:</p>
+<ul>
+<li>Cả 3 ảnh đều <strong>ĐẠT</strong> (≥ 40/50, không mục ≤ 2, qua test 3 giây);</li>
+<li>Ít nhất 1 ảnh ≥ 44/50;</li>
+<li>Học viên tự chấm trước bằng đúng phiếu này và nộp kèm — lệch quá 5 điểm so với quản lý ở bất kỳ ảnh nào thì phải ngồi lại soi cùng nhau (mục tiêu phụ của đồ án: học viên tự thấy được lỗi của mình).</li>
+</ul>
+<p>⚠️ Ngưỡng đồ án là quy ước nội bộ tự đặt — hiệu chỉnh sau khóa đầu tiên.</p>
+<h2 id="a8-ghi-chu-cho-nguoi-cham-khong-ranh-ky-thuat">A.8. Ghi chú cho người chấm không rành kỹ thuật</h2>
+<ul>
+<li><strong>Bạn không cần biết vì sao lỗi xảy ra</strong> — chỉ cần thấy <em>có</em> lỗi. "Vì sao" và "sửa thế nào" là việc của người làm ảnh (họ có Chương 3–7; cột "chương sửa lỗi" nằm trong bảng 12 dấu hiệu ở Chương 7).</li>
+<li><strong>Chuẩn so sánh duy nhất là ảnh chụp thật.</strong> Khi phân vân giữa 3 và 4 điểm, mở một tấm ảnh chụp nội thất thật cùng loại phòng (ảnh trên tạp chí nội thất, ảnh chụp căn hộ thật của công ty) đặt cạnh — chênh lệch tự lộ ra.</li>
+<li><strong>Không chấm gu thẩm mỹ.</strong> Phiếu này đo "ảnh có thật không", không đo "thiết kế có đẹp không". Một thiết kế bạn không thích vẫn có thể được 48/50 — và ngược lại.</li>
+<li><strong>Chấm mục nào ghi chú mục đó.</strong> Điểm 1–2 mà không có ghi chú "lỗi ở đâu trong ảnh" thì người làm không sửa được — mỗi điểm thấp kèm 1 câu chỉ chỗ (ví dụ: "tiêu chí 3: cửa sổ sau sofa trắng xóa").</li>
+<li><strong>Nghi ngờ thì trừ.</strong> Ảnh render đạt chuẩn phải thuyết phục được người khó tính; ảnh "chắc là ổn" tức là chưa ổn.</li>
+</ul>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<ul>
+<li><strong>Gốc hợp nhất:</strong> checklist nghiệm thu 12 tiêu chí đạt/không-đạt (nghiên cứu R8 — tổng hợp cộng đồng render Trung Quốc: 仙姑老师, Renderbus, Zhihu, help center Kujiale) + rubric tự chấm 8 tiêu chí × 5 điểm và 4 test tự soi grayscale/squint/thumbnail/flip (nghiên cứu R9 — phương pháp luyện mắt của giới archviz quốc tế). Bảng đối chiếu: tiêu chí 1←(A1,R9#1); 2←(A2,R9#2); 3←(A3); 4←(R9#4); 5←(A4); 6←(B1,R9#3); 7←(B2,B3); 8←(C1,D2,R9#5); 9←(C2,R9#6,R9#7); 10←(D3,R9#8); test 3 giây←(D1, chuyển thành cửa vào).</li>
+<li><strong>Quy ước nội bộ (⚠️ tự đặt, cần hiệu chỉnh sau thực chiến):</strong> ngưỡng 40/30, điều kiện "không mục ≤ 2", ngưỡng đồ án 3 ảnh + 1 ảnh ≥ 44, quy tắc lệch 5 điểm tự chấm.</li>
+</ul></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="09.html"><span class="dir">← Trước</span><div class="t">Chương 9 · Luyện mắt và nguồn theo dõi</div></a><a class="next" href="pb.html"><span class="dir">Tiếp theo →</span><div class="t">Phụ lục B · Phiếu khám phá app</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

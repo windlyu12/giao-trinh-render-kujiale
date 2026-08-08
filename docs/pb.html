@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phụ lục B. Phiếu khám phá app — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#74d4e6;--accent-soft:color-mix(in srgb, #74d4e6 13%, transparent);}</style>
+</head>
+<body data-slug="pb">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">B</div>
+    <div class="ch-meta"><span class="tag">Phụ lục B</span><span class="tag ghost">≈ 4 phút đọc</span></div>
+    <h1 class="ch-title">Phiếu khám phá app</h1>
+    <p class="ch-hook">Bài tập tuần đầu: tự tay khóa mọi con số ⚠️ của cuốn sách.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#a-hop-thoai-render-he-iem">A. Hộp thoại render + hệ điểm</a></li><li><a href="#b-anh-sang">B. Ánh sáng</a></li><li><a href="#c-vat-lieu">C. Vật liệu</a></li><li><a href="#d-cong-cu-ai">D. Công cụ AI</a></li><li><a href="#e-gia-lam-cung-quan-ly">E. Giá (làm cùng quản lý)</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau bài tập này bạn làm được:</strong> biết chính xác UI Kujiale bản hiện tại khác gì so với số liệu trong sách; tự tay khóa toàn bộ số ⚠️ trong giáo trình; quen mặt mọi màn hình quan trọng trước khi học sâu.</p>
+</blockquote>
+<p><strong>Vì sao có phiếu này:</strong> Kujiale đổi giao diện + hệ điểm rất nhanh (bản 8/2025 gộp 3 chế độ render, bản 3/2026 đổi hệ điểm 核豆). Sách viết từ nguồn công khai nên một số con số phải kiểm tra trên phần mềm thật. Bạn là người kiểm tra — điền xong nộp lại quản lý để cập nhật sách.</p>
+<p><strong>Cách làm:</strong> dùng tài khoản cao cấp (高级) của công ty. Làm lần lượt, <strong>chụp màn hình từng mục</strong> lưu vào folder <code>verify-screenshots/</code>. Mục ghi "✅ R10" là sách đã có đáp án từ nguồn chính thức — bạn chỉ liếc xác nhận đúng/sai.</p>
+<h2 id="a-hop-thoai-render-he-iem">A. Hộp thoại render + hệ điểm</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc cần làm</th>
+<th>Kết quả điền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>Bấm render → tìm nút <strong>「核豆消耗 - 查看详情」</strong> → chụp bảng số 核豆 tiêu cho ảnh thường 1080p / 2K / 4K / 8K (bảng này KHÔNG có trên web)</td>
+<td></td>
+</tr>
+<tr>
+<td>A2</td>
+<td>Ghi danh sách tỉ lệ khung hình có sẵn (16:9, 4:3, 3:4, 9:16...?)</td>
+<td></td>
+</tr>
+<tr>
+<td>A3</td>
+<td>Ghi pixel THỰC khi chọn "4K" và "8K"</td>
+<td></td>
+</tr>
+<tr>
+<td>A4</td>
+<td>✅ R10: 3 chế độ = 实时轻量 / 实时专业 / 离线模式; video + ảnh top-down CHỈ ở 离线. Liếc xác nhận</td>
+<td></td>
+</tr>
+<tr>
+<td>A5</td>
+<td>Đo thời gian render thật 1 phòng: 1080p / 2K / 4K (cùng cảnh)</td>
+<td></td>
+</tr>
+<tr>
+<td>A6</td>
+<td>Vào 会员中心: chụp quyền lợi bậc 高级 + nơi LĨNH vé 6K hằng tuần (quên lĩnh = mất)</td>
+<td></td>
+</tr>
+<tr>
+<td>A7</td>
+<td>Chế độ 实时专业: còn tính phí phút (0.15元/phút) hay trừ 核豆? Chụp màn hình tính phí</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="b-anh-sang">B. Ánh sáng</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc cần làm</th>
+<th>Kết quả điền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td><strong>QUAN TRỌNG NHẤT:</strong> tạo 1 面光源 → chụp panel tham số → độ sáng hiện đơn vị "瓦" hay số trơn? (quyết định mọi số đèn trong sách có phải ÷10 không — xem hộp cảnh báo đầu Chương 4)</td>
+<td></td>
+</tr>
+<tr>
+<td>B2</td>
+<td>✅ R10: đường vào đèn thủ công = 离线模式 hoặc 实时专业模式 → 灯光模板 → 添加手动灯光. Liếc xác nhận</td>
+<td></td>
+</tr>
+<tr>
+<td>B3</td>
+<td>Chụp danh sách 灯光模板 đang hiện (sách nói: 极速3.0/3.1 + 室内白天/夜晚 + 实时白天/夜晚) + <strong>template nào có nút 自动曝光?</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>B4</td>
+<td>Check các nút 降噪 / 漏光修复 / 溢色修正 còn trong 高级设置 không, ở template nào</td>
+<td></td>
+</tr>
+<tr>
+<td>B5</td>
+<td>Ghi min-max thanh trượt: độ sáng mặt trời + 阴影柔和度</td>
+<td></td>
+</tr>
+<tr>
+<td>B6</td>
+<td>Mở thư viện đèn IES: chụp danh sách profile, render thử 3-4 profile lên tường → ghi profile nào quạt rộng / hẹp / rọi tranh</td>
+<td></td>
+</tr>
+<tr>
+<td>B7</td>
+<td>Cột 外景: chụp danh mục thư viện ngoại cảnh + thử 上传外景 (còn nhận PNG/JPG ≤20MB, chỉ template 写实类?)</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="c-vat-lieu">C. Vật liệu</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc cần làm</th>
+<th>Kết quả điền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td>Mở 材质编辑 1 vật liệu gỗ: xác nhận các kênh = 反射颜色 / 反射光泽度 / 凹凸比例 / 折射 (như Chương 5)</td>
+<td></td>
+</tr>
+<tr>
+<td>C2</td>
+<td>Upload thử 1 texture melamine của công ty: giới hạn dung lượng UI báo (2MB hay 5MB?)</td>
+<td></td>
+</tr>
+<tr>
+<td>C3</td>
+<td>✅ R10: vật liệu xịn = dòng 实时材质通用库 + nhãn 精选 + 品牌馆 + hậu tố "-4K". Xác nhận VỊ TRÍ bộ lọc trong UI</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="d-cong-cu-ai">D. Công cụ AI</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc cần làm</th>
+<th>Kết quả điền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Tài khoản công ty có AI美化/AI+渲染 chưa? Đường vào đâu</td>
+<td></td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Dùng thử AI修图 1 ảnh: số lần miễn phí/ngày + độ phân giải ảnh ra</td>
+<td></td>
+</tr>
+<tr>
+<td>D3</td>
+<td>AI室内大师 trong 应用市场: cái nào miễn phí, cái nào đòi 企业版</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="e-gia-lam-cung-quan-ly">E. Giá (làm cùng quản lý)</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Việc cần làm</th>
+<th>Kết quả điền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1</td>
+<td>Mở kujiale.com/price hoặc 会员中心 → nâng cấp: chụp bảng giá CNY các bậc + đơn giá mua thêm (增购) 核豆</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="pb-t1"><span>Đủ screenshot cho mọi mục A1-E1 (trừ mục ✅ chỉ cần xác nhận đúng/sai)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="pb-t2"><span>Mục B1 có ảnh panel đèn rõ đơn vị</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="pb-t3"><span>Đã nộp phiếu + folder ảnh cho quản lý</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="pb-t4"><span>Quản lý đã cập nhật số vào sách (sách chuyển từ v1 → v1.1)</span></label></li>
+</ul></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="pa.html"><span class="dir">← Trước</span><div class="t">Phụ lục A · Bộ chấm ảnh</div></a><a class="next" href="pc.html"><span class="dir">Tiếp theo →</span><div class="t">Phụ lục C · Cheat sheet thuật ngữ</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

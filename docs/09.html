@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 9. Luyện mắt và nguồn theo dõi — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#7fb0f6;--accent-soft:color-mix(in srgb, #7fb0f6 13%, transparent);}</style>
+</head>
+<body data-slug="09">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">9</div>
+    <div class="ch-meta"><span class="tag">Chương 9</span><span class="tag ghost">≈ 21 phút đọc</span></div>
+    <h1 class="ch-title">Luyện mắt và nguồn theo dõi</h1>
+    <p class="ch-hook">Thói quen dài hạn: phân tích ảnh mỗi ngày, kênh phải theo, đồ án tốt nghiệp.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#91-lo-trinh-luyen-mat-8-khoi-goi-y-nhip-khong-phai-lich-cung">9.1 Lộ trình luyện mắt 8 khối — gợi ý nhịp, không phải lịch cứng</a></li><li><a href="#92-bai-tap-nen-hang-ngay-phan-tich-1-anh-tren">9.2 Bài tập nền hằng ngày: phân tích 1 ảnh trên 精品单图</a></li><li><a href="#93-danh-ba-kenh-a-kiem-chung">9.3 Danh bạ kênh đã kiểm chứng</a></li><li><a href="#94-cai-va-dung-rednote-bang-so-84-7-buoc">9.4 Cài và dùng 小红书 (RedNote) bằng số +84 — 7 bước</a></li><li><a href="#95-quy-tac-bao-tri-khi-nao-thay-kenh-khi-nao-ra-lai-sach">9.5 Quy tắc bảo trì: khi nào thay kênh, khi nào rà lại sách</a></li><li><a href="#96-o-an-tot-nghiep-ich-cuoi-cua-cuon-sach">9.6 Đồ án tốt nghiệp — đích cuối của cuốn sách</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Tự chạy lộ trình luyện mắt 8 khối bài tập theo nhịp riêng của mình, biết khối nào nối với chương nào trong sách
+- Duy trì thói quen "mỗi ngày phân tích 1 ảnh" trên kho ảnh mẫu chính thức của Kujiale, với hệ 5 thư mục sưu tập theo phòng
+- Theo dõi đúng người: 4 kênh Bilibili đã kiểm chứng UID + các đầu mối Douyin/小红书, và biết vì sao đáng theo từng kênh
+- Cài và đăng ký 小红书 (RedNote) bằng số điện thoại +84, tìm bài bằng 15 từ khóa chữ Hán copy sẵn
+- Biết khi nào phải THAY kênh và khi nào phải RÀ LẠI các bảng số trong chính cuốn sách này</p>
+</blockquote>
+<p>Bạn đã học xong phần kỹ thuật của sách. Từ đây trở đi, thứ quyết định ảnh của bạn tiến bộ nhanh hay giậm chân là <strong>thói quen hằng ngày</strong>: nhìn ảnh đẹp có phương pháp, chép sáng có chủ đích, và theo dõi đúng nguồn. Chương này là "chế độ vận hành sau khi gấp sách".</p>
+<h2 id="91-lo-trinh-luyen-mat-8-khoi-goi-y-nhip-khong-phai-lich-cung">9.1 Lộ trình luyện mắt 8 khối — gợi ý nhịp, không phải lịch cứng</h2>
+<p>Lộ trình gốc được cộng đồng archviz thiết kế dạng "8 tuần, mỗi ngày 30–60 phút" cho người vừa làm vừa học. Bạn học toàn thời gian nên <strong>sách không ép lịch tuần</strong> — coi mỗi "tuần" là 1 <strong>khối bài tập</strong>: xong tiêu chí thì sang khối kế, có thể đi nhanh gấp đôi. Nhịp cụ thể bạn chốt với quản lý. Chỉ giữ 2 nguyên tắc: làm <strong>tuần tự</strong> (khối sau xây trên khối trước) và khối 1–4 là <strong>lõi bắt buộc</strong>, khối 5–8 là củng cố.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Khối</th>
+<th>Chủ đề</th>
+<th>Việc chính</th>
+<th>Dấu hiệu xong</th>
+<th>Nối với</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Học NHÌN</td>
+<td>Mỗi ngày lấy 1 ảnh chụp nội thất đẹp, trả lời checklist 8 câu (dưới đây), ghi chú ngắn</td>
+<td>5–7 ghi chú + tự rút ra điểm CHUNG của ảnh đẹp</td>
+<td>Chương Mở đầu</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Test tự soi</td>
+<td>Áp 4 phép test (dưới đây) lên 5 ảnh render cũ của bạn/công ty, liệt kê lỗi theo bảng 12 nguyên nhân ảnh giả</td>
+<td>Mỗi ảnh có danh sách lỗi gọi đúng tên</td>
+<td>Chương Mở đầu</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Chép sáng lần 1</td>
+<td>Chọn 1 ảnh chụp thật ĐƠN GIẢN (1 phòng, 1 cửa sổ, hướng nắng rõ), dựng khối đơn giản trong Kujiale rồi tái tạo đúng hướng sáng, độ mềm bóng, tương phản</td>
+<td>Đặt render cạnh ảnh mẫu, khử màu cả hai — hướng sáng và phân bố sáng–tối trùng nhau</td>
+<td>C3 + C4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chép sáng lần 2</td>
+<td>Chọn ảnh mẫu có trộn nóng–lạnh (đèn ấm trong nhà + sáng lạnh cửa sổ); luyện "dám để tối" vùng phụ</td>
+<td>Tương phản nóng–lạnh ra đúng, vùng tối dám chìm</td>
+<td>C3 + C4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Vật liệu &amp; tì vết</td>
+<td>Lấy 1 render "sạch quá", thêm LẦN LƯỢT: phản xạ hợp lý → tì vết nhẹ → hạt nhiễu/hiệu ứng ống kính. Lưu ảnh từng bước</td>
+<td>Nhìn dãy ảnh thấy rõ mỗi lớp đóng góp gì</td>
+<td>C5 + C6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Camera &amp; bố cục</td>
+<td>Render cùng 1 cảnh với 3 tiêu cự và 2 chiều cao camera; sửa toàn bộ phương đứng cho thẳng</td>
+<td>Nói được bằng lời khác biệt giữa các phương án</td>
+<td>C6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Bày biện &amp; tone màu</td>
+<td>Thêm "dấu vết người sống" vào 2 cảnh; làm 1 cảnh theo 3 tone (mộc tối giản / sang trầm / sáng đều kiểu bán hàng)</td>
+<td>3 ảnh cùng cảnh khác hẳn cảm giác</td>
+<td>C6 + C7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Tổng hợp</td>
+<td>Làm lại TỪ ĐẦU chính cảnh của khối 3, áp mọi thứ đã học; nhờ người khác chấm bằng bộ chấm ảnh</td>
+<td>So trước–sau rõ tiến bộ; điểm chấm đạt ngưỡng (xem Phụ lục A)</td>
+<td>C7 + PL-A</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Checklist 8 câu khi phân tích một ảnh đẹp</strong> (dùng cho khối 1 và bài tập hằng ngày ở 9.2):</p>
+<ol>
+<li>Nguồn sáng chính ở đâu? (nhìn bóng đổ để suy ra hướng)</li>
+<li>Có nguồn phụ mở vùng tối không? Mở bao nhiêu?</li>
+<li>Tương phản ước lượng: phẳng — vừa — hay tối sâu kịch tính?</li>
+<li>Bóng cứng hay mềm? (suy ra nguồn to/nhỏ, gần/xa)</li>
+<li>Nhiệt độ màu: ấm, lạnh, hay trộn nóng–lạnh có chủ đích?</li>
+<li>Camera: cao hay thấp, rộng hay chuẩn, phương đứng có thẳng không?</li>
+<li>Bố cục: điểm nhấn ở đâu, có lớp tiền cảnh – trung cảnh – hậu cảnh không?</li>
+<li>Điều gì khiến ảnh "thật": tì vết nào, hạt nhiễu, lóa sáng, đồ bày biện gì?</li>
+</ol>
+<p><strong>4 phép test tự soi</strong> (dùng cho khối 2, và về sau áp lên MỌI ảnh trước khi nộp):</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Cách làm</th>
+<th>Ảnh đạt khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Khử màu</td>
+<td>Chuyển ảnh về đen trắng</td>
+<td>Vẫn đọc được khối và hướng sáng chính</td>
+</tr>
+<tr>
+<td>Nheo mắt</td>
+<td>Nheo mắt nhìn tổng thể</td>
+<td>Điểm sáng nhất rơi đúng chủ thể muốn khoe</td>
+</tr>
+<tr>
+<td>Thu nhỏ</td>
+<td>Thu ảnh cỡ con tem</td>
+<td>Bố cục vẫn "đọc" được</td>
+</tr>
+<tr>
+<td>Lật gương</td>
+<td>Lật ngược trái–phải</td>
+<td>Không lộ lệch cân nặng bố cục mà mắt đã quen</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 Chép sáng (khối 3–4) là bài tập được chính các nghệ sĩ archviz hàng đầu dùng để tự luyện: tái tạo một ảnh chụp thật buộc bạn nhìn ra từng quyết định ánh sáng của nhiếp ảnh gia, thay vì đoán mò tham số. Trong Kujiale, làm bằng 离线模式 (chế độ offline) + 手动灯光 (đèn tay) như đã học ở C4.</p>
+</blockquote>
+<h2 id="92-bai-tap-nen-hang-ngay-phan-tich-1-anh-tren">9.2 Bài tập nền hằng ngày: phân tích 1 ảnh trên 精品单图</h2>
+<p>Kho "chuẩn thẩm mỹ" tốt nhất cho người dùng Kujiale nằm ngay trên trang chủ: mục <strong>优秀设计</strong> (thiết kế xuất sắc) → <strong>精品单图</strong> (ảnh đơn tuyển chọn) tại <code>https://www.kujiale.com/design</code>. Ưu điểm so với lướt Pinterest: toàn bộ là ảnh render TỪ CHÍNH Kujiale — nghĩa là mọi thứ bạn thấy đều làm được bằng công cụ bạn đang có, không phải mơ theo V-Ray.</p>
+<ul>
+<li>Có bộ lọc <strong>theo phòng</strong>: 客厅 (phòng khách) / 卧室 (phòng ngủ) / 厨房 (bếp) / 卫生间 (WC) / 餐厅 (phòng ăn) / 书房 (phòng làm việc) / 玄关 (sảnh vào) / 阳台 (ban công) / 儿童房 (phòng trẻ em)... — ví dụ trang lọc phòng ngủ: <code>https://www.kujiale.com/xiaoguotu/woshi</code></li>
+<li>Có bộ lọc <strong>theo phong cách</strong>: 北欧 (Bắc Âu) / 现代简约 (hiện đại tối giản) / 日式 (Nhật) / 中式 (Trung) / 美式 (Mỹ) / 工业风 (industrial)...</li>
+<li>Sắp xếp theo 最新 (mới nhất) hoặc 最热 (xem nhiều nhất)</li>
+</ul>
+<p><strong>Bài tập:</strong> mỗi ngày chọn 1 ảnh và trả lời đủ <strong>3 câu hỏi</strong>, ghi vào sổ (giấy hoặc file):</p>
+<ol>
+<li><strong>Nguồn sáng chính</strong> đến từ đâu — 天光 (sáng trời qua cửa), 无主灯 (kiểu không đèn chủ, toàn đèn âm trần), hay 灯带 (dải đèn LED hắt)?</li>
+<li><strong>Vật liệu nào</strong> đang tạo phản xạ "đắt tiền" cho khung hình — gương, đá, kim loại hay kính?</li>
+<li><strong>Camera đặt thế nào và tiêu điểm ở đâu</strong> — mắt bạn bị dẫn về điểm nào trước tiên, nhờ cái gì?</li>
+</ol>
+<p>(Muốn phân tích sâu hơn thì chạy tiếp checklist 8 câu ở 9.1 — 3 câu là mức tối thiểu mỗi ngày.)</p>
+<p><strong>Hệ 收藏夹 (thư mục sưu tập) 5 ngăn theo phòng:</strong> mỗi ảnh đã phân tích, lưu vào đúng 1 trong 5 thư mục — <strong>khách (客厅) / ngủ (卧室) / bếp (厨房) / WC (卫生间) / đặc tả tủ (柜类特写)</strong>. Dùng cùng một bộ 5 tên này ở mọi nơi bạn sưu tập (kho ảnh Kujiale, 小红书 ở mục 9.4, hay folder ảnh trên máy). Vì sao chia theo phòng chứ không theo phong cách: khi nhận việc "render bếp căn 2 ngủ", bạn cần mở NGAY 20 ảnh bếp đẹp để đối chiếu — chứ không cần 20 ảnh "phong cách kem" lẫn đủ loại phòng.</p>
+<p>Sau 30 ngày, bạn có: 5 thư mục tham chiếu phân loại sẵn + sổ 30 bài phân tích. Đó chính là "thư viện thẩm mỹ cá nhân" — tài sản nghề nghiệp thật sự, không ai chép được của ai.</p>
+<h2 id="93-danh-ba-kenh-a-kiem-chung">9.3 Danh bạ kênh đã kiểm chứng</h2>
+<h3 id="bilibili-4-kenh-a-xac-minh-uid-nguon-chinh-e-hoc-ky-thuat">Bilibili — 4 kênh đã xác minh UID (nguồn chính để học kỹ thuật)</h3>
+<p>Bilibili xem được từ Việt Nam không cần tài khoản (muốn lưu/theo dõi thì đăng ký). Vào kênh bằng link <code>space.bilibili.com/{UID}</code> — dùng UID để khỏi lạc vào kênh giả mạo trùng tên.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kênh</th>
+<th>UID</th>
+<th>Quy mô khi kiểm chứng</th>
+<th>Vì sao đáng theo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>酷家乐设计师清晨</td>
+<td>495154634</td>
+<td>~27 vạn người theo dõi, 553 video</td>
+<td>Chuyên sâu nhất về 写实渲染 (render tả thực) + đánh đèn — trúng thẳng mục tiêu của sách này</td>
+</tr>
+<tr>
+<td>全能酷家乐万严</td>
+<td>344166523</td>
+<td>~43 vạn người theo dõi, 2.005 video</td>
+<td>Giáo trình hệ thống từ zero đến pro, kênh Kujiale đông người theo nhất; tra cứu khi hổng thao tác nền</td>
+</tr>
+<tr>
+<td>酷家乐王一</td>
+<td>377492045</td>
+<td>~17,8 vạn người theo dõi</td>
+<td>Nhiều bài đánh đèn TÁCH THEO TỪNG LOẠI PHÒNG (khách kem, bếp, WC...) — hợp để xem trước khi làm phòng cùng loại</td>
+</tr>
+<tr>
+<td>酷家乐也陌</td>
+<td>208854896</td>
+<td>~1,7 vạn người theo dõi</td>
+<td>Kênh nhỏ nhưng nhiều mẹo thực chiến cận cảnh: tủ, 灯带, camera — hợp giai đoạn tinh chỉnh chi tiết</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO — xem video cũ nhớ quy tắc ÷10:</strong> phần lớn video/bài chia sẻ tham số đèn của các kênh trên quay theo <strong>thang sáng cũ (0–800)</strong>. UI hiện tại hiển thị đơn vị 瓦 (watt ảo) = số cũ ÷10. Chép thẳng số trong video vào bản mới là cháy ảnh — đọc lại hộp cảnh báo đầu C4 trước khi áp bất kỳ con số nào.</p>
+</blockquote>
+<p>⚠️ Số người theo dõi ở trên là ảnh chụp tại thời điểm biên soạn (đầu 2026) và <strong>ngày ra video mới nhất của từng kênh chưa kiểm chứng được từ bên ngoài</strong> (trang kênh chặn công cụ tự động). Cách tự kiểm trong 1 phút: mở app/web Bilibili → tìm đúng tên kênh (đối chiếu UID) → vào 主页 (trang chủ kênh) → tab 投稿 (video đã đăng) → xem ngày video gần nhất.</p>
+<h3 id="douyin-au-moi-co-that-nhung-chua-mo-uoc-trang-chu-e-kiem-chung">Douyin — đầu mối có thật nhưng chưa mở được trang chủ để kiểm chứng ⚠️</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kênh</th>
+<th>Nội dung thấy được</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>酷家乐王一</td>
+<td>Cùng người với kênh Bilibili ở trên; có phiên livestream buổi sáng</td>
+<td>⚠️ tự kiểm bằng app Douyin</td>
+</tr>
+<tr>
+<td>酷家乐书涵</td>
+<td>Cửa sổ dị hình, 灯带, tủ, hốc tường, trần thả che dầm</td>
+<td>⚠️ tự kiểm bằng app Douyin</td>
+</tr>
+<tr>
+<td>钟西米酷家乐</td>
+<td>Dạy đánh đèn tả thực theo template 极速 đời mới; có khóa học trả phí</td>
+<td>⚠️ tự kiểm bằng app Douyin</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 <strong>Đính chính quan trọng:</strong> 钟西米 là kênh <strong>Douyin</strong>, KHÔNG phải Bilibili. Tài liệu tham khảo đời đầu của giáo trình từng ghi nhầm nền tảng — nếu bạn tìm "钟西米" trên Bilibili sẽ không thấy gì, đó không phải lỗi của bạn.</p>
+</blockquote>
+<h3 id="nguon-bo-so-en-tot-nhat">小红书 — 仙姑老师, nguồn bộ số đèn tốt nhất</h3>
+<p><strong>仙姑老师</strong> là tác giả bộ tham số đèn được Kujiale chính thức công nhận (bộ số 天光 2 lớp + 筒灯/射灯 mà C4 đã dạy). Kênh gốc trên 小红书; nội dung đã được kiểm chứng qua các bản đăng lại trên cộng đồng Kujiale (<code>ask.kujiale.com</code>) và báo mạng Trung Quốc. ⚠️ Trang 小红书 gốc chưa mở trực tiếp được từ ngoài — sau khi cài app theo mục 9.4, tự tìm "仙姑老师 酷家乐" để theo dõi tận nguồn.</p>
+<h3 id="nguon-nuoi-mat-ngoai-he-kujiale-xem-e-luyen-tham-my-khong-phai-e-chep-thao-tac">Nguồn nuôi mắt ngoài hệ Kujiale (xem để luyện thẩm mỹ, KHÔNG phải để chép thao tác)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nhóm</th>
+<th>Tên tiêu biểu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tạp chí nội thất</td>
+<td>Architectural Digest, Dezeen (mục Interiors), Kinfolk, Est Living, Elle Decor</td>
+</tr>
+<tr>
+<td>Nhiếp ảnh gia nội thất/kiến trúc</td>
+<td>Mike Kelley, Iwan Baan, Fernando Guerra</td>
+</tr>
+<tr>
+<td>Studio archviz đỉnh thế giới</td>
+<td>MIR (mir.no), The Boundary, Brick Visual, xoio</td>
+</tr>
+<tr>
+<td>YouTube về ánh sáng/archviz</td>
+<td>Chaos (V-Ray), Arch Viz Artist, D5 Render, The Rendering Essentials</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nhóm này dùng cho khối 1 của lộ trình 9.1 (phân tích ảnh CHỤP thật và render đỉnh cao) — còn thao tác cụ thể trên Kujiale thì chỉ theo danh bạ Bilibili/Douyin/小红书 phía trên.</p>
+<h2 id="94-cai-va-dung-rednote-bang-so-84-7-buoc">9.4 Cài và dùng 小红书 (RedNote) bằng số +84 — 7 bước</h2>
+<p>小红书 là nơi tập trung nhiều designer Kujiale chia sẻ ảnh + tham số nhất. Từ 20/1/2025 app đổi tên hiển thị thành <strong>"rednote"</strong> trên App Store/Google Play và mở đăng ký quốc tế. ⚠️ Chính sách với người dùng nước ngoài thay đổi nhanh trong 2025–2026 — các bước dưới đây đúng tại thời điểm biên soạn, khác biệt nhỏ thì tùy cơ ứng biến.</p>
+<ol>
+<li><strong>Cài app:</strong> tìm "rednote" trên App Store / Google Play Việt Nam — cài thẳng, KHÔNG cần đổi vùng tài khoản. Đừng dùng bản web xiaohongshu.com: đăng nhập web chủ yếu hỗ trợ số Trung Quốc.</li>
+<li><strong>Đăng ký bằng số +84:</strong> mở app → Sign up (注册) → chọn mã vùng <strong>+84</strong> (đừng chọn +86) → nhập số → nhận SMS mã 4 số → đặt mật khẩu. Có thể đăng ký qua Apple ID. <strong>Không cần số điện thoại Trung Quốc.</strong> ⚠️ Nếu SMS không về: thử lại sau vài giờ hoặc chuyển đường Apple ID.</li>
+<li><strong>Hiểu giới hạn tài khoản quốc tế:</strong> tài khoản +84 vẫn đọc được bài tiếng Trung, nhưng <strong>có thể không thấy đủ mọi bài của người dùng nội địa</strong> (hai "bể" nội dung tách nhau một phần). Bài nào nghi bị ẩn → tìm bằng Google: <code>site:xiaohongshu.com 酷家乐 打光</code>.</li>
+<li><strong>Đổi ngôn ngữ giao diện:</strong> Profile (góc phải dưới) → biểu tượng ⚙️ Settings → Language. App hỗ trợ 简体中文 / 繁体中文 / English — nhưng chỉ dịch NHÃN giao diện, <strong>nội dung bài viết vẫn nguyên tiếng Trung</strong>. Chữ Hán nằm trong ảnh thì dùng Google Lens dịch.</li>
+<li><strong>Tìm kiếm bằng chữ Hán:</strong> không cần biết tiếng Trung — copy-paste từ khóa. <strong>15 từ khóa copy sẵn:</strong></li>
+</ol>
+<p><code>酷家乐</code> · <code>酷家乐 打光</code> · <code>酷家乐 参数</code> · <code>酷家乐 写实渲染</code> · <code>酷家乐 灯光参数</code> · <code>酷家乐 卧室打光</code> · <code>酷家乐 暗卫打光</code> · <code>酷家乐 厨房效果图</code> · <code>酷家乐 材质 反射</code> · <code>酷家乐 全景图</code> · <code>酷家乐 出图技巧</code> · <code>酷家乐 翻车对比</code> · <code>酷家乐 衣柜 特写</code> · <code>酷家乐 光域网</code> · <code>酷家乐 相机构图</code></p>
+<p>Từ khóa mở rộng để luyện thẩm mỹ (không gắn với Kujiale): <code>效果图打光</code> · <code>室内摄影</code> · <code>侘寂风</code> · <code>奶油风</code> · <code>原木风</code> · <code>高级灰</code>.
+6. <strong>Lưu bài vào 收藏夹:</strong> bấm icon ngôi sao <strong>收藏</strong> (sưu tập) dưới bài → 新建收藏夹 (tạo thư mục mới) → tạo đúng 5 thư mục theo phòng như mục 9.2 (客厅 / 卧室 / 厨房 / 卫生间 / 柜类特写).
+7. <strong>Ba lưu ý cho tài khoản Việt Nam:</strong> (a) nền tảng có kiểm duyệt — chỉ dùng để XEM và LƯU, tránh đăng nội dung nhạy cảm kẻo bị hạn chế tài khoản; (b) mua model/khóa học trong app cần tài khoản + phương thức thanh toán Trung Quốc → người dùng Việt xác định trước là <strong>chỉ xem + lưu, không mua được</strong>; (c) muốn mua khóa của "thầy" nào (vd 钟西米) thì báo quản lý tìm đường mua hộ, đừng tự xoay.</p>
+<blockquote class="tip">
+<p>💡 Gợi ý vận hành cho công ty: lập <strong>1 tài khoản RedNote chung của team</strong>, ghim sẵn 15 từ khóa, cả nhóm cùng đắp vào 5 thư mục sưu tập — thư viện tham chiếu lớn nhanh gấp mấy lần mỗi người tự chơi một tài khoản.</p>
+</blockquote>
+<h2 id="95-quy-tac-bao-tri-khi-nao-thay-kenh-khi-nao-ra-lai-sach">9.5 Quy tắc bảo trì: khi nào thay kênh, khi nào rà lại sách</h2>
+<p>Danh bạ kênh và bảng số đều là thứ <strong>có hạn dùng</strong>. Hai quy tắc cứng:</p>
+<p><strong>Quy tắc 1 — thay kênh:</strong> kênh nào <strong>quá 6 tháng không ra video mới</strong> thì gỡ khỏi danh sách theo dõi, thay bằng kênh khác (tìm ứng viên mới bằng chính các từ khóa ở 9.4, hoặc xem kênh nào hay được video khác nhắc tên). Kiểm mỗi quý một lần: vào 主页 từng kênh → tab 投稿 → xem ngày đăng gần nhất. Kênh chết mà vẫn theo = học UI cũ, tham số cũ — chính là nguồn gốc của lỗi "chép số cũ vào bản mới".</p>
+<p><strong>Quy tắc 2 — rà lại sách:</strong></p>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO — sự kiện buộc phải rà lại bảng số của giáo trình:</strong> khi Kujiale phát hành thế hệ 灯光模板 (mẫu đèn) mới <strong>vượt dòng 3.x hiện hành</strong> (ví dụ xuất hiện 极速4.0), coi như MỌI bảng số đèn trong C3/C4 và bộ số 仙姑老师 hết hạn kiểm định. Kinh nghiệm từ lần đổi 2.x → 3.x: template đời mới dội sáng gián tiếp mạnh hơn, giữ nguyên số cũ là cháy trắng hàng loạt. Việc cần làm: báo quản lý → chạy lại Phiếu verify (Phụ lục B, trọng tâm mục B1/B3) trên template mới → cập nhật sách trước khi cả team dùng template đó cho bài thật.</p>
+</blockquote>
+<p>Tương tự, khi thấy thông báo đổi chính sách 核豆/phiếu render trong 会员中心 — rà lại C1 mục quyền lợi tài khoản. Người phát hiện thay đổi sớm nhất thường là người chạy bài tập hằng ngày ở 9.2 — thêm một lý do để không bỏ thói quen này.</p>
+<h2 id="96-o-an-tot-nghiep-ich-cuoi-cua-cuon-sach">9.6 Đồ án tốt nghiệp — đích cuối của cuốn sách</h2>
+<p>Khi bạn đã đi hết Chương 0-9 và các khối luyện mắt, chốt lại bằng đồ án:</p>
+<ul>
+<li><strong>Đề bài:</strong> chọn <strong>một căn hộ thật</strong> công ty đang làm (hoặc đã bàn giao) — dựng và render <strong>bộ 3 ảnh final: 1 phòng khách + 1 phòng ngủ + 1 bếp hoặc WC</strong>.</li>
+<li><strong>Chấm:</strong> quản lý chấm từng ảnh bằng phiếu A.6 (Phụ lục A). Tốt nghiệp khi cả 3 ảnh ĐẠT (≥40/50, không mục nào ≤2, qua test 3 giây) và ít nhất 1 ảnh ≥44/50.</li>
+<li><strong>Bắt buộc:</strong> bạn tự chấm trước bằng đúng phiếu đó và nộp kèm. Lệch quá 5 điểm so với quản lý ở ảnh nào → ngồi soi chung ảnh đó. Mục tiêu thật của đồ án không phải điểm — là bạn tự nhìn ra lỗi của mình.</li>
+<li>Toàn bộ quy ước chi tiết: Phụ lục A mục A.7.</li>
+</ul>
+<h2 id="thuc-hanh">Thực hành</h2>
+<p><strong>Bài 1 — Dựng hạ tầng theo dõi (làm 1 lần, ~1 buổi):</strong>
+1. Mở 4 kênh Bilibili theo đúng UID ở mục 9.3, lướt trang 投稿 từng kênh, xác nhận ngày video mới nhất; kênh nào im quá 6 tháng thì ghi chú báo quản lý.
+2. Cài RedNote, đăng ký số +84 theo 7 bước mục 9.4, đổi giao diện sang English.
+3. Tạo 5 收藏夹 theo phòng; search thử 3 từ khóa đầu trong danh sách 15 từ, lưu 2 bài đầu tiên vào đúng thư mục.
+- <strong>Đạt khi:</strong> có ảnh chụp màn hình 4 trang kênh Bilibili + tài khoản RedNote đăng nhập được + 5 thư mục đã tạo và có ít nhất 2 bài lưu đúng chỗ.</p>
+<p><strong>Bài 2 — Tuần khởi động "1 ngày 1 ảnh" (7 ngày liên tục):</strong>
+1. Mỗi ngày mở <code>kujiale.com/design</code> → 精品单图, chọn 1 ảnh — 7 ngày rải qua ít nhất 4 loại phòng khác nhau.
+2. Trả lời đủ 3 câu hỏi (nguồn sáng chính / vật liệu tạo phản xạ đắt tiền / camera + tiêu điểm) vào sổ, mỗi bài 3–5 dòng.
+3. Lưu ảnh vào đúng thư mục trong hệ 5 ngăn.
+- <strong>Đạt khi:</strong> đủ 7 bài phân tích, không sót ngày; đọc lại thấy ít nhất 1 nhận xét KHÔNG thể viết ra ở ngày 1.</p>
+<p><strong>Bài 3 — Chép sáng đầu tiên (khối 3 của lộ trình, ~2–3 buổi):</strong>
+1. Chọn từ thư mục 客厅 một ảnh ĐƠN GIẢN: một phòng khách, một cửa sổ, hướng nắng rõ, ít nguồn đèn.
+2. Dựng phòng hộp + vài khối đồ trong Kujiale (không cần đúng model, chỉ cần đúng khối), vào 离线模式 + 手动灯光, tái tạo hướng sáng, độ mềm bóng và tương phản của ảnh mẫu.
+3. Xuất ảnh, đặt cạnh ảnh mẫu, khử màu cả hai và so: hướng bóng đổ, vùng sáng nhất, vùng tối nhất.
+- <strong>Đạt khi:</strong> người thứ hai nhìn 2 ảnh đen trắng nói được "cùng một kiểu ánh sáng"; bạn tự liệt kê được 2 điểm còn lệch và nguyên nhân.</p>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="09-t1"><span>Tôi hiểu 8 khối luyện mắt là lộ trình tuần tự theo tiêu chí, không phải lịch tuần cứng, và đã chốt nhịp với quản lý</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t2"><span>Tôi thuộc 3 câu hỏi phân tích ảnh hằng ngày và 4 phép test tự soi (khử màu / nheo mắt / thu nhỏ / lật gương)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t3"><span>Tôi đã theo dõi 4 kênh Bilibili đúng UID và biết "vì sao đáng theo" của từng kênh</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t4"><span>Tôi nhớ: 钟西米 ở Douyin, không phải Bilibili; và mọi số đèn trong video cũ phải xét quy tắc ÷10</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t5"><span>Tôi đã có tài khoản RedNote đăng ký bằng +84, giao diện đã đổi ngôn ngữ, 15 từ khóa đã lưu sẵn để copy</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t6"><span>Tôi đã tạo đủ 5 thư mục sưu tập theo phòng và dùng cùng bộ tên ở mọi nền tảng</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t7"><span>Tôi biết quy tắc thay kênh (&gt;6 tháng im lặng) và kiểm danh bạ mỗi quý</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="09-t8"><span>Tôi biết sự kiện nào buộc rà lại bảng số của sách (template vượt 3.x / đổi chính sách 核豆) và việc đầu tiên là báo quản lý + chạy lại Phụ lục B</span></label></li>
+</ul>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lưu hàng trăm ảnh đẹp nhưng ảnh mình làm không khá lên</td>
+<td>Sưu tập thay thế cho phân tích — lướt và bấm sao thì không luyện được mắt</td>
+<td>Quy tắc "chưa trả lời đủ 3 câu thì chưa được lưu"; số lượng tối thiểu 1 ảnh/ngày là đủ</td>
+</tr>
+<tr>
+<td>Chép số đèn từ video Bilibili vào, ảnh cháy trắng</td>
+<td>Video quay theo thang sáng cũ; UI hiện tại dùng 瓦 = số cũ ÷10</td>
+<td>Đọc lại hộp cảnh báo đầu C4; mọi số từ video cũ phải quy đổi rồi mới thử</td>
+</tr>
+<tr>
+<td>Làm theo video mà không thấy nút như trong hình</td>
+<td>Video quay trước 8/2025 — UI render đã gộp về 3 chế độ</td>
+<td>Tra bảng ánh xạ tên cũ → mới ở C1; ưu tiên video đăng sau 8/2025</td>
+</tr>
+<tr>
+<td>RedNote không gửi SMS về số +84</td>
+<td>Chính sách đăng ký quốc tế thay đổi theo đợt</td>
+<td>Thử lại sau vài giờ, hoặc đăng ký bằng Apple ID; vẫn tắc thì báo quản lý</td>
+</tr>
+<tr>
+<td>Tìm trên RedNote không ra bài mà Google lại thấy</td>
+<td>Tài khoản quốc tế không thấy đủ bài nội địa</td>
+<td>Dùng <code>site:xiaohongshu.com + từ khóa</code> trên Google làm đường vòng</td>
+</tr>
+<tr>
+<td>Phân tích ảnh tuột thành "xem cho biết" sau 2 tuần</td>
+<td>Làm một mình, không ai đọc ghi chú</td>
+<td>Nộp sổ phân tích cho quản lý mỗi tuần 1 lần, hoặc cả team dùng chung 1 tài khoản sưu tập</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<ul>
+<li><strong>Nguồn chính thức:</strong> gallery 优秀设计 &gt; 精品单图 tại kujiale.com/design (trang công khai, bộ lọc phòng/phong cách tự kiểm được ngay).</li>
+<li><strong>Nguồn cộng đồng đã kiểm chứng:</strong> 4 kênh Bilibili xác minh trực tiếp qua trang space.bilibili.com bằng UID (số người theo dõi là ảnh chụp đầu 2026); 仙姑老师 xác minh qua bản đăng lại trên cộng đồng Kujiale (ask.kujiale.com) và báo mạng Trung Quốc.</li>
+<li><strong>Nguồn cộng đồng chưa kiểm chứng đầy đủ (⚠️):</strong> các kênh Douyin (王一 / 书涵 / 钟西米酷家乐) mới thấy qua trang video lẻ, chưa mở được trang chủ; trang 小红书 gốc của 仙姑老师; ngày ra video mới nhất của từng kênh Bilibili — tất cả kèm hướng dẫn tự kiểm trong chương.</li>
+<li><strong>Lộ trình 8 khối + checklist 8 câu + 4 phép test + danh sách nguồn quốc tế:</strong> tổng hợp từ cộng đồng archviz quốc tế (Ronen Bekerman, xoio) và nghiên cứu biên soạn của giáo trình — là phương pháp luyện tập, không phải thông số phần mềm.</li>
+<li><strong>Thông tin RedNote (đổi tên 20/1/2025, đăng ký +84, 3 ngôn ngữ giao diện, giới hạn thanh toán):</strong> tin công khai 2025 + kiểm chứng cộng đồng; ⚠️ chính sách thay đổi nhanh, các bước cài đặt cần người dùng tự xác nhận tại thời điểm làm.</li>
+</ul></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="08.html"><span class="dir">← Trước</span><div class="t">Chương 8 · Công cụ AI — dùng và cấm</div></a><a class="next" href="pa.html"><span class="dir">Tiếp theo →</span><div class="t">Phụ lục A · Bộ chấm ảnh</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

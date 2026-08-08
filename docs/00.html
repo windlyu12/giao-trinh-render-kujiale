@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mở đầu. Con mắt ánh sáng — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#ffab5e;--accent-soft:color-mix(in srgb, #ffab5e 13%, transparent);}</style>
+</head>
+<body data-slug="00">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item active" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">0</div>
+    <div class="ch-meta"><span class="tag">Mở đầu</span><span class="tag ghost">≈ 20 phút đọc</span></div>
+    <h1 class="ch-title">Con mắt ánh sáng</h1>
+    <p class="ch-hook">Vì sao ảnh bạn render nhìn vẫn giả dù làm đúng thao tác — và con mắt người render giỏi khác gì.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#vi-sao-thao-tac-ung-ma-anh-van-gia">Vì sao thao tác đúng mà ảnh vẫn giả</a></li><li><a href="#1-bang-12-nguyen-nhan-khien-anh-render-nhin-gia">1. Bảng 12 nguyên nhân khiến ảnh render nhìn giả</a></li><li><a href="#2-nam-nguyen-ly-anh-sang-can-ban">2. Năm nguyên lý ánh sáng căn bản</a></li><li><a href="#3-bai-hoc-tu-nhiep-anh-noi-that-chuyen-nghiep">3. Bài học từ nhiếp ảnh nội thất chuyên nghiệp</a></li><li><a href="#cuon-sach-nay-i-tiep-the-nao">Cuốn sách này đi tiếp thế nào</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Gọi tên đúng nguyên nhân khiến một ảnh render "nhìn giả" theo bảng 12 nguyên nhân — thay vì chỉ cảm thấy "sai sai mà không biết sai đâu"
+- Giải thích được 5 nguyên lý ánh sáng nền tảng: hướng sáng, tương phản, nhiệt độ màu, ánh sáng khoe chất liệu, phân lớp sáng
+- Cầm 1 ảnh chụp nội thất thật và "đọc" được nó theo checklist 8 bước: nguồn sáng ở đâu, tương phản bao nhiêu, bóng cứng hay mềm
+- Phân biệt 3 trường phái tone màu ảnh nội thất và biết ảnh mình sắp làm thuộc trường phái nào
+- Soi lại ảnh render cũ của chính mình, chỉ ra ít nhất 3 lỗi cụ thể bằng tên gọi chuẩn</p>
+</blockquote>
+<h2 id="vi-sao-thao-tac-ung-ma-anh-van-gia">Vì sao thao tác đúng mà ảnh vẫn giả</h2>
+<p>Bạn đã học xong khóa thao tác. Tường vẽ đúng, đồ đặt đúng, template render chọn đúng, nút bấm đúng. Ảnh xuất ra... vẫn có "mùi 3D". Bạn không chỉ ra được sai chỗ nào — chỉ biết khách nhìn một cái là hỏi "đây là ảnh vẽ à em?". Trong khi cùng phần mềm đó, các studio Trung Quốc render ra ảnh mà chính bạn cũng phải nhìn kỹ mới dám khẳng định không phải ảnh chụp.</p>
+<p>Khoảng cách đó không nằm ở phần mềm, không nằm ở thao tác, không nằm ở máy tính mạnh hơn. Nó nằm ở <strong>con mắt</strong>: người render giỏi nhìn ra ánh sáng trước khi bấm nút, người render thường bấm nút rồi mới hy vọng.</p>
+<p>Cộng đồng render Trung Quốc có một chữ rất trần trụi cho nghề này: <strong>骗眼睛</strong> (đánh lừa mắt). Ảnh render đẹp không phải ảnh "đúng kỹ thuật nhất" — mà là ảnh khiến mắt người tin đây là ảnh chụp. Mắt tin thì não tin. Và muốn lừa được mắt, ta phải bắt chước <strong>ảnh chụp thật</strong> — kể cả những "khuyết tật" của nó: góc phòng chìm tối, hạt nhiễu li ti, vệt lan sáng quanh cửa sổ, cạnh tủ mòn nhẹ. Người mới thường làm ngược lại: cố cho mọi thứ sáng đều, sạch bong, hoàn hảo — và chính sự hoàn hảo đó tố cáo ảnh là đồ máy tính.</p>
+<blockquote class="pin">
+<p>📌 Một studio render Trung Quốc dặn nhân viên mới, đại ý: đừng chăm chăm phần mềm xịn với tham số phức tạp — hãy nhìn nhiều căn phòng thật: nắng rọi vào thế nào, mặt đồ đạc phản quang ra sao, góc tường có chi tiết vụn gì, rồi bê những "chuyện vụn có thật" đó vào hình.</p>
+</blockquote>
+<p>Chương này không dạy một nút bấm Kujiale nào. Nó dạy thứ mà mọi chương sau đều đứng lên trên: cách nhìn ánh sáng như một nhiếp ảnh gia nội thất. Nguyên tắc ở đây áp dụng cho Kujiale, cho SketchUp, cho mọi phần mềm — và cho cả việc viết prompt AI sau này (xem Phụ lục D).</p>
+<h2 id="1-bang-12-nguyen-nhan-khien-anh-render-nhin-gia">1. Bảng 12 nguyên nhân khiến ảnh render nhìn giả</h2>
+<p>Xếp theo tầm ảnh hưởng — hạng 1 là "sát thủ" lớn nhất. Tổng hợp từ cộng đồng archviz quốc tế (Blender Artists, blog studio CGI) và nguồn Trung Quốc (Zhihu, Renderbus). Học thuộc bảng này trước — cả cuốn sách là hành trình sửa từng dòng của nó.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nguyên nhân</th>
+<th>Vì sao mắt đọc ra "giả"</th>
+<th>Tự soi nhanh</th>
+<th>Sửa ở chương</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Ánh sáng bẹt — không có nguồn chính</strong></td>
+<td>Sáng đều mọi phía → mất khối; tường, sofa, sàn cùng độ sáng, không biết mặt trời/đèn nằm đâu</td>
+<td>Chuyển ảnh về đen trắng: còn phân biệt vùng sáng – vùng tối không? Nhìn ra hướng nguồn chính không?</td>
+<td>C3, C4</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Không dám để tối</strong></td>
+<td>Kéo sáng vùng tối cho "thấy hết đồ" → ảnh xám bệt, mất chiều sâu; ảnh chuyên nghiệp chấp nhận gầm tủ, góc phòng chìm hẳn</td>
+<td>Histogram có chạm mép đen bên trái không, hay dồn cục xám ở giữa?</td>
+<td>C2, C4</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Vật liệu sạch tuyệt đối</strong></td>
+<td>Đời thực luôn có bụi, xước nhẹ, mòn cạnh, dấu tay; bề mặt hoàn hảo 100% là chữ ký của máy tính</td>
+<td>Đếm được 2–3 "khuyết tật thật" trong khung không?</td>
+<td>C5, C7</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Vật liệu lì, thiếu phản xạ</strong></td>
+<td>Thế giới thực phản xạ nhiều hơn ta tưởng — tường sơn, vải, gỗ đều có chút bóng dịu; toàn bề mặt lì thì như đồ chơi nhựa</td>
+<td>Từng vật liệu đã có lớp phản xạ phù hợp chưa?</td>
+<td>C5</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Vân lặp, texture nét thấp</strong></td>
+<td>20 tấm sàn cùng một vân gỗ lặp đều tăm tắp — dấu vân tay của phần mềm</td>
+<td>Lùi xa nhìn tổng thể: có thấy mẫu lặp không?</td>
+<td>C5</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Camera sai</strong></td>
+<td>Góc siêu rộng làm phòng méo, đường dọc đổ chụm, máy đặt cao 2m nhìn xuống = "mùi ảnh rao bán nhà rẻ tiền"</td>
+<td>Đường dọc thẳng đứng chưa? Góc nhìn có rộng bất thường không?</td>
+<td>C6</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Phòng không ai sống</strong></td>
+<td>Bàn trống trơn, sofa phẳng phiu, bếp không một cái ly → "hàng tồn kho", không cảm xúc</td>
+<td>Tìm được "dấu vết người sống" nào không (sách mở, khăn nhàu, ly đang dùng)?</td>
+<td>C6, C7</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Bố cục không lớp lang</strong></td>
+<td>Thiếu tiền cảnh – trung cảnh – hậu cảnh → ảnh phẳng, mắt không có đường đi</td>
+<td>Đếm đủ 3 lớp chiều sâu chưa? Điểm nhấn nằm đâu?</td>
+<td>C6</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Hậu kỳ quá tay</strong></td>
+<td>Lan sáng (bloom), HDR, bão hòa kéo lố → "mùi filter" đè lên ảnh</td>
+<td>Có vùng cháy trắng / màu bệt do kéo tay không?</td>
+<td>C6</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Màu không có câu chuyện</strong></td>
+<td>Không có màu chủ đạo: hoặc mỗi vật một màu rực chọi nhau, hoặc cả ảnh xám xịt không điểm nhấn</td>
+<td>Ảnh có 1 màu chủ đạo + dàn màu phụ ăn theo không?</td>
+<td>C6, C7</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Sạch mịn quá mức</strong></td>
+<td>Ảnh chụp thật luôn có hạt nhiễu (grain) rất nhẹ; mượt tuyệt đối là mượt kiểu CG</td>
+<td>Đã có lớp grain mỏng chưa?</td>
+<td>C6, C7</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Thiếu khuyết tật ống kính</strong></td>
+<td>Ảnh thật có lan sáng quanh nguồn, tối nhẹ 4 góc, rìa hơi mềm; thiếu sạch các thứ này thì "hoàn hảo đáng ngờ"</td>
+<td>Quanh cửa sổ/đèn có chút lan sáng chưa? Có tối góc nhẹ chưa?</td>
+<td>C6, C7</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Đọc bảng thế nào:</strong> khoảng 70% cảm giác "giả" đến từ hạng 1–4 — tức là <strong>ánh sáng và vật liệu</strong>. Nếu chỉ được sửa 4 thứ, hãy sửa: tạo hướng sáng rõ, dám để tối, thêm tì vết, cho vật liệu có phản xạ. Camera, bày biện, hậu kỳ là lớp hoàn thiện — chỉ phát huy khi 4 nền tảng kia đã đúng.</p>
+<blockquote class="warn">
+<p>⚠️ Riêng liều lượng tì vết (hạng 3): cộng đồng đồng thuận "phải có", nhưng bao nhiêu là đủ thì <strong>chưa có chuẩn định lượng</strong> — quá tay là thành bẩn, giả kiểu khác. Học liều lượng qua case thực chiến ở Chương 7.</p>
+</blockquote>
+<h2 id="2-nam-nguyen-ly-anh-sang-can-ban">2. Năm nguyên lý ánh sáng căn bản</h2>
+<p>Viết cho người không học mỹ thuật. Đọc chậm, mỗi mục thử liên hệ ngay với một căn phòng bạn đang ngồi.</p>
+<h3 id="21-huong-sang-tao-khoi-bong-cung-va-bong-mem">2.1. Hướng sáng tạo khối — bóng cứng và bóng mềm</h3>
+<ul>
+<li><strong>Sáng có hướng, bóng cứng:</strong> nguồn nhỏ hoặc ở xa (mặt trời, đèn rọi) → bóng đổ sắc nét, mặt sáng – mặt tối rõ ràng → <strong>tạo cảm giác khối và chất</strong>. Tài liệu Trung Quốc gọi vai trò này là 主光 (đèn chính) — nguồn định hình cả khung ảnh.</li>
+<li><strong>Sáng khuếch tán, bóng mềm:</strong> nguồn lớn hoặc ánh sáng đã tán xạ (trời râm, nắng qua rèm) → bóng mờ, chuyển tông êm dịu. Dễ chịu, nhưng lạm dụng là dính ngay lỗi hạng 1: bẹt.</li>
+<li><strong>Quy luật cần nhớ:</strong> nguồn sáng càng <strong>to</strong> (so với vật) và càng <strong>gần</strong> → bóng càng <strong>mềm</strong>. Cửa sổ lớn của căn hộ chính là một "softbox" khổng lồ.</li>
+<li>Ví dụ: cùng một phòng khách — nắng xiên buổi chiều in bóng khung cửa lên sàn: khối rõ, có cảm xúc. Trời râm: sáng đều, êm nhưng phẳng lì.</li>
+</ul>
+<h3 id="22-dam-e-toi-tuong-phan-la-chieu-sau">2.2. Dám để tối — tương phản là chiều sâu</h3>
+<p>Mắt người bị hút vào <strong>vùng sáng nhất</strong> của khung hình trước tiên. Người render giỏi lợi dụng điều đó: để tối vùng phụ, dồn sáng cho chủ thể — mắt người xem tự đi đúng chỗ. Kéo sáng mọi góc "cho thấy hết đồ" tức là vứt bỏ công cụ dẫn mắt mạnh nhất.</p>
+<ul>
+<li>⚠️ Ước lượng tương phản bằng tỉ lệ đèn chính : đèn phụ (số gốc từ nhiếp ảnh chân dung/điện ảnh — chỉ để <strong>ước lượng bằng mắt</strong>, không phải tham số phần mềm): 1:1–2:1 = phẳng, sáng đều kiểu ảnh rao nhà; 4:1 = có khối, kịch tính vừa; 8:1 trở lên = trầm tối sang trọng, bóng sâu.</li>
+<li>Máy ảnh không thu được dải sáng rộng như mắt người. Nhiếp ảnh gia <strong>chọn</strong> phơi sáng cho chủ thể và chấp nhận góc tối chìm hẳn hoặc cửa sổ hơi cháy. Ảnh render nên học đúng thái độ này: không cần thấy hết mọi chi tiết.</li>
+<li>⚠️ Kinh nghiệm của Lasse Rode (studio xoio, Đức): thế giới thực rất "xám" — tường trắng thật ra là xám sáng. Trong ảnh, chỉ điểm chói nhất được chạm gần trắng tuyệt đối; các mảng "trắng" còn lại nên dừng quanh mức 190–220 trên thang 255. (Số kinh nghiệm nghệ sĩ, không phải chuẩn đo.)</li>
+</ul>
+<h3 id="23-nhiet-o-mau-am-lanh-va-tron-co-chu-ich">2.3. Nhiệt độ màu — ấm, lạnh và trộn có chủ đích</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Dải Kelvin</th>
+<th>Cảm giác</th>
+<th>Hợp với</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2700–3000K (ấm)</td>
+<td>Vàng, ấm cúng, thư giãn</td>
+<td>Phòng ngủ, phòng khách buổi tối</td>
+</tr>
+<tr>
+<td>~4000K (trung tính)</td>
+<td>Trắng sạch, tỉnh táo</td>
+<td>Bếp, bàn làm việc</td>
+</tr>
+<tr>
+<td>5000–6500K (lạnh)</td>
+<td>Trắng xanh như ban ngày</td>
+<td>Ánh sáng trời, không gian hiện đại</td>
+</tr>
+</tbody>
+</table></div>
+<p>Điểm ăn tiền không nằm ở từng con số — nằm ở <strong>trộn nóng–lạnh có chủ đích</strong>: trong nhà đèn vàng ấm, ngoài cửa sổ ánh trời xanh lạnh → hai vùng màu tương phản tự tách lớp, ảnh có chiều sâu "điện ảnh" mà không cần thêm gì.</p>
+<ul>
+<li>⚠️ "Giờ vàng" (cộng đồng Trung Quốc gọi 黄金一小时): nắng cuối chiều ấm đỏ khoảng 3.000–4.000K, so với nắng trưa ~5.500–6.500K; phần khuất nắng lại ngả xanh vì hắt màu bầu trời → tương phản nóng–lạnh đẹp nhất trong ngày. (Các nguồn nêu dải hơi khác nhau — coi là dải tham khảo.)</li>
+<li><strong>Cảnh báo:</strong> trộn nhiệt độ màu phải có lý do (đèn vs cửa sổ). Đặt nguồn 2700K cạnh nguồn 6000K vô cớ trong cùng khung là lỗi, không phải phong cách.</li>
+</ul>
+<h3 id="24-anh-sang-khoe-chat-lieu-nghe-cua-cong-ty-nam-o-muc-nay">2.4. Ánh sáng khoe chất liệu — nghề của công ty nằm ở mục này</h3>
+<ul>
+<li><strong>Sáng tạt xiên (raking light):</strong> đèn chiếu gần song song với bề mặt → vân, gờ, độ nhám hiện hết. Đây là kỹ thuật bảo tàng dùng để soi bề mặt tranh. Áp vào nghề mình: vân melamine/laminate chỉ "nổi" khi có sáng tạt dọc theo cánh tủ — dưới đèn trần đều, cánh tủ vân gỗ đẹp mấy cũng bẹt như tấm formica giả.</li>
+<li><strong>Quy luật:</strong> bề mặt càng nhám, sáng tạt càng ăn. Bề mặt bóng phẳng (acrylic bóng gương, đá đánh bóng) gần như không ăn sáng tạt — thứ chúng cần là <strong>điểm phản chiếu nguồn sáng</strong> (specular): vật càng bóng, điểm phản chiếu càng nhỏ và gắt; vật càng nhám, điểm càng to và mờ. Acrylic mà không có điểm phản chiếu đèn nào là acrylic chết.</li>
+<li><strong>Vải:</strong> nhung, lụa, linen có ánh mềm hắt ở mép nếp gấp (sheen). Thiếu nó, rèm và sofa trông như đúc bằng nhựa.</li>
+</ul>
+<h3 id="25-phan-lop-anh-sang-sang-phai-co-thu-bac">2.5. Phân lớp ánh sáng — sáng phải có thứ bậc</h3>
+<p>Giới thiết kế chiếu sáng Trung Quốc có ẩn dụ trang điểm rất dễ nhớ:</p>
+<ul>
+<li><strong>Sáng nền</strong> — như phấn nền: phủ đều, không lộ nguồn, làm cả khung dịu lại.</li>
+<li><strong>Sáng chức năng</strong> — đủ dùng ở nơi cần: bàn ăn, bàn đọc, gương.</li>
+<li><strong>Sáng nhấn + sáng viền</strong> — như kẻ mắt: rọi tranh, hắt khe tủ, viền trần; tạo lớp và làm không gian có "độ sâu sang".</li>
+</ul>
+<p>Nhiếp ảnh gọi cùng ý tưởng là bộ ba đèn chính (tạo khối) – đèn phụ (mở vùng tối vừa đủ) – đèn viền (tách chủ thể khỏi nền). Nguyên tắc thẩm mỹ duy nhất cần khắc cốt: <strong>các lớp không được sáng bằng nhau</strong>. Chỗ chính sáng, chỗ phụ chìm. Đây chính là ranh giới giữa "bật hết đèn cho sáng" và "đánh sáng có tư duy" — sang Chương 4 bạn sẽ dựng đúng hệ thứ bậc này bằng đèn thủ công trong Kujiale.</p>
+<h2 id="3-bai-hoc-tu-nhiep-anh-noi-that-chuyen-nghiep">3. Bài học từ nhiếp ảnh nội thất chuyên nghiệp</h2>
+<p>Muốn ảnh "như chụp thật" thì phải biết người chụp thật làm gì.</p>
+<h3 id="31-tach-van-e-bai-hoc-tu-ky-thuat-ghep-phoi-sang">3.1. Tách vấn đề — bài học từ kỹ thuật ghép phơi sáng</h3>
+<p>Vấn đề kinh điển của nhiếp ảnh nội thất: trong nhà và cảnh ngoài cửa sổ chênh sáng quá lớn — phơi cho trong nhà thì cửa sổ cháy trắng, phơi cho cửa sổ thì trong nhà tối thui. Nhiếp ảnh gia giải bằng cách <strong>chụp nhiều tấm rồi ghép</strong>: một tấm lo trong nhà, một tấm lo cửa sổ; trường phái chụp nhà đất còn thêm một tấm đèn flash dội trần chỉ để lấy đúng màu tường.</p>
+<p>Bài học cho người render không phải là kỹ thuật ghép — mà là tư duy <strong>tách vấn đề</strong>: một lớp lo màu vật liệu, một lớp lo không khí ánh sáng, một lớp lo cảnh ngoài cửa sổ. Đừng bắt một nguồn sáng gánh tất cả. Kujiale cho bạn chỉnh từng thứ này riêng (nắng, trời, ngoại cảnh ở Chương 3; đèn tay ở Chương 4).</p>
+<h3 id="32-bat-hay-tat-en-khi-anh-ban-ngay-hai-truong-phai-chon-theo-muc-tieu">3.2. Bật hay tắt đèn khi ảnh ban ngày? Hai trường phái, chọn theo mục tiêu</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Trường phái</th>
+<th>Cách làm</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ảnh tạp chí / portfolio (editorial)</td>
+<td>Ban ngày <strong>tắt đèn</strong>, chỉ dùng ánh sáng tự nhiên</td>
+<td>Màu sạch, không ám vàng, không xung đột nhiệt độ màu, giữ mood tinh tế</td>
+</tr>
+<tr>
+<td>Ảnh rao bán nhà (real estate)</td>
+<td><strong>Bật hết đèn</strong> + sáng đều</td>
+<td>Phòng trông ấm, rõ, mời gọi — ưu tiên dễ hiểu với khách đại chúng</td>
+</tr>
+</tbody>
+</table></div>
+<p>Không có đúng/sai tuyệt đối — chỉ có <strong>hợp mục tiêu</strong>. Với Newhomes: ảnh gửi khách chốt phương án cần sáng ấm dễ hiểu; ảnh fanpage/portfolio xây thương hiệu cao cấp nên nghiêng editorial. Điều cấm duy nhất: trộn hai kiểu lẫn lộn trong cùng một khung.</p>
+<h3 id="33-camera-ba-con-so-phai-nho">3.3. Camera — ba con số phải nhớ</h3>
+<ul>
+<li><strong>Chiều cao máy:</strong> ⚠️ khoảng 1.2–1.5m (một số nguồn khuyên tới 1.6m ngang tầm mắt — chưa có con số chuẩn duy nhất). Ảnh tạp chí hay hạ thấp hơn để đồ nội thất trông bệ vệ. Tuyệt đối không đặt 2m nhìn xuống kiểu camera an ninh.</li>
+<li><strong>Tiêu cự:</strong> ảnh nội thất tạp chí thường 24–35mm. Lời khuyên của Lasse Rode: tránh xuống dưới 30mm, bản thân anh hay dùng 35–55mm — góc siêu rộng đang bị lạm dụng trong archviz. Góc rộng "thấy hết phòng" nhưng trả giá bằng méo hình và mùi ảnh rao nhà.</li>
+<li><strong>Phương đứng thẳng:</strong> mọi đường dọc (cạnh tường, cạnh tủ) phải thẳng đứng song song, không đổ chụm. Nhiếp ảnh gia phải mua ống kính tilt-shift đắt tiền để đạt điều này; trong render bạn chỉ cần khóa độ nghiêng dọc của camera về 0 — lợi thế miễn phí, không dùng là phí. Chi tiết thao tác ở Chương 6.</li>
+</ul>
+<h3 id="34-bay-bien-lam-khung-hinh-co-nguoi-song">3.4. Bày biện — làm khung hình "có người sống"</h3>
+<ul>
+<li><strong>Thêm vào:</strong> sách đang mở, ly cà phê đang uống, khăn/chăn hơi nhàu, cây xanh, dép ở cửa, gối lệch nhẹ. Vài món là đủ — chúng biến "phòng mẫu" thành "nhà đang sống".</li>
+<li><strong>Bỏ ra:</strong> ổ điện, công tắc, dây điện, khe thông gió, vật bị cắt ngang ở mép khung. Nhiếp ảnh gia nội thất xóa những thứ này ở hậu kỳ như một bước tiêu chuẩn.</li>
+<li><strong>Liều lượng theo trường phái:</strong> editorial bày ít mà tinh — vài "khoảnh khắc nhỏ" có chủ đích; ảnh rao nhà dọn trống cho phòng trông rộng. Đừng nhồi decor cho "sống động" — lộn xộn không chủ đích là giả kiểu khác.</li>
+</ul>
+<h3 id="35-ba-truong-phai-tone-mau-nhan-dien-e-chon">3.5. Ba trường phái tone màu — nhận diện để chọn</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Trường phái</th>
+<th>Ánh sáng</th>
+<th>Màu &amp; tương phản</th>
+<th>Dùng khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kinfolk / mộc</strong></td>
+<td>Tự nhiên, mềm, khuếch tán; né đèn nhân tạo</td>
+<td>Bão hòa thấp, tông đất/be/xám, nhiều khoảng thở</td>
+<td>Portfolio, phong cách wabi-sabi/tối giản, thương hiệu cao cấp kín đáo</td>
+</tr>
+<tr>
+<td><strong>Architectural Digest / sang</strong></td>
+<td>Dựng công phu, có chiều sâu và kịch tính</td>
+<td>Màu giàu nhưng kiểm soát chặt</td>
+<td>Ảnh "hero" khoe thiết kế đắt tiền</td>
+</tr>
+<tr>
+<td><strong>Real estate / sáng rõ</strong></td>
+<td>Bật hết đèn, sáng đều</td>
+<td>Bão hòa cao, mọi góc đều rõ</td>
+<td>Gửi khách đại chúng, cần dễ hiểu và mời gọi</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 "Look Kinfolk" mộc mạc thật ra là màu <strong>đã qua xử lý</strong> (giảm bão hòa, nâng vùng tối lên xám thay vì đen tuyền) — không phải màu gốc máy ảnh. Biết điều này để không cố ép "màu thật" ra chất Kinfolk rồi thất vọng.</p>
+</blockquote>
+<h2 id="cuon-sach-nay-i-tiep-the-nao">Cuốn sách này đi tiếp thế nào</h2>
+<p>Bảng 12 nguyên nhân ở trên chính là bản đồ cuốn sách: Chương 1 làm chủ bản Kujiale tiếng Trung; Chương 2 quy trình render và thông số; Chương 3 ánh sáng tự nhiên; Chương 4 đèn thủ công; Chương 5 vật liệu; Chương 6 camera – bố cục – hậu kỳ; Chương 7 tổng hợp thành photorealism qua case thực chiến; Chương 8 quy định dùng AI; Chương 9 lịch luyện mắt 8 tuần đầy đủ (chương này mới chỉ cho bạn nếm bài tập đầu tiên). Phụ lục A là bộ chấm ảnh dùng chung toàn công ty, Phụ lục D là từ vựng prompt AI.</p>
+<p>Con mắt có trước, nút bấm có sau. Giờ luyện mắt phát đầu tiên.</p>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-oc-mot-anh-chup-that-bang-checklist-8-buoc-khong-can-phan-mem">Bài 1 — Đọc một ảnh chụp thật bằng checklist 8 bước (không cần phần mềm)</h3>
+<ol>
+<li>Chọn <strong>1 ảnh chụp nội thất thật</strong> (không phải render): mở Architectural Digest, Dezeen mục Interiors, hoặc Kinfolk; chọn ảnh một phòng có cửa sổ, ánh sáng rõ hướng, tránh cảnh quá phức tạp. (Danh bạ nguồn ảnh đầy đủ ở Chương 9.)</li>
+<li>Nhìn tổng thể 30 giây, sau đó trả lời <strong>lần lượt</strong> 8 câu — đây là checklist bạn sẽ dùng suốt khóa luyện mắt:</li>
+<li><strong>Nguồn sáng chính</strong> ở đâu? (cửa sổ trái/phải, đèn, mặt trời) — suy từ hướng bóng đổ.</li>
+<li><strong>Có nguồn phụ không?</strong> Vùng tối được mở nhiều hay ít?</li>
+<li><strong>Tương phản</strong> ước lượng: phẳng (1:1–2:1), vừa (4:1), hay trầm sâu (8:1 trở lên)?</li>
+<li><strong>Bóng cứng hay mềm?</strong> → suy ra nguồn to hay nhỏ, gần hay xa.</li>
+<li><strong>Nhiệt độ màu:</strong> ấm hay lạnh? Có trộn nóng–lạnh không (trong ấm/ngoài lạnh)?</li>
+<li><strong>Camera:</strong> cao hay thấp? Góc rộng hay chuẩn? Phương đứng có thẳng không?</li>
+<li><strong>Bố cục:</strong> điểm nhấn ở đâu? Có đủ tiền cảnh – trung cảnh – hậu cảnh không?</li>
+<li><strong>Điều gì khiến ảnh "thật":</strong> tì vết nào? Hạt nhiễu? Lan sáng? Món đồ nào có dấu người dùng?</li>
+<li>Ghi câu trả lời ra giấy hoặc ghi chú điện thoại — mỗi câu 1 dòng, không cần văn hay.</li>
+</ol>
+<p><strong>Đạt khi:</strong> trả lời đủ cả 8 câu; chỉ đúng hướng nguồn sáng chính bằng bóng đổ (không đoán mò); nêu được ít nhất 2 chi tiết cụ thể khiến ảnh "thật".</p>
+<h3 id="bai-2-soi-mot-anh-render-cu-bang-bang-12-nguyen-nhan">Bài 2 — Soi một ảnh render cũ bằng bảng 12 nguyên nhân</h3>
+<ol>
+<li>Lấy 1 ảnh render cũ của bạn hoặc của công ty (ảnh từng bị chê "nhìn giả" càng tốt).</li>
+<li>Chạy lại đúng 8 câu ở Bài 1 lên ảnh này.</li>
+<li>Đối chiếu bảng 12 nguyên nhân ở mục 1: ảnh dính những dòng nào? Ghi số thứ tự + 1 câu mô tả biểu hiện cụ thể trong ảnh.</li>
+</ol>
+<p><strong>Đạt khi:</strong> gọi tên được ít nhất 3 nguyên nhân theo đúng số thứ tự bảng, mỗi nguyên nhân kèm biểu hiện nhìn thấy được (vd: "hạng 2 — gầm bàn và góc phòng sáng ngang mặt bàn").</p>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="00-t1"><span>Kể được ít nhất 8/12 nguyên nhân ảnh giả mà không nhìn sách</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t2"><span>Giải thích được vì sao nguồn sáng to và gần cho bóng mềm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t3"><span>Giải thích được vì sao ảnh chuyên nghiệp dám để góc phòng chìm tối</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t4"><span>Nói được khi nào cần sáng tạt xiên (vân melamine) và khi nào cần điểm phản chiếu (acrylic bóng)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t5"><span>Thuộc 8 câu của checklist phân tích ảnh</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t6"><span>Đã phân tích xong 1 ảnh chụp thật, có ghi chú đủ 8 câu (Bài 1)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t7"><span>Đã soi 1 render cũ, gọi tên ít nhất 3 lỗi theo bảng 12 (Bài 2)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="00-t8"><span>Nói được ảnh gửi khách của Newhomes thuộc trường phái tone màu nào, ảnh fanpage thuộc trường phái nào</span></label></li>
+</ul>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<p>Chương này chưa đụng phần mềm nên lỗi ở đây là <strong>lỗi tư duy</strong> — chính là những thói quen sẽ phá bạn ở các chương sau:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Bật hết đèn lên cho sáng"</td>
+<td>Tưởng sáng đều = đẹp</td>
+<td>Một nguồn chính rõ ràng, các lớp còn lại chìm dần theo thứ bậc (mục 2.5)</td>
+</tr>
+<tr>
+<td>Kéo sáng vùng tối để "khách thấy hết đồ"</td>
+<td>Sợ mất chi tiết</td>
+<td>Chọn thứ cần thấy, để phần còn lại chìm — vùng tối là chiều sâu, không phải lỗi (mục 2.2)</td>
+</tr>
+<tr>
+<td>Ảnh xấu → đi tìm phần mềm/preset khác</td>
+<td>Đổ lỗi công cụ</td>
+<td>Chạy 8 câu checklist lên ảnh trước; 70% vấn đề nằm ở ánh sáng + vật liệu, phần mềm nào cũng vậy</td>
+</tr>
+<tr>
+<td>"Cứ render đã, hậu kỳ cứu sau"</td>
+<td>Ỷ lại chỉnh sửa</td>
+<td>Hậu kỳ chỉ đánh bóng ảnh đã đúng gốc; ảnh sai hướng sáng thì không cứu được (hạng 9 sẽ chờ sẵn)</td>
+</tr>
+<tr>
+<td>Nhồi thật nhiều decor cho "có hồn"</td>
+<td>Nhầm nhiều đồ = sống động</td>
+<td>Vài dấu vết sống có chủ đích; lộn xộn vô chủ đích là giả kiểu khác (mục 3.4)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<ul>
+<li><strong>Nguồn quốc tế (nhiếp ảnh + archviz):</strong> loạt bài "The Art of Rendering" trên Architizer/Ronen Bekerman (kinh nghiệm Lasse Rode – studio xoio: tiêu cự, ngưỡng trắng, grain, phản xạ); National Gallery London (định nghĩa raking light); Fstoppers/B&amp;H (tilt-shift, phương đứng); PhotoUp/Deptho (kỹ thuật ghép phơi sáng, flambient); khảo sát NAR 2025 về staging nhà đất (bối cảnh trường phái real estate).</li>
+<li><strong>Nguồn cộng đồng Trung Quốc:</strong> Renderbus/瑞云 (nguyên tắc 骗眼睛), Zhihu (điểm phản chiếu specular, tương phản sáng tối), ZCOOL (黄金一小时), 网易/简书 (ẩn dụ trang điểm cho phân lớp sáng).</li>
+<li><strong>Các số đánh dấu ⚠️ trong chương</strong> (tỉ lệ tương phản 2:1/4:1/8:1, Kelvin giờ vàng, chiều cao camera 1.2–1.6m, ngưỡng trắng 190–220): đều là <strong>dải kinh nghiệm từ nhiếp ảnh</strong>, không phải tham số Kujiale — dùng để ước lượng bằng mắt, không có mục verify tương ứng trong Phụ lục B.</li>
+<li>Chương này không chứa số liệu UI Kujiale nên không dính 4 cảnh báo phiên bản; các chương thao tác (C1 trở đi) sẽ có.</li>
+</ul></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="next only-next" href="01.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 1 · Làm chủ Kujiale bản Trung Quốc</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>
