@@ -1,5 +1,19 @@
 # Prompt đang chạy — bản mới nhất, dán là dùng
 
+> # 📍 DÙNG BẢN NÀO — khỏi phải đọc hết file
+>
+> | Cần gì | Lấy ở đâu |
+> |---|---|
+> | **Cảnh MỚI bất kỳ (ban ngày)** | **`references/05-prompt-ai.md` §7.4** — khung điền vào ngoặc vuông |
+> | Cảnh sảnh vào + bàn ăn (3ds Max) | **CA2 bản A8** — cuối file, đã hội tụ ✅ |
+> | Cảnh bàn ăn marble + panel gỗ | CA1 bản B3 — chưa test |
+> | Cảnh phòng khách hẹp (sửa ảnh đã render) | CA3 — chưa test |
+> | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
+>
+> Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
+> Bảng **"cụm ĐÃ THỬ và HỎNG"** ở giữa file là thứ đáng đọc nhất trước khi viết prompt mới.
+
+
 Đây là **text đầy đủ** của các prompt đã/đang test. `FEEDBACK.md` ghi *vì sao*, file này giữ *cái để copy*.
 Sửa prompt thì sửa ở đây và ghi lại lượt, đừng để text trôi trong chat.
 

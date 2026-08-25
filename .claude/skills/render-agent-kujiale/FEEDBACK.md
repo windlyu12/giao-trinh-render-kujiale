@@ -1,5 +1,33 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
+> # 📍 TRẠNG THÁI — cập nhật 2026-08-25
+>
+> **Đang tạm dừng, chờ ca mới.** Không có việc gì treo dở.
+>
+> ### Đã chốt
+> - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
+>   `references/05-prompt-ai.md` **§7**. Bản cụ thể mới nhất: **CA2 A8** trong `PROMPTS-DANG-CHAY.md`.
+> - **Công cụ test: Google Banana Pro** (ca 03 chạy Flow). Mọi kết luận calibrate theo đó.
+> - **7 luật đã vá vào skill** — xem cột "đã vá" ở bảng cuối file.
+>
+> ### Đang treo (KHÔNG phải việc dở — là chờ bên ngoài)
+> - **Giáo trình Kujiale đứng lại** vì chưa có ai verify số trong app (Phụ lục B chưa làm).
+>   → Chưa kê phiếu thông số Kujiale cho cảnh nào. Khi nào có số verify thì mở lại.
+> - **Khung §7 mới thử đúng 1 cảnh** (sảnh vào + bàn ăn, ban ngày). Chưa biết có ăn ở cảnh khác không.
+> - **6 luật còn 1/3 ca** trong bảng chờ — cần ca mới mới đủ bằng chứng.
+>
+> ### 🆕 CÓ CA MỚI THÌ LÀM ĐÚNG 3 BƯỚC
+> 1. **Làm bài luôn** — xuất kết quả đầy đủ, dán là chạy. Không hỏi lại, không xuất mảnh.
+>    Khung prompt lấy ở `05` §7, điền vào ngoặc vuông.
+> 2. **Nhận feedback thì ghi vào file này**, theo mẫu ngay dưới. **KHÔNG sửa `references/` ngay.**
+> 3. **Chỉ vá skill khi một luật đủ 3 ca khác nhau.** Ca 03 đã chứng minh vì sao:
+>    luật rút từ 1 ca lẻ bị bác và đảo hướng ở ca sau.
+>
+> ### Ngoài repo
+> - Phiếu render khu bàn ăn (marble + panel gỗ), bản artifact:
+>   `https://claude.ai/code/artifact/e34528cb-0f79-4412-be6a-54e652f15720`
+
+
 > 🛠️ **CÔNG CỤ TEST:** toàn bộ series CA2 chạy trên **Google Banana Pro**. Ca 03 chạy trên
 > **Google Flow**. **Production render của công ty là Kujiale** — mọi kết luận về prompt AI chỉ
 > có hiệu lực với công cụ AI, không áp cho phiếu thông số Kujiale.
