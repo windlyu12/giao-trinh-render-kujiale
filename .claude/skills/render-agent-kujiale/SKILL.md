@@ -185,6 +185,22 @@ Lỗi bước ① không bao giờ sửa được bằng bước ②③.
 
 ---
 
+## Vòng phản hồi — mặc định là LÀM BÀI, không phải sửa skill
+
+Khi người dùng ném ảnh vào mà không nói gì thêm: **mặc định là họ muốn kết quả, không phải muốn test skill.**
+Họ thường không biết thông số — chỉ thấy đẹp thì ném cho xem. Nên:
+
+1. **Xuất kết quả luôn.** Không hỏi lại "anh muốn em làm gì với ảnh này".
+2. **Luôn kèm phần prompt AI** khi có ảnh mẫu — đó là thứ người dùng test được ngay trong vài phút,
+   nên nó cho vòng phản hồi nhanh nhất. Phiếu thông số Kujiale phải chờ cả buổi render mới biết đúng sai.
+3. **Nhận feedback thì ghi vào `FEEDBACK.md`, KHÔNG sửa `references/` ngay.**
+   Vá skill theo từng ca lẻ là cách nhanh nhất để nhét vào đó một luật chỉ đúng cho một cảnh.
+4. **Chỉ rà và sửa skill khi sổ đủ dày** — khoảng 8–10 ca, hoặc khi một luật lặp lại từ **3 ca khác nhau**.
+
+Ghi feedback theo đúng hệ **6 khối** của `05-prompt-ai.md` để sau này gom lại biết khối nào hay hỏng.
+
+---
+
 ## Giọng và khuôn xuất
 
 - Viết tiếng Việt. Tên nút giữ **chữ Hán** (kèm nghĩa Việt lần đầu trong mỗi phiếu) — vì UI thật là bản Trung.
