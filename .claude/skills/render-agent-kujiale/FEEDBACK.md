@@ -252,6 +252,48 @@ là chỗ kém tin cậy nhất để làm.
 
 ---
 
+### 07 — 2026-08-25 — CA2 bản A3, kết quả test
+
+**Kết quả:** **vật liệu ăn rõ. Grain và vignette vẫn KHÔNG ăn.**
+
+**✅ Ăn — khối 5+6 viết lại có tác dụng thật:**
+| Thứ | Trước (bản A) | Sau (A3) |
+|---|---|---|
+| Cánh tủ trắng | Nhựa nhất khung, phẳng lì đều màu | Có sheen biến thiên, đọc ra sơn mờ |
+| Ghế mây | Ra chất nhưng hơi mượt | Mắt đan hiện rõ, ra đúng rattan thật |
+| Console cong | Như đúc khuôn nhựa | Vân gỗ có chiều, bề mặt satin có hướng |
+| Tường | Trơn | Đọc ra chất phấn/matte |
+| Cân bằng trắng | Ám kem toàn khung | Cánh tủ đọc ra gần-trắng — **`Neutral white balance` ĂN** |
+
+→ **Xác nhận:** tả **bề mặt** thay vì liệt kê **tên vật liệu**, và cho mỗi vật liệu một mức bóng riêng,
+là đòn ăn nhất với cảm giác nhựa ở tầng vật liệu.
+→ **Xác nhận:** bỏ `physically based materials` + `soft specular highlights` không gây hại, có lợi.
+
+**❌ KHÔNG ăn — và đây là kết quả quan trọng nhất của ca này:**
+
+| Yêu cầu trong prompt | Kết quả |
+|---|---|
+| `fine grain visible across the whole frame` | **Không có hạt nào đọc được.** Ảnh vẫn mịn tuyệt đối |
+| `a gentle vignette at the corners` | Không thấy tối góc |
+| `faint chromatic fringing` | Không thấy |
+| `Let parts of the frame sit in genuine shadow` | Chỉ ăn một phần — trần vẫn sáng đều, không có vùng tối thật |
+
+**🔑 Grain đã thử HAI cách phát biểu, cả hai đều ra 0:**
+- `subtle film grain` (5 bản prompt) → 0
+- `fine grain **visible** across the whole frame` (1 bản) → vẫn 0
+
+→ **Luật 3 của `05` §0 được xác nhận bằng thực nghiệm, không còn là suy đoán:**
+**tầng "lớp phủ" của ảnh (hạt · tối góc · quang sai · vi chi tiết) KHÔNG prompt được ở model này.**
+Sửa `visible` không cứu được. **Đây là việc của hậu kỳ, chấm hết.**
+Ngược lại, tầng **vật liệu** thì prompt được rất tốt — hai tầng này phải tách bạch khi chẩn đoán.
+
+**Lỗi phụ — regression staging:** `one pair of shoes turned slightly out of line` ăn ở bản A,
+**mất ở A3**. Giày lại xếp thẳng hàng. Nghi do khối 5 dài thêm nhiều làm loãng câu staging.
+
+**Sửa thành gì thì ăn:** A3 là **bản giữ** cho phần vật liệu. Phần còn lại chuyển hẳn sang hậu kỳ.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -259,6 +301,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
 | ✅ **ĐÃ VÁ vào `05` §0 Luật 2.** Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa. Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
+| ✅✅ **ĐÃ VÁ + ĐÃ XÁC NHẬN BẰNG THỰC NGHIỆM (ca 07).** Grain thử 2 cách phát biểu đều ra 0. Tầng "lớp phủ" (hạt/tối góc/quang sai) **không prompt được**; tầng **vật liệu** thì prompt được rất tốt — phải tách bạch hai tầng khi chẩn đoán | 01, 02, 06, 07 | **đã vá** |
 | ✅ **ĐÃ VÁ vào `05` §0 Luật 3.** "Lớp nhựa phủ toàn ảnh" không sửa được bằng prompt thuần. Bộ đồ nghề chống nhựa của C14 (curve S · hạt nhiễu · tối góc) đều là bước HẬU KỲ. Mọi bản prompt phải kèm công thức hậu kỳ, không được coi ảnh AI là bản cuối | 01, 02, 06 | **3/3 — sẵn sàng vá** |
 | ✅ **ĐÃ VÁ vào `05` §0 Luật 2.** Bó quá thì thứ đó biến mất. `subtle film grain` viết 5 bản, grain ra bằng 0. Bó *tính chất* nhưng phải ép *sự hiện diện*: `fine grain visible across the whole frame`. Đây là tinh chỉnh của luật ca 04, không phải bác | 02, 04, 06 | **3/3 — sẵn sàng vá** |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Prompt phải có tì vết ở khối 5. Hàng 22 của bảng 26 cụm có sẵn trong skill mà chưa dùng lần nào. Không có nó thì vật liệu ra nhựa (hạng 3+4 bảng 12) | 02, 06 | 2/3 |

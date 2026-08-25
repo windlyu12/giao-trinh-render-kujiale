@@ -182,7 +182,7 @@ và lưng ghế mây gặp sáng tạt rất dễ ra kiểu xù của ca 04.
 giữ mốc lạnh khi dùng tông ấm. Thêm một câu mới: **xoá overlay viewport** (chữ `[Corona Camera015]`
 góc trên trái + trục toạ độ góc dưới trái) — thứ ảnh nguồn Kujiale không có nhưng 3ds Max thì có.
 
-## 🔄 CA2 bản A3 — ĐẦY ĐỦ, dán là chạy (CHƯA TEST)
+## ✅ CA2 bản A3 — ĐẦY ĐỦ, dán là chạy (ĐÃ TEST — VẬT LIỆU ĂN, giữ làm bản chuẩn)
 
 Gộp mọi thứ học được từ ca 01–06. **Không phải ghép gì cả.**
 
@@ -241,6 +241,14 @@ colour. The look of a printed magazine interior photograph.
 | **mới** | — | Khối dải tông + khối ống kính/phim + khối cân bằng trắng | Ca 06 — "lớp nhựa" là lỗi tầng toàn ảnh |
 
 **Nếu quá tay thành nhà cũ bẩn:** bỏ **một** câu `Everyday traces...`, giữ nguyên phần còn lại.
+
+> ⚠️ **Ca 07 xác nhận:** khối `Lens and film character` **không ăn** — grain, vignette, quang sai đều
+> ra 0 dù đã đổi `subtle` → `visible`. Giữ khối đó trong prompt cũng được (vô hại), nhưng
+> **đừng trông cậy vào nó**. Bốn thứ đó làm ở hậu kỳ, xem mục cuối file.
+>
+> ⚠️ **Regression cần canh:** câu `one pair of shoes turned slightly out of line` ăn ở bản A nhưng
+> **mất ở A3** — nghi do khối 5 dài thêm làm loãng. Nếu cần staging đó thì tách thành câu riêng
+> đặt cuối khối 5.
 
 ---
 
