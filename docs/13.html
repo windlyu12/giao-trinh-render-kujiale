@@ -23,7 +23,7 @@
 <main class="main"><div class="page">
   <header class="ch-head">
     <div class="ch-no">13</div>
-    <div class="ch-meta"><span class="tag">Chương 13</span><span class="tag ghost">≈ 28 phút đọc</span></div>
+    <div class="ch-meta"><span class="tag">Chương 13</span><span class="tag ghost">≈ 30 phút đọc</span></div>
     <h1 class="ch-title">Ánh sáng nâng cao</h1>
     <p class="ch-hook">Bốn con đường bố đèn, nắng qua rèm voan đọc được hình, và cách thoát khỏi việc chép số.</p>
   </header>
@@ -537,7 +537,7 @@ Tài liệu chính thức xác nhận <code>硬装灯带</code> dùng vật li�
 <p>Ánh sáng thể tích (<code>体积光</code>) là <em>"ánh sáng xuyên qua sương, bụi, tạo hiệu ứng giống hiệu ứng Tyndall"</em> — những cột nắng thấy được trong không khí.</p>
 <p><strong>Đường vào cho tài khoản cá nhân</strong> (tài liệu chính thức phân biệt rõ với bản doanh nghiệp):</p>
 <blockquote>
-<p><code>渲染</code> → <strong><code>离线模式</code></strong> → <code>手动灯光</code> → chọn <strong>template <code>写实</code></strong> → ở trang bố đèn bên trái chọn <strong><code>光源类型</code> = <code>体积光</code></strong> → kéo vào, chỉnh bên phải: <code>颜色</code>, <code>色温</code>, <code>亮度</code>, <strong><code>光柱长度</code></strong> (chiều dài cột sáng), <strong><code>底面半径</code></strong> (bán kính đáy) → lưu template → <code>立即渲染</code></p>
+<p><code>渲染</code> → <strong><code>离线模式</code></strong> → <code>手动灯光</code> → chọn <strong>template <code>写实</code></strong> → ở trang bố đèn bên trái chọn <strong><code>光源类型</code> = <code>体积光</code></strong> → kéo vào, chỉnh bên phải: <code>颜色</code> (màu), <code>色温</code> (nhiệt màu), <code>亮度</code> (độ sáng), <code>高度</code> (độ cao), <strong><code>光柱长度</code></strong> (chiều dài cột sáng), <strong><code>底面半径</code></strong> (bán kính đáy) và <strong><code>视角</code></strong> (góc mở) → lưu template → <code>立即渲染</code></p>
 </blockquote>
 <p>Dùng tiết chế. Cột nắng đẹp khi nó <strong>giải thích được nguồn sáng</strong> — nắng qua cửa sổ, đèn rọi qua bụi. Rải khắp phòng thì thành sương mù giả.</p>
 <hr>
@@ -666,7 +666,11 @@ Tài liệu chính thức xác nhận <code>硬装灯带</code> dùng vật li�
 </tbody>
 </table></div>
 <p>Đường vào theo tài liệu chính thức: <code>工具</code> → giao diện <code>渲染</code> → chọn template <code>自然写实</code> → nhóm <code>曝光</code>.</p>
-<blockquote class="tip">
+<blockquote class="warn">
+<p>⚠️ <strong>Bảng trên là của template <code>自然写实</code>. Template khác có thể KHÔNG có mấy nút này.</strong></p>
+<p>Bản <code>室内白天/夜晚</code> <strong>3.0</strong> (12/07/2024) đã <strong>gỡ bỏ ba nút chỉnh tay</strong>: <code>降噪</code>, <code>漏光修复</code>, và tuỳ chọn nhấn mạnh vân cho ảnh toàn cảnh. Lý do: máy <strong>tự làm</strong> hai việc đó dựa theo đặc điểm cảnh, và tham số mặc định đã xử lý sẵn rò sáng.</p>
+<p><strong>→ Không thấy nút <code>降噪</code> không phải lỗi — có thể bạn đang ở template đã tự động hoá nó.</strong> Kiểm template mình đang dùng trước khi đi tìm.</p>
+<p>Tin tốt: bản 3.0 này ghi rõ <strong>mở cho người dùng cá nhân, cả bậc miễn phí lẫn trả phí</strong>; tài khoản thương gia mở dần. Và nó <strong>giảm tỉ lệ cháy sáng lẫn tối sáng</strong> so với bản 2.1, đèn tự động sinh ra chuẩn hơn nên đỡ phải sửa tay.</p>
 <p>💡 <strong><code>手动曝光</code> là biến số ẩn giải thích nhiều bộ số kỳ lạ.</strong> Có người để <code>阳光 亮度</code> tới 100–150 mà ảnh không cháy — vì họ đã hạ <code>手动曝光 强度</code> xuống 0,5. Thấy ai đó dùng số nắng cao bất thường, hãy hỏi họ để phơi sáng bao nhiêu.</p>
 </blockquote>
 <hr>
@@ -825,6 +829,16 @@ Tài liệu chính thức xác nhận <code>硬装灯带</code> dùng vật li�
 <td>Hạ <code>外景</code> trước tiên, đừng hạ <code>太阳光</code></td>
 </tr>
 <tr>
+<td><strong>Cả ảnh trắng xoá</strong>, chỉ còn thấy cửa sổ màu sẫm</td>
+<td><strong>Thủ phạm thường là <code>自发光材质</code> bị gán nhầm</strong>, hay gặp nhất ở mặt trần</td>
+<td>Bật <code>自动曝光</code> để định vị: vùng nào <strong>không có tương phản sáng tối, không có bóng</strong> chính là chỗ dính. Thay vật liệu mặt đó là xong. Template dòng <code>极速</code> hiếm khi bị ca này</td>
+</tr>
+<tr>
+<td>Ảnh cháy mà không tìm ra đèn nào sai</td>
+<td><code>面光源</code> có <strong><code>散射角</code> quá nhỏ mà <code>亮度</code> quá cao</strong>; hoặc phương án nhiều tầng, <strong>đèn tầng dưới lọt ra ngoài mặt bằng</strong></td>
+<td>Nới <code>散射角</code>, hạ độ sáng. Với nhà nhiều tầng: tạo template đèn giống nhau ở tầng dưới, xoá hoặc kéo lại các nguồn sáng vượt ra ngoài, rồi lên tầng trên render lại</td>
+</tr>
+<tr>
 <td>Vệt nắng đổ sai hướng cả buổi</td>
 <td>Nhầm <code>角度</code> với <code>位置</code></td>
 <td><code>角度</code> = góc ngẩng, <code>位置</code> = phương vị</td>
@@ -877,6 +891,11 @@ Tài liệu chính thức xác nhận <code>硬装灯带</code> dùng vật li�
 - Nâng cấp GI bản 3.0 và cơ chế đèn tay giữ nguyên khi nâng bản — bài <code>3FO4K4WI979T</code>, 05/06/2024
 - <code>环境光亮度</code> mặc định mức 3 — bài <code>3FO4K4WIA2D3</code>
 - <code>一键生成灯带</code> là chức năng doanh nghiệp — bài <code>3FO4K4VLAV8D</code>
+- Bản <code>室内白天/夜晚</code> 3.0 gỡ ba nút <code>降噪</code> / <code>漏光修复</code> / nhấn mạnh vân, mở cho người dùng cá nhân — bài <code>3FO4K4WI93WS</code>, 12/07/2024
+- Ba nguyên nhân cháy sáng và cách chữa — bài <code>3FO4K4WMVI6D</code>
+- Ảnh trắng xoá do <code>自发光材质</code>, dùng <code>自动曝光</code> để định vị — bài <code>3FO4K4WG599P</code>
+- Bộ tham số đầy đủ của <code>体积光</code>; template <code>室内写实白天</code> dùng chế độ phơi sáng Reinhard, gamma 2,2 — bài <code>3FO4K4VP4J1C</code>
+- ⚠️ Ba chế độ <code>超真实</code> / <code>均衡</code> / <code>纹理侧重</code> là <strong>chức năng doanh nghiệp</strong>, không dạy trong sách
 - <code>渲染复杂材质</code> chỉ chạy đủ ở dòng template <code>写实</code></p>
 <p><strong>Tiêu chuẩn ngành:</strong>
 - Độ rọi theo phòng — GB 50034 (Trung Quốc), dùng làm tham chiếu vì Việt Nam chưa chốt số hiệu tương đương</p>

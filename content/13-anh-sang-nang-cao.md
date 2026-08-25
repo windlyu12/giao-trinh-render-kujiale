@@ -267,7 +267,7 @@ Với `硬装灯带`, nhớ bật công tắc **`硬装灯带使用新材质`** 
 
 **Đường vào cho tài khoản cá nhân** (tài liệu chính thức phân biệt rõ với bản doanh nghiệp):
 
-> `渲染` → **`离线模式`** → `手动灯光` → chọn **template `写实`** → ở trang bố đèn bên trái chọn **`光源类型` = `体积光`** → kéo vào, chỉnh bên phải: `颜色`, `色温`, `亮度`, **`光柱长度`** (chiều dài cột sáng), **`底面半径`** (bán kính đáy) → lưu template → `立即渲染`
+> `渲染` → **`离线模式`** → `手动灯光` → chọn **template `写实`** → ở trang bố đèn bên trái chọn **`光源类型` = `体积光`** → kéo vào, chỉnh bên phải: `颜色` (màu), `色温` (nhiệt màu), `亮度` (độ sáng), `高度` (độ cao), **`光柱长度`** (chiều dài cột sáng), **`底面半径`** (bán kính đáy) và **`视角`** (góc mở) → lưu template → `立即渲染`
 
 Dùng tiết chế. Cột nắng đẹp khi nó **giải thích được nguồn sáng** — nắng qua cửa sổ, đèn rọi qua bụi. Rải khắp phòng thì thành sương mù giả.
 
@@ -340,6 +340,14 @@ Bảy công tắc chính thức trong `高级设置`:
 | `炫光` | Quầng chói. Các ca thực chiến hội tụ ở **1,50** |
 
 Đường vào theo tài liệu chính thức: `工具` → giao diện `渲染` → chọn template `自然写实` → nhóm `曝光`.
+
+> ⚠️ **Bảng trên là của template `自然写实`. Template khác có thể KHÔNG có mấy nút này.**
+>
+> Bản `室内白天/夜晚` **3.0** (12/07/2024) đã **gỡ bỏ ba nút chỉnh tay**: `降噪`, `漏光修复`, và tuỳ chọn nhấn mạnh vân cho ảnh toàn cảnh. Lý do: máy **tự làm** hai việc đó dựa theo đặc điểm cảnh, và tham số mặc định đã xử lý sẵn rò sáng.
+>
+> **→ Không thấy nút `降噪` không phải lỗi — có thể bạn đang ở template đã tự động hoá nó.** Kiểm template mình đang dùng trước khi đi tìm.
+>
+> Tin tốt: bản 3.0 này ghi rõ **mở cho người dùng cá nhân, cả bậc miễn phí lẫn trả phí**; tài khoản thương gia mở dần. Và nó **giảm tỉ lệ cháy sáng lẫn tối sáng** so với bản 2.1, đèn tự động sinh ra chuẩn hơn nên đỡ phải sửa tay.
 
 > 💡 **`手动曝光` là biến số ẩn giải thích nhiều bộ số kỳ lạ.** Có người để `阳光 亮度` tới 100–150 mà ảnh không cháy — vì họ đã hạ `手动曝光 强度` xuống 0,5. Thấy ai đó dùng số nắng cao bất thường, hãy hỏi họ để phơi sáng bao nhiêu.
 
@@ -425,6 +433,8 @@ Dựng xong cả căn mẫu. Khoá một template. Lưu 6 góc. Render nháp c�
 | Vệt nắng mờ tan mất hình | `阴影柔和度` quá cao (8–10); `不透明度` rèm quá thấp | Hạ về 3–5; tăng `不透明度` |
 | Có nắng nhưng không thấy vệt trên sàn | Ánh khuếch tán rửa trôi | Hạ `外景亮度` trước, giữ `太阳光` |
 | Cửa sổ cháy trắng | `外景亮度` quá cao | Hạ `外景` trước tiên, đừng hạ `太阳光` |
+| **Cả ảnh trắng xoá**, chỉ còn thấy cửa sổ màu sẫm | **Thủ phạm thường là `自发光材质` bị gán nhầm**, hay gặp nhất ở mặt trần | Bật `自动曝光` để định vị: vùng nào **không có tương phản sáng tối, không có bóng** chính là chỗ dính. Thay vật liệu mặt đó là xong. Template dòng `极速` hiếm khi bị ca này |
+| Ảnh cháy mà không tìm ra đèn nào sai | `面光源` có **`散射角` quá nhỏ mà `亮度` quá cao**; hoặc phương án nhiều tầng, **đèn tầng dưới lọt ra ngoài mặt bằng** | Nới `散射角`, hạ độ sáng. Với nhà nhiều tầng: tạo template đèn giống nhau ở tầng dưới, xoá hoặc kéo lại các nguồn sáng vượt ra ngoài, rồi lên tầng trên render lại |
 | Vệt nắng đổ sai hướng cả buổi | Nhầm `角度` với `位置` | `角度` = góc ngẩng, `位置` = phương vị |
 | Trưa hè mà không có bóng | Mặt trời gần đỉnh | Đổi giờ về 8:00–10:00, góc ngẩng 15–35° |
 | Vệt sáng xuất hiện từ hư không | Đặt đèn ảo ở chỗ không có model đèn | Bỏ đèn đó, hoặc thêm model đèn thật |
@@ -447,6 +457,11 @@ Dựng xong cả căn mẫu. Khoá một template. Lưu 6 góc. Render nháp c�
 - Nâng cấp GI bản 3.0 và cơ chế đèn tay giữ nguyên khi nâng bản — bài `3FO4K4WI979T`, 05/06/2024
 - `环境光亮度` mặc định mức 3 — bài `3FO4K4WIA2D3`
 - `一键生成灯带` là chức năng doanh nghiệp — bài `3FO4K4VLAV8D`
+- Bản `室内白天/夜晚` 3.0 gỡ ba nút `降噪` / `漏光修复` / nhấn mạnh vân, mở cho người dùng cá nhân — bài `3FO4K4WI93WS`, 12/07/2024
+- Ba nguyên nhân cháy sáng và cách chữa — bài `3FO4K4WMVI6D`
+- Ảnh trắng xoá do `自发光材质`, dùng `自动曝光` để định vị — bài `3FO4K4WG599P`
+- Bộ tham số đầy đủ của `体积光`; template `室内写实白天` dùng chế độ phơi sáng Reinhard, gamma 2,2 — bài `3FO4K4VP4J1C`
+- ⚠️ Ba chế độ `超真实` / `均衡` / `纹理侧重` là **chức năng doanh nghiệp**, không dạy trong sách
 - `渲染复杂材质` chỉ chạy đủ ở dòng template `写实`
 
 **Tiêu chuẩn ngành:**

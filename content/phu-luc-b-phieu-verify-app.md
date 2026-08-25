@@ -50,7 +50,7 @@
 | **B1** ⛔ | **Tạo một `面光源` → chụp panel tham số → độ sáng hiện đơn vị gì?** Ba khả năng: **thang cũ** (số hàng trăm) · **`瓦`** · **`%`**. ⚠️ Câu hỏi này bản cũ của phiếu hỏi thiếu — phải kiểm đủ **ba** khả năng, không phải hai. Làm thêm cho `灯带`, `筒灯`, `聚光灯` xem có khác nhau không | |
 | B2 | ✅ Đường vào đèn thủ công = `离线模式` hoặc `实时专业` → `灯光模板` → `添加手动灯光`. Đối tượng `所有用户`. Liếc xác nhận | |
 | B3 | **Mở `灯光版本管理` → chụp danh sách template ĐANG CÓ.** ⚠️ Ba nguồn cho ba số khác nhau: một bài chính thức khuyên bản 2.1, nhật ký bản ghi mới nhất là 3.10, nghiên cứu đợt 1 nói 2.x đã gỡ. **Tin app, đừng tin bài** | |
-| B4 | ✅ Nhóm phơi sáng ở template `自然写实` gồm `自动曝光` / `手动曝光` / `漏光修复` / `降噪` / `炫光`. Xác nhận có đủ không | |
+| B4 | ✅ Nhóm phơi sáng ở template `自然写实` gồm `自动曝光` / `手动曝光` / `漏光修复` / `降噪` / `炫光`. **⚠️ Nhưng bản `室内白天/夜晚` 3.0 đã GỠ ba nút `降噪` / `漏光修复` / nhấn mạnh vân — máy tự làm.** Ghi rõ: template nào còn nút gì | |
 | **B5** ⛔ | **Kiểm `阴影柔和度` có phải HAI thang.** Cố định cảnh, đổi ô của **`阳光`**: 1 / 3 / 5 / 8 / 10 — ghi min-max thanh trượt. Rồi mở ô của **đèn nhân tạo**, ghi min-max. Sách đoán nắng chạy 1–10, đèn nhân tạo chạy 100–3000 | |
 | B6 | Mở thư viện đèn IES: chụp danh sách. ✅ Sách ghi có `补灯1` · `射灯1–12` · `筒灯1–2`. Render thử 3–4 profile lên tường, ghi cái nào quạt rộng, hẹp, rọi tranh | |
 | B7 | Cột `外景`: chụp danh mục ngoại cảnh + thử tải ngoại cảnh riêng (còn nhận PNG/JPG tỉ lệ 2:1 ≤20MB, chỉ template dòng `写实`?) | |
