@@ -182,7 +182,7 @@ và lưng ghế mây gặp sáng tạt rất dễ ra kiểu xù của ca 04.
 giữ mốc lạnh khi dùng tông ấm. Thêm một câu mới: **xoá overlay viewport** (chữ `[Corona Camera015]`
 góc trên trái + trục toạ độ góc dưới trái) — thứ ảnh nguồn Kujiale không có nhưng 3ds Max thì có.
 
-## ✅ CA2 bản A3 — ĐẦY ĐỦ, dán là chạy (ĐÃ TEST — VẬT LIỆU ĂN, giữ làm bản chuẩn)
+## ✅ CA2 bản A3 — ĐÃ TEST (vật liệu ăn) — **đã bị A4 thay thế, xem cuối file**
 
 Gộp mọi thứ học được từ ca 01–06. **Không phải ghép gì cả.**
 
@@ -335,3 +335,72 @@ undistorted perspective. Keep the same framing and crop as the source image.
 ⚠️ **Cảnh báo riêng cho ca sửa ảnh:** yêu cầu "recover cửa sổ" là **bảo AI VẼ RA cảnh ngoài
 chưa từng tồn tại**. Với ảnh mood thì được; với ảnh giao khách thì đó đúng là thứ C8 cấm.
 Muốn cảnh ngoài thật thì phải render lại với `外景` đúng và hạ `外景亮度`.
+
+---
+
+# 🔧 CA2 bản A4 — vá LOGIC TRUYỀN SÁNG (ca 09)
+
+Kỹ thuật bắt: hai cánh tủ nhỏ trên hõm vòm bị vẽ sẫm hơn hẳn mảng cánh lớn bên trái, dù
+**cùng mặt phẳng, cùng vật liệu, cùng cao độ**. Còn mảng đáng tối nhất (tường trên cửa vào)
+lại sáng hơn. **Trật tự sáng–tối đảo ngược cục bộ.**
+
+Bản A4 = A3 + một khối khai báo **tương quan độ sáng tường minh**.
+
+```
+Photorealistic interior photograph of this exact entryway and dining area. Keep the
+camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces
+meet without drawn borders. Nothing should look like a 3D viewport.
+
+Soft interior lighting, late afternoon. Recessed ceiling downlights wash the tall
+cabinetry from above; the charcoal globe pendant glows warm 3000K over the dining table;
+a warm strip lights the arched oak niche from within. A gentle cool daylight spill
+enters from the living area off-frame to the right, keeping the shadows neutral rather
+than orange. Cast shadows only from objects actually present in the scene.
+
+Light behaves consistently across every surface. The two small cabinet doors above the
+arch sit in the same plane, in the same white lacquer, at the same height as the tall
+door panels to their left — they read at exactly the same brightness as those panels.
+Do not darken them to make the lit arch stand out. The dimmest area in the whole frame
+is the plain wall above the entry door, which is furthest from the downlights and
+receives no bounce. Brightness across the room is set by distance from the downlights,
+the pendant and the arch strip — by nothing else.
+
+Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+Matte cream lacquer cabinetry with a fine hand-applied surface, never glassy — the sheen
+shifts slightly from door to door. Oak veneer with open pores, the grain changing from
+board to board. The curved console catches a soft satin sheen only where light grazes
+it. Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint
+wear path toward the door. Cane chair backs woven from real rattan, the weave slightly
+irregular. Cotton seat cushions with a soft matte weave and gentle creasing where people
+sit. Glazed ceramic vases with uneven glaze pooling. Everyday traces, quiet and few: a
+faint scuff on the floor near the shoes, soft dust settled on the top shelf.
+
+Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
+wood, dry woven cane, glazed ceramic.
+
+True photographic tonal range: real deep shadow under the console and inside the shoe
+niche, a clear falloff across the ceiling, whites that stop just short of pure white.
+Let parts of the frame sit in genuine shadow.
+
+Neutral white balance — the cream cabinet fronts read as near-white, not amber. Warmth
+comes only from the pendant and the arch strip, never as an overall tint. Muted natural
+colour. The look of a printed magazine interior photograph.
+
+One pair of shoes sits turned slightly out of line on the floor beside the bench.
+```
+
+### Đổi gì so với A3 *(bảng bổ sung — prompt trên đã đầy đủ)*
+
+| Chỗ | A3 | A4 | Vì |
+|---|---|---|---|
+| **mới** | — | Cả khối `Light behaves consistently…` | Ca 09 — trật tự sáng–tối bị đảo |
+| Ống kính/phim | Có khối `Lens and film character` | **Bỏ hẳn** | Ca 07 — grain/vignette/quang sai ra 0 qua 2 cách phát biểu. Giữ chỉ tổ dài prompt |
+| Staging giày | Nằm chìm trong khối 5 dài | **Tách thành câu riêng ở cuối** | Ca 07 — bị loãng và mất |
+
+> ⚠️ **Không đảm bảo.** AI không có bộ giải truyền sáng. Câu tương quan tường minh ghì được một phần,
+> nhưng ảnh nào có người trong nghề soi thì **render thật, đừng AI** — engine giải đúng miễn phí.

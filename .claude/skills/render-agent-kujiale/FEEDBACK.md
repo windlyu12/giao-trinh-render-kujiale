@@ -317,6 +317,51 @@ chưa từng tồn tại**. Ảnh mood thì được; ảnh giao khách thì đ�
 
 ---
 
+### 09 — 2026-08-25 — CA2 A3: kỹ thuật bắt lỗi LOGIC TRUYỀN SÁNG
+
+**Nguồn feedback:** kỹ thuật nội bộ, khoanh đỏ trực tiếp lên ảnh.
+
+**Nguyên văn:** *"2 chỗ này vốn dĩ độ tối phải tương đương nhưng sao 2 cánh bé kia lại sẫm hơn hẳn,
+cái chỗ tối nhất phải là cái tường trên cửa chứ không phải 2 cái cánh bé đó"*
+
+**Sự việc:** hai cánh tủ nhỏ phía trên hõm vòm **cùng mặt phẳng, cùng vật liệu, cùng cao độ**
+với mảng cánh lớn bên trái — nhưng AI vẽ chúng **sẫm hơn hẳn**. Trong khi mảng đáng tối nhất
+(tường trên cửa vào, xa đèn âm trần nhất, không nhận hắt từ đâu) lại **sáng hơn**.
+Trật tự sáng–tối bị **đảo ngược cục bộ**.
+
+**Vì sao AI làm thế — nó KHÔNG tính truyền sáng.** Nó vẽ theo thói quen thị giác học được:
+1. **Tối vùng sát nguồn sáng mạnh để nguồn đó nổi lên** — hõm vòm ngay dưới đang phát sáng ấm,
+   nên nó dìm vùng ngay trên xuống. Đây là thủ pháp nhiếp ảnh học vẹt, không phải vật lý.
+2. **Đọc nhầm là hõm.** Cụm cánh nhỏ nằm trên một hốc → nó suy cả cụm đó thụt vào → tối đi.
+3. Không có cơ chế nào ép nó giữ **nhất quán độ sáng giữa các bề mặt đồng phẳng đồng chất**.
+
+## 🔴 NHÓM LỖI THỨ TƯ — chưa có trong bảng ba nhóm của ca 08
+
+| Nhóm | Sửa được bằng | Ghi chú |
+|---|---|---|
+| 1. **Pixel** | prompt | cửa sổ cháy, bóng tiếp xúc, phản chiếu chết |
+| 2. **Khung hình** | render lại / crop | đèn cắt đỉnh, mép lạc |
+| 3. **Lớp phủ** | hậu kỳ | hạt, tối góc, vi chi tiết (ca 07) |
+| 4. **🆕 LOGIC TRUYỀN SÁNG** | **prompt ghì được một phần, KHÔNG đảm bảo** | trật tự sáng–tối giữa các bề mặt, đổ bóng liên vùng, hắt sáng |
+
+**Cách ghì bằng prompt:** khai báo **trật tự sáng–tối TUYỆT ĐỐI và tương quan giữa các bề mặt cụ thể**
+— "cụm A sáng bằng cụm B", "vùng tối nhất khung là X". Model theo được câu tương quan tường minh
+tốt hơn nhiều so với để nó tự suy. **Nhưng mong manh** — không có bộ giải ánh sáng thì không có gì bảo đảm.
+
+## 🔑 Hệ quả lớn nhất — bổ sung một lý do MỚI cho ranh giới C8
+
+Từ trước tới giờ lý do cấm ảnh AI ở hồ sơ chốt là **pháp lý**: AI bịa vân, bịa màu → `货不对板`.
+Ca này thêm một lý do **kỹ thuật, độc lập với pháp lý**:
+
+> **Ảnh AI sai logic ánh sáng, và người có nghề nhìn ra trong vài giây.**
+> Không phải sai đẹp/xấu — sai vật lý. Một designer hay một kỹ thuật viên soi ảnh sẽ bắt được,
+> và uy tín mất ngay tại chỗ đó.
+
+Ngược lại: **đây chính là thứ render engine làm đúng miễn phí**, vì nó thật sự giải truyền sáng.
+→ Ảnh nào có người trong nghề sẽ soi → **render, đừng AI.** AI chỉ để dò không khí và mood.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -332,6 +377,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
+| 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
 | **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
