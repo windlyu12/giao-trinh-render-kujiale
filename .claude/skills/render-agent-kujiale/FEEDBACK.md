@@ -177,7 +177,7 @@ Ghi lại đây làm ví dụ: **một ca lẻ đủ để dựng giả thuyết
 
 **Vào:** chỉ ảnh model, không có ảnh mẫu. Viewport 3ds Max `Default Shading`.
 **Agent xuất:** mục "sửa trước khi bố đèn" (7 dòng) + 2 bản prompt (ấm / ban ngày)
-**Test bằng:** _(chờ)_
+**Test bằng:** bản A — kết quả ở ca 06 bên dưới
 
 **Ba thứ mới so với ca 01–04, cần thực tế xác nhận:**
 1. **Ảnh nguồn 3ds Max có overlay viewport** (chữ tên camera + trục toạ độ) — prompt đã thêm câu
@@ -192,6 +192,39 @@ thông số cho ca này thì phải xác nhận đang render bằng gì trước
 
 ---
 
+### 06 — 2026-08-25 — CA2 bản A, kết quả test
+
+**Kết quả:** ánh sáng **ăn**. Nhưng người dùng: *"nhìn kĩ thấy vật liệu cảm giác rất nhựa"*
+
+**✅ BA DỰ ĐOÁN CỦA CA 05 ĐÚNG CẢ BA:**
+1. Câu xoá overlay viewport **ăn** — sạch chữ `[Corona Camera015]` và trục toạ độ
+2. AI **không bịa thêm cửa sổ** dù khung không có ô kính nào → bỏ nắng là quyết định đúng
+3. Ghế mây chỉ gọi `cane-back`, không mô tả kết cấu → **ra đúng chất đan, không xù**
+   → **luật "cụm bó thay cụm nhấn" (ca 04) đứng vững ở vật liệu thứ hai**
+
+**❌ VẬT LIỆU RA NHỰA — bốn nguyên nhân:**
+
+1. **Prompt chưa bao giờ nhắc tới tì vết. Một chữ cũng không** — qua cả 5 bản prompt đã viết.
+   **`05-prompt-ai.md` CÓ SẴN hàng 22** (`realistic material imperfections`, `worn edges, dust,
+   fingerprints, subtle scratches`) mà chưa dùng lần nào. **Skill biết, người soạn quên.**
+   Đang phạm đúng hạng 3 (vật liệu sạch tuyệt đối) và hạng 4 (vật liệu lì) của bảng 12.
+2. **`physically based materials` nghi phản tác dụng** — thuật ngữ engine render, đẩy model về phía
+   "sạch, đúng kỹ thuật" = đúng vẻ CG. ⚠️ suy đoán, chưa test riêng.
+3. **`soft specular highlights` làm mọi bề mặt bóng đều như nhau.** Phòng thật chênh dữ dội giữa
+   sơn mờ / gỗ dầu / mây đan / gốm men.
+4. **Khối 5 chỉ LIỆT KÊ vật liệu, không tả BỀ MẶT.** "matte cream lacquer" là gọi tên món hàng.
+
+**🔑 Quan sát giá trị nhất — trong cùng một ảnh:**
+**Sàn xương cá ra rất tốt. Cánh tủ trắng ra nhựa nhất.**
+Khác nhau: sàn có vân đậm + biến thiên giữa từng thanh → AI có thứ để bám.
+Cánh tủ trắng phẳng lì đều màu → không có gì bám, mặc định của nó là bề mặt hoàn hảo.
+→ **Bề mặt càng TRƠN và càng ĐỀU MÀU thì càng phải tả riêng.** Console cong, khung ghế gỗ nhạt,
+đệm ngồi cũng dính đúng lỗi này.
+
+**Sửa thành gì thì ăn:** bản A2 — giữ khối 1–4, viết lại khối 5+6 (xem `PROMPTS-DANG-CHAY.md`).
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -199,6 +232,11 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
 | 🔴 **CHÍN — ĐỦ 3 CA. Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa.** Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
+| 🟠 **2/3 — Prompt PHẢI có tì vết ở khối 5.** Hàng 22 của bảng 26 cụm có sẵn trong skill mà chưa dùng lần nào. Không có nó thì vật liệu ra nhựa (hạng 3+4 bảng 12) | 02, 06 | 2/3 |
+| **Bề mặt càng TRƠN + ĐỀU MÀU thì AI càng ra nhựa** (cánh tủ trắng, console sơn, khung ghế nhạt). Bề mặt có vân đậm/biến thiên thì ra tốt (sàn xương cá). → phải tả riêng nhóm trơn-đều | 06 | 1/3 |
+| **`physically based materials` nghi đẩy về vẻ CG** — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
+| **Khối 6 nên tả MỨC BÓNG KHÁC NHAU giữa các vật liệu**, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
+| **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
 | Ngưỡng điểm bóng nên là **≤3 có chủ đích**, không phải cứng 1–2 | 01 | 1/3 |

@@ -131,7 +131,7 @@ Sàn xương cá sẫm nuốt sáng → Quy luật 1, cần nhiều hơn cảnh 
 ⚠️ **Bẫy riêng của cảnh này:** lưng ghế **đan mây rỗng** = "boucle" của khung này.
 **Đừng viết `visible woven texture`** — đúng bẫy ca 04. Gọi `cane-back` là đủ.
 
-## 🔄 CA2 bản A — ấm, đèn nhân tạo dẫn (CHƯA TEST)
+## ✅ CA2 bản A — ấm, đèn nhân tạo dẫn (ĐÃ TEST — ánh sáng ăn, VẬT LIỆU RA NHỰA)
 
 ```
 Photorealistic interior photograph of this exact entryway and dining area. Keep the
@@ -181,3 +181,26 @@ và lưng ghế mây gặp sáng tạt rất dễ ra kiểu xù của ca 04.
 **Đã áp sẵn 3 luật học được:** không cụm nhấn · không gọi tên tỉ lệ (giữ khung ảnh gốc) ·
 giữ mốc lạnh khi dùng tông ấm. Thêm một câu mới: **xoá overlay viewport** (chữ `[Corona Camera015]`
 góc trên trái + trục toạ độ góc dưới trái) — thứ ảnh nguồn Kujiale không có nhưng 3ds Max thì có.
+
+## 🔄 CA2 bản A2 — vá "vật liệu nhựa" (CHƯA TEST)
+
+Ca 06: bản A ánh sáng ăn nhưng *"vật liệu cảm giác rất nhựa"*.
+**Giữ nguyên khối 1–4 của bản A**, thay hai khối cuối:
+
+```
+Matte cream lacquer cabinetry with a fine hand-applied surface, never glassy — the sheen
+shifts slightly from door to door. Oak veneer with open pores, the grain changing from
+board to board. The curved console catches a soft satin sheen only where light grazes it.
+Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint wear
+path toward the door. Cane chair backs woven from real rattan, the weave slightly
+irregular. Cotton seat cushions with a soft matte weave and gentle creasing where people
+sit. Glazed ceramic vases with uneven glaze pooling. Everyday traces, quiet and few: a
+faint scuff on the floor near the shoes, soft dust settled on the top shelf.
+
+Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
+wood, dry woven cane, glazed ceramic. Subtle film grain. Muted natural colour. The look
+of a printed magazine interior photograph.
+```
+
+**Bỏ hẳn:** `physically based materials` · `soft specular highlights`.
+**Nếu quá tay thành nhà cũ bẩn:** bỏ dòng `Everyday traces...` trước, giữ phần sheen.
