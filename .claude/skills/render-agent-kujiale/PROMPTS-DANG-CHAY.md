@@ -270,3 +270,68 @@ colour. The look of a printed magazine interior photograph.
 ảnh 1080px trông nặng hạt gấp đôi ảnh 4K.
 
 Làm được trên Snapseed / Lightroom Mobile / Photoshop — 2 phút.
+
+---
+
+# CA 3 — Phòng khách hẹp (ảnh ĐÃ RENDER, sửa lỗi bằng AI)
+
+**Khác hai ca trước:** đầu vào không phải model chưa render mà là **một ảnh render đã hoàn thiện**.
+Việc là **sửa lỗi**, không phải dựng từ đầu.
+
+**Chấm theo Phụ lục A: 31/50, hai tiêu chí ≤2 → ngưỡng cơ học là LÀM LẠI.**
+Nhưng gốc lỗi tập trung (cân bằng trong–ngoài + thiếu bóng tiếp xúc) nên thực tế là
+**render lại có trọng điểm**, không phải làm lại từ số không.
+
+| # | Tiêu chí | Điểm |
+|---|---|---|
+| 3 | Cửa sổ không cháy trắng | **1** — cháy bệt hoàn toàn, không đọc được gì ngoài kính |
+| 7 | Phản chiếu & chất liệu | **2** — tủ lạnh là mảng xám chết, không phản chiếu gì |
+| 1 · 2 · 6 · 9 | Hướng sáng · tương phản · chi tiết bề mặt · bố cục | 3 |
+| 4 · 5 · 8 · 10 | Nhiệt màu · sạch nhiễu · góc máy · hậu kỳ | 4 |
+
+## 🔧 CA3 — prompt sửa lỗi, ĐẦY ĐỦ (CHƯA TEST)
+
+```
+Photorealistic interior photograph of this exact living room. Keep the camera angle,
+room layout, furniture positions, wall panelling proportions and material types exactly
+as in the source image — do not add, remove or move any object.
+
+Recover the window: the sheer curtain keeps its full fold structure all the way across,
+never flattening into white. Beyond the glass a soft low-contrast daylight view is
+gently readable — pale sky and the blurred green of a plant on the balcony — bright but
+holding detail.
+
+Ground everything in the room: clear contact shadows where the sofa base, the marble
+pedestal and the round rug meet the floor; soft darkening under the seat cushions and
+behind each boucle pillow; a small shadow where the artwork frame stands off the wood
+panel.
+
+The dark fridge panel picks up a soft blurred reflection of the room — the window light
+and the cabinetry — instead of reading as a flat dark rectangle. Same for the stone
+worktop at the right edge.
+
+Oak veneer wall panelling with grain that changes from board to board, warm and open-
+pored, never a repeating pattern. White marble slab with veining that varies in density.
+Cream boucle sofa with its looped pile intact. Dark oak floor in a low satin finish,
+planks varying in tone.
+
+True photographic tonal range: real deep shadow beneath the sofa and inside the right-
+hand recess, whites that stop just short of pure white, a full range in between. Warm
+interior light against cool daylight from the left — keep the two temperatures separate,
+no overall amber tint.
+
+Shot on a 35mm lens at eye level 1.05m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+```
+
+### Cái prompt này KHÔNG sửa được
+
+| Lỗi | Vì sao AI không sửa được | Cách đúng |
+|---|---|---|
+| Đèn chùm **bị cắt ngang đỉnh khung** | Là lỗi khung hình, không phải lỗi pixel | Render lại: hạ camera hoặc nới `视野`; hoặc treo đèn cao hơn |
+| Mép phải có **ghế ăn + bàn cắt cụt** | Như trên | **Crop bớt mép phải** — cách rẻ nhất, làm được ngay |
+| Ảnh mịn tuyệt đối, không hạt | Ca 07 đã chứng minh không prompt được | Hậu kỳ, xem mục cuối file |
+
+⚠️ **Cảnh báo riêng cho ca sửa ảnh:** yêu cầu "recover cửa sổ" là **bảo AI VẼ RA cảnh ngoài
+chưa từng tồn tại**. Với ảnh mood thì được; với ảnh giao khách thì đó đúng là thứ C8 cấm.
+Muốn cảnh ngoài thật thì phải render lại với `外景` đúng và hạ `外景亮度`.

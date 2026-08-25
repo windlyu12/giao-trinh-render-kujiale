@@ -294,6 +294,29 @@ Ngược lại, tầng **vật liệu** thì prompt được rất tốt — hai
 
 ---
 
+### 08 — 2026-08-25 — CA3: phòng khách hẹp, ảnh ĐÃ RENDER — chấm + prompt sửa lỗi (CHƯA TEST)
+
+**Vào:** một ảnh render đã hoàn thiện (không phải model). Việc: chấm rồi sửa lỗi bằng AI.
+**Chấm:** 31/50, hai tiêu chí ≤2 (cửa sổ cháy = 1 · phản chiếu = 2).
+
+**Kiểu ca MỚI, chưa có trong skill:** ba ca trước đều là *model chưa render → ảnh*.
+Ca này là *ảnh đã render → sửa lỗi*. Chế độ D (chấm) và chế độ C (prompt) phải nối vào nhau,
+mà `SKILL.md` hiện **không mô tả đường nối đó**.
+
+**Phát hiện đáng vá:** khi sửa ảnh đã render bằng AI, phải tách rõ **ba nhóm lỗi**:
+| Nhóm | Ví dụ ở ca này | Ai sửa |
+|---|---|---|
+| **Pixel** — sửa được bằng prompt | cửa sổ cháy, thiếu bóng tiếp xúc, tủ lạnh chết, vân gỗ lặp | AI |
+| **Khung hình** — không sửa được bằng prompt | đèn chùm cắt ngang đỉnh, mép phải lạc | Render lại hoặc crop |
+| **Lớp phủ** — không sửa được bằng prompt (ca 07) | mịn tuyệt đối, không hạt | Hậu kỳ |
+
+Không tách ba nhóm này thì người dùng chạy prompt xong vẫn thấy lỗi và tưởng prompt hỏng.
+
+⚠️ **Rủi ro pháp lý riêng của kiểu ca này:** "recover cửa sổ cháy" = bảo AI **vẽ ra cảnh ngoài
+chưa từng tồn tại**. Ảnh mood thì được; ảnh giao khách thì đúng thứ C8 cấm.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -309,6 +332,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
+| **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
 | Ngưỡng điểm bóng nên là **≤3 có chủ đích**, không phải cứng 1–2 | 01 | 1/3 |
