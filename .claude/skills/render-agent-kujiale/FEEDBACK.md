@@ -1,5 +1,8 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
+> 📌 **Text đầy đủ của các prompt đang chạy nằm ở `PROMPTS-DANG-CHAY.md`** (cùng thư mục).
+> File này ghi *vì sao*, file kia giữ *cái để copy*. Sửa prompt thì sửa ở file kia.
+
 **Cách dùng:** mỗi lần agent xuất prompt hoặc phiếu thông số rồi người dùng đem đi test thật
 (AI render hoặc Kujiale), ghi một ca vào đây. **Không sửa `references/` ngay.**
 Khi sổ đủ dày (≈8–10 ca, hoặc thấy một luật lặp lại từ 3 ca trở lên) thì mới rà một lượt và vá skill.
