@@ -167,3 +167,26 @@ Nhờ đồng nghiệp (hoặc tự làm mù: để ảnh nghỉ 1 ngày) đưa 
 - **Án lệ + luật (nguồn công bố chính thức Trung Quốc):** vụ 钟某 kiện công ty may mặc, Tòa Trung cấp Quảng Châu công bố 12/03/2026, phán 消费欺诈, hoàn tiền + bồi thường gấp 3 theo Điều 55 Luật Bảo vệ quyền lợi người tiêu dùng TQ; luật chống cạnh tranh không lành mạnh sửa đổi hiệu lực 15/10/2025, trần phạt quảng cáo sai 200万 tệ.
 - **Nguồn cộng đồng / tiếp thị (⚠️):** danh sách 6+9 chức năng AI室内大师 (bài Zhihu + video Bilibili giới thiệu hợp tác 建筑学长); công bố AI+渲染/AI美化 tại sự kiện hãng 09/07/2026 (đưa tin 163.com); nhận xét template đèn dễ cháy sáng (bài test Zhihu 02/2024 — dữ liệu cũ); phát biểu hiệu quả "7 ngày → 2 ngày" của khách hàng mẫu tại sự kiện hãng.
 - **Số chờ verify trong app (Phụ lục B):** D1 — tài khoản công ty có AI美化/AI+渲染 chưa, đường vào; D2 — số lần AI修图 miễn phí/ngày + độ phân giải ảnh ra; D3 — chức năng AI室内大师 nào miễn phí / đòi 企业版.
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng công cụ AI, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 AI 渲染 教程` | Hướng dẫn render bằng AI |
+| `酷家乐 AI美化` | Làm đẹp ảnh bằng AI |
+| `酷家乐 AI室内大师` | Công cụ AI dựng nội thất |
+| `AI 效果图 风险` | Rủi ro khi dùng ảnh AI — xem để hiểu vì sao công ty có quy định cấm |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

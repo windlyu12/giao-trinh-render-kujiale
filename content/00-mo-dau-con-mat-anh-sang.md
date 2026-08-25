@@ -192,3 +192,27 @@ Chương này chưa đụng phần mềm nên lỗi ở đây là **lỗi tư du
 - **Nguồn cộng đồng Trung Quốc:** Renderbus/瑞云 (nguyên tắc 骗眼睛), Zhihu (điểm phản chiếu specular, tương phản sáng tối), ZCOOL (黄金一小时), 网易/简书 (ẩn dụ trang điểm cho phân lớp sáng).
 - **Các số đánh dấu ⚠️ trong chương** (tỉ lệ tương phản 2:1/4:1/8:1, Kelvin giờ vàng, chiều cao camera 1.2–1.6m, ngưỡng trắng 190–220): đều là **dải kinh nghiệm từ nhiếp ảnh**, không phải tham số Kujiale — dùng để ước lượng bằng mắt, không có mục verify tương ứng trong Phụ lục B.
 - Chương này không chứa số liệu UI Kujiale nên không dính 4 cảnh báo phiên bản; các chương thao tác (C1 trở đi) sẽ có.
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng nhìn ra ảnh giả ở đâu, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 效果图 假 原因` | Vì sao ảnh render trông giả — người ta mổ xẻ từng dấu hiệu |
+| `室内效果图 光影 分析` | Phân tích ánh sáng và bóng đổ trong ảnh nội thất |
+| `效果图 通透感` | `通透感` = độ trong của ảnh — khái niệm cốt lõi cả cuốn sách |
+| `酷家乐 出图 前后对比` | So ảnh trước và sau khi chỉnh — học nhanh nhất bằng cách nhìn cặp ảnh |
+| `室内设计 灯光 基础 讲解` | Giảng nền tảng ánh sáng nội thất, không riêng phần mềm nào |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

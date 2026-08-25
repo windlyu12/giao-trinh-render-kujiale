@@ -220,3 +220,27 @@ Dùng căn mẫu 2PN, phòng khách liền bếp, 1 mặt thoáng.
 - 阴影柔和度: 5 hay 1.5, thang min–max
 - Đường vào 上传外景 trên UI mới + giới hạn còn đúng
 - Giới hạn 40 kịch bản đèn/phương án
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng nắng, trời, ngoại cảnh, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 阳光 参数 设置` | Thiết lập tham số mặt trời |
+| `酷家乐 天光 外景 区别` | Phân biệt ánh sáng trời với ngoại cảnh |
+| `酷家乐 白天 效果图 打光` | Đánh đèn cho ảnh ban ngày |
+| `酷家乐 体积光 教程` | Cột nắng nhìn thấy được trong không khí |
+| `酷家乐 自定义外景 上传` | Tải ngoại cảnh riêng lên |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

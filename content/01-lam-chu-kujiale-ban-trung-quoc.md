@@ -94,6 +94,17 @@ Chiến thuật — 3 lớp:
 1. **Đặt giao diện app sang tiếng Anh** (dễ thao tác hơn hẳn), nhưng **in Phụ lục C dán cạnh màn hình** để ánh xạ ngược khi đọc tài liệu Trung. Cột tiếng Anh của Phụ lục C là cột bạn dùng nhiều nhất.
 2. **Vẫn cài tiện ích dịch trang** — dùng cho trang trợ giúp kujiale.com/hc, bài Zhihu, 小红书, mô tả khóa học. Đọc tài liệu thì tiện ích dịch rất được việc.
 3. **Học thuộc 15 thuật ngữ lõi** ở mục 1.5 — không phải để bấm nút, mà để **đọc tutorial không phải tra liên tục**.
+4. **Dùng chữ Hán làm từ khoá tìm video.** Đây là lớp bị bỏ quên nhưng đáng giá nhất về lâu dài — xem ngay dưới.
+
+### Vì sao chữ Hán là tài sản, không phải rào cản
+
+Cộng đồng render Trung Quốc chia sẻ nhiều hơn và thực chiến hơn hẳn tài liệu tiếng Việt hay tiếng Anh về Kujiale — vì đây là phần mềm của họ. Người ta quay màn hình, để nguyên bảng số, mổ xẻ từng ca.
+
+**Biết chữ Hán nghĩa là bạn vào được kho đó.** Không cần đọc thông viết thạo — chỉ cần **copy đúng cụm từ khoá và biết bài nào đáng xem**.
+
+> 📌 **Mỗi chương trong sách này đều kết thúc bằng mục "Tự tra video thực chiến"** — có sẵn bảng từ khoá tiếng Trung của đúng chủ đề chương đó, kèm nghĩa tiếng Việt. Đọc xong chương thì tra vài video, rồi quay lại làm.
+>
+> **Sách cho đường đi, video cho đôi tay.** Chỉ đọc sách thì biết phải làm gì nhưng tay vẫn vụng; chỉ xem video thì bắt chước được thao tác mà không hiểu vì sao, gặp cảnh khác là bí. Cần cả hai.
 
 ## 1.5 15 thuật ngữ gặp nhiều nhất — thuộc trong tuần đầu
 
@@ -163,3 +174,27 @@ Cầm Sổ ghi nhận ở Phụ lục B, lần lượt vào app tra và điền 
   - 《【酷家乐棚拍】20251128功能更新》— article 3FO4K4WE4TYN (2025-11-28): vị trí nút「核豆消耗 - 查看详情」.
 - **Cộng đồng / báo chí (⚠️ tham khảo):** quy trình đăng ký 个人用户→设计师 (hướng dẫn Zhihu); phí Alipay quốc tế ~3% cho giao dịch >200 tệ (báo 第一财经 2023). Chính sách đăng ký/thanh toán cho người nước ngoài đổi thường xuyên.
 - **Chờ verify trong app (Phụ lục B):** bảng 核豆 tiêu mỗi ảnh theo độ phân giải; giá gói CNY + đơn giá 增购; mức phí 实时专业 hiện hành (số 0,15 tệ/phút lấy từ bài 3FO4K4WJ8L04 đăng 2024-11-12 — trước khi hệ 核豆 chạy).
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng làm quen phần mềm, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 新手 入门 教程` | Nhập môn cho người mới |
+| `酷家乐 界面 介绍` | Giới thiệu giao diện — xem để quen mặt các panel |
+| `酷家乐 核豆 怎么用` | Hệ điểm render dùng ra sao |
+| `酷家乐 会员 权益 对比` | So quyền lợi các bậc hội viên |
+| `酷家乐 5.0 更新` | Bản 5.0 có gì mới — giao diện đổi nhanh, xem bài mới nhất |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

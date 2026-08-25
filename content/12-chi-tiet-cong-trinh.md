@@ -311,3 +311,28 @@ Dựng một dải ray nam châm nổi rộng 25mm chạy dọc trục phòng kh
 - Tường thẳng có nút khoét lỗ trong bản hiện tại không
 - Con số `凸出` của trần giật cấp một cấp trong bài chính thức là **bề rộng dải** hay **độ hạ trần** — tài liệu không ghi rõ, đừng bê số vào bản vẽ trước khi xem panel thật
 - Chất lượng model miệng gió và model ray trong thư viện — thay đổi liên tục
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng chi tiết phần thô, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 吊顶设计 教程` | Thiết kế trần — công cụ chính của chương |
+| `酷家乐 灯槽 制作` | Làm khe hắt sáng |
+| `酷家乐 磁吸轨道灯 画法` | Cách vẽ ray đèn nam châm |
+| `酷家乐 出风口 制作` | Làm miệng gió điều hòa |
+| `酷家乐 踢脚线 设置` | Đặt chân tường |
+| `酷家乐 自由造型 教程` | Dựng khối tự do khi công cụ sẵn không đủ |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

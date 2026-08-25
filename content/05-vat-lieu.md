@@ -201,3 +201,28 @@ Render ra bệt/nhựa/xám, đừng vội đổ cho texture rồi ngồi thay m
 - Mục C2 — giới hạn dung lượng upload thật (2MB hay 5MB)
 - Mục C3 — vị trí bộ lọc 精选 / 实时材质 / 品牌馆 trong UI mới
 - Mục B3 — tên template chất lượng cao hiện hành để soi chất liệu (thay cụm "写实" cũ)
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng vật liệu, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 材质 参数 设置` | Thiết lập tham số vật liệu |
+| `酷家乐 反射光泽度 调节` | Chỉnh độ bóng phản xạ — cần gạt quan trọng nhất |
+| `酷家乐 木纹 材质 教程` | Làm chất gỗ |
+| `酷家乐 亚克力 材质` | Chất acrylic bóng gương |
+| `酷家乐 实时材质制作工具` | Công cụ tạo vật liệu riêng |
+| `酷家乐 材质 发灰 怎么办` | Chữa vật liệu bị xám bệt |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

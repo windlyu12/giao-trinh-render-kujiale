@@ -196,3 +196,26 @@ Khi bạn đã đi hết Chương 0-9 và các khối luyện mắt, chốt lạ
 - **Nguồn cộng đồng chưa kiểm chứng đầy đủ (⚠️):** các kênh Douyin (王一 / 书涵 / 钟西米酷家乐) mới thấy qua trang video lẻ, chưa mở được trang chủ; trang 小红书 gốc của 仙姑老师; ngày ra video mới nhất của từng kênh Bilibili — tất cả kèm hướng dẫn tự kiểm trong chương.
 - **Lộ trình 8 khối + checklist 8 câu + 4 phép test + danh sách nguồn quốc tế:** tổng hợp từ cộng đồng archviz quốc tế (Ronen Bekerman, xoio) và nghiên cứu biên soạn của giáo trình — là phương pháp luyện tập, không phải thông số phần mềm.
 - **Thông tin RedNote (đổi tên 20/1/2025, đăng ký +84, 3 ngôn ngữ giao diện, giới hạn thanh toán):** tin công khai 2025 + kiểm chứng cộng đồng; ⚠️ chính sách thay đổi nhanh, các bước cài đặt cần người dùng tự xác nhận tại thời điểm làm.
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng luyện mắt, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 优秀作品 赏析` | Bình tác phẩm đẹp — bài tập nhìn ảnh mỗi ngày |
+| `室内效果图 分析` | Phân tích ảnh nội thất |
+| `酷家乐 设计师 分享` | Designer chia sẻ nghề |
+| `酷家乐 打光 思路` | `思路` = mạch tư duy, không phải bộ số — đúng thứ cần học |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

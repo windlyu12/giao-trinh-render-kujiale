@@ -23,11 +23,11 @@
 <main class="main"><div class="page">
   <header class="ch-head">
     <div class="ch-no">2</div>
-    <div class="ch-meta"><span class="tag">Chương 2</span><span class="tag ghost">≈ 21 phút đọc</span></div>
+    <div class="ch-meta"><span class="tag">Chương 2</span><span class="tag ghost">≈ 22 phút đọc</span></div>
     <h1 class="ch-title">Quy trình render và thông số</h1>
     <p class="ch-hook">Bấm gì, chỉnh gì trong 高级设置, và cách render nháp → final không đốt điểm.</p>
   </header>
-  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#21-ba-che-o-render-ban-o-ui-moi">2.1. Ba chế độ render — bản đồ UI mới</a></li><li><a href="#22-quy-trinh-chuan-5-giai-oan">2.2. Quy trình chuẩn 5 giai đoạn</a></li><li><a href="#23-chon-loai-anh-o-phan-giai-theo-muc-ich">2.3. Chọn loại ảnh + độ phân giải theo mục đích</a></li><li><a href="#24-bang-16-tham-so-nang-cao-trai-tim-cua-chuong">2.4. Bảng 16 tham số nâng cao — trái tim của chương</a></li><li><a href="#25-chan-oan-loi-3-buoc">2.5. Chẩn đoán lỗi 3 bước</a></li><li><a href="#26-sop-nhap-final-tiet-kiem">2.6. SOP nháp → final tiết kiệm 核豆</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#21-ba-che-o-render-ban-o-ui-moi">2.1. Ba chế độ render — bản đồ UI mới</a></li><li><a href="#22-quy-trinh-chuan-5-giai-oan">2.2. Quy trình chuẩn 5 giai đoạn</a></li><li><a href="#23-chon-loai-anh-o-phan-giai-theo-muc-ich">2.3. Chọn loại ảnh + độ phân giải theo mục đích</a></li><li><a href="#24-bang-16-tham-so-nang-cao-trai-tim-cua-chuong">2.4. Bảng 16 tham số nâng cao — trái tim của chương</a></li><li><a href="#25-chan-oan-loi-3-buoc">2.5. Chẩn đoán lỗi 3 bước</a></li><li><a href="#26-sop-nhap-final-tiet-kiem">2.6. SOP nháp → final tiết kiệm 核豆</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li><li><a href="#tu-tra-video-thuc-chien">Tự tra video thực chiến</a></li></ol></details>
   <article class="content"><blockquote class="tip">
 <p><strong>Sau chương này bạn làm được:</strong>
 - Chọn đúng chế độ render trong 3 chế độ mới (thử-sai ở đâu, xuất final ở đâu, video/ảnh nhìn từ trên xuống ở đâu)
@@ -636,7 +636,49 @@
 - ⚠️ Nút 降噪 / 漏光修复 còn hay mất theo từng template (nguồn mâu thuẫn)
 - ⚠️ Template nào có 自动曝光
 - ⚠️ Khung giờ render không giới hạn theo hạng hội viên; chủng loại vé mua thêm của bậc 高级
-- ⚠️ Danh sách tỉ lệ khung hình + mức phân giải chính xác trong UI hiện tại (800×450 hay 800×600...)</p></article>
+- ⚠️ Danh sách tỉ lệ khung hình + mức phân giải chính xác trong UI hiện tại (800×450 hay 800×600...)</p>
+<hr>
+<h2 id="tu-tra-video-thuc-chien">Tự tra video thực chiến</h2>
+<blockquote class="pin">
+<p>📌 <strong>Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.</strong></p>
+<p>Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì <strong>xem người ta quay màn hình học nhanh hơn đọc nhiều lần.</strong> Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.</p>
+<p><strong>Đọc chương xong, tra vài video về đúng quy trình và tham số render, rồi quay lại làm.</strong> Đó mới là cách chương này phát huy hết.</p>
+</blockquote>
+<p>Dán nguyên cụm vào ô tìm kiếm của <strong>小红书</strong> hoặc <strong>抖音 (Douyin)</strong>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Từ khoá</th>
+<th>Tìm được gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>酷家乐 渲染 教程 全流程</code></td>
+<td>Toàn bộ quy trình render từ đầu đến cuối</td>
+</tr>
+<tr>
+<td><code>酷家乐 离线模式 实时专业 区别</code></td>
+<td>Khác nhau giữa các chế độ render</td>
+</tr>
+<tr>
+<td><code>酷家乐 高级参数 设置</code></td>
+<td>Thiết lập tham số nâng cao</td>
+</tr>
+<tr>
+<td><code>酷家乐 渲染 常见问题</code></td>
+<td>Lỗi render hay gặp</td>
+</tr>
+<tr>
+<td><code>酷家乐 出图 省核豆</code></td>
+<td>Mẹo tiết kiệm điểm render</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 <strong>Bốn quy tắc lọc, dùng cho mọi từ khoá:</strong> sắp theo <code>最新</code> (mới nhất) · ưu tiên bài có <strong>ảnh chụp panel kèm số</strong> · bỏ bài <code>AI一键</code> (quảng cáo) · <strong>chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1</strong>, bài cũ hơn thì chỉ học tư duy.</p>
+<p>Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem <strong>Phụ lục E mục E.10</strong>.</p>
+</blockquote></article>
   <button class="mark-read" id="mark-read"></button>
   <nav class="pager"><a class="prev" href="01.html"><span class="dir">← Trước</span><div class="t">Chương 1 · Làm chủ Kujiale bản Trung Quốc</div></a><a class="next" href="03.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 3 · Ánh sáng tự nhiên</div></a></nav>
 </div></main>

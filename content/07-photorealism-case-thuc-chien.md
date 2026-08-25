@@ -148,3 +148,27 @@ Quy tắc đọc case, trước khi xem bảng:
 - **Chính thức được xác nhận:** giáo trình 仙姑老师 (Kujiale 官方认证, ảnh designer 刘刚/仙姑, bản cập nhật 2026 — nguồn thứ tự 4 trụ cột, 3 lớp sáng, bộ số case #1).
 - **Cộng đồng (⚠️):** quy tắc trắng 180–200 + danh sách dấu hiệu cháy sáng/quá mới (Renderbus, nhiều bài); chiết suất kính 1.5–1.6; case 百度经验/Zhihu #4, #5, #8, #9, #10; tư duy 帅大韩 (cộng đồng Kujiale); "cả nhà dưới 15 phút" là blog marketing Coohom — không dùng cam kết.
 - **Chờ verify trên app:** đơn vị 瓦 (Sổ ghi nhận mục B1); số 核豆 tiêu theo cỡ ảnh (A1); giới hạn dung lượng upload texture 2MB hay 5MB (C2).
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng ảnh như chụp, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 照片级 渲染` | Render mức ảnh chụp |
+| `酷家乐 效果图 提升 技巧` | Kỹ thuật nâng chất ảnh |
+| `酷家乐 出图 干货` | `干货` = kiến thức thực dụng không lảm nhảm |
+| `酷家乐 案例 拆解` | Mổ xẻ từng ca cụ thể |
+| `酷家乐 写实 渲染 心得` | Chia sẻ kinh nghiệm render tả thực |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

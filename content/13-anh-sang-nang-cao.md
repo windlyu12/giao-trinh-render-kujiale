@@ -488,3 +488,28 @@ Dựng xong cả căn mẫu. Khoá một template. Lưu 6 góc. Render nháp c�
 4. **`室内光亮度`** thang bao nhiêu, tối đa có phải 500%
 
 Thêm: `灯光专属环境阻光` trong panel đèn và `环境阻光` ở `高级设置` là **một hay hai** thứ khác nhau · checkbox `阳光投射至每个房间` làm gì · `真实光源模式` ở `灯带` là gì · bản template thực tế còn những bản nào (mở `灯光版本管理` xem, đừng tin bảng in sẵn) · `光照分析图` tài khoản cá nhân có dùng được không.
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng ánh sáng nâng cao, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 无主灯 打光` | Đánh đèn cho hệ không đèn chủ |
+| `酷家乐 纱帘 阳光 渲染` | Nắng qua rèm voan — kỹ thuật cốt lõi chương |
+| `酷家乐 手动曝光` | Phơi sáng thủ công — biến số ẩn giải thích nhiều bộ số lạ |
+| `酷家乐 灯光模板 对比` | So các đời template |
+| `酷家乐 整套 出图` | Render cả bộ ảnh một căn |
+| `酷家乐 打光 参数 干货` | Tham số đánh đèn, loại bài thực dụng |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

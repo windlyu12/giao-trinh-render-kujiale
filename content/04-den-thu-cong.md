@@ -221,3 +221,29 @@ Làm trên căn hộ mẫu 2PN của lớp (phòng khách + bếp mở, cửa s�
 **Suy luận / chờ verify:**
 - Toàn bộ Công thức 4 (WC) = suy luận từ nguyên tắc chung — chưa có bài Kujiale chuyên WC
 - Đơn vị 瓦 vs số trơn → Sổ ghi nhận mục B1; đường vào đèn tay → B2; nút 降噪/漏光修复/溢色修正 → B4; profile IES S1–S5/T → B6 (Phụ lục B)
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng đèn thủ công, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 手动灯光 教程` | Hướng dẫn đèn thủ công — từ khoá quan trọng nhất chương |
+| `酷家乐 打光 三步法` | Đánh đèn ba bước |
+| `酷家乐 面光源 参数` | Tham số đèn mặt |
+| `酷家乐 射灯 IES 使用` | Dùng đèn rọi có file quang học |
+| `酷家乐 灯带 参数 设置` | Tham số dải hắt sáng |
+| `酷家乐 客厅 打光 数值` | Trị số đánh đèn phòng khách |
+| `酷家乐 卧室 打光` | Đánh đèn phòng ngủ |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

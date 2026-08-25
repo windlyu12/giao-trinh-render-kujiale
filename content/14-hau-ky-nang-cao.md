@@ -328,3 +328,27 @@ Lấy ba ảnh render có cửa sổ ở ba mức cháy khác nhau. Với mỗi 
 **Chờ verify:**
 - Công cụ làm đẹp ảnh trong Kujiale có nhận file LUT ngoài không
 - Không gian màu của file xuất — gần như chắc là sRGB, kiểm bằng cách mở file xem hồ sơ màu nhúng
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng hậu kỳ, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `效果图 后期 调色` | Chỉnh màu ảnh render |
+| `效果图 曲线 调整` | Chỉnh bằng đường cong |
+| `效果图 PS 后期 教程` | Hậu kỳ bằng Photoshop |
+| `Lightroom 室内 调色` | Chỉnh màu ảnh nội thất bằng Lightroom |
+| `奶油风 调色 参数` | Tông kem — tông đang thịnh nhất |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

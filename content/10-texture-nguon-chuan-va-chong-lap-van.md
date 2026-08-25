@@ -352,3 +352,28 @@ Lấy một ảnh đá vân lớn. Làm đối hoa gương thủ công theo 4 b�
 - `连纹商品` / `连纹大岩板` có bấm được trên tài khoản cá nhân không — tài liệu chính thức tự mâu thuẫn
 - Con số 2 MB áp cho cổng tải lên nào
 - Ảnh `法线` màu xanh tím nạp thẳng có ăn không, so với ảnh đen-trắng ở `凹凸`
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng ảnh vân, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 贴图 上传 教程` | Hướng dẫn tải ảnh vân lên |
+| `酷家乐 无缝贴图 制作` | Làm ảnh vân nối liền |
+| `四方连续 贴图 制作` | Làm ảnh lát không lộ mối nối — thuật ngữ chuẩn của nghề |
+| `酷家乐 定制随机纹理刷` | Cọ vân ngẫu nhiên — công cụ chống lặp cốt lõi |
+| `酷家乐 木纹 对纹` | `对纹` = ghép vân liền mạch giữa các tấm |
+| `酷家乐 大板 通铺` | Ảnh khổ lớn phủ trọn mảng |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

@@ -265,3 +265,27 @@ Cùng 1 góc camera, render 2 tấm nháp 1920×1080 (khung miễn phí): tấm 
 - ⚠️ Template nào có 自动曝光
 - ⚠️ Khung giờ render không giới hạn theo hạng hội viên; chủng loại vé mua thêm của bậc 高级
 - ⚠️ Danh sách tỉ lệ khung hình + mức phân giải chính xác trong UI hiện tại (800×450 hay 800×600...)
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng quy trình và tham số render, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 渲染 教程 全流程` | Toàn bộ quy trình render từ đầu đến cuối |
+| `酷家乐 离线模式 实时专业 区别` | Khác nhau giữa các chế độ render |
+| `酷家乐 高级参数 设置` | Thiết lập tham số nâng cao |
+| `酷家乐 渲染 常见问题` | Lỗi render hay gặp |
+| `酷家乐 出图 省核豆` | Mẹo tiết kiệm điểm render |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

@@ -275,6 +275,10 @@ Ngân hàng này càng dày càng đáng tin — mỗi ca mới làm một dòng
 
 ### Bộ từ khoá — dán thẳng vào ô tìm kiếm
 
+> 💡 **Tìm từ khoá theo CHỦ ĐỀ CHƯƠNG thì xem mục "Tự tra video thực chiến" ở cuối mỗi chương** — mỗi chương có bảng riêng, sát nội dung chương đó.
+>
+> Bộ dưới đây khác: nó nhắm vào việc **thu ca có số** để làm dày ngân hàng này, nên ưu tiên bài có ảnh chụp panel.
+
 Xếp theo thứ tự đáng thu. **Copy nguyên cụm, dán vào ô tìm của 小红书 hoặc Douyin.**
 
 #### Ưu tiên 1 — phòng khách, tông kem, không đèn chủ

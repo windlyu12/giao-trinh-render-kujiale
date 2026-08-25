@@ -236,3 +236,27 @@ Lấy ảnh bài 2, chạy đủ checklist 8 bước mục 6.6 trong app (美化
 **Chờ verify trên app (Phụ lục B):**
 - Mục A1 — số 核豆 tiêu theo cỡ ảnh · Mục A2 — có tỉ lệ 9:16 sẵn không · Mục A3 — pixel thực tier "4K"/"8K"
 - Vị trí panel 景深 trên UI 3 chế độ mới
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng máy ảnh và bố cục, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 相机 参数 设置` | Thiết lập máy ảnh |
+| `酷家乐 构图 技巧` | Kỹ thuật bố cục |
+| `酷家乐 相机矫正` | Sửa méo phối cảnh một chạm |
+| `酷家乐 图片美化 教程` | Công cụ làm đẹp ảnh có sẵn trong app |
+| `室内效果图 构图` | Bố cục ảnh nội thất nói chung |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.

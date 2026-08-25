@@ -386,3 +386,28 @@ Vẫn phòng đó, thêm ba chi tiết Việt: dép trong nhà, ấm chén trà 
 
 **Chờ verify — nhưng bằng khách chứ không phải bằng app:**
 - **Ngưỡng "bừa" nào khách Việt trung niên chấp nhận.** Đây là câu chưa ai trả lời được bằng tài liệu. Cách duy nhất: làm hai bản ảnh cùng một phòng, một bản 2 điểm bừa một bản 4 điểm, đưa khách thật xem và ghi phản ứng. Làm được vài lần là chốt được chuẩn công ty.
+
+---
+
+## Tự tra video thực chiến
+
+> 📌 **Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.**
+>
+> Chương vừa rồi dựng khung: nguyên lý là gì, thứ tự làm ra sao, số nào tin được số nào không. Nhưng thao tác thật — chuột đi đường nào, bấm chỗ nào, chỉnh tới đâu thì dừng — thì **xem người ta quay màn hình học nhanh hơn đọc nhiều lần.** Người làm nghề Trung Quốc chia sẻ rất nhiều và rất thực chiến.
+>
+> **Đọc chương xong, tra vài video về đúng model và bày đồ, rồi quay lại làm.** Đó mới là cách chương này phát huy hết.
+
+Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douyin)**:
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 软装 搭配` | Phối đồ rời trang trí |
+| `酷家乐 摆件 技巧` | Kỹ thuật bày đồ trang trí |
+| `室内 软装 陈设 生活感` | `生活感` = cảm giác có người sống — khái niệm trung tâm chương này |
+| `酷家乐 模型 导入 教程` | Nhập model từ ngoài vào |
+| `酷家乐 定制窗帘 教程` | Công cụ rèm tham số |
+| `酷家乐 绿植 摆放` | Đặt cây xanh |
+
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài có **ảnh chụp panel kèm số** · bỏ bài `AI一键` (quảng cáo) · **chỉ chép số từ bài ghi rõ template 3.0 hoặc 3.1**, bài cũ hơn thì chỉ học tư duy.
+>
+> Cách vào 小红书 từ Việt Nam, danh sách tài khoản đáng theo dõi, và mẫu ghi lại một ca thu được: xem **Phụ lục E mục E.10**.
