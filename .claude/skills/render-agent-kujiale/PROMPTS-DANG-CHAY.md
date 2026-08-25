@@ -182,49 +182,65 @@ và lưng ghế mây gặp sáng tạt rất dễ ra kiểu xù của ca 04.
 giữ mốc lạnh khi dùng tông ấm. Thêm một câu mới: **xoá overlay viewport** (chữ `[Corona Camera015]`
 góc trên trái + trục toạ độ góc dưới trái) — thứ ảnh nguồn Kujiale không có nhưng 3ds Max thì có.
 
-## 🔄 CA2 bản A2 — vá "vật liệu nhựa" (CHƯA TEST)
+## 🔄 CA2 bản A3 — ĐẦY ĐỦ, dán là chạy (CHƯA TEST)
 
-Ca 06: bản A ánh sáng ăn nhưng *"vật liệu cảm giác rất nhựa"*.
-**Giữ nguyên khối 1–4 của bản A**, thay hai khối cuối:
+Gộp mọi thứ học được từ ca 01–06. **Không phải ghép gì cả.**
 
 ```
+Photorealistic interior photograph of this exact entryway and dining area. Keep the
+camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove the viewport text overlay in the top-left
+corner and the axis gizmo in the bottom-left corner. Remove every CAD outline and edge
+line; surfaces meet without drawn borders. Nothing should look like a 3D viewport.
+
+Soft interior lighting, late afternoon. Recessed ceiling downlights wash the tall
+cabinetry from above; the charcoal globe pendant glows warm 3000K over the dining table;
+a warm strip lights the arched oak niche from within. A gentle cool daylight spill
+enters from the living area off-frame to the right, keeping the shadows neutral rather
+than orange. The arched niche is the brightest point in the frame; brightness settles
+gradually toward the left corner. Cast shadows only from objects actually present in
+the scene.
+
+Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
 Matte cream lacquer cabinetry with a fine hand-applied surface, never glassy — the sheen
 shifts slightly from door to door. Oak veneer with open pores, the grain changing from
-board to board. The curved console catches a soft satin sheen only where light grazes it.
-Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint wear
-path toward the door. Cane chair backs woven from real rattan, the weave slightly
+board to board. The curved console catches a soft satin sheen only where light grazes
+it. Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint
+wear path toward the door. Cane chair backs woven from real rattan, the weave slightly
 irregular. Cotton seat cushions with a soft matte weave and gentle creasing where people
 sit. Glazed ceramic vases with uneven glaze pooling. Everyday traces, quiet and few: a
 faint scuff on the floor near the shoes, soft dust settled on the top shelf.
 
 Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
-wood, dry woven cane, glazed ceramic. Subtle film grain. Muted natural colour. The look
-of a printed magazine interior photograph.
-```
+wood, dry woven cane, glazed ceramic.
 
-**Bỏ hẳn:** `physically based materials` · `soft specular highlights`.
-**Nếu quá tay thành nhà cũ bẩn:** bỏ dòng `Everyday traces...` trước, giữ phần sheen.
-
-## 🔄 CA2 bản A3 — vá "lớp nhựa phủ toàn ảnh" (CHƯA TEST)
-
-Ca 06 làm rõ: không phải lỗi từng vật liệu mà là **tầng toàn ảnh**.
-Giữ khối 1–4 + khối vật liệu của A2, **thêm hai khối này vào cuối**:
-
-```
 True photographic tonal range: real deep shadow under the console and inside the shoe
 niche, a clear falloff across the ceiling, whites that stop just short of pure white.
 Let parts of the frame sit in genuine shadow.
 
 Lens and film character: fine grain visible across the whole frame, a gentle vignette at
 the corners, slight softness at the extreme edges, faint chromatic fringing on the
-highest-contrast edges. Shot on a full-frame camera at ISO 400.
+highest-contrast edges. Full-frame camera at ISO 400.
 
 Neutral white balance — the cream cabinet fronts read as near-white, not amber. Warmth
-comes only from the pendant and the arch cove, never as an overall tint.
+comes only from the pendant and the arch strip, never as an overall tint. Muted natural
+colour. The look of a printed magazine interior photograph.
 ```
 
-**Thay `subtle film grain` bằng `fine grain visible across the whole frame`** ở mọi bản prompt
-từ giờ. `subtle` đã bó grain xuống 0 trong cả 5 bản trước.
+### Đổi gì so với bản A *(bảng này là phần bổ sung, prompt trên đã đầy đủ)*
+
+| Khối | Bản A | Bản A3 | Vì |
+|---|---|---|---|
+| 2 ánh sáng | `Soft warm interior lighting` | `Soft interior lighting` + để nguồn tự mang hơi ấm | Ám ấm đều toàn khung → mắt đọc là filter |
+| 5 vật liệu | Liệt kê tên vật liệu | Tả **bề mặt** từng thứ + tì vết bó liều | Ca 06 — không có tì vết thì ra nhựa |
+| 6 chất ảnh | `physically based materials, soft specular highlights, subtle film grain` | Bỏ 2 cụm đầu · `fine grain **visible** across the whole frame` | `physically based` nghi đẩy về vẻ CG · `subtle` bó grain xuống 0 |
+| **mới** | — | Khối dải tông + khối ống kính/phim + khối cân bằng trắng | Ca 06 — "lớp nhựa" là lỗi tầng toàn ảnh |
+
+**Nếu quá tay thành nhà cũ bẩn:** bỏ **một** câu `Everyday traces...`, giữ nguyên phần còn lại.
 
 ---
 

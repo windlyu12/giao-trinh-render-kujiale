@@ -1,5 +1,9 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
+> 🚫 **LUẬT SỐ MỘT khi xuất kết quả: prompt phải ĐẦY ĐỦ, dán là chạy. Cấm xuất mảnh.**
+> Đã vá vào `SKILL.md` mục "Khuôn xuất" và `05` §0 Luật 1 sau khi người dùng phàn nàn phải ghép tay
+> qua 6 ca liền.
+
 > 📌 **Text đầy đủ của các prompt đang chạy nằm ở `PROMPTS-DANG-CHAY.md`** (cùng thư mục).
 > File này ghi *vì sao*, file kia giữ *cái để copy*. Sửa prompt thì sửa ở file kia.
 
@@ -254,13 +258,13 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
-| 🔴 **CHÍN — ĐỦ 3 CA. Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa.** Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
-| 🔴 **CHÍN — "lớp nhựa phủ toàn ảnh" KHÔNG sửa được bằng prompt thuần.** Bộ đồ nghề chống nhựa của C14 (curve S · hạt nhiễu · tối góc) đều là bước HẬU KỲ. Mọi bản prompt phải kèm công thức hậu kỳ, không được coi ảnh AI là bản cuối | 01, 02, 06 | **3/3 — sẵn sàng vá** |
-| 🔴 **CHÍN — bó quá thì thứ đó biến mất.** `subtle film grain` viết 5 bản, grain ra bằng 0. Bó *tính chất* nhưng phải ép *sự hiện diện*: `fine grain visible across the whole frame`. Đây là tinh chỉnh của luật ca 04, không phải bác | 02, 04, 06 | **3/3 — sẵn sàng vá** |
-| 🟠 **2/3 — Prompt PHẢI có tì vết ở khối 5.** Hàng 22 của bảng 26 cụm có sẵn trong skill mà chưa dùng lần nào. Không có nó thì vật liệu ra nhựa (hạng 3+4 bảng 12) | 02, 06 | 2/3 |
-| **Bề mặt càng TRƠN + ĐỀU MÀU thì AI càng ra nhựa** (cánh tủ trắng, console sơn, khung ghế nhạt). Bề mặt có vân đậm/biến thiên thì ra tốt (sàn xương cá). → phải tả riêng nhóm trơn-đều | 06 | 1/3 |
-| **`physically based materials` nghi đẩy về vẻ CG** — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
-| **Khối 6 nên tả MỨC BÓNG KHÁC NHAU giữa các vật liệu**, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
+| ✅ **ĐÃ VÁ vào `05` §0 Luật 2.** Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa. Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
+| ✅ **ĐÃ VÁ vào `05` §0 Luật 3.** "Lớp nhựa phủ toàn ảnh" không sửa được bằng prompt thuần. Bộ đồ nghề chống nhựa của C14 (curve S · hạt nhiễu · tối góc) đều là bước HẬU KỲ. Mọi bản prompt phải kèm công thức hậu kỳ, không được coi ảnh AI là bản cuối | 01, 02, 06 | **3/3 — sẵn sàng vá** |
+| ✅ **ĐÃ VÁ vào `05` §0 Luật 2.** Bó quá thì thứ đó biến mất. `subtle film grain` viết 5 bản, grain ra bằng 0. Bó *tính chất* nhưng phải ép *sự hiện diện*: `fine grain visible across the whole frame`. Đây là tinh chỉnh của luật ca 04, không phải bác | 02, 04, 06 | **3/3 — sẵn sàng vá** |
+| ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Prompt phải có tì vết ở khối 5. Hàng 22 của bảng 26 cụm có sẵn trong skill mà chưa dùng lần nào. Không có nó thì vật liệu ra nhựa (hạng 3+4 bảng 12) | 02, 06 | 2/3 |
+| ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Bề mặt càng TRƠN + ĐỀU MÀU thì AI càng ra nhựa (cánh tủ trắng, console sơn, khung ghế nhạt). Bề mặt có vân đậm/biến thiên thì ra tốt (sàn xương cá). → phải tả riêng nhóm trơn-đều | 06 | 1/3 |
+| ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
+| ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |

@@ -21,6 +21,76 @@
 
 ---
 
+## 0. Ba luật bắt buộc — rút từ thực chiến, đọc trước khi viết dòng nào
+
+### Luật 1 — Xuất prompt ĐẦY ĐỦ, cấm xuất mảnh
+
+Sửa lần thứ mười thì vẫn xuất lại **toàn bộ** prompt lần thứ mười. Không bao giờ viết
+*"giữ khối 1–4, thay khối 5"*. Bảng diff (nếu có) đặt **sau** prompt đầy đủ, không thay cho nó.
+
+### Luật 2 — Bó TÍNH CHẤT, nhưng phải ép SỰ HIỆN DIỆN
+
+Chữa lỗi prompt bằng **cụm nhấn** thì AI luôn giao thừa:
+
+| Đã thử | Kết quả |
+|---|---|
+| `raking … so the texture reads clearly` | Cả khung tắm cam + AI bịa bóng lá cây |
+| `visible looped fabric texture` (kèm `boucle`) | Ghế xù hết lông |
+| `wide horizontal 16:9 composition` | Cắt mất tường cao và tủ kịch trần |
+
+→ Dùng **cụm bó**: `tight`, `compact`, `low`, `even`, `restrained`, `subtle`, `faint`, `quiet and few`.
+
+**NHƯNG** bó quá thì thứ đó **biến mất hẳn**:
+
+| Đã thử | Kết quả |
+|---|---|
+| `subtle film grain` — viết trong 5 bản prompt liền | **Grain ra bằng 0**, không đọc được hạt nào |
+
+→ Công thức đúng: **bó tính chất + khẳng định sự hiện diện.**
+`fine grain visible across the whole frame` — `fine` bó, `visible` ép có.
+Áp cho mọi thứ dễ bị bó về 0: hạt nhiễu, tối góc, tì vết, quang sai.
+
+### Luật 3 — "Lớp nhựa phủ toàn ảnh" KHÔNG sửa được bằng prompt
+
+Triệu chứng người dùng mô tả: *"bề mặt ảnh như phủ một lớp nhựa"*. Bốn thứ cộng lại:
+
+| Thứ | Hạng bảng 12 |
+|---|---|
+| Mất chi tiết tần số cao — diffusion làm mượt đều toàn khung | 11 |
+| Dải tông quá hẹp, không có vùng tối thật | 2 + 10 |
+| Ám màu đều toàn khung → mắt đọc là filter | 9 |
+| Không tối góc, không mềm rìa, không hạt | 12 |
+
+**Bộ đồ nghề chống "nhựa" của C14 đều là bước HẬU KỲ, không phải bước prompt.**
+Nguyên văn C14: *"nghịch lý nghề render: thêm một tí nhiễu ảnh lại thật hơn"*.
+
+> ## 📌 **Ảnh AI KHÔNG BAO GIỜ là bản cuối.**
+> **Mọi prompt xuất ra phải kèm công thức hậu kỳ bên dưới.** Không kèm là xuất thiếu.
+
+| Bước | Số (C14) |
+|---|---|
+| **Đường cong chữ S** | Điểm vào 64 → ra **57** · điểm vào 192 → ra **198** (dịch ~8/255). Giữ điểm giữa 128, nhích tối đa ±3 |
+| **Hạt nhiễu** — giết "nhựa" mạnh nhất | Amount **12–15** · Size 25 · Roughness 45–50 · **Gaussian đơn sắc**. Ảnh 1080–2K: **8–12** |
+| **Tối góc** | Vignette vừa đủ cảm thấy |
+| **Khử ám** | Cân bằng trắng về trung tính nếu cả ảnh ngả một tông |
+| **Dải lục** | Hạ bão hoà −5 → −10 cho cây bớt "xanh nhựa" |
+
+⚠️ **KHÔNG đụng dải cam/vàng** — màu ván khách đã chốt trên bảng mẫu, lệch là tranh chấp nghiệm thu.
+⚠️ **Đánh giá hạt ở kích thước xuất cuối, xem toàn ảnh — không phóng 100%.**
+
+### Hệ quả cho khối 5 và 6
+
+Khối 5 **bắt buộc có tì vết** (hàng 22 của bảng §2) — không có là vật liệu ra nhựa, hạng 3+4 bảng 12.
+Khối 6 phải tả **mức bóng KHÁC NHAU giữa các vật liệu**, không dùng một cụm chung cho tất cả.
+
+> 💡 Quan sát từ thực chiến: **bề mặt càng TRƠN và càng ĐỀU MÀU thì AI càng ra nhựa** — cánh tủ trắng,
+> console sơn, khung ghế gỗ nhạt. Bề mặt có vân đậm và biến thiên (sàn xương cá) thì ra tốt.
+> Nhóm trơn-đều **phải được tả riêng**, đừng gộp chung một dòng liệt kê.
+
+⚠️ Tránh `physically based materials` — thuật ngữ engine render, nghi đẩy model về vẻ CG sạch.
+
+---
+
 ## 1. Công thức 6 khối
 
 ```

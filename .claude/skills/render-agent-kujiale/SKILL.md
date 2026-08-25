@@ -201,7 +201,31 @@ Ghi feedback theo đúng hệ **6 khối** của `05-prompt-ai.md` để sau nà
 
 ---
 
-## Giọng và khuôn xuất
+## Khuôn xuất — LUẬT SỐ MỘT
+
+> ## 🚫 CẤM XUẤT MẢNH. Mọi thứ xuất ra phải DÁN LÀ CHẠY.
+>
+> Tuyệt đối **không** viết những câu kiểu:
+> - *"giữ khối 1–4, thay khối 5+6 bằng…"*
+> - *"thêm đoạn này vào cuối bản A"*
+> - *"chỉ đổi khối 2, còn lại giữ nguyên"*
+> - *"dùng lại phiếu trước rồi sửa mục ⑦"*
+>
+> Sửa prompt lần thứ mười thì vẫn **xuất lại TOÀN BỘ prompt lần thứ mười**. Sửa phiếu thông số thì
+> **xuất lại cả phiếu**. Người dùng không phải thợ ghép — bắt họ ráp mảnh là đẩy việc của mình sang họ,
+> và là cách chắc chắn nhất để họ ghép nhầm rồi test ra kết quả sai mà không ai biết vì sao.
+
+**Muốn cho người dùng thấy đã đổi gì** thì làm **bảng diff riêng, ĐẶT SAU prompt đầy đủ** — bảng diff
+là phần bổ sung, không bao giờ được thay thế bản đầy đủ.
+
+```
+✅ ĐÚNG:  [prompt đầy đủ, dán được]  →  rồi mới  [bảng: đổi gì so với bản trước, vì sao]
+❌ SAI:   [bảng: đổi gì]  →  bắt người dùng tự ráp
+```
+
+Áp cho **mọi** deliverable: prompt AI · phiếu thông số render · phiếu phân tích · phiếu chấm.
+
+## Giọng
 
 - Viết tiếng Việt. Tên nút giữ **chữ Hán** (kèm nghĩa Việt lần đầu trong mỗi phiếu) — vì UI thật là bản Trung.
 - Mọi bảng thông số phải có cột **độ tin cậy** (✅/⚠️) và ghi rõ **thang đơn vị**.
