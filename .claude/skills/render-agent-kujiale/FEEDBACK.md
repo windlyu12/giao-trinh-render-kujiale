@@ -148,12 +148,36 @@ Ghi lại đây làm ví dụ: **một ca lẻ đủ để dựng giả thuyết
 
 ---
 
+### 04 — 2026-08-25 — Bàn ăn (cùng lượt chạy B2 với ca 03) — ghế xù lông
+
+**Kết quả:** vải ghế **xù hết lông lên**. Người dùng: *"không hiểu vấn đề tại sao"*
+
+**Nguyên nhân — lỗi soạn prompt, hai thứ nhân nhau:**
+
+1. **Cụm nhấn thừa.** Bản A viết `cream boucle chairs with slim black metal legs` → ghế ra **đúng chất vải**
+   (đã ghi ở ca 01). B2 đổi thành `cream boucle chairs with visible looped fabric texture and slim
+   black metal legs` để chữa lỗi "ghế bẹt như clay" của ca 02.
+   Nhưng **`boucle` bản thân đã là vải vòng xù** — thêm `visible looped texture` là bảo AI phóng đại
+   vòng vải. Nó nhả sợi ra thành lông.
+
+2. **Nắng xiên cộng hưởng.** Sáng tạt là loại ánh sáng làm nổi tối đa mọi thứ gồ ghề trên bề mặt —
+   đúng lý do đưa nó vào để khoe vân gỗ. Nhưng nó **không phân biệt**: vân gỗ nổi thì lông boucle
+   cũng nổi. Vải xù + sáng tạt = xù tối đa.
+
+**Sửa thành gì thì ăn:** trả về đúng câu bản A. Nếu vẫn xù vì còn nắng xiên thì ghì bằng **cụm bó**:
+`cream boucle chairs, tight compact weave with a low even nap, slim black metal legs`
+(`tight` / `compact` / `low` / `even` — đều là giới hạn, không phải khuếch đại).
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
+| 🔴 **CHÍN — ĐỦ 3 CA. Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa.** Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
+| **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
 | Ngưỡng điểm bóng nên là **≤3 có chủ đích**, không phải cứng 1–2 | 01 | 1/3 |
 | ~~Prompt phải khai tỉ lệ khung bằng lời ở khối 6~~ → **BỊ BÁC ở ca 03.** Thay bằng: **đừng gọi tên tỉ lệ trong prompt**; bảo nó `keep the same framing and crop as the source image`, còn tỉ lệ set trong cài đặt công cụ | 01, 03 | **đã chốt hướng ngược** |
