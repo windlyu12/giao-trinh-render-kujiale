@@ -338,7 +338,7 @@ Muốn cảnh ngoài thật thì phải render lại với `外景` đúng và h
 
 ---
 
-# 🔧 CA2 bản A4 — vá LOGIC TRUYỀN SÁNG (ca 09)
+# CA2 bản A4 — vá logic truyền sáng vòng 1 (ca 09) — **đã bị A5 thay thế**
 
 Kỹ thuật bắt: hai cánh tủ nhỏ trên hõm vòm bị vẽ sẫm hơn hẳn mảng cánh lớn bên trái, dù
 **cùng mặt phẳng, cùng vật liệu, cùng cao độ**. Còn mảng đáng tối nhất (tường trên cửa vào)
@@ -404,3 +404,81 @@ One pair of shoes sits turned slightly out of line on the floor beside the bench
 
 > ⚠️ **Không đảm bảo.** AI không có bộ giải truyền sáng. Câu tương quan tường minh ghì được một phần,
 > nhưng ảnh nào có người trong nghề soi thì **render thật, đừng AI** — engine giải đúng miễn phí.
+
+---
+
+# 🔧 CA2 bản A5 — vá SUY GIẢM THEO KHOẢNG CÁCH (ca 09 + 10)
+
+Kỹ thuật bắt thêm hai lỗi nữa, cùng gốc với ca 09: **AI không tính ánh sáng yếu dần theo khoảng cách.**
+A5 khai báo tường minh cả ba: nhất quán bề mặt · vũng sáng trên sàn · gradient trong hõm.
+
+```
+Photorealistic interior photograph of this exact entryway and dining area. Keep the
+camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces
+meet without drawn borders. Nothing should look like a 3D viewport.
+
+Soft interior lighting, late afternoon. Recessed ceiling downlights, a charcoal globe
+pendant glowing warm 3000K over the dining table, and a warm LED strip inside the arched
+niche. A gentle cool daylight spill enters from the living area off-frame to the right,
+keeping the shadows neutral rather than orange. Cast shadows only from objects actually
+present in the scene.
+
+Light falls off with distance from its source — this governs the whole image.
+
+Each recessed downlight throws a distinct soft pool onto the herringbone floor directly
+beneath it, brightest at its centre and fading outward. The floor between two pools is
+clearly darker than the floor inside them. The floor is never washed evenly.
+
+The LED strip runs only along the top curve of the arch. It lights the upper third of the
+oak back panel brightly, then falls away downward; the lower panel is dim and the bench
+cushion at the bottom sits in soft shadow, lit by spill from the room rather than by the
+strip.
+
+The two small cabinet doors above the arch sit in the same plane, in the same white
+lacquer, at the same height as the tall door panels to their left — they read at exactly
+the same brightness as those panels. Do not darken them to make the lit arch stand out.
+The dimmest area in the whole frame is the plain wall above the entry door, furthest from
+every source and receiving no bounce.
+
+Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+Matte cream lacquer cabinetry with a fine hand-applied surface, never glassy — the sheen
+shifts slightly from door to door. Oak veneer with open pores, the grain changing from
+board to board. The curved console catches a soft satin sheen only where light grazes
+it. Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint
+wear path toward the door. Cane chair backs woven from real rattan, the weave slightly
+irregular. Cotton seat cushions with a soft matte weave and gentle creasing where people
+sit. Glazed ceramic vases with uneven glaze pooling. Everyday traces, quiet and few: a
+faint scuff on the floor near the shoes, soft dust settled on the top shelf.
+
+Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
+wood, dry woven cane, glazed ceramic.
+
+True photographic tonal range: real deep shadow under the console and inside the shoe
+niche, whites that stop just short of pure white, a full range in between.
+
+Neutral white balance — the cream cabinet fronts read as near-white, not amber. Warmth
+comes only from the pendant and the arch strip, never as an overall tint. Muted natural
+colour. The look of a printed magazine interior photograph.
+
+One pair of shoes sits turned slightly out of line on the floor beside the bench.
+```
+
+### Đổi gì so với A4 *(bảng bổ sung — prompt trên đã đầy đủ)*
+
+| Chỗ | A4 | A5 |
+|---|---|---|
+| Câu mở của khối sáng | `Light behaves consistently across every surface` | **`Light falls off with distance from its source — this governs the whole image.`** |
+| **mới** | — | Đoạn **vũng sáng trên sàn** — mỗi đèn một vũng, giữa hai vũng phải tối hơn |
+| **mới** | — | Đoạn **gradient trong hõm** — LED chỉ sáng 1/3 trên, đệm ngồi phải chìm |
+
+> ## ⚠️ ĐÂY LÀ VÒNG THỨ BA SỬA ÁNH SÁNG — DẤU HIỆU CHẠM TRẦN CÔNG CỤ
+> Vá xong ca 09 thì ca 10 lòi ra hai lỗi mới **cùng họ**. AI không có bộ giải truyền sáng;
+> câu chữ chỉ ghì được bề nổi.
+>
+> **Ảnh nào sẽ có người trong nghề soi → render thật.** Suy giảm theo khoảng cách là thứ
+> Corona/Kujiale giải **đúng và miễn phí**. AI để dò không khí và mood — dừng ở đó.

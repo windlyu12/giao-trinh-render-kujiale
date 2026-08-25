@@ -362,6 +362,45 @@ Ngược lại: **đây chính là thứ render engine làm đúng miễn phí**
 
 ---
 
+### 10 — 2026-08-25 — CA2 A3: kỹ thuật bắt thêm 2 lỗi nữa, CÙNG MỘT GỐC
+
+**Feedback 2:** vẽ nón sáng từ hai đèn âm trần xuống sàn, khoanh hai vùng sàn —
+*"ánh sáng 2 vùng này không thể chung sắc độ được"*
+**Feedback 3:** khoanh hõm vòm — *"cái hốc này sáng đều quá trong khi cái LED đó
+không thể làm sáng xuống tận đệm được"*
+
+## 🔴 BA FEEDBACK = MỘT GỐC DUY NHẤT: **AI KHÔNG CÓ SUY GIẢM THEO KHOẢNG CÁCH**
+
+| # | Biểu hiện | Vật lý bị vi phạm |
+|---|---|---|
+| 1 | Hai cánh tủ đồng phẳng đồng chất lại khác sắc độ | Không giữ nhất quán giữa các bề mặt |
+| 2 | Sàn sáng đều tăm tắp dưới dàn đèn âm trần | **Không có vũng sáng + không có suy giảm từ nguồn điểm** |
+| 3 | Hõm vòm sáng đều từ đỉnh xuống tận đệm ngồi | **Không có gradient từ nguồn dải** — LED trên đỉnh không thể với xuống đáy |
+
+Cả ba quy về một câu: **AI vẽ "chỗ nào đáng sáng thì sáng", không tính ánh sáng yếu dần theo
+khoảng cách.** Đây là thứ cơ bản nhất của ánh sáng, và cũng là thứ **người làm nghề chiếu sáng
+bắt được nhanh nhất** — vì mắt họ được luyện đúng để đọc vũng sáng và gradient.
+
+## 🔑 Kết luận nghề — vòng thứ BA sửa ánh sáng
+
+Chín ca test cho thấy một phân tuyến rất rõ:
+
+| Tầng | Prompt sửa được? | Bằng chứng |
+|---|---|---|
+| **Vật liệu** | ✅ Sửa được, sửa tốt | Ca 07 — tả bề mặt + mức bóng riêng → hết nhựa |
+| **Bố cục / khung** | ❌ | Ca 03, 08 |
+| **Lớp phủ ảnh** | ❌ — việc của hậu kỳ | Ca 07 — grain ra 0 qua 2 cách phát biểu |
+| **Logic truyền sáng** | ⚠️ **Ghì được câu chữ, KHÔNG sửa được bản chất** | Ca 09, 10 — vá xong lại lòi lỗi mới cùng họ |
+
+> ## 📌 Ảnh nào sẽ có người trong nghề soi → **RENDER, đừng AI.**
+> Suy giảm theo khoảng cách là thứ engine giải **đúng và miễn phí**. Không có lý do gì bắt AI
+> đoán lại thứ Corona/Kujiale tính chuẩn sẵn.
+> AI để **dò không khí, thử phong cách, mood board** — dừng ở đó.
+
+Ba lần vá liên tiếp cùng một họ lỗi là dấu hiệu **chạm trần công cụ**, không phải thiếu chữ trong prompt.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -377,6 +416,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
+| 🔴🔴 **CHÍN 3/3 — AI KHÔNG CÓ SUY GIẢM THEO KHOẢNG CÁCH.** Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
 | **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
