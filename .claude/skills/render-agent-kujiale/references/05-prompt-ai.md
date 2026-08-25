@@ -317,6 +317,14 @@ bản dịch sang tiếng Anh của hai công tắc `主体保留` + `材质保�
 Rút từ **14 ca thực chiến, 8 đời prompt**, có kỹ thuật nội bộ soi từng vòng. Đây là khung
 **đã đạt cả ba mặt cùng lúc**: đúng vật lý · giữ thiết kế · nịnh mắt.
 
+> ⚠️ **PHẠM VI HIỆU LỰC:** toàn bộ 14 ca chạy trên **Google Banana Pro** (Gemini image),
+> image-to-image. Mọi kết luận dưới đây **calibrate theo model đó**. Đổi công cụ thì phải test lại —
+> nhất là ba thứ: grain có ăn không · câu khoá layout có giữ được không · lệnh xoá nét CAD có ăn không.
+> (Riêng ca 03 chạy trên Google Flow và lộ ra chuyện tỉ lệ khung nằm ở cài đặt output, xem §0 Luật 1.)
+>
+> 📌 **Đây là khung cho ảnh AI.** Production render của công ty là **Kujiale** — phiếu thông số
+> render nằm ở `02-bang-tra-thong-so.md` và `03-cong-thuc-phong.md`, không phải ở đây.
+
 ### 7.1. Bốn tầng lỗi — ai sửa được cái gì
 
 | Tầng | Prompt sửa được? | Làm ở đâu |

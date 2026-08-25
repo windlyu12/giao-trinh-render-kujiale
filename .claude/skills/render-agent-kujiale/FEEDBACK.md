@@ -1,5 +1,9 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
+> 🛠️ **CÔNG CỤ TEST:** toàn bộ series CA2 chạy trên **Google Banana Pro**. Ca 03 chạy trên
+> **Google Flow**. **Production render của công ty là Kujiale** — mọi kết luận về prompt AI chỉ
+> có hiệu lực với công cụ AI, không áp cho phiếu thông số Kujiale.
+
 > 🚫 **LUẬT SỐ MỘT khi xuất kết quả: prompt phải ĐẦY ĐỦ, dán là chạy. Cấm xuất mảnh.**
 > Đã vá vào `SKILL.md` mục "Khuôn xuất" và `05` §0 Luật 1 sau khi người dùng phàn nàn phải ghép tay
 > qua 6 ca liền.
@@ -90,7 +94,7 @@ Chờ thêm ca.
 ### 02 — 2026-08-25 — Bàn ăn (cùng model ca 01) — bản B nắng xiên
 
 **Vào:** cùng ảnh model. Bản B = bản A đổi **đúng khối 2** sang nắng xiên ấm.
-**Test bằng:** Nano Banana (ảnh ra có dấu ✦) — image-to-image
+**Test bằng:** **Google Banana Pro** — image-to-image *(đính chính: ban đầu ghi là "Nano Banana" do đoán từ dấu ✦; người dùng xác nhận là Banana Pro)*
 **Kết quả:** **HỎNG.** Người dùng: *"nhìn giả quá"*
 
 **Bốn nguyên nhân, xếp theo mức phá ảnh:**

@@ -379,3 +379,67 @@ các góc → render **nháp cả bộ** → sửa ảnh lệch → render **fin
 | Hướng đổ bóng | **giống hệt** — cùng một mặt trời |
 
 Số lượng: căn 2PN thường **6–9 ảnh**, căn 3PN **9–12 ảnh** ⚠️.
+
+---
+
+## 14. Ánh xạ sang V-Ray / Corona — khái niệm quy đổi được, SỐ thì không
+
+**Production của công ty là Kujiale.** Mục này chỉ dùng khi phải đọc tài liệu V-Ray/Corona,
+hoặc nhận file từ bên ngoài.
+
+> ## ⚠️ **KHÁI NIỆM quy đổi được. SỐ thì KHÔNG — và đừng bịa hệ số.**
+> `亮度` của Kujiale là **giá trị tương đối của phần mềm**, thang không công bố (còn ba hệ song song).
+> V-Ray và Corona dùng **đơn vị quang học thật** (lm · W · cd/m²). **Không tồn tại hệ số chuyển.**
+> Ai đưa cho bạn một bảng "Kujiale 300 = V-Ray x lm" thì đó là số bịa.
+
+### 14.1. Bảng ánh xạ khái niệm
+
+| Kujiale | V-Ray | Corona |
+|---|---|---|
+| `面光源` đèn mặt | VRayLight type **Plane** | CoronaLight shape **Rectangle** |
+| `点光源` / `球形灯` | VRayLight type **Sphere** | CoronaLight shape **Sphere** |
+| `聚光灯` đèn rọi nón | VRayLight **Spot** | CoronaLight + **Directionality** |
+| `射灯`/`筒灯` dùng IES | **VRayIES** | CoronaLight + **IES profile** |
+| `太阳光` | **VRaySun** | **CoronaSun** |
+| `天光` thiên quang | VRaySky / Dome | CoronaSky / Dome |
+| `外景` ngoại cảnh | **Dome light + HDRI** | **Corona Dome / Environment** |
+| `环境光亮度` | Environment / GI multiplier | Environment intensity |
+| `环境阻光` AO | **VRayDirt** | **Corona AO map** |
+| `自发光` | **VRayLightMtl** | **CoronaLightMtl** |
+| `体积光` | VRayEnvironmentFog | Global volume material |
+| `曝光压制` | Camera exposure / highlight burn | **Highlight compression** |
+| `色温` | Light temperature (K) | Light Kelvin |
+| `反射光泽度` | Reflection **Glossiness** | Glossiness (nghịch đảo Roughness) |
+| `凹凸比例` | Bump amount | Bump amount |
+| `折射光泽度` | Refraction glossiness | Refraction glossiness |
+| `渲染复杂材质` | **Displacement + SSS** (bật riêng từng vật liệu) | Displacement + SSS |
+| `降噪` | VRay Denoiser | Corona Denoiser |
+
+### 14.2. Ba công tắc Kujiale KHÔNG có tương đương — vì không cần
+
+| Kujiale | Vì sao V-Ray/Corona không có |
+|---|---|
+| `镜面真实反射` | Đây là **workaround** cho engine nhẹ của Kujiale (mặc định bỏ vật sau lưng camera). V-Ray/Corona tính đủ mặc định — **miễn phí** |
+| `漏光修复` | Cùng lý do — cache ánh sáng của engine đủ chính xác sẵn |
+| Ba hệ đơn vị độ sáng | Không tồn tại. V-Ray/Corona dùng đơn vị thật, **rõ ràng hơn hẳn** |
+
+> 💡 **Nghịch lý đáng biết:** cái khó nhất của Kujiale (không biết `亮度` là thang gì) **biến mất**
+> ở V-Ray/Corona. Bên đó nhập watt và lumen thật.
+
+### 14.3. Thay vì quy đổi số — dùng SỐ THẬT mà giáo trình đã có sẵn
+
+Cầu nối engine-agnostic **đã nằm trong C13 §13.5** (mục không đèn chủ):
+
+| Phòng | Công suất thật |
+|---|---|
+| Khách | **5–6 W/m²** |
+| Bếp | **6–8 W/m²** |
+| Ngủ | **4–5 W/m²** |
+
+Độ rọi mục tiêu **GB 50034**: khách sinh hoạt chung **100 lx** · đọc sách **300 lx** ·
+ngủ **75 lx** · bếp và bàn ăn **150 lx**.
+
+**Đây mới là thứ mang đi được giữa mọi engine** — vì nó là vật lý thật, không phải thang phần mềm.
+Ở V-Ray/Corona thì nhập thẳng; ở Kujiale thì dò cho tới khi ảnh nhìn ra đúng mức đó.
+
+Đúng **Luật nền #1** của agent: **chép TỈ LỆ và THỨ TỰ, đừng chép SỐ.**
