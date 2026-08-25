@@ -26,7 +26,7 @@ Các kênh phụ sẽ gặp trong 材质编辑 (trình chỉnh vật liệu): �
 
 > 💡 **Bẫy thang đo hỗn hợp:** UI trộn ba kiểu thang — 反射光泽度/折射光泽度 chạy 0–1, 不透明度 chạy 0–100, còn 反射颜色/折射颜色 là **màu xám** chứ không phải số. Trao đổi với đồng nghiệp phải nói rõ "thang nào", đừng chỉ hô "để 0.7".
 
-Mở app lần đầu học chương này: mở 材质编辑 một vật liệu gỗ bất kỳ, đối chiếu đủ 4 kênh trên → điền **Phiếu verify mục C1 (Phụ lục B)**.
+Mở app lần đầu học chương này: mở 材质编辑 một vật liệu gỗ bất kỳ, đối chiếu đủ 4 kênh trên → điền **Sổ ghi nhận mục C1 (Phụ lục B)**.
 
 ## 5.2. Hai đường vào chỉnh vật liệu
 
@@ -52,7 +52,7 @@ Thư viện Kujiale hàng triệu vật liệu, phần lớn là đồ cũ chỉ
 
 > 💡 Tìm được vật liệu ưng ý, copy **酷口令** (mã lệnh chia sẻ) gửi nhóm Zalo/WeChat công ty — đồng nghiệp dán mã là lấy được đúng vật liệu đó, khỏi mô tả bằng lời.
 
-Vị trí chính xác của các bộ lọc này trong UI hiện tại → xác nhận theo **Phiếu verify mục C3**.
+Vị trí chính xác của các bộ lọc này trong UI hiện tại → xác nhận theo **Sổ ghi nhận mục C3**.
 
 ## 5.4. Trọng tâm nghề: melamine/laminate mờ vs acrylic bóng gương
 
@@ -77,7 +77,7 @@ Vị trí chính xác của các bộ lọc này trong UI hiện tại → xác 
 
 **Giả lập vân nổi "sờ được" (同步纹):** melamine cao cấp ngoài đời có vân sờ nổi trùng khớp vân in. ⚠️ Kujiale **không có tính năng tên này** — mẹo thay thế (do người biên soạn đề xuất, không phải quy trình chính thức): dùng **cùng một ảnh vân** làm cả 漫反射 lẫn ảnh 凹凸 (bản đen-trắng, làm trong Photoshop: 图像 → 调整 → 黑白 rồi chỉnh 色阶), đặt 凹凸比例 0.05–0.08 để rãnh lõm trùng đường vân.
 
-**Chuẩn upload texture công ty:** các luồng upload có giới hạn khác nhau (2MB vs 5MB tùy đường vào) — chuẩn an toàn dùng chung: **JPG, hệ màu RGB, cạnh 2000–5000px, ≤2MB**. TGA không được tài liệu chính thức nhắc — đừng dùng. Ảnh phải đạt 3 điều kiện chất lượng chính thức: (1) **seamless/四方连续** — không lộ đường ghép (kiểm trong Photoshop: 滤镜 → 其他 → 位移); (2) **không có sẵn bóng/vệt sáng** trong ảnh — render sẽ tự đánh sáng, ảnh có sẵn bóng là chồng sáng giả; (3) đủ bộ map chứ không chỉ 1 ảnh màu. Giới hạn dung lượng thật trên UI hiện tại → điền **Phiếu verify mục C2**.
+**Chuẩn upload texture công ty:** các luồng upload có giới hạn khác nhau (2MB vs 5MB tùy đường vào) — chuẩn an toàn dùng chung: **JPG, hệ màu RGB, cạnh 2000–5000px, ≤2MB**. TGA không được tài liệu chính thức nhắc — đừng dùng. Ảnh phải đạt 3 điều kiện chất lượng chính thức: (1) **seamless/四方连续** — không lộ đường ghép (kiểm trong Photoshop: 滤镜 → 其他 → 位移); (2) **không có sẵn bóng/vệt sáng** trong ảnh — render sẽ tự đánh sáng, ảnh có sẵn bóng là chồng sáng giả; (3) đủ bộ map chứ không chỉ 1 ảnh màu. Giới hạn dung lượng thật trên UI hiện tại → điền **Sổ ghi nhận mục C2**.
 
 ## 5.5. Năm nhóm vật liệu còn lại — bảng tra nhanh
 
@@ -94,7 +94,7 @@ Mọi số độ bóng dưới đây là ⚠️ tham chiếu ngành (trừ chỗ
 
 ## 5.6. Vật liệu × ánh sáng — vì sao map chuẩn vẫn ra bệt
 
-> ⚠️ **CẢNH BÁO phiên bản:** tài liệu vật liệu cũ (kể cả nguồn của chương này) hay dặn "duyệt chất liệu bằng template 写实". Từ 8–10/2025 Kujiale đã **gộp UI render về 3 chế độ và gỡ nhiều template cũ** — dòng hiện hành chỉ còn 极速3.0/3.1, 室内白天/夜晚 (2.1–3.1), 实时白天/夜晚. Quy tắc chuyển đổi của sách: **soi chất liệu = 离线模式 + template dòng 室内白天/夜晚** (dòng chất lượng cao hiện hành); ⚠️ tên template chất lượng cao trên UI của bạn có thể khác — chụp lại theo **Phiếu verify mục B3**. Tuyệt đối **không duyệt chất liệu bằng dòng 极速** — dòng này không render được vật liệu phức tạp (displacement/3S), vân sẽ "mất tích" oan.
+> ⚠️ **CẢNH BÁO phiên bản:** tài liệu vật liệu cũ (kể cả nguồn của chương này) hay dặn "duyệt chất liệu bằng template 写实". Từ 8–10/2025 Kujiale đã **gộp UI render về 3 chế độ và gỡ nhiều template cũ** — dòng hiện hành chỉ còn 极速3.0/3.1, 室内白天/夜晚 (2.1–3.1), 实时白天/夜晚. Quy tắc chuyển đổi của sách: **soi chất liệu = 离线模式 + template dòng 室内白天/夜晚** (dòng chất lượng cao hiện hành); ⚠️ tên template chất lượng cao trên UI của bạn có thể khác — chụp lại theo **Sổ ghi nhận mục B3**. Tuyệt đối **không duyệt chất liệu bằng dòng 极速** — dòng này không render được vật liệu phức tạp (displacement/3S), vân sẽ "mất tích" oan.
 
 Kiến thức cốt lõi được chính Kujiale khẳng định: **hiệu ứng 凹凸 phụ thuộc ánh sáng.** Nguyên văn tài liệu chính thức: cùng một vật liệu vân nổi, sang cảnh đèn yếu thì "hiệu ứng lồi lõm biến mất hoàn toàn" — vì bump chỉ hiện khi có bóng đổ vào rãnh vân. Đây chính là lý do số 1 của "material chuẩn mà render ra bệt".
 
@@ -135,7 +135,9 @@ Render ra bệt/nhựa/xám, đừng vội đổ cho texture rồi ngồi thay m
 
 ## Thực hành
 
-### Bài 1 — Bảng mẫu 5 mốc độ bóng (bài quan trọng nhất chương, kết quả nộp làm chuẩn công ty)
+### Bài 1 — Bảng mẫu 5 mốc độ bóng (bài quan trọng nhất chương)
+
+> 💡 **Không phải bài phải xong trước khi làm việc thật.** Cứ nhận việc, cứ render cho khách. Nhưng khi nào có một buổi rảnh thì làm bài này — nó cho công ty **bộ số riêng**, thay được toàn bộ số ⚠️ tham chiếu ngành trong chương. Làm một lần dùng mãi.
 
 1. Mở căn hộ mẫu, dựng 5 tấm ván đứng cạnh nhau (mỗi tấm ~600 × 2000mm, cách nhau 100mm) trong một phòng trống.
 2. Gán cả 5 tấm **cùng một vật liệu melamine** — ưu tiên bản "哑光-4K" trong 实时材质通用库, hoặc texture vân công ty tự upload (đúng chuẩn mục 5.4, nhập 尺寸 1220×2440).
@@ -143,7 +145,7 @@ Render ra bệt/nhựa/xám, đừng vội đổ cho texture rồi ngồi thay m
 4. Đặt 1 dải 灯带 chạy dọc phía trên 5 tấm (ánh sáng tạt ngang) + 1 射灯 chiếu xiên 45°. Đèn trắng 4000–4500K để không nhuộm màu vân.
 5. Render **离线模式**, template chất lượng cao (dòng 室内白天), bật 渲染复杂材质, độ phân giải thấp nhất cho nhanh.
 6. Mở ảnh render cạnh **tấm mẫu melamine thật + tấm acrylic thật của công ty** (mượn ở showroom). Ghi lại: mốc nào giống melamine thật nhất, mốc nào bắt đầu "nhựa hóa", mốc nào khớp acrylic.
-7. Nộp ảnh + kết luận cho quản lý → vào bảng số chuẩn nội bộ. Nhân tiện điền Phiếu verify mục C1 + C2.
+7. Gửi ảnh và kết luận cho quản lý → vào bảng số chuẩn nội bộ. Nhân tiện ghi luôn mục C1 và C2 vào **Sổ ghi nhận (Phụ lục B)**.
 
 **Tiêu chí đạt:** che nhãn số, nhìn ảnh render gọi đúng tên từng mốc gloss (tự kiểm tra kiểu "thi mù"); chốt được 1 con số đề xuất cho melamine mờ và 1 cho acrylic của công ty, kèm lý do một câu.
 
@@ -163,8 +165,8 @@ Render ra bệt/nhựa/xám, đừng vội đổ cho texture rồi ngồi thay m
 - [ ] Tủ melamine trong phương án: đúng khổ vân 1220×2440, đúng hướng vân từng cánh, đồng bộ bằng 材质刷
 - [ ] Phân biệt được cách xử lý melamine mờ (có bump nhẹ) vs acrylic (bóng cao, không bump)
 - [ ] Thuộc thứ tự chẩn đoán bệt: đèn → template/công tắc → 环境反射亮度 → map
-- [ ] Đã render xong bảng mẫu 5 mốc gloss và nộp kết quả
-- [ ] Đã điền Phiếu verify mục C1, C2, C3
+- [ ] Đã render bảng mẫu 5 mốc độ bóng (làm khi có buổi rảnh — không phải điều kiện để bắt đầu làm việc thật)
+- [ ] Đã điền Sổ ghi nhận mục C1, C2, C3
 
 ## Lỗi thường gặp trong chương này
 

@@ -5,7 +5,7 @@
 > - Nắm quy tắc 核豆 (điểm render) + phiếu render: cái gì tự về đầu chu kỳ, cái gì phải bấm lĩnh mỗi tuần kẻo mất
 > - Phân biệt 3 chế độ render mới 实时轻量 / 实时专业 / 离线模式 và biết việc nào bắt buộc vào chế độ nào
 > - Làm việc bình tĩnh trên giao diện tiếng Trung: hiểu vì sao tiện ích dịch trang không dịch được khu thiết kế, thuộc 15 thuật ngữ gặp nhiều nhất
-> - Tự điền Phiếu verify trong app (Phụ lục B) cho các con số "chỉ xem được sau khi đăng nhập"
+> - Tự điền Sổ ghi nhận khi dùng app (Phụ lục B) cho các con số "chỉ xem được sau khi đăng nhập"
 
 ## 1.1 Tài khoản: bạn dùng tài khoản cao cấp có sẵn của công ty
 
@@ -26,7 +26,7 @@ Quy ước dùng chung tài khoản công ty:
 
 ## 1.2 Quyền lợi render của tài khoản: 核豆 + phiếu render
 
-> ⚠️ **CẢNH BÁO — hệ điểm 核豆 mới, hiệu lực từ 01/03/2026:** Kujiale chuyển sang tính chi phí render bằng **核豆** (hạt điểm, phát theo tháng). Số 核豆 **tiêu cho mỗi ảnh** theo từng độ phân giải KHÔNG được công bố trên web — chỉ xem được trong app qua nút **「核豆消耗 - 查看详情」** (tiêu hao 核豆 - xem chi tiết) trong cửa sổ render. Giáo trình này **cố tình không in bảng giá cứng** — mọi con số tiêu hao bạn tự tra trong app và điền vào Phiếu verify (Phụ lục B). Gặp tài liệu/video nào in bảng "X 核豆/ảnh" thì coi là số hết hạn.
+> ⚠️ **CẢNH BÁO — hệ điểm 核豆 mới, hiệu lực từ 01/03/2026:** Kujiale chuyển sang tính chi phí render bằng **核豆** (hạt điểm, phát theo tháng). Số 核豆 **tiêu cho mỗi ảnh** theo từng độ phân giải KHÔNG được công bố trên web — chỉ xem được trong app qua nút **「核豆消耗 - 查看详情」** (tiêu hao 核豆 - xem chi tiết) trong cửa sổ render. Giáo trình này **cố tình không in bảng giá cứng** — mọi con số tiêu hao bạn tự tra trong app và điền vào Sổ ghi nhận (Phụ lục B). Gặp tài liệu/video nào in bảng "X 核豆/ảnh" thì coi là số hết hạn.
 
 Tài khoản 高级会员 của công ty, theo bài chính thức《2026年个人会员权益变更说明》, mỗi tháng có:
 
@@ -43,7 +43,7 @@ Ba điều phải nhớ ngay từ tuần đầu:
 
 1. **Sáng thứ Hai: vào 会员中心 lĩnh phiếu 6K toàn cảnh.** Đây là loại phiếu duy nhất không tự về túi. Quên một tuần là mất 2 phiếu, không truy lĩnh được.
 2. **Trước khi bấm render ảnh nét cao, liếc「核豆消耗 - 查看详情」** để biết ảnh này ăn bao nhiêu điểm. Thói quen này giữ cho cả team không cháy quỹ điểm giữa tháng.
-3. **Chế độ 实时专业 (render thời gian thực chuyên nghiệp) tính tiền theo thời lượng bật preview.** ⚠️ Số tham chiếu cũ: 0,15 tệ/phút, tính theo giây thực dùng, tự ngắt khi bạn không thao tác — nhưng bài nguồn đăng trước khi hệ 核豆 chạy, chưa rõ nay còn thu kiểu này hay đã trừ 核豆. Kiểm tra lại theo Phiếu verify trong app (Phụ lục B). Trong lúc chưa chắc: đừng treo màn hình preview 实时专业 rồi bỏ đi ăn trưa.
+3. **Chế độ 实时专业 (render thời gian thực chuyên nghiệp) tính tiền theo thời lượng bật preview.** ⚠️ Số tham chiếu cũ: 0,15 tệ/phút, tính theo giây thực dùng, tự ngắt khi bạn không thao tác — nhưng bài nguồn đăng trước khi hệ 核豆 chạy, chưa rõ nay còn thu kiểu này hay đã trừ 核豆. Kiểm tra lại theo Sổ ghi nhận khi dùng app (Phụ lục B). Trong lúc chưa chắc: đừng treo màn hình preview 实时专业 rồi bỏ đi ăn trưa.
 
 > 💡 Còn gặp chữ **酷币** (xu Kujiale) trong tài liệu cũ: đó là tiền ảo nạp để render/tải bản vẽ khi hết phiếu, thuộc hệ cũ. Tài khoản công ty vận hành theo hệ 核豆 + phiếu là chính.
 
@@ -127,8 +127,8 @@ Chiến thuật — 3 lớp:
 Mở một 方案 mẫu bất kỳ. Nhờ đồng nghiệp đọc ngẫu nhiên 15 thuật ngữ ở mục 1.5 (đọc nghĩa tiếng Việt), bạn chỉ đúng vị trí trên màn hình trong tổng 5 phút.
 *Tiêu chí đạt:* ≥ 12/15. Chưa đạt thì dán Phụ lục C sát màn hình hơn và thi lại hôm sau.
 
-**Bài 3 — Bài tập tuần đầu: điền Phiếu verify trong app (Phụ lục B).**
-Cầm Phiếu verify ở Phụ lục B, lần lượt vào app tra và điền các mục "chỉ xem được sau đăng nhập" — trọng tâm chương này: bảng tiêu hao 核豆 mỗi ảnh qua「核豆消耗 - 查看详情」(thử với ảnh thường và toàn cảnh ở vài mức phân giải), cách 实时专业 đang tính phí, đơn giá 增购. Mỗi mục kèm ảnh chụp màn hình.
+**Bài 3 — Bài tập tuần đầu: điền Sổ ghi nhận khi dùng app (Phụ lục B).**
+Cầm Sổ ghi nhận ở Phụ lục B, lần lượt vào app tra và điền các mục "chỉ xem được sau đăng nhập" — trọng tâm chương này: bảng tiêu hao 核豆 mỗi ảnh qua「核豆消耗 - 查看详情」(thử với ảnh thường và toàn cảnh ở vài mức phân giải), cách 实时专业 đang tính phí, đơn giá 增购. Mỗi mục kèm ảnh chụp màn hình.
 *Tiêu chí đạt:* điền xong các mục thuộc phạm vi C1, có ảnh chụp đính kèm, nộp quản lý lưu chung.
 
 ## Checklist tự chấm
@@ -140,7 +140,7 @@ Cầm Phiếu verify ở Phụ lục B, lần lượt vào app tra và điền c
 - [ ] Biết đặt chế độ render mặc định trong 偏好设置
 - [ ] Giải thích được vì sao tiện ích dịch trang không dịch được khu thiết kế
 - [ ] Qua bài test chỉ nút ≥ 12/15
-- [ ] Nộp Phiếu verify (Phụ lục B) phần các mục thuộc C1 kèm ảnh chụp
+- [ ] Nộp Sổ ghi nhận (Phụ lục B) phần các mục thuộc C1 kèm ảnh chụp
 
 ## Lỗi thường gặp trong chương này
 

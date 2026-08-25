@@ -52,7 +52,7 @@ Toàn bộ công cụ phần thô nằm ở **`行业库` → `全屋硬装工�
 3. **Cuối cùng dùng SketchUp** — bạn đã biết sẵn. Dựng chi tiết khó rồi tải lên. Điều kiện chính thức: **đơn vị mm, cạnh ≤ 30 m, ≤ 3 triệu mặt, bản SketchUp ≤ 2024, ảnh vân RGB, không nhận vật liệu Vray, tên file không có dấu cách.**
 4. **Hoặc mượn model** tủ định chế / model tham số / model thư viện để giả lập chi tiết.
 
-> ⚠️ **Tường thẳng không khoét lỗ tuỳ ý được** — chỉ đặt được cửa và ô mở. Muốn lỗ xuyên tường tuỳ ý phải lách bằng `门窗洞`, hoặc vẽ lại khối tường trong `自由造型` rồi `差集`. ⚠️ Kujiale đổi giao diện thường xuyên, kiểm lại theo **Phiếu verify**.
+> ⚠️ **Tường thẳng không khoét lỗ tuỳ ý được** — chỉ đặt được cửa và ô mở. Muốn lỗ xuyên tường tuỳ ý phải lách bằng `门窗洞`, hoặc vẽ lại khối tường trong `自由造型` rồi `差集`. ⚠️ Kujiale đổi giao diện thường xuyên, kiểm lại theo **Sổ ghi nhận**.
 
 > 💡 **Hai chữ "lỗ mở" hoàn toàn khác nhau — đừng nhầm:**
 > `门窗洞` (giao diện Anh: **`Opening`**) nằm trong nhóm đặt cửa — là lỗ trên **TƯỜNG**.

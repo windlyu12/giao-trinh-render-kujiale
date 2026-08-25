@@ -23,7 +23,7 @@ Kujiale có 2 chế độ đèn:
 1. **手动灯光 chỉ có ở 离线模式 (chế độ offline) và 实时专业 (thời gian thực chuyên nghiệp).** Chế độ 实时轻量 không chỉnh đèn tay được.
 2. Trong 离线模式 hoặc 实时专业, ở danh sách 灯光模板 bấm **+手动灯光** → chọn template nền → vào chỉnh. Đèn thủ công đã tạo KHÔNG bị ảnh hưởng khi Kujiale nâng phiên bản template — bài chỉnh tay của bạn không bị phá.
 
-Mỗi phương án chứa tối đa 40 kịch bản đèn (20 thủ công + 20 render thời gian thực). ⚠️ Số 40 từ tài liệu 2024, kiểm tra lại theo Phiếu verify (Phụ lục B).
+Mỗi phương án chứa tối đa 40 kịch bản đèn (20 thủ công + 20 render thời gian thực). ⚠️ Số 40 từ tài liệu 2024, kiểm tra lại theo Sổ ghi nhận (Phụ lục B).
 
 ### Danh sách template hiện hành (đã chốt theo thông báo chính thức 10/2025)
 
@@ -37,7 +37,7 @@ Mỗi phương án chứa tối đa 40 kịch bản đèn (20 thủ công + 20 r
 
 > ⚠️ **CẢNH BÁO — nâng template PHẢI hạ đèn tay:** Từ bản 3.0, thuật toán dội sáng GI mạnh hơn hẳn — cùng một độ sáng đèn, vùng được chiếu rộng hơn nhiều. Help center nói thẳng: từ 3.0 đèn tự động đã bị hạ độ sáng tương ứng, và **đèn chỉnh tay cũng nên giảm theo** để tránh cháy sáng. Đây là nguyên nhân số 1 của ảnh cháy trắng khi mở phương án cũ bằng template mới: bộ số đèn cũ + GI mới = thừa sáng. Quy tắc: đổi lên template 3.x → giảm đồng loạt độ sáng đèn tay rồi render nháp canh lại.
 
-💡 Template 自然写实 (tự nhiên tả thực) với nút phơi sáng tự động (自动曝光) từng được khuyên cho người mới, nhưng ⚠️ chưa có tài liệu chính thức nào sau 8/2025 xác nhận template nào còn nút này trên UI hiện tại — kiểm tra lại theo Phiếu verify (Phụ lục B). Trong khi chờ, cứ dùng 室内白天 3.1 làm nền.
+💡 Template 自然写实 (tự nhiên tả thực) với nút phơi sáng tự động (自动曝光) từng được khuyên cho người mới, nhưng ⚠️ chưa có tài liệu chính thức nào sau 8/2025 xác nhận template nào còn nút này trên UI hiện tại — kiểm tra lại theo Sổ ghi nhận (Phụ lục B). Trong khi chờ, cứ dùng 室内白天 3.1 làm nền.
 
 ---
 
@@ -53,7 +53,7 @@ Mỗi phương án chứa tối đa 40 kịch bản đèn (20 thủ công + 20 r
 
 Nguyên tắc xương sống, nhắc đi nhắc lại: **sáng giảm dần từ cửa sổ vào sâu phòng**. Ảnh giả thường do đèn nền tống đều khắp nơi — phẳng lì, không lớp lang. Ảnh thật luôn có chỗ sáng chỗ tối.
 
-> ⚠️ **CẢNH BÁO VỀ SỐ ĐỘ SÁNG:** Mọi con số độ sáng (亮度) trong chương này là **thang cũ** của Kujiale. Kujiale có **ba** hệ đơn vị song song: thang cũ · `瓦` (watt ảo) · `%`. ⚠️ Quy ước "`瓦` = thang cũ ÷ 10" **chưa có nguồn chính thức nào xác nhận** — coi là quy ước nội bộ chưa kiểm chứng. `瓦` cũng KHÔNG phải watt/lumen vật lý, chỉ là mốc tương đối. **Kiểm đơn vị máy mình theo Phiếu verify mục B1 trước khi nhập bất kỳ số nào.** Chi tiết đầy đủ ở đầu C4.
+> ⚠️ **CẢNH BÁO VỀ SỐ ĐỘ SÁNG:** Mọi con số độ sáng (亮度) trong chương này là **thang cũ** của Kujiale. Kujiale có **ba** hệ đơn vị song song: thang cũ · `瓦` (watt ảo) · `%`. ⚠️ Quy ước "`瓦` = thang cũ ÷ 10" **chưa có nguồn chính thức nào xác nhận** — coi là quy ước nội bộ chưa kiểm chứng. `瓦` cũng KHÔNG phải watt/lumen vật lý, chỉ là mốc tương đối. **Kiểm đơn vị máy mình theo Sổ ghi nhận mục B1 trước khi nhập bất kỳ số nào.** Chi tiết đầy đủ ở đầu C4.
 
 ### 3.2.1 Nắng — 太阳光
 
@@ -95,7 +95,7 @@ Ngoại cảnh chọn ở cột trái mục 外景 trong giao diện render. 4 t
 
 **Ngoại cảnh tùy chỉnh (自定义外景):** đường vào giao diện render → cột trái 外景 → tab 我的 (của tôi) → 上传外景 (tải lên).
 
-> ⚠️ **CẢNH BÁO:** Kujiale **KHÔNG nhận file HDR/EXR**. Ngoại cảnh tùy chỉnh chỉ nhận **ảnh PNG/JPG toàn cảnh tỷ lệ 2:1**, mỗi ảnh ≤ 20MB, khuyến nghị 8000×4000 đến 16000×8000px, tối đa 10 ảnh, và **chỉ template loại tả thực (写实类) mới dùng được ngoại cảnh tự tải**. Đừng mất công đi tìm/mua file .hdr — không dùng được. Tài liệu gốc mục này từ 2021, đường vào trên UI mới có thể đã dời chỗ — kiểm tra lại theo Phiếu verify (Phụ lục B).
+> ⚠️ **CẢNH BÁO:** Kujiale **KHÔNG nhận file HDR/EXR**. Ngoại cảnh tùy chỉnh chỉ nhận **ảnh PNG/JPG toàn cảnh tỷ lệ 2:1**, mỗi ảnh ≤ 20MB, khuyến nghị 8000×4000 đến 16000×8000px, tối đa 10 ảnh, và **chỉ template loại tả thực (写实类) mới dùng được ngoại cảnh tự tải**. Đừng mất công đi tìm/mua file .hdr — không dùng được. Tài liệu gốc mục này từ 2021, đường vào trên UI mới có thể đã dời chỗ — kiểm tra lại theo Sổ ghi nhận (Phụ lục B).
 
 💡 Khớp hướng nắng với ngoại cảnh: phần mềm không tự khớp. Sau khi chọn 外景, tự chỉnh 方位角 của 太阳光 sao cho bóng đổ trong phòng cùng phía với nguồn sáng nhìn thấy trong cảnh ngoài cửa (mặt trời, khoảng trời sáng). Lệch hướng là một trong 12 dấu hiệu ảnh giả (xem C7).
 
@@ -125,13 +125,13 @@ Quy trình (theo help center, bài cập nhật 8/2025):
 - **Ám xanh/lạnh (偏蓝):** thiên quang xanh quá đậm hoặc dùng nhầm 冷光 cho ảnh ngày. Sửa: giảm bão hòa xanh của 面光源, tăng 色温.
 - **Tăng rực màu (色彩增艳):** chỉ có ở nhóm template tả thực — tăng bão hòa màu, dùng nhẹ tay kẻo màu giả.
 - **Sửa tràn màu (溢色修正):** bật khi phòng có mảng màu đậm (sofa xanh cổ vịt, tường đỏ gạch) để màu không "phun" lên trần trắng, tủ trắng bên cạnh.
-- ⚠️ Phơi sáng tự động (自动曝光): chưa xác nhận template nào có trên UI hiện tại — kiểm tra theo Phiếu verify (Phụ lục B).
+- ⚠️ Phơi sáng tự động (自动曝光): chưa xác nhận template nào có trên UI hiện tại — kiểm tra theo Sổ ghi nhận (Phụ lục B).
 
 ---
 
 ## Thực hành
 
-Ba bài dưới đây là 3 tình huống gặp hằng ngày với căn hộ Vinhomes Ocean Park. Làm tuần tự, mỗi bài render nháp ảnh nhỏ để canh trước, đạt rồi mới render bản nét cao (quy trình nháp→final tiết kiệm điểm render xem C2). Mọi số độ sáng là thang cũ — kiểm đơn vị máy mình trước (Phiếu verify B1), chưa biết thì dò từ thấp lên.
+Ba bài dưới đây là 3 tình huống gặp hằng ngày với căn hộ Vinhomes Ocean Park. Làm tuần tự, mỗi bài render nháp ảnh nhỏ để canh trước, đạt rồi mới render bản nét cao (quy trình nháp→final tiết kiệm điểm render xem C2). Mọi số độ sáng là thang cũ — kiểm đơn vị máy mình trước (Sổ ghi nhận mục B1), chưa biết thì dò từ thấp lên.
 
 ### Bài 1 — Căn hộ 1 hướng cửa sổ (phổ biến nhất)
 
@@ -214,7 +214,7 @@ Dùng căn mẫu 2PN, phòng khách liền bếp, 1 mặt thoáng.
 **Nguồn cộng đồng (đánh dấu ⚠️ trong bài):**
 - "Bí kíp Tiên Cô" (仙姑老师, ask.kujiale.com), Zhihu, Bách độ Kinh nghiệm — bộ số thiên quang 280–300/250–280, đèn bù 150–200, số lớp đẩy sáng, 方位角 ~30°, 阴影柔和度 1.5
 
-**Số chờ verify trên app (Phiếu verify — Phụ lục B):**
+**Số chờ verify trên app (Sổ ghi nhận — Phụ lục B):**
 - Quy đổi giữa ba hệ đơn vị độ sáng (thang cũ / `瓦` / `%`) — ⚠️ quy tắc ÷10 chưa được xác nhận
 - Template nào còn 自动曝光
 - 阴影柔和度: 5 hay 1.5, thang min–max

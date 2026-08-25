@@ -57,7 +57,7 @@ Phòng WC, bếp nhỏ, phòng ngủ hẹp: camera lùi hết cỡ vẫn không 
 
 ### 景深 — xóa phông cho ảnh cận, chỉ có ở chế độ thời gian thực
 
-> ⚠️ **CẢNH BÁO:** **景深 (độ sâu trường ảnh — DOF) chỉ có trong render thời gian thực** (dòng 实时 — xem Chương 2), **không có ở render 离线 thông thường**. Bài help mô tả đường vào theo UI cũ (công cụ → render → 实时渲染 → panel camera → 景深); trên UI mới 3 chế độ, tìm trong panel camera của chế độ 实时 — kiểm tra lại theo Phiếu verify (Phụ lục B).
+> ⚠️ **CẢNH BÁO:** **景深 (độ sâu trường ảnh — DOF) chỉ có trong render thời gian thực** (dòng 实时 — xem Chương 2), **không có ở render 离线 thông thường**. Bài help mô tả đường vào theo UI cũ (công cụ → render → 实时渲染 → panel camera → 景深); trên UI mới 3 chế độ, tìm trong panel camera của chế độ 实时 — kiểm tra lại theo Sổ ghi nhận (Phụ lục B).
 
 Cách dùng 3 bước: (1) bật công tắc 景深; (2) **click vào món đồ chủ thể** để đặt điểm lấy nét — chỗ này nét nhất; (3) chỉnh **模糊度 (độ mờ)** để kiểm soát mức xóa phông. Dùng cho ảnh cận vật liệu, phụ kiện, tay nắm tủ — không dùng cho ảnh toàn phòng (toàn phòng phải nét hết).
 
@@ -102,7 +102,7 @@ Trước khi đặt camera, trả lời: **ảnh này để làm gì?** Mỗi m�
 
 ### Kiểu D — dọc 3:4 / 9:16 cho Facebook–TikTok
 
-1. **Đổi tỉ lệ khung TRƯỚC khi render.** Kujiale xác nhận đổi tỉ lệ không kéo giãn phạm vi ống kính. Danh sách tỉ lệ có nguồn: **16:9, 4:3, 3:4, 1:1** — riêng 9:16 chưa thấy nguồn xác nhận có sẵn trong mọi chế độ ⚠️ kiểm tra lại theo Phiếu verify mục A2; nếu app không có 9:16 thì render 3:4 khổ lớn rồi crop dọc khi hậu kỳ.
+1. **Đổi tỉ lệ khung TRƯỚC khi render.** Kujiale xác nhận đổi tỉ lệ không kéo giãn phạm vi ống kính. Danh sách tỉ lệ có nguồn: **16:9, 4:3, 3:4, 1:1** — riêng 9:16 chưa thấy nguồn xác nhận có sẵn trong mọi chế độ ⚠️ kiểm tra lại theo Sổ ghi nhận mục A2; nếu app không có 9:16 thì render 3:4 khổ lớn rồi crop dọc khi hậu kỳ.
 2. Bố cục dọc: chủ thể ở **1/3 dưới**, chừa 1/3 trên cho trần + đèn thả tạo chiều cao.
 3. Cao 900–1200mm ⚠️, 视野 55–65° ⚠️.
 4. **Bật 相机矫正** — khung dọc phóng to mọi lỗi cột đổ, đây là kiểu ảnh cần nó nhất.
@@ -168,7 +168,7 @@ Kích thước pixel Kujiale công bố (nguồn ask chính thức):
 
 Kujiale gọi 2560×1440 là "3K" (nhãn riêng của hãng, không theo chuẩn TV).
 
-> ⚠️ **Pixel thực của tier "4K" và "8K极清" Kujiale KHÔNG công bố** — 3840×2160 / 7680×4320 chỉ là chuẩn ngành, chưa xác nhận cho Kujiale (bản HD lịch sử từng là 3200×2400, tỉ lệ 4:3, lệch hẳn chuẩn TV). Kiểm tra lại theo Phiếu verify mục A3.
+> ⚠️ **Pixel thực của tier "4K" và "8K极清" Kujiale KHÔNG công bố** — 3840×2160 / 7680×4320 chỉ là chuẩn ngành, chưa xác nhận cho Kujiale (bản HD lịch sử từng là 3200×2400, tỉ lệ 4:3, lệch hẳn chuẩn TV). Kiểm tra lại theo Sổ ghi nhận mục A3.
 
 | Kênh | Render cỡ nào là đủ | Kích thước đích | Định dạng |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Kujiale gọi 2560×1440 là "3K" (nhãn riêng của hãng, không theo chuẩn
 | **In A4 (catalogue, hồ sơ năng lực)** | 4K trở lên | **2480×3508 px (A4 dọc @300DPI)** / 3508×2480 (ngang) | PNG/TIFF |
 | Màn hình lớn / triển lãm | 4K+ | 3840×2160+ | PNG |
 
-**Quy tắc tiết kiệm:** mạng xã hội nén ảnh về ~2K — **render 8K cho ảnh đăng Facebook/Zalo/TikTok là ném 核豆 qua cửa sổ**. Tier cao nhất chỉ dành cho in ấn và màn hình lớn (8K平面图 được Kujiale mô tả là chất lượng in ấn). Số 核豆 tiêu cho từng cỡ ảnh **chỉ xem được trong app** qua 「核豆消耗 - 查看详情」khi bấm render — ghi lại theo Phiếu verify mục A1; hệ điểm 核豆 và vé render xem Chương 1.
+**Quy tắc tiết kiệm:** mạng xã hội nén ảnh về ~2K — **render 8K cho ảnh đăng Facebook/Zalo/TikTok là ném 核豆 qua cửa sổ**. Tier cao nhất chỉ dành cho in ấn và màn hình lớn (8K平面图 được Kujiale mô tả là chất lượng in ấn). Số 核豆 tiêu cho từng cỡ ảnh **chỉ xem được trong app** qua 「核豆消耗 - 查看详情」khi bấm render — ghi lại theo Sổ ghi nhận mục A1; hệ điểm 核豆 và vé render xem Chương 1.
 
 ---
 

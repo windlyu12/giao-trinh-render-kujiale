@@ -1,24 +1,34 @@
-# Phụ lục B. Phiếu khám phá app — bài tập tuần đầu
+# Phụ lục B. Sổ ghi nhận khi dùng app
 
-> **Sau bài tập này bạn làm được:** biết chính xác giao diện Kujiale bản hiện tại khác gì số liệu trong sách; tự tay khoá toàn bộ số ⚠️ trong giáo trình; quen mặt mọi màn hình quan trọng trước khi học sâu.
+> **Phụ lục này KHÔNG phải bài tập phải làm xong trước khi học.** Đừng ngồi điền hết rồi mới bắt đầu. Cứ học, cứ làm việc thật — **gặp chỗ nào lệch với sách thì ghi lại một dòng vào đây.**
 
-**Vì sao có phiếu này:** Kujiale đổi giao diện và hệ điểm rất nhanh. Sách viết từ nguồn công khai nên một số con số phải kiểm trên phần mềm thật. Bạn là người kiểm — điền xong nộp lại quản lý để cập nhật sách.
+**Vì sao có sổ này:** Kujiale đổi giao diện và hệ điểm rất nhanh. Sách viết từ nguồn công khai nên một số con số mang dấu ⚠️ — nghĩa là *dùng được nhưng chưa khoá*. Bạn là người dùng thật, nên bạn là người phát hiện ra chỗ lệch sớm nhất.
 
-**Cách làm:** dùng tài khoản cao cấp (`高级`) của công ty. Làm lần lượt, **chụp màn hình từng mục** lưu vào thư mục `verify-screenshots/`.
+**Cách dùng — ba dòng:**
 
-**Ba ký hiệu trong phiếu:**
+1. **Học và làm bình thường.** Sách viết sao thì làm vậy.
+2. **Chạm tới con số nào có dấu ⚠️ thì liếc kiểm con số đó** — chỉ con số đó thôi, không phải cả sổ.
+3. **Lệch thì ghi một dòng + chụp màn hình.** Đủ vài dòng thì báo quản lý cập nhật sách.
+
+Không có hạn nộp. Không cần điền hết. **Một dòng ghi đúng còn hơn cả trang điền cho có.**
+
+> 💡 **Bốn mục dưới đây đáng làm sớm hơn phần còn lại** — không phải vì bắt buộc, mà vì chúng khoá **rất nhiều** số khác. Làm được trong lúc rảnh thì cả Chương 13 và Phụ lục E dùng được ngay thay vì phải dò.
+
+**Ba ký hiệu trong sổ:**
 
 | Ký hiệu | Nghĩa |
 |---|---|
-| ⛔ | **Chặn cửa** — chưa có đáp án thì mọi số liên quan đều treo. Làm trước tiên |
-| ✅ | Sách đã có đáp án từ nguồn chính thức — bạn chỉ liếc xác nhận đúng hay sai |
-| (trống) | Cần đi tìm và ghi lại |
+| ⛔ | Khoá nhiều số khác — làm sớm thì lợi nhất |
+| ✅ | Sách đã có đáp án từ nguồn chính thức — chỉ liếc xác nhận, thấy khác thì báo |
+| (trống) | Chưa có đáp án — gặp thì ghi |
 
 ---
 
-> ## ⛔ BỐN MỤC CHẶN CỬA — LÀM TRƯỚC, TRONG MỘT BUỔI
+> ## ⛔ BỐN MỤC ĐÁNG LÀM SỚM NHẤT
 >
-> Bốn mục này quyết định **mọi con số về ánh sáng** trong Chương 13 và Phụ lục E có dùng được hay không. Chưa xong bốn mục này thì đừng làm mục khác.
+> Bốn mục này quyết định **mọi con số về ánh sáng** trong Chương 13 và Phụ lục E là dùng thẳng được hay phải dò lại từ đầu. Mở app mười lăm phút là xong cả bốn.
+>
+> Chưa làm cũng không sao — cứ dò số từ thấp lên như sách hướng dẫn. Chỉ là chậm hơn.
 >
 > | # | Mục | Ở đâu trong phiếu |
 > |---|---|---|
@@ -150,13 +160,22 @@ Kujiale **có** chuyển được giao diện sang tiếng Anh. Nhưng nhãn ti�
 
 ---
 
-## Checklist tự chấm
+## Khi nào coi như đủ để cập nhật sách
 
-- [ ] **Xong bốn mục chặn cửa B1, B5, B8, B9 trước tiên**
-- [ ] Đủ ảnh chụp cho mọi mục (trừ mục ✅ chỉ cần xác nhận đúng hay sai)
-- [ ] B1 có ảnh panel đèn rõ đơn vị, và đã kiểm **cả ba** khả năng
-- [ ] B5 có ảnh cả hai ô `阴影柔和度`, ghi rõ min-max từng ô
-- [ ] Đã thử đủ bốn chức năng doanh nghiệp ở mục G, xác nhận bị chặn
-- [ ] Đã báo ngay nếu có chức năng nào lệch với bản đồ quyền
-- [ ] Đã nộp phiếu và thư mục ảnh cho quản lý
-- [ ] Quản lý đã cập nhật số vào sách
+Không cần điền hết sổ. Đủ **một trong ba** điều kiện dưới là báo quản lý:
+
+- [ ] Xong **bốn mục ⛔** — đủ để khoá số Chương 13 và Phụ lục E
+- [ ] Gom được **5 dòng lệch trở lên** ở bất kỳ mục nào
+- [ ] Phát hiện **một chỗ lệch nghiêm trọng** — sách dạy một đằng app làm một nẻo, hoặc một chức năng sách bảo bị khoá mà thực ra bấm được
+
+## Mẫu một dòng ghi
+
+Không cần dài. Ba thông tin là đủ:
+
+```
+[Mục B1] Sách nói: có thể là thang cũ / 瓦 / %.
+         App thật: panel 面光源 hiện ___.
+         Ảnh: verify-screenshots/b1-panel-mianguangyuan.png
+```
+
+Ảnh chụp lưu vào thư mục `verify-screenshots/` — thư mục này **không đưa lên mạng** vì có thể lộ thông tin tài khoản.

@@ -134,7 +134,7 @@ Danh bạ kênh và bảng số đều là thứ **có hạn dùng**. Hai quy t�
 
 **Quy tắc 2 — rà lại sách:**
 
-> ⚠️ **CẢNH BÁO — sự kiện buộc phải rà lại bảng số của giáo trình:** khi Kujiale phát hành thế hệ 灯光模板 (mẫu đèn) mới **vượt dòng 3.x hiện hành** (ví dụ xuất hiện 极速4.0), coi như MỌI bảng số đèn trong C3/C4 và bộ số 仙姑老师 hết hạn kiểm định. Kinh nghiệm từ lần đổi 2.x → 3.x: template đời mới dội sáng gián tiếp mạnh hơn, giữ nguyên số cũ là cháy trắng hàng loạt. Việc cần làm: báo quản lý → chạy lại Phiếu verify (Phụ lục B, trọng tâm mục B1/B3) trên template mới → cập nhật sách trước khi cả team dùng template đó cho bài thật.
+> ⚠️ **CẢNH BÁO — sự kiện buộc phải rà lại bảng số của giáo trình:** khi Kujiale phát hành thế hệ 灯光模板 (mẫu đèn) mới **vượt dòng 3.x hiện hành** (ví dụ xuất hiện 极速4.0), coi như MỌI bảng số đèn trong C3/C4 và bộ số 仙姑老师 hết hạn kiểm định. Kinh nghiệm từ lần đổi 2.x → 3.x: template đời mới dội sáng gián tiếp mạnh hơn, giữ nguyên số cũ là cháy trắng hàng loạt. Việc cần làm: báo quản lý → chạy lại Sổ ghi nhận (Phụ lục B, trọng tâm mục B1/B3) trên template mới → cập nhật sách trước khi cả team dùng template đó cho bài thật.
 
 Tương tự, khi thấy thông báo đổi chính sách 核豆/phiếu render trong 会员中心 — rà lại C1 mục quyền lợi tài khoản. Người phát hiện thay đổi sớm nhất thường là người chạy bài tập hằng ngày ở 9.2 — thêm một lý do để không bỏ thói quen này.
 

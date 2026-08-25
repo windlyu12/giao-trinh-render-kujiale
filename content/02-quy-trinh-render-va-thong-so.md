@@ -29,7 +29,7 @@
 
 Lưu ý nhanh:
 - 实时渲染 chỉ chạy với phương án phiên bản 5.0. Vật liệu sửa trong realtime chỉ áp cho template hiện tại, KHÔNG ghi đè phương án gốc.
-- Muốn chỉnh đèn tay: trong 实时专业 hoặc 离线, ở danh sách **灯光模板** (template ánh sáng) bấm **+手动灯光**. ⚠️ Giới hạn 20 template đèn tay + 20 realtime = 40 phương án đèn/căn — số từ tài liệu 2024, kiểm tra lại theo Phiếu verify (Phụ lục B).
+- Muốn chỉnh đèn tay: trong 实时专业 hoặc 离线, ở danh sách **灯光模板** (template ánh sáng) bấm **+手动灯光**. ⚠️ Giới hạn 20 template đèn tay + 20 realtime = 40 phương án đèn/căn — số từ tài liệu 2024, kiểm tra lại theo Sổ ghi nhận (Phụ lục B).
 
 > ⚠️ **CẢNH BÁO TEMPLATE:** Dòng 极速 1.x/2.x đã bị gỡ, hệ tự thay bằng **极速3.0/3.1**. Template 3.0 trở lên tính phản xạ ánh sáng (GI) dội mạnh hơn — **cùng độ sáng đèn cũ sẽ cháy trắng**. Nâng template xong PHẢI chủ động hạ độ sáng đèn tay. Đây là nguyên nhân số 1 của ảnh cháy trắng hàng loạt. Chi tiết template ở C3, công thức đèn ở C4.
 
@@ -76,7 +76,7 @@ Lưu ý nhanh:
 
 Các mức nằm trong khung **夜间免费渲染** (render đêm miễn phí): 普通图 800×450 / 1920×1080 / 2560×1440 · 全景图 2000×1000 → 4000×2000 · 俯视图 800×450 / 1920×1080. Cao hơn thì dùng vé hoặc 核豆.
 
-> ⚠️ **CẢNH BÁO HỆ ĐIỂM 核豆 (từ 01/03/2026):** Kujiale tính phí render bằng **核豆** (hạt điểm render) — 基础 500 / 高级 1200 / 专业 1800 核豆 mỗi tháng. **Số 核豆 tiêu cho từng tấm ảnh KHÔNG có bảng công khai** — chỉ xem được trong app qua nút **「核豆消耗 - 查看详情」** ngay trong cửa sổ render, tại thời điểm bấm nút. Giáo trình này cố tình KHÔNG in bảng giá cứng: mọi con số bạn đo được hãy ghi vào Phiếu verify mục A1 (Phụ lục B). Riêng **vé 6K panorama (8 vé/tháng) phải vào 会员中心 (trung tâm hội viên) tự nhận theo tuần, nhận xong chỉ có 7 ngày để dùng — quên là mất.**
+> ⚠️ **CẢNH BÁO HỆ ĐIỂM 核豆 (từ 01/03/2026):** Kujiale tính phí render bằng **核豆** (hạt điểm render) — 基础 500 / 高级 1200 / 专业 1800 核豆 mỗi tháng. **Số 核豆 tiêu cho từng tấm ảnh KHÔNG có bảng công khai** — chỉ xem được trong app qua nút **「核豆消耗 - 查看详情」** ngay trong cửa sổ render, tại thời điểm bấm nút. Giáo trình này cố tình KHÔNG in bảng giá cứng: mọi con số bạn đo được hãy ghi vào Sổ ghi nhận mục A1 (Phụ lục B). Riêng **vé 6K panorama (8 vé/tháng) phải vào 会员中心 (trung tâm hội viên) tự nhận theo tuần, nhận xong chỉ có 7 ngày để dùng — quên là mất.**
 
 Thực tế cho bạn: tài khoản công ty đang ở bậc **高级会员** → mỗi tháng có 1200 核豆 + gói 300 vé render 4K (普通图/俯视图/全景图) + 8 vé 6K panorama nhận tay. Ảnh 8K thuộc quyền 专业会员 (200 lượt/năm) — cần in khổ lớn phải báo quản lý tính trước (mua thêm vé hoặc nâng hạng, chủng loại vé mua thêm tuỳ hạng ⚠️ xem trong app).
 
@@ -97,11 +97,11 @@ Thực tế cho bạn: tài khoản công ty đang ở bậc **高级会员** �
 | 5 | **镜面真实反射** — phản chiếu gương thật | Engine mặc định bỏ qua vật thể sau lưng camera → gương "mất đồ"; bật để gương phản chiếu đúng | CHỈ bật khi khung hình có gương lớn (WC, tủ cánh gương). Không được nhớ trạng thái — lần nào cần lần đó tick | Mặc định TẮT. Không gương mà bật = cộng thời gian render vô ích |
 | 6 | **渲染复杂材质** — render vật liệu phức tạp | Bật displacement (置换 — vân nổi thật) + 3S (xuyên sáng dưới bề mặt): đá marble xuyên sáng, rèm mỏng, da, nến | BẬT khi có các vật liệu đó. Dòng 极速 chỉ hỗ trợ 3S; dòng 写实 đủ cả hai | Không có vật liệu loại này — bật vô nghĩa mà vẫn tốn giờ |
 | 7 | **超真实渲染** — render siêu thực | Nâng chất lượng riêng cho panorama | Chỉ có ở **全景图 ≥ 5K**, chỉ bật ở bước final cho khách VIP | Mọi trường hợp khác (普通图/俯视图 không có option này). Tăng mạnh thời gian render |
-| 8 | **HDR** | Xuất dải sáng động cao để hậu kỳ nặng trong Photoshop | Chỉ khi cần kéo lại vùng cháy/vùng tối ở hậu kỳ. Không được nhớ trạng thái | Mặc định tắt. ⚠️ Tài liệu 2021 ghi quyền chỉ mở cho VIP bản doanh nghiệp — kiểm tra lại theo Phiếu verify (Phụ lục B) |
+| 8 | **HDR** | Xuất dải sáng động cao để hậu kỳ nặng trong Photoshop | Chỉ khi cần kéo lại vùng cháy/vùng tối ở hậu kỳ. Không được nhớ trạng thái | Mặc định tắt. ⚠️ Tài liệu 2021 ghi quyền chỉ mở cho VIP bản doanh nghiệp — kiểm tra lại theo Sổ ghi nhận (Phụ lục B) |
 | — | **↓ 8 tham số ở panel hiệu ứng / hậu kỳ realtime ↓** | | | |
-| 9 | **自动曝光** — Auto Exposure | Hệ tự chỉnh thông số đèn chống quá sáng/quá tối | Mặc định KHÔNG tick — giữ quyền kiểm soát. Chỉ tick khi ảnh hỏng sáng mà chưa biết chỉnh tay | ⚠️ Tick là hệ **ghi đè thông số đèn của bạn**. Chỉ xuất hiện ở template 自然写实; template nào có → kiểm tra Phiếu verify |
+| 9 | **自动曝光** — Auto Exposure | Hệ tự chỉnh thông số đèn chống quá sáng/quá tối | Mặc định KHÔNG tick — giữ quyền kiểm soát. Chỉ tick khi ảnh hỏng sáng mà chưa biết chỉnh tay | ⚠️ Tick là hệ **ghi đè thông số đèn của bạn**. Chỉ xuất hiện ở template 自然写实; template nào có → kiểm rồi ghi vào Sổ ghi nhận |
 | 10 | **炫光** — Glare (loé sáng) | Quầng loé quanh đồ vật loại "đèn"; thang 1–10, mặc định 1.5 | Giữ **1.5–2.5** | Cảnh ban ngày không bật đèn. Đẩy trên 4–5 → giả kiểu poster |
-| 11 | **降噪** — khử nhiễu | Khử hạt nhiễu | Template 3.1 trở lên **tự bật**, không cần tick. Bản còn nút: tick = +3 phút render | Ảnh không nhiễu thì đừng tick. ⚠️ Nguồn mâu thuẫn về việc nút còn/mất theo template — kiểm tra Phiếu verify |
+| 11 | **降噪** — khử nhiễu | Khử hạt nhiễu | Template 3.1 trở lên **tự bật**, không cần tick. Bản còn nút: tick = +3 phút render | Ảnh không nhiễu thì đừng tick. ⚠️ Nguồn mâu thuẫn về việc nút còn/mất theo template — kiểm rồi ghi vào Sổ ghi nhận |
 | 12 | **色彩增艳** — tăng tươi màu | Tăng bão hoà màu tổng thể | Để **thấp hoặc TẮT** — màu quá tươi là dấu hiệu số 1 của "ảnh 3D" | Luôn cân nhắc tắt cho ảnh chân thực. Chỉ có ở dòng 写实 |
 | 13 | **漏光修复** — chống rò sáng | Tính cache ánh sáng chính xác hơn, chống rò sáng qua khe tường/trần | Chỉ bật ở **final** khi thật sự thấy rò (bản 3.1: 99% cảnh đã tự tránh) | Ở bước nháp — phân giải thấp gần như không thấy khác biệt mà vẫn cộng giờ render |
 | 14 | **曝光压制** — nén phơi sáng | Kiểm soát độ sáng + chi tiết vùng cháy | Giá trị càng **THẤP** → highlight càng mềm, cứu được cửa sổ cháy trắng. Nằm ở 实时渲染 → 效果 → 后处理 | Không cần đụng khi ảnh không có vùng cháy |
@@ -196,7 +196,7 @@ Lấy 1 phương án 2 phòng ngủ đã dựng xong nội thất (căn Sapphire
 3. **Nháp lần 1:** sang 离线模式 → 普通图 → chọn **mức phân giải thấp nhất trong danh sách** (tài liệu ghi 800×450; UI của bạn hiện mức khác — ví dụ 800×600 — thì cứ chọn mức thấp nhất) → set 高级设置 đúng bộ mặc định mục 2.4 → render.
 4. **Soi lỗi:** dò theo bảng lỗi cuối chương, chẩn đoán bằng quy trình 3 bước. Sửa → nháp lần 2 ở 1920×1080.
 5. **Nháp chốt:** khi hết lỗi, render 1 tấm 1920×1080 với **đúng bộ option sẽ dùng ở final** (bật 镜面真实反射 nếu khung có gương...).
-6. **Final:** nâng 3K (dùng vé) hoặc 4K. **TRƯỚC khi bấm render:** mở **「核豆消耗 - 查看详情」**, chép số 核豆/vé của TỪNG mức phân giải đang hiện → **ghi vào Phiếu verify mục A1 (Phụ lục B)**. Render xong đối chiếu số thực trừ trong tài khoản, ghi nốt.
+6. **Final:** nâng 3K (dùng vé) hoặc 4K. **TRƯỚC khi bấm render:** mở **「核豆消耗 - 查看详情」**, chép số 核豆/vé của TỪNG mức phân giải đang hiện → **ghi vào Sổ ghi nhận mục A1 (Phụ lục B)**. Render xong đối chiếu số thực trừ trong tài khoản, ghi nốt.
 
 **Tiêu chí đạt:** ảnh final không còn lỗi nào trong bảng cuối chương; ánh sáng final khớp ảnh nháp chốt; Phiếu A1 có đủ số 核豆 đo thực tế cho ít nhất 3 mức phân giải.
 
@@ -217,7 +217,7 @@ Cùng 1 góc camera, render 2 tấm nháp 1920×1080 (khung miễn phí): tấm 
 - [ ] Giải thích được khi nào bật / không bật: 镜面真实反射, 渲染复杂材质, 漏光修复
 - [ ] Biết AO Size 0.8 / Radius 0.05 ft và cách chỉnh khi muốn khối mạnh hơn
 - [ ] Thuộc quy trình chẩn đoán 3 bước, phân biệt lỗi model vs lỗi tham số
-- [ ] Đã ghi số 核豆 đo thực tế vào Phiếu verify A1
+- [ ] Đã ghi số 核豆 đo thực tế vào Sổ ghi nhận mục A1
 - [ ] Biết vé 6K panorama phải nhận tay hằng tuần, hạn 7 ngày
 - [ ] Ảnh final bài 1 được người hướng dẫn xác nhận đạt
 
@@ -257,7 +257,7 @@ Cùng 1 góc camera, render 2 tấm nháp 1920×1080 (khung miễn phí): tấm 
 **Nguồn cộng đồng:**
 - ⚠️ Khung "quy trình 出图" tổng hợp từ Zhihu/Bilibili — không phải SOP chính thức; SOP mục 2.6 do giáo trình tự chuẩn hoá theo tuyến realtime → offline.
 
-**Số chờ verify (Phiếu verify — Phụ lục B):**
+**Số chờ verify (Sổ ghi nhận — Phụ lục B):**
 - ⚠️ Số 核豆 tiêu / tấm theo từng phân giải — KHÔNG có nguồn công khai, đo trong app (mục A1)
 - ⚠️ Giới hạn 40 phương án đèn/căn (nguồn 2024-02-22)
 - ⚠️ Quyền HDR cho tài khoản cá nhân (nguồn 2021)

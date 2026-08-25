@@ -213,7 +213,7 @@ Làm một lần cho mỗi mã đá, lưu vào thư viện công ty, dùng mãi.
 | Công cụ | Trạng thái |
 |---|---|
 | `图案排版` + `翻转` (đối hoa bằng công cụ) | ❌ `仅限商家用户` — làm tay theo cách trên |
-| `连纹商品` / `连纹大岩板` | ⚠️ Tài liệu chính thức **tự mâu thuẫn**: tiêu đề ghi `企业功能` nhưng ô đối tượng ghi `全部用户`. **Bấm thử, ghi kết quả vào Phiếu verify** |
+| `连纹商品` / `连纹大岩板` | ⚠️ Tài liệu chính thức **tự mâu thuẫn**: tiêu đề ghi `企业功能` nhưng ô đối tượng ghi `全部用户`. **Bấm thử, ghi kết quả vào Sổ ghi nhận** |
 | `衰减贴图` (falloff map) | ❌ `只对企业号账号开放` |
 
 **Ngưỡng nghiệm thu:** render cận một góc bất kỳ, đưa cho người thứ hai xem — **họ không chỉ ra được chu kỳ lặp trong 5 giây** là đạt.

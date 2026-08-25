@@ -47,14 +47,14 @@ CHAPTERS = [
      "Đường cong, hạt nhiễu, dải màu và nước ảnh kiểu Trung Quốc — đánh bóng chứ không cứu chữa.", "#2e7afb", "ch"),
     ("pa", "phu-luc-a-bo-cham-anh.md", "A", "Phụ lục A", "Bộ chấm ảnh",
      "Phiếu 10 tiêu chí × 5 điểm — nghiệm thu ảnh và chấm đồ án tốt nghiệp.", "#8be3c6", "pl"),
-    ("pb", "phu-luc-b-phieu-verify-app.md", "B", "Phụ lục B", "Phiếu khám phá app",
-     "Bài tập tuần đầu: tự tay khóa mọi con số ⚠️ của cuốn sách.", "#74d4e6", "pl"),
+    ("pb", "phu-luc-b-phieu-verify-app.md", "B", "Phụ lục B", "Sổ ghi nhận khi dùng app",
+     "Gặp chỗ app khác sách thì ghi một dòng — không phải bài tập phải làm xong trước.", "#74d4e6", "pl"),
     ("pc", "phu-luc-c-cheat-sheet-thuat-ngu.md", "C", "Phụ lục C", "Cheat sheet thuật ngữ",
      "97 thuật ngữ Trung – Việt chia 6 nhóm, in ra dán cạnh màn hình.", "#d4b9ff", "pl"),
     ("pd", "phu-luc-d-tu-vung-prompt-ai.md", "D", "Phụ lục D", "Từ vựng prompt AI",
      "Nguyên tắc ánh sáng → cụm prompt tiếng Anh cho Nano Banana / Midjourney.", "#ff9fc0", "pl"),
     ("pe", "phu-luc-e-ngan-hang-case.md", "E", "Phụ lục E", "Ngân hàng ca thực chiến",
-     "Mười ca đánh đèn của designer Trung Quốc — số thật từ panel thật, và vì sao họ đặt khác nhau.", "#9be8a0", "pl"),
+     "Mười ca đánh đèn của designer Trung Quốc, bộ từ khoá thu thêm ca, và vì sao số của họ khác nhau.", "#9be8a0", "pl"),
 ]
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'

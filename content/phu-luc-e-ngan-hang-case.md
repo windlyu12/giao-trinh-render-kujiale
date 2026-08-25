@@ -273,11 +273,91 @@ Ngân hàng này càng dày càng đáng tin — mỗi ca mới làm một dòng
 5. **Đối chiếu ngay với bảng hội tụ E.5.** Khớp thì tăng số nguồn; lệch thì vào bảng vênh E.6 kèm giả thuyết vì sao.
 6. **Không bịa lý do cho đẹp sổ.** Không rõ vì sao lệch thì ghi "chưa rõ".
 
-### Bộ từ khoá tìm kiếm
+### Bộ từ khoá — dán thẳng vào ô tìm kiếm
 
-`酷家乐 打光` · `酷家乐 出图参数` · `酷家乐 灯光布局` · `酷家乐 写实渲染心得` · `酷家乐 手动灯光` · `酷家乐 无主灯 渲染` · `酷家乐 灯带 参数`
+Xếp theo thứ tự đáng thu. **Copy nguyên cụm, dán vào ô tìm của 小红书 hoặc Douyin.**
 
----
+#### Ưu tiên 1 — phòng khách, tông kem, không đèn chủ
+
+| Từ khoá | Nghĩa |
+|---|---|
+| `酷家乐 奶油风 客厅 打光参数` | Khách tông kem, tham số đánh đèn |
+| `酷家乐 无主灯 灯光布置` | Bố đèn không đèn chủ |
+| `酷家乐 纱帘 阳光 渲染` | **Rèm voan gặp nắng** — đúng trọng tâm Chương 13 |
+| `酷家乐 客厅 打光 数值` | Trị số đánh đèn phòng khách |
+| `酷家乐 写实白天3.1 客厅` | Khách với template mới nhất |
+
+#### Ưu tiên 2 — tủ bếp và tủ áo cận cảnh
+
+| Từ khoá | Nghĩa |
+|---|---|
+| `酷家乐 橱柜 特写 打光` | Cận cảnh tủ bếp |
+| `酷家乐 衣柜 灯带 参数` | Tham số dải hắt trong tủ áo |
+| `酷家乐 柜体 打光 数值` | Trị số đánh đèn thân tủ |
+| `酷家乐 全屋定制 渲染 参数` | Tham số render đồ định chế |
+
+> 📌 Nhóm này **sát nghề công ty nhất** — tủ bếp và tủ áo là thứ mình bán. Ưu tiên thu.
+
+#### Ưu tiên 3 — phòng ngủ gỗ mộc, kiểu Nhật
+
+| Từ khoá | Nghĩa |
+|---|---|
+| `酷家乐 卧室 原木风 打光` | Ngủ tông gỗ mộc |
+| `酷家乐 日式 卧室 渲染参数` | Ngủ kiểu Nhật |
+| `酷家乐 夜晚灯光3.0 卧室` | Ngủ cảnh đêm, template 3.0 |
+
+#### Ưu tiên 4 — chung, "ảnh như chụp"
+
+| Từ khoá | Nghĩa |
+|---|---|
+| `酷家乐 照片级 渲染` | Render mức ảnh chụp |
+| `酷家乐 灯光 参数 干货` | `干货` = "hàng khô", tiếng lóng chỉ **kiến thức thực dụng không lảm nhảm** — từ khoá rất đáng dùng |
+| `酷家乐 打光 三步法` | Đánh đèn ba bước |
+| `酷家乐 极速3.1 打光教程` | Hướng dẫn cho template mới |
+| `酷家乐 出图 教程 2026` | Đổi năm cho hợp thời điểm |
+
+#### Tìm theo người — gõ vào ô tìm **tài khoản**, không phải ô tìm bài
+
+| Tên | Ghi chú |
+|---|---|
+| `酷家乐清晨` | Còn đăng đều |
+| `酷家乐也陌` | Còn đăng đều |
+| `钟西米酷家乐` | ⚠️ Ở **Douyin**, không phải Bilibili — sách bản đầu ghi sai |
+| `酷家乐金鱼呀` | |
+| `仙姑` kèm `酷家乐` | Nguồn của nhiều bộ số lưu hành. ⚠️ Nhiều bài trên mạng chép lại người này — xem cảnh báo hội tụ giả ở E.5 |
+
+### Lọc bài trong biển kết quả — bốn bước
+
+1. **Sắp theo `最新`** (mới nhất) để ra bài 2025–2026. Template đổi nhanh, bài cũ số không dùng thẳng được.
+2. **Ưu tiên bài có ảnh render KÈM bảng số trong ảnh** — tức ảnh chụp màn hình panel `参数`. Đây là loại đáng vàng.
+3. **Bỏ** bài chỉ khoe ảnh không có số, và bài `AI一键` (AI một chạm) — loại đó là quảng cáo.
+4. **Kiểm đời template.** Bài ghi rõ 3.0 hoặc 3.1 thì mới đáng chép số. Bài 2.x hoặc không ghi đời → **chỉ học tư duy, đừng chép số**.
+
+### Vào 小红书 từ Việt Nam
+
+**Đăng ký bằng số +84 được.** Nền tảng đã mở đăng ký cho nhiều quốc gia — chọn Vietnam +84 trong ứng dụng.
+
+⚠️ **Hay kẹt ở bước nhận mã:** một số nhà mạng Việt Nam chặn tin nhắn gửi từ Trung Quốc. Cách chữa: đổi mạng (chuyển giữa wifi và 4G, hoặc đổi nhà mạng), hoặc dùng dịch vụ nhận mã.
+
+**Bản web xem được nhưng rất giới hạn** — chỉ hiện vài bài gợi ý, ẩn ô tìm kiếm, cuộn một lúc là đòi quét mã đăng nhập. **Không đủ để nghiên cứu.** Nội dung đầy đủ nằm trong ứng dụng điện thoại.
+
+⚠️ Địa chỉ mạng nước ngoài bị hạn chế một số chức năng. Dùng ứng dụng là ổn nhất.
+
+### Ghi ca ngay lúc thu, đừng để dồn
+
+> 📌 **Thu được ca nào ghi ngay ca đó.** Ghi hồi tưởng cuối tuần thì mất nguyên nhân, mất số nguyên văn, sổ thành vô dụng.
+
+Mỗi ca ghi đúng **năm dòng**:
+
+```
+Ngày đăng:      (đời template phụ thuộc cái này — thiếu là không diễn giải được)
+Tác giả:
+Có ảnh panel:   có / không
+Tuyên bố:       có hậu kỳ không? có dùng LUT không?
+Số đọc được:    (chụp màn hình, đừng chép tay)
+```
+
+Rồi đối chiếu ngay với **bảng hội tụ E.5**: khớp thì ghi thêm một nguồn vào dòng đó; lệch thì đưa vào **bảng vênh E.6** kèm giả thuyết vì sao. Không rõ vì sao thì ghi **"chưa rõ"** — cấm bịa lý do cho đẹp sổ.
 
 ## E.11. Bốn mục cần verify trong app — chặn cửa
 

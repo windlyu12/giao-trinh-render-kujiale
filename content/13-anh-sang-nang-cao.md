@@ -15,7 +15,7 @@
 > **1. Kujiale có BA hệ đơn vị độ sáng song song:** thang cũ (số hàng trăm) · `瓦` (watt ảo) · **`%`**.
 > Tài liệu chính thức xác nhận `硬装灯带` dùng vật liệu mới render chính xác dải **0% – 6000%**. Ảnh chụp panel thật cho thấy `室内光亮度` hiện **100%** và **500%**.
 > ⚠️ Quy ước "`瓦` = thang cũ ÷ 10" mà bản đầu của giáo trình này ghi **không có nguồn chính thức nào xác nhận** — hai gói nghiên cứu độc lập đều không tìm ra. Coi đó là **quy ước nội bộ chưa kiểm chứng**, đừng trích như dữ kiện của Kujiale.
-> **→ Mọi con số trong chương này đều ghi rõ đang ở thang nào. Trước khi dùng, mở app kiểm đơn vị hiển thị trên máy bạn (Phiếu verify mục B1).**
+> **→ Mọi con số trong chương này đều ghi rõ đang ở thang nào. Trước khi dùng, mở app kiểm đơn vị hiển thị trên máy bạn (Sổ ghi nhận mục B1).**
 >
 > **2. Số càng cũ càng phải để cao.** Tài liệu chính thức bản 3.0 ghi: *"nâng cấp phản xạ toàn cục, tăng độ trong của ảnh, giảm hiện tượng vùng tối chết đen"*. GI mạnh hơn nghĩa là **cùng một độ sáng giờ chiếu được diện tích lớn hơn**. Đây là lý do bộ số của người này để 600–800 còn người kia để 280–300 mà cả hai đều ra ảnh đẹp — họ dùng hai đời template khác nhau.
 > ⚠️ Nâng bản template **không tự đổi số đèn tay bạn đã tạo** — tài liệu ghi rõ đèn thủ công đã tạo giữ nguyên, chỉ đèn tạo mới dùng template mới. Nhưng vì GI của cảnh mạnh lên nên **cùng số đèn cũ giờ cho ảnh sáng hơn → vẫn cháy**. Nâng bản xong phải hạ tay.
@@ -173,7 +173,7 @@ Rèm đã lo phần mềm chính rồi; `阴影柔和度` chỉ **vuốt rìa** 
 > `阴影柔和度` của **`阳光`** chạy khoảng **1–10**
 > `阴影柔和` của **đèn nhân tạo** chạy khoảng **100–3000**
 >
-> Nhiều bộ số trên mạng "vênh gấp mười lần" chỉ vì người ghi **trộn lẫn hai ô này**. Nhìn kỹ mình đang đứng ở panel nào. Đây là mục cần verify sớm (Phiếu verify).
+> Nhiều bộ số trên mạng "vênh gấp mười lần" chỉ vì người ghi **trộn lẫn hai ô này**. Nhìn kỹ mình đang đứng ở panel nào. Đây là mục cần verify sớm (Sổ ghi nhận).
 
 ### Thứ tự dò — quan trọng hơn con số
 

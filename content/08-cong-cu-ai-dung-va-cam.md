@@ -34,24 +34,24 @@ Kujiale có hai nhánh AI liên quan render, cộng một tính năng mới toan
 | 局部重绘 (vẽ lại cục bộ) | Bôi vùng cần sửa + mô tả → AI vẽ lại vùng đó | Mô tả lệch một chút là sinh chi tiết ảo |
 | 细节增强 (tăng chi tiết) | Làm ảnh tinh xảo, nét hơn | Có thể bịa thêm hoa văn không hề có trong model |
 
-9 chức năng mới (⚠️ danh sách từ bài giới thiệu cộng đồng, chưa kiểm đủ trên tài khoản công ty — xem Phiếu verify mục E3), đáng chú ý:
+9 chức năng mới (⚠️ danh sách từ bài giới thiệu cộng đồng, chưa kiểm đủ trên tài khoản công ty — xem Sổ ghi nhận mục E3), đáng chú ý:
 
 - 实物装修 (hoàn thiện từ ảnh thật): chụp nhà thô/nhà bàn giao + dán vật liệu → ảnh "nhà tinh". Hợp chào hàng tại chỗ, nhưng AI có thể tự thêm đá bậu cửa sổ, tự đổi trần.
 - 手绘创作 (phác tay thành ảnh): line-sketch đen trắng → ảnh hiệu ứng. Kiểm soát kích thước kém.
 - 室内照明 (chiếu sáng ngày→đêm): ảnh ban ngày → ảnh bật đèn đêm. Có 准确模式 (chế độ chính xác — giữ nguyên đồ) và 创意模式 (chế độ sáng tạo — **đổi luôn vật liệu đồ đạc**). Dùng thì chỉ dùng 准确模式.
 - AI添加家具 (thêm nội thất), 杂物消除 (xóa đồ lặt vặt) và vài chức năng phụ khác.
 
-Chi phí: bản cơ bản miễn phí, các tính năng "ngoan" nhất (khóa vật liệu, không xếp hàng, nhiều style) nằm ở 企业版 (bản doanh nghiệp, trả phí). Tài khoản công ty đang có gì → tự kiểm và điền **Phiếu verify mục E3** (Phụ lục B).
+Chi phí: bản cơ bản miễn phí, các tính năng "ngoan" nhất (khóa vật liệu, không xếp hàng, nhiều style) nằm ở 企业版 (bản doanh nghiệp, trả phí). Tài khoản công ty đang có gì → tự kiểm và điền **Sổ ghi nhận mục E3** (Phụ lục B).
 
 ### Nhánh 2 — AI写实增强 / AI修图 (tăng chân thực / sửa ảnh AI), nằm ngay trong pipeline render
 
 Khác nhánh 1, cái này không phải app rời mà gắn thẳng vào ảnh bạn vừa render: vào 图册 (album ảnh) → mở 大图 (ảnh lớn) → nút **AI修图** → **立即增强** (tăng cường ngay). Trong 高级设置 (cài đặt nâng cao) có thanh trượt **创造性** (độ sáng tạo).
 
-Quy tắc một câu: **创造性 càng cao, ảnh càng đẹp kiểu "tạp chí" — và càng xa model gốc của bạn.** Quy định nội bộ: luôn để 创造性 ở mức thấp. Số lần dùng miễn phí mỗi ngày + độ phân giải ảnh ra: chưa có số công khai chắc chắn, tự kiểm theo **Phiếu verify mục E2**.
+Quy tắc một câu: **创造性 càng cao, ảnh càng đẹp kiểu "tạp chí" — và càng xa model gốc của bạn.** Quy định nội bộ: luôn để 创造性 ở mức thấp. Số lần dùng miễn phí mỗi ngày + độ phân giải ảnh ra: chưa có số công khai chắc chắn, tự kiểm theo **Sổ ghi nhận mục E2**.
 
 ### Nhánh 3 — AI+渲染 / AI美化 (AI làm đẹp) — mới ra 09/07/2026
 
-> ⚠️ **CẢNH BÁO:** tính năng này mới được công bố tại sự kiện ra mắt sản phẩm của hãng ngày 09/07/2026 — quảng cáo "một chạm tăng chất liệu, 3 giây ra ảnh", kèm bộ template 清晨 / 傍晚 / 夜景 (sáng sớm / chiều tà / cảnh đêm) đổi không khí toàn ảnh. **Chưa rõ tài khoản 高级 thường của công ty đã được mở tính năng này chưa, và đường vào nằm đâu** — kiểm tra theo Phiếu verify mục E1 (Phụ lục B). Về bản chất nó là chuyển phong cách toàn ảnh, tức cùng họ rủi ro với 风格转换: nhanh, đẹp, và lệch gốc.
+> ⚠️ **CẢNH BÁO:** tính năng này mới được công bố tại sự kiện ra mắt sản phẩm của hãng ngày 09/07/2026 — quảng cáo "một chạm tăng chất liệu, 3 giây ra ảnh", kèm bộ template 清晨 / 傍晚 / 夜景 (sáng sớm / chiều tà / cảnh đêm) đổi không khí toàn ảnh. **Chưa rõ tài khoản 高级 thường của công ty đã được mở tính năng này chưa, và đường vào nằm đâu** — kiểm tra theo Sổ ghi nhận mục E1 (Phụ lục B). Về bản chất nó là chuyển phong cách toàn ảnh, tức cùng họ rủi ro với 风格转换: nhanh, đẹp, và lệch gốc.
 
 ### Cơ chế khóa sai lệch — thứ BẮT BUỘC bật trước khi dùng bất kỳ nhánh nào
 
@@ -132,10 +132,10 @@ Dựng model bằng đúng mã hàng, đúng vật liệu công ty (C5), đánh 
 ## Thực hành
 
 **Bài 1 — Bắt lỗi AI bằng chính mắt mình.**
-Lấy 1 góc phòng khách căn mẫu đã render chuẩn ở C4/C5. Vào 应用市场 mở AI室内大师, chạy 模型渲染 cùng góc đó (chưa bật khóa gì cả). Đặt 2 ảnh cạnh nhau, tìm tối thiểu **3 điểm AI tự đổi** so với model (vân gỗ, màu, phản quang, đồ bịa thêm...). *Đạt khi:* liệt kê được ≥3 khác biệt cụ thể, chỉ đúng vị trí trên ảnh. Nhân tiện điền Phiếu verify D3 (chức năng nào miễn phí / đòi 企业版).
+Lấy 1 góc phòng khách căn mẫu đã render chuẩn ở C4/C5. Vào 应用市场 mở AI室内大师, chạy 模型渲染 cùng góc đó (chưa bật khóa gì cả). Đặt 2 ảnh cạnh nhau, tìm tối thiểu **3 điểm AI tự đổi** so với model (vân gỗ, màu, phản quang, đồ bịa thêm...). *Đạt khi:* liệt kê được ≥3 khác biệt cụ thể, chỉ đúng vị trí trên ảnh. Nhân tiện điền Sổ ghi nhận D3 (chức năng nào miễn phí / đòi 企业版).
 
 **Bài 2 — Thanh 创造性 nguy hiểm thế nào.**
-Lấy 1 ảnh render chuẩn có tủ melamine vân gỗ. Chạy AI修图 hai lần: một lần 创造性 thấp nhất, một lần cao nhất. So vân gỗ 2 ảnh ra với vân tấm mẫu thật của công ty. *Đạt khi:* chỉ ra được bản 创造性 cao lệch vân/màu ở đâu, và tự trả lời "ảnh này gửi khách chốt được không, vì sao". Điền luôn Phiếu verify D2 (số lần miễn phí/ngày, độ phân giải ra) và D1 (tài khoản có AI美化 chưa).
+Lấy 1 ảnh render chuẩn có tủ melamine vân gỗ. Chạy AI修图 hai lần: một lần 创造性 thấp nhất, một lần cao nhất. So vân gỗ 2 ảnh ra với vân tấm mẫu thật của công ty. *Đạt khi:* chỉ ra được bản 创造性 cao lệch vân/màu ở đâu, và tự trả lời "ảnh này gửi khách chốt được không, vì sao". Điền luôn Sổ ghi nhận D2 (số lần miễn phí/ngày, độ phân giải ra) và D1 (tài khoản có AI美化 chưa).
 
 **Bài 3 — Đóng vai người soát thứ hai.**
 Nhờ đồng nghiệp (hoặc tự làm mù: để ảnh nghỉ 1 ngày) đưa bạn 1 ảnh AI + model gốc. Soát theo checklist 4 điểm mục 8.4, ghi kết luận: cho đi / chặn lại, lý do. *Đạt khi:* bắt được toàn bộ điểm sai đã cài (người đưa ảnh cố tình để 创造性 cao hoặc quên watermark).
@@ -149,7 +149,7 @@ Nhờ đồng nghiệp (hoặc tự làm mù: để ảnh nghỉ 1 ngày) đưa 
 - [ ] Thuộc 3 loại ảnh CHO PHÉP + điều kiện đi kèm từng loại
 - [ ] Nói được 4 điểm người soát thứ hai phải kiểm
 - [ ] Vẽ lại được workflow 3 tầng và chỉ ra tầng nào ảnh AI bị cấm
-- [ ] Đã điền Phiếu verify D1, D2, D3 (Phụ lục B)
+- [ ] Đã điền Sổ ghi nhận D1, D2, D3 (Phụ lục B)
 
 ## Lỗi thường gặp trong chương này
 

@@ -18,7 +18,7 @@
 > - ⚠️ **Quy ước "`瓦` = thang cũ chia 10" CHƯA ĐƯỢC XÁC NHẬN.** Bản đầu của cuốn sách này ghi nó như dữ kiện — **đó là sai**. Hai gói nghiên cứu độc lập đều không tìm được nguồn chính thức nào của Kujiale nói vậy. Hãy coi đây là **quy ước nội bộ chưa kiểm chứng**, đừng trích như thông tin của hãng.
 > - **Hệ `%` thì là thật và chính thức:** tài liệu trợ giúp xác nhận `硬装灯带` dùng vật liệu mới render chính xác dải **0% – 6000%**. Ảnh chụp panel thật còn cho thấy `室内光亮度` hiện **100%** và **500%**.
 > - `瓦` KHÔNG phải watt điện thật; `亮度` KHÔNG phải lumen hay lux — chỉ là **giá trị tương đối** của phần mềm. Bài quảng cáo nào ghi "300 lumen" thì bỏ qua.
-> - **Việc đầu tiên khi mở app học chương này:** tạo một đèn bất kỳ, nhìn panel xem đơn vị hiện gì → điền **Phiếu verify mục B1 (Phụ lục B)**. Kiểm đủ **cả ba** khả năng. Chưa biết đơn vị máy mình thì **đừng nhập số nào trong chương này cả** — dò từ thấp lên.
+> - **Việc đầu tiên khi mở app học chương này:** tạo một đèn bất kỳ, nhìn panel xem đơn vị hiện gì → điền **Sổ ghi nhận mục B1 (Phụ lục B)**. Kiểm đủ **cả ba** khả năng. Chưa biết đơn vị máy mình thì **đừng nhập số nào trong chương này cả** — dò từ thấp lên.
 
 ---
 
@@ -32,7 +32,7 @@ Từ tháng 8/2025 Kujiale gộp render về 3 chế độ (xem Chương 2). Đ�
 | 实时专业 (thời gian thực chuyên nghiệp) | ✅ | Có xem trước tức thì — tiện chỉnh đèn |
 | 离线模式 (render ngoại tuyến) | ✅ | Chất lượng cao nhất; 体积光 và ảnh final đi đường này |
 
-Đường vào: **离线模式 hoặc 实时专业 → 灯光模板 (mẫu ánh sáng) → 添加手动灯光 (thêm đèn thủ công)** → chọn mẫu trắng 空白 hoặc lấy 1 mẫu tự động làm nền rồi sửa. Xác nhận lại đường vào theo Phiếu verify mục B2.
+Đường vào: **离线模式 hoặc 实时专业 → 灯光模板 (mẫu ánh sáng) → 添加手动灯光 (thêm đèn thủ công)** → chọn mẫu trắng 空白 hoặc lấy 1 mẫu tự động làm nền rồi sửa. Xác nhận lại đường vào theo Sổ ghi nhận mục B2.
 
 Mẹo thao tác cần nhớ:
 
@@ -50,7 +50,7 @@ Mọi số ở cột "dải khởi điểm" là **thang cũ** (xem hộp cảnh 
 | 1 | 面光源 (đèn mặt — tấm phát sáng phẳng, có 双面光 phát 2 mặt) | Nguồn chính đa năng: dựng đứng ở cửa sổ làm 天光 (thiên quang — ánh trời), hắt trần, kéo mảnh làm đèn hắt | 天光 ngoài cửa 400–800, trong cửa 200–500 (xem mục 4.5); phụ trợ 100–300 | Loại đèn quan trọng nhất chương này |
 | 2 | 点光源 / 球形灯 (đèn điểm / đèn cầu) | Đèn bàn, đèn thả, quầng sáng tỏa tròn | Đèn điểm 30–40 ⚠️; đèn cầu cho đèn thả 250–300 ⚠️ | Đèn bàn đặt thấp hơn model đèn 0,15–0,2m |
 | 3 | 聚光灯 (đèn rọi hình nón) | Rọi tranh, rọi tường, giả máy chiếu (tải được 贴图 chiếu hoa văn) | Rọi tường 330–350, đêm 380, cao 2,4m ⚠️ | **CẤM dùng thay nắng ngoài trời** — sinh nhiễu nặng (nguồn chính thức) |
-| 4 | 射灯/筒灯 dùng IES (đèn rọi / đèn âm trần theo file quang học) | Chiếu điểm theo đèn thật trên trần: sofa, bàn, rèm, tường đá | Mặc định 200–300, cao 2,4m; rọi nhấn 100–150, góc 30–45° | Thư viện profile S1–S5 = 射灯, T = 筒灯 ⚠️ chưa có bảng chính thức — thử trực quan, ghi lại theo Phiếu verify B6 |
+| 4 | 射灯/筒灯 dùng IES (đèn rọi / đèn âm trần theo file quang học) | Chiếu điểm theo đèn thật trên trần: sofa, bàn, rèm, tường đá | Mặc định 200–300, cao 2,4m; rọi nhấn 100–150, góc 30–45° | Thư viện profile S1–S5 = 射灯, T = 筒灯 ⚠️ chưa có bảng chính thức — thử trực quan, ghi lại theo Sổ ghi nhận mục B6 |
 | 5 | 灯带 (đèn hắt khe — làm bằng 面光源 kéo mảnh hoặc công cụ 灯带 phần thô) | Hắt khe trần, gầm tủ bếp, đầu giường, hốc tường | 面光源 mảnh rộng 20–25, sáng ~1500, hơi ấm ⚠️; đèn tầng tủ 层板灯 rộng ~60, ~1200, 3500K (chính thức) | Giấu kín nguồn trong khe; phần mềm báo động nếu cắm vào tường |
 | 6 | 体积光 (đèn thể tích — tia nắng xuyên bụi) | Cột sáng cửa sổ kiểu "tia sáng buổi sớm" | Tham số riêng: 光柱长度 (chiều dài cột sáng), 底面半径 (bán kính đáy) | Chỉ có ở mẫu 写实/离线 — chi tiết xem Chương 3 |
 | 7 | 自发光 (vật liệu tự phát sáng) | Bảng LED, lưng tủ kính, kệ rượu phát sáng | 发光能量 (năng lượng phát sáng) ~1 cho lưng tủ ⚠️ | Đặt cao là thủ phạm số 1 gây cháy trắng cả ảnh |
@@ -100,7 +100,7 @@ Cách dùng 2 bộ số — quy tắc của sách:
 1. **Khởi điểm luôn là bộ chính thức** (dải thấp hơn, an toàn với template 3.0+ GI mạnh).
 2. Render nháp thấy tối, thiếu khí trời → **nâng dần về phía dải 仙姑老师**. Căn góc kính lớn, muốn ảnh ngập sáng kiểu ban mai → dải 仙姑 hợp hơn.
 3. Riêng 射灯 tồn tại 3 dải cộng đồng: 200–300 (nền, 仙姑) / 100–180 (chống cháy sáng, 佳佳老师) / 330–350 (rọi tường ban đêm, Baidu) — **khác ngữ cảnh chứ không mâu thuẫn**: rọi nền lấy 200–300, ảnh bị cháy hạ về 100–180, cảnh đêm cần kịch tính mới lên 330+.
-4. Nhắc lại: tất cả là **thang cũ** — kiểm đơn vị máy mình trước (Phiếu verify B1), ⚠️ đừng mặc định chia 10.
+4. Nhắc lại: tất cả là **thang cũ** — kiểm đơn vị máy mình trước (Sổ ghi nhận mục B1), ⚠️ đừng mặc định chia 10.
 
 ## 4.6. Năm công thức phòng
 
@@ -138,7 +138,7 @@ Số dưới đây = **dải khởi điểm, thang cũ**. Màu quy ước: xanh 
 1. **Nền:** 面光源 150–200 ⚠️, 4000–4500K, cách trần ~100mm, không sát tường. WC không cửa sổ: tăng nhẹ nền + thêm 1 筒灯 âm trần cho tự nhiên.
 2. **Đèn gương:** 面光源 dạng dải 2 bên hoặc trên gương, 4000K ⚠️, độ sáng vừa phải — gương phản xạ mạnh, tham sáng là cháy. Chuẩn ngành: ngang tầm mắt 1,5–1,8m, 2 bên đều hơn trên đỉnh.
 3. **Khu tắm/rọi đá:** 射灯 100–150, góc 30–45°, trắng ấm.
-4. **Chống cháy & bẹt (WC toàn gương–kính–đá):** không đèn nào sát gương/kính/đá; đèn điểm giữ thấp 30–40; chênh nhiệt độ màu ≤ 500K; khi render bật đủ 漏光修复 (sửa lọt sáng) + 降噪 (khử nhiễu) + 溢色修正 (sửa loang màu) — vị trí 3 nút này xác nhận theo Phiếu verify B4.
+4. **Chống cháy & bẹt (WC toàn gương–kính–đá):** không đèn nào sát gương/kính/đá; đèn điểm giữ thấp 30–40; chênh nhiệt độ màu ≤ 500K; khi render bật đủ 漏光修复 (sửa lọt sáng) + 降噪 (khử nhiễu) + 溢色修正 (sửa loang màu) — vị trí 3 nút này xác nhận theo Sổ ghi nhận mục B4.
 
 ### Công thức 5 — Cận cảnh tủ áo / tủ bếp cho catalogue (nồi cơm của công ty)
 
@@ -178,7 +178,7 @@ Làm trên căn hộ mẫu 2PN của lớp (phòng khách + bếp mở, cửa s�
 
 ## Checklist tự chấm
 
-- [ ] Đã xác nhận đơn vị độ sáng trên UI của mình (瓦 hay số trơn) — Phiếu verify B1
+- [ ] Đã xác nhận đơn vị độ sáng trên UI của mình (瓦 hay số trơn) — Sổ ghi nhận mục B1
 - [ ] Kể được 8 loại nguồn sáng và việc của từng loại không cần mở sách
 - [ ] Thuộc trình tự 4 bước: nguồn chính → phụ trợ → chiếu tập trung → chi tiết
 - [ ] Đặt 射灯 nào cũng chỉ được vị trí đèn thật tương ứng trên trần
@@ -220,4 +220,4 @@ Làm trên căn hộ mẫu 2PN của lớp (phòng khách + bếp mở, cửa s�
 
 **Suy luận / chờ verify:**
 - Toàn bộ Công thức 4 (WC) = suy luận từ nguyên tắc chung — chưa có bài Kujiale chuyên WC
-- Đơn vị 瓦 vs số trơn → Phiếu verify B1; đường vào đèn tay → B2; nút 降噪/漏光修复/溢色修正 → B4; profile IES S1–S5/T → B6 (Phụ lục B)
+- Đơn vị 瓦 vs số trơn → Sổ ghi nhận mục B1; đường vào đèn tay → B2; nút 降噪/漏光修复/溢色修正 → B4; profile IES S1–S5/T → B6 (Phụ lục B)

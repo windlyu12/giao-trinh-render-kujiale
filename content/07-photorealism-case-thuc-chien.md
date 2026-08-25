@@ -74,7 +74,7 @@ Nghe ngược đời: muốn ảnh thật hơn thì phải làm nó **kém hoàn
 | 3. Bố sáng | Render 1 tấm bằng **đèn tự động** (template hiện hành: 极速3.0/3.1, 室内白天/夜晚, 实时白天/夜晚) → soi thiếu gì → thêm 手动灯光 (đèn thủ công) bù đúng chỗ thiếu, theo 3 lớp nền → chức năng → nhấn | Chương 4. KHÔNG xóa hết làm lại từ đầu |
 | 4. Máy ảnh + bố cục | Chỉnh chiều cao/góc/trường nhìn, dựng phương đứng thẳng, lưu góc nhìn | Chương 6 |
 | 5. Render nháp | Lặp nhanh, giá rẻ: xem trước bằng 实时专业 (thời gian thực chuyên nghiệp) hoặc render 离线 (ngoại tuyến) ở độ phân giải thấp. Sửa → nháp lại, thường vài vòng | SOP nháp→final tiết kiệm 核豆: Chương 2 |
-| 6. Render final | 离线模式, độ phân giải cao, bật 高级参数 (tham số nâng cao): 环境阻光 (đổ bóng tiếp xúc — khối rõ hơn), 影响高光 (giữ đốm sáng phản chiếu), vật liệu phức tạp nếu cần | Số 核豆 tiêu cho từng cỡ ảnh **chỉ xem trong app** qua 「核豆消耗 - 查看详情」 — điền Phiếu verify mục A1 |
+| 6. Render final | 离线模式, độ phân giải cao, bật 高级参数 (tham số nâng cao): 环境阻光 (đổ bóng tiếp xúc — khối rõ hơn), 影响高光 (giữ đốm sáng phản chiếu), vật liệu phức tạp nếu cần | Số 核豆 tiêu cho từng cỡ ảnh **chỉ xem trong app** qua 「核豆消耗 - 查看详情」 — điền Sổ ghi nhận mục A1 |
 | 7. Hậu kỳ | Chỉnh nhẹ đường cong/tương phản, tiết chế | Chương 6, quy tắc ±10–15 |
 
 > ⚠️ **CẢNH BÁO hệ điểm 核豆 (từ 3/2026):** sách không in bảng giá render vì Kujiale đổi liên tục. Bậc tài khoản công ty được cấp 核豆 theo tháng, vé render 6K phải **lĩnh tay mỗi tuần — quên là mất**. Trước khi render final cỡ lớn, mở 「核豆消耗 - 查看详情」xem số tiêu thực tế.
@@ -83,7 +83,7 @@ Mốc thời gian để tự lượng sức: tài liệu chính thức Coohom gh
 
 ## 7.5. Ngân hàng case thực chiến — học số hay học tư duy?
 
-> ⚠️ **CẢNH BÁO trước khi đọc bảng:** mọi số độ sáng trong bảng dưới là **thang cũ** (0–800). ⚠️ Quy ước "`瓦` = số thang cũ **chia 10**" **chưa được xác nhận bằng nguồn chính thức nào** — xem hộp cảnh báo đầu Chương 4 và Phiếu verify mục B1. Kujiale còn có hệ thứ ba là `%`. Ngoài ra các case dùng template đời cũ (白天3.0...); template hiện hành GI dội mạnh hơn → **lấy số case làm điểm xuất phát ở đầu THẤP của dải, render nháp rồi tăng dần.**
+> ⚠️ **CẢNH BÁO trước khi đọc bảng:** mọi số độ sáng trong bảng dưới là **thang cũ** (0–800). ⚠️ Quy ước "`瓦` = số thang cũ **chia 10**" **chưa được xác nhận bằng nguồn chính thức nào** — xem hộp cảnh báo đầu Chương 4 và Sổ ghi nhận mục B1. Kujiale còn có hệ thứ ba là `%`. Ngoài ra các case dùng template đời cũ (白天3.0...); template hiện hành GI dội mạnh hơn → **lấy số case làm điểm xuất phát ở đầu THẤP của dải, render nháp rồi tăng dần.**
 
 Quy tắc đọc case, trước khi xem bảng:
 
@@ -109,7 +109,7 @@ Quy tắc đọc case, trước khi xem bảng:
 ## Thực hành
 
 **Bài 1 — Tái tạo case ✅ (học số).** Chọn case #1 (仙姑老师), phòng khách căn hộ mẫu của công ty:
-1. Bố đèn đúng theo thông số case: thiên quang 2 lớp, 筒灯/射灯 200–300 ở vị trí đèn thật, đèn bù tủ. Kiểm đơn vị máy mình trước (Phiếu verify B1) — ⚠️ đừng mặc định chia 10.
+1. Bố đèn đúng theo thông số case: thiên quang 2 lớp, 筒灯/射灯 200–300 ở vị trí đèn thật, đèn bù tủ. Kiểm đơn vị máy mình trước (Sổ ghi nhận mục B1) — ⚠️ đừng mặc định chia 10.
 2. Render nháp độ phân giải thấp → so với mô tả case: sáng có suy giảm từ cửa vào trong không? 3 lớp sáng có tách bạch không?
 3. Lệch chỗ nào chỉnh chỗ đó theo "thiếu đâu bù đó" — tối đa 3 vòng nháp.
 4. **Đạt khi:** ảnh chấm theo Phụ lục A được ≥ 40/50, không tiêu chí nào ≤ 2 điểm.
@@ -136,7 +136,7 @@ Quy tắc đọc case, trước khi xem bảng:
 
 | Hiện tượng | Nguyên nhân | Cách sửa |
 |---|---|---|
-| Chép số case vào cảnh của mình, ảnh cháy trắng | Sai hệ đơn vị, hoặc template mới GI dội mạnh hơn đời case | Kiểm Phiếu verify B1; vào số từ đầu thấp của dải, nháp rồi tăng |
+| Chép số case vào cảnh của mình, ảnh cháy trắng | Sai hệ đơn vị, hoặc template mới GI dội mạnh hơn đời case | Kiểm Sổ ghi nhận mục B1; vào số từ đầu thấp của dải, nháp rồi tăng |
 | Làm theo case mà ảnh vẫn không giống | Khác phòng, khác template, khác hướng cửa — số không mang đi được | Quay về học tư duy: case đó bố mấy lớp sáng, mỗi đèn đóng vai gì |
 | Thêm imperfection xong ảnh bẩn, cũ kỹ | Quá liều — xước/bừa khắp nơi | Giữ 2–3 điểm khiếm khuyết mỗi khung, phần còn lại sạch |
 | Hậu kỳ kéo mãi không "thật" hơn | Sai từ trụ 1 (ánh sáng) mà đi sửa trụ 4 | Bỏ Photoshop, dò lại từ trụ 1 xuống |
@@ -147,4 +147,4 @@ Quy tắc đọc case, trước khi xem bảng:
 - **Chính thức:** chuẩn texture 材质制作标准手册 (kujiale.com/hc, article 3FO4K4WFSI07 — ≥2000×2000 px, ≤5MB, 4 kênh); tham số nâng cao 高级参数 (3FO4K4VWISQV — 环境阻光, LED 0–6000%); 体积光 (3FO4K4VP57FJ); thời gian render 4K ~1–2 phút (Coohom Help Center).
 - **Chính thức được xác nhận:** giáo trình 仙姑老师 (Kujiale 官方认证, ảnh designer 刘刚/仙姑, bản cập nhật 2026 — nguồn thứ tự 4 trụ cột, 3 lớp sáng, bộ số case #1).
 - **Cộng đồng (⚠️):** quy tắc trắng 180–200 + danh sách dấu hiệu cháy sáng/quá mới (Renderbus, nhiều bài); chiết suất kính 1.5–1.6; case 百度经验/Zhihu #4, #5, #8, #9, #10; tư duy 帅大韩 (cộng đồng Kujiale); "cả nhà dưới 15 phút" là blog marketing Coohom — không dùng cam kết.
-- **Chờ verify trên app:** đơn vị 瓦 (Phiếu verify B1); số 核豆 tiêu theo cỡ ảnh (A1); giới hạn dung lượng upload texture 2MB hay 5MB (C2).
+- **Chờ verify trên app:** đơn vị 瓦 (Sổ ghi nhận mục B1); số 核豆 tiêu theo cỡ ảnh (A1); giới hạn dung lượng upload texture 2MB hay 5MB (C2).
