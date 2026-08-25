@@ -312,6 +312,114 @@ bản dịch sang tiếng Anh của hai công tắc `主体保留` + `材质保�
 
 ---
 
+## 7. Khung đã hội tụ — model chưa render → ảnh AI ban ngày
+
+Rút từ **14 ca thực chiến, 8 đời prompt**, có kỹ thuật nội bộ soi từng vòng. Đây là khung
+**đã đạt cả ba mặt cùng lúc**: đúng vật lý · giữ thiết kế · nịnh mắt.
+
+### 7.1. Bốn tầng lỗi — ai sửa được cái gì
+
+| Tầng | Prompt sửa được? | Làm ở đâu |
+|---|---|---|
+| **Vật liệu** | ✅ Rất tốt | Tả **bề mặt**, không liệt kê tên; mỗi thứ một mức bóng riêng |
+| **Bố cục / khung hình** | ❌ | Render lại hoặc crop |
+| **Lớp phủ ảnh** (hạt, tối góc, quang sai) | ❌ | **Hậu kỳ** — xem §0 Luật 3 |
+| **Logic truyền sáng** | ⚠️ Không sửa được bản chất | **Né** bằng §7.2, hoặc render thật |
+
+### 7.2. Ba nguyên tắc ánh sáng — đây là phần ăn tiền
+
+**AI không giải truyền sáng.** Nó vẽ hiệu ứng ánh sáng như hoạ tiết trang trí rồi ghép lại,
+không đối chiếu với nhau. Bốn lỗi kỹ thuật bắt được đều từ đó: bề mặt đồng phẳng khác sắc độ ·
+sàn không có vũng sáng · nguồn dải sáng đều toàn hõm · vệt tường cao mà bàn vẫn sáng.
+
+**Khai báo vật lý tường minh KHÔNG hội tụ** — vá biểu hiện này thì lòi biểu hiện khác cùng họ.
+Ba nguyên tắc dưới đây **né** vấn đề thay vì cố sửa:
+
+**① Đèn BẬT nhưng không gánh chiếu sáng.**
+Ban ngày, một dải LED hay một bóng đèn thả **thật sự** không rửa sáng được căn phòng — sáng trời
+áp đảo. Đây là **sự thật vật lý**, không phải mẹo né. Nên: đèn bật và nhìn thấy rõ là những
+**đốm sáng ấm trên chính bộ đèn**, còn việc chiếu sáng do sáng trời làm.
+→ Không còn vũng sáng, vệt tường, gradient hõm nào để AI vẽ sai.
+
+**② Kịch tính đến từ ÁNH SÁNG TRỜI, không từ bộ đèn.**
+Suy giảm của sáng trời trong phòng hẹp vốn đã **dốc và kịch tính**, và bảo vệ được về vật lý.
+Khai báo gradient **mạnh**: đầu gần nguồn sáng bung, góc xa nhất **chìm hẳn**.
+
+**③ Giữ trộn nóng–lạnh.**
+Đèn ấm chọi sáng trời lạnh — "chiều sâu điện ảnh không tốn gì" của C0.
+⚠️ `neutral white balance **throughout**` giết sạch nó và ảnh bẹt ngay.
+
+### 7.3. Hai dạng quá tay — ngược chiều nhau
+
+| Dạng | Ví dụ thật | Hậu quả |
+|---|---|---|
+| Quá tay **THÊM** | `visible looped fabric texture` (kèm `boucle`) | Ghế xù hết lông |
+| Quá tay **BỎ** | `the pendant is switched off` (để né lỗi truyền sáng) | Mất hõm hắt sáng — **hạng mục khách trả tiền** |
+
+> ## 📌 **Sửa VẬT LÝ, đừng xoá THIẾT KẾ.**
+> Khe hắt, đèn thả, ray nam châm, hõm hắt sáng là **hạng mục thi công** — phải còn nhìn thấy
+> trong ảnh. Chỉ được chỉnh *cách nó chiếu*, không được tắt nó.
+
+> ## 📌 **Cụm bó phải bó ĐÚNG THỨ ĐÁNG BÓ.**
+> Ba lần bó nhầm thứ đang gánh cảm xúc của ảnh: `subtle film grain` → grain = 0 ·
+> `eases **gently**` → mất gradient · `neutral **throughout**` → mất trộn nóng–lạnh.
+
+### 7.4. Khung prompt — điền vào ngoặc vuông
+
+```
+Photorealistic interior photograph of this exact [loại phòng]. Keep the camera angle,
+room layout, furniture positions, cabinetry proportions and material types exactly as in
+the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line[, and the
+viewport overlay text and axis gizmo]. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+It is daytime. Soft daylight from [nguồn thật: cửa sổ bên phải / khu khách ngoài khung /
+ban công] does all the lighting work, and it falls away steeply across the room:
+[vùng gần nguồn] is bright and open, the middle is comfortable, and [góc xa nhất] sinks
+into genuine shadow — the darkest, quietest part of the frame. This falloff is the
+strongest tonal movement in the picture.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. [Liệt kê TỪNG bộ đèn có trong model + nó trông thế nào khi bật]. At this
+hour they light only themselves — none of them brightens the room, casts a pool on the
+floor, or throws a patch of light on a wall. Their warmth reads against the cool daylight
+instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level [1.0–1.2]m. Vertical lines stay perfectly vertical,
+natural undistorted perspective. Keep the same framing and crop as the source image.
+
+[Tả BỀ MẶT từng vật liệu, KHÔNG liệt kê tên. Bề mặt trơn + đều màu tả kỹ nhất — đó là chỗ
+AI hay ra nhựa.] Everyday traces, quiet and few: [2–3 dấu vết cụ thể, có vị trí].
+
+Each material carries its own level of sheen — [4–5 mức bóng khác nhau].
+
+Contact shadows keep everything grounded: [3–4 chỗ tiếp xúc cụ thể].
+
+Deep photographic tonal range: [góc tối nhất] genuinely dark, whites stopping just short
+of pure white, and a full rich range in between. The image has somewhere bright for the
+eye to land and somewhere dark to rest. The look of a printed magazine interior photograph.
+
+[1 câu staging riêng, ĐẶT CUỐI — nhét vào khối vật liệu là bị loãng và mất.]
+```
+
+**Rồi chạy hậu kỳ 2 phút theo §0 Luật 3.** Không kèm là xuất thiếu.
+
+### 7.5. Giới hạn — khung này KHÔNG dùng được khi
+
+| Trường hợp | Vì sao | Làm gì |
+|---|---|---|
+| **Cảnh đêm** | Đèn *phải* gánh chiếu sáng → mọi lỗi truyền sáng quay lại đủ | **Render thật** |
+| Ảnh khoe hiệu ứng chiếu sáng (khe hắt, ray nam châm làm chủ đạo) | Nguyên tắc ① triệt tiêu đúng thứ cần khoe | **Render thật** |
+| Ảnh có designer / kỹ thuật / khách soi | Họ đọc được vũng sáng và gradient trong vài giây | **Render thật** |
+| Mood board, dò phong cách, dò tông màu | — | ✅ Khung này |
+
+> Suy giảm theo khoảng cách và cân bằng năng lượng là thứ **Corona/Kujiale giải đúng và miễn phí**.
+> Không có lý do bắt AI đoán lại.
+
+---
+
 ## 6. Nếu dùng AI ngay trong Kujiale
 
 Kujiale có AI riêng (`AI室内大师` qua `应用市场` · `AI写实增强`/`AI修图` trong pipeline render ·

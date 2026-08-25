@@ -620,3 +620,19 @@ One pair of shoes sits turned slightly out of line on the floor beside the bench
 
 > 📌 **Nếu cần ảnh CẢNH ĐÊM, đèn thật sự gánh chiếu sáng** → cách này không dùng được, vì lúc đó
 > đèn *phải* rửa sáng phòng và mọi lỗi truyền sáng quay lại. **Cảnh đêm thì render thật, đừng AI.**
+
+---
+
+# 🏆 CA2 bản A8 — **CHUẨN, ĐÃ HỘI TỤ** (ca 14)
+
+Người dùng: *"có vẻ khá thật, có chiều sâu"*. Đủ cả ba mặt lần đầu sau 8 đời prompt:
+**đúng vật lý · giữ thiết kế · nịnh mắt.**
+
+**Khung dùng lại được cho cảnh khác đã đưa vào `references/05-prompt-ai.md` §7.**
+Bản dưới là A8 nguyên văn cho đúng cảnh sảnh vào + bàn ăn này.
+
+Khác A7 đúng hai chỗ, và cả hai đều là **gỡ bó**, không phải thêm chữ:
+| A7 | A8 |
+|---|---|
+| `Brightness eases **gently**` | `falls away **steeply**` + góc trái `sinks into genuine shadow` |
+| `Neutral white balance **throughout**, no overall tint` | `Two colour temperatures live together` — đèn ấm chọi trời lạnh |

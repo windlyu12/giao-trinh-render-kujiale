@@ -502,6 +502,43 @@ Và kỹ thuật **không bắt bẻ được**, vì đây đúng là thứ xả
 
 ---
 
+### 14 — 2026-08-25 — CA2 bản A8: **HỘI TỤ**
+
+**Người dùng:** *"có vẻ khá thật, có chiều sâu"*
+
+**Đủ cả ba mặt lần đầu tiên sau 8 đời prompt:**
+| Mặt | A8 |
+|---|---|
+| **Vật lý** | ✅ Không còn hiệu ứng nào để kỹ thuật khoanh đỏ |
+| **Thiết kế** | ✅ Hõm hắt sáng, đèn thả, đèn kệ đều còn nhìn thấy |
+| **Nịnh mắt** | ✅ Có gradient dốc phải→trái, góc trái chìm, trộn nóng–lạnh, mắt có chỗ đậu |
+
+**Ba nguyên tắc quyết định — đã xác nhận bằng thực nghiệm:**
+1. **Đèn BẬT nhưng không gánh chiếu sáng** (ca 12) — ban ngày LED 5W không rửa được phòng.
+   Sự thật vật lý, không phải mẹo. Xoá cả 4 phàn nàn của kỹ thuật mà giữ nguyên thiết kế.
+2. **Kịch tính đến từ ÁNH SÁNG TRỜI, không từ bộ đèn** (ca 13) — suy giảm của sáng trời trong
+   hành lang hẹp vốn đã dốc và kịch tính, và hoàn toàn bảo vệ được về vật lý.
+3. **Giữ trộn nóng–lạnh** — đèn ấm chọi sáng trời lạnh. Đây là "chiều sâu điện ảnh không tốn gì"
+   của C0. A7 giết nó bằng `neutral white balance throughout` và ảnh bẹt ngay.
+
+## 📊 Toàn cảnh 8 đời prompt
+
+| Đời | Vật lý | Thiết kế | Nịnh mắt | Sai ở đâu |
+|---|---|---|---|---|
+| A3 | ❌ | ✅ | ✅ | Kỹ thuật bắt 4 lỗi truyền sáng |
+| A4, A5 | ❌ | ✅ | ✅ | Khai báo vật lý tường minh — **không hội tụ**, vá cái này lòi cái kia |
+| A6 | ✅ | ❌ | ❌ | Tắt sạch đèn — mất hạng mục thi công |
+| A7 | ✅ | ✅ | ❌ | `gently` + `neutral throughout` giết tương phản |
+| **A8** | ✅ | ✅ | ✅ | **Chuẩn** |
+
+**Bài học xuyên suốt:** bốn vòng liền tao sửa bằng cách **TRỪ ĐI** (bỏ hiệu ứng, tắt đèn, bó
+gradient, bó nhiệt màu). Nước đi đúng là **DỜI kịch tính sang một nguồn bảo vệ được về vật lý** —
+không phải bỏ kịch tính.
+
+**→ Đã gom vào `05-prompt-ai.md` §7 làm khung dùng lại được.**
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -517,10 +554,10 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
-| 🔴 **SỬA VẬT LÝ, ĐỪNG XOÁ THIẾT KẾ.** Dạng quá tay ngược chiều với luật ca 04: né lỗi bằng cách xoá luôn hạng mục thi công (tắt đèn để né lỗi truyền sáng → mất hõm hắt sáng khách đã trả tiền). Khe hắt/đèn thả/ray nam châm **phải còn nhìn thấy**; chỉ điều chỉnh *cách nó chiếu*, không tắt nó | 12 | 1/3 |
-| 🔴 **LỜI GIẢI cho lỗi truyền sáng: đèn BẬT nhưng KHÔNG gánh chiếu sáng.** Ban ngày, LED 5W không rửa được phòng — ánh sáng trời áp đảo. Là **sự thật vật lý**, không phải mẹo né. Xoá cả 4 phàn nàn của kỹ thuật mà giữ nguyên thiết kế | 12 | 1/3 |
-| 🔴🔴🔴 **CHÍN 4/4 — AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
-| 🔴🔴 **CHÍN 3/3 — AI KHÔNG CÓ SUY GIẢM THEO KHOẢNG CÁCH.** Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
+| ✅ **ĐÃ VÁ `05` §7.** SỬA VẬT LÝ, ĐỪNG XOÁ THIẾT KẾ. Dạng quá tay ngược chiều với luật ca 04: né lỗi bằng cách xoá luôn hạng mục thi công (tắt đèn để né lỗi truyền sáng → mất hõm hắt sáng khách đã trả tiền). Khe hắt/đèn thả/ray nam châm **phải còn nhìn thấy**; chỉ điều chỉnh *cách nó chiếu*, không tắt nó | 12 | 1/3 |
+| ✅ **ĐÃ VÁ `05` §7** (xác nhận ca 14). Đèn BẬT nhưng KHÔNG gánh chiếu sáng. Ban ngày, LED 5W không rửa được phòng — ánh sáng trời áp đảo. Là **sự thật vật lý**, không phải mẹo né. Xoá cả 4 phàn nàn của kỹ thuật mà giữ nguyên thiết kế | 12 | 1/3 |
+| ✅ **ĐÃ VÁ `05` §7.** AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
+| ✅ **ĐÃ VÁ `05` §7.** AI không có suy giảm theo khoảng cách. Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
 | **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
