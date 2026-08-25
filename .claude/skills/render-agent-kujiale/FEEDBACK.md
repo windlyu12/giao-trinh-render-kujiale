@@ -117,6 +117,37 @@ Vấn đề không phải "có nên dùng nắng xiên" mà là **liều lượn
 
 ---
 
+### 03 — 2026-08-25 — Bàn ăn (cùng model) — bản B2 chạy trên Google Flow
+
+**Vào:** cùng ảnh model, bản B2
+**Test bằng:** **Google Flow**
+**Kết quả:** khung **toàn ra 16:9**, cắt mất tường marble cao và tủ kem kịch trần
+**Người dùng:** *"flow toàn tự nhảy sang ảnh 16:9"*
+
+**Nguyên nhân — lỗi soạn prompt, hai tầng:**
+
+1. **B2 có nguyên cụm `wide horizontal 16:9 composition` ở khối 4.** Tự tay viết vào.
+   Cụm này thêm sau ca 01 vì ảnh ra vuông 1:1 và bị ghi nhầm là "lỗi phải sửa".
+   → **Sửa hố.** Cảnh này đứng (tường marble cao, tủ cao kịch trần, trần trong khung);
+   ép 16:9 là cắt đúng thứ đáng khoe. Vuông hoặc 4:5 hợp hơn.
+
+2. **`no wide-angle distortion`** — câu phủ định chứa token hình ảnh mạnh (`wide-angle`),
+   nhiều khả năng góp phần đẩy khung rộng. `05` §3 đã ghi luật "công cụ không có ô negative thì
+   diễn đạt dương tính" mà prompt vẫn vi phạm.
+
+**Cộng thêm đặc tính công cụ:** Flow là công cụ **video**, nền Veo → mặc định khung ngang, và
+tỉ lệ nằm ở **cài đặt output của project**, không điều được bằng prompt. Cài đặt thắng câu chữ.
+
+**Sửa thành gì thì ăn:** thay cả dòng khối 4 bằng
+`Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.`
+→ **đừng gọi tên tỉ lệ; bảo nó giữ khung ảnh gốc.** Tỉ lệ set trong UI. Cần khung khác thì crop sau.
+
+**Rút ra:** hai luật đã cập nhật ở bảng dưới — trong đó luật của ca 01 bị **bác và đảo hướng**.
+Ghi lại đây làm ví dụ: **một ca lẻ đủ để dựng giả thuyết, không đủ để thành luật.**
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -125,7 +156,8 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 |---|---|---|
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
 | Ngưỡng điểm bóng nên là **≤3 có chủ đích**, không phải cứng 1–2 | 01 | 1/3 |
-| Prompt cho ChatGPT/Nano Banana **phải khai tỉ lệ khung bằng lời** ở khối 6, không thì ra vuông 1:1 | 01 | 1/3 |
+| ~~Prompt phải khai tỉ lệ khung bằng lời ở khối 6~~ → **BỊ BÁC ở ca 03.** Thay bằng: **đừng gọi tên tỉ lệ trong prompt**; bảo nó `keep the same framing and crop as the source image`, còn tỉ lệ set trong cài đặt công cụ | 01, 03 | **đã chốt hướng ngược** |
+| **Câu phủ định có token hình ảnh mạnh thì phản tác dụng** (`no wide-angle distortion` → vẫn ra khung rộng). Luật này đã có ở `05` §3 mà prompt tự vi phạm | 03 | 1/3 |
 | Cụm `bright and airy` + `bloom` dễ đẩy cửa sổ sang cháy — cần cặp cụm ghì lại | 01 | 1/3 |
 | **Đổi khối 2 sang tông ấm thì BẮT BUỘC giữ lại một mốc lạnh** (`mixed with cool daylight` / `cool blue-grey skylight fills the shadows`), không thì cả khung ám cam | 02 | 1/3 |
 | **Prompt image-to-image từ model CAD phải có câu xoá nét line-art**, không thì viền đen sống sót và ảnh lộ ngay là 3D | 02 | 1/3 |
