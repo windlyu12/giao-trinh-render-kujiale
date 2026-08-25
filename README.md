@@ -28,7 +28,7 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 | A | Bộ chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` | Công cụ nghiệm thu + chấm đồ án |
 | B | Phiếu khám phá app | `content/phu-luc-b-phieu-verify-app.md` | Bài tập tuần đầu — khóa số cho sách |
 | C | Cheat sheet thuật ngữ | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` | ~97 thuật ngữ Trung-Việt, in dán tường |
-| D | Từ vựng prompt AI | `content/phu-luc-d-tu-vung-prompt-ai.md` | Nguyên tắc ánh sáng → prompt Nano Banana/Midjourney |
+| D | Từ vựng prompt AI | `content/phu-luc-d-tu-vung-prompt-ai.md` | Nguyên tắc ánh sáng → prompt Nano Banana/Midjourney + ca Google Flow |
 
 ## Cấu trúc folder
 

@@ -1,6 +1,6 @@
 # Phụ lục D. Từ vựng prompt AI — từ nguyên tắc ánh sáng sang cụm tiếng Anh
 
-**Bảng này dùng khi nào:** khi bạn viết prompt cho AI sinh ảnh (Nano Banana, Midjourney và các công cụ tương tự) — làm ảnh ý tưởng, ảnh mood, ảnh tham khảo phong cách cho khách. Toàn bộ kiến thức ánh sáng bạn đã học ở chương Mở đầu **áp thẳng vào đây**: AI sinh ảnh "hiểu" đúng những khái niệm đó, chỉ cần bạn gọi tên chúng bằng cụm tiếng Anh chuẩn mà giới nhiếp ảnh và CGI vẫn dùng. Phụ lục này KHÔNG nhắc lại lý thuyết — nó chỉ là bảng tra + công thức + ví dụ. Quên vì sao "dám để tối" quan trọng thì mở lại chương Mở đầu.
+**Bảng này dùng khi nào:** khi bạn viết prompt cho AI sinh ảnh/video (Nano Banana, Midjourney, Google Flow và các công cụ tương tự) — làm ảnh ý tưởng, ảnh mood, ảnh tham khảo phong cách cho khách. Toàn bộ kiến thức ánh sáng bạn đã học ở chương Mở đầu **áp thẳng vào đây**: AI sinh ảnh "hiểu" đúng những khái niệm đó, chỉ cần bạn gọi tên chúng bằng cụm tiếng Anh chuẩn mà giới nhiếp ảnh và CGI vẫn dùng. Phụ lục này KHÔNG nhắc lại lý thuyết — nó chỉ là bảng tra + công thức + ví dụ. Quên vì sao "dám để tối" quan trọng thì mở lại chương Mở đầu.
 
 > ⚠️ **CẢNH BÁO:** Ảnh AI chỉ được dùng trong phạm vi quy định nội bộ ở Chương 8 (bảng cấm/cho phép). Tóm tắt một dòng: AI dùng cho ý tưởng và tham khảo — KHÔNG thay ảnh render Kujiale trong hồ sơ chốt với khách.
 
@@ -131,8 +131,161 @@ vignette (6) --no evenly lit scene, no blown-out highlights
 
 ---
 
+## D5. Ca thực chiến — biến ảnh model trắng thành ảnh thật bằng Google Flow
+
+Đây là ca hay gặp nhất trong nhóm: có một **ảnh chụp màn hình model trắng** (clay — SketchUp hoặc khung nhìn dựng của Kujiale), muốn xem trước "nước ảnh" của góc đó theo kiểu pháp sư Trung Hoa trước khi tốn 核豆 render thật. Mục này chạy trọn ca đó bằng Google Flow, dùng đúng công thức 6 khối ở D2.
+
+> ⚠️ **Flow là công cụ sinh VIDEO** (dòng model Veo của Google), không phải máy sinh ảnh tĩnh. Ảnh tĩnh bạn cần là **một khung hình rút ra từ clip**. Toàn bộ cách viết prompt dưới đây xoay quanh sự thật đó: phải ra lệnh cho máy quay **đứng yên**, nếu không mỗi khung một kiểu, không khung nào dùng được.
+>
+> ⚠️ Tên nút và các chế độ nạp ảnh của Flow đổi rất nhanh — phần D5.2 mô tả theo UI tại thời điểm biên soạn. Lệch thì ghi một dòng vào Sổ ghi nhận (Phụ lục B), đừng sửa prompt.
+
+### D5.1. Sửa ảnh gốc trước khi nạp — 4 việc, 2 phút
+
+Đưa ảnh vào nguyên xi là tự chuốc lỗi. Làm bốn việc này trước:
+
+| # | Việc | Vì sao |
+|---|---|---|
+| 1 | **Cắt bỏ mọi chữ, watermark, logo, dòng chú thích** dính trong ảnh | Model sẽ vẽ lại chữ thành ký tự méo mó ngay giữa ảnh — lỗi không sửa được ở hậu kỳ |
+| 2 | **Tắt lưới bố cục / đường tham chiếu** trước khi chụp màn hình | Vạch trắng chia ba bị hiểu là khe kính hoặc nẹp tường, máy sẽ dựng ra vách chia ô không có thật |
+| 3 | **Cắt hoặc chèn nền cho đúng tỉ lệ khung** Flow đang xuất (16:9 hoặc 9:16) | Ảnh vuông nạp vào khung ngang thì hai dải trống hai bên **do máy tự bịa ra** — thường bịa thêm tường, thêm cửa |
+| 4 | Xuất ảnh cạnh dài **≥ 2000 px** | Ảnh nguồn mờ thì vân gỗ, vân đá không có gì để máy bám vào — ra bề mặt "nhựa", đúng dấu hiệu #3 (Chương 7) |
+
+### D5.2. Nạp ảnh kiểu nào
+
+Flow có hai đường đưa ảnh vào, chọn sai là mất công:
+
+| Đường nạp | Máy hiểu ảnh của bạn là gì | Hợp với ca này không |
+|---|---|---|
+| **Khung hình sang video** (ảnh làm khung đầu) | Khung mở đầu clip — clip **bắt đầu bằng đúng ảnh clay** rồi biến đổi dần theo prompt | ✅ Đường chính. Giữ được phối cảnh, tỉ lệ, vị trí đồ. Lấy khung **cuối** clip, không lấy khung đầu |
+| **Nguyên liệu sang video** (ảnh làm nguyên liệu tham chiếu) | Tham chiếu về đồ vật/phong cách, không phải bố cục | 🟡 Dự phòng. Đồ giữ được, nhưng **góc máy và bố cục bị dựng lại** — hết là ảnh căn của bạn |
+
+> 📌 Chọn **Khung hình sang video**, viết prompt mô tả cảnh clay "hiện hình" thành ảnh chụp trong khoảng một giây đầu rồi máy quay đứng yên đến hết clip. Khung cuối chính là ảnh tĩnh bạn cần.
+
+### D5.3. Prompt chính — ban ngày, máy đứng yên
+
+Bản chuẩn để dán thẳng. Sau đó chỉ đổi ruột từng khối theo đúng cách chẩn đoán ở D2.
+
+```
+A locked-off architectural photograph of this exact dining nook. Same camera, same
+geometry, same furniture layout — the untextured clay model resolves into a real
+photograph during the first second, then the shot holds perfectly still.
+
+Lighting: one clear direction. Cool 5500K overcast daylight enters through the
+sheer-curtained balcony on the right and falls off gradually across the room toward
+the marble wall on the left; the linear pendant above the table glows warm 3000K
+amber against that cool daylight; mixed color temperature, warm interior versus cool
+daylight. Shadows stay deep but open under the table and inside the cabinet reveals,
+room corners allowed to go dark. The only light sources are the window and the
+fixtures already visible in frame.
+
+Camera: 24mm tilt-shift lens, eye level at 1.45 m, straight verticals, two-point
+perspective, f/5.6, sharp throughout.
+
+Materials: honed Calacatta marble slab feature wall with soft grey veining and a low
+satin sheen; matte oak wood-grain laminate tall cabinetry with vertical grain and
+crisp shadow-gap joints; cream boucle upholstered chairs with visible fabric nap;
+matte black powder-coated steel legs with faintly worn edges; oak veneer table
+pedestal; warm off-white stone tabletop; grey-brown wide-plank vinyl flooring with
+non-repeating grain and faint scuffs along the walking path; brushed brass pendant
+cylinders; the dark dried-leaf arrangement in its matte ceramic vase; the open book
+left on the table. Whites read as soft warm greys, never pure white; blacks read as
+deep charcoal, never crushed. The dark TV panel holds a faint soft reflection of the
+window instead of reading as a black void.
+
+Finish: editorial interior photography, Architectural Digest style, warm-neutral
+cream grade, warm highlights and slightly cool shadows, restrained saturation,
+gentle lens bloom where daylight meets the sheer curtain, soft vignette, fine film
+grain, true contact shadows under every furniture leg. The view outside the window
+keeps detail — soft bright haze, not blown out.
+
+The camera does not move. Nothing is added, removed, or rearranged: no extra
+furniture, no new walls, doors or windows, no people, no text.
+```
+
+Đối chiếu với công thức 6 khối ở D2 — mỗi đoạn là một khối, không đoạn nào lẫn việc của đoạn khác:
+
+| Đoạn trong prompt | Khối | Cụm lấy từ bảng D1 |
+|---|---|---|
+| Câu mở "locked-off... same geometry" | 1 + câu khoá giữ thiết kế (D5.5) | — |
+| `Lighting:` | 2 + 3 | hàng 1, 7, 8, 11, 13 |
+| `Camera:` | 4 | hàng 17, 18 |
+| `Materials:` | 5 | hàng 22, 23, 26 + quy tắc trắng 180–200 (C7) |
+| `Finish:` | 6 | hàng 15, 20, 21, 25 |
+| Câu chốt "does not move / nothing added" | Ràng buộc riêng của Flow | — |
+
+> 📌 Chú ý một điều nhỏ mà quyết định "nước ảnh": prompt **chỉ có MỘT ý đồ ánh sáng** — trời phủ mây từ phải, đèn ấm phản pha. Không nắng gắt, không giờ vàng, không nến, không neon chen vào. Đây đúng nguyên tắc số 1 ở D2, và cũng là thứ tách ảnh pháp sư khỏi ảnh nhồi đèn.
+
+### D5.4. Hai biến thể — đổi khối 2 và 3, giữ nguyên phần còn lại
+
+**Biến thể A — nắng xiên giờ vàng (ảnh chủ lực, giàu cảm xúc):** thay đoạn `Lighting:` bằng:
+
+```
+Lighting: late afternoon golden hour sun rakes in low from the right through the
+sheer curtain, printing a soft warm light patch and legible curtain-fold shadows
+across the floor and the lower cabinet fronts; grazing light along the wood grain
+reveals its texture; the rest of the room falls off into warm shade; the pendant is
+switched off. One light intent only.
+```
+
+**Biến thể B — giờ xanh, đèn trong nhà bừng lên (ảnh bán hàng buổi tối):** thay đoạn `Lighting:` bằng:
+
+```
+Lighting: blue hour twilight outside the balcony glazing, deep cool blue beyond the
+sheer curtain; inside, the linear pendant and the brass cylinders glow warm 2700K
+and become the main light, pooling on the tabletop and dropping off toward the
+ceiling; recessed downlights add a low fill with visible scallops on the marble wall;
+strong warm-versus-cool contrast, deep shadows, crushed-black-free.
+```
+
+Cả hai biến thể vẫn giữ nguyên `Camera:`, `Materials:`, `Finish:` và câu chốt. Đúng tinh thần "sai khối nào sửa khối đó".
+
+### D5.5. Câu khoá giữ nguyên thiết kế — vì sao viết dương tính
+
+Flow **không có ô negative prompt**. Đúng như D3 đã dặn: với loại công cụ này, câu phủ định ăn kém hơn nhiều so với mô tả dương tính. Ba câu khoá phải luôn có trong mọi prompt loại này:
+
+| Câu khoá | Chặn cái gì |
+|---|---|
+| `Same camera, same geometry, same furniture layout` | Máy dựng lại phối cảnh, đổi góc, đổi tỉ lệ đồ (dấu hiệu #6, C7) |
+| `The camera does not move` | Mỗi khung một bố cục, không rút được khung nào dùng được |
+| `Nothing is added, removed, or rearranged` | Máy tự thêm ghế, thêm cửa sổ, thêm bình hoa — đúng loại lỗi Chương 8 gọi là mất 主体保留 (giữ chủ thể) |
+
+Còn các bệnh ảnh giả thì đã được chặn sẵn bằng câu dương tính ngay trong prompt chính, không cần liệt kê thêm:
+
+| Bệnh (12 dấu hiệu, C7) | Câu dương tính đang gánh |
+|---|---|
+| #1 sáng đều vô hướng | `one clear direction... falls off gradually` |
+| #2 ngoài cửa cháy trắng | `keeps detail — soft bright haze, not blown out` |
+| #3 vật liệu mới tinh | `faintly worn edges`, `faint scuffs along the walking path` |
+| #5 trắng/đen tuyệt đối | `soft warm greys, never pure white; deep charcoal, never crushed` |
+| #8 vân lặp | `non-repeating grain` |
+| #10 phẳng và xám | `shadows stay deep but open`, `corners allowed to go dark` |
+
+### D5.6. Từ clip ra ảnh dùng được
+
+1. Chạy prompt, xem hết clip. Chỉ giữ clip nào **máy quay thực sự đứng yên** — rung nhẹ là bỏ, chạy lại.
+2. Tua tới **khung cuối** (lúc cảnh đã hiện hình xong), rút khung đó ra làm ảnh tĩnh. Muốn chắc hơn thì tải cả clip rồi cắt khung bằng công cụ ảnh.
+3. Soi ngay bằng **bảng 12 dấu hiệu (C7)** và **Phụ lục A**. Đừng hậu kỳ trước khi soi — hậu kỳ không cứu được sáng sai, ở ảnh AI cũng đúng y như ảnh render.
+4. Hậu kỳ **tiết chế ±10–15** theo Chương 6/14: chia tông màu dưới 20, hạ bão hoà dải lục cho cây bớt xanh nhựa. Nước ảnh phần lớn đã nằm trong prompt rồi — giống hệt lời ở mục 14.5, nước ảnh đến từ khâu dựng chứ không từ bộ lọc.
+
+### D5.7. Ảnh ra sai — sửa đúng khối, đừng viết lại cả prompt
+
+| Ảnh ra bị | Hỏng ở khối | Sửa thế nào |
+|---|---|---|
+| Bẹt, không biết sáng từ đâu | 2 | Ghi rõ hơn hướng + cửa sổ nào; thêm `falls off gradually toward...` |
+| Ngoài cửa trắng xoá | 2 | Nhấn mạnh `keeps detail outside`, hạ mô tả cường độ nắng |
+| Đổi góc, ghế nhảy chỗ, thêm cửa | Câu khoá D5.5 | Đưa 3 câu khoá lên **ngay câu đầu** prompt, không để cuối |
+| Vân gỗ/vân đá sai chất, quá bóng | 5 | Gọi đích danh vật liệu công ty (ghi chú hàng 26, D1): `matte melamine`, `wood-grain laminate`, `quartz stone countertop` |
+| Bóng bẩy kiểu quảng cáo, màu rực | 6 | Bỏ bớt từ mạnh ở `Finish:`, thêm `restrained saturation`, `muted tones` |
+| Chữ lạ, ký tự méo trên tường/ảnh treo | Ảnh gốc | Quay lại D5.1 việc #1 — cắt sạch watermark rồi nạp lại |
+| Máy quay trôi, khung cuối lệch bố cục | Câu chốt | Lặp `locked-off, static shot, the camera does not move` cả đầu và cuối prompt |
+
+> ⚠️ **Nhắc lại quy định Chương 8:** ảnh ra từ Flow là **ảnh ý tưởng** — dùng để thăm dò hướng ánh sáng và không khí trước khi render thật, hoặc làm mood cho khách xem kèm lời nói rõ "ảnh minh hoạ AI". Cấm tuyệt đối dùng nó làm ảnh chốt phương án, ảnh kèm hợp đồng, hoặc ảnh mô tả vân vật liệu sẽ thi công. Đăng mạng thì phải có watermark "Ảnh minh hoạ AI" trên ảnh.
+
+---
+
 ## Nguồn số liệu
 
 - **Bảng cụm prompt + công thức 6 khối:** tổng hợp từ hướng dẫn viết prompt nhiếp ảnh cho Midjourney (Hui Zhu — Medium), insMind (nguyên tắc một ý đồ ánh sáng), PromptHero, Tory Barber, imageprompt.cloud — đều là nguồn cộng đồng/blog, không phải tài liệu chính thức của hãng AI nào.
+- **Ca Google Flow (D5):** biên soạn từ chính bảng D1 + công thức D2, áp lên một ảnh model trắng thật của nhóm. ⚠️ Tên nút và các chế độ nạp ảnh của Flow chưa được khoá bằng tài liệu chính thức của Google — mô tả theo UI tại thời điểm biên soạn, lệch thì ghi Sổ ghi nhận (Phụ lục B).
 - ⚠️ Hiệu quả từng cụm prompt **thay đổi theo công cụ và theo phiên bản model** — bảng này là điểm xuất phát đã kiểm chứng bằng thực hành cộng đồng, không phải bảo hành "gõ là ra". Cụm nào không ăn với công cụ bạn dùng → ghi lại vào sổ tay riêng của nhóm.
 - Cơ sở lý thuyết của mọi cụm (hướng sáng, tương phản, nhiệt độ màu, raking light, tì vết, grain...): xem chương Mở đầu, mục nguồn cuối chương.

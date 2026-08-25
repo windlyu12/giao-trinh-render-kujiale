@@ -52,7 +52,7 @@ CHAPTERS = [
     ("pc", "phu-luc-c-cheat-sheet-thuat-ngu.md", "C", "Phụ lục C", "Cheat sheet thuật ngữ",
      "97 thuật ngữ Trung – Việt chia 6 nhóm, in ra dán cạnh màn hình.", "#d4b9ff", "pl"),
     ("pd", "phu-luc-d-tu-vung-prompt-ai.md", "D", "Phụ lục D", "Từ vựng prompt AI",
-     "Nguyên tắc ánh sáng → cụm prompt tiếng Anh cho Nano Banana / Midjourney.", "#ff9fc0", "pl"),
+     "Nguyên tắc ánh sáng → cụm prompt tiếng Anh cho Nano Banana / Midjourney / Google Flow.", "#ff9fc0", "pl"),
     ("pe", "phu-luc-e-ngan-hang-case.md", "E", "Phụ lục E", "Ngân hàng ca thực chiến",
      "Mười ca đánh đèn của designer Trung Quốc, bộ từ khoá thu thêm ca, và vì sao số của họ khác nhau.", "#9be8a0", "pl"),
 ]
