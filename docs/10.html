@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 10. Ảnh vân — nguồn, chuẩn, chống lặp — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#6ea6f7;--accent-soft:color-mix(in srgb, #6ea6f7 13%, transparent);}</style>
+</head>
+<body data-slug="10">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">10</div>
+    <div class="ch-meta"><span class="tag">Chương 10</span><span class="tag ghost">≈ 22 phút đọc</span></div>
+    <h1 class="ch-title">Ảnh vân — nguồn, chuẩn, chống lặp</h1>
+    <p class="ch-hook">Bảy phần của ảnh đẹp nằm ở ảnh vân: lấy ở đâu, chuẩn thế nào, và phá lỗi mười cánh tủ một vân.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#101-vi-sao-anh-van-an-bay-phan">10.1. Vì sao ảnh vân ăn bảy phần</a></li><li><a href="#102-lay-anh-van-o-au">10.2. Lấy ảnh vân ở đâu</a></li><li><a href="#103-gioi-han-tai-len-so-chinh-thuc">10.3. Giới hạn tải lên — số chính thức</a></li><li><a href="#104-tu-bo-pbr-8-file-kujiale-dung-ung-may-file">10.4. Từ bộ PBR 8 file, Kujiale dùng đúng mấy file</a></li><li><a href="#105-anh-noi-lien">10.5. Ảnh nối liền — 四方连续</a></li><li><a href="#106-kich-thuoc-va-huong-van">10.6. Kích thước và hướng vân</a></li><li><a href="#107-chong-lap-van-phan-quan-trong-nhat-chuong">10.7. Chống lặp vân — phần quan trọng nhất chương</a></li><li><a href="#108-dau-vet-su-dung-lam-be-mat-het-nhua">10.8. Dấu vết sử dụng — làm bề mặt hết "nhựa"</a></li><li><a href="#109-duyet-anh-van-truoc-khi-nhap-thu-vien-cong-ty">10.9. Duyệt ảnh vân trước khi nhập thư viện công ty</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Chọn được ảnh vân dùng được và loại thẳng ảnh rác, không mất công chỉnh vô ích
+- Biết lấy ảnh vân ở đâu cho ảnh gửi khách mà không dính bản quyền
+- Từ một bộ PBR 8 file, rút đúng 3–4 file Kujiale thật sự dùng
+- Kiểm và sửa ảnh nối liền (四方连续) bằng công cụ có sẵn trong app, không cần Photoshop
+- Nhập đúng kích thước thật để vân không bị phóng to thu nhỏ
+- <strong>Phá được lỗi "mười cánh tủ một vân"</strong> bằng bộ công cụ tài khoản cá nhân dùng được
+- Thêm dấu vết sử dụng đúng liều — đủ để ảnh có hơi người, không thành nhà hoang</p>
+</blockquote>
+<hr>
+<h2 id="101-vi-sao-anh-van-an-bay-phan">10.1. Vì sao ảnh vân ăn bảy phần</h2>
+<p>Cộng đồng render Trung Quốc có câu <strong>「三分材质，七分贴图」</strong> — ba phần vật liệu, bảy phần ảnh vân. Chương 5 đã dạy bạn ba phần: bốn cần gạt <code>反射颜色</code> / <code>反射光泽度</code> / <code>凹凸比例</code> / <code>折射</code>. Chương này là bảy phần còn lại.</p>
+<p>Lý do rất kỹ thuật: <strong>Kujiale suy ra và khuếch đại độ nổi, độ phản xạ từ chính ảnh màu bạn đưa vào.</strong> Ảnh gốc nén quá tay, có bóng đổ nướng sẵn, phân giải thấp hay lộ chu kỳ lặp — thì bạn kéo <code>反射光泽度</code> kiểu gì cũng không cứu được. Sai từ nguyên liệu thì không có cần gạt nào chữa.</p>
+<p>Ba lỗi ảnh vân giết ảnh nhanh nhất, xếp theo mức độ:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Lỗi</th>
+<th>Mắt bắt ra sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lặp vân</strong> — mười cánh tủ cùng một thớ</td>
+<td>Não bắt chu kỳ trong chưa tới 3 giây. Lỗi số 1</td>
+</tr>
+<tr>
+<td><strong>Sai tỉ lệ vân</strong></td>
+<td>So với tay nắm, bản lề, chiều cao cửa là lộ ngay — xem 10.6</td>
+</tr>
+<tr>
+<td><strong>Bóng nướng sẵn trong ảnh</strong> (baked shadow/AO)</td>
+<td>Đèn trong cảnh chiếu một hướng, bóng trong ảnh vân lại hướng khác → ảnh "chết"</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="102-lay-anh-van-o-au">10.2. Lấy ảnh vân ở đâu</h2>
+<p>Ngân sách mua nguyên liệu đã được duyệt, nên đừng tiếc tiền ở khâu này — nó rẻ hơn thời gian bạn ngồi cứu ảnh rác.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Loại</th>
+<th>Bản quyền cho ảnh gửi khách &amp; chạy quảng cáo</th>
+<th>Dùng khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Poliigon</strong> (gói năm ~179 USD ⚠️ giá đổi theo thời điểm)</td>
+<td>Trả phí</td>
+<td>✅ rõ ràng, an toàn nhất</td>
+<td>Gỗ, đá, vải chất lượng cao — xương sống thư viện công ty</td>
+</tr>
+<tr>
+<td><strong>Poly Haven</strong>, <strong>ambientCG</strong></td>
+<td>Miễn phí CC0</td>
+<td>✅ CC0, dùng thương mại thoải mái</td>
+<td>Bổ sung, và toàn bộ bộ map dấu vết ở 10.8</td>
+</tr>
+<tr>
+<td><strong>myEGGER</strong>, <strong>An Cường</strong></td>
+<td>Ảnh vân chính chủ hãng</td>
+<td>⚠️ <strong>phải đọc điều khoản / hỏi hãng trước</strong></td>
+<td>Đúng mã ván công ty đang bán — quan trọng nhất về mặt nghiệp vụ</td>
+</tr>
+<tr>
+<td>Thư viện Kujiale <code>实时材质通用库</code>, nhãn <code>精选</code>, <code>品牌馆</code></td>
+<td>Có sẵn trong app</td>
+<td>✅</td>
+<td>Xem lại Chương 5 mục 5.3</td>
+</tr>
+<tr>
+<td>Các trạm ảnh vân Trung Quốc</td>
+<td>Trả phí/miễn phí lẫn lộn</td>
+<td>⚠️ mù mờ</td>
+<td>Tham khảo, đừng dùng cho ảnh chạy quảng cáo</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 <strong>Ảnh vân đúng mã hàng công ty bán là thứ đáng đầu tư nhất.</strong> Khách chọn mã ván A trên bảng mẫu, ảnh render phải ra đúng vân đó. Ảnh vân "gỗ óc chó chung chung" tải trên mạng dùng để dựng nhanh thì được, nhưng ảnh chốt hợp đồng mà lệch vân là rủi ro nghiệm thu.</p>
+</blockquote>
+<h3 id="bon-dau-hieu-loai-thang-khong-can-thu">Bốn dấu hiệu loại thẳng, không cần thử</h3>
+<ol>
+<li><strong>Ảnh chụp nghiêng, có phối cảnh</strong> (<code>图片有透视</code>) — vân méo, không nối liền được.</li>
+<li><strong>Có đốm sáng hoặc bóng nướng mạnh</strong> không tẩy được.</li>
+<li><strong>Nhỏ hơn ~1000px</strong> cho mảng lớn. Chuẩn Kujiale khuyến nghị <strong>≥ 2000×2000px</strong>.</li>
+<li><strong>Có một chi tiết đặc trưng quá to</strong> — mắt gỗ lớn, vệt đá đậm. Lát ra là lộ chu kỳ ngay.</li>
+</ol>
+<hr>
+<h2 id="103-gioi-han-tai-len-so-chinh-thuc">10.3. Giới hạn tải lên — số chính thức</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Mục</th>
+<th>Giới hạn</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File màu chính (<code>漫反射</code>)</td>
+<td><strong>≤ 5 MB</strong></td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Ảnh <code>凹凸</code> và <code>反射</code></td>
+<td><strong>≤ 2 MB</strong></td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Cạnh dài nhất</td>
+<td><strong>≤ 5000 px</strong></td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Khuyến nghị tối thiểu</td>
+<td><strong>≥ 2000 × 2000 px</strong></td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Hệ màu</td>
+<td><strong>RGB bắt buộc</strong></td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Định dạng</td>
+<td>jpg, jpeg, png, bmp, jp2, tiff, tif — <strong>khuyến nghị jpg</strong></td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Kích thước vật lý khai báo</td>
+<td>10 mm – 5000 mm</td>
+<td>Chính thức</td>
+</tr>
+<tr>
+<td>Tải hàng loạt</td>
+<td>tối đa <strong>100 mẫu/lần</strong></td>
+<td>Chính thức</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Con số 2 MB có ba cách giải thích trong tài liệu chính thức</strong> — một bài nói đó là giới hạn riêng của ảnh <code>凹凸</code>/<code>反射</code>, bài khác nói là của sản phẩm lát, bài khác nữa nói là cổng tải lên đời cũ.
+<strong>Quy tắc an toàn khỏi phải nhớ: mọi ảnh để ≤ 2 MB, riêng ảnh màu chính được phép tới 5 MB.</strong> Làm vậy thì cổng nào cũng qua.</p>
+</blockquote>
+<p><strong>Quy trình nén trước khi tải:</strong>
+1. Ảnh màu: cạnh dài về <strong>2048px</strong> là đủ cho hầu hết cánh tủ và tường. Cận cảnh đặc biệt để 4096 nếu vẫn dưới 5 MB.
+2. Ảnh <code>凹凸</code> / <code>反射</code>: về <strong>1024–2048px</strong>, JPEG chất lượng ~80 → gần như luôn dưới 2 MB.
+3. Dùng <strong>PNG</strong> khi ảnh có kênh trong suốt, hoặc màu trơn/chuyển sắc mịn (tránh vệt sọc). <strong>Tránh PNG cho vân nhiều chi tiết</strong> — file nặng, dễ vượt hạn.</p>
+<hr>
+<h2 id="104-tu-bo-pbr-8-file-kujiale-dung-ung-may-file">10.4. Từ bộ PBR 8 file, Kujiale dùng đúng mấy file</h2>
+<p>Mua Poliigon về bạn sẽ nhận một bộ 6–8 file. Đừng tải hết lên — Kujiale không có chỗ nhận.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>File trong bộ</th>
+<th>Kujiale dùng?</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Color / Albedo (COL)</strong></td>
+<td>✅ Bắt buộc</td>
+<td>Nạp thẳng vào <code>基础颜色</code> / <code>漫反射</code></td>
+</tr>
+<tr>
+<td><strong>Reflection (REFL)</strong></td>
+<td>✅ Bắt buộc</td>
+<td>Nạp vào <code>反射颜色</code></td>
+</tr>
+<tr>
+<td><strong>Gloss / Roughness (GLOSS)</strong></td>
+<td>⚠️ Phải đổi</td>
+<td>Kujiale dùng <code>反射光泽度</code> (độ <strong>bóng</strong>), Roughness là độ <strong>nhám</strong> — hai thứ <strong>nghịch đảo nhau</strong>. Chỉ có Roughness thì <strong>đảo ngược ảnh (invert)</strong> rồi mới nạp</td>
+</tr>
+<tr>
+<td><strong>Displacement / Height (DISP)</strong></td>
+<td>✅ Rất hợp</td>
+<td>Đây là ảnh đen-trắng lý tưởng cho <code>凹凸</code></td>
+</tr>
+<tr>
+<td><strong>Normal (NRM — ảnh xanh tím)</strong></td>
+<td>⚠️ Đừng nạp thẳng</td>
+<td>Kujiale mô tả <code>法线贴图</code> gần như <code>凹凸</code>; cách làm chắc ăn là <strong>đổi Normal sang Height</strong> rồi nạp vào <code>凹凸</code> bằng ảnh đen-trắng</td>
+</tr>
+<tr>
+<td><strong>Metallic</strong></td>
+<td>❌ Bỏ</td>
+<td>Không có kênh này. Gỗ công nghiệp vốn phi kim, không cần</td>
+</tr>
+<tr>
+<td><strong>AO (Ambient Occlusion)</strong></td>
+<td>❌ Bỏ</td>
+<td>Không có ô nhận. <strong>Tuyệt đối không trộn AO vào ảnh màu</strong> — thành bóng nướng sẵn</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Kết luận: từ 8 file, bạn thực dùng 3–4.</strong> Nhớ quy ước đen-trắng của Kujiale: <strong>trắng lồi, đen lõm.</strong></p>
+<p>Bảng đối chiếu đầy đủ các ô nhập trong <code>材质编辑</code> đã có ở Chương 5 mục 5.1.</p>
+<hr>
+<h2 id="105-anh-noi-lien">10.5. Ảnh nối liền — <code>四方连续</code></h2>
+<p>Kujiale gọi ảnh lát không lộ mối nối là <strong><code>四方连续</code> (tứ phương liên tục)</strong>.</p>
+<h3 id="kiem-trong-30-giay">Kiểm trong 30 giây</h3>
+<ol>
+<li>Mở Photopea (miễn phí, chạy trên trình duyệt) hoặc Photoshop.</li>
+<li>Menu <strong><code>滤镜 → 其他 → 位移</code></strong> (Filter → Other → Offset).</li>
+<li>Nhập ngang và dọc <strong>bằng một nửa kích thước ảnh</strong> — ảnh 2000px thì nhập 1000. Chọn <strong><code>循环卷绕</code></strong> (Wrap Around).</li>
+<li>Đường nối gốc bây giờ chạy vào giữa ảnh. <strong>Thấy lằn hoặc chênh màu ở giữa → chưa nối liền.</strong></li>
+</ol>
+<h3 id="sua-bang-cong-cu-co-san-trong-kujiale-nhanh-nhat">Sửa bằng công cụ có sẵn trong Kujiale — nhanh nhất</h3>
+<p>Không cần Photoshop. Kujiale có <strong><code>无缝拼接</code> (ghép không mối nối)</strong> ngay trong <code>实时材质制作工具</code>:</p>
+<blockquote>
+<p><code>材质替换</code> → <code>实时材质制作</code> → tải ảnh lên → bấm <strong><code>无缝拼接</code></strong> → khoanh <strong><code>材质选区</code></strong> → <strong>BẬT <code>亮度均衡</code></strong> (cân bằng sáng) → <code>生成预览图</code> → <code>应用</code></p>
+<p>⚠️ <strong>Giới hạn chính thức:</strong> chỉ dùng cho <strong>vân bất quy tắc</strong> — gỗ, đá. <strong>KHÔNG dùng cho vân có hoa văn lặp theo chu kỳ</strong> (<code>循环花位</code>) như giấy dán tường hoa văn, vì nó sẽ phá mẫu.</p>
+</blockquote>
+<h3 id="sua-tay-khi-cong-cu-khong-cuu-uoc">Sửa tay khi công cụ không cứu được</h3>
+<ol>
+<li><strong>Chỉnh đều bốn cạnh trước.</strong> Kujiale nhấn mạnh phải <code>校正四边颜色明暗</code> — cân chênh sáng và chênh màu bốn cạnh, dùng vùng chọn chuyển sắc + Brightness/Contrast.</li>
+<li><strong>Offset một nửa ảnh</strong> để đưa đường nối ra giữa (như phần kiểm ở trên).</li>
+<li><strong>Vá đường nối</strong> bằng <code>仿制图章工具</code> (Clone Stamp, phím <strong>S</strong>) và cọ chữa vết. Xử lý nối theo phương ngang trước — thuận thớ — rồi mới sang phương dọc.</li>
+<li><strong>Offset ngược lại đúng giá trị cũ</strong> để trả ảnh về vị trí ban đầu.</li>
+<li><strong>Làm ảnh đen-trắng SAU CÙNG.</strong> Nếu làm <code>凹凸</code> trước rồi mới sửa nối liền thì hai kênh lệch nhau.</li>
+</ol>
+<blockquote class="tip">
+<p>💡 <strong>Lỗi ngược ít ai ngờ: nối liền quá "sạch" lại lộ lặp.</strong> Ảnh đều tăm tắp, không có chỗ đậm chỗ nhạt, lát ra thành lưới. Chọn ảnh gốc <strong>có biến thiên tự nhiên</strong> thì đỡ hơn hẳn.</p>
+</blockquote>
+<hr>
+<h2 id="106-kich-thuoc-va-huong-van">10.6. Kích thước và hướng vân</h2>
+<h3 id="cong-thuc-chi-co-mot-dong">Công thức chỉ có một dòng</h3>
+<blockquote>
+<p><strong>Kích thước nhập vào Kujiale = kích thước THẬT của tấm vật liệu lúc chụp ảnh, không phải kích thước ảnh tính bằng pixel.</strong></p>
+</blockquote>
+<p>Tài liệu chính thức ghi rõ: kích thước tải lên là dài × rộng thật của tấm ván lúc chụp, để tỉ lệ vân không bị phóng to hay thu nhỏ.</p>
+<ul>
+<li>Ảnh chụp một viên gạch 800×800mm → nhập <strong>800×800</strong>.</li>
+<li>Ảnh là mảng 2×2 viên → nhập <strong>gấp đôi</strong>.</li>
+<li>Ảnh tải trên mạng không rõ khổ → ước theo mốc thật: <strong>bề rộng một thớ gỗ khoảng 150–220mm</strong>.</li>
+</ul>
+<h3 id="bang-kho-that-vat-lieu-viet-nam">Bảng khổ thật vật liệu Việt Nam</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Vật liệu</th>
+<th>Khổ thật phổ biến</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ván MFC / MDF / HDF</td>
+<td><strong>1220 × 2440 mm</strong></td>
+<td>Khổ chuẩn. <strong>Để mặc định 1000mm là sai</strong></td>
+</tr>
+<tr>
+<td>Ván vượt khổ</td>
+<td>1830 × 2440 mm; MDF dài 1220 × 2745 mm</td>
+<td>Hàng Malaysia/Đức</td>
+</tr>
+<tr>
+<td>Laminate (HPL)</td>
+<td><strong>1220 × 2440 mm</strong></td>
+<td>Nẹp cạnh cùng mã</td>
+</tr>
+<tr>
+<td>Acrylic</td>
+<td><strong>1220 × 2440 mm</strong> (cốt MDF 17mm)</td>
+<td>Bóng gương → <code>反射光泽度</code> cao</td>
+</tr>
+<tr>
+<td>Sàn gỗ công nghiệp</td>
+<td>Bản nhỏ 100–130; nhỡ 140–160; <strong>to 190–220 mm</strong>; dài 1200–1300 mm. Phổ biến ~<strong>192 × 1205 mm</strong></td>
+<td>An Cường ~193–202 × 1192 mm</td>
+</tr>
+<tr>
+<td>Sàn nhựa SPC</td>
+<td>Rộng ~180–228, dài ~1220 mm</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Đá thạch anh / đá nung kết</td>
+<td><strong>3200 × 1600 mm</strong> khổ đại</td>
+<td>Dùng cho đối hoa mặt bếp</td>
+</tr>
+<tr>
+<td>Gạch ốp lát</td>
+<td>600×600 · 800×800 · 600×1200 · 750×1500 mm</td>
+<td>Nhập đúng module</td>
+</tr>
+<tr>
+<td>Giấy dán tường</td>
+<td>Cuộn 0,53 × 10 m (~5,3 m²); khổ rộng Hàn 1,06 × 15,5 m</td>
+<td>Kujiale nhận khổ tới 10 m</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="huong-van-quy-uoc-nghe">Hướng vân — quy ước nghề</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Bộ phận</th>
+<th>Hướng vân</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cánh tủ đứng, cửa</td>
+<td><strong>Dọc</strong> — cảm giác cao, thanh</td>
+</tr>
+<tr>
+<td>Hộc kéo, mặt bàn, kệ ngang</td>
+<td><strong>Ngang</strong> — theo chiều dài</td>
+</tr>
+<tr>
+<td>Sàn gỗ</td>
+<td>Cạnh dài ván <strong>song song hướng nắng chính</strong> từ cửa sổ, hoặc song song cạnh dài phòng</td>
+</tr>
+<tr>
+<td>Cụm tủ liền dải</td>
+<td>Toàn cụm chạy vân liền một hướng</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sai tỉ lệ, mắt nghề bắt thế nào:</strong> cánh tủ rộng 400mm mà chỉ chứa nửa thớ vân → trông như gỗ khổng lồ, so với tay nắm là lộ. Viên gạch 800mm để thành 400mm → sàn trông vụn, số mạch gấp đôi bình thường, so với chiều cao cửa 2100mm là thấy sai.</p>
+<hr>
+<h2 id="107-chong-lap-van-phan-quan-trong-nhat-chuong">10.7. Chống lặp vân — phần quan trọng nhất chương</h2>
+<blockquote class="warn">
+<p>⚠️ <strong>CẢNH BÁO — QUYỀN TÀI KHOẢN:</strong> tài khoản công ty là <strong>cá nhân gói cao cấp (<code>高级</code>)</strong>, không phải bản doanh nghiệp. Một số công cụ chống lặp bạn sẽ thấy người ta khoe trên mạng là <strong><code>企业功能</code></strong> — bấm vào không có. Mục này chỉ dạy thứ tài khoản của bạn dùng được. Danh sách bị khoá nằm cuối mục.</p>
+</blockquote>
+<p>Kujiale <strong>không có</strong> nút "ngẫu nhiên hoá toàn sàn một phím". Nhưng có đủ đồ nghề để phá lặp.</p>
+<h3 id="bo-o-nghe-dung-uoc-tat-ca-eu">Bộ đồ nghề dùng được — tất cả đều <code>所有用户</code></h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Đường vào</th>
+<th>Làm gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>定制随机纹理刷</code></strong> (cọ vân ngẫu nhiên)</td>
+<td>Trong công cụ định chế → <code>工具</code> → <code>定制随机纹理刷</code> → quét lên tấm</td>
+<td><strong>Dời vị trí vân</strong> trên tấm sang một đoạn khác của ảnh gốc. Quét mỗi cánh một lần là mười cánh mười vân</td>
+</tr>
+<tr>
+<td><strong><code>定制旋转纹理刷</code></strong> (cọ xoay vân)</td>
+<td><code>工具</code> → <code>定制旋转纹理刷</code> → quét lên tấm</td>
+<td>Đổi <strong>vân ngang ↔ vân dọc</strong> từng tấm</td>
+</tr>
+<tr>
+<td><strong>Panel tham số</strong></td>
+<td>Chọn tấm → <code>参数设置</code> → <code>材质纹理</code></td>
+<td>Đặt <strong>góc tuỳ ý</strong>, không chỉ ngang/dọc</td>
+</tr>
+<tr>
+<td><strong><code>材质刷</code></strong> (cọ vật liệu)</td>
+<td><code>工具</code> → <code>材质刷</code> → hút rồi bôi</td>
+<td>Nhân bản vật liệu sang tủ khác; dùng chéo được giữa các công cụ định chế</td>
+</tr>
+<tr>
+<td><strong>Xoay / dịch / phóng vân từng model</strong></td>
+<td>Chọn model → thay vật liệu → panel phải</td>
+<td>Xoay, dịch (offset), phóng tỉ lệ vân</td>
+</tr>
+<tr>
+<td><strong><code>大图通铺</code></strong> (ảnh khổ lớn bao trọn mảng)</td>
+<td>Là kỹ thuật, không phải nút</td>
+<td>Thay vì lát ảnh nhỏ lặp nhiều lần, dùng một ảnh vân khổ lớn phủ trọn mảng</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="xep-theo-hieu-qua-tren-cong-suc">Xếp theo hiệu quả trên công sức</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Cách làm</th>
+<th>Hiệu quả</th>
+<th>Công sức</th>
+<th>Dùng cho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Nhập <strong>đúng khổ thật</strong> (10.6)</td>
+<td>★★★</td>
+<td>★ thấp</td>
+<td>Mọi bề mặt — làm đầu tiên</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong><code>大图通铺</code></strong> ảnh khổ lớn nhiều thớ</td>
+<td>★★★</td>
+<td>★★ vừa</td>
+<td>Sàn tiền cảnh, tường, mặt đá</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong><code>定制随机纹理刷</code></strong> quét từng cánh</td>
+<td>★★★</td>
+<td>★ thấp</td>
+<td>Cánh tủ, ván định chế</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tạo sẵn <strong>3–5 biến thể</strong> xoay/lật của cùng ảnh, gán xen kẽ</td>
+<td>★★</td>
+<td>★★★ cao</td>
+<td>Khi các cách trên chưa đủ</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Chọn kiểu lát <strong>lệch viên</strong> thay vì thẳng hàng</td>
+<td>★★</td>
+<td>★ thấp</td>
+<td>Sàn gạch, sàn gỗ</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="chua-theo-tung-be-mat">Chữa theo từng bề mặt</h3>
+<p><strong>Sàn gỗ — lỗi "mười tấm một vân":</strong>
+Đừng dùng model sàn lặp một viên vân nhỏ. Ưu tiên ảnh sàn khổ lớn nhiều thớ (<code>大图通铺</code>), hoặc model sàn thư viện đã có sẵn nhiều biến thể. Kiểu lát lệch viên tự nó phá lặp tốt hơn lát thẳng hàng vì làm lệch các đường nối.</p>
+<p><strong>Cánh tủ bếp / tủ áo — nhu cầu chính của công ty:</strong>
+Nhập khổ ván <strong>1220 × 2440mm</strong>. Cụm từ 3 cánh giống nhau trở lên thì <strong>bắt buộc dùng <code>定制随机纹理刷</code> quét mỗi cánh một lần</strong>. Hướng vân theo quy ước ở 10.6.</p>
+<p><strong>Đá vân lớn — đối hoa gương (bookmatch):</strong>
+Đây là chỗ tài khoản cá nhân phải làm tay. Công cụ <code>图案排版</code> + <code>翻转</code> của Kujiale làm được việc này nhưng <strong>bị khoá</strong>. Cách thay thế cho kết quả tương đương:</p>
+<blockquote>
+<ol>
+<li>Mở ảnh đá trong Photopea.</li>
+<li>Nhân bản, <strong>lật ngang</strong> bản sao.</li>
+<li>Ghép hai bản cạnh nhau thành <strong>một ảnh lớn duy nhất</strong> — đây chính là đối hoa gương như ngoài đời.</li>
+<li>Tải ảnh lớn đó lên, dùng <code>大图通铺</code> phủ trọn mảng đá.</li>
+</ol>
+</blockquote>
+<p>Làm một lần cho mỗi mã đá, lưu vào thư viện công ty, dùng mãi.</p>
+<h3 id="bi-khoa-biet-e-khoi-mat-cong-tim">Bị khoá — biết để khỏi mất công tìm</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>图案排版</code> + <code>翻转</code> (đối hoa bằng công cụ)</td>
+<td>❌ <code>仅限商家用户</code> — làm tay theo cách trên</td>
+</tr>
+<tr>
+<td><code>连纹商品</code> / <code>连纹大岩板</code></td>
+<td>⚠️ Tài liệu chính thức <strong>tự mâu thuẫn</strong>: tiêu đề ghi <code>企业功能</code> nhưng ô đối tượng ghi <code>全部用户</code>. <strong>Bấm thử, ghi kết quả vào Phiếu verify</strong></td>
+</tr>
+<tr>
+<td><code>衰减贴图</code> (falloff map)</td>
+<td>❌ <code>只对企业号账号开放</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ngưỡng nghiệm thu:</strong> render cận một góc bất kỳ, đưa cho người thứ hai xem — <strong>họ không chỉ ra được chu kỳ lặp trong 5 giây</strong> là đạt.</p>
+<hr>
+<h2 id="108-dau-vet-su-dung-lam-be-mat-het-nhua">10.8. Dấu vết sử dụng — làm bề mặt hết "nhựa"</h2>
+<p>Bề mặt sạch tuyệt đối, bóng đều tăm tắp là dấu hiệu tố cáo ảnh máy tính mạnh nhất. Đồ thật luôn có xước mảnh, vân tay mờ, chỗ bóng chỗ lì.</p>
+<p>Kujiale <strong>không có trình nối node</strong> như 3ds Max, nên bạn phải <strong>trộn sẵn dấu vết vào ảnh bằng Photopea</strong> rồi tải lên theo từng kênh qua <code>实时材质制作工具</code> — công cụ này <strong>mở cho mọi người dùng</strong>, đường vào cá nhân qua <strong>模袋云</strong> (app.modaiyun.com).</p>
+<h3 id="anh-vao-kenh-nao">Đánh vào kênh nào</h3>
+<p><strong>Chủ yếu đánh vào <code>反射光泽度</code> và <code>反射</code>, gần như không đụng vào ảnh màu.</strong> Lý do: thứ tố cáo ảnh giả mạnh nhất là <strong>độ bóng đều tăm tắp</strong>, không phải màu. Phá vỡ độ bóng là ăn tiền nhất, mà lại an toàn — không làm lệch màu ván khách đã chốt.</p>
+<h3 id="bo-12-anh-nen-tai-san">Bộ 12 ảnh nên tải sẵn</h3>
+<p>Tải dạng ảnh xám, nối liền, 2K là đủ. Toàn bộ có trên Poly Haven và ambientCG, miễn phí CC0:</p>
+<ol>
+<li>Xước mảnh thưa · 2. Xước mảnh dày · 3. Xước tròn do lau · 4. Vân tay và đốm mờ · 5. Vệt nước · 6. Bụi mịn · 7. Bẩn loang nhẹ · 8. <strong>Biến thiên độ bóng</strong> (ảnh "phá gương" — quan trọng nhất) · 9. Vệt lau · 10. Mòn cạnh · 11. Nếp vải · 12. Trầy xây xát nhẹ</li>
+</ol>
+<h3 id="bang-lieu-luong">Bảng liều lượng</h3>
+<p>⚠️ Các số dưới là khuyến nghị thực hành, <strong>chưa có chuẩn ngành</strong>. Tự test rồi chốt thành chuẩn công ty.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Yếu tố</th>
+<th>Ảnh <strong>bán hàng</strong></th>
+<th>Ảnh nghệ thuật</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Độ mờ lớp dấu vết trên kênh bóng</td>
+<td><strong>8–20 %</strong> ⚠️</td>
+<td>25–50 % ⚠️</td>
+</tr>
+<tr>
+<td>Độ mờ lớp bẩn trên kênh màu</td>
+<td><strong>5–12 %</strong> ⚠️</td>
+<td>15–30 % ⚠️</td>
+</tr>
+<tr>
+<td>Số điểm dấu vết mỗi khung hình</td>
+<td><strong>2–3</strong></td>
+<td>4–6</td>
+</tr>
+<tr>
+<td>Phần trăm diện tích bị ảnh hưởng</td>
+<td>dưới <strong>15 %</strong> ⚠️</td>
+<td>tuỳ</td>
+</tr>
+<tr>
+<td><code>凹凸比例</code> cho xước</td>
+<td><strong>0,02–0,05</strong></td>
+<td>0,05–0,1</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 <strong>Ngưỡng hỏng:</strong> khách nhận ra dấu vết mà không cần nhìn kỹ → đã quá tay.
+<strong>Dấu vết chỉ nên "cảm thấy", không nên "nhìn thấy"</strong> — chỉ hiện rõ khi ánh sáng xiên quét qua.</p>
+</blockquote>
+<h3 id="at-o-au-cho-ang-cong">Đặt ở đâu cho đáng công</h3>
+<ol>
+<li><strong>Vùng gần máy ảnh</strong> — nơi mắt soi kỹ nhất. Một hai điểm ở đây đủ "bán" cả khung.</li>
+<li><strong>Vùng nắng xiên quét ngang</strong> — cửa sổ hắt qua mặt bàn, mặt sàn. Dấu vết chỉ hiện dưới ánh sáng này nên đặt đúng chỗ mới ăn tiền.</li>
+<li><strong>Điểm mắt nhìn đầu tiên</strong> — mặt bàn bếp trung tâm, mặt tủ chính.</li>
+<li><strong>Bỏ hẳn</strong> vùng xa, vùng tối, vùng khuất. Tốn công mà vô ích.</li>
+</ol>
+<h3 id="tuyet-oi-khong-them-dau-vet">Tuyệt đối không thêm dấu vết</h3>
+<ul>
+<li>Trần nhà và tường phòng khách.</li>
+<li>Mặt phô sản phẩm chính trong ảnh cận cảnh.</li>
+<li>Bề mặt bán điểm nhấn sang — mặt đá cao cấp, acrylic bóng gương. Chỉ được phá bóng cực nhẹ, không cho vệt bẩn.</li>
+</ul>
+<hr>
+<h2 id="109-duyet-anh-van-truoc-khi-nhap-thu-vien-cong-ty">10.9. Duyệt ảnh vân trước khi nhập thư viện công ty</h2>
+<p>Làm một lần, cả team dùng mãi. Ảnh nào không qua đủ 7 ô thì không nhập.</p>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="10-t1"><span>Cạnh ≤ 5000px, ảnh màu ≤ 5 MB, ảnh <code>凹凸</code>/<code>反射</code> ≤ 2 MB, hệ màu RGB</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t2"><span>Không có bóng nướng, không có đốm sáng, không có phối cảnh</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t3"><span>Đã kiểm nối liền bằng phép Offset một nửa — không thấy lằn giữa ảnh</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t4"><span>Đã nhập <strong>đúng khổ thật</strong> theo bảng 10.6</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t5"><span>Có đủ ảnh <code>凹凸</code> (nếu vật liệu cần nổi vân)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t6"><span>Render thử <strong>cận một góc</strong> — người thứ hai không chỉ ra chu kỳ lặp trong 5 giây</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t7"><span>Đặt tên theo quy ước công ty: <code>{loại}-{mã hàng}-{mờ/bóng}-{khổ}</code></span></label></li>
+</ul>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-cuu-mot-anh-van-rac">Bài 1 — Cứu một ảnh vân rác</h3>
+<p>Tải một ảnh vân gỗ bất kỳ trên mạng (cố ý chọn ảnh xoàng). Kiểm nối liền bằng phép Offset. Nếu chưa liền, sửa bằng <code>无缝拼接</code> trong app; nếu công cụ không cứu được thì sửa tay theo 5 bước ở 10.5. Nhập đúng khổ 1220×2440.
+<strong>Đạt khi:</strong> lát lên một mảng tường 3×3m, nhìn ở khoảng cách 1,5m không thấy đường nối.</p>
+<h3 id="bai-2-pha-lap-mot-cum-tu-bep">Bài 2 — Phá lặp một cụm tủ bếp</h3>
+<p>Dựng một cụm tủ bếp trên có <strong>ít nhất 5 cánh giống nhau</strong>, gán cùng một vật liệu vân gỗ rõ thớ. Render cận. Sau đó dùng <code>定制随机纹理刷</code> quét từng cánh, render lại.
+<strong>Đạt khi:</strong> đặt hai ảnh cạnh nhau, khác biệt nhìn thấy rõ; và người thứ hai không chỉ ra được chu kỳ lặp ở ảnh sau.</p>
+<h3 id="bai-3-oi-hoa-guong-mat-a-bep">Bài 3 — Đối hoa gương mặt đá bếp</h3>
+<p>Lấy một ảnh đá vân lớn. Làm đối hoa gương thủ công theo 4 bước ở 10.7. Tải lên, phủ trọn mặt bếp bằng <code>大图通铺</code>.
+<strong>Đạt khi:</strong> hai nửa mặt đá đối xứng qua trục giữa như đá thật ghép đôi ngoài công trình.</p>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="10-t8"><span>Nói được vì sao ảnh vân ăn bảy phần, và ba lỗi giết ảnh nhanh nhất</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t9"><span>Nhìn một ảnh vân là loại được ngay nếu dính 1 trong 4 dấu hiệu ở 10.2</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t10"><span>Từ bộ Poliigon 8 file, rút đúng 3–4 file cần và biết phải đảo ngược ảnh nào</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t11"><span>Kiểm được nối liền bằng phép Offset một nửa</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t12"><span>Dùng được <code>无缝拼接</code> trong app, và biết khi nào <strong>không</strong> được dùng nó</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t13"><span>Nhập đúng khổ thật cho ván, sàn, gạch, đá theo bảng 10.6</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t14"><span>Dùng thạo <code>定制随机纹理刷</code> và <code>定制旋转纹理刷</code></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t15"><span>Làm được đối hoa gương thủ công trong Photopea</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t16"><span>Biết ba công cụ nào bị khoá với tài khoản cá nhân, khỏi mất công đi tìm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="10-t17"><span>Thêm dấu vết đúng liều — chủ yếu vào kênh bóng, 2–3 điểm mỗi khung</span></label></li>
+</ul>
+<hr>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mười cánh tủ một vân</td>
+<td>Gán cùng vật liệu, chưa quét cọ</td>
+<td><code>定制随机纹理刷</code> quét từng cánh</td>
+</tr>
+<tr>
+<td>Sàn trông "vụn", nhiều mạch bất thường</td>
+<td>Nhập sai khổ, viên bị thu nhỏ</td>
+<td>Nhập đúng khổ thật (10.6)</td>
+</tr>
+<tr>
+<td>Vân gỗ to như gỗ khổng lồ</td>
+<td>Nhập khổ nhỏ hơn thật</td>
+<td>So với tay nắm và chiều cao cửa, nhập lại</td>
+</tr>
+<tr>
+<td>Lát ra thấy lằn ở mối nối</td>
+<td>Ảnh chưa <code>四方连续</code></td>
+<td>Kiểm Offset, sửa bằng <code>无缝拼接</code> hoặc tay</td>
+</tr>
+<tr>
+<td>Lát ra thành lưới đều tăm tắp</td>
+<td>Ảnh nối liền quá "sạch", không có biến thiên</td>
+<td>Đổi ảnh gốc có chỗ đậm chỗ nhạt, hoặc <code>大图通铺</code></td>
+</tr>
+<tr>
+<td>Bề mặt bệt, chỉnh cần gạt kiểu gì cũng không cứu</td>
+<td>Ảnh chỉ có một map màu, không có <code>凹凸</code>/<code>反射</code></td>
+<td>Bỏ ảnh, tìm bản đủ map (Chương 5 mục 5.3)</td>
+</tr>
+<tr>
+<td>Ảnh có bóng lạ, hướng bóng chỏi với đèn trong cảnh</td>
+<td>Bóng nướng sẵn trong ảnh gốc, hoặc trộn nhầm AO vào ảnh màu</td>
+<td>Bỏ ảnh; không bao giờ trộn AO vào kênh màu</td>
+</tr>
+<tr>
+<td>Tải lên bị chặn</td>
+<td>Vượt 5 MB, hoặc quá 5000px, hoặc không phải RGB</td>
+<td>Nén theo 10.3; nhớ quy tắc an toàn ≤ 2 MB</td>
+</tr>
+<tr>
+<td>Ảnh bẩn trông như nhà hoang</td>
+<td>Quá liều, hoặc rải khắp thay vì 2–3 điểm</td>
+<td>Hạ độ mờ về 8–20 %, gom về vùng gần máy ảnh và vùng nắng xiên</td>
+</tr>
+<tr>
+<td>Không tìm thấy nút <code>图案排版</code></td>
+<td>Đó là chức năng doanh nghiệp</td>
+<td>Làm đối hoa gương thủ công (10.7)</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức — help center Kujiale:</strong>
+- Giới hạn tải ảnh vân, định dạng, hệ màu, số lượng mỗi lần
+- Quy tắc kích thước nhập = khổ thật của tấm lúc chụp
+- <code>无缝拼接</code> trong <code>实时材质制作工具</code>, kèm giới hạn không dùng cho vân hoa văn chu kỳ (bài cập nhật 15/10/2025)
+- <strong><code>定制随机纹理刷</code> và <code>定制旋转纹理刷</code> — bài <code>3FO4K4WOA1QV</code>, cập nhật 17/10/2024, đối tượng <code>所有用户</code></strong>
+- <code>材质刷</code> — bài <code>3FO4K4VRXEPW</code>, cập nhật 10/09/2024, đối tượng <code>所有用户</code>
+- Thay vật liệu và chỉnh xoay/dịch/phóng vân — bài <code>3FO4K4VY3X2D</code>, cập nhật 27/11/2024
+- <code>图案排版</code> giới hạn <code>仅限商家用户</code>; <code>衰减贴图</code> chỉ mở cho tài khoản doanh nghiệp
+- Quy trình sửa nối liền: cân sáng bốn cạnh trước, làm ảnh đen-trắng sau cùng</p>
+<p><strong>Đối chiếu ngoài Kujiale:</strong>
+- Bộ map bắt buộc COL / REFL / GLOSS / NRM và quy tắc đảo Gloss ↔ Roughness — tài liệu Poliigon
+- Khổ thật vật liệu Việt Nam — quy cách nhà sản xuất (An Cường, ván nhập Malaysia/Đức)</p>
+<p><strong>Số kinh nghiệm, chưa có chuẩn ngành — đánh ⚠️:</strong>
+- Toàn bộ bảng liều lượng dấu vết ở 10.8
+- Giá gói Poliigon và các trạm ảnh vân — đổi theo thời điểm, kiểm lại khi mua</p>
+<p><strong>Chờ verify trong app (Phụ lục B):</strong>
+- <code>连纹商品</code> / <code>连纹大岩板</code> có bấm được trên tài khoản cá nhân không — tài liệu chính thức tự mâu thuẫn
+- Con số 2 MB áp cho cổng tải lên nào
+- Ảnh <code>法线</code> màu xanh tím nạp thẳng có ăn không, so với ảnh đen-trắng ở <code>凹凸</code></p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="09.html"><span class="dir">← Trước</span><div class="t">Chương 9 · Luyện mắt và nguồn theo dõi</div></a><a class="next" href="11.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 11 · Model và bày đồ kể chuyện</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

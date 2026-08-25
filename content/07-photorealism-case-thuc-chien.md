@@ -83,7 +83,7 @@ Mốc thời gian để tự lượng sức: tài liệu chính thức Coohom gh
 
 ## 7.5. Ngân hàng case thực chiến — học số hay học tư duy?
 
-> ⚠️ **CẢNH BÁO trước khi đọc bảng:** mọi số độ sáng trong bảng dưới là **thang cũ** (0–800). UI hiện tại hiển thị 「瓦」(watt ảo) = số thang cũ **chia 10** — xem hộp cảnh báo đầu Chương 4 và Phiếu verify mục B1. Ngoài ra các case dùng template đời cũ (白天3.0...); template hiện hành GI dội mạnh hơn → **lấy số case làm điểm xuất phát ở đầu THẤP của dải, render nháp rồi tăng dần.**
+> ⚠️ **CẢNH BÁO trước khi đọc bảng:** mọi số độ sáng trong bảng dưới là **thang cũ** (0–800). ⚠️ Quy ước "`瓦` = số thang cũ **chia 10**" **chưa được xác nhận bằng nguồn chính thức nào** — xem hộp cảnh báo đầu Chương 4 và Phiếu verify mục B1. Kujiale còn có hệ thứ ba là `%`. Ngoài ra các case dùng template đời cũ (白天3.0...); template hiện hành GI dội mạnh hơn → **lấy số case làm điểm xuất phát ở đầu THẤP của dải, render nháp rồi tăng dần.**
 
 Quy tắc đọc case, trước khi xem bảng:
 
@@ -109,7 +109,7 @@ Quy tắc đọc case, trước khi xem bảng:
 ## Thực hành
 
 **Bài 1 — Tái tạo case ✅ (học số).** Chọn case #1 (仙姑老师), phòng khách căn hộ mẫu của công ty:
-1. Bố đèn đúng theo thông số case: thiên quang 2 lớp, 筒灯/射灯 200–300 ở vị trí đèn thật, đèn bù tủ. Nhớ ÷10 nếu UI hiện 瓦 (kiểm Phiếu verify B1 trước).
+1. Bố đèn đúng theo thông số case: thiên quang 2 lớp, 筒灯/射灯 200–300 ở vị trí đèn thật, đèn bù tủ. Kiểm đơn vị máy mình trước (Phiếu verify B1) — ⚠️ đừng mặc định chia 10.
 2. Render nháp độ phân giải thấp → so với mô tả case: sáng có suy giảm từ cửa vào trong không? 3 lớp sáng có tách bạch không?
 3. Lệch chỗ nào chỉnh chỗ đó theo "thiếu đâu bù đó" — tối đa 3 vòng nháp.
 4. **Đạt khi:** ảnh chấm theo Phụ lục A được ≥ 40/50, không tiêu chí nào ≤ 2 điểm.
@@ -136,7 +136,7 @@ Quy tắc đọc case, trước khi xem bảng:
 
 | Hiện tượng | Nguyên nhân | Cách sửa |
 |---|---|---|
-| Chép số case vào cảnh của mình, ảnh cháy trắng | Quên ÷10 (UI 瓦) hoặc template mới GI dội mạnh hơn đời case | Kiểm Phiếu verify B1; vào số từ đầu thấp của dải, nháp rồi tăng |
+| Chép số case vào cảnh của mình, ảnh cháy trắng | Sai hệ đơn vị, hoặc template mới GI dội mạnh hơn đời case | Kiểm Phiếu verify B1; vào số từ đầu thấp của dải, nháp rồi tăng |
 | Làm theo case mà ảnh vẫn không giống | Khác phòng, khác template, khác hướng cửa — số không mang đi được | Quay về học tư duy: case đó bố mấy lớp sáng, mỗi đèn đóng vai gì |
 | Thêm imperfection xong ảnh bẩn, cũ kỹ | Quá liều — xước/bừa khắp nơi | Giữ 2–3 điểm khiếm khuyết mỗi khung, phần còn lại sạch |
 | Hậu kỳ kéo mãi không "thật" hơn | Sai từ trụ 1 (ánh sáng) mà đi sửa trụ 4 | Bỏ Photoshop, dò lại từ trụ 1 xuống |

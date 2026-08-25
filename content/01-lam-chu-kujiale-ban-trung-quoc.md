@@ -79,13 +79,21 @@ Hai thao tác phụ cần biết ngay:
 Khu vực thiết kế của Kujiale là **vùng vẽ đồ họa (canvas WebGL)** — chữ trong đó do card đồ họa vẽ ra như hình ảnh, không phải văn bản web. Vì vậy:
 
 - Tiện ích dịch trang như 沉浸式翻译 (Immersive Translate) hay Google Dịch **chỉ dịch được menu/nút ngoài rìa và các trang tài liệu, bài viết** — KHÔNG dịch được nhãn bên trong khu thiết kế và bảng tham số vẽ trên canvas.
-- Kujiale bản Trung Quốc **không có nút chuyển giao diện sang tiếng Anh**. Bản tiếng Anh là sản phẩm riêng tên Coohom — thư viện và mẫu đèn khác, công ty đã chủ động không dùng. Đừng mất thời gian đi tìm "ẩn ngôn ngữ Anh".
+> ### ⚠️ Đính chính 2026-08-25 — Kujiale CÓ tuỳ chỉnh tiếng Anh
+>
+> Bản v1 của tài liệu này viết rằng Kujiale không đổi được giao diện sang tiếng Anh và bản tiếng Anh là sản phẩm riêng tên Coohom. **Điều đó SAI.** Kiểm chứng trực tiếp trên tài khoản công ty (bản `酷家乐 5.0`, watermark "Powered by Kujiale"): giao diện chuyển được sang tiếng Anh, menu hiện `File / Save / Toolkit / AI Templates / Gallery / Drawings & Schedules`.
+>
+> **Điều này KHÔNG làm cheat sheet tiếng Trung thành vô dụng — nó đổi việc của cheat sheet.** Bạn bấm nút bằng tiếng Anh, nhưng **mọi nguồn kiến thức thật vẫn là tiếng Trung**: bài 小红书, video Douyin, trang trợ giúp kujiale.com/hc, và toàn bộ ngân hàng thông số của công ty đều ghi theo nhãn chữ Hán. Cheat sheet giờ là **cầu ba chiều**: chữ Hán (đọc tài liệu) ↔ tiếng Anh (bấm trong app) ↔ tiếng Việt (hiểu nghĩa).
+>
+> Cụ thể: tutorial viết *"把 `阴影柔和度` 调到 3"* — bạn phải biết ô đó trong app tiếng Anh của mình tên gì thì mới chỉnh được.
 
-Chiến thuật sống chung — 3 lớp:
+Vẫn đúng phần này: khu vực thiết kế là canvas WebGL nên **tiện ích dịch trang không dịch được nhãn vẽ trên canvas**, dù menu ngoài rìa có dịch. Đổi ngôn ngữ trong app thì khác — đó là app tự vẽ lại nhãn, dịch được cả canvas.
 
-1. **In Phụ lục C** (cheat sheet 97 thuật ngữ, chia 6 nhóm) khổ lớn, dán cạnh màn hình. Đây là công cụ số 1.
-2. **Vẫn cài tiện ích dịch trang** — dùng cho trang trợ giúp kujiale.com/hc, bài Zhihu, mô tả khóa học. Đọc tài liệu thì tiện ích dịch rất được việc.
-3. **Học thuộc 15 thuật ngữ lõi** ở mục 1.5 ngay tuần đầu — đủ để thao tác không phải tra bảng liên tục.
+Chiến thuật — 3 lớp:
+
+1. **Đặt giao diện app sang tiếng Anh** (dễ thao tác hơn hẳn), nhưng **in Phụ lục C dán cạnh màn hình** để ánh xạ ngược khi đọc tài liệu Trung. Cột tiếng Anh của Phụ lục C là cột bạn dùng nhiều nhất.
+2. **Vẫn cài tiện ích dịch trang** — dùng cho trang trợ giúp kujiale.com/hc, bài Zhihu, 小红书, mô tả khóa học. Đọc tài liệu thì tiện ích dịch rất được việc.
+3. **Học thuộc 15 thuật ngữ lõi** ở mục 1.5 — không phải để bấm nút, mà để **đọc tutorial không phải tra liên tục**.
 
 ## 1.5 15 thuật ngữ gặp nhiều nhất — thuộc trong tuần đầu
 
@@ -143,7 +151,7 @@ Cầm Phiếu verify ở Phụ lục B, lần lượt vào app tra và điền c
 | Cuối tháng thiếu phiếu 6K dù "được 8 phiếu/tháng" | Phiếu 6K phải tự lĩnh theo tuần, hạn 7 ngày, quên là mất | Đặt lịch cố định sáng thứ Hai vào 会员中心 lĩnh |
 | Mất phương án sau 1 tháng | Làm nhầm trên tài khoản cá nhân miễn phí (方案 chỉ giữ 30 ngày) | Luôn kiểm tra avatar trước khi làm — phải là tài khoản công ty |
 | Muốn render video mà trong 实时专业 không có | Video/俯视图 chỉ có ở 离线模式 | Chuyển sang 离线模式 |
-| Tưởng Coohom là "Kujiale tiếng Anh", học lẫn tài liệu Coohom | Coohom là sản phẩm riêng, thư viện/template khác | Chỉ học theo tài liệu kujiale.com bản Trung |
+| Tưởng Coohom là "Kujiale bản tiếng Anh", học lẫn tài liệu Coohom | **Coohom là sản phẩm RIÊNG**, thư viện và mẫu đèn khác. Kujiale tự nó đổi được sang tiếng Anh — đó là chuyện khác | Học theo tài liệu kujiale.com bản Trung. ⚠️ Nhãn tiếng Anh cũng **không suy được** từ Coohom — xem Phụ lục C |
 | Treo preview 实时专业 rồi rời máy | Chế độ này tính phí theo thời lượng | Xem xong tắt; số phí cụ thể chờ verify Phụ lục B |
 
 ## Nguồn số liệu

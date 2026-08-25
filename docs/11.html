@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 11. Model và bày đồ kể chuyện — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#5d9bf8;--accent-soft:color-mix(in srgb, #5d9bf8 13%, transparent);}</style>
+</head>
+<body data-slug="11">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">11</div>
+    <div class="ch-meta"><span class="tag">Chương 11</span><span class="tag ghost">≈ 25 phút đọc</span></div>
+    <h1 class="ch-title">Model và bày đồ kể chuyện</h1>
+    <p class="ch-hook">Nhận model rác bằng mắt, bày đồ có hơi người, và bản địa hoá cho khách Việt.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#111-model-quyet-inh-o-that-nhieu-hon-tham-so-render">11.1. Model quyết định độ thật nhiều hơn tham số render</a></li><li><a href="#112-nhan-model-rac-bang-mat">11.2. Nhận model rác bằng mắt</a></li><li><a href="#113-sau-nhom-o-quyet-inh-o-that">11.3. Sáu nhóm đồ quyết định độ thật</a></li><li><a href="#114-nguon-model-va-nhap-model-ngoai">11.4. Nguồn model và nhập model ngoài</a></li><li><a href="#115-bay-o-ke-chuyen-nguyen-ly">11.5. Bày đồ kể chuyện — nguyên lý</a></li><li><a href="#116-danh-muc-ao-cu-theo-phong">11.6. Danh mục đạo cụ theo phòng</a></li><li><a href="#117-ban-ia-hoa-cho-khach-viet">11.7. Bản địa hoá cho khách Việt</a></li><li><a href="#118-cay-xanh-chong-xanh-nhua">11.8. Cây xanh — chống "xanh nhựa"</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Nhìn một model là biết dùng được hay phải loại, không cần phần mềm chuyên dụng
+- Chấm model bằng thang 10 điểm để dựng kho chuẩn cho cả team
+- Biết nhóm đồ nào quyết định độ thật, đáng dồn tiền vào đâu
+- Bày đồ kể được câu chuyện, không phải xếp hàng duyệt binh
+- Bản địa hoá cho khách Việt — biết thêm gì, tránh gì
+- Chọn và chiếu sáng cây xanh để không ra "cây nhựa"</p>
+</blockquote>
+<hr>
+<h2 id="111-model-quyet-inh-o-that-nhieu-hon-tham-so-render">11.1. Model quyết định độ thật nhiều hơn tham số render</h2>
+<p>Trong Kujiale bạn gần như không chỉnh được bộ máy render. Vậy thứ gì quyết định ảnh thật hay giả? <strong>Chọn model gì.</strong></p>
+<p>Nếp lún của đệm sofa, nếp rủ của tấm chăn, cá tính của món đồ bày — tất cả đều là <strong>hình học nằm sẵn trong model</strong>. Không tham số nào bịa ra được. Kujiale <strong>không mô phỏng vải rơi</strong>, nên chăn không có nếp trong model thì mãi mãi không có nếp.</p>
+<blockquote class="pin">
+<p>📌 <strong>Đầu tư vào thư viện model là khoản cho lời cao nhất trong toàn bộ nghề render trên Kujiale.</strong> Nó cứu bạn khỏi việc ngồi chỉnh tham số hàng giờ cho một thứ vốn dĩ không chỉnh được.</p>
+</blockquote>
+<p>Bày đồ (<code>软装</code>) là <strong>bước gần cuối</strong>: làm sau khi đã xong phần thô và đồ nội thất chính, làm trước khi vào giao diện render để bố đèn và đặt máy ảnh.</p>
+<hr>
+<h2 id="112-nhan-model-rac-bang-mat">11.2. Nhận model rác bằng mắt</h2>
+<h3 id="bay-dau-hieu">Bảy dấu hiệu</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Dấu hiệu</th>
+<th>Cách kiểm trong 10 giây</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Ít mặt</strong> (low poly)</td>
+<td>Phóng vào đường bo góc. Mép bàn tròn, thân bình mà <strong>gãy khúc thành đa giác</strong> → loại</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Trải UV sai</strong></td>
+<td>Soi mặt cong và mặt bên của model gỗ. Vân <strong>chạy sai hướng</strong> hoặc <strong>bị kéo giãn</strong> → lỗi</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Thiếu bộ ảnh vân</strong></td>
+<td>Model trông <strong>bệt, phẳng lì, "nhựa"</strong> dù đã đánh đèn đúng. Vải không có sợi, gỗ không có lỗ chân lông</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Tỉ lệ sai</strong></td>
+<td>Kéo model ra, đối chiếu kích thước thật: <strong>mặt ngồi ghế ăn ~45cm, bàn ăn cao ~75cm, giường đôi 1,5×2m</strong>. Kujiale hiện kích thước khi kéo — luôn kiểm</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Pháp tuyến lộn</strong></td>
+<td>Xoay quanh model 360°. Một số mặt <strong>đen thui</strong> hoặc <strong>mất mặt</strong> ở góc nhìn nhất định</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Bóng nướng sẵn vào ảnh vân</strong></td>
+<td>Xoay model dưới đèn. <strong>Vùng tối không dịch theo đèn</strong> → bị nướng. <strong>Đây là lỗi chết</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Ảnh chụp dán làm vân</strong></td>
+<td>Nhìn nghiêng thấy vân <strong>dẹt</strong>, không có chiều sâu</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Vì sao bóng nướng là lỗi chết:</strong> nó cố định trong ảnh vân, không đổi theo đèn. Đặt model vào cảnh có hướng đèn khác thì bóng nướng <strong>ngược hướng ánh sáng thật</strong> — mắt bắt ra ngay và <strong>không sửa được trong Kujiale</strong>. Loại thẳng, bất kể model đẹp cỡ nào.</p>
+</blockquote>
+<h3 id="bang-cham-10-iem-dung-khi-duyet-model-vao-kho-cong-ty">Bảng chấm 10 điểm — dùng khi duyệt model vào kho công ty</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tiêu chí</th>
+<th>Điểm</th>
+<th>Cách cho điểm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mật độ mặt hợp lý, cạnh cong mượt</td>
+<td>2</td>
+<td>Mượt 2 · hơi gãy 1 · đa giác thô 0</td>
+</tr>
+<tr>
+<td>UV đúng, vân không giãn lệch</td>
+<td>1,5</td>
+<td>Đúng 1,5 · lệch nhẹ 0,75 · loạn 0</td>
+</tr>
+<tr>
+<td>Đủ bộ ảnh vân, không bệt</td>
+<td>2</td>
+<td>Đủ 2 · thiếu 1 · bệt 0</td>
+</tr>
+<tr>
+<td>Tỉ lệ đúng kích thước thật</td>
+<td>1,5</td>
+<td>Đúng 1,5 · lệch dưới 10% 0,75 · sai 0</td>
+</tr>
+<tr>
+<td>Pháp tuyến sạch</td>
+<td>1</td>
+<td>Sạch 1 · có lỗi 0</td>
+</tr>
+<tr>
+<td><strong>Không có bóng nướng</strong></td>
+<td>1</td>
+<td>Sạch 1 · có 0</td>
+</tr>
+<tr>
+<td>Chi tiết đặc trưng: nếp vải, chỉ may, khớp nối</td>
+<td>1</td>
+<td>Có 1 · không 0</td>
+</tr>
+<tr>
+<td><strong>Tổng</strong></td>
+<td><strong>10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ngưỡng:</strong> ≥ 8 vào kho chuẩn · 6–7,9 dùng tạm, ưu tiên thay · dưới 6 loại.
+<strong>Luật riêng:</strong> model dính bóng nướng → <strong>loại thẳng bất kể tổng điểm</strong>.</p>
+<blockquote class="tip">
+<p>💡 <strong>Cách kiểm nhanh nhất, dùng cho mọi model:</strong> kéo model vào một cảnh trống, đặt <strong>một đèn từ một phía</strong>, xoay 360° rồi render một khung. Mọi lỗi — pháp tuyến lộn, bệt vân, bóng nướng, ít mặt — đều lộ ra cùng lúc.</p>
+</blockquote>
+<hr>
+<h2 id="113-sau-nhom-o-quyet-inh-o-that">11.3. Sáu nhóm đồ quyết định độ thật</h2>
+<p>Không phải mọi món đều đáng đầu tư như nhau. Xếp theo mức ảnh hưởng:</p>
+<h3 id="1-sofa-va-ghe-boc-vai-boc-nhung-nhom-so-mot">1. Sofa và ghế bọc vải, bọc nhung — nhóm số một</h3>
+<p>Model tốt khác model rác ở bốn chỗ: <strong>nếp gấp thật</strong> (đệm có vết lún, lưng tựa có nếp chùng, góc bọc có nếp túm — model rác là khối bo tròn trơn), <strong>đường chỉ may</strong> lồi lên thành gân thấy được mũi chỉ, <strong>độ chùng</strong> như vừa có người ngồi chứ không căng đét, và với nhung là <strong>ảnh vân độ nhám đúng</strong> để lên hiệu ứng đổi màu theo góc nhìn.</p>
+<p><strong>→ Nhóm nên dồn tiền: lấy từ <code>品牌馆</code> hoặc trạm ngoài, đừng lấy thư viện miễn phí.</strong></p>
+<h3 id="2-o-vai-mem-chan-khan-tham-goi">2. Đồ vải mềm — chăn, khăn, thảm, gối</h3>
+<p>Độ rủ <strong>phải nằm sẵn trong hình học model</strong>, Kujiale không mô phỏng vải rơi trong luồng thường. Chọn sai là chịu. Tìm bằng từ khoá <code>搭毯</code> (chăn vắt), <code>褶皱</code> (nếp nhăn), <code>沙发毯</code>, <code>床尾毯</code>.</p>
+<p>Thảm cần có sợi thật, không thì thành miếng dán sàn.</p>
+<h3 id="3-rem-cua-dung-cong-cu-ung-dung-model">3. Rèm cửa — dùng công cụ, đừng dùng model</h3>
+<p>Kujiale có <strong>công cụ rèm tham số riêng: <code>定制窗帘</code></strong>. Đường vào: <code>公共库 → 家饰 → 窗帘 → 定制窗帘</code>, hoặc trong <code>行业库 → 全屋家具定制</code>.</p>
+<p>Nó chỉnh được số nếp gấp thân rèm và đầu rèm, <code>波幔</code> (diềm), kiểu <code>幔头</code>, kéo dài thu ngắn, trạng thái buộc lên hay thả xuống, đổi vải.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Dùng gì</th>
+<th>Khi nào</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>定制窗帘</code></strong> — mặc định cho căn hộ</td>
+<td>Cần rèm vừa khít cửa, số nếp đều, đổi vải nhanh, báo giá theo mét</td>
+</tr>
+<tr>
+<td>Model rèm rời</td>
+<td>Cần kiểu rủ nghệ thuật, buộc lệch, kiểu đặc biệt mà tham số không tạo được</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="4-en-trang-tri">4. Đèn trang trí</h3>
+<p>Kiểm ba chỗ: <strong>chao đèn</strong> (mỏng thì có xuyên sáng không), <strong>dây và khớp nối</strong> (có bị ít mặt thành ống lục giác không), <strong>bóng đèn</strong> (đã có vật liệu phát sáng chưa).</p>
+<p><strong>Model đèn tốt tách phần phát sáng ra riêng</strong> để bạn bật <code>自发光</code>. Model rác gộp cả cụm thành một khối, không sáng đúng được. Đèn thả nhiều dây thì để ý dây có <strong>rủ tự nhiên</strong> hay cứng đơ thẳng tắp.</p>
+<h3 id="5-o-trang-tri-nho-nhom-tao-ca-tinh">5. Đồ trang trí nhỏ — nhóm tạo cá tính</h3>
+<p>Đây là chỗ ảnh Trung Quốc thắng đậm. Ba nguyên tắc:</p>
+<ul>
+<li><strong>Ưu tiên model cụm</strong> (<code>组合</code> — đã bày sẵn chồng sách + bình + khay) hơn từng món rời, vì bố cục đã được người có mắt sắp.</li>
+<li><strong>Tránh lặp</strong> — đừng dùng một bình hoa cho năm phòng.</li>
+<li>Sách nên có gáy cong đặt nghiêng; bình gốm nên có men không đều.</li>
+</ul>
+<h3 id="6-thiet-bi-bep-va-ien-tu">6. Thiết bị bếp và điện tử</h3>
+<p>Nhóm này <strong>không cần nhiều mặt</strong> — đồ công nghiệp bề mặt phẳng bóng. Cần đúng <strong>tỉ lệ</strong>, đúng <strong>ảnh vân kim loại và kính</strong>, đúng <strong>logo và khe hở</strong>.</p>
+<blockquote class="pin">
+<p>📌 Một cái tủ lạnh ít mặt nhưng có ảnh vân inox đúng vẫn thật hơn tủ nhiều mặt mà bệt.</p>
+</blockquote>
+<p>Nên lấy từ <code>品牌馆</code> vì gắn với hàng thật, tỉ lệ chuẩn, xuất được báo giá. <strong>Màn TV</strong> phải có vật liệu đúng — đen bóng phản chiếu, tránh màn sáng trưng.</p>
+<hr>
+<h2 id="114-nguon-model-va-nhap-model-ngoai">11.4. Nguồn model và nhập model ngoài</h2>
+<p>Ngân sách mua đã được duyệt. Khuyến nghị năm đầu khoảng <strong>5–8 triệu đồng</strong> ⚠️ cho model, ưu tiên theo thứ tự:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Mạnh ở</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>品牌馆</code> (gian thương hiệu) trong app</td>
+<td>Sẵn có, tỉ lệ chuẩn, gắn hàng thật</td>
+<td><strong>Dùng trước tiên, miễn phí</strong></td>
+</tr>
+<tr>
+<td>Trạm model Trung Quốc</td>
+<td>Gu Á, rẻ nhất trên mỗi model</td>
+<td>Mạnh nhất cho thị trường mình. ⚠️ Giá gói năm đổi liên tục, kiểm khi mua</td>
+</tr>
+<tr>
+<td>Trạm model châu Âu cao cấp</td>
+<td>Đồ Âu, sofa cao cấp</td>
+<td>Mua từng đợt khi cần</td>
+</tr>
+<tr>
+<td>Poly Haven</td>
+<td>Miễn phí CC0</td>
+<td>Bổ sung</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nhập model từ ngoài — điều kiện chính thức:</strong></p>
+<p>Kujiale nhận <strong><code>.skp</code> / <code>.max</code> / Rhino / Revit / <code>.obj</code></strong>. <strong>Không nhận vật liệu Vray. Không có đường <code>.fbx</code> chính thức.</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Điều kiện</th>
+<th>Giá trị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bản SketchUp</td>
+<td><strong>≤ 2024</strong>, hỗ trợ tải gộp</td>
+</tr>
+<tr>
+<td>Đơn vị</td>
+<td><strong>mm</strong></td>
+</tr>
+<tr>
+<td>Kích thước tối đa</td>
+<td><strong>30 m</strong></td>
+</tr>
+<tr>
+<td>Số mặt <code>.obj</code></td>
+<td><strong>≤ 3 triệu</strong></td>
+</tr>
+<tr>
+<td>Ảnh vân</td>
+<td>jpg / png / tif, hệ màu <strong>RGB</strong>, ≤ 5000px</td>
+</tr>
+<tr>
+<td>Tên vật liệu</td>
+<td>không chứa ký tự đặc biệt</td>
+</tr>
+<tr>
+<td>Tên file</td>
+<td><strong>không có dấu cách</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Bạn đã biết SketchUp, nên <strong>đường <code>.skp</code> là dễ nhất</strong>. Model 3ds Max khuyến nghị ≤ 2 triệu mặt, lý tưởng 150k–600k.</p>
+<hr>
+<h2 id="115-bay-o-ke-chuyen-nguyen-ly">11.5. Bày đồ kể chuyện — nguyên lý</h2>
+<p>Thứ tạo ra "cảm giác có người sống" (<code>生活感</code>) không phải model đắt hay ánh sáng giỏi, mà là <strong>đạo cụ kể chuyện được bày bừa có chủ đích</strong>.</p>
+<h3 id="hai-nguyen-ly-goc">Hai nguyên lý gốc</h3>
+<p>Lý thuyết bày sàn của designer Trung Quốc gói trong hai câu:</p>
+<blockquote>
+<p><strong><code>从对称中求不对称</code></strong> — tìm bất đối xứng trong đối xứng
+<strong><code>平衡中求不平衡</code></strong> — tìm mất cân bằng trong cân bằng</p>
+</blockquote>
+<p>Cụ thể hoá thành hai quy tắc dùng được ngay:</p>
+<ol>
+<li><strong>Tam giác không đều.</strong> Mỗi cụm đồ bày nên có <strong>ba món ở ba độ cao khác nhau</strong>, tạo thành tam giác lệch. Ổn định mà vẫn biến hoá.</li>
+<li><strong>Khác biệt vừa phải.</strong> Đồ phải có cao–thấp, to–nhỏ, dài–ngắn, tròn–vuông khác nhau. Giống hệt nhau thì đơn điệu; chênh quá thì mất hài hoà.</li>
+</ol>
+<h3 id="bon-ky-thuat-bua-co-chu-ich">Bốn kỹ thuật "bừa có chủ đích"</h3>
+<p><strong>Chăn vắt hờ.</strong> Đúng: vắt chéo qua <strong>một</strong> tay sofa hoặc một góc cuối giường, để một góc rủ tự do, có nếp nhăn. Hoặc gấp làm ba theo chiều dài rồi thả hơi lệch tâm, để một góc tràn xuống ghế.
+Sai: gấp vuông vắn đặt chính giữa lưng sofa như cửa hàng, hoặc trải phủ đối xứng hai bên.</p>
+<p><strong>Sách.</strong> Xếp nghiêng dựa vào nhau, chồng cao thấp không thẳng hàng, một quyển nằm ngang trên chồng dọc, một quyển mở úp như đang đọc dở. Dùng sách làm bệ kê cho đồ bày nhỏ để tạo tầng cao thấp. <strong>Sách là đạo cụ đọc ra thói quen chủ nhà rẻ và hiệu quả nhất.</strong></p>
+<p><strong>Gối sofa.</strong> Sofa văng ba chỗ dùng <strong>3–5 gối, số lẻ</strong> dễ tạo bố cục sinh động. Khác cỡ, khác chất liệu nhưng <strong>cùng bảng màu</strong>; to ở ngoài, nhỏ ở trong; một cái hơi nghiêng như vừa tựa.
+Tránh: cùng cỡ, dàn đều, dựng đứng thẳng hàng — đây đúng là dấu hiệu tố cáo ảnh máy tính.</p>
+<p><strong>Đồ đang dùng dở.</strong> Cốc cà phê uống dở, kính mắt đặt trên sách mở, máy tính mở, lọ hoa hơi héo. <strong>Nhóm này tạo cảm giác sống mạnh nhất</strong> vì gợi "người vừa rời khỏi khung hình vài giây trước".</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Quy tắc số lượng: mỗi khung hình chỉ 2–3 điểm bừa.</strong> Quá ba thì khung hình thành lỗi — trông bẩn và rối chứ không sang. Cách kiểm: đếm số dấu vết người dùng trong khung, quá 3 thì bớt.</p>
+<p>Con số này khớp đúng quy tắc liều lượng dấu vết ở Chương 10 mục 10.8. Không phải trùng hợp — cùng một nguyên lý.</p>
+</blockquote>
+<hr>
+<h2 id="116-danh-muc-ao-cu-theo-phong">11.6. Danh mục đạo cụ theo phòng</h2>
+<p>Từ khoá tiếng Trung để tra trong thư viện ghi trong ngoặc.</p>
+<h3 id="phong-khach">Phòng khách</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Khu vực</th>
+<th>Đạo cụ</th>
+<th>Vị trí</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bàn trà</td>
+<td>Khay (<code>托盘</code>) + 2–3 quyển sách xếp lệch (<code>书籍摆件</code>) + cốc cà phê (<code>马克杯</code>) + lọ hoa nhỏ (<code>花艺</code>)</td>
+<td>Cụm lệch một góc bàn, <strong>không chính giữa</strong></td>
+<td>Cụm tam giác + dấu vết vừa có người ngồi</td>
+</tr>
+<tr>
+<td>Sofa</td>
+<td>3–5 gối khác cỡ (<code>抱枕</code>) + 1 chăn vắt hờ (<code>搭毯</code>)</td>
+<td>Gối lệch không đối xứng, chăn vắt qua một tay sofa</td>
+<td>Phá kiểu duyệt binh, thêm chất vải mềm</td>
+</tr>
+<tr>
+<td>Kệ TV</td>
+<td>Đồ bày cao thấp (<code>摆件</code>) + 1 cây nhỏ (<code>绿植</code>) + khung ảnh (<code>相框</code>)</td>
+<td>Bố cục cao–thấp–ngang, <strong>chừa khoảng trống</strong></td>
+<td>Tránh dàn hàng ngang đều</td>
+</tr>
+<tr>
+<td>Góc đọc</td>
+<td>Ghế đơn (<code>休闲椅</code>) + đèn cây (<code>落地灯</code>) + chồng sách + chăn</td>
+<td>Góc phòng cạnh cửa sổ</td>
+<td>Gợi tình huống sống cụ thể</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="phong-ngu-chinh">Phòng ngủ chính</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Khu vực</th>
+<th>Đạo cụ</th>
+<th>Vị trí</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đầu giường</td>
+<td>Đèn ngủ ấm (<code>台灯</code>) + 1–2 quyển sách + cốc nước hoặc kính mắt + lọ hoa nhỏ</td>
+<td><strong>Một bên nhiều hơn bên kia</strong></td>
+<td>Hai bên giống hệt là giả; lệch mới thật</td>
+</tr>
+<tr>
+<td>Giường</td>
+<td>Chăn ga có nếp nhăn (<code>褶皱床品</code>) + chăn cuối giường (<code>床尾毯</code>) + gối chồng lớp</td>
+<td>Chăn hơi xô, gối to sau nhỏ trước</td>
+<td>Cảm giác vừa ngủ dậy, tránh phẳng lì</td>
+</tr>
+<tr>
+<td>Bàn trang điểm</td>
+<td>Chai lọ mỹ phẩm + khay + gương + hoa</td>
+<td>Cụm lệch, vài món đang dùng</td>
+<td>Dấu vết sinh hoạt của chủ nhà</td>
+</tr>
+</tbody>
+</table></div>
+<p>Các phòng còn lại theo cùng công thức: <strong>một cụm chính lệch tâm + một dấu vết đang dùng + một điểm cây xanh</strong>.</p>
+<hr>
+<h2 id="117-ban-ia-hoa-cho-khach-viet">11.7. Bản địa hoá cho khách Việt</h2>
+<p>Đây là phần <strong>không có trong bất kỳ tài liệu Trung Quốc nào</strong>, và là chỗ ảnh của bạn có thể hơn ảnh Trung Quốc khi bán cho khách Việt.</p>
+<h3 id="nen-them">Nên thêm</h3>
+<ul>
+<li><strong>Dép đi trong nhà</strong> cạnh giường hoặc cạnh cửa. Nhà Việt đi dép trong nhà, bỏ giày ở cửa. Chi tiết rẻ mà rất thân thuộc.</li>
+<li><strong>Ấm chén trà Việt đơn giản</strong> trên bàn.</li>
+<li><strong>Cây xanh</strong> — điểm bản địa hoá <strong>an toàn và mạnh nhất</strong>. Người Việt rất mê cây. Xem mục 11.8.</li>
+<li><strong>Trái cây nhiệt đới</strong> thay vì đồ Tây.</li>
+<li><strong>Bình nước hoặc máy lọc nước</strong> ở bếp.</li>
+<li><strong>Tủ giày ở lối vào</strong> với vài đôi dép xếp gọn.</li>
+<li><strong>Máy giặt ở lô gia</strong> — rất phổ biến ở căn hộ Việt. Nên có một phương án lô gia thật có máy giặt gọn gàng, không chỉ lô gia kiểu nghỉ dưỡng.</li>
+<li><strong>Chỗ phơi đồ</strong> — giàn phơi ở lô gia. Ảnh bán hàng có thể giấu bớt, nhưng nên có một phương án thể hiện công năng thật để khách tin.</li>
+</ul>
+<h3 id="ban-tho-ung-bo-quen">Bàn thờ — đừng bỏ quên</h3>
+<p>Render Trung Quốc thường không có, nhưng <strong>đây là điểm khách Việt để ý ngay</strong>. Hai hướng xử lý:</p>
+<ul>
+<li>Khách coi trọng → render khu thờ trang nghiêm: tủ thờ đứng hoặc bàn thờ treo tường, đặt nơi cao ráo yên tĩnh, ánh sáng vàng dịu. <strong>Tránh đối diện cửa chính, tránh sát hoặc đối phòng ngủ và nhà vệ sinh.</strong> Có thể dùng vách ngăn hoa văn.</li>
+<li>Render tập trung khoe không gian sống hiện đại → để khu thờ ở một phương án riêng.</li>
+</ul>
+<p>Kích thước tham khảo ⚠️: bàn thờ treo tường ~48 × 69 cm; bàn thờ đứng sâu ~60 cm, rộng ~81 cm (theo thước Lỗ Ban).</p>
+<h3 id="nen-tranh">Nên tránh</h3>
+<p>⚠️ Phần này là nhận định, chưa qua thử nghiệm với khách thật:</p>
+<ul>
+<li>Câu đối, thư pháp <strong>chữ Hán</strong>, tranh chữ Trung, quạt giấy lớn — dễ bị đọc là "quá Trung Quốc".</li>
+<li>Bộ ấm trà công phu quá cầu kỳ — người Việt uống trà đơn giản hơn.</li>
+<li>Tượng phong thuỷ kiểu Trung đặt phô trương.</li>
+<li>Kiểu tân cổ điển Trung dày đặc vàng kim.</li>
+<li><strong>Áo khoác vắt lưng ghế</strong> — dùng được nhưng tiết chế, 1 điểm mỗi khung. Khách Việt trung niên có thể thấy "bừa" nếu quá tay.</li>
+</ul>
+<p>Nếu dùng tranh chữ thì ưu tiên <strong>tiếng Việt</strong> hoặc tranh phong cảnh trung tính.</p>
+<p>Khách Việt, nhất là trung niên, quan tâm phong thuỷ — tránh các điều kiêng dễ thấy: gương chiếu thẳng giường, cây khô chết.</p>
+<hr>
+<h2 id="118-cay-xanh-chong-xanh-nhua">11.8. Cây xanh — chống "xanh nhựa"</h2>
+<h3 id="bay-nguyen-nhan-cay-trong-gia">Bảy nguyên nhân cây trông giả</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nguyên nhân</th>
+<th>Mắt bắt ra sao</th>
+<th>Cách né</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Không xuyên sáng lá</strong></td>
+<td>Lá ngược sáng thành <strong>khối đen</strong> thay vì phát sáng lục non</td>
+<td>Chọn model tốt + <strong>đặt cây ngược sáng</strong> (xem dưới)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Lá một màu đều</strong></td>
+<td>Mất tín hiệu lá non – lá già</td>
+<td>Chọn model có ảnh màu đã vẽ chuyển sắc. <strong>Kujiale không sửa được bằng tham số</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Lá phẳng dẹt</strong></td>
+<td>Nhìn nghiêng thấy tấm phẳng, cạnh sắc lẻm</td>
+<td>Xoay máy ảnh thử ở góc chéo trước khi dùng; ưu tiên model lá dạng khối</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Lá xếp đều tăm tắp</strong></td>
+<td>Không có lá che lá, quá trật tự</td>
+<td>Chọn tán rậm lộn xộn; đặt 2–3 chậu khác cỡ cạnh nhau; xoay cây</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Quá hoàn hảo</strong></td>
+<td>Thiếu lá úa, lá thủng, mép khô</td>
+<td>Chọn model có vài lá ngả vàng; trộn thêm cành khô</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Độ bóng lá sai</strong></td>
+<td>Bóng như nhựa, hoặc lì như giấy</td>
+<td>Chỉnh <code>反射光泽度</code> về mức <strong>lì vừa</strong>. Lá sáp bóng nhẹ, lá thường gần như lì</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Không có bóng lá lốm đốm</strong></td>
+<td>Cây như dán lên nền</td>
+<td>Đặt cây giữa nguồn sáng mạnh và mảng tường trống — xem dưới</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Bảng vật liệu Kujiale không có thanh "xuyên sáng".</strong> Chỉ có <code>漫反射</code> / <code>反射</code> / <code>反射光泽度</code> / <code>凹凸</code> / <code>菲涅尔</code>. Không có trình nối node, không chồng lớp ảnh vân. Nên <strong>chuyển sắc lá phải nằm sẵn trong model</strong> — bạn không tạo ra được.</p>
+<p>Có công tắc <code>渲染复杂材质</code> bật hiệu ứng xuyên sáng, nhưng <strong>tài liệu chính thức không nói nó áp cho lá cây</strong> (ví dụ trong tài liệu Trung thường là da, ngọc, nến). Nếu model có sẵn thuộc tính đó thì bật lên có tác dụng; không có thì bật cũng vô ích. <strong>Cách chắc ăn là đánh đèn, không phải bấm công tắc.</strong></p>
+</blockquote>
+<h3 id="anh-en-cho-cay-cho-an-iem-nhieu-nhat">Đánh đèn cho cây — chỗ ăn điểm nhiều nhất</h3>
+<blockquote class="pin">
+<p>📌 <strong>Một model trung bình được chiếu sáng đúng trông thật hơn một model đắt tiền chiếu sáng phẳng.</strong></p>
+</blockquote>
+<p>Ba kiểu sáng cần cho cây:</p>
+<ol>
+<li><strong>Ngược sáng</strong> — đặt cây <strong>giữa nguồn sáng và máy ảnh</strong>, cây chắn một phần cửa sổ. Ánh sáng viền quanh mép lá và xuyên qua tán tạo cảm giác lá mỏng trong. <strong>Đây là cách giả lập xuyên sáng chắc ăn nhất trong Kujiale.</strong></li>
+<li><strong>Sáng tạt ngang</strong> — nắng xiên hoặc đèn rọi tạt ngang làm lộ gân lá lõm và độ dày tán.</li>
+<li><strong>Sáng chính mềm</strong> — tránh đèn thẳng đỉnh đầu làm tán bẹt.</li>
+</ol>
+<p><strong>"Đặt cạnh cửa sổ" không phải lúc nào cũng đúng.</strong> Đặt cây sát trước cửa sổ cho viền sáng đẹp, nhưng nếu cửa sổ là nguồn sáng chính duy nhất thì phía máy ảnh nhìn vào sẽ tối.</p>
+<blockquote>
+<p><strong>Quy tắc thực dụng: đặt cây điểm nhấn chếch cửa sổ khoảng 30–45°</strong> — một bên lá bắt nắng viền, một bên vẫn nhận ánh sáng nảy từ tường và sàn. Có cả viền sáng lẫn chi tiết mặt lá.</p>
+</blockquote>
+<p><strong>Bóng lá lốm đốm trên tường</strong> là dấu hiệu "sống" mạnh nhất. Cần ba thứ cùng lúc: một nguồn sáng <strong>đủ mạnh và tương đối cứng</strong> (nắng trực tiếp hoặc đèn rọi), model có <strong>lá dạng khối thật</strong> (lá phẳng cho ra mảng bóng đặc chứ không lốm đốm), và một <strong>mảng tường hoặc sàn trống</strong> phía sau để bóng rơi lên.</p>
+<p>⚠️ Kujiale <strong>không có công cụ tạo bóng hoa văn</strong> chuyên dụng, nên bóng lốm đốm phụ thuộc hoàn toàn vào hình học tán lá của model và độ cứng nguồn sáng.</p>
+<p><strong>Cây trong góc tối</strong> — đừng để thành khối đen tịt, mắt đọc đó là vùng chết. Hắt một đèn diện yếu màu ấm nhạt vào cây từ phía máy ảnh hoặc chếch trên, cường độ thấp. Hoặc dùng <code>局部美化</code> (làm đẹp cục bộ) sau khi render: rê chuột lên vùng cây, hệ thống tự chọn cùng vật liệu, nâng sáng cục bộ. Đây là phao cứu sinh khi không muốn render lại.</p>
+<p><em>Số cụ thể cho từng nguồn sáng học ở Chương 13.</em></p>
+<h3 id="cay-hop-can-ho-viet">Cây hợp căn hộ Việt</h3>
+<p>Nguyên tắc: phải là <strong>cây người Việt thật sự trồng trong nhà</strong> — chịu bóng, chịu điều hòa, dễ mua.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cây</th>
+<th>Tên tra trong thư viện</th>
+<th>Vị trí hợp</th>
+<th>Cao thật</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trầu bà</td>
+<td><code>绿萝</code></td>
+<td>Khách, kệ, ban công</td>
+<td>Leo cột 1,2–1,8 m</td>
+</tr>
+<tr>
+<td>Kim tiền</td>
+<td><code>金钱树</code></td>
+<td>Khách, góc ít sáng</td>
+<td>0,4–0,8 m</td>
+</tr>
+<tr>
+<td>Lưỡi hổ</td>
+<td><code>虎皮兰</code></td>
+<td>Ngủ, góc phòng, ban công</td>
+<td>0,4–0,9 m</td>
+</tr>
+<tr>
+<td><strong>Bàng Singapore</strong></td>
+<td><code>琴叶榕</code></td>
+<td><strong>Khách — cây điểm nhấn cạnh sofa</strong></td>
+<td><strong>1,5–1,8 m</strong></td>
+</tr>
+<tr>
+<td>Kim ngân</td>
+<td><code>发财树</code></td>
+<td>Khách, cạnh cửa</td>
+<td>1,2–1,7 m</td>
+</tr>
+<tr>
+<td>Cau cảnh / cau tiểu trâm</td>
+<td><code>散尾葵</code> / <code>袖珍椰子</code></td>
+<td>Khách, ban công</td>
+<td>Cau cảnh 1,5–2,0 m; tiểu trâm 0,3–0,6 m</td>
+</tr>
+<tr>
+<td>Trầu bà xẻ lá</td>
+<td><code>春羽</code></td>
+<td>Khách, góc</td>
+<td>0,6–1,2 m</td>
+</tr>
+<tr>
+<td>Vạn niên thanh</td>
+<td><code>万年青</code></td>
+<td>Khách, góc xa cửa</td>
+<td>0,4–0,8 m</td>
+</tr>
+<tr>
+<td>Cây cao su</td>
+<td><code>橡皮树</code></td>
+<td>Khách, ngủ</td>
+<td>1,0–1,7 m</td>
+</tr>
+<tr>
+<td>Lan ý</td>
+<td><code>白掌</code></td>
+<td>Ngủ, bàn ăn</td>
+<td>0,3–0,6 m</td>
+</tr>
+<tr>
+<td>Trúc phát lộc</td>
+<td><code>富贵竹</code></td>
+<td>Bàn làm việc, quầy bếp</td>
+<td>0,3–0,7 m</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Theo phòng:</strong> khách dùng cây điểm nhấn cao (bàng Singapore, kim ngân, cau cảnh, cao su, cây rùa <code>龟背竹</code>) · ngủ dùng lưỡi hổ, lan ý, kim tiền (chịu tối, không mùi mạnh) · bàn kệ dùng cau tiểu trâm, sen đá, phát lộc.</p>
+<p>⚠️ <strong>Ban công chung cư Việt mùa hè rất nóng</strong> — tránh cây ưa mát ở ban công hướng Tây.</p>
+<p><strong>Cây hay gặp trong render Trung Quốc nhưng lạ với người Việt — nên tránh:</strong> ô liu (<code>橄榄树</code>), khuynh diệp cây lớn (chỉ nên dùng dạng <strong>cành cắm bình</strong>), bát giác kim bàn, cây ôn đới nói chung, xương rồng cột lớn.</p>
+<h3 id="kich-thuoc-va-chau">Kích thước và chậu</h3>
+<p>Trần 2,7m, <strong>sau khi đóng trần thạch cao thường còn khoảng 2,4m</strong>. Vì vậy:</p>
+<ul>
+<li><strong>Cây sàn điểm nhấn: 1,5–1,8 m</strong> — đủ vươn tạo chiều đứng, vẫn chừa 0,6–0,9 m phía trên để không ngộp.</li>
+<li>Cây góc trung 0,8–1,2 m · cây để bàn kệ 0,3–0,6 m.</li>
+<li><strong>Quy tắc tỉ lệ: cây điểm nhấn cao không quá 2/3 chiều cao trần thông thuỷ.</strong></li>
+</ul>
+<p><strong>Chậu:</strong> xi măng xám, đất nung nâu, sứ trắng trơn, mây cói đan — tông trung tính. <strong>Chiều cao chậu ≈ 1/3 tổng chiều cao cây kèm chậu.</strong> Cây rủ thì chậu cao hẹp; cây tán rộng thì chậu thấp bè. <strong>Tránh chậu nhựa bóng màu sặc sỡ</strong> — kéo cả khung hình xuống rẻ tiền.</p>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-duyet-10-model-vao-kho-cong-ty">Bài 1 — Duyệt 10 model vào kho công ty</h3>
+<p>Chọn 10 model sofa và ghế bọc trong thư viện. Với mỗi model: kéo vào cảnh trống, một đèn một phía, xoay 360°, render một khung. Chấm theo thang 10 điểm ở 11.2.
+<strong>Đạt khi:</strong> lọc ra được ít nhất 3 model ≥ 8 điểm, và chỉ đúng được model nào dính bóng nướng.</p>
+<h3 id="bai-2-bay-mot-phong-khach-ke-chuyen">Bài 2 — Bày một phòng khách kể chuyện</h3>
+<p>Lấy phòng khách căn mẫu đã dựng xong phần thô và đồ chính. Bày theo danh mục 11.6: cụm bàn trà lệch tâm, 3–5 gối khác cỡ, chăn vắt qua một tay sofa, một cây điểm nhấn 1,5–1,8m chếch cửa sổ 30–45°.
+<strong>Đạt khi:</strong> đếm đúng <strong>2–3 điểm bừa</strong>, không hơn; và mỗi cụm đồ tạo được tam giác ba độ cao.</p>
+<h3 id="bai-3-ban-ia-hoa">Bài 3 — Bản địa hoá</h3>
+<p>Vẫn phòng đó, thêm ba chi tiết Việt: dép trong nhà, ấm chén trà đơn giản, một phương án lô gia có máy giặt gọn gàng.
+<strong>Đạt khi:</strong> đưa ảnh cho một người Việt không làm nghề xem, họ nhận ra đây là căn hộ Việt chứ không phải ảnh mẫu Trung Quốc.</p>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="11-t1"><span>Nói được vì sao model quyết định độ thật hơn tham số render</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t2"><span>Nhận ra đủ 7 dấu hiệu model rác bằng mắt</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t3"><span>Biết vì sao bóng nướng là lỗi loại thẳng, không cứu được</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t4"><span>Dùng được bảng chấm 10 điểm và cách kiểm nhanh một đèn xoay 360°</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t5"><span>Biết nhóm đồ nào đáng dồn tiền, nhóm nào không cần nhiều mặt</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t6"><span>Dùng <code>定制窗帘</code> làm mặc định thay vì thả model rèm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t7"><span>Bày mỗi cụm thành tam giác ba độ cao, không dàn hàng ngang</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t8"><span>Giữ đúng <strong>2–3 điểm bừa</strong> mỗi khung</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t9"><span>Thêm được ít nhất 3 chi tiết bản địa Việt, và biết tránh gì</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t10"><span>Đặt cây chếch cửa sổ 30–45°, cao 1,5–1,8m cho cây điểm nhấn</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="11-t11"><span>Chọn cây trong danh sách người Việt thật sự trồng</span></label></li>
+</ul>
+<hr>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sofa trông như khối nhựa bo tròn</td>
+<td>Model không có nếp lún, không có chỉ may</td>
+<td>Đổi model từ <code>品牌馆</code> hoặc trạm trả phí</td>
+</tr>
+<tr>
+<td>Chăn phẳng lì như tấm bìa</td>
+<td>Model chăn không có nếp; Kujiale không mô phỏng vải</td>
+<td>Tìm model bằng từ khoá <code>搭毯</code> / <code>褶皱</code></td>
+</tr>
+<tr>
+<td>Model có vệt tối lạ, không đổi theo đèn</td>
+<td>Bóng nướng vào ảnh vân</td>
+<td>Loại model, không sửa được</td>
+</tr>
+<tr>
+<td>Một số mặt model đen thui</td>
+<td>Pháp tuyến lộn</td>
+<td>Xoay 360° kiểm trước khi dùng; đổi model</td>
+</tr>
+<tr>
+<td>Đồ trông đúng nhưng "sai cỡ"</td>
+<td>Tỉ lệ model sai</td>
+<td>Đối chiếu kích thước thật khi kéo vào</td>
+</tr>
+<tr>
+<td>Đèn thả không sáng đúng</td>
+<td>Model gộp cả cụm, không tách phần phát sáng</td>
+<td>Đổi model có tách phần bóng đèn riêng</td>
+</tr>
+<tr>
+<td>Phòng trông như showroom, không có người ở</td>
+<td>Bày đối xứng, gối dàn đều, không có đồ dùng dở</td>
+<td>Áp tam giác không đều + thêm 2–3 điểm bừa</td>
+</tr>
+<tr>
+<td>Phòng trông bẩn và rối</td>
+<td>Quá 3 điểm bừa mỗi khung</td>
+<td>Đếm lại, bớt về 2–3</td>
+</tr>
+<tr>
+<td>Cây ngược sáng thành khối đen</td>
+<td>Model không có xuyên sáng, đèn đặt sai</td>
+<td>Đổi model; đặt cây chếch nguồn sáng 30–45°</td>
+</tr>
+<tr>
+<td>Cây như dán lên nền</td>
+<td>Không có bóng lá lốm đốm</td>
+<td>Cần nguồn sáng cứng + model lá khối + mảng tường trống phía sau</td>
+</tr>
+<tr>
+<td>Cây trông "Tây giả"</td>
+<td>Dùng cây ôn đới người Việt không trồng</td>
+<td>Đổi sang danh sách ở 11.8</td>
+</tr>
+<tr>
+<td>Cây đụng trần, phòng ngộp</td>
+<td>Cây cao quá 2/3 chiều cao thông thuỷ</td>
+<td>Hạ về 1,5–1,8m</td>
+</tr>
+<tr>
+<td>Khách Việt chê "không giống nhà mình"</td>
+<td>Thiếu bản địa hoá, hoặc quá nhiều đồ Trung</td>
+<td>Áp 11.7</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức — help center Kujiale:</strong>
+- Điều kiện nhập model: định dạng nhận, bản SketchUp ≤ 2024, đơn vị mm, ≤ 30 m, ≤ 3 triệu mặt, ảnh vân RGB, không nhận vật liệu Vray — bài <code>3FO4K4VYL1KH</code>
+- Bảng vật liệu chỉ có 5 tham số, không có thanh xuyên sáng — bài về đổi tham số vật liệu thư viện chung
+- Công tắc <code>渲染复杂材质</code> bật hiệu ứng <code>置换</code> và <code>3S</code>, cần vật liệu thật sự mang thuộc tính đó — bài <code>3FO4K4VWISQV</code>
+- Công cụ rèm tham số <code>定制窗帘</code></p>
+<p><strong>Cơ sở ngoài Kujiale:</strong>
+- Nguyên lý bày sàn <code>从对称中求不对称</code>, <code>平衡中求不平衡</code>, tam giác không đều — lý thuyết <code>摆场</code> của ngành thiết kế Trung Quốc
+- Kích thước bàn thờ theo thước Lỗ Ban — quy cách thợ Việt Nam
+- Danh sách cây trồng trong nhà phổ biến ở Việt Nam — nguồn cây cảnh Việt</p>
+<p><strong>Số kinh nghiệm, chưa có chuẩn — đánh ⚠️:</strong>
+- Toàn bộ thang chấm 10 điểm và ngưỡng 8 / 6 — quy ước nội bộ, chỉnh theo thực tế công ty
+- Ngân sách model năm đầu 5–8 triệu; giá gói các trạm đổi liên tục
+- Kích thước bàn thờ tham khảo
+- Danh sách đồ "nên tránh" với khách Việt</p>
+<p><strong>Chờ verify — nhưng bằng khách chứ không phải bằng app:</strong>
+- <strong>Ngưỡng "bừa" nào khách Việt trung niên chấp nhận.</strong> Đây là câu chưa ai trả lời được bằng tài liệu. Cách duy nhất: làm hai bản ảnh cùng một phòng, một bản 2 điểm bừa một bản 4 điểm, đưa khách thật xem và ghi phản ứng. Làm được vài lần là chốt được chuẩn công ty.</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="10.html"><span class="dir">← Trước</span><div class="t">Chương 10 · Ảnh vân — nguồn, chuẩn, chống lặp</div></a><a class="next" href="12.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 12 · Chi tiết công trình</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

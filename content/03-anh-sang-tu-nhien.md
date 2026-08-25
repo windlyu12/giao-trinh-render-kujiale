@@ -53,7 +53,7 @@ Mỗi phương án chứa tối đa 40 kịch bản đèn (20 thủ công + 20 r
 
 Nguyên tắc xương sống, nhắc đi nhắc lại: **sáng giảm dần từ cửa sổ vào sâu phòng**. Ảnh giả thường do đèn nền tống đều khắp nơi — phẳng lì, không lớp lang. Ảnh thật luôn có chỗ sáng chỗ tối.
 
-> ⚠️ **CẢNH BÁO VỀ SỐ ĐỘ SÁNG:** Mọi con số độ sáng (亮度) trong chương này là **thang cũ** của Kujiale. UI mới hiển thị đơn vị "瓦" (watt ảo) = **số thang cũ ÷ 10** (ví dụ thang cũ 300 ≈ 30瓦). Đây cũng KHÔNG phải watt/lumen vật lý — chỉ là mốc tương đối trên thanh trượt. Quy đổi ÷10 chờ xác nhận trên app, kiểm tra theo Phiếu verify mục đơn vị đèn (Phụ lục B). Chi tiết đầy đủ ở đầu C4.
+> ⚠️ **CẢNH BÁO VỀ SỐ ĐỘ SÁNG:** Mọi con số độ sáng (亮度) trong chương này là **thang cũ** của Kujiale. Kujiale có **ba** hệ đơn vị song song: thang cũ · `瓦` (watt ảo) · `%`. ⚠️ Quy ước "`瓦` = thang cũ ÷ 10" **chưa có nguồn chính thức nào xác nhận** — coi là quy ước nội bộ chưa kiểm chứng. `瓦` cũng KHÔNG phải watt/lumen vật lý, chỉ là mốc tương đối. **Kiểm đơn vị máy mình theo Phiếu verify mục B1 trước khi nhập bất kỳ số nào.** Chi tiết đầy đủ ở đầu C4.
 
 ### 3.2.1 Nắng — 太阳光
 
@@ -131,7 +131,7 @@ Quy trình (theo help center, bài cập nhật 8/2025):
 
 ## Thực hành
 
-Ba bài dưới đây là 3 tình huống gặp hằng ngày với căn hộ Vinhomes Ocean Park. Làm tuần tự, mỗi bài render nháp ảnh nhỏ để canh trước, đạt rồi mới render bản nét cao (quy trình nháp→final tiết kiệm điểm render xem C2). Mọi số độ sáng là thang cũ — trên UI 瓦 nhớ ÷10.
+Ba bài dưới đây là 3 tình huống gặp hằng ngày với căn hộ Vinhomes Ocean Park. Làm tuần tự, mỗi bài render nháp ảnh nhỏ để canh trước, đạt rồi mới render bản nét cao (quy trình nháp→final tiết kiệm điểm render xem C2). Mọi số độ sáng là thang cũ — kiểm đơn vị máy mình trước (Phiếu verify B1), chưa biết thì dò từ thấp lên.
 
 ### Bài 1 — Căn hộ 1 hướng cửa sổ (phổ biến nhất)
 
@@ -174,7 +174,7 @@ Dùng căn mẫu 2PN, phòng khách liền bếp, 1 mặt thoáng.
 - [ ] Kể được danh sách template hiện hành và biết dòng 极速 1.x/2.x đã bị gỡ
 - [ ] Biết 手动灯光 nằm ở 离线模式 + 实时专业, và video/俯视图 chỉ render được ở 离线模式
 - [ ] Thuộc quy tắc: nâng template lên 3.x → hạ độ sáng đèn tay
-- [ ] Biết số độ sáng tài liệu cũ là thang cũ, UI 瓦 mới = ÷10
+- [ ] Biết số độ sáng tài liệu cũ là thang cũ, và biết Kujiale có ba hệ đơn vị — phải kiểm máy mình trước
 - [ ] Dựng được 3 lớp nắng/thiên quang/ngoại cảnh cho căn 1 mặt thoáng, sáng giảm dần vào trong
 - [ ] Phân biệt được 外景亮度 (không đổi sáng trong phòng) và 环境光亮度 (đổi sáng trong phòng)
 - [ ] Biết ngoại cảnh tùy chỉnh chỉ nhận PNG/JPG 2:1, không nhận HDR
@@ -215,7 +215,7 @@ Dùng căn mẫu 2PN, phòng khách liền bếp, 1 mặt thoáng.
 - "Bí kíp Tiên Cô" (仙姑老师, ask.kujiale.com), Zhihu, Bách độ Kinh nghiệm — bộ số thiên quang 280–300/250–280, đèn bù 150–200, số lớp đẩy sáng, 方位角 ~30°, 阴影柔和度 1.5
 
 **Số chờ verify trên app (Phiếu verify — Phụ lục B):**
-- Quy đổi thang cũ ÷10 sang 瓦 trên UI mới
+- Quy đổi giữa ba hệ đơn vị độ sáng (thang cũ / `瓦` / `%`) — ⚠️ quy tắc ÷10 chưa được xác nhận
 - Template nào còn 自动曝光
 - 阴影柔和度: 5 hay 1.5, thang min–max
 - Đường vào 上传外景 trên UI mới + giới hạn còn đúng

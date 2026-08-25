@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 14. Hậu kỳ nâng cao — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#2e7afb;--accent-soft:color-mix(in srgb, #2e7afb 13%, transparent);}</style>
+</head>
+<body data-slug="14">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">14</div>
+    <div class="ch-meta"><span class="tag">Chương 14</span><span class="tag ghost">≈ 17 phút đọc</span></div>
+    <h1 class="ch-title">Hậu kỳ nâng cao</h1>
+    <p class="ch-hook">Đường cong, hạt nhiễu, dải màu và nước ảnh kiểu Trung Quốc — đánh bóng chứ không cứu chữa.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#canh-bao-au-chuong-gioi-han-goc-quyet-inh-moi-thu">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — GIỚI HẠN GỐC QUYẾT ĐỊNH MỌI THỨ</a></li><li><a href="#141-ba-con-so-can-nho">14.1. Ba con số cần nhớ</a></li><li><a href="#142-uong-cong">14.2. Đường cong</a></li><li><a href="#143-hat-nhieu">14.3. Hạt nhiễu</a></li><li><a href="#144-chinh-rieng-tung-dai-mau">14.4. Chỉnh riêng từng dải màu</a></li><li><a href="#rui-ro-nghe-nghiep-khong-phai-rui-ro-tham-my">⚠️ RỦI RO NGHỀ NGHIỆP, KHÔNG PHẢI RỦI RO THẨM MỸ</a></li><li><a href="#145-nuoc-anh-kieu-trung-quoc">14.5. "Nước ảnh" kiểu Trung Quốc</a></li><li><a href="#146-cuu-vung-chay-va-vung-toi">14.6. Cứu vùng cháy và vùng tối</a></li><li><a href="#147-ba-quy-trinh-co-so">14.7. Ba quy trình có số</a></li><li><a href="#148-lam-net-va-khu-nhieu">14.8. Làm nét và khử nhiễu</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Đọc và kéo đường cong, hiểu vì sao nó mạnh hơn thanh tương phản
+- Thêm hạt nhiễu đúng liều để ảnh hết "nhựa" mà không thành bẩn
+- Chỉnh riêng từng dải màu mà không làm lệch màu ván khách đã chốt
+- Tạo "nước ảnh" kiểu Trung Quốc bằng tiết chế, không phải bằng bộ lọc nặng
+- Biết ảnh nào cứu được, ảnh nào phải render lại
+- Chạy được một quy trình hậu kỳ có số, và lưu thành mẫu cho cả bộ ảnh</p>
+</blockquote>
+<hr>
+<blockquote class="warn">
+<h2 id="canh-bao-au-chuong-gioi-han-goc-quyet-inh-moi-thu">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — GIỚI HẠN GỐC QUYẾT ĐỊNH MỌI THỨ</h2>
+<p>Kujiale xuất ảnh phẳng dạng <strong>JPG/PNG 8-bit</strong>, gần như chắc chắn hệ màu sRGB. <strong>Không có RAW.</strong> Điều này giới hạn nghiêm ngặt khả năng cứu sáng và biên độ chỉnh màu.</p>
+<p><strong>Hệ quả 1:</strong> cửa sổ cháy trắng tuyệt đối (điểm ảnh bằng 255-255-255) là <strong>mất dữ liệu vĩnh viễn</strong>. Không công cụ nào cứu được. <strong>Phải render lại.</strong></p>
+<p><strong>Hệ quả 2:</strong> công cụ khử nhiễu bằng AI của Adobe <strong>không chạy trên JPG/PNG</strong> — nó chỉ nhận file RAW của máy ảnh.</p>
+<p><strong>Hệ quả 3:</strong> mọi thao tác phải <strong>nhẹ tay</strong>. Biên độ chỉnh của file 8-bit hẹp hơn nhiều so với ảnh chụp RAW.</p>
+<p><strong>→ Hậu kỳ đứng CUỐI chuỗi ưu tiên. Nó không cứu được ảnh sai sáng.</strong> Hãy render đúng sáng và xuất ở định dạng cao nhất tài khoản cho phép trước khi nghĩ tới chương này.</p>
+</blockquote>
+<hr>
+<h2 id="141-ba-con-so-can-nho">14.1. Ba con số cần nhớ</h2>
+<p>Cả chương gói lại trong ba con số:</p>
+<blockquote>
+<p><strong>Đường cong dịch ~8/255 · Hạt nhiễu Amount 12–15 · Mỗi dải màu trong ±10–15</strong></p>
+</blockquote>
+<p>Ba con số này là <strong>phần giao nhau của hai bộ nghiên cứu độc lập</strong> — hai bộ chạy riêng, không biết nhau, mà hội tụ về cùng khoảng. Đó là lý do đáng tin hơn số lẻ.</p>
+<hr>
+<h2 id="142-uong-cong">14.2. Đường cong</h2>
+<h3 id="oc-trong-ba-phut">Đọc trong ba phút</h3>
+<p>Đường cong là một biểu đồ vuông. <strong>Trục ngang là độ sáng gốc (đầu vào), trục dọc là độ sáng sau khi chỉnh (đầu ra).</strong> Cả hai chạy từ 0 (đen) đến 255 (trắng). Điểm giữa 128 là xám trung tính.</p>
+<p>Chưa chỉnh thì đường cong là đường chéo 45°: vào bằng ra. Bấm một điểm lên đường đó và <strong>kéo LÊN → vùng sáng đó sáng lên; kéo XUỐNG → tối đi.</strong></p>
+<p>Chia làm ba khu: <strong>trái (0–85) là vùng tối · giữa (85–170) là trung gian · phải (170–255) là vùng sáng.</strong></p>
+<p>Hai điểm quan trọng nhất nằm ở <strong>25% (đầu vào ≈ 64)</strong> và <strong>75% (đầu vào ≈ 192)</strong> — đây chính là hai điểm bạn sẽ kéo.</p>
+<h3 id="oc-bieu-o-cot-e-biet-anh-thieu-gi">Đọc biểu đồ cột để biết ảnh thiếu gì</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cột dồn về</th>
+<th>Nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Trái</strong></td>
+<td>Ảnh tối, thiếu sáng</td>
+</tr>
+<tr>
+<td><strong>Phải</strong></td>
+<td>Ảnh sáng, coi chừng cháy</td>
+</tr>
+<tr>
+<td><strong>Giữa, hai đầu trống</strong></td>
+<td><strong>Ảnh xám bệt, thiếu tương phản — rất hay gặp ở ảnh Kujiale</strong></td>
+</tr>
+<tr>
+<td>Chạm sát mép phải, dựng đứng</td>
+<td><strong>Cháy trắng, mất chi tiết</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="uong-cong-chu-s-co-toa-o">Đường cong chữ S — có toạ độ</h3>
+<p>Kéo vùng tối xuống một chút, vùng sáng lên một chút. Kết quả: tăng tương phản ở vùng trung gian — nơi mắt nhìn nhiều nhất — làm ảnh "trong" và có chiều sâu, mà vẫn giữ chi tiết hai đầu.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Mức</th>
+<th>Điểm tối (vào 64)</th>
+<th>Điểm sáng (vào 192)</th>
+<th>Dùng khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nhẹ — mặc định cho nội thất</strong></td>
+<td>ra <strong>56–59</strong> (xuống ~8)</td>
+<td>ra <strong>197–200</strong> (lên ~8)</td>
+<td>Hầu hết ảnh bán hàng</td>
+</tr>
+<tr>
+<td>Mạnh</td>
+<td>ra 48–52</td>
+<td>ra 202–206</td>
+<td>Ảnh gốc quá phẳng, hoặc ảnh cho mạng xã hội cần bắt mắt lúc lướt</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Giữ điểm giữa 128 gần như cố định</strong>, nhích tối đa ±3.</p>
+<p>Trong Lightroom hoặc Camera Raw thang là 0–100: điểm 25% kéo xuống <strong>−5 đến −8</strong>, điểm 75% kéo lên <strong>+5 đến +8</strong>.</p>
+<blockquote class="warn">
+<p>⚠️ Cặp toạ độ chính xác này <strong>không có tutorial đơn lẻ nào công bố</strong> — nó là tổng hợp từ quy tắc "kéo điểm phần tư ±5–15" của tài liệu nhiếp ảnh. Coi là điểm khởi đầu, tinh bằng mắt trên ảnh thật của công ty.</p>
+</blockquote>
+<p><strong>Ảnh nội thất bán hàng dùng mức nhẹ.</strong> Cần trông sạch và thật, không "gồng".</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Vỡ dải màu.</strong> Kéo quá gắt hoặc tạo khúc gãy đột ngột sẽ làm vùng chuyển màu mượt vỡ thành từng mảng. <strong>Giữ đường cong mượt, dùng 2–3 điểm neo là đủ.</strong></p>
+</blockquote>
+<h3 id="vi-sao-dung-uong-cong-thay-vi-thanh-tuong-phan">Vì sao dùng đường cong thay vì thanh tương phản</h3>
+<p>Thanh tương phản chỉ xoay quanh <strong>một điểm giữa cố định</strong>. Đường cong cho bạn chỉnh <strong>vô số điểm</strong> trên dải 0–255 — nghĩa là bạn tăng tương phản ở đúng vùng cần, không đụng vùng khác. Đó là toàn bộ khác biệt.</p>
+<hr>
+<h2 id="143-hat-nhieu">14.3. Hạt nhiễu</h2>
+<h3 id="vi-sao-them-nhieu-lai-lam-anh-that-hon">Vì sao thêm nhiễu lại làm ảnh THẬT hơn</h3>
+<p>Máy render cho ảnh <strong>mịn tuyệt đối</strong> — không có nhiễu cảm biến như máy ảnh thật. Chính sự mịn đó tố cáo ảnh máy tính: mắt đọc là "nhựa".</p>
+<p>Hạt nhiễu còn làm hai việc: <strong>chống vỡ dải màu</strong> trên tường và trần trơn, và <strong>che bớt vết nén</strong> khi ảnh lên mạng xã hội.</p>
+<h3 id="bang-lieu-luong-phan-hai-bo-nghien-cuu-ong-y">Bảng liều lượng — phần hai bộ nghiên cứu ĐỒNG Ý</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Loại ảnh</th>
+<th>Amount</th>
+<th>Size</th>
+<th>Roughness</th>
+<th>Add Noise (Photoshop)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nội thất tiêu chuẩn</strong> — tư vấn, mạng xã hội</td>
+<td><strong>12–15</strong></td>
+<td>25</td>
+<td>45–50</td>
+<td>2–4%</td>
+</tr>
+<tr>
+<td>Ảnh in hồ sơ năng lực (300 DPI)</td>
+<td><strong>12–20</strong></td>
+<td>25–35</td>
+<td>45–50</td>
+<td>4–5%</td>
+</tr>
+<tr>
+<td>Ảnh sẽ bị nén mạnh (tin nhắn, story)</td>
+<td><strong>6–10</strong></td>
+<td>20</td>
+<td>45</td>
+<td>~1,5%</td>
+</tr>
+<tr>
+<td>Ảnh 4K trở lên, in khổ lớn</td>
+<td>18–25</td>
+<td>25–35</td>
+<td>45–55</td>
+<td>5–6%</td>
+</tr>
+<tr>
+<td>Ảnh nhỏ 1920×1080</td>
+<td>8–12</td>
+<td>15–20</td>
+<td>45</td>
+<td>2–3%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dạng nhiễu dùng <strong>Gaussian, đơn sắc</strong> — nhiễu màu làm ảnh trông bẩn.</p>
+<h3 id="mot-iem-hai-bo-nghien-cuu-choi-nhau-chua-giai-quyet">⚠️ Một điểm hai bộ nghiên cứu CHỎI NHAU — chưa giải quyết</h3>
+<p>Về ảnh <strong>tông sáng</strong> (phòng trắng, kem) và ảnh <strong>tông tối</strong> (phòng ngủ đèn vàng), hai bộ nói ngược nhau:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Ảnh tông sáng</th>
+<th>Ảnh tông tối</th>
+<th>Lý lẽ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bộ 1</strong></td>
+<td>Cần <strong>nhiều</strong> hơn (15–22)</td>
+<td>Cần <strong>ít</strong> hơn (8–14)</td>
+<td>Vùng sáng mịn dễ lộ vỡ dải màu; hạt trong vùng tối rất lộ, dễ thành bẩn</td>
+</tr>
+<tr>
+<td><strong>Bộ 2</strong></td>
+<td>Cần <strong>ít</strong> hơn (8–12)</td>
+<td>Cần <strong>nhiều</strong> hơn (15–20)</td>
+<td>Vùng sáng lộ hạt rõ nên dễ bẩn; vùng tối "nuốt" hạt nên cần bù</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cả hai lý lẽ đều nghe hợp lý</strong> — chúng nhìn từ hai phía của cùng một hiện tượng.</p>
+<blockquote class="pin">
+<p>📌 <strong>Cách giải: tự test một lần rồi chốt thành chuẩn công ty.</strong> Lấy hai ảnh của mình — một tông sáng, một tông tối. Mỗi ảnh xuất ba bản Amount 10 / 15 / 20. Xem ở kích thước xuất cuối. Chọn bản đẹp nhất cho từng loại. Ghi lại. Xong.</p>
+<p>Đây là ví dụ mẫu cho cả giáo trình: <strong>khi hai nguồn đáng tin chỏi nhau, đừng chọn bừa — hãy test.</strong></p>
+</blockquote>
+<h3 id="quy-tac-vang-ve-o-phan-giai">Quy tắc vàng về độ phân giải</h3>
+<blockquote>
+<p><strong>Luôn đánh giá hạt nhiễu ở KÍCH THƯỚC XUẤT CUỐI CÙNG, xem toàn ảnh — KHÔNG phóng 100%.</strong></p>
+</blockquote>
+<p>Hạt đặt cho file lớn sẽ trông mịn hơn nhiều khi xuất về file nhỏ, và ngược lại. Cùng một thiết lập, ảnh 1080px trông nặng hạt gấp đôi ảnh 4K.</p>
+<h3 id="khi-nao-khong-them-hat">Khi nào KHÔNG thêm hạt</h3>
+<ul>
+<li>Ảnh cận cảnh sản phẩm để làm ca-ta-lô — hạt phóng đại thành khuyết tật bề mặt.</li>
+<li>Ảnh sắp qua thêm một lần nén nặng nữa.</li>
+<li>Ảnh đã có nhiễu sẵn do render thiếu thời gian — thêm nữa là thành bẩn thật.</li>
+</ul>
+<hr>
+<h2 id="144-chinh-rieng-tung-dai-mau">14.4. Chỉnh riêng từng dải màu</h2>
+<p>Ba thành phần của mỗi dải: <strong>màu sắc</strong> (dịch tông), <strong>độ bão hoà</strong> (đậm nhạt), <strong>độ sáng</strong>.</p>
+<h3 id="bien-o-an-toan">Biên độ an toàn</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Dải</th>
+<th>Màu sắc</th>
+<th>Bão hoà</th>
+<th>Độ sáng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cam</strong> — gỗ, sàn</td>
+<td>±5</td>
+<td>+5 đến +10</td>
+<td>+3 đến +8</td>
+</tr>
+<tr>
+<td><strong>Vàng</strong> — nắng, đèn</td>
+<td>±5</td>
+<td>−10 đến +5</td>
+<td>±5</td>
+</tr>
+<tr>
+<td><strong>Lục</strong> — cây</td>
+<td>+8 đến +12</td>
+<td>−10 đến −5</td>
+<td>+5</td>
+</tr>
+<tr>
+<td><strong>Lam</strong> — trời, tông lạnh</td>
+<td>±8</td>
+<td>−5 đến +10</td>
+<td>±5</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Nguyên tắc chung: mỗi dải giữ trong ±10–15.</strong></p>
+<p>Dải <strong>cam và vàng</strong> là hai dải bạn chỉnh nhiều nhất — vì đó là gỗ, sàn, nắng, đèn vàng. Cũng chính là hai dải <strong>nguy hiểm nhất</strong>.</p>
+<blockquote class="warn">
+<h2 id="rui-ro-nghe-nghiep-khong-phai-rui-ro-tham-my">⚠️ RỦI RO NGHỀ NGHIỆP, KHÔNG PHẢI RỦI RO THẨM MỸ</h2>
+<p>Chỉnh lệch dải cam là <strong>lệch màu ván khách đã chốt trên bảng mẫu</strong>. Khách nhận nhà thấy tủ không giống ảnh → tranh chấp nghiệm thu.</p>
+<p><strong>Quy tắc bắt buộc: ảnh chốt hợp đồng thì gần như không đụng dải cam và vàng.</strong> Muốn ảnh ấm hơn thì làm ở bước tạo tông tổng thể, đừng kéo riêng dải gỗ.</p>
+</blockquote>
+<p>Mẹo hay dùng: <strong>hạ bão hoà dải lục</strong> một chút để cây bớt "xanh nhựa" — đây là chỉnh an toàn vì không ai chốt hợp đồng theo màu lá.</p>
+<hr>
+<h2 id="145-nuoc-anh-kieu-trung-quoc">14.5. "Nước ảnh" kiểu Trung Quốc</h2>
+<h3 id="su-that-can-biet-truoc">Sự thật cần biết trước</h3>
+<blockquote class="pin">
+<p>📌 <strong>"Nước ảnh" phần lớn đến từ RENDER — ánh sáng đúng, vật liệu đúng, cân bằng trắng đúng. Hậu kỳ chỉ tinh chỉnh.</strong></p>
+</blockquote>
+<p>Đây khớp đúng thứ tự ưu tiên của cả giáo trình. Ai nghĩ có thể lấy bộ lọc đắp lên ảnh sai sáng để thành ảnh Trung Quốc là đi sai đường ngay từ đầu.</p>
+<p>Một trong tám ca thực chiến ở Phụ lục E tuyên bố <strong>không hậu kỳ, không dùng LUT</strong> mà ảnh vẫn rất đẹp. Hai trong ba ca có ghi chép về LUT thì không dùng LUT.</p>
+<h3 id="tao-tong-bang-chia-tong-mau">Tạo tông bằng chia tông màu</h3>
+<p>Kỹ thuật cốt lõi: cho <strong>vùng sáng một tông, vùng tối một tông khác</strong> — thường là sáng ngả ấm, tối ngả lạnh, hoặc ngược lại.</p>
+<blockquote>
+<p><strong>Giữ độ bão hoà mỗi bánh xe DƯỚI 20.</strong> Quá đó là ảnh bị "nhuộm", trông rẻ tiền.</p>
+</blockquote>
+<p>Ba tông đang thịnh: <strong>kem ấm</strong> · <strong>xám cao cấp</strong> (trung tính hơi lạnh) · <strong>nâu trầm</strong>.</p>
+<h3 id="bo-lut-cua-cong-ty">Bộ LUT của công ty</h3>
+<p>Bạn <strong>tạo được LUT riêng</strong> và nên làm: chỉnh một ảnh mẫu cho thật ưng, xuất ra file <code>.cube</code>, cả team dùng chung. Ba đến năm bộ là đủ cho mọi tình huống.</p>
+<p>Lợi ích thật không phải đẹp hơn, mà là <strong>cả team ra ảnh đồng nhất</strong> — đúng tinh thần Chương 13 về bộ ảnh cùng một căn.</p>
+<p>⚠️ Công cụ làm đẹp ảnh trong Kujiale <strong>chưa xác nhận có nhận file LUT ngoài hay không</strong>. LUT tự tạo dùng ở Photoshop hoặc Lightroom.</p>
+<hr>
+<h2 id="146-cuu-vung-chay-va-vung-toi">14.6. Cứu vùng cháy và vùng tối</h2>
+<h3 id="thu-tu-ung-khi-anh-vua-chay-vua-toi">Thứ tự đúng khi ảnh vừa cháy vừa tối</h3>
+<blockquote>
+<p><strong>1. Kéo vùng sáng xuống → 2. Nâng vùng tối lên → 3. Chỉnh phơi sáng tổng → 4. Cuối cùng mới dùng đường cong</strong></p>
+</blockquote>
+<p>Làm ngược thứ tự là bạn chỉnh đi chỉnh lại mãi không xong.</p>
+<h3 id="nguong-cuu-uoc-hay-phai-render-lai">Ngưỡng: cứu được hay phải render lại</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tình trạng</th>
+<th>Xử lý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vùng sáng còn chi tiết mờ</td>
+<td>✅ Kéo vùng sáng xuống, cứu được</td>
+</tr>
+<tr>
+<td>Vùng sáng gần trắng nhưng còn chênh lệch</td>
+<td>🟡 Cứu được một phần, chấp nhận</td>
+</tr>
+<tr>
+<td><strong>Điểm ảnh bằng 255-255-255 trên mảng lớn</strong></td>
+<td>❌ <strong>Mất dữ liệu vĩnh viễn — RENDER LẠI</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cửa sổ cháy trắng là ca phổ biến nhất.</strong> Cách chữa gốc nằm ở Chương 13: hạ <code>外景亮度</code> trước, giữ <code>太阳光</code>. Ở hậu kỳ chỉ còn cách ghép một ảnh cửa sổ khác vào — tốn công hơn render lại.</p>
+<h3 id="nang-vung-toi-ma-khong-lam-anh-xam-bet">Nâng vùng tối mà không làm ảnh xám bệt</h3>
+<p>Kéo thanh vùng tối lên quá tay sẽ làm ảnh <strong>xám đục</strong> — mất điểm đen thật, ảnh trông như phủ sương.</p>
+<p>Cách đúng: nâng vùng tối vừa phải, rồi <strong>kéo điểm đen của đường cong xuống một chút</strong> để trả lại chỗ đen thật. Ảnh có ít nhất một vùng đen thật thì mới "trong".</p>
+<hr>
+<h2 id="147-ba-quy-trinh-co-so">14.7. Ba quy trình có số</h2>
+<h3 id="quy-trinh-nhanh-khoang-35-phut-khuyen-nghi-cho-nguoi-moi">Quy trình nhanh — khoảng 3–5 phút, khuyến nghị cho người mới</h3>
+<p>Chạy trên Lightroom hoặc Camera Raw:</p>
+<ol>
+<li><strong>Cân bằng trắng</strong> — chỉnh nếu ảnh ám vàng hoặc ám xanh</li>
+<li><strong>Vùng sáng</strong> kéo xuống, <strong>vùng tối</strong> kéo lên — cứu hai đầu trước</li>
+<li><strong>Đường cong chữ S nhẹ</strong> — 25% xuống −5 đến −8, 75% lên +5 đến +8</li>
+<li><strong>Chỉnh dải màu</strong> — chủ yếu hạ bão hoà lục; <strong>né dải cam vàng</strong></li>
+<li><strong>Chia tông màu</strong> — bão hoà dưới 20</li>
+<li><strong>Hạt nhiễu</strong> — Amount 12–15, Size 25, Roughness 45–50</li>
+<li><strong>Làm nét</strong> — vừa phải, xem ở kích thước xuất</li>
+<li><strong>Lưu thành mẫu (preset)</strong> → <strong>đồng bộ cho cả bộ ảnh</strong></li>
+</ol>
+<p>Bước 8 là bước ăn tiền nhất: ảnh đầu mất 5 phút, các ảnh sau mất 30 giây, <strong>và cả bộ đồng nhất</strong>.</p>
+<h3 id="quy-trinh-manh-khoang-812-phut">Quy trình mạnh — khoảng 8–12 phút</h3>
+<p>Chạy trên Photoshop, dùng khi cần cứu sáng nặng, ghép cửa sổ, hoặc tạo LUT. Xương sống: <strong>Curves → Color Lookup → Add Noise</strong>, mỗi thứ một lớp riêng để còn sửa được.</p>
+<h3 id="quy-trinh-gap-khoang-23-phut">Quy trình gấp — khoảng 2–3 phút</h3>
+<p>Trên điện thoại, dùng lúc đang tư vấn tại chỗ. Ứng dụng Snapseed hoặc ứng dụng chỉnh ảnh Trung Quốc. Chỉ làm ba việc: cứu hai đầu sáng tối, tăng tương phản nhẹ, thêm hạt rất nhẹ.</p>
+<h3 id="khong-mua-ban-quyen-adobe-thi-dung-gi">Không mua bản quyền Adobe thì dùng gì</h3>
+<p>Photopea chạy trên trình duyệt, miễn phí, làm được gần hết những việc trên. Đã dùng ở Chương 10 cho ảnh vân.</p>
+<hr>
+<h2 id="148-lam-net-va-khu-nhieu">14.8. Làm nét và khử nhiễu</h2>
+<p><strong>Làm nét bao nhiêu là đủ:</strong> vừa phải, và <strong>luôn đánh giá ở kích thước xuất cuối</strong>. Ảnh nội thất làm nét quá tay sẽ lộ viền trắng quanh cạnh tủ — dấu hiệu nghiệp dư rõ nhất.</p>
+<p><strong>Thứ tự: làm nét TRƯỚC, thêm hạt SAU.</strong> Làm ngược thì công cụ làm nét sẽ khuếch đại chính hạt bạn vừa thêm.</p>
+<p><strong>Khử nhiễu mâu thuẫn với thêm hạt</strong> — đừng làm cả hai. Ảnh render Kujiale vốn không có nhiễu, nên gần như không bao giờ cần khử nhiễu. Nếu ảnh có nhiễu thì đó là do render thiếu thời gian — <strong>sửa ở khâu render, không sửa ở hậu kỳ.</strong></p>
+<p>⚠️ Nhắc lại: công cụ khử nhiễu AI của Adobe <strong>không chạy trên JPG/PNG</strong>.</p>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-chot-lieu-hat-nhieu-cua-cong-ty">Bài 1 — Chốt liều hạt nhiễu của công ty</h3>
+<p>Lấy hai ảnh của mình: một tông sáng, một tông tối. Mỗi ảnh xuất ba bản Amount 10 / 15 / 20. Xem ở kích thước xuất cuối, không phóng.
+<strong>Đạt khi:</strong> chọn được liều cho từng loại và <strong>ghi lại thành chuẩn công ty</strong> — qua đó giải quyết luôn điểm hai bộ nghiên cứu chỏi nhau ở 14.3.</p>
+<h3 id="bai-2-mot-mau-cho-ca-bo">Bài 2 — Một mẫu cho cả bộ</h3>
+<p>Lấy bộ 6 ảnh đã render ở Chương 13. Hậu kỳ ảnh đầu theo quy trình nhanh, lưu thành mẫu, đồng bộ cho 5 ảnh còn lại, rồi chỉnh tay từng ảnh nếu cần.
+<strong>Đạt khi:</strong> cả 6 ảnh xếp cạnh nhau không ảnh nào lệch tông; và ảnh thứ 2 đến 6 mỗi ảnh mất dưới 1 phút.</p>
+<h3 id="bai-3-nhan-dien-anh-khong-cuu-uoc">Bài 3 — Nhận diện ảnh không cứu được</h3>
+<p>Lấy ba ảnh render có cửa sổ ở ba mức cháy khác nhau. Với mỗi ảnh, thử kéo vùng sáng xuống hết cỡ.
+<strong>Đạt khi:</strong> chỉ đúng được ảnh nào phải render lại, và giải thích được bằng khái niệm điểm ảnh 255.</p>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="14-t1"><span>Thuộc ba con số: đường cong ~8/255 · hạt 12–15 · mỗi dải ±10–15</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t2"><span>Đọc được biểu đồ cột, biết ảnh đang thiếu gì</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t3"><span>Kéo được đường cong chữ S nhẹ, giữ đường mượt, không quá 3 điểm neo</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t4"><span>Giải thích được vì sao đường cong mạnh hơn thanh tương phản</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t5"><span>Đánh giá hạt nhiễu ở <strong>kích thước xuất cuối</strong>, không phóng 100%</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t6"><span><strong>Không đụng dải cam và vàng</strong> trên ảnh chốt hợp đồng</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t7"><span>Giữ bão hoà chia tông màu dưới 20</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t8"><span>Nhận ra ảnh cháy 255 là phải render lại</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t9"><span>Nâng vùng tối mà vẫn giữ được một vùng đen thật</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t10"><span>Lưu mẫu và đồng bộ cho cả bộ ảnh</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="14-t11"><span>Làm nét trước, thêm hạt sau</span></label></li>
+</ul>
+<hr>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ảnh xám bệt, không "trong"</td>
+<td>Cột dồn giữa, hai đầu trống</td>
+<td>Đường cong chữ S nhẹ</td>
+</tr>
+<tr>
+<td>Vùng chuyển màu vỡ thành mảng</td>
+<td>Đường cong kéo gắt, có khúc gãy</td>
+<td>Giữ đường mượt, 2–3 điểm neo</td>
+</tr>
+<tr>
+<td>Ảnh xám đục như phủ sương</td>
+<td>Nâng vùng tối quá tay, mất điểm đen</td>
+<td>Kéo điểm đen của đường cong xuống chút</td>
+</tr>
+<tr>
+<td>Ảnh trông bẩn sau khi thêm hạt</td>
+<td>Quá liều, hoặc dùng nhiễu màu</td>
+<td>Hạ Amount, đổi sang Gaussian đơn sắc</td>
+</tr>
+<tr>
+<td>Hạt nhiễu biến mất sau khi đăng</td>
+<td>Nén của nền tảng ăn mất</td>
+<td>Với ảnh sẽ nén mạnh, để Amount 6–10</td>
+</tr>
+<tr>
+<td>Hạt trông nặng gấp đôi dự tính</td>
+<td>Đánh giá ở file lớn, xuất file nhỏ</td>
+<td>Luôn xem ở kích thước xuất cuối</td>
+</tr>
+<tr>
+<td>Viền trắng quanh cạnh tủ</td>
+<td>Làm nét quá tay</td>
+<td>Giảm, xem ở kích thước xuất</td>
+</tr>
+<tr>
+<td>Khách kêu màu tủ không giống ảnh</td>
+<td>Đã kéo dải cam hoặc vàng</td>
+<td>Ảnh chốt hợp đồng không đụng hai dải này</td>
+</tr>
+<tr>
+<td>Ảnh trông bị "nhuộm màu"</td>
+<td>Bão hoà chia tông quá 20</td>
+<td>Hạ xuống dưới 20</td>
+</tr>
+<tr>
+<td>Cửa sổ cháy, kéo kiểu gì cũng trắng</td>
+<td>Điểm ảnh đã bằng 255</td>
+<td><strong>Render lại</strong>, hạ <code>外景亮度</code></td>
+</tr>
+<tr>
+<td>Công cụ khử nhiễu AI không bấm được</td>
+<td>Nó chỉ nhận RAW</td>
+<td>Đúng như vậy, không phải lỗi</td>
+</tr>
+<tr>
+<td>Bộ 8 ảnh mỗi ảnh một tông</td>
+<td>Hậu kỳ từng ảnh riêng</td>
+<td>Lưu mẫu, đồng bộ cả bộ</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Đặc điểm file — chắc chắn:</strong>
+- Kujiale xuất JPG/PNG 8-bit, không có RAW; cháy 255 không cứu được
+- Công cụ khử nhiễu AI của Adobe chỉ chạy trên file RAW
+- Độ phân giải xuất tối đa <strong>phụ thuộc bậc hội viên</strong> — tài khoản công ty là bậc cao cấp cá nhân, không phải bản doanh nghiệp. Kiểm trong app, đừng lấy số của bản doanh nghiệp</p>
+<p><strong>Ba con số cốt lõi — hai bộ nghiên cứu độc lập hội tụ:</strong>
+- Đường cong dịch ~8/255 (bộ 1 nói 5–8, bộ 2 nói 8–12 → giao nhau ở 8)
+- Hạt nhiễu Amount 12–15 (bộ 1 nói 12–18, bộ 2 nói 10–15 → giao nhau 12–15)
+- Mỗi dải màu ±10–15</p>
+<p><strong>⚠️ Một điểm hai bộ CHỎI NHAU — chưa giải, phải tự test:</strong>
+- Ảnh tông sáng và tông tối cần nhiều hay ít hạt hơn. Xem 14.3 và Bài 1</p>
+<p><strong>Số tham khảo từ tài liệu nhiếp ảnh, không phải chuẩn render — đánh ⚠️:</strong>
+- Toạ độ cụ thể của đường cong chữ S
+- Toàn bộ bảng liều lượng hạt nhiễu
+- Biên độ an toàn từng dải màu
+- Thông số chia tông màu — phần lớn nguồn gốc từ tutorial chân dung, logic chuyển được nhưng số nên test lại</p>
+<p><strong>Chờ verify:</strong>
+- Công cụ làm đẹp ảnh trong Kujiale có nhận file LUT ngoài không
+- Không gian màu của file xuất — gần như chắc là sRGB, kiểm bằng cách mở file xem hồ sơ màu nhúng</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="13.html"><span class="dir">← Trước</span><div class="t">Chương 13 · Ánh sáng nâng cao</div></a><a class="next" href="pa.html"><span class="dir">Tiếp theo →</span><div class="t">Phụ lục A · Bộ chấm ảnh</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

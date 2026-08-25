@@ -79,7 +79,7 @@ Bilibili xem được từ Việt Nam không cần tài khoản (muốn lưu/the
 | 酷家乐王一 | 377492045 | ~17,8 vạn người theo dõi | Nhiều bài đánh đèn TÁCH THEO TỪNG LOẠI PHÒNG (khách kem, bếp, WC...) — hợp để xem trước khi làm phòng cùng loại |
 | 酷家乐也陌 | 208854896 | ~1,7 vạn người theo dõi | Kênh nhỏ nhưng nhiều mẹo thực chiến cận cảnh: tủ, 灯带, camera — hợp giai đoạn tinh chỉnh chi tiết |
 
-> ⚠️ **CẢNH BÁO — xem video cũ nhớ quy tắc ÷10:** phần lớn video/bài chia sẻ tham số đèn của các kênh trên quay theo **thang sáng cũ (0–800)**. UI hiện tại hiển thị đơn vị 瓦 (watt ảo) = số cũ ÷10. Chép thẳng số trong video vào bản mới là cháy ảnh — đọc lại hộp cảnh báo đầu C4 trước khi áp bất kỳ con số nào.
+> ⚠️ **CẢNH BÁO — xem video cũ phải xét hệ đơn vị:** phần lớn video và bài chia sẻ tham số đèn của các kênh trên quay theo **thang sáng cũ (0–800)**. Kujiale có ba hệ song song (thang cũ / `瓦` / `%`), và ⚠️ quy ước "`瓦` = số cũ ÷10" **chưa được xác nhận**. Chép thẳng số trong video vào bản mới là cháy ảnh — đọc lại hộp cảnh báo đầu C4 trước khi áp bất kỳ con số nào.
 
 ⚠️ Số người theo dõi ở trên là ảnh chụp tại thời điểm biên soạn (đầu 2026) và **ngày ra video mới nhất của từng kênh chưa kiểm chứng được từ bên ngoài** (trang kênh chặn công cụ tự động). Cách tự kiểm trong 1 phút: mở app/web Bilibili → tìm đúng tên kênh (đối chiếu UID) → vào 主页 (trang chủ kênh) → tab 投稿 (video đã đăng) → xem ngày video gần nhất.
 
@@ -172,7 +172,7 @@ Khi bạn đã đi hết Chương 0-9 và các khối luyện mắt, chốt lạ
 - [ ] Tôi hiểu 8 khối luyện mắt là lộ trình tuần tự theo tiêu chí, không phải lịch tuần cứng, và đã chốt nhịp với quản lý
 - [ ] Tôi thuộc 3 câu hỏi phân tích ảnh hằng ngày và 4 phép test tự soi (khử màu / nheo mắt / thu nhỏ / lật gương)
 - [ ] Tôi đã theo dõi 4 kênh Bilibili đúng UID và biết "vì sao đáng theo" của từng kênh
-- [ ] Tôi nhớ: 钟西米 ở Douyin, không phải Bilibili; và mọi số đèn trong video cũ phải xét quy tắc ÷10
+- [ ] Tôi nhớ: 钟西米 ở Douyin, không phải Bilibili; và mọi số đèn trong video cũ phải xét xem đang ở hệ đơn vị nào
 - [ ] Tôi đã có tài khoản RedNote đăng ký bằng +84, giao diện đã đổi ngôn ngữ, 15 từ khóa đã lưu sẵn để copy
 - [ ] Tôi đã tạo đủ 5 thư mục sưu tập theo phòng và dùng cùng bộ tên ở mọi nền tảng
 - [ ] Tôi biết quy tắc thay kênh (>6 tháng im lặng) và kiểm danh bạ mỗi quý
@@ -183,7 +183,7 @@ Khi bạn đã đi hết Chương 0-9 và các khối luyện mắt, chốt lạ
 | Hiện tượng | Nguyên nhân | Cách sửa |
 |---|---|---|
 | Lưu hàng trăm ảnh đẹp nhưng ảnh mình làm không khá lên | Sưu tập thay thế cho phân tích — lướt và bấm sao thì không luyện được mắt | Quy tắc "chưa trả lời đủ 3 câu thì chưa được lưu"; số lượng tối thiểu 1 ảnh/ngày là đủ |
-| Chép số đèn từ video Bilibili vào, ảnh cháy trắng | Video quay theo thang sáng cũ; UI hiện tại dùng 瓦 = số cũ ÷10 | Đọc lại hộp cảnh báo đầu C4; mọi số từ video cũ phải quy đổi rồi mới thử |
+| Chép số đèn từ video Bilibili vào, ảnh cháy trắng | Video quay theo thang sáng cũ; máy bạn có thể đang ở hệ khác | Đọc lại hộp cảnh báo đầu C4; kiểm đơn vị máy mình rồi mới thử |
 | Làm theo video mà không thấy nút như trong hình | Video quay trước 8/2025 — UI render đã gộp về 3 chế độ | Tra bảng ánh xạ tên cũ → mới ở C1; ưu tiên video đăng sau 8/2025 |
 | RedNote không gửi SMS về số +84 | Chính sách đăng ký quốc tế thay đổi theo đợt | Thử lại sau vài giờ, hoặc đăng ký bằng Apple ID; vẫn tắc thì báo quản lý |
 | Tìm trên RedNote không ra bài mà Google lại thấy | Tài khoản quốc tế không thấy đủ bài nội địa | Dùng `site:xiaohongshu.com + từ khóa` trên Google làm đường vòng |

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 12. Chi tiết công trình — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#4d90f9;--accent-soft:color-mix(in srgb, #4d90f9 13%, transparent);}</style>
+</head>
+<body data-slug="12">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">12</div>
+    <div class="ch-meta"><span class="tag">Chương 12</span><span class="tag ghost">≈ 19 phút đọc</span></div>
+    <h1 class="ch-title">Chi tiết công trình</h1>
+    <p class="ch-hook">Khe hắt có mép thật, đèn âm trần có vành, ray nam châm, khe gió — thứ chín trên mười bộ ảnh bỏ qua.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#121-vi-sao-may-centimet-nay-an-tien">12.1. Vì sao mấy centimet này ăn tiền</a></li><li><a href="#122-vao-au-e-dung">12.2. Vào đâu để dựng</a></li><li><a href="#123-tran-giat-cap-va-khe-hat-sang">12.3. Trần giật cấp và khe hắt sáng</a></li><li><a href="#124-en-am-tran">12.4. Đèn âm trần</a></li><li><a href="#125-ray-en-nam-cham">12.5. Ray đèn nam châm</a></li><li><a href="#126-khe-gio-ieu-hoa">12.6. Khe gió điều hòa</a></li><li><a href="#127-phao-nep-chan-tuong">12.7. Phào, nẹp, chân tường</a></li><li><a href="#128-hoc-tuong-va-khoet-lo">12.8. Hốc tường và khoét lỗ</a></li><li><a href="#129-dung-gi-truoc-bang-uu-tien">12.9. Dựng gì trước — bảng ưu tiên</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Dựng khe hắt sáng <strong>có mép thật</strong>, không phải vệt sáng dán phẳng
+- Chọn đèn âm trần có vành và đặt nguồn sáng ảo đúng chỗ để không bị model che
+- Dựng ray đèn nam châm theo cách chính thức, hợp trần căn hộ
+- Dựng khe gió điều hòa khe dài trên mặt đứng của trần
+- Làm chân tường âm, phào nẹp, hốc tường, khoét lỗ sàn
+- Biết <strong>dựng gì trước, bỏ gì đi</strong> khi chỉ có nửa buổi cho một căn</p>
+</blockquote>
+<hr>
+<h2 id="121-vi-sao-may-centimet-nay-an-tien">12.1. Vì sao mấy centimet này ăn tiền</h2>
+<p>Đặt hai ảnh cạnh nhau: một ảnh có khe hắt sáng vẽ giả bằng dải sáng dán lên trần, một ảnh có khe hắt <strong>dựng thành khối có độ sâu thật</strong>. Ai cũng thấy ảnh thứ hai thật hơn, nhưng ít người nói được vì sao. Não bạn đọc ba tín hiệu:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tín hiệu</th>
+<th>Cơ chế</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bóng đổ tiếp xúc</strong></td>
+<td>Góc trong khe luôn tối hơn mặt trần. Bật <code>环境阻光</code> (bóng môi trường — AO) khi render, mép khối sắc nét lên, não đọc đây là "hai mặt phẳng thật gặp nhau"</td>
+</tr>
+<tr>
+<td><strong>Thị sai</strong></td>
+<td>Máy ảnh lệch khỏi trực diện thì thành khe che một phần đáy khe. Chỉ khối 3D thật mới có. Ảnh dán phẳng luôn "trượt" sai</td>
+</tr>
+<tr>
+<td><strong>Dải sáng gọn hay loang</strong></td>
+<td><strong>Khe nông → sáng loang nhoè. Khe sâu → sáng bó gọn, tắt dần rõ.</strong> Đây là quan hệ then chốt của cả chương</td>
+</tr>
+</tbody>
+</table></div>
+<p>Điểm hay của chương này: <strong>hiệu quả cao mà không đòi kỹ thuật render cao.</strong> Nó là việc dựng hình, làm một lần đúng thì mọi góc render đều được hưởng.</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Nền trần dùng xuyên suốt chương: 2,7m thông thuỷ.</strong> Mọi số hạ trần, độ sâu khe dưới đây tính trên nền này. Căn cụ thể chênh vài centimet không ảnh hưởng cách làm.</p>
+</blockquote>
+<hr>
+<h2 id="122-vao-au-e-dung">12.2. Vào đâu để dựng</h2>
+<p>Toàn bộ công cụ phần thô nằm ở <strong><code>行业库</code> → <code>全屋硬装工具</code></strong> (Thư viện ngành → Bộ công cụ phần thô toàn nhà). Trên giao diện tiếng Anh, <code>行业库</code> hiện là <strong><code>Advanced</code></strong>, và <code>全屋硬装</code> là mục <strong><code>Construction</code></strong>, phím tắt <strong><code>⌥3</code></strong>.</p>
+<p><strong>Đường tắt nhanh hơn:</strong> click thẳng vào mặt trần trong khung nhìn 3D là vào luôn <code>吊顶设计</code> (thiết kế trần). Click mặt tường, mặt sàn cũng vậy. Dùng cách này cho công việc hằng ngày.</p>
+<h3 id="sau-cong-cu-loi">Sáu công cụ lõi</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Công cụ</th>
+<th>Nghĩa</th>
+<th>Dựng được gì</th>
+<th>Giới hạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>吊顶设计</code></td>
+<td>Thiết kế trần</td>
+<td>Trần giật cấp nhiều cấp, khe hắt sáng, khe gió trên mặt đứng, trần bo cong</td>
+<td>Chủ yếu khối đùn theo mặt phẳng; hình 3D tự do hạn chế</td>
+</tr>
+<tr>
+<td><code>墙面工具</code> / <code>墙面造型</code></td>
+<td>Tường, tạo hình tường</td>
+<td>Ốp tường, phào <code>角线</code>, nẹp <code>装饰线</code>, chân tường <code>踢脚线</code>, chỉ âm, mảng lồi lõm</td>
+<td><strong>Không khoét lỗ xuyên tường tuỳ ý</strong></td>
+</tr>
+<tr>
+<td><code>地面工具</code></td>
+<td>Sàn</td>
+<td>Ốp lát, ghép hoa, bệ nâng <code>地台</code>, nẹp chuyển sàn</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>壁龛工具</code></td>
+<td>Hốc tường</td>
+<td>Hốc chữ nhật, đặt kích thước và số lượng ngay ở trang <code>户型</code></td>
+<td>Hốc chuẩn hình hộp; dị hình phải làm cách khác</td>
+</tr>
+<tr>
+<td><code>楼板开洞</code></td>
+<td>Khoét lỗ sàn/trần</td>
+<td>Lỗ trên sàn hoặc trần</td>
+<td><strong>Chỉ sàn/trần, không phải tường đứng</strong></td>
+</tr>
+<tr>
+<td><code>自由造型</code> / <code>酷大师</code></td>
+<td>Dựng khối tự do</td>
+<td>Phép Boolean <code>交集/并集/差集</code>, <code>放样</code> có cung tròn, <code>倒角</code>, <code>拉伸</code>, <code>扫掠</code></td>
+<td>Là ứng dụng riêng, phải đăng ngược model về phương án</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>自由造型</code> trên giao diện tiếng Anh là <strong><code>Custom modeling</code></strong>, cũng nằm trong <code>Advanced</code>. Bản web riêng ở <strong>kudashi.com</strong>. Tài liệu chính thức ghi <strong><code>所有用户</code></strong> — tài khoản của bạn dùng được.</p>
+<h3 id="thang-leo-khi-cong-cu-san-khong-u">Thang leo khi công cụ sẵn không đủ</h3>
+<ol>
+<li><strong>Thử <code>吊顶</code> / <code>墙面</code> trước</strong> — nhanh nhất, nhập số trực tiếp.</li>
+<li><strong>Không được thì sang <code>自由造型</code> / <code>酷大师</code></strong> — có <code>差集</code> để khoét lỗ, <code>放样</code> chạy được theo cung tròn (thứ mà <code>放样</code> trong <code>全屋硬装</code> <strong>không</strong> làm được). Xong bấm <code>发布</code> → về phương án vào <code>我的 → 上传</code> kéo model vào.</li>
+<li><strong>Cuối cùng dùng SketchUp</strong> — bạn đã biết sẵn. Dựng chi tiết khó rồi tải lên. Điều kiện chính thức: <strong>đơn vị mm, cạnh ≤ 30 m, ≤ 3 triệu mặt, bản SketchUp ≤ 2024, ảnh vân RGB, không nhận vật liệu Vray, tên file không có dấu cách.</strong></li>
+<li><strong>Hoặc mượn model</strong> tủ định chế / model tham số / model thư viện để giả lập chi tiết.</li>
+</ol>
+<blockquote class="warn">
+<p>⚠️ <strong>Tường thẳng không khoét lỗ tuỳ ý được</strong> — chỉ đặt được cửa và ô mở. Muốn lỗ xuyên tường tuỳ ý phải lách bằng <code>门窗洞</code>, hoặc vẽ lại khối tường trong <code>自由造型</code> rồi <code>差集</code>. ⚠️ Kujiale đổi giao diện thường xuyên, kiểm lại theo <strong>Phiếu verify</strong>.</p>
+<p>💡 <strong>Hai chữ "lỗ mở" hoàn toàn khác nhau — đừng nhầm:</strong>
+<code>门窗洞</code> (giao diện Anh: <strong><code>Opening</code></strong>) nằm trong nhóm đặt cửa — là lỗ trên <strong>TƯỜNG</strong>.
+<code>洞口</code> (giao diện Anh: <strong><code>Floor opening</code></strong>) nằm trong nhóm thêm kết cấu — là lỗ trên <strong>SÀN hoặc TRẦN</strong>.</p>
+<p>💡 <strong>Bẫy dịch cần nhớ:</strong> nút <code>包管</code> (hộp bao ống) trên giao diện tiếng Anh bị dán nhãn là <strong><code>Partition wall</code></strong> — dịch lệch. Căn hộ nào cũng có hộp kỹ thuật phải bao ống; nếu bạn đang dùng bản tiếng Anh và đi tìm chữ "Pipe" thì sẽ không bao giờ thấy.</p>
+</blockquote>
+<hr>
+<h2 id="123-tran-giat-cap-va-khe-hat-sang">12.3. Trần giật cấp và khe hắt sáng</h2>
+<p>Đây là hạng mục <strong>đáng làm nhất cả chương</strong>: hiệu quả rất cao, công sức thấp, công cụ có sẵn.</p>
+<h3 id="so-that">Số thật</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Kích thước thật (mm)</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hạ trần giật cấp một cấp có khe</td>
+<td><strong>120–250</strong>, thường <strong>150</strong></td>
+<td>Nguồn Trung Quốc</td>
+</tr>
+<tr>
+<td>Hạ trần — khuyến cáo Việt Nam</td>
+<td>120–250, <strong>không quá 200</strong> so với trần gốc</td>
+<td>Vĩnh Tường / Knauf VN</td>
+</tr>
+<tr>
+<td>Giật cấp hở — chuẩn Việt Nam</td>
+<td>tổng ~<strong>140</strong> (70 mặt dựng + 70 hốc đèn)</td>
+<td>Knauf / Vĩnh Tường VN</td>
+</tr>
+<tr>
+<td>Giật cấp kín — Việt Nam</td>
+<td>60–80</td>
+<td>Vĩnh Tường VN</td>
+</tr>
+<tr>
+<td><strong>Chiều rộng khe hắt</strong> (đầu ra sáng)</td>
+<td><strong>60–150</strong>; hẹp nhất ~35 chỉ đủ nhét ray và cho ánh sáng cứng. <strong>Đẹp thì nên ≥ 80</strong></td>
+<td>Cộng đồng ⚠️</td>
+</tr>
+<tr>
+<td><strong>Độ sâu khe</strong></td>
+<td><strong>60–100</strong> cho nhà ở; công trình lớn ~150</td>
+<td>Cộng đồng ⚠️</td>
+</tr>
+<tr>
+<td>Chiều cao vách chắn sáng</td>
+<td>~80 — giữ đèn thấp hơn mép trần 10–20 để giấu đèn</td>
+<td>Cộng đồng ⚠️</td>
+</tr>
+<tr>
+<td>Đèn LED cách mép khe</td>
+<td>~20</td>
+<td>Nguồn VN ⚠️</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="thao-tac">Thao tác</h3>
+<ol>
+<li>Click mặt trần → vào <code>吊顶设计</code>.</li>
+<li>Dùng <code>矩形</code> (chữ nhật) hoặc <code>偏移</code> (offset) vẽ vùng giật cấp. Với trần 2,7m, đặt <strong>hạ trần <code>下吊</code> = 100–150mm</strong> cho cấp có khe — đủ sâu mà không bí.</li>
+<li>Chọn một <code>造型线</code> (đường tạo hình) → <strong>tick <code>灯带</code></strong> trong bảng bên trái để bật khe hắt. Vào <code>剖面</code> (mặt cắt) chỉnh <strong><code>灯槽宽度</code> (rộng khe) = 60–100mm</strong>. <strong>Đừng để mặc định 50 — quá hẹp, sáng ra cứng.</strong></li>
+<li>Copy đường đã đặt (giữ Ctrl) dán sang các cạnh còn lại để khe chạy liền, tránh đứt đoạn.</li>
+</ol>
+<blockquote class="pin">
+<p>📌 Nhớ lại 12.1: <strong>khe nông cho sáng loang nhoè, khe sâu cho sáng bó gọn.</strong> Nếu render ra dải sáng nhoè không có hình, thủ phạm thường không phải đèn mà là <strong>khe quá nông</strong>.</p>
+</blockquote>
+<h3 id="tran-bo-cong">Trần bo cong</h3>
+<p>Trong <code>吊顶</code> dùng công cụ <code>弧线</code> vẽ cung, nhập đường kính chính xác. Nhưng <strong><code>放样</code> trong <code>全屋硬装</code> không chạy theo cung tròn</strong> — nếu cần khe hắt chạy theo cung phức tạp thì phải sang <code>自由造型</code> (ở đó có <code>曲线放样</code>).</p>
+<hr>
+<h2 id="124-en-am-tran">12.4. Đèn âm trần</h2>
+<p>Đây là hạng mục <strong>đáng làm thứ hai</strong>, và phần lớn kết quả nằm ở khâu <strong>chọn model</strong>, không phải kỹ thuật.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Loại đèn</th>
+<th>Đường kính khoét (mm)</th>
+<th>Độ sâu lắp</th>
+<th>Đặc điểm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>筒灯</code> — đèn âm trần thường</td>
+<td><strong>75</strong> (loại "4 tấc" ~100, "3 tấc" 90)</td>
+<td>trần cần ≥ 80–100</td>
+<td>Ánh sáng toả rộng</td>
+</tr>
+<tr>
+<td><code>射灯</code> — đèn rọi</td>
+<td><strong>55–75</strong> (nhỏ hơn <code>筒灯</code>)</td>
+<td>thân cao 60–100</td>
+<td>Chùm hẹp, chỉnh được góc</td>
+</tr>
+<tr>
+<td>Loại không vành (trimless)</td>
+<td>55–75</td>
+<td>cần trần dày, đổ thạch cao ôm</td>
+<td>Phẳng lì với mặt trần</td>
+</tr>
+<tr>
+<td>Loại chống chói chôn sâu</td>
+<td>75 (cũng có 90/120)</td>
+<td>thân ~100, chôn nguồn ≥ 60</td>
+<td>"Thấy sáng không thấy đèn" — cần hạ trần ≥ 80–100</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Khoảng cách bố trí:</strong> cách tường ~<strong>300–400mm</strong>; các đèn cách nhau <strong>800–1200mm</strong> khi rửa tường.</p>
+<blockquote class="tip">
+<p>💡 <strong>Mẹo quan trọng nhất mục này:</strong> đặt <strong>nguồn sáng ảo lệch XUỐNG dưới model đèn 10–30mm.</strong> Nếu đặt trùng vị trí model, chính model đèn sẽ che nguồn sáng và bạn được một cái đèn không phát sáng.</p>
+</blockquote>
+<p>Chọn model có <strong>vành và độ sâu thật</strong>, đừng lấy model đèn dẹt như miếng dán. Vành tạo bóng đổ nhỏ quanh mép — đúng thứ não đọc là "đèn thật lắp vào trần thật".</p>
+<blockquote class="warn">
+<p>⚠️ Module <code>照明设计</code> bản mới có chức năng <code>自动挖洞</code> — thả đèn vào trần là <strong>tự khoét lỗ</strong>, bỏ được bước khoét tay. Nhưng module đó là <strong>chức năng doanh nghiệp</strong>, tài khoản cá nhân chưa dùng được. Ghi ở đây để bạn biết mà không phải đi tìm.</p>
+</blockquote>
+<hr>
+<h2 id="125-ray-en-nam-cham">12.5. Ray đèn nam châm</h2>
+<p>Ray đèn nam châm (<code>磁吸轨道灯</code>) là mặc định của thiết kế Trung Quốc hiện nay, và rất hợp căn hộ trần thấp.</p>
+<h3 id="chon-kieu-lap-truoc-khi-dung">Chọn kiểu lắp trước khi dựng</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Kiểu</th>
+<th>Ăn chiều cao</th>
+<th>Dùng khi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lắp nổi siêu mỏng</strong> (<code>明装超薄</code>)</td>
+<td><strong>~3 cm</strong></td>
+<td>✅ <strong>Mặc định cho căn hộ.</strong> Không cần làm trần thạch cao toàn bộ, chỉ chừa đầu chờ điện rồi bắt vít</td>
+</tr>
+<tr>
+<td>Âm trần (<code>嵌入式</code>)</td>
+<td>Rãnh sâu 35–50mm, <strong>đòi phải có trần hạ</strong></td>
+<td>Chỉ khi đã có giật cấp cục bộ ở đúng vị trí</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Không làm trần thạch cao phẳng toàn bộ</strong> (<code>满吊</code>) cho căn hộ — nó ăn mất 12–15cm và gây bí bức. Cách đúng là <strong>ray nổi siêu mỏng + giật cấp cục bộ một dải</strong> để giấu khe hắt và điều hòa âm trần.</p>
+</blockquote>
+<h3 id="kich-thuoc-that">Kích thước thật</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Thông số</th>
+<th>Số</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bề rộng ray gia dụng</td>
+<td><strong>20–25 mm</strong> (loại công trình dùng 35–40 mm)</td>
+</tr>
+<tr>
+<td>Rãnh âm trần, nếu làm âm</td>
+<td><strong>rộng hơn ray 2–3 mm</strong> — ray 20mm thì rãnh 22–23mm</td>
+</tr>
+<tr>
+<td>Độ sâu rãnh chôn</td>
+<td>35–50 mm</td>
+</tr>
+<tr>
+<td>Chiều dài ray phổ biến</td>
+<td>1 / 1,5 / 2 / 3 m, ghép được</td>
+</tr>
+<tr>
+<td>Module đèn rọi</td>
+<td>Ø 50–80 mm, cao 60–100 mm</td>
+</tr>
+<tr>
+<td>Module đèn khe dài</td>
+<td>dài 200–400 mm, rộng 60–100 mm</td>
+</tr>
+<tr>
+<td>Chừa đầu ray để kiểm tra</td>
+<td>100 mm cuối ray</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="thao-tac-cach-chinh-thuc">Thao tác — cách chính thức</h3>
+<p>Tài liệu chính thức của Kujiale (<code>所有用户</code>) hướng dẫn dựng bằng <code>吊顶设计</code>, không phải bằng cách thả model:</p>
+<ol>
+<li>Vào <code>行业库</code> → mở <strong><code>吊顶设计</code></strong>.</li>
+<li>Dùng công cụ <strong><code>矩形</code></strong> vẽ dải ray, <strong>bề rộng bằng bề rộng ray thật</strong> (ví dụ 25–60mm), đặt <strong><code>凸出</code> = 0</strong> (không lồi).</li>
+<li>Gán vật liệu <strong><code>黑钛</code></strong> (titan đen) cho mặt ray → ra khung ray đen.</li>
+<li>Gán <strong><code>发光材质</code></strong> (vật liệu tự phát sáng) cho phần khe sáng.</li>
+<li>Đèn âm trần nhỏ đi kèm: dùng công cụ vẽ tròn, tìm tâm, bán kính ~40mm.</li>
+</ol>
+<blockquote class="tip">
+<p>💡 <strong>Đừng thả hàng chục nguồn sáng rời cho một dải ray</strong> — cảnh sẽ nặng và render lâu. Dùng <code>发光材质</code> cho phần khe, rồi chỉ đặt vài nguồn sáng thật ở các module rọi cần quầng sáng. Phần đánh đèn cho ray học ở Chương 13.</p>
+<p>⚠️ Bạn sẽ gặp tài liệu dạy dựng ray bằng cách <strong>vẽ rãnh âm trần rồi thả model <code>线性射灯</code> + <code>阵列</code></strong>. Cách đó <strong>đúng nhưng đòi phải hạ trần</strong>, và bề rộng rãnh phải theo công thức <strong>ray + 2–3mm</strong>, không phải một con số cố định. Với căn hộ, cách chính thức ở trên hợp hơn.</p>
+</blockquote>
+<hr>
+<h2 id="126-khe-gio-ieu-hoa">12.6. Khe gió điều hòa</h2>
+<p>Chi tiết bị bỏ quên nhiều nhất, mà lại rất lộ khi thiếu: trần âm điều hòa mà không có miệng gió thì não biết ngay là thiếu thứ gì đó.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Kích thước thật (mm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Miệng ra gió khe dài (<code>出风口</code>)</td>
+<td>rộng <strong>150</strong> × dài <strong>600–1000</strong></td>
+</tr>
+<tr>
+<td>Miệng hồi gió (<code>回风口</code>)</td>
+<td>rộng <strong>230–260</strong> × dài 600–1000</td>
+</tr>
+<tr>
+<td>Cửa kiểm tra (<code>检修口</code>)</td>
+<td><strong>400 × 400</strong> (có nơi 350×350 hoặc 450×450)</td>
+</tr>
+<tr>
+<td>Khe gió tuyến tính hẹp</td>
+<td>rộng 30–50 ⚠️ ước tính ngành</td>
+</tr>
+<tr>
+<td>Đầu báo khói</td>
+<td>Ø ~100, lồi ~40 ⚠️</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Thao tác — có bài hướng dẫn chính thức, <code>所有用户</code>:</strong></p>
+<blockquote>
+<p><code>吊顶设计</code> → công cụ <code>矩形</code> hoặc <code>偏移</code> → <code>立面编辑</code> (chỉnh mặt đứng) → đặt <code>出风口</code> → xem lại bằng <code>吊顶漫游</code> → <code>返回装修</code></p>
+</blockquote>
+<p>Điểm mấu chốt là <strong><code>立面编辑</code></strong> — khe gió nằm trên <strong>mặt đứng</strong> của trần giật cấp, không phải mặt phẳng dưới. Vào đúng chế độ này mới đặt được.</p>
+<blockquote class="warn">
+<p>⚠️ Model <code>出风口</code> trong thư viện chất lượng không đều, <strong>nhiều model dựng sai hướng</strong>. Xoay xem trước khi dùng.</p>
+</blockquote>
+<hr>
+<h2 id="127-phao-nep-chan-tuong">12.7. Phào, nẹp, chân tường</h2>
+<p>Các đường này tạo <strong>nét và bóng đổ nhỏ</strong>, làm nổi khối và tách bạch mảng tường với trần. Công sức thấp, hiệu quả cao.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Kích thước thật (mm)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phào thạch cao</td>
+<td>rộng 60–200; nhà ở phổ biến <strong>80–150</strong>; phong cách tối giản chọn hẹp</td>
+</tr>
+<tr>
+<td>Nẹp kim loại thu cạnh</td>
+<td>5–10 bề mặt</td>
+</tr>
+<tr>
+<td>Chân tường truyền thống</td>
+<td>cao <strong>60–110</strong>, lồi ra khỏi tường 5–10</td>
+</tr>
+<tr>
+<td><strong>Chân tường âm</strong></td>
+<td>phẳng với tường hoặc lõm 10–20, cao <strong>40–80</strong></td>
+</tr>
+<tr>
+<td>Chỉ âm giữa tường và trần</td>
+<td>rộng 10–20, sâu 10–20 ⚠️ ước tính thi công</td>
+</tr>
+<tr>
+<td>Khe co giãn chân tường</td>
+<td>chừa ~10</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Chân tường âm — thao tác chính thức (<code>所有用户</code>):</strong></p>
+<blockquote>
+<p><code>行业库</code> → <code>全屋硬装</code> → <code>铺贴踢脚线</code> → giữ <strong>Shift</strong> chọn nhiều đường, thả Shift rồi click chuột trái để đặt → click vào chân tường để chỉnh <strong><code>工艺类型</code></strong> (chọn kiểu âm), <strong><code>高度</code></strong>, <strong><code>缝隙</code></strong>, <strong><code>材质</code></strong></p>
+</blockquote>
+<p>Chân tường thường thì dùng <code>成品踢脚线</code>, có <strong><code>材质刷</code> phím tắt <code>M</code></strong> để đồng bộ vật liệu nhanh.</p>
+<p>Mặc định công cụ phủ cả phòng; giữ <strong>Ctrl</strong> để chỉ rải một mặt. Muốn một mặt tường nửa có nửa không: <code>拆分墙体</code> (tách tường) tại kích thước cần rồi chỉ rải một phần.</p>
+<p><strong>Chỉ âm giữa tường và trần</strong> không có công cụ chuyên. Giả bằng cách để mép trần giật cấp lùi vào + khe hẹp gán vật liệu đen; hoặc dựng khe trong <code>自由造型</code>.</p>
+<hr>
+<h2 id="128-hoc-tuong-va-khoet-lo">12.8. Hốc tường và khoét lỗ</h2>
+<p><strong>Hốc tường chuẩn (<code>壁龛</code>) — nhanh nhất:</strong> ở trang <code>户型</code>, chọn công cụ <code>壁龛</code>, đặt vào tường, click để chỉnh <strong>kích thước và số lượng</strong>.</p>
+<p><strong>Hốc dị hình:</strong> đặt <code>门窗洞</code> trong <code>户型</code> → vào <code>全屋硬装</code> → vẽ mặt dị hình + <code>拉伸</code> → dùng <code>矩形</code> bù mặt tại vị trí ô mở → vẽ tạo hình hốc mong muốn.</p>
+<p><strong>Khoét lỗ sàn hoặc trần (<code>洞口</code>):</strong> dùng <code>直线</code> / <code>弧形</code> / <code>矩形</code>, chuyển giữa chế độ <code>平面</code> (sàn) và <code>顶面</code> (trần), một lần vẽ được nhiều lỗ. Có thêm <code>连接 / 拆分 / 对齐</code> và bốn kiểu góc <code>内圆角 / 外圆角 / 内直角 / 切角</code>. Dùng cho thông tầng, lỗ cầu thang.</p>
+<p><strong>Khoét lỗ tường cong:</strong> <code>自由造型</code> → vẽ khối lỗ → <code>差集</code>.</p>
+<hr>
+<h2 id="129-dung-gi-truoc-bang-uu-tien">12.9. Dựng gì trước — bảng ưu tiên</h2>
+<p>Khi chỉ có nửa buổi cho một căn, làm theo thứ tự này.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hạng</th>
+<th>Chi tiết</th>
+<th>Hiệu quả</th>
+<th>Công sức</th>
+<th>Quyết định</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><strong>Khe hắt sáng có mép thật</strong> (sâu 80mm+)</td>
+<td>Rất cao</td>
+<td>Thấp</td>
+<td><strong>Làm luôn, mọi cảnh</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><strong>Đèn âm trần có vành và độ sâu</strong></td>
+<td>Rất cao</td>
+<td>Thấp</td>
+<td><strong>Làm luôn</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐⭐</td>
+<td><strong>Màn TV có phát nội dung</strong></td>
+<td>Rất cao</td>
+<td>Rất thấp</td>
+<td><strong>Làm luôn</strong></td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐</td>
+<td>Miệng gió khe dài</td>
+<td>Cao</td>
+<td>Trung bình</td>
+<td>Làm cho phòng khách và bếp</td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐</td>
+<td>Ray đèn nam châm</td>
+<td>Cao</td>
+<td>Trung bình</td>
+<td>Làm nếu concept là không đèn chủ</td>
+</tr>
+<tr>
+<td>⭐⭐⭐⭐</td>
+<td>Chân tường âm, nẹp chuyển sàn</td>
+<td>Cao</td>
+<td>Thấp</td>
+<td>Làm — bóng đổ nhỏ nâng khối</td>
+</tr>
+<tr>
+<td>⭐⭐⭐</td>
+<td>Phào, nẹp trần, chỉ âm</td>
+<td>Trung bình–cao</td>
+<td>Thấp</td>
+<td>Làm theo phong cách</td>
+</tr>
+<tr>
+<td>⭐⭐⭐</td>
+<td>Cửa kiểm tra điều hòa</td>
+<td>Trung bình</td>
+<td>Thấp</td>
+<td>Làm cùng miệng gió</td>
+</tr>
+<tr>
+<td>⭐⭐</td>
+<td>Đầu báo khói, loa âm trần</td>
+<td>Thấp–TB</td>
+<td>Thấp</td>
+<td>Chỉ khi trần trống và có cận cảnh</td>
+</tr>
+<tr>
+<td>⭐</td>
+<td>Ổ điện, công tắc</td>
+<td>Thấp</td>
+<td>Trung bình</td>
+<td><strong>Bỏ qua</strong> trừ cận cảnh tường</td>
+</tr>
+<tr>
+<td>⭐</td>
+<td>Khe cửa, bản lề, tay nắm</td>
+<td>Rất thấp</td>
+<td>Cao</td>
+<td><strong>Bỏ qua</strong> trừ cận cảnh cửa</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-khe-hat-sang-co-mep-that">Bài 1 — Khe hắt sáng có mép thật</h3>
+<p>Trên căn hộ mẫu, dựng trần giật cấp một cấp quanh phòng khách: hạ trần 150mm, khe rộng 80mm. Render hai lần — một lần khe sâu 60mm, một lần sâu 100mm, giữ nguyên mọi thứ khác.
+<strong>Đạt khi:</strong> nhìn hai ảnh cạnh nhau, thấy rõ ảnh khe sâu cho dải sáng <strong>bó gọn</strong> hơn, ảnh khe nông cho sáng <strong>loang</strong> hơn. Nói được vì sao.</p>
+<h3 id="bai-2-en-am-tran-ung-cach">Bài 2 — Đèn âm trần đúng cách</h3>
+<p>Đặt một hàng đèn âm trần rửa tường TV: cách tường 350mm, các đèn cách nhau 1000mm. Chọn model có vành. Đặt nguồn sáng ảo <strong>lệch xuống dưới model 20mm</strong>.
+<strong>Đạt khi:</strong> đèn có phát sáng (không bị model che), và nhìn thấy bóng đổ nhỏ quanh vành đèn.</p>
+<h3 id="bai-3-ray-nam-cham-va-khe-gio">Bài 3 — Ray nam châm và khe gió</h3>
+<p>Dựng một dải ray nam châm nổi rộng 25mm chạy dọc trục phòng khách theo cách chính thức ở 12.5. Trên mặt đứng của dải trần giật cấp, đặt một miệng gió khe dài 150 × 800mm.
+<strong>Đạt khi:</strong> ray có khung đen và khe sáng riêng biệt; miệng gió nằm đúng trên <strong>mặt đứng</strong>, không phải mặt phẳng dưới.</p>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="12-t1"><span>Nói được ba tín hiệu não dùng để phân biệt khe thật với khe vẽ giả</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t2"><span>Vào được <code>全屋硬装</code> cả bằng <code>行业库</code> lẫn đường tắt click mặt trần</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t3"><span>Phân biệt được <code>门窗洞</code> (lỗ tường) với <code>洞口</code> (lỗ sàn/trần)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t4"><span>Dựng được trần giật cấp có khe hắt, tự nhập <code>灯槽宽度</code> thay vì để mặc định</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t5"><span>Đặt nguồn sáng ảo lệch xuống dưới model đèn 10–30mm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t6"><span>Chọn được kiểu lắp ray nam châm hợp trần căn hộ, giải thích được vì sao không làm trần phẳng toàn bộ</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t7"><span>Đặt được miệng gió trên <strong>mặt đứng</strong> của trần bằng <code>立面编辑</code></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t8"><span>Làm được chân tường âm với <code>工艺类型</code>, <code>高度</code>, <code>缝隙</code></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t9"><span>Biết leo thang khi công cụ sẵn không đủ: <code>吊顶</code>/<code>墙面</code> → <code>自由造型</code> → SketchUp</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="12-t10"><span>Thuộc bảng ưu tiên 12.9 — biết cái gì bỏ được</span></label></li>
+</ul>
+<hr>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dải sáng khe hắt nhoè, không có hình</td>
+<td>Khe quá nông, hoặc để <code>灯槽宽度</code> mặc định 50</td>
+<td>Tăng độ sâu khe lên 80–100mm, rộng 60–100mm</td>
+</tr>
+<tr>
+<td>Đèn âm trần không phát sáng</td>
+<td>Nguồn sáng ảo bị chính model đèn che</td>
+<td>Hạ nguồn sáng xuống dưới model 10–30mm</td>
+</tr>
+<tr>
+<td>Trần trông bí, phòng thấp</td>
+<td>Làm trần phẳng toàn bộ, ăn 12–15cm</td>
+<td>Chỉ giật cấp cục bộ một dải, ray dùng loại nổi siêu mỏng</td>
+</tr>
+<tr>
+<td>Khe hắt đứt đoạn ở góc</td>
+<td>Đặt <code>灯带</code> cho từng cạnh rời</td>
+<td>Copy đường đã đặt bằng Ctrl dán sang các cạnh</td>
+</tr>
+<tr>
+<td>Miệng gió nằm sai mặt</td>
+<td>Đặt trên mặt phẳng dưới thay vì mặt đứng</td>
+<td>Vào <code>立面编辑</code> rồi mới đặt</td>
+</tr>
+<tr>
+<td>Model miệng gió quay sai hướng</td>
+<td>Model thư viện dựng sai</td>
+<td>Xoay xem trước khi dùng, đổi model khác</td>
+</tr>
+<tr>
+<td>Không khoét được lỗ trên tường thẳng</td>
+<td>Công cụ tường không cho khoét tuỳ ý</td>
+<td>Lách bằng <code>门窗洞</code>, hoặc <code>自由造型</code> + <code>差集</code></td>
+</tr>
+<tr>
+<td>Khe hắt chạy theo cung bị gãy khúc</td>
+<td><code>放样</code> trong <code>全屋硬装</code> không nhận cung tròn</td>
+<td>Dựng trong <code>自由造型</code> (có <code>曲线放样</code>)</td>
+</tr>
+<tr>
+<td>Tải model SketchUp lên bị lỗi</td>
+<td>Sai đơn vị, quá 30m, quá 3 triệu mặt, có vật liệu Vray, tên file có dấu cách</td>
+<td>Kiểm theo điều kiện ở 12.2</td>
+</tr>
+<tr>
+<td>Rãnh ray nam châm rộng quá, nhìn hụt</td>
+<td>Bê một con số cố định thay vì tính</td>
+<td>Rãnh = <strong>bề rộng ray + 2–3mm</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức — help center Kujiale (đều ghi đối tượng <code>所有用户</code>):</strong>
+- Ray đèn nam châm: <code>吊顶设计</code> → <code>矩形</code> → <code>黑钛</code> + <code>发光材质</code> — bài <code>3FO4K4VK9ALF</code>, cập nhật 12/07/2024
+- Trần không đèn chủ — bài <code>3FO4K4VK2VKI</code>
+- Trần thạch cao giật cấp một cấp — bài <code>3FO4K4VUJWYA</code>, cập nhật 10/07/2024
+- Miệng gió điều hòa trên mặt đứng trần — bài <code>3FO4K4VYVTEP</code>, cập nhật 11/07/2024
+- Chân tường âm — bài <code>3FO4K4VHSEMQ</code>
+- Chân tường thành phẩm và <code>材质刷</code> phím <code>M</code> — bài <code>3FO4K4VQJ7Q7</code>, cập nhật 19/08/2025
+- Hốc tường — bài <code>3FO4K4VQ7N5Q</code>
+- Khoét lỗ sàn/trần — bài <code>3FO4K4WML3P9</code>
+- <code>酷大师</code> dựng khối tự do — bài <code>3FO4K4VW8YCX</code>, cập nhật 06/06/2025
+- Điều kiện tải model SketchUp — bài <code>3FO4K4VYL1KH</code></p>
+<p><strong>Tiêu chuẩn và quy cách ngành:</strong>
+- Hạ trần, giật cấp hở/kín — Vĩnh Tường, Knauf Việt Nam
+- Khoảng cách bố trí đèn âm trần — tham chiếu GB 50034 (Trung Quốc)
+- Kích thước miệng gió, cửa kiểm tra — quy cách nhà sản xuất Trung Quốc</p>
+<p><strong>Số cộng đồng, chưa có chuẩn chính thức — đánh ⚠️:</strong>
+- Chiều rộng và độ sâu khe hắt sáng, chiều cao vách chắn sáng
+- Khe gió tuyến tính hẹp 30–50mm, đầu báo khói
+- Chỉ âm giữa tường và trần</p>
+<p><strong>Chờ verify trong app (Phụ lục B):</strong>
+- Tường thẳng có nút khoét lỗ trong bản hiện tại không
+- Con số <code>凸出</code> của trần giật cấp một cấp trong bài chính thức là <strong>bề rộng dải</strong> hay <strong>độ hạ trần</strong> — tài liệu không ghi rõ, đừng bê số vào bản vẽ trước khi xem panel thật
+- Chất lượng model miệng gió và model ray trong thư viện — thay đổi liên tục</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="11.html"><span class="dir">← Trước</span><div class="t">Chương 11 · Model và bày đồ kể chuyện</div></a><a class="next" href="13.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 13 · Ánh sáng nâng cao</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

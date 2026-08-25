@@ -35,6 +35,16 @@ CHAPTERS = [
      "AI render ở đâu hợp lệ, ở đâu là rủi ro pháp lý với công ty bán đồ thật.", "#9cc2f4", "ch"),
     ("09", "09-luyen-mat-nguon-theo-doi.md", "9", "Chương 9", "Luyện mắt và nguồn theo dõi",
      "Thói quen dài hạn: phân tích ảnh mỗi ngày, kênh phải theo, đồ án tốt nghiệp.", "#7fb0f6", "ch"),
+    ("10", "10-texture-nguon-chuan-va-chong-lap-van.md", "10", "Chương 10", "Ảnh vân — nguồn, chuẩn, chống lặp",
+     "Bảy phần của ảnh đẹp nằm ở ảnh vân: lấy ở đâu, chuẩn thế nào, và phá lỗi mười cánh tủ một vân.", "#6ea6f7", "ch"),
+    ("11", "11-model-va-bay-do-ke-chuyen.md", "11", "Chương 11", "Model và bày đồ kể chuyện",
+     "Nhận model rác bằng mắt, bày đồ có hơi người, và bản địa hoá cho khách Việt.", "#5d9bf8", "ch"),
+    ("12", "12-chi-tiet-cong-trinh.md", "12", "Chương 12", "Chi tiết công trình",
+     "Khe hắt có mép thật, đèn âm trần có vành, ray nam châm, khe gió — thứ chín trên mười bộ ảnh bỏ qua.", "#4d90f9", "ch"),
+    ("13", "13-anh-sang-nang-cao.md", "13", "Chương 13", "Ánh sáng nâng cao",
+     "Bốn con đường bố đèn, nắng qua rèm voan đọc được hình, và cách thoát khỏi việc chép số.", "#3d85fa", "ch"),
+    ("14", "14-hau-ky-nang-cao.md", "14", "Chương 14", "Hậu kỳ nâng cao",
+     "Đường cong, hạt nhiễu, dải màu và nước ảnh kiểu Trung Quốc — đánh bóng chứ không cứu chữa.", "#2e7afb", "ch"),
     ("pa", "phu-luc-a-bo-cham-anh.md", "A", "Phụ lục A", "Bộ chấm ảnh",
      "Phiếu 10 tiêu chí × 5 điểm — nghiệm thu ảnh và chấm đồ án tốt nghiệp.", "#8be3c6", "pl"),
     ("pb", "phu-luc-b-phieu-verify-app.md", "B", "Phụ lục B", "Phiếu khám phá app",
@@ -43,6 +53,8 @@ CHAPTERS = [
      "97 thuật ngữ Trung – Việt chia 6 nhóm, in ra dán cạnh màn hình.", "#d4b9ff", "pl"),
     ("pd", "phu-luc-d-tu-vung-prompt-ai.md", "D", "Phụ lục D", "Từ vựng prompt AI",
      "Nguyên tắc ánh sáng → cụm prompt tiếng Anh cho Nano Banana / Midjourney.", "#ff9fc0", "pl"),
+    ("pe", "phu-luc-e-ngan-hang-case.md", "E", "Phụ lục E", "Ngân hàng ca thực chiến",
+     "Mười ca đánh đèn của designer Trung Quốc — số thật từ panel thật, và vì sao họ đặt khác nhau.", "#9be8a0", "pl"),
 ]
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'

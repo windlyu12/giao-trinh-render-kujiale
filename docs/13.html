@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 13. Ánh sáng nâng cao — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#3d85fa;--accent-soft:color-mix(in srgb, #3d85fa 13%, transparent);}</style>
+</head>
+<body data-slug="13">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">13</div>
+    <div class="ch-meta"><span class="tag">Chương 13</span><span class="tag ghost">≈ 28 phút đọc</span></div>
+    <h1 class="ch-title">Ánh sáng nâng cao</h1>
+    <p class="ch-hook">Bốn con đường bố đèn, nắng qua rèm voan đọc được hình, và cách thoát khỏi việc chép số.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#canh-bao-au-chuong-oc-truoc-khi-xem-bat-ky-con-so-nao">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — ĐỌC TRƯỚC KHI XEM BẤT KỲ CON SỐ NÀO</a></li><li><a href="#131-khong-co-bo-so-ung-duy-nhat">13.1. Không có bộ số đúng duy nhất</a></li><li><a href="#132-hai-quy-luat-phu-thuoc-thu-thay-uoc-ca-bang-so">13.2. Hai quy luật phụ thuộc — thứ thay được cả bảng số</a></li><li><a href="#ung-hoi-en-nay-e-bao-nhieu">📌 Đừng hỏi "đèn này để bao nhiêu".</a></li><li><a href="#hoi-anh-sang-phai-i-qua-cai-gi-va-ap-vao-cai-gi">Hỏi "ánh sáng phải đi qua cái gì và đập vào cái gì".</a></li><li><a href="#133-bo-so-khoi-au">13.3. Bộ số khởi đầu</a></li><li><a href="#134-nang-qua-rem-voan-bong-mem-ma-van-oc-uoc-hinh">13.4. Nắng qua rèm voan — bóng mềm mà vẫn đọc được hình</a></li><li><a href="#135-khong-en-chu-va-ray-nam-cham">13.5. Không đèn chủ và ray nam châm</a></li><li><a href="#136-anh-sang-the-tich">13.6. Ánh sáng thể tích</a></li><li><a href="#137-render-ca-bo-anh-mot-can">13.7. Render cả bộ ảnh một căn</a></li><li><a href="#138-bang-tham-so-nang-cao">13.8. Bảng tham số nâng cao</a></li><li><a href="#139-bang-venh-kiem-truoc-khi-dung">13.9. Bảng vênh — kiểm trước khi dùng</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Hiểu vì sao <strong>không có bộ số đúng duy nhất</strong>, và chọn được con đường bố đèn hợp cảnh của mình
+- Dùng hai quy luật phụ thuộc để tự suy ra độ sáng thay vì tra bảng
+- Làm được <strong>nắng qua rèm voan cho bóng mềm mà vẫn đọc được hình</strong>
+- Đánh đèn cho hệ không đèn chủ và ray nam châm
+- Render cả bộ 6–12 ảnh một căn mà <strong>không lệch sáng, lệch màu, lệch hướng bóng</strong>
+- Đọc được bảng tham số nâng cao và biết công tắc nào bật, công tắc nào tắt</p>
+</blockquote>
+<hr>
+<blockquote class="warn">
+<h2 id="canh-bao-au-chuong-oc-truoc-khi-xem-bat-ky-con-so-nao">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — ĐỌC TRƯỚC KHI XEM BẤT KỲ CON SỐ NÀO</h2>
+<p><strong>1. Kujiale có BA hệ đơn vị độ sáng song song:</strong> thang cũ (số hàng trăm) · <code>瓦</code> (watt ảo) · <strong><code>%</code></strong>.
+Tài liệu chính thức xác nhận <code>硬装灯带</code> dùng vật liệu mới render chính xác dải <strong>0% – 6000%</strong>. Ảnh chụp panel thật cho thấy <code>室内光亮度</code> hiện <strong>100%</strong> và <strong>500%</strong>.
+⚠️ Quy ước "<code>瓦</code> = thang cũ ÷ 10" mà bản đầu của giáo trình này ghi <strong>không có nguồn chính thức nào xác nhận</strong> — hai gói nghiên cứu độc lập đều không tìm ra. Coi đó là <strong>quy ước nội bộ chưa kiểm chứng</strong>, đừng trích như dữ kiện của Kujiale.
+<strong>→ Mọi con số trong chương này đều ghi rõ đang ở thang nào. Trước khi dùng, mở app kiểm đơn vị hiển thị trên máy bạn (Phiếu verify mục B1).</strong></p>
+<p><strong>2. Số càng cũ càng phải để cao.</strong> Tài liệu chính thức bản 3.0 ghi: <em>"nâng cấp phản xạ toàn cục, tăng độ trong của ảnh, giảm hiện tượng vùng tối chết đen"</em>. GI mạnh hơn nghĩa là <strong>cùng một độ sáng giờ chiếu được diện tích lớn hơn</strong>. Đây là lý do bộ số của người này để 600–800 còn người kia để 280–300 mà cả hai đều ra ảnh đẹp — họ dùng hai đời template khác nhau.
+⚠️ Nâng bản template <strong>không tự đổi số đèn tay bạn đã tạo</strong> — tài liệu ghi rõ đèn thủ công đã tạo giữ nguyên, chỉ đèn tạo mới dùng template mới. Nhưng vì GI của cảnh mạnh lên nên <strong>cùng số đèn cũ giờ cho ảnh sáng hơn → vẫn cháy</strong>. Nâng bản xong phải hạ tay.</p>
+<p><strong>3. Vì vậy: chép TỈ LỆ và THỨ TỰ, đừng chép SỐ.</strong></p>
+</blockquote>
+<hr>
+<h2 id="131-khong-co-bo-so-ung-duy-nhat">13.1. Không có bộ số đúng duy nhất</h2>
+<p>Đây là điều quan trọng nhất chương, và cũng là điều làm designer non tay khổ nhất: bạn tra được năm bộ số từ năm người khác nhau, chúng chỏi nhau, và cả năm đều ra ảnh đẹp.</p>
+<p>Không phải ai sai. <strong>Họ đi năm con đường khác nhau.</strong></p>
+<p>Từ tám ca thực chiến thu được của designer Trung Quốc, rút ra <strong>bốn con đường bố đèn</strong>, mỗi đường giao gánh nặng chiếu sáng cho một thứ khác nhau:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Đường</th>
+<th>Ai gánh chính</th>
+<th>Đặc điểm</th>
+<th>Khi nào chọn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td><code>环境光亮度</code> để cao <strong>4–7</strong></td>
+<td>Nhanh, dễ, nhưng ánh sáng <strong>vô hướng</strong> — không có cảm giác nắng từ đâu tới</td>
+<td>Cần ra ảnh nhanh, cảnh không đòi kịch tính</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td><code>球形灯</code> 8000K đặt <strong>ngoài nhà</strong>, <code>环境光亮度</code> = <strong>0</strong></td>
+<td>Có hướng rõ, kiểm soát tốt nhất</td>
+<td>Khi cần chất, có thời gian</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td><code>室内光亮度</code> đẩy lên <strong>500%</strong> + đúng <strong>một</strong> <code>矩形面光源</code> trong cửa</td>
+<td><strong>Dễ nhất cho người mới</strong></td>
+<td>⚠️ Chỉ chạy khi phòng <strong>có cửa sổ lớn</strong></td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td><code>外景亮度</code> <strong>10</strong> + <code>阳光</code> <strong>300</strong>, đèn trong chỉ bù <strong>80</strong></td>
+<td>Để môi trường và mặt trời gánh</td>
+<td>Cảnh nhiều nắng, view đẹp</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 <strong>Lộ trình học đề xuất: bắt đầu đường C → lên đường A → sang đường B khi cần chất.</strong>
+Đường D học sau cùng vì nó đòi phải cân được tương phản trong–ngoài.</p>
+</blockquote>
+<p>⚠️ Các số trên là <strong>thang cũ</strong> trừ <code>室内光亮度</code> (thang <code>%</code>). Chúng đến từ ảnh chụp panel thật của designer Trung Quốc, <strong>không phải số chính thức</strong> — dùng làm điểm khởi đầu, không phải chuẩn.</p>
+<blockquote class="pin">
+<p>📌 Tác giả của một trong tám ca đó viết nguyên văn, nhắc ba lần liền:
+<strong>"Đừng học thuộc lòng các thông số! Đừng học thuộc lòng các thông số! Đừng học thuộc lòng các thông số!"</strong>
+<em>"Để có ánh sáng tuyệt vời, phương pháp đúng mới là chìa khoá."</em></p>
+<p>Câu này trùng gần như nguyên văn lời một giảng viên khác mà Chương 7 đã trích: <em>"phân tích cảnh trước đã, học vẹt tham số là tự đào hố chôn mình."</em> <strong>Hai nguồn độc lập, cùng một cảnh báo.</strong></p>
+</blockquote>
+<hr>
+<h2 id="132-hai-quy-luat-phu-thuoc-thu-thay-uoc-ca-bang-so">13.2. Hai quy luật phụ thuộc — thứ thay được cả bảng số</h2>
+<p>Nếu cả chương này bạn chỉ nhớ được một mục, hãy nhớ mục này.</p>
+<h3 id="quy-luat-1-o-sang-dai-hat-phu-thuoc-mau-vat-lieu">Quy luật 1 — độ sáng dải hắt phụ thuộc MÀU VẬT LIỆU</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Không gian tông</th>
+<th><code>灯带</code> để</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sáng</strong> (tường trắng, tủ trắng, sàn nhạt)</td>
+<td><strong>300–800</strong> ⚠️</td>
+<td>Bề mặt sáng nảy lại nhiều, cần ít</td>
+</tr>
+<tr>
+<td><strong>Tối</strong> (tường sẫm, gỗ đậm, đá đen)</td>
+<td><strong>2000–6000</strong> ⚠️</td>
+<td>Bề mặt tối nuốt ánh sáng, cần nhiều</td>
+</tr>
+</tbody>
+</table></div>
+<p>Chênh nhau <strong>gần mười lần</strong>. Đây là lý do bạn thấy người để 700, người để 1500, người để 4000 — và <strong>cả ba đều đúng cho cảnh của họ</strong>.</p>
+<h3 id="quy-luat-2-o-sang-phu-thuoc-co-rem-hay-khong">Quy luật 2 — độ sáng phụ thuộc CÓ RÈM HAY KHÔNG</h3>
+<p>Nguyên văn ghi chú của designer: <strong><code>有窗帘拉满，没窗帘看着给</code></strong> — có rèm thì kéo hết cỡ, không rèm thì cho vừa mắt.</p>
+<p>Vì rèm cản lại một phần lớn ánh sáng trước khi nó vào phòng.</p>
+<h3 id="gop-hai-quy-luat-thanh-mot-cau-day-uoc">Gộp hai quy luật thành một câu dạy được</h3>
+<blockquote class="pin">
+<h2 id="ung-hoi-en-nay-e-bao-nhieu">📌 Đừng hỏi "đèn này để bao nhiêu".</h2>
+<h2 id="hoi-anh-sang-phai-i-qua-cai-gi-va-ap-vao-cai-gi">Hỏi "ánh sáng phải <strong>đi qua cái gì</strong> và <strong>đập vào cái gì</strong>".</h2>
+</blockquote>
+<p>Hỏi được câu đó là bạn tự suy ra số, không cần tra bảng nữa. Và đó là khác biệt giữa người chép số với người biết đánh đèn.</p>
+<hr>
+<h2 id="133-bo-so-khoi-au">13.3. Bộ số khởi đầu</h2>
+<p>Dùng làm <strong>điểm xuất phát rồi dò</strong>, không phải đích đến.</p>
+<h3 id="bo-so-chinh-thuc-cua-kujiale">Bộ số chính thức của Kujiale</h3>
+<p>Đây là bộ duy nhất có nguồn chính thức. Thang cũ.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nguồn sáng</th>
+<th><code>亮度</code></th>
+<th>Độ cao</th>
+<th>Màu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ánh sáng ngoài cửa sổ (thiên quang ngoài)</td>
+<td><strong>400–600</strong></td>
+<td>—</td>
+<td>xanh nhạt</td>
+</tr>
+<tr>
+<td>Ánh sáng trong cửa sổ</td>
+<td><strong>200–300</strong></td>
+<td>—</td>
+<td>trắng</td>
+</tr>
+<tr>
+<td>Đèn bù trên</td>
+<td><strong>200–300</strong></td>
+<td>dưới trần <strong>100 mm</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Đèn bù dưới</td>
+<td><strong>100–200</strong></td>
+<td>~<strong>1,5 m</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>射灯</code> / <code>聚光灯</code></td>
+<td><strong>280–300</strong></td>
+<td><strong>2,4 m</strong></td>
+<td>vàng nhạt</td>
+</tr>
+<tr>
+<td>Đèn bù thêm</td>
+<td><strong>200–280</strong></td>
+<td><strong>2,0 m</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 Bạn sẽ gặp người để thiên quang ngoài <strong>600–800</strong> và người để <strong>280–300</strong>. Cả hai đều từng đúng — xem lại mục cảnh báo đầu chương về đời template. Bộ <strong>400–600</strong> ở trên là số chính thức, lấy làm mốc giữa.</p>
+</blockquote>
+<h3 id="bang-hoi-tu-nhieu-nguon-oc-lap-cung-xac-nhan">Bảng hội tụ — nhiều nguồn độc lập cùng xác nhận</h3>
+<p>Những giá trị dưới đây được <strong>từ ba nguồn trở lên</strong> nhất trí, nên đáng tin hơn hẳn số lẻ.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Giá trị</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>环境光亮度</code></td>
+<td><strong>3–7</strong>, hay dùng <strong>4</strong></td>
+<td>Mặc định chính thức là <strong>3</strong></td>
+</tr>
+<tr>
+<td><code>环境光反射</code></td>
+<td><strong>18–20</strong></td>
+<td>Một nguồn để 10</td>
+</tr>
+<tr>
+<td><code>外景亮度</code></td>
+<td><strong>3</strong> hay dùng nhất, dải 1–10</td>
+<td></td>
+</tr>
+<tr>
+<td><code>炫光</code></td>
+<td><strong>1,50</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>环境阻光 深浅</code></td>
+<td><strong>0,50</strong></td>
+<td>Một nguồn để 0,2</td>
+</tr>
+<tr>
+<td><code>环境阻光 半径</code></td>
+<td><strong>25–50 mm</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bộ số NẮNG</strong></td>
+<td><strong>6500K · <code>亮度</code> 50 · <code>角度</code> 30°</strong></td>
+<td>Ba nguồn + tài liệu</td>
+</tr>
+<tr>
+<td><code>灯带</code> / <code>氛围灯</code> nhiệt màu</td>
+<td><strong>3500–4500 K</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>筒灯 亮度</code></td>
+<td><strong>100</strong></td>
+<td>⚠️ các ca thực chiến đều <strong>thấp hơn</strong> con số 200–300 hay thấy</td>
+</tr>
+<tr>
+<td><code>筒灯</code> nhiệt màu</td>
+<td><strong>3500 K</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>面光源 散射角</code></td>
+<td><strong>65–90°</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>球形灯</code> nhiệt màu</td>
+<td><strong>6500–10000 K</strong> (lạnh)</td>
+<td>Dùng khi đặt ngoài nhà</td>
+</tr>
+<tr>
+<td><code>递推光</code> giảm dần</td>
+<td><strong>200 → 150 → 100 → 50</strong></td>
+<td>Đèn càng xa càng yếu dần</td>
+</tr>
+<tr>
+<td><code>手动曝光 强度</code></td>
+<td><strong>0,5 – 1,0</strong></td>
+<td>Không gian tông sâu để 1,0–1,2</td>
+</tr>
+<tr>
+<td><code>室内光亮度</code></td>
+<td><strong>100%</strong> thường, <strong>500%</strong> khi dùng một đèn</td>
+<td>Thang <code>%</code></td>
+</tr>
+<tr>
+<td><code>影响高光</code> <strong>TẮT</strong> + <code>镜面真实反射</code> <strong>BẬT</strong></td>
+<td>Cặp công tắc chuẩn</td>
+<td></td>
+</tr>
+<tr>
+<td><code>色彩增强</code></td>
+<td><code>标准</code> · <code>饱和度</code> 0,05 · <code>对比度</code> 0–0,05 · <code>亮度</code> 0,00</td>
+<td></td>
+</tr>
+<tr>
+<td><code>面光源</code> <strong>không đặt sát tường</strong></td>
+<td>Quy tắc</td>
+<td>Sát tường cho bóng gắt</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ Toàn bộ bảng này là <strong>thang cũ</strong> trừ hai dòng ghi rõ <code>%</code>. Nguồn: ảnh chụp panel thật, không phải tài liệu chính thức.</p>
+<h3 id="hai-quy-uoc-it-nguoi-biet">Hai quy ước ít người biết</h3>
+<p><strong><code>角度</code> của nắng là góc NGẨNG, <code>位置</code> mới là phương vị.</strong> Nhầm hai ô này là vệt nắng đổ sai hướng cả buổi.</p>
+<p><strong><code>聚光灯</code> để cường độ cực thấp — 0,3 đến 2% — chỉ để tạo bóng.</strong> Ánh sáng thật do <code>球形灯</code> hoặc <code>面光源</code> lo. Đây là kỹ thuật nâng cao: bạn mượn đèn rọi để vẽ bóng đổ tự nhiên mà không làm cháy vùng nó chiếu.</p>
+<blockquote class="warn">
+<p>⚠️ Chú ý mâu thuẫn đơn vị ở đây: tài liệu chính thức cho <code>聚光灯</code> <strong>280–300</strong> (thang cũ), còn các ca thực chiến ghi <strong>0,3–2%</strong> (thang <code>%</code>). <strong>Đây không phải hai người mâu thuẫn — đây là hai hệ đơn vị.</strong> Kiểm đơn vị trên máy bạn trước khi nhập số.</p>
+</blockquote>
+<hr>
+<h2 id="134-nang-qua-rem-voan-bong-mem-ma-van-oc-uoc-hinh">13.4. Nắng qua rèm voan — bóng mềm mà vẫn đọc được hình</h2>
+<p>Đây là kỹ thuật cốt lõi phân biệt ảnh khá với ảnh đẹp. Hai cực hỏng nằm hai bên:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cực hỏng</th>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bóng cứng như dao cắt</strong></td>
+<td>Vệt nắng viền sắc như không có rèm</td>
+<td>Rèm bị coi là vật đục hoặc bị bỏ qua; <code>不透明度</code> quá cao; chưa bật <code>渲染复杂材质</code>; <code>阴影柔和度</code> quá thấp</td>
+</tr>
+<tr>
+<td><strong>Không bóng, tan hết hình</strong></td>
+<td>Sáng đều, mất vệt</td>
+<td><code>不透明度</code> quá thấp; hoặc ánh khuếch tán (<code>外景</code> / <code>环境光</code> / <code>面光源</code>) <strong>rửa trôi</strong> vệt</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="nguyen-ly">Nguyên lý</h3>
+<p>Nắng qua rèm voan đọc được hình vì <strong>một phần tia đi thẳng</strong> (giữ hình) và <strong>một phần tia bị vải tán xạ</strong> (làm mềm rìa). Điều khiển tỉ lệ giữa hai phần đó là toàn bộ kỹ thuật.</p>
+<p>Vải mỏng tán xạ ánh sáng <strong>về phía trước</strong> — ánh sáng chui vào rồi thoát ra mềm ở mặt kia. Đây chính là hiệu ứng mà công tắc <code>渲染复杂材质</code> bật lên.</p>
+<h3 id="bon-num-ieu-khien">Bốn núm điều khiển</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Bước</th>
+<th>Núm</th>
+<th>Giá trị</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Template</td>
+<td><strong><code>写实</code> / <code>室内白天</code> 3.0–3.1</strong></td>
+<td>Dòng <code>极速</code> <strong>chỉ có <code>3S</code>, thiếu displacement</strong> nên không có nếp gấp nổi của rèm</td>
+</tr>
+<tr>
+<td>0</td>
+<td><strong><code>渲染复杂材质</code></strong></td>
+<td><strong>BẬT</strong></td>
+<td>Bắt buộc, để rèm phát sáng từ trong</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>太阳光 亮度</code></td>
+<td><strong>30–45</strong> ⚠️</td>
+<td>Khoá trước để có vệt</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>窗纱 不透明度</code></td>
+<td><strong>25–45 %</strong> ⚠️</td>
+<td>Chỉnh để vệt <strong>có hình</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>阴影柔和度</code></td>
+<td><strong>3–5</strong></td>
+<td><strong>Không kéo lên max</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>外景亮度</code></td>
+<td>hạ nếu cửa cháy</td>
+<td>Cân cuối cùng</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="thang-iem-hay-bi-hieu-sai-nhat">Thang <code>阴影柔和度</code> — điểm hay bị hiểu sai nhất</h3>
+<blockquote>
+<p><strong>Thang của nắng chạy 1 → 10. Số càng lớn cạnh bóng càng mềm.</strong>
+Để <strong>1</strong> thì bóng sắc. Để <strong>10</strong> thì bóng rất mờ. <strong>Vùng dùng được là 3–5.</strong></p>
+</blockquote>
+<p>Rèm đã lo phần mềm chính rồi; <code>阴影柔和度</code> chỉ <strong>vuốt rìa</strong> thêm. Kéo lên 8–10 là vệt tan mất hình, rơi vào cực hỏng thứ hai.</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Có HAI ô tên gần giống nhau, hai thang khác nhau:</strong>
+<code>阴影柔和度</code> của <strong><code>阳光</code></strong> chạy khoảng <strong>1–10</strong>
+<code>阴影柔和</code> của <strong>đèn nhân tạo</strong> chạy khoảng <strong>100–3000</strong></p>
+<p>Nhiều bộ số trên mạng "vênh gấp mười lần" chỉ vì người ghi <strong>trộn lẫn hai ô này</strong>. Nhìn kỹ mình đang đứng ở panel nào. Đây là mục cần verify sớm (Phiếu verify).</p>
+</blockquote>
+<h3 id="thu-tu-do-quan-trong-hon-con-so">Thứ tự dò — quan trọng hơn con số</h3>
+<blockquote>
+<p><strong>1. Khoá nắng</strong> (<code>亮度</code> + góc) để có vệt → <strong>2. Chỉnh <code>不透明度</code> rèm</strong> để vệt có hình → <strong>3. Tinh <code>阴影柔和度</code></strong> để vuốt rìa → <strong>4. Cuối cùng cân <code>外景</code> / <code>环境光</code></strong> để cửa không cháy.</p>
+</blockquote>
+<p><strong>Mỗi lần chỉ đổi ĐÚNG MỘT biến rồi render nháp.</strong> Đổi hai biến cùng lúc thì bạn không bao giờ biết biến nào gây ra thay đổi. Render nháp bằng chế độ nhẹ cho nhanh.</p>
+<p><strong>Chống cháy rèm:</strong> hạ <code>外景亮度</code> <strong>trước tiên</strong>, giữ nguyên <code>太阳光</code> để không mất vệt.</p>
+<h3 id="vi-tri-va-gio">Vị trí và giờ</h3>
+<p>Dùng <strong>góc ngẩng</strong> chỉnh vệt dài hay ngắn, <strong>phương vị</strong> chỉnh trái hay phải.</p>
+<p><strong>Đẹp nhất là nắng góc thấp 15–35°.</strong> Ở Hà Nội, khoảng <strong>8:00–10:00 sáng</strong> cho căn hướng Nam và Đông Nam — hướng phổ biến nhất của chung cư Việt. <strong>Tránh trưa hè</strong>: mặt trời gần đỉnh, gần như không có bóng.</p>
+<h3 id="bay-loai-vat-can-khong-chi-rem-voan">Bảy loại vật cản — không chỉ rèm voan</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Vật cản</th>
+<th>Cơ chế</th>
+<th><code>阴影柔和度</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rèm voan <code>窗纱</code></strong></td>
+<td>Tán xạ qua vải + độ mở</td>
+<td>3–5</td>
+</tr>
+<tr>
+<td><strong>Rèm vải dày hé khe</strong></td>
+<td>Dựa vào <strong>hình học khe</strong>, không dựa tán xạ. <code>不透明度</code> để cao 80–100%</td>
+<td>2–3</td>
+</tr>
+<tr>
+<td><strong>Rèm sáo ngang <code>百叶帘</code></strong></td>
+<td>Vật đục có khe đều → bóng sọc ngang</td>
+<td>2–4</td>
+</tr>
+<tr>
+<td><strong>Rèm cầu vồng <code>斑马帘</code></strong></td>
+<td>Lai: dải voan cần tán xạ, dải đục dùng hình học</td>
+<td>dải voan <code>不透明度</code> 30–45%</td>
+</tr>
+<tr>
+<td><strong>Lam gỗ <code>木格栅</code></strong></td>
+<td>Vật <strong>đục hoàn toàn có khe</strong> → vệt sọc mạnh, sắc, rất ăn hình</td>
+<td><strong>1–3</strong> (thấp, giữ nét)</td>
+</tr>
+<tr>
+<td><strong>Lá cây trước cửa</strong></td>
+<td>Kẽ lá tạo bóng lốm đốm</td>
+<td>3–5; đặt cây <strong>đủ xa cửa</strong> để bóng mềm</td>
+</tr>
+<tr>
+<td><strong>Vách hoa gió, vách CNC</strong></td>
+<td>Hoa văn rỗng in lên tường</td>
+<td>thấp, giữ nét</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 <strong>Quy tắc phân loại nhanh:</strong>
+<strong>Vải mỏng và mờ</strong> (rèm voan, rèm cầu vồng, kính mờ) → dựa vào <strong>tán xạ + độ mở</strong>, cạnh <strong>mềm</strong>.
+<strong>Vật đục có khe</strong> (lam gỗ, rèm sáo, vách CNC, lá cây) → dựa vào <strong>hình học khe</strong>, cạnh <strong>sắc hơn, hạ <code>阴影柔和度</code></strong>.</p>
+</blockquote>
+<hr>
+<h2 id="135-khong-en-chu-va-ray-nam-cham">13.5. Không đèn chủ và ray nam châm</h2>
+<p>Mô hình <strong>không đèn chủ (<code>无主灯</code>)</strong> thay một nguồn sáng trung tâm công suất lớn bằng <strong>nhiều nguồn nhỏ phân tán</strong>. Đây là mô hình <strong>khác hẳn</strong> cách ba lớp đã học ở Chương 4, không phải biến thể.</p>
+<h3 id="inh-muc-thuc-te">Định mức thực tế</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Phòng</th>
+<th>Công suất thật</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Khách</td>
+<td><strong>5–6 W/m²</strong></td>
+</tr>
+<tr>
+<td>Bếp</td>
+<td><strong>6–8 W/m²</strong></td>
+</tr>
+<tr>
+<td>Ngủ</td>
+<td><strong>4–5 W/m²</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Độ rọi tham chiếu theo tiêu chuẩn Trung Quốc GB 50034: khách sinh hoạt chung 100 lx · đọc sách 300 lx · ngủ 75 lx · bếp và bàn ăn 150 lx.</p>
+<p><strong>Nhiệt độ màu toàn nhà thống nhất 3000–4000K, chênh nhau không quá 500K.</strong></p>
+<blockquote class="warn">
+<p>⚠️ <strong>Quy tắc 500K chỉ áp cho các đèn chiếu CÙNG một bề mặt, không áp cho cả căn nhà.</strong> Một ca thực chiến cho thấy <strong>gradient nhiệt màu theo khoảng cách</strong> vẫn rất đẹp: ngoài nhà 8000K → 6500K → 4500K → trong nhà 3500K. Ánh sáng lạnh ở xa, ấm dần vào trong — đúng như ngoài đời.</p>
+</blockquote>
+<h3 id="dung-lop-nao-truoc">Dựng lớp nào trước</h3>
+<p>Trong mô hình không đèn chủ, <strong>dựng lớp NỀN trước</strong>: đèn hắt gián tiếp (<code>灯带</code> khe trần, hắt tường) và đèn tràn, để thiết lập độ sáng phông và không khí chung. <strong>Sau đó mới thêm đèn rọi nhấn.</strong></p>
+<p>Ngược với mô hình cũ đi từ đèn chủ. Lý do: nền quyết định tổng thể; đặt nhấn trước rồi mới thêm nền thì độ sáng tổng bị đội và phải chỉnh lại từ đầu.</p>
+<h3 id="en-ao-cho-tung-module-ray">Đèn ảo cho từng module ray</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Module ray</th>
+<th>Nguồn sáng ảo</th>
+<th>Vị trí</th>
+<th>Nhiệt màu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đèn rọi nhấn</td>
+<td><code>射灯</code> dùng IES (có preset sẵn), hoặc <code>聚光灯</code></td>
+<td>Ngay tại module, nghiêng 30–45° vào tường hoặc vật</td>
+<td>3000K</td>
+</tr>
+<tr>
+<td>Đèn tràn nền</td>
+<td><code>点光源</code> / <code>球形灯</code>, hoặc <code>面光源</code> nhỏ</td>
+<td>Sát dưới module</td>
+<td>3000–4000K</td>
+</tr>
+<tr>
+<td>Đèn khe dài</td>
+<td><code>灯带</code>, hoặc <code>面光源</code> <strong>dạng dài mảnh rộng 20–25</strong></td>
+<td>Dọc khe</td>
+<td>ấm nhẹ</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ưu tiên <strong><code>射灯</code> có file IES</strong> hơn <code>聚光灯</code> thuần, vì IES cho quầng sáng và độ giảm cường độ tự nhiên.</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Quy tắc "ánh sáng thần thánh" (<code>上帝之光</code>):</strong> chỉ đặt đèn ảo ở nơi <strong>có model đèn thật</strong> trên trần. Không có model mà đặt nguồn sáng thì ra vệt sáng từ hư không — lỗi lộ liễu nhất của người mới.</p>
+</blockquote>
+<h3 id="ba-meo-cho-canh-nang">Ba mẹo cho cảnh nặng</h3>
+<ol>
+<li><strong>Chọn hàng loạt:</strong> giữ <strong>Shift</strong> khung chọn nhiều đèn rồi chỉnh độ sáng, màu, độ cao một lần. Cực hữu ích khi có hàng chục đèn rọi.</li>
+<li><strong><code>属性应用至同款灯</code></strong> — nhân bản thiết lập sang mọi đèn cùng loại.</li>
+<li><strong>Dùng <code>自发光材质</code> thay nguồn sáng rời</strong> cho khe, dải, đèn lưới mật độ cao. Kết hợp: khe dùng vật liệu phát sáng cho đẹp, thêm vài <code>射灯</code> thật cho quầng nhấn.</li>
+</ol>
+<h3 id="dai-hat-sang-cho-gradient-tu-nhien">Dải hắt sáng cho gradient tự nhiên</h3>
+<p>Ánh sáng phải <strong>giảm dần từ nguồn ra xa</strong>, không phải một dải phẳng lì. Chỉnh <strong><code>衰减系数</code> (hệ số suy giảm) từ mặc định 1,0 lên ~1,5</strong> để rìa mềm hơn và vùng nhấn nổi hơn.</p>
+<p>Đặt <code>面光源</code> <strong>thấp hơn cao độ trần một chút</strong> (ví dụ cao độ trần trừ 0,1m) để tránh bóng gắt trên tường.</p>
+<p>Với <code>硬装灯带</code>, nhớ bật công tắc <strong><code>硬装灯带使用新材质</code></strong> — tài liệu chính thức ghi vật liệu mới <em>"khắc phục các vấn đề vỡ gãy, phơi sáng, độ sáng không chính xác"</em> và render đúng dải <strong>0% – 6000%</strong>.</p>
+<blockquote class="warn">
+<p>⚠️ Kujiale có chức năng <strong><code>一键生成灯带</code></strong> (tạo dải hắt một chạm), nhưng nó nằm trong module <code>照明设计</code> và là <strong>chức năng doanh nghiệp</strong>. Tài khoản cá nhân <strong>không dùng được</strong> — phải đặt <code>面光源</code> dải mảnh bằng tay. Đừng mất công đi tìm nút đó.</p>
+</blockquote>
+<hr>
+<h2 id="136-anh-sang-the-tich">13.6. Ánh sáng thể tích</h2>
+<p>Ánh sáng thể tích (<code>体积光</code>) là <em>"ánh sáng xuyên qua sương, bụi, tạo hiệu ứng giống hiệu ứng Tyndall"</em> — những cột nắng thấy được trong không khí.</p>
+<p><strong>Đường vào cho tài khoản cá nhân</strong> (tài liệu chính thức phân biệt rõ với bản doanh nghiệp):</p>
+<blockquote>
+<p><code>渲染</code> → <strong><code>离线模式</code></strong> → <code>手动灯光</code> → chọn <strong>template <code>写实</code></strong> → ở trang bố đèn bên trái chọn <strong><code>光源类型</code> = <code>体积光</code></strong> → kéo vào, chỉnh bên phải: <code>颜色</code>, <code>色温</code>, <code>亮度</code>, <strong><code>光柱长度</code></strong> (chiều dài cột sáng), <strong><code>底面半径</code></strong> (bán kính đáy) → lưu template → <code>立即渲染</code></p>
+</blockquote>
+<p>Dùng tiết chế. Cột nắng đẹp khi nó <strong>giải thích được nguồn sáng</strong> — nắng qua cửa sổ, đèn rọi qua bụi. Rải khắp phòng thì thành sương mù giả.</p>
+<hr>
+<h2 id="137-render-ca-bo-anh-mot-can">13.7. Render cả bộ ảnh một căn</h2>
+<p>Khách không xem một ảnh. Họ lướt liên tục qua 6–12 ảnh. <strong>Não bắt ngay sự lệch nhiệt độ màu, lệch mức sáng và lệch hướng đổ bóng</strong> khi lướt — dù không đo được từng thông số.</p>
+<h3 id="su-that-ky-thuat-quyet-inh-toan-bo-quy-trinh">Sự thật kỹ thuật quyết định toàn bộ quy trình</h3>
+<blockquote class="pin">
+<p>📌 <strong>Mặt trời được lưu BÊN TRONG từng <code>灯光模板</code>, không lưu theo từng góc máy.</strong></p>
+</blockquote>
+<p>Nghĩa là: đổi mặt trời trong template đang dùng thì <strong>đổi cho mọi ảnh dùng template đó</strong>. Đây vừa là bẫy vừa là công cụ.</p>
+<p><strong>→ Quy tắc kỷ luật: đặt MỘT bộ ánh sáng và mặt trời duy nhất, rồi render tất cả các góc bằng đúng bộ đó.</strong></p>
+<h3 id="quy-trinh-ung">Quy trình đúng</h3>
+<ol>
+<li><strong>Dựng xong CẢ căn</strong> — đừng render lẻ từng phòng khi còn dựng dở.</li>
+<li><strong>Khoá một template ánh sáng và một ngoại cảnh.</strong></li>
+<li><strong>Lưu và đặt tên tất cả các góc</strong> (<code>保存视角</code>).</li>
+<li><strong>Render NHÁP cả bộ</strong> để soi lỗi — dùng chế độ nhẹ, tốn ít.</li>
+<li><strong>Sửa ảnh nào lệch.</strong></li>
+<li><strong>Render FINAL cả bộ.</strong></li>
+</ol>
+<p>Đừng làm xong ảnh 1 rồi mới dựng góc 2 — chắc chắn lệch.</p>
+<h3 id="ba-thu-bat-buoc-nhat-quan">Ba thứ bắt buộc nhất quán</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Yếu tố</th>
+<th>Ngưỡng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nhiệt độ màu</strong> giữa các ảnh</td>
+<td>chênh <strong>≤ 300–500 K</strong> ⚠️</td>
+</tr>
+<tr>
+<td><strong>Mức sáng tổng</strong></td>
+<td>chênh <strong>≤ khoảng 1 khẩu</strong> ⚠️</td>
+</tr>
+<tr>
+<td><strong>Hướng đổ bóng</strong></td>
+<td><strong>giống hệt</strong> — cùng một mặt trời</td>
+</tr>
+</tbody>
+</table></div>
+<p>⚠️ Hai ngưỡng đầu là quy tắc kinh nghiệm ngành, không phải chuẩn Kujiale.</p>
+<p><strong>Số lượng ảnh:</strong> căn 2 phòng ngủ thường 6–9 ảnh, căn 3 phòng ngủ 9–12 ảnh ⚠️ — khung thực hành ngành, không có quy định.</p>
+<p><strong>Tiết kiệm điểm render:</strong> render nháp bằng chế độ nhẹ, chỉ để chốt cấu trúc; đẩy bản cuối vào ban đêm nếu tài khoản có ưu đãi. Số điểm tiêu cho mỗi ảnh <strong>chỉ xem được trong app</strong> lúc bấm render — đừng tin bảng giá in sẵn ở đâu.</p>
+<hr>
+<h2 id="138-bang-tham-so-nang-cao">13.8. Bảng tham số nâng cao</h2>
+<p>Bảy công tắc chính thức trong <code>高级设置</code>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Công tắc</th>
+<th>Làm gì</th>
+<th>Nên để</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>修复溢色</code></td>
+<td>Sửa hiện tượng một mảng màu lớn ám ra cả ảnh</td>
+<td>Bật khi có mảng màu mạnh</td>
+</tr>
+<tr>
+<td><strong><code>影响高光</code></strong></td>
+<td>Giữ hay ẩn vệt sáng của nguồn sáng trên vật liệu phản xạ</td>
+<td><strong>TẮT</strong> (theo các ca thực chiến)</td>
+</tr>
+<tr>
+<td><strong><code>硬装灯带使用新材质</code></strong></td>
+<td>Vật liệu dải hắt đời mới</td>
+<td><strong>BẬT</strong> — dải <strong>0%–6000%</strong></td>
+</tr>
+<tr>
+<td><code>环境阻光</code></td>
+<td>Bóng môi trường, làm nổi khối và sắc cạnh</td>
+<td>Bật; <code>深浅</code> 0,50 · <code>半径</code> 25–50mm</td>
+</tr>
+<tr>
+<td><code>全景优先</code></td>
+<td>Chất lượng ảnh toàn cảnh</td>
+<td>Theo nhu cầu, 4K/5K</td>
+</tr>
+<tr>
+<td><strong><code>镜面真实反射</code></strong></td>
+<td>Tính cả vật phía sau máy ảnh khi soi gương</td>
+<td><strong>BẬT</strong></td>
+</tr>
+<tr>
+<td><strong><code>渲染复杂材质</code></strong></td>
+<td>Bật <code>置换</code> (nổi thật) và <code>3S</code> (xuyên sáng)</td>
+<td><strong>BẬT</strong> — bắt buộc cho rèm voan</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong><code>渲染复杂材质</code> chỉ có tác dụng khi vật liệu trong cảnh thật sự mang thuộc tính đó.</strong> Template dòng <code>极速</code> <strong>chỉ hỗ trợ <code>3S</code></strong>; muốn có cả <code>置换</code> (nếp gấp nổi của rèm) phải dùng dòng <strong><code>写实</code></strong>. Bật lên làm <strong>tăng thời gian render</strong>.</p>
+</blockquote>
+<h3 id="nhom-phoi-sang">Nhóm phơi sáng</h3>
+<p>Ở template <strong><code>自然写实</code></strong> có nhóm bốn nút:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nút</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>自动曝光</code></strong> / <strong><code>手动曝光</code></strong></td>
+<td>Hai chế độ. Chọn thủ công thì có ô <strong><code>强度</code></strong>, dải dùng được <strong>0,5 – 1,0</strong> ⚠️</td>
+</tr>
+<tr>
+<td><code>漏光修复</code></td>
+<td>Sửa rò sáng</td>
+</tr>
+<tr>
+<td><code>降噪</code></td>
+<td>Khử nhiễu — <strong>tăng thêm khoảng 3 phút render</strong></td>
+</tr>
+<tr>
+<td><code>炫光</code></td>
+<td>Quầng chói. Các ca thực chiến hội tụ ở <strong>1,50</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Đường vào theo tài liệu chính thức: <code>工具</code> → giao diện <code>渲染</code> → chọn template <code>自然写实</code> → nhóm <code>曝光</code>.</p>
+<blockquote class="tip">
+<p>💡 <strong><code>手动曝光</code> là biến số ẩn giải thích nhiều bộ số kỳ lạ.</strong> Có người để <code>阳光 亮度</code> tới 100–150 mà ảnh không cháy — vì họ đã hạ <code>手动曝光 强度</code> xuống 0,5. Thấy ai đó dùng số nắng cao bất thường, hãy hỏi họ để phơi sáng bao nhiêu.</p>
+</blockquote>
+<hr>
+<h2 id="139-bang-venh-kiem-truoc-khi-dung">13.9. Bảng vênh — kiểm trước khi dùng</h2>
+<p>Những tham số dưới đây <strong>các nguồn không thống nhất</strong>. Đừng chép, hãy dò.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Các giá trị gặp</th>
+<th>Vì sao vênh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>阳光 亮度</code></td>
+<td>20–50 (chính thức) · 30–70 · 50 · 100 · 150 · <strong>300</strong></td>
+<td><strong>Phụ thuộc con đường bố đèn.</strong> Đường D đẩy rất cao. Số cao thường đi kèm <code>手动曝光</code> thấp</td>
+</tr>
+<tr>
+<td><code>阴影柔和度</code></td>
+<td>1 · 3 · 10 · 10–20</td>
+<td><strong>Hai ô hai thang</strong> — xem 13.4</td>
+</tr>
+<tr>
+<td><code>环境光反射</code></td>
+<td>10 · 18 · 20</td>
+<td>Hai phe</td>
+</tr>
+<tr>
+<td><code>外景亮度</code></td>
+<td>1–3 · 3 · 5 · 6 · <strong>10</strong></td>
+<td>Dải rất rộng, tuỳ đường</td>
+</tr>
+<tr>
+<td><code>环境阻光 深浅</code></td>
+<td>0,2 · 0,50 · 0,70</td>
+<td>Bán kính thì khớp</td>
+</tr>
+<tr>
+<td><code>筒灯 亮度</code></td>
+<td>200–300 · 60–200 · 100</td>
+<td>Ca thực chiến đều <strong>thấp hơn</strong> số hay thấy</td>
+</tr>
+<tr>
+<td><strong>Đơn vị độ sáng</strong></td>
+<td>thang cũ · <code>瓦</code> · <strong><code>%</code></strong></td>
+<td>Xem cảnh báo đầu chương</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="ky-thuat-cap-cao-dung-ma-rgb-thay-nhiet-o-mau">Kỹ thuật cấp cao: dùng mã RGB thay nhiệt độ màu</h3>
+<p>Panel đèn có hai tab <code>色温</code> (nhiệt màu) và <code>颜色</code> (màu), <strong>chỉ nhận một trong hai</strong> — hệ lưu giá trị chỉnh sau cùng.</p>
+<p>Gần như mọi người dùng <code>色温</code>. Nhưng một ca thực chiến dùng <strong>mã RGB</strong>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Mã RGB</th>
+<th>Màu</th>
+<th>Đi kèm</th>
+<th>Vai trò</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>240 – 231 – 216</strong></td>
+<td>Trắng ngà ấm</td>
+<td><code>阴影柔和</code> 1000</td>
+<td>Cho không khí và bóng đổ</td>
+</tr>
+<tr>
+<td><strong>69 – 120 – 176</strong></td>
+<td>Xanh dương trung</td>
+<td><code>影响高光</code> BẬT · <code>亮度</code> 50</td>
+<td>Tạo vệt sáng xanh</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Lợi thế:</strong> thang Kelvin chỉ chạy trên trục vàng–xanh lam. RGB cho phép chọn bất kỳ màu nào — làm được những tông mà Kelvin không với tới. Ca này tuyên bố <strong>không dùng hậu kỳ, không dùng LUT</strong> mà ảnh vẫn đẹp.</p>
+<p>Kỹ thuật này dành cho lúc bạn đã thạo. Đừng dùng khi còn đang dò số cơ bản.</p>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<h3 id="bai-1-i-het-bon-con-uong">Bài 1 — Đi hết bốn con đường</h3>
+<p>Lấy một phòng khách có cửa sổ. Bố đèn <strong>bốn lần</strong> theo bốn con đường ở 13.1, mỗi lần render một ảnh. Ghi lại thời gian bỏ ra cho mỗi đường.
+<strong>Đạt khi:</strong> cả bốn ảnh đều dùng được; nói được đường nào cho ánh sáng <strong>có hướng</strong>, đường nào nhanh nhất, đường nào phụ thuộc cửa sổ lớn.</p>
+<h3 id="bai-2-kiem-hai-quy-luat-phu-thuoc">Bài 2 — Kiểm hai quy luật phụ thuộc</h3>
+<p>Cùng một phòng, làm hai phương án: một phương án tông sáng (tường trắng, tủ trắng), một phương án tông tối (gỗ đậm, tường sẫm). Giữ nguyên mọi thứ, chỉ chỉnh <code>灯带</code> cho tới khi hai ảnh <strong>trông sáng ngang nhau</strong>.
+<strong>Đạt khi:</strong> hai con số cách nhau ít nhất ba lần, và bạn hiểu vì sao.</p>
+<h3 id="bai-3-nang-qua-rem-voan">Bài 3 — Nắng qua rèm voan</h3>
+<p>Phòng có cửa sổ và rèm voan. Bật <code>渲染复杂材质</code>, dùng template <code>写实</code>. Dò theo đúng bốn bước ở 13.4, <strong>mỗi lần đổi một biến</strong>. Ghi lại giá trị ở mỗi bước.
+<strong>Đạt khi:</strong> vệt nắng trên sàn <strong>mềm rìa nhưng vẫn đọc được hình khung cửa</strong>. Không phải bóng dao cắt, cũng không phải mảng sáng tan.</p>
+<h3 id="bai-4-render-ca-bo">Bài 4 — Render cả bộ</h3>
+<p>Dựng xong cả căn mẫu. Khoá một template. Lưu 6 góc. Render nháp cả 6, soi lỗi, sửa, rồi render bản cuối.
+<strong>Đạt khi:</strong> xếp 6 ảnh cạnh nhau, hướng bóng <strong>giống hệt</strong> ở mọi ảnh, không ảnh nào lệch tông rõ rệt.</p>
+<hr>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="13-t1"><span>Giải thích được vì sao hai bộ số chỏi nhau mà cả hai đều ra ảnh đẹp</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t2"><span>Chọn được con đường bố đèn hợp cảnh, không chỉ biết một cách</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t3"><span>Thuộc câu: <strong>ánh sáng đi qua cái gì và đập vào cái gì</strong></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t4"><span>Biết <code>灯带</code> phụ thuộc màu vật liệu, chênh được gần mười lần</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t5"><span>Kiểm được đơn vị độ sáng trên máy mình trước khi nhập số</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t6"><span>Phân biệt <code>阴影柔和度</code> của nắng (1–10) với <code>阴影柔和</code> của đèn nhân tạo (100–3000)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t7"><span>Biết <code>角度</code> là góc ngẩng, <code>位置</code> là phương vị</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t8"><span>Dò rèm voan đúng thứ tự bốn bước, <strong>mỗi lần một biến</strong></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t9"><span>Phân loại được vật cản: vải mỏng dựa tán xạ, vật đục có khe dựa hình học</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t10"><span>Trong mô hình không đèn chủ, dựng lớp <strong>nền trước, nhấn sau</strong></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t11"><span>Không đặt đèn ảo ở chỗ không có model đèn thật</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t12"><span>Khoá một template cho cả bộ ảnh, render nháp cả bộ trước khi làm bản cuối</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="13-t13"><span>Bật <code>渲染复杂材质</code> + <code>镜面真实反射</code>, tắt <code>影响高光</code></span></label></li>
+</ul>
+<hr>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chép số của người khác mà ảnh cháy trắng</td>
+<td>Khác đời template — GI mới mạnh hơn</td>
+<td>Hạ số xuống; chép tỉ lệ đừng chép số</td>
+</tr>
+<tr>
+<td>Nâng bản template xong ảnh cháy</td>
+<td>Đèn tay cũ giữ nguyên số nhưng GI cảnh mạnh lên</td>
+<td>Hạ đèn tay sau khi nâng bản</td>
+</tr>
+<tr>
+<td><code>灯带</code> chỗ sáng chỗ tối bất thường giữa hai phòng</td>
+<td>Không tính màu vật liệu</td>
+<td>Phòng tông tối phải để cao hơn nhiều lần</td>
+</tr>
+<tr>
+<td>Bóng nắng cứng như dao cắt dù có rèm</td>
+<td>Chưa bật <code>渲染复杂材质</code>, hoặc dùng <code>极速</code>; <code>不透明度</code> quá cao; <code>阴影柔和度</code> quá thấp</td>
+<td>Bật công tắc, chuyển <code>写实</code>, hạ <code>不透明度</code> về 25–45%, <code>阴影柔和度</code> lên 3–5</td>
+</tr>
+<tr>
+<td>Vệt nắng mờ tan mất hình</td>
+<td><code>阴影柔和度</code> quá cao (8–10); <code>不透明度</code> rèm quá thấp</td>
+<td>Hạ về 3–5; tăng <code>不透明度</code></td>
+</tr>
+<tr>
+<td>Có nắng nhưng không thấy vệt trên sàn</td>
+<td>Ánh khuếch tán rửa trôi</td>
+<td>Hạ <code>外景亮度</code> trước, giữ <code>太阳光</code></td>
+</tr>
+<tr>
+<td>Cửa sổ cháy trắng</td>
+<td><code>外景亮度</code> quá cao</td>
+<td>Hạ <code>外景</code> trước tiên, đừng hạ <code>太阳光</code></td>
+</tr>
+<tr>
+<td>Vệt nắng đổ sai hướng cả buổi</td>
+<td>Nhầm <code>角度</code> với <code>位置</code></td>
+<td><code>角度</code> = góc ngẩng, <code>位置</code> = phương vị</td>
+</tr>
+<tr>
+<td>Trưa hè mà không có bóng</td>
+<td>Mặt trời gần đỉnh</td>
+<td>Đổi giờ về 8:00–10:00, góc ngẩng 15–35°</td>
+</tr>
+<tr>
+<td>Vệt sáng xuất hiện từ hư không</td>
+<td>Đặt đèn ảo ở chỗ không có model đèn</td>
+<td>Bỏ đèn đó, hoặc thêm model đèn thật</td>
+</tr>
+<tr>
+<td>Dải hắt sáng phẳng lì, không có gradient</td>
+<td><code>衰减系数</code> để mặc định 1,0</td>
+<td>Nâng lên ~1,5</td>
+</tr>
+<tr>
+<td>Khe hắt cháy trắng bệt</td>
+<td><code>面光源</code> quá sáng hoặc quá sát mặt trần</td>
+<td>Hạ độ sáng, kéo nguồn xa mặt phản xạ, bật vật liệu mới</td>
+</tr>
+<tr>
+<td>Bộ 8 ảnh nhìn như 8 căn khác nhau</td>
+<td>Mỗi ảnh một template, hoặc đổi mặt trời giữa chừng</td>
+<td>Khoá một template, render cả bộ bằng đúng bộ đó</td>
+</tr>
+<tr>
+<td>Số nắng của người ta cao gấp ba mà ảnh họ không cháy</td>
+<td>Họ hạ <code>手动曝光 强度</code></td>
+<td>Kiểm ô phơi sáng trước khi kết luận</td>
+</tr>
+<tr>
+<td>Không tìm thấy nút tạo dải hắt một chạm</td>
+<td>Chức năng doanh nghiệp</td>
+<td>Đặt <code>面光源</code> dài mảnh bằng tay</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức — help center Kujiale:</strong>
+- Bộ tham số đèn đầy đủ (thiên quang ngoài 400–600, trong cửa 200–300, đèn bù, <code>射灯</code> 280–300 @2,4m) — bài <code>3FO4K4W3SFUK</code>
+- Bảy công tắc <code>渲染高级参数</code>, gồm dải <code>0%–6000%</code> của vật liệu dải hắt mới — bài <code>3FO4K4VWISQV</code>
+- Nhóm <code>自动曝光</code> / <code>漏光修复</code> / <code>降噪</code> / <code>炫光</code> ở template <code>自然写实</code> — bài <code>3FO4K4VN8BUJ</code>, cập nhật 08/03/2024
+- <code>体积光</code>, có đường riêng cho tài khoản cá nhân — bài <code>3FO4K4VP57FJ</code>
+- <code>自定义灯光</code> / <code>手动灯光</code>, đối tượng <code>所有用户</code> — bài <code>3FO4K4VW3226</code>
+- Nâng cấp GI bản 3.0 và cơ chế đèn tay giữ nguyên khi nâng bản — bài <code>3FO4K4WI979T</code>, 05/06/2024
+- <code>环境光亮度</code> mặc định mức 3 — bài <code>3FO4K4WIA2D3</code>
+- <code>一键生成灯带</code> là chức năng doanh nghiệp — bài <code>3FO4K4VLAV8D</code>
+- <code>渲染复杂材质</code> chỉ chạy đủ ở dòng template <code>写实</code></p>
+<p><strong>Tiêu chuẩn ngành:</strong>
+- Độ rọi theo phòng — GB 50034 (Trung Quốc), dùng làm tham chiếu vì Việt Nam chưa chốt số hiệu tương đương</p>
+<p><strong>Ảnh chụp panel thật của designer Trung Quốc — có số nhưng không phải tài liệu chính thức, đánh ⚠️:</strong>
+- Bốn con đường bố đèn ở 13.1
+- Hai quy luật phụ thuộc ở 13.2
+- Toàn bộ bảng hội tụ và bảng vênh
+- Kỹ thuật <code>聚光灯</code> cường độ cực thấp, và kỹ thuật dùng mã RGB
+- Thang <code>阴影柔和</code> 100–3000 của đèn nhân tạo</p>
+<p><strong>Nguồn cộng đồng — đánh ⚠️:</strong>
+- <code>窗纱 不透明度</code> 25–45%, <code>太阳光 亮度</code> 30–45 cho cảnh có rèm
+- Thang <code>阴影柔和度</code> của nắng 1–10 (video hướng dẫn: để 1 thì sắc, để 10 thì rất mờ)
+- Ngưỡng chênh nhiệt màu 300–500K và chênh sáng 1 khẩu giữa các ảnh trong bộ
+- Số lượng ảnh 6–9 và 9–12 mỗi căn
+- <code>面光源</code> dài mảnh rộng 20–25 độ sáng ~1500</p>
+<p><strong>Chờ verify trong app (Phụ lục B) — bốn mục chặn cửa:</strong>
+1. <strong>Đơn vị độ sáng</strong> thực tế hiển thị là thang cũ, <code>瓦</code> hay <code>%</code>, và áp cho loại đèn nào
+2. <strong><code>阴影柔和度</code> có đúng hai thang không</strong> — nắng 1–10 và đèn nhân tạo 100–3000
+3. <strong><code>手动曝光</code></strong> nằm ở panel nào, thang bao nhiêu, mặc định bao nhiêu
+4. <strong><code>室内光亮度</code></strong> thang bao nhiêu, tối đa có phải 500%</p>
+<p>Thêm: <code>灯光专属环境阻光</code> trong panel đèn và <code>环境阻光</code> ở <code>高级设置</code> là <strong>một hay hai</strong> thứ khác nhau · checkbox <code>阳光投射至每个房间</code> làm gì · <code>真实光源模式</code> ở <code>灯带</code> là gì · bản template thực tế còn những bản nào (mở <code>灯光版本管理</code> xem, đừng tin bảng in sẵn) · <code>光照分析图</code> tài khoản cá nhân có dùng được không.</p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="12.html"><span class="dir">← Trước</span><div class="t">Chương 12 · Chi tiết công trình</div></a><a class="next" href="14.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 14 · Hậu kỳ nâng cao</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

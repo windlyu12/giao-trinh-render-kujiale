@@ -13,10 +13,12 @@
 >
 > **Ô độ sáng 亮度 (độ sáng) trong Kujiale đã ĐỔI THANG HIỂN THỊ.**
 >
-> - Bản UI mới hiển thị đơn vị **「瓦」(watt ảo)** = **số thang cũ CHIA 10**. Ví dụ: 天光 600 thang cũ = nhập **60瓦**. 29瓦 trên UI mới = 290 kiểu cũ.
-> - **MỌI số độ sáng trong chương này viết theo THANG CŨ** (dải quen thuộc 0–800, đèn hắt ~1500). Gần như toàn bộ bài chia sẻ trên mạng Trung Quốc cũng theo thang cũ — thấy số to đừng nhập thẳng.
-> - 「瓦」KHÔNG phải watt điện thật; 亮度 KHÔNG phải lumen hay lux — chỉ là **giá trị tương đối** của phần mềm. Bài quảng cáo nào ghi "300 lumen" thì bỏ qua, không khớp ô nhập thật.
-> - **Việc đầu tiên khi mở app học chương này:** tạo 1 đèn bất kỳ, nhìn panel xem đơn vị hiện gì → điền **Phiếu verify mục B1 (Phụ lục B)**. UI hiện 瓦 → mọi số trong sách chia 10 rồi mới nhập. UI hiện số trơn → nhập nguyên.
+> - **Có BA hệ đơn vị song song**, không phải hai: **thang cũ** (dải quen thuộc 0–800, đèn hắt ~1500) · **`瓦`** (watt ảo) · **`%`**.
+> - **MỌI số độ sáng trong chương này viết theo THANG CŨ.** Gần như toàn bộ bài chia sẻ trên mạng Trung Quốc cũng theo thang cũ — thấy số to đừng nhập thẳng.
+> - ⚠️ **Quy ước "`瓦` = thang cũ chia 10" CHƯA ĐƯỢC XÁC NHẬN.** Bản đầu của cuốn sách này ghi nó như dữ kiện — **đó là sai**. Hai gói nghiên cứu độc lập đều không tìm được nguồn chính thức nào của Kujiale nói vậy. Hãy coi đây là **quy ước nội bộ chưa kiểm chứng**, đừng trích như thông tin của hãng.
+> - **Hệ `%` thì là thật và chính thức:** tài liệu trợ giúp xác nhận `硬装灯带` dùng vật liệu mới render chính xác dải **0% – 6000%**. Ảnh chụp panel thật còn cho thấy `室内光亮度` hiện **100%** và **500%**.
+> - `瓦` KHÔNG phải watt điện thật; `亮度` KHÔNG phải lumen hay lux — chỉ là **giá trị tương đối** của phần mềm. Bài quảng cáo nào ghi "300 lumen" thì bỏ qua.
+> - **Việc đầu tiên khi mở app học chương này:** tạo một đèn bất kỳ, nhìn panel xem đơn vị hiện gì → điền **Phiếu verify mục B1 (Phụ lục B)**. Kiểm đủ **cả ba** khả năng. Chưa biết đơn vị máy mình thì **đừng nhập số nào trong chương này cả** — dò từ thấp lên.
 
 ---
 
@@ -98,7 +100,7 @@ Cách dùng 2 bộ số — quy tắc của sách:
 1. **Khởi điểm luôn là bộ chính thức** (dải thấp hơn, an toàn với template 3.0+ GI mạnh).
 2. Render nháp thấy tối, thiếu khí trời → **nâng dần về phía dải 仙姑老师**. Căn góc kính lớn, muốn ảnh ngập sáng kiểu ban mai → dải 仙姑 hợp hơn.
 3. Riêng 射灯 tồn tại 3 dải cộng đồng: 200–300 (nền, 仙姑) / 100–180 (chống cháy sáng, 佳佳老师) / 330–350 (rọi tường ban đêm, Baidu) — **khác ngữ cảnh chứ không mâu thuẫn**: rọi nền lấy 200–300, ảnh bị cháy hạ về 100–180, cảnh đêm cần kịch tính mới lên 330+.
-4. Nhắc lại: tất cả là **thang cũ** — UI hiện 瓦 thì chia 10 (Phiếu verify B1).
+4. Nhắc lại: tất cả là **thang cũ** — kiểm đơn vị máy mình trước (Phiếu verify B1), ⚠️ đừng mặc định chia 10.
 
 ## 4.6. Năm công thức phòng
 

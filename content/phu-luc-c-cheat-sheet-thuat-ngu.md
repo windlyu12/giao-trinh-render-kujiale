@@ -2,7 +2,23 @@
 
 **Cách dùng:** In khổ A3 ngang (hoặc 2 tờ A4), dán cạnh màn hình. Đây là công cụ số 1 để sống với giao diện tiếng Trung — chữ trong khu thiết kế vẽ bằng đồ họa nên tiện ích dịch trang không dịch được (xem C1). Hai nhóm dùng dày nhất khi học render là **Nhóm 3 (Render)** và **Nhóm 4 (Ánh sáng)** — nên in nổi bật hoặc dán gần tầm mắt nhất.
 
-Cột "Tiếng Anh" đối chiếu theo bản quốc tế Coohom khi có mục tương đương; nơi không có thì dùng thuật ngữ đồ họa 3D thông dụng — để bạn tra thêm tài liệu tiếng Anh khi cần. Ghi chú UI đã quy đổi theo giao diện mới từ 08/2025.
+> ## ⚠️ ĐÍNH CHÍNH 2026-08-25 — ĐỌC TRƯỚC KHI DÙNG CỘT TIẾNG ANH
+>
+> **Kujiale CÓ chuyển được giao diện sang tiếng Anh** (bản v1 của sách nói ngược lại — đã sửa ở C1).
+>
+> Nhưng cột "Tiếng Anh" dưới đây được suy từ **bản quốc tế Coohom**, không phải từ app thật. **Ba mục đầu tiên đem đi kiểm thì sai cả ba:**
+>
+> | 中文 | Cột này ghi | App thật ghi |
+> |---|---|---|
+> | `工具` | Tools | **`Toolkit`** |
+> | `层高` | Ceiling height | **`Room height`** |
+> | `渲染` | Render | **`Images/Videos`** — không hề có chữ "Render" |
+>
+> **→ Đừng tin cột tiếng Anh cho tới khi có ảnh chụp app xác nhận.** Nhãn đã xác nhận nằm ở **Phụ lục B mục H**; nhãn chưa xác nhận thì cứ dùng chữ Hán.
+>
+> Thêm một bẫy dịch: nút **`包管`** (hộp bao ống) được dán nhãn là **`Partition wall`** (tường ngăn) — sai nghĩa hẳn.
+
+**Cách dùng cột tiếng Anh:** để tra thêm tài liệu quốc tế, KHÔNG phải để tìm nút trong app. Ghi chú giao diện đã quy đổi theo bản mới từ 08/2025.
 
 ---
 
@@ -91,7 +107,7 @@ Cột "Tiếng Anh" đối chiếu theo bản quốc tế Coohom khi có mục t
 | 环境光 | huánjìngguāng | Ambient light | Ánh sáng môi trường | Nâng sáng tổng thể |
 | 外景 | wàijǐng | Background scene | Ngoại cảnh ngoài cửa sổ | Cột trái giao diện render; nhận PNG/JPG 2:1, KHÔNG nhận file .hdr |
 | 色温 | sèwēn | Color temperature (K) | Nhiệt độ màu | Vàng ấm phòng ngủ / trắng ấm phòng khách |
-| 亮度 | liàngdù | Brightness / Intensity | Độ sáng / cường độ đèn | ⚠️ UI mới hiển thị 瓦 = thang cũ ÷10 — đọc kỹ hộp cảnh báo C4 |
+| 亮度 | liàngdù | Brightness / Intensity | Độ sáng / cường độ đèn | ⚠️ Ba hệ song song: thang cũ / `瓦` / `%`. Quy tắc ÷10 CHƯA xác nhận — đọc hộp cảnh báo C4 |
 | 光域网 | guāngyùwǎng | IES profile | File phân bố sáng IES | Tạo vệt sáng thật của đèn rọi |
 | 双面光 | shuāngmiànguāng | Double-sided light | Đèn phát sáng 2 mặt | Tùy chọn trong 面光源 |
 | 色彩 / 灯光颜色 | sècǎi / dēngguāng yánsè | Light color | Màu ánh sáng | Chỉnh bằng bảng màu hoặc 色温 |

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phụ lục E. Ngân hàng ca thực chiến — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#9be8a0;--accent-soft:color-mix(in srgb, #9be8a0 13%, transparent);}</style>
+</head>
+<body data-slug="pe">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Phiếu khám phá app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">E</div>
+    <div class="ch-meta"><span class="tag">Phụ lục E</span><span class="tag ghost">≈ 16 phút đọc</span></div>
+    <h1 class="ch-title">Ngân hàng ca thực chiến</h1>
+    <p class="ch-hook">Mười ca đánh đèn của designer Trung Quốc — số thật từ panel thật, và vì sao họ đặt khác nhau.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#cach-dung-phu-luc-nay">Cách dùng phụ lục này</a></li><li><a href="#oc-e-hieu-cach-nghi-khong-phai-e-chep-so">📌 ĐỌC ĐỂ HIỂU CÁCH NGHĨ, KHÔNG PHẢI ĐỂ CHÉP SỐ.</a></li><li><a href="#e1-ba-loi-khi-dung-ai-oc-video-oc-truoc-khi-tin-bat-ky-ca-video-nao">E.1. ⚠️ Ba lỗi khi dùng AI đọc video — đọc TRƯỚC khi tin bất kỳ ca video nào</a></li><li><a href="#e2-bang-muoi-ca">E.2. Bảng mười ca</a></li><li><a href="#e3-bon-con-uong-bo-en-cot-loi-rut-ra">E.3. Bốn con đường bố đèn — cốt lõi rút ra</a></li><li><a href="#e4-hai-quy-luat-phu-thuoc-thu-gia-tri-nhat-thu-uoc">E.4. Hai quy luật phụ thuộc — thứ giá trị nhất thu được</a></li><li><a href="#ung-hoi-en-nay-e-bao-nhieu">Đừng hỏi "đèn này để bao nhiêu".</a></li><li><a href="#hoi-anh-sang-phai-i-qua-cai-gi-va-ap-vao-cai-gi">Hỏi "ánh sáng phải đi qua cái gì và đập vào cái gì".</a></li><li><a href="#e5-bang-hoi-tu-so-nhieu-nguon-cung-xac-nhan">E.5. Bảng hội tụ — số nhiều nguồn cùng xác nhận</a></li><li><a href="#e6-bang-venh-kiem-truoc-khi-dung">E.6. Bảng vênh — kiểm trước khi dùng</a></li><li><a href="#e7-vu-venh-muoi-lan-a-go">E.7. 🔑 Vụ 阴影柔和度 vênh mười lần — đã gỡ</a></li><li><a href="#e8-nhung-thu-moi-hoan-toan-khong-co-o-au-khac">E.8. Những thứ MỚI HOÀN TOÀN — không có ở đâu khác</a></li><li><a href="#e9-hai-ca-tu-luong-cong-ong-chinh-chu">E.9. Hai ca từ luồng cộng đồng chính chủ</a></li><li><a href="#e10-tu-thu-them-ca">E.10. Tự thu thêm ca</a></li><li><a href="#e11-bon-muc-can-verify-trong-app-chan-cua">E.11. Bốn mục cần verify trong app — chặn cửa</a></li><li><a href="#nguon">Nguồn</a></li></ol></details>
+  <article class="content"><p><strong>Mười ca đánh đèn của designer Trung Quốc, thu từ 小红书, Douyin và cộng đồng chính chủ Kujiale.</strong></p>
+<p>Đây là phụ lục quan trọng nhất về mặt số liệu, vì nó chứa thứ mà tài liệu chính thức không có: <strong>ảnh chụp panel thật, với số thật, kèm ảnh kết quả.</strong></p>
+<hr>
+<h2 id="cach-dung-phu-luc-nay">Cách dùng phụ lục này</h2>
+<blockquote class="pin">
+<h2 id="oc-e-hieu-cach-nghi-khong-phai-e-chep-so">📌 ĐỌC ĐỂ HIỂU CÁCH NGHĨ, KHÔNG PHẢI ĐỂ CHÉP SỐ.</h2>
+<p>Tác giả ca số 8 viết nguyên văn, nhắc <strong>ba lần liền</strong>:
+<strong>"Đừng học thuộc lòng các thông số! Đừng học thuộc lòng các thông số! Đừng học thuộc lòng các thông số!"</strong></p>
+<p>Một giảng viên khác mà Chương 7 đã trích cũng nói y hệt: <em>"phân tích cảnh trước đã, học vẹt tham số là tự đào hố chôn mình."</em></p>
+<p><strong>Hai người không quen nhau, cùng một cảnh báo.</strong> Đó là lý do phụ lục này xếp các ca theo <strong>cách nghĩ</strong>, không xếp theo bảng số.</p>
+</blockquote>
+<p>Ba mức độ tin cậy dùng trong phụ lục:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ <strong>Học được số</strong></td>
+<td>Có ảnh chụp panel gốc. Số đọc trực tiếp từ màn hình</td>
+</tr>
+<tr>
+<td>⚠️ <strong>Chỉ học tư duy</strong></td>
+<td>Số qua trung gian (chép tay, AI đọc video). Học quy trình, đừng chép số</td>
+</tr>
+<tr>
+<td>📄 <strong>Có số nhưng thiếu ảnh</strong></td>
+<td>Bài viết có thông số nhưng không có ảnh kết quả độc lập</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="e1-ba-loi-khi-dung-ai-oc-video-oc-truoc-khi-tin-bat-ky-ca-video-nao">E.1. ⚠️ Ba lỗi khi dùng AI đọc video — đọc TRƯỚC khi tin bất kỳ ca video nào</h2>
+<p>Bốn trong mười ca dưới đây đến từ video, được đọc lại bằng công cụ AI. Trong quá trình đó bắt được <strong>ba lỗi có hệ thống</strong>. Ai định tự thu thêm ca theo cách này phải biết trước.</p>
+<h3 id="loi-1-ket-luan-tong-cua-ai-khong-ang-tin-chi-tin-bang">Lỗi 1 — Kết luận tổng của AI không đáng tin, chỉ tin BẢNG</h3>
+<p>Ở một ca, phần kết luận của AI ghi <em>"dùng thang cũ, không có đơn vị watt"</em> — <strong>nhưng chính bảng số của nó lại ghi <code>100 %</code> và <code>200.00 %</code></strong>.</p>
+<p>Nguyên nhân: AI <strong>suy diễn</strong> ở phần kết luận, nhưng <strong>chép</strong> ở phần bảng. Phần chép đáng tin hơn hẳn phần suy.</p>
+<h3 id="loi-2-ai-gan-sai-nhan-khi-cac-o-xep-sat-nhau">Lỗi 2 — AI gán SAI NHÃN khi các ô xếp sát nhau</h3>
+<p>Một ca ghi <code>饱和度</code> = 1,50. Nhưng ảnh panel của ca khác cho thấy thứ tự các ô là:</p>
+<blockquote>
+<p><code>炫光</code> <strong>1.50</strong> → <code>对比度</code> 0.05 → <code>亮度</code> 0.00 → <code>饱和度</code> <strong>0.05</strong></p>
+</blockquote>
+<p>AI đã lấy giá trị của <code>炫光</code> gán cho <code>饱和度</code>. <strong>Hai ô cách nhau ba dòng.</strong></p>
+<h3 id="loi-3-ai-co-the-bia-phan-mo-ta-anh-ket-qua">Lỗi 3 — AI có thể BỊA phần mô tả ảnh kết quả</h3>
+<p>Một ca được mô tả có <em>"vách TV có đèn hắt và tủ rượu"</em> — không khớp ảnh thật khi đối chiếu.</p>
+<blockquote>
+<p><strong>→ Quy tắc rút ra: ưu tiên bài viết có ảnh chụp panel hơn video. Nếu buộc phải dùng video, chỉ tin bảng số kèm mốc thời gian; bỏ qua phần kết luận và phần mô tả ảnh.</strong></p>
+</blockquote>
+<hr>
+<h2 id="e2-bang-muoi-ca">E.2. Bảng mười ca</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Tên ca</th>
+<th>Dạng</th>
+<th>Tin cậy</th>
+<th>Giá trị chính</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Video thao tác đánh đèn</td>
+<td>Video</td>
+<td>⚠️</td>
+<td>Quy trình <strong>xoá sạch đèn rồi dựng lại</strong>; <code>真实光源模式</code> ở <code>灯带</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hai bài "đèn Kujiale 1 và 2"</td>
+<td>Bài viết</td>
+<td>⚠️</td>
+<td>Lần đầu thấy <strong><code>手动曝光</code></strong>; phân biệt 3 loại đèn; camera cao 1100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>"Bố cục đèn"</td>
+<td><strong>Panel gốc</strong></td>
+<td>✅</td>
+<td><strong>Đơn vị <code>%</code></strong>; quy trình 7 bước; LUT <code>写实蓝调</code> 75%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>"Sáu bước đánh đèn — đèn 3.0"</td>
+<td>Bài viết</td>
+<td>✅</td>
+<td><strong>Quy luật màu vật liệu</strong>; 6 bước có dải số; <code>辉光管</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Video "chỉ một đèn duy nhất"</td>
+<td>Video</td>
+<td>✅</td>
+<td>Xác nhận giao diện mới; <code>点光源</code> cầu <strong>ngoài cửa</strong> thay thiên quang</td>
+</tr>
+<tr>
+<td>6</td>
+<td>"Cách đánh đèn siêu đơn giản" — 9 đèn</td>
+<td><strong>Sơ đồ + số</strong></td>
+<td>✅</td>
+<td><strong>Gradient nhiệt màu theo khoảng cách</strong>; bộ số nắng</td>
+</tr>
+<tr>
+<td>7</td>
+<td>"Một đèn đại sư"</td>
+<td><strong>Panel gốc</strong></td>
+<td>✅</td>
+<td><strong><code>室内光亮度</code> 500%</strong>; xác nhận <code>辉光</code> và thư viện IES</td>
+</tr>
+<tr>
+<td>8</td>
+<td>"Đừng mù quáng chạy theo xu hướng"</td>
+<td><strong>Panel + chú thích tay</strong></td>
+<td>✅</td>
+<td><strong>Dùng mã RGB thay Kelvin</strong>; <code>位置</code> vs <code>角度</code>; quy luật rèm</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Phòng khách thông tầng, đèn tay 3.0</td>
+<td>Bài + ảnh trước/sau</td>
+<td>📄</td>
+<td>Có ảnh so sánh trước và sau</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Bộ giáo trình hai designer, bản đăng lại</td>
+<td>Bài</td>
+<td>📄</td>
+<td>Ba ca khách / ngủ / bếp, phân ba lớp sáng</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="e3-bon-con-uong-bo-en-cot-loi-rut-ra">E.3. Bốn con đường bố đèn — cốt lõi rút ra</h2>
+<p>Đây là kết luận đắt nhất của cả ngân hàng. Mười ca không cho một bộ số, chúng cho <strong>bốn cách nghĩ khác nhau</strong>, mỗi cách giao gánh nặng chiếu sáng cho một thứ.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Đường</th>
+<th>Ai gánh</th>
+<th>Ca đại diện</th>
+<th>Đặc điểm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td><code>环境光亮度</code> cao <strong>4–7</strong></td>
+<td>2, 3, 4, 5</td>
+<td>Nhanh, dễ — nhưng ánh sáng <strong>vô hướng</strong></td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td><code>球形灯</code> 8000K <strong>ngoài nhà</strong>, <code>环境光亮度</code> = <strong>0</strong></td>
+<td>6</td>
+<td>Có hướng, kiểm soát tốt nhất</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td><code>室内光亮度</code> <strong>500%</strong> + đúng <strong>một</strong> <code>矩形面光源</code> trong cửa</td>
+<td>7</td>
+<td><strong>Dễ nhất cho người mới</strong></td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td><code>外景亮度</code> <strong>10</strong> + <code>阳光</code> <strong>300</strong>, đèn trong chỉ bù <strong>80</strong></td>
+<td>8</td>
+<td>Để môi trường gánh</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Ba biến thể "ít đèn" đáng chú ý:</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ca</th>
+<th>Đèn chính</th>
+<th><code>室内光亮度</code></th>
+<th><code>环境光亮度</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>1 <code>点光源</code> cầu <strong>NGOÀI</strong> cửa</td>
+<td>100 %</td>
+<td>5,0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1 <code>矩形面光源</code> <strong>TRONG</strong> cửa</td>
+<td><strong>500 %</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>6</td>
+<td>4 <code>球形灯</code> ngoài + 5 đèn trong</td>
+<td>—</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ Tác giả ca 7 quảng cáo hơi quá — <em>"một giây"</em>, <em>"sánh ngang nhà thiết kế chuyên nghiệp"</em>. Ảnh kết quả đẹp thật, <strong>nhưng đó là cảnh có cửa sổ lớn nhìn ra hồ</strong>. Phòng không có cửa sổ lớn thì cách này không chạy.</p>
+</blockquote>
+<p><strong>Lộ trình học: bắt đầu đường C → lên A → sang B khi cần chất → D học sau cùng.</strong></p>
+<hr>
+<h2 id="e4-hai-quy-luat-phu-thuoc-thu-gia-tri-nhat-thu-uoc">E.4. Hai quy luật phụ thuộc — thứ giá trị nhất thu được</h2>
+<h3 id="quy-luat-1-o-sang-dai-hat-phu-thuoc-mau-vat-lieu-ca-4">Quy luật 1 — độ sáng dải hắt phụ thuộc MÀU VẬT LIỆU (ca 4)</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Không gian tông</th>
+<th><code>灯带</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sáng</strong></td>
+<td><strong>300–800</strong></td>
+</tr>
+<tr>
+<td><strong>Tối</strong></td>
+<td><strong>2000–6000</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Quy luật này <strong>giải mã được mâu thuẫn</strong> tồn tại từ trước: ca 1 để 700, ca 2 để 600, còn giáo trình ghi ~1500. Hoá ra ca 1 và ca 2 đều làm không gian <strong>tông sáng</strong>, nằm gọn trong dải 300–800. Không ai sai.</p>
+<h3 id="quy-luat-2-o-sang-phu-thuoc-co-rem-hay-khong-ca-8">Quy luật 2 — độ sáng phụ thuộc CÓ RÈM HAY KHÔNG (ca 8)</h3>
+<p>Nguyên văn: <strong><code>有窗帘拉满，没窗帘看着给</code></strong> — có rèm thì kéo hết cỡ, không rèm thì cho vừa mắt.</p>
+<h3 id="gop-lai">Gộp lại</h3>
+<blockquote>
+<h2 id="ung-hoi-en-nay-e-bao-nhieu">Đừng hỏi "đèn này để bao nhiêu".</h2>
+<h2 id="hoi-anh-sang-phai-i-qua-cai-gi-va-ap-vao-cai-gi">Hỏi "ánh sáng phải <strong>đi qua cái gì</strong> và <strong>đập vào cái gì</strong>".</h2>
+</blockquote>
+<hr>
+<h2 id="e5-bang-hoi-tu-so-nhieu-nguon-cung-xac-nhan">E.5. Bảng hội tụ — số nhiều nguồn cùng xác nhận</h2>
+<p>Những giá trị này được <strong>ba nguồn trở lên</strong> nhất trí. Đáng tin hơn hẳn số lẻ của một ca.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Giá trị</th>
+<th>Số ca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>相机高度</code></td>
+<td><strong>900–1100 mm</strong></td>
+<td>2, 4 + giáo trình</td>
+</tr>
+<tr>
+<td><code>相机视野</code></td>
+<td><strong>≤ 80</strong></td>
+<td>2, 4</td>
+</tr>
+<tr>
+<td><code>炫光</code></td>
+<td><strong>1,50</strong></td>
+<td>4, 7 + giáo trình</td>
+</tr>
+<tr>
+<td><code>环境光亮度</code></td>
+<td><strong>4</strong> (dải 3–7)</td>
+<td>2, 3, 4, 5</td>
+</tr>
+<tr>
+<td><code>环境光反射</code></td>
+<td><strong>18–20</strong></td>
+<td>2, 3, 6, 8 (ca 5 để 10)</td>
+</tr>
+<tr>
+<td><code>外景亮度</code></td>
+<td><strong>3</strong> hay dùng nhất (dải 1–10)</td>
+<td>2, 4, 5, 6</td>
+</tr>
+<tr>
+<td><code>环境阻光 深浅</code></td>
+<td><strong>0,50</strong></td>
+<td>2, 3, 7</td>
+</tr>
+<tr>
+<td><code>环境阻光 半径</code></td>
+<td><strong>25–50 mm</strong></td>
+<td>2, 3, 4, 5, 7</td>
+</tr>
+<tr>
+<td><code>手动曝光 强度</code></td>
+<td><strong>0,5–1,0</strong></td>
+<td>2 (×2), 3, 5, 7</td>
+</tr>
+<tr>
+<td><code>室内光亮度</code></td>
+<td><strong>100%</strong> thường · <strong>500%</strong> khi một đèn</td>
+<td>3, 5, 7</td>
+</tr>
+<tr>
+<td><strong>Bộ số NẮNG</strong></td>
+<td><strong>6500K · <code>亮度</code> 50 · <code>角度</code> 30°</strong></td>
+<td>4, 5, 6 + giáo trình</td>
+</tr>
+<tr>
+<td><code>聚光灯 亮度</code></td>
+<td><strong>0,3–2 %</strong> (cực thấp, chỉ tạo bóng)</td>
+<td>3, 4</td>
+</tr>
+<tr>
+<td><code>聚光灯 色温</code></td>
+<td><strong>khớp với nắng</strong></td>
+<td>3, 4</td>
+</tr>
+<tr>
+<td><code>灯带</code> / <code>氛围灯</code> nhiệt màu</td>
+<td><strong>3500–4500 K</strong></td>
+<td>2, 4, 6, 8 + giáo trình</td>
+</tr>
+<tr>
+<td><code>筒灯 亮度</code></td>
+<td><strong>100</strong></td>
+<td>2, 4, 6</td>
+</tr>
+<tr>
+<td><code>筒灯</code> nhiệt màu</td>
+<td><strong>3500 K</strong></td>
+<td>4, 6</td>
+</tr>
+<tr>
+<td><code>面光源 散射角</code></td>
+<td><strong>65–90°</strong></td>
+<td>3 (65), 6 (70/90), 7 (75), 8 (85)</td>
+</tr>
+<tr>
+<td><code>递推光</code> giảm dần</td>
+<td><strong>200 → 150 → 100 → 50</strong></td>
+<td>4 (số) + 2 + giáo trình</td>
+</tr>
+<tr>
+<td><code>球形灯</code> nhiệt màu</td>
+<td><strong>6500–10000 K</strong></td>
+<td>3, 5, 6</td>
+</tr>
+<tr>
+<td><code>影响高光</code> TẮT + <code>镜面真实反射</code> BẬT</td>
+<td>Cặp công tắc chuẩn</td>
+<td>3, 7</td>
+</tr>
+<tr>
+<td><code>色彩增强</code></td>
+<td><code>标准</code> · <code>饱和度</code> 0,05 · <code>对比度</code> 0–0,05 · <code>亮度</code> 0,00</td>
+<td>3, 7</td>
+</tr>
+<tr>
+<td><code>面光源</code> <strong>không đặt sát tường</strong></td>
+<td>Quy tắc</td>
+<td>2 + giáo trình</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Bẫy hội tụ giả — đọc kỹ.</strong> Đếm số nguồn phải đếm theo <strong>tác giả gốc</strong>, không đếm theo số bài. Ví dụ: bộ giáo trình của ca 10 là nguồn của nhiều bài viết khác nhau trên mạng, và cũng là nguồn của một phần giáo trình này. Ba bài trích cùng một người <strong>không phải ba xác nhận độc lập</strong>.</p>
+<p>Mười ca ở E.2 thì ca 1–8 là <strong>tác giả độc lập với nhau</strong>, nên bảng trên đáng tin. Ca 9 và 10 đến từ luồng khác, dùng để đối chiếu.</p>
+</blockquote>
+<hr>
+<h2 id="e6-bang-venh-kiem-truoc-khi-dung">E.6. Bảng vênh — kiểm trước khi dùng</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Các giá trị gặp</th>
+<th>Nguyên nhân khả dĩ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>阳光 亮度</code></td>
+<td>20–50 (chính thức) · 30–70 · 50 · 100 · 150 · <strong>300</strong></td>
+<td><strong>Phụ thuộc con đường</strong>. Đường D đẩy rất cao. Số cao thường đi kèm <code>手动曝光</code> thấp</td>
+</tr>
+<tr>
+<td><code>阴影柔和度</code></td>
+<td>1,00 · <strong>3,00</strong> · 10 · 10–20</td>
+<td><strong>Hai ô hai thang</strong> — xem E.7</td>
+</tr>
+<tr>
+<td><code>环境光反射</code></td>
+<td>10 · 18 · 20</td>
+<td>Hai phe</td>
+</tr>
+<tr>
+<td><code>外景亮度</code></td>
+<td>1–3 · 3 · 5 · 6 · <strong>10</strong></td>
+<td>Dải rất rộng</td>
+</tr>
+<tr>
+<td><code>环境阻光 深浅</code></td>
+<td>0,2 · 0,50 · 0,70</td>
+<td>Bán kính thì khớp</td>
+</tr>
+<tr>
+<td><strong>Đơn vị độ sáng</strong></td>
+<td>thang cũ · <code>瓦</code> · <strong><code>%</code></strong></td>
+<td>Ca 3 và 5 chứng minh có hệ <code>%</code></td>
+</tr>
+<tr>
+<td><code>筒灯 亮度</code></td>
+<td>200–300 (giáo trình) · 60–200 · 100</td>
+<td>Ca thực chiến đều <strong>thấp hơn</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="e7-vu-venh-muoi-lan-a-go">E.7. 🔑 Vụ <code>阴影柔和度</code> vênh mười lần — đã gỡ</h2>
+<p>Đây là mâu thuẫn dai nhất của cả ngân hàng, và nó đã được giải.</p>
+<p><strong>Ca 8 cho thấy hai ô khác nhau trong hai panel khác nhau:</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Thuộc về</th>
+<th>Giá trị ca 8</th>
+<th>Thang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>阴影柔和度</code></td>
+<td><strong><code>阳光</code></strong> (mặt trời)</td>
+<td><strong>3,00</strong></td>
+<td>khoảng <strong>1–10</strong></td>
+</tr>
+<tr>
+<td><code>阴影柔和</code></td>
+<td><strong>Đèn nhân tạo</strong></td>
+<td><strong>1000</strong></td>
+<td>khoảng <strong>100–3000</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Các ca trước đã trộn lẫn hai ô này.</strong> Ca 3 ghi 3000 và 800 — đó là của <code>聚光灯</code>. Ca 4 ghi 100–300 cũng của <code>聚光灯</code>.</p>
+<p><strong>Xác nhận độc lập:</strong> một video hướng dẫn nói rõ về ô của mặt trời — <em>"để <code>阴影柔和度</code> bằng một, rồi để bằng mười, bạn thấy khác biệt chưa?"</em> — tức thang chạy 1 đến 10, số càng lớn bóng càng mềm.</p>
+<p>Đối chiếu lại toàn bộ:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Giá trị nắng</th>
+<th>Khớp thang 1–10?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ca 8 (panel gốc)</td>
+<td>3,00</td>
+<td>✅ giữa vùng dùng được</td>
+</tr>
+<tr>
+<td>Ca 5</td>
+<td>1,00</td>
+<td>✅ bóng sắc</td>
+</tr>
+<tr>
+<td>Ca 6</td>
+<td>10</td>
+<td>✅ rìa thang, bóng rất mờ</td>
+</tr>
+<tr>
+<td>Ca 4</td>
+<td>10–20</td>
+<td>🟡 tràn nhẹ — nghi khác đời template</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>→ Kết luận: hai ô, hai thang. Vùng dùng được của nắng là 3–5.</strong> Còn lại cần verify chiều thang trên giao diện hiện tại.</p>
+<hr>
+<h2 id="e8-nhung-thu-moi-hoan-toan-khong-co-o-au-khac">E.8. Những thứ MỚI HOÀN TOÀN — không có ở đâu khác</h2>
+<p>Đây là phần chứng minh vì sao phải thu ca bằng tay: <strong>những mục dưới đây không xuất hiện trong bất kỳ gói nghiên cứu nào, cũng không có trong tài liệu chính thức bằng tiếng Việt.</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Mục</th>
+<th>Ca</th>
+<th>Ghi chú</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>手动曝光</code> + <code>强度</code></strong></td>
+<td>2, 3, 5, 7</td>
+<td>Đường vào: <code>效果</code> → <code>模板</code> → <code>曝光</code> → hai nút <code>自动曝光</code> / <code>手动曝光</code> → ô <code>强度</code>. Dải 0,5–1,0</td>
+</tr>
+<tr>
+<td><strong><code>室内光亮度</code></strong></td>
+<td>3, 5, 7</td>
+<td>100% thường, <strong>500%</strong> khi dùng một đèn</td>
+</tr>
+<tr>
+<td><strong><code>灯光专属环境阻光</code></strong></td>
+<td>2, 3, 4, 5, 7</td>
+<td><strong>AO thứ hai</strong>, nằm trong panel đèn — khác <code>环境阻光</code> ở <code>高级设置</code></td>
+</tr>
+<tr>
+<td><strong>Đơn vị <code>%</code></strong></td>
+<td>3, 5</td>
+<td>Trần có thể tới 6000%</td>
+</tr>
+<tr>
+<td><strong><code>辉光</code> / <code>辉光管</code></strong></td>
+<td>4, 7</td>
+<td><strong>Loại đèn thứ chín</strong>, có mục riêng trong menu</td>
+</tr>
+<tr>
+<td><strong>Thư viện IES tên thật</strong></td>
+<td>7</td>
+<td><code>补灯1</code> · <code>射灯1–12</code> · <code>筒灯1–2</code></td>
+</tr>
+<tr>
+<td><strong>Dùng mã RGB thay Kelvin</strong></td>
+<td>8</td>
+<td>240-231-216 (trắng ngà) · 69-120-176 (xanh). Kỹ thuật cấp cao</td>
+</tr>
+<tr>
+<td><strong><code>阳光投射至每个房间</code></strong></td>
+<td>8</td>
+<td>Ô tích, chưa rõ tác dụng</td>
+</tr>
+<tr>
+<td><strong><code>相机裁剪</code></strong> có số</td>
+<td>4</td>
+<td>1000–3000</td>
+</tr>
+<tr>
+<td><strong><code>属性应用至同款灯</code></strong></td>
+<td>3, 7</td>
+<td>Nhân bản thiết lập sang mọi đèn cùng loại</td>
+</tr>
+<tr>
+<td><strong><code>九宫格</code></strong></td>
+<td>2</td>
+<td>Lưới bố cục</td>
+</tr>
+<tr>
+<td><strong><code>真实光源模式</code></strong></td>
+<td>1</td>
+<td>Ở <code>灯带</code></td>
+</tr>
+<tr>
+<td><strong><code>照射角</code></strong> cho <code>灯带</code></td>
+<td>1</td>
+<td>60°</td>
+</tr>
+<tr>
+<td><strong>Gradient nhiệt màu theo khoảng cách</strong></td>
+<td>6</td>
+<td>Ngoài 8000K → 6500K → 4500K → trong 3500K</td>
+</tr>
+<tr>
+<td><strong><code>聚光灯</code> cực thấp để giả bóng</strong></td>
+<td>3, 4</td>
+<td>0,3–2%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Bốn câu treo đã được các ca trả lời:</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Câu hỏi</th>
+<th>Đáp</th>
+<th>Ca</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>角度</code> của nắng là góc ngẩng hay phương vị?</td>
+<td><strong><code>角度</code> = góc ngẩng · <code>位置</code> = phương vị</strong></td>
+<td>8</td>
+</tr>
+<tr>
+<td>Thư viện IES có những gì?</td>
+<td><code>补灯1</code> · <code>射灯1–12</code> · <code>筒灯1–2</code></td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>辉光管</code> có thật không?</td>
+<td><strong>Có</strong>, mục riêng trong menu đèn</td>
+<td>4, 7</td>
+</tr>
+<tr>
+<td>Nút phơi sáng tên là gì?</td>
+<td><strong><code>自动曝光</code> / <code>手动曝光</code></strong></td>
+<td>2, 3, 5, 7</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="e9-hai-ca-tu-luong-cong-ong-chinh-chu">E.9. Hai ca từ luồng cộng đồng chính chủ</h2>
+<p>Hai ca dưới đây thu được qua cộng đồng chính chủ của Kujiale và bản đăng lại, khác luồng với tám ca trên nên dùng đối chiếu tốt.</p>
+<p><strong>Ca 9 — phòng khách thông tầng, đèn tay bản 3.0.</strong> Có ảnh trước và sau, kèm số. Giá trị chính nằm ở ảnh so sánh.</p>
+<p><strong>Ca 10 — bộ giáo trình của hai designer, bản đăng lại 2026.</strong> Ba ca con: khách, ngủ, bếp, phân ba lớp sáng.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nguồn sáng</th>
+<th>Giá trị 📄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thiên quang ngoài</td>
+<td>600–800</td>
+</tr>
+<tr>
+<td>Thiên quang trong</td>
+<td>300–500</td>
+</tr>
+<tr>
+<td><code>筒灯</code> / <code>射灯</code></td>
+<td>200–300, cao 2400</td>
+</tr>
+<tr>
+<td>Đèn bù tủ</td>
+<td>150–200</td>
+</tr>
+<tr>
+<td>Đèn cầu</td>
+<td>250–300</td>
+</tr>
+<tr>
+<td>Đèn hắt</td>
+<td>rộng 20–25, sáng <strong>1500</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Bộ số này CAO hơn hẳn số chính thức</strong> (thiên quang ngoài chính thức là 400–600). Nguyên nhân gần như chắc chắn là <strong>đời template</strong>: tài liệu bản 3.1 ghi rõ từ bản 3.0 trở đi phản xạ toàn cục mạnh hơn, <strong>cùng một độ sáng giờ chiếu được diện tích lớn hơn, nên phải HẠ số xuống</strong>.</p>
+<p><strong>→ Số càng cũ càng phải để cao.</strong> Đây là chìa khoá giải thích gần như mọi vênh số bạn gặp trên mạng.</p>
+</blockquote>
+<hr>
+<h2 id="e10-tu-thu-them-ca">E.10. Tự thu thêm ca</h2>
+<p>Ngân hàng này càng dày càng đáng tin — mỗi ca mới làm một dòng trong bảng hội tụ chắc thêm.</p>
+<h3 id="nguon-nao-chay-uoc">Nguồn nào chạy được</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Nguồn</th>
+<th>Tình trạng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小红书</td>
+<td>✅ Thu tay được — <strong>nguồn tốt nhất</strong>, nhiều bài có ảnh panel</td>
+</tr>
+<tr>
+<td>Douyin</td>
+<td>🟡 Xem tay được, nhưng số nằm trong video</td>
+</tr>
+<tr>
+<td>Cộng đồng chính chủ và trung tâm trợ giúp Kujiale</td>
+<td>✅ Đọc web bình thường</td>
+</tr>
+<tr>
+<td>Bản đăng lại trên các trang tin Trung Quốc</td>
+<td>✅ Không cần tài khoản</td>
+</tr>
+<tr>
+<td>Bilibili</td>
+<td>🟡 Có nội dung tốt nhưng số nằm trong video, phải xem tay</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="quy-trinh-thu-mot-ca">Quy trình thu một ca</h3>
+<ol>
+<li><strong>Ưu tiên bài có ảnh chụp panel.</strong> Bài chỉ có chữ thì độ tin cậy tụt một bậc.</li>
+<li><strong>Chụp lại nguyên panel</strong>, đừng chép tay — chép tay là nguồn sai nhãn.</li>
+<li><strong>Ghi lại tuyên bố của tác giả</strong> về có hậu kỳ hay không, có dùng LUT hay không. Thiếu thông tin này thì số mất một nửa giá trị.</li>
+<li><strong>Ghi ngày đăng.</strong> Đời template quyết định số cao hay thấp — không có ngày thì không diễn giải được.</li>
+<li><strong>Đối chiếu ngay với bảng hội tụ E.5.</strong> Khớp thì tăng số nguồn; lệch thì vào bảng vênh E.6 kèm giả thuyết vì sao.</li>
+<li><strong>Không bịa lý do cho đẹp sổ.</strong> Không rõ vì sao lệch thì ghi "chưa rõ".</li>
+</ol>
+<h3 id="bo-tu-khoa-tim-kiem">Bộ từ khoá tìm kiếm</h3>
+<p><code>酷家乐 打光</code> · <code>酷家乐 出图参数</code> · <code>酷家乐 灯光布局</code> · <code>酷家乐 写实渲染心得</code> · <code>酷家乐 手动灯光</code> · <code>酷家乐 无主灯 渲染</code> · <code>酷家乐 灯带 参数</code></p>
+<hr>
+<h2 id="e11-bon-muc-can-verify-trong-app-chan-cua">E.11. Bốn mục cần verify trong app — chặn cửa</h2>
+<p>Bốn mục này chưa xác nhận thì <strong>mọi con số trong phụ lục đều treo</strong>.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Verify gì</th>
+<th>Vì sao chặn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Đơn vị độ sáng</strong> thực tế là thang cũ, <code>瓦</code> hay <code>%</code>, và áp cho loại đèn nào</td>
+<td>Quyết định mọi số có dùng được không</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong><code>阴影柔和度</code> có đúng hai thang không</strong> — nắng 1–10, đèn nhân tạo 100–3000</td>
+<td>Gỡ mâu thuẫn dai nhất, xem E.7</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong><code>手动曝光</code></strong> nằm ở panel nào, thang bao nhiêu, mặc định bao nhiêu</td>
+<td>Bốn ca đều dùng; là biến số ẩn giải thích nhiều bộ số lạ</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong><code>室内光亮度</code></strong> thang bao nhiêu, tối đa có phải 500%</td>
+<td>Chìa khoá của đường C</td>
+</tr>
+</tbody>
+</table></div>
+<p>Mức ưu tiên thấp hơn: <code>灯光专属环境阻光</code> và <code>环境阻光</code> là một hay hai · ô tích <code>阳光投射至每个房间</code> làm gì · <code>真实光源模式</code> ở <code>灯带</code> là gì.</p>
+<hr>
+<h2 id="nguon">Nguồn</h2>
+<ul>
+<li><strong>Tám ca 1–8:</strong> thu tay từ 小红书 và Douyin, tháng 8/2026. Tác giả độc lập với nhau. Ca 3, 7, 8 có ảnh chụp panel gốc.</li>
+<li><strong>Ca 9–10:</strong> cộng đồng chính chủ Kujiale và bản đăng lại trên trang tin Trung Quốc, 2026.</li>
+<li><strong>Ba lỗi khi dùng AI đọc video (E.1):</strong> ghi lại tại chỗ trong quá trình xử lý bốn ca video.</li>
+<li><strong>Đối chiếu chính thức:</strong> bộ tham số đèn chính thức và cơ chế đời template — xem phần nguồn của Chương 13.</li>
+</ul>
+<p>⚠️ <strong>Toàn bộ số trong phụ lục này là số cộng đồng, không phải chuẩn của Kujiale.</strong> Nơi nào có số chính thức thì Chương 13 đã ghi rõ. Phụ lục này tồn tại để cho bạn thấy <strong>người làm nghề thật sự đặt số như thế nào và vì sao họ đặt khác nhau.</strong></p></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="pd.html"><span class="dir">← Trước</span><div class="t">Phụ lục D · Từ vựng prompt AI</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>
