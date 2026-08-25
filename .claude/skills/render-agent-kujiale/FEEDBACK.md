@@ -456,6 +456,52 @@ hõm, quầng quanh tranh). **Bỏ hết hiệu ứng đi thì không còn gì �
 
 ---
 
+### 12 — 2026-08-25 — CA2 A6-đơn giản: tắt sạch đèn. Thành công kỹ thuật, thất bại thiết kế
+
+**Người dùng:** *"ê prompt này nó tắt mẹ hết đèn đi"*
+
+**Sự việc:** đúng như lệnh. A6 viết nguyên văn `The ceiling downlights and the pendant are
+switched off and read as plain objects. The arched niche is plain oak in ambient light.`
+AI làm đúng 100%.
+
+**Đánh giá hai mặt:**
+| Mặt | Kết quả |
+|---|---|
+| **Kỹ thuật** | ✅ **Thành công** — không còn hiệu ứng nào để kỹ thuật khoanh đỏ. Bốn lỗi ca 09–11 biến mất |
+| **Vật liệu** | ✅ Vẫn tốt — sheen cánh tủ, mây đan, sàn xương cá, console cong đều ra chất |
+| **Thiết kế** | ❌ **Thất bại** — hõm vòm hắt sáng và đèn thả là **hạng mục thiết kế**, không phải hiệu ứng render. Tắt đi là mất luôn thứ khách trả tiền |
+
+## 🔑 LỖI CỦA AGENT — một dạng quá tay MỚI, ngược chiều với luật ca 04
+
+| Dạng | Biểu hiện | Ví dụ |
+|---|---|---|
+| Quá tay **THÊM** (luật ca 04, đã vá) | Thêm cụm nhấn → AI giao thừa | `visible looped fabric texture` → ghế xù lông |
+| 🆕 Quá tay **BỎ** (ca này) | Né lỗi bằng cách **xoá luôn thứ thuộc về thiết kế** | Tắt đèn để né lỗi truyền sáng → mất hõm hắt sáng |
+
+> ## 📌 Luật bổ sung: **sửa VẬT LÝ, đừng xoá THIẾT KẾ.**
+> Thứ nào là **hạng mục thi công** (khe hắt, đèn thả, ray nam châm, hõm hắt sáng) thì
+> **phải còn nhìn thấy trong ảnh**. Chỉ được điều chỉnh *cách nó chiếu sáng*, không được tắt nó đi.
+
+## 💡 LỜI GIẢI ĐÚNG — đèn BẬT nhưng KHÔNG gánh chiếu sáng
+
+Ban ngày, một dải LED 5W hay một bóng đèn thả **thật sự** không rửa sáng được căn phòng — ánh sáng
+trời áp đảo chúng. Đây là **sự thật vật lý**, không phải mẹo né.
+
+→ Khai báo: **đèn bật và nhìn thấy được là những đốm sáng ấm trên chính bộ đèn**, còn **toàn bộ
+việc chiếu sáng do ánh sáng trời làm.**
+
+Điều này xoá cả bốn phàn nàn của kỹ thuật **mà vẫn giữ nguyên thiết kế**:
+| Phàn nàn ca 09–11 | Vì sao hết |
+|---|---|
+| Cánh tủ đồng phẳng khác sắc độ | Không còn nguồn mạnh cạnh đó để AI dìm tương phản |
+| Sàn không có vũng sáng | Đèn không rọi xuống sàn → không cần vũng |
+| Hõm sáng đều tới đệm | Dải LED là **một đường sáng trên vòm**, không phải nguồn rửa hõm |
+| Vệt loe trên tường + bàn vẫn sáng | Đèn không rọi tường → không có vệt để mâu thuẫn |
+
+Và kỹ thuật **không bắt bẻ được**, vì đây đúng là thứ xảy ra ngoài đời lúc ban ngày.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -471,6 +517,8 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
+| 🔴 **SỬA VẬT LÝ, ĐỪNG XOÁ THIẾT KẾ.** Dạng quá tay ngược chiều với luật ca 04: né lỗi bằng cách xoá luôn hạng mục thi công (tắt đèn để né lỗi truyền sáng → mất hõm hắt sáng khách đã trả tiền). Khe hắt/đèn thả/ray nam châm **phải còn nhìn thấy**; chỉ điều chỉnh *cách nó chiếu*, không tắt nó | 12 | 1/3 |
+| 🔴 **LỜI GIẢI cho lỗi truyền sáng: đèn BẬT nhưng KHÔNG gánh chiếu sáng.** Ban ngày, LED 5W không rửa được phòng — ánh sáng trời áp đảo. Là **sự thật vật lý**, không phải mẹo né. Xoá cả 4 phàn nàn của kỹ thuật mà giữ nguyên thiết kế | 12 | 1/3 |
 | 🔴🔴🔴 **CHÍN 4/4 — AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
 | 🔴🔴 **CHÍN 3/3 — AI KHÔNG CÓ SUY GIẢM THEO KHOẢNG CÁCH.** Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |

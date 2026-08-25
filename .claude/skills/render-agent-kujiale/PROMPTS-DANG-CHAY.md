@@ -485,7 +485,7 @@ One pair of shoes sits turned slightly out of line on the floor beside the bench
 
 ---
 
-# ✅ CA2 bản A6-ĐƠN GIẢN — đổi chiến lược (ca 11)
+# CA2 bản A6-đơn giản (ca 11) — **TẮT SẠCH ĐÈN, mất thiết kế. Xem A7**
 
 **Bốn vòng vá ánh sáng không hội tụ.** Mỗi lần khai báo vật lý cho một biểu hiện thì kỹ thuật lại
 bắt ra biểu hiện khác cùng họ. Gốc: **AI vẽ hiệu ứng ánh sáng như hoạ tiết, không như hệ quả của
@@ -550,3 +550,73 @@ One pair of shoes sits turned slightly out of line on the floor beside the bench
 > 📌 **Nếu cần ảnh CÓ kịch tính ánh sáng và có người trong nghề soi → render thật.**
 > Cân bằng năng lượng và suy giảm theo khoảng cách là thứ Corona/Kujiale giải đúng, miễn phí,
 > không phải đoán.
+
+---
+
+# ✅ CA2 bản A7 — đèn BẬT nhưng không gánh chiếu sáng (ca 12)
+
+A6 né được lỗi truyền sáng nhưng **tắt sạch đèn** → mất hõm hắt sáng và đèn thả, tức mất
+hạng mục thiết kế khách trả tiền. **Sửa vật lý, đừng xoá thiết kế.**
+
+**Lời giải:** ban ngày, một dải LED 5W hay một bóng đèn thả **thật sự** không rửa sáng được căn
+phòng — ánh sáng trời áp đảo. Đây là **sự thật vật lý**, không phải mẹo né. Nên: đèn **bật và nhìn
+thấy được** là những đốm sáng ấm trên chính bộ đèn, còn **việc chiếu sáng do ánh sáng trời làm.**
+
+```
+Photorealistic interior photograph of this exact entryway and dining area. Keep the
+camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces
+meet without drawn borders. Nothing should look like a 3D viewport.
+
+It is daytime. Soft ambient daylight from the living area off-frame to the right fills
+the room and does all of the lighting work. Brightness eases gently from the right side
+of the frame toward the left corner, which is the quietest part of the image. Shadows are
+soft and shallow, the kind daylight makes indoors on a bright overcast day.
+
+The lights are switched on and clearly visible, but at this hour they are far weaker than
+the daylight and light only themselves: the pendant globe over the table glows warm and
+luminous, a fine warm line of LED traces the curve of the arched niche, and the recessed
+ceiling downlights read as small warm discs. None of them brightens the room, none casts
+a pool on the floor, and none throws a patch of light on a wall — the daylight is much
+stronger than all of them together. Walls and ceiling stay smooth and even, unmarked by
+any fixture.
+
+Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+Matte cream lacquer cabinetry with a fine hand-applied surface, never glassy — the sheen
+shifts slightly from door to door. Oak veneer with open pores, the grain changing from
+board to board. The curved console catches a soft satin sheen only where light grazes
+it. Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint
+wear path toward the door. Cane chair backs woven from real rattan, the weave slightly
+irregular. Cotton seat cushions with a soft matte weave and gentle creasing where people
+sit. Glazed ceramic vases with uneven glaze pooling. Everyday traces, quiet and few: a
+faint scuff on the floor near the shoes, soft dust settled on the top shelf.
+
+Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
+wood, dry woven cane, glazed ceramic.
+
+Contact shadows keep everything grounded: where the console meets the floor, under the
+bench, beneath each chair leg, behind the shoes.
+
+True photographic tonal range: whites that stop just short of pure white, the left corner
+genuinely dim, a full range in between. Neutral white balance throughout — the cream
+cabinet fronts read as near-white, not amber, and no overall tint sits over the image.
+Muted natural colour. The look of a printed magazine interior photograph.
+
+One pair of shoes sits turned slightly out of line on the floor beside the bench.
+```
+
+### So ba đời gần nhất
+
+| | A5 | A6-đơn giản | **A7** |
+|---|---|---|---|
+| Đèn | Bật, **gánh chiếu sáng** | **Tắt hết** | **Bật, chỉ sáng chính nó** |
+| Lỗi truyền sáng | ❌ Kỹ thuật bắt 4 lỗi | ✅ Hết | ✅ Hết |
+| Thiết kế (hõm hắt, đèn thả) | ✅ Còn | ❌ **Mất** | ✅ **Còn** |
+| Vật lý | Sai | Đúng nhưng nghèo | **Đúng và đủ** |
+
+> 📌 **Nếu cần ảnh CẢNH ĐÊM, đèn thật sự gánh chiếu sáng** → cách này không dùng được, vì lúc đó
+> đèn *phải* rửa sáng phòng và mọi lỗi truyền sáng quay lại. **Cảnh đêm thì render thật, đừng AI.**
