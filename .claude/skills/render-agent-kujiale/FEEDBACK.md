@@ -221,7 +221,30 @@ Cánh tủ trắng phẳng lì đều màu → không có gì bám, mặc địn
 → **Bề mặt càng TRƠN và càng ĐỀU MÀU thì càng phải tả riêng.** Console cong, khung ghế gỗ nhạt,
 đệm ngồi cũng dính đúng lỗi này.
 
-**Sửa thành gì thì ăn:** bản A2 — giữ khối 1–4, viết lại khối 5+6 (xem `PROMPTS-DANG-CHAY.md`).
+**⚠️ CHẨN ĐOÁN TRÊN CHƯA ĐỦ — người dùng nói rõ thêm:**
+*"cả 2 prompt đều gây cảm giác nhựa, **bề mặt ẢNH như phủ 1 lớp nhựa**"*
+
+Không phải lỗi từng vật liệu. Là **lỗi tầng TOÀN ẢNH**. Bốn thứ cộng lại thành "lớp phủ":
+
+| Thứ | Biểu hiện | Neo vào bảng 12 |
+|---|---|---|
+| **Mất chi tiết tần số cao** | Không một mm nào của ảnh có vi chi tiết. Diffusion model làm mượt đều toàn khung | hạng 11 — sạch mịn quá mức |
+| **Dải tông quá hẹp** | Gần như không có vùng tối thật. Trần sáng đều, mọi thứ nằm trong một dải trung gian | hạng 2 — không dám để tối · hạng 10 — phẳng và xám |
+| **Ám ấm đều toàn khung** | Một sắc kem phủ lên tất cả → mắt đọc là "lớp phủ"/filter | hạng 9 — hậu kỳ quá tay |
+| **Không có khuyết tật ống kính** | Không tối góc, không mềm rìa, không quang sai, **không hạt** | hạng 12 — thiếu khuyết tật ống kính |
+
+**🔑 `subtle film grain` KHÔNG ĂN.** Đã viết trong cả 5 bản prompt, ảnh ra không có hạt nào đọc được.
+→ **Tinh chỉnh luật ca 04:** cụm bó ghì được *liều lượng*, nhưng **bó quá thì thứ đó biến mất hẳn**.
+`subtle` đã bó grain xuống 0. Phải bó *tính chất* mà vẫn khẳng định *sự hiện diện*:
+`fine grain visible across the whole frame` — `fine` là bó, `visible` là ép có.
+
+**🔑 Kết luận quan trọng nhất: đây KHÔNG phải bài toán prompt thuần.**
+C14 của giáo trình đã có sẵn bộ đồ nghề chống "nhựa" — đường cong chữ S, hạt nhiễu, tối góc —
+và cả ba đều là **bước HẬU KỲ, không phải bước prompt**. Nguyên văn C14: *"nghịch lý nghề render:
+thêm một tí nhiễu ảnh lại thật hơn"*. Suốt 6 ca vừa rồi tao cứ cố ép AI làm việc đó trong prompt,
+là chỗ kém tin cậy nhất để làm.
+
+**Sửa thành gì thì ăn:** bản A3 (prompt) **+ bắt buộc một vòng hậu kỳ 2 phút theo C14**.
 
 ---
 
@@ -232,6 +255,8 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
 | 🔴 **CHÍN — ĐỦ 3 CA. Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa.** Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
+| 🔴 **CHÍN — "lớp nhựa phủ toàn ảnh" KHÔNG sửa được bằng prompt thuần.** Bộ đồ nghề chống nhựa của C14 (curve S · hạt nhiễu · tối góc) đều là bước HẬU KỲ. Mọi bản prompt phải kèm công thức hậu kỳ, không được coi ảnh AI là bản cuối | 01, 02, 06 | **3/3 — sẵn sàng vá** |
+| 🔴 **CHÍN — bó quá thì thứ đó biến mất.** `subtle film grain` viết 5 bản, grain ra bằng 0. Bó *tính chất* nhưng phải ép *sự hiện diện*: `fine grain visible across the whole frame`. Đây là tinh chỉnh của luật ca 04, không phải bác | 02, 04, 06 | **3/3 — sẵn sàng vá** |
 | 🟠 **2/3 — Prompt PHẢI có tì vết ở khối 5.** Hàng 22 của bảng 26 cụm có sẵn trong skill mà chưa dùng lần nào. Không có nó thì vật liệu ra nhựa (hạng 3+4 bảng 12) | 02, 06 | 2/3 |
 | **Bề mặt càng TRƠN + ĐỀU MÀU thì AI càng ra nhựa** (cánh tủ trắng, console sơn, khung ghế nhạt). Bề mặt có vân đậm/biến thiên thì ra tốt (sàn xương cá). → phải tả riêng nhóm trơn-đều | 06 | 1/3 |
 | **`physically based materials` nghi đẩy về vẻ CG** — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |

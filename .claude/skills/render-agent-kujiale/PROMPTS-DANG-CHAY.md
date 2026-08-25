@@ -204,3 +204,45 @@ of a printed magazine interior photograph.
 
 **Bỏ hẳn:** `physically based materials` · `soft specular highlights`.
 **Nếu quá tay thành nhà cũ bẩn:** bỏ dòng `Everyday traces...` trước, giữ phần sheen.
+
+## 🔄 CA2 bản A3 — vá "lớp nhựa phủ toàn ảnh" (CHƯA TEST)
+
+Ca 06 làm rõ: không phải lỗi từng vật liệu mà là **tầng toàn ảnh**.
+Giữ khối 1–4 + khối vật liệu của A2, **thêm hai khối này vào cuối**:
+
+```
+True photographic tonal range: real deep shadow under the console and inside the shoe
+niche, a clear falloff across the ceiling, whites that stop just short of pure white.
+Let parts of the frame sit in genuine shadow.
+
+Lens and film character: fine grain visible across the whole frame, a gentle vignette at
+the corners, slight softness at the extreme edges, faint chromatic fringing on the
+highest-contrast edges. Shot on a full-frame camera at ISO 400.
+
+Neutral white balance — the cream cabinet fronts read as near-white, not amber. Warmth
+comes only from the pendant and the arch cove, never as an overall tint.
+```
+
+**Thay `subtle film grain` bằng `fine grain visible across the whole frame`** ở mọi bản prompt
+từ giờ. `subtle` đã bó grain xuống 0 trong cả 5 bản trước.
+
+---
+
+# 🧪 HẬU KỲ BẮT BUỘC — 2 phút, theo C14
+
+> **Ảnh AI không bao giờ là bản cuối.** "Lớp nhựa" là đặc tính của diffusion model — prompt ghì
+> được một phần, hậu kỳ mới dứt điểm. Số dưới lấy thẳng từ C14 của giáo trình.
+
+| Bước | Làm gì | Số |
+|---|---|---|
+| 1 | **Đường cong chữ S** — trả lại dải tông | Điểm vào 64 → ra **57** · điểm vào 192 → ra **198** (dịch ~8/255). Giữ điểm giữa 128, nhích tối đa ±3 |
+| 2 | **Hạt nhiễu** — thứ giết "nhựa" mạnh nhất | Amount **12–15** · Size 25 · Roughness 45–50 · **Gaussian đơn sắc** (nhiễu màu làm ảnh bẩn). Ảnh 1080–2K thì Amount **8–12** |
+| 3 | **Tối góc** nhẹ | Vignette vừa đủ cảm thấy |
+| 4 | **Khử ám** | Kéo cân bằng trắng về trung tính nếu cả ảnh ngả kem |
+| 5 | **Dải lục** | Hạ bão hoà −5 → −10 cho cây bớt "xanh nhựa" |
+
+⚠️ **KHÔNG đụng dải cam/vàng** — đó là màu ván khách chốt trên bảng mẫu, lệch là tranh chấp nghiệm thu.
+⚠️ **Đánh giá hạt ở KÍCH THƯỚC XUẤT CUỐI, xem toàn ảnh — không phóng 100%.** Cùng thiết lập,
+ảnh 1080px trông nặng hạt gấp đôi ảnh 4K.
+
+Làm được trên Snapseed / Lightroom Mobile / Photoshop — 2 phút.
