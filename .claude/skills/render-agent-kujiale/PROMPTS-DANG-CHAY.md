@@ -114,3 +114,70 @@ tông có còn ám cam không · khung có giữ như ảnh gốc không.
 | **Nano Banana / Gemini** | Mạnh ở sửa ảnh có sẵn. Không có ô negative → diễn đạt dương tính. Ảnh ra có dấu ✦ |
 | **ChatGPT** | Chịu sửa lặp tốt — dò từng khối một. Tỉ lệ mô tả bằng lời hoặc chọn trong cài đặt |
 | **Midjourney** | Giữ bố cục kém — chỉ dùng cho mood, đừng kỳ vọng ra đúng model |
+
+---
+
+# CA 2 — Sảnh vào + bàn ăn (3ds Max / Corona viewport)
+
+**Nguồn:** ảnh viewport 3ds Max `Default Shading` (`Corona Camera015`) — **không phải Kujiale**.
+Đọc được hình học/bố cục; **không đọc được vật liệu thật** (tường xám = màu shading mặc định).
+
+**Đặc điểm quyết định cách đánh đèn: KHÔNG CÓ CỬA SỔ TRONG KHUNG.**
+Sảnh vào + bàn ăn nằm sâu trong lõi căn → **tắt nắng** (bật là sinh bóng xuyên tường).
+Sáng đến từ: đèn âm trần (~5–6 chiếc trong model) + đèn thả trên bàn + hắt từ ngoài khung bên phải.
+Sàn xương cá sẫm nuốt sáng → Quy luật 1, cần nhiều hơn cảnh sàn sáng.
+**Cửa vòm gỗ là nhân vật chính** của khung.
+
+⚠️ **Bẫy riêng của cảnh này:** lưng ghế **đan mây rỗng** = "boucle" của khung này.
+**Đừng viết `visible woven texture`** — đúng bẫy ca 04. Gọi `cane-back` là đủ.
+
+## 🔄 CA2 bản A — ấm, đèn nhân tạo dẫn (CHƯA TEST)
+
+```
+Photorealistic interior photograph of this exact entryway and dining area. Keep the
+camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove the viewport text overlay in the top-left
+corner and the axis gizmo in the bottom-left corner. Remove every CAD outline and edge
+line; surfaces meet without drawn borders. Nothing should look like a 3D viewport.
+
+Soft warm interior lighting, late afternoon. Recessed ceiling downlights wash the tall
+cabinetry from above; the charcoal globe pendant glows warm 3000K over the dining table.
+A gentle cool daylight spill enters from the living area off-frame to the right, keeping
+the shadows neutral rather than orange. The arched oak door is the brightest point in
+the frame; brightness settles gradually toward the left corner. Cast shadows only from
+objects actually present in the scene.
+
+Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+Arched oak door with fine grain, tall built-in cabinetry in matte cream lacquer mixed
+with oak veneer, curved-end oak console, framed abstract art, dark walnut herringbone
+flooring, light stone dining table with oak legs, cane-back dining chairs with cream
+seat cushions, oak floating shelves, a large monstera. Lived-in styling: one pair of
+shoes turned slightly out of line at the bench, an open magazine on the table.
+
+Overall colour balance stays neutral warm. Soft specular highlights, physically based
+materials, subtle film grain. Muted natural colour.
+```
+
+## 🔄 CA2 bản B — ban ngày hắt từ ngoài khung phải (CHƯA TEST)
+
+Chỉ đổi **khối 2** của bản A:
+
+```
+Bright even daylight spilling in from the living area off-frame to the right, soft and
+diffused, no direct sun reaching the frame. Warm 3000K glow from the charcoal globe
+pendant above the dining table, mixed with the cool daylight. Brightness falls off
+gradually toward the left corner, where the console sits in soft shadow. The dark
+herringbone floor picks up a gentle sheen near the right. Cast shadows only from objects
+actually present in the scene.
+```
+
+**Cả hai bản cố ý KHÔNG có nắng xiên** — khung không cửa sổ thì vệt nắng là nói dối vật lý,
+và lưng ghế mây gặp sáng tạt rất dễ ra kiểu xù của ca 04.
+
+**Đã áp sẵn 3 luật học được:** không cụm nhấn · không gọi tên tỉ lệ (giữ khung ảnh gốc) ·
+giữ mốc lạnh khi dùng tông ấm. Thêm một câu mới: **xoá overlay viewport** (chữ `[Corona Camera015]`
+góc trên trái + trục toạ độ góc dưới trái) — thứ ảnh nguồn Kujiale không có nhưng 3ds Max thì có.

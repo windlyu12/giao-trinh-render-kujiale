@@ -173,6 +173,25 @@ Ghi lại đây làm ví dụ: **một ca lẻ đủ để dựng giả thuyết
 
 ---
 
+### 05 — 2026-08-25 — Sảnh vào + bàn ăn (3ds Max/Corona) — CHƯA TEST
+
+**Vào:** chỉ ảnh model, không có ảnh mẫu. Viewport 3ds Max `Default Shading`.
+**Agent xuất:** mục "sửa trước khi bố đèn" (7 dòng) + 2 bản prompt (ấm / ban ngày)
+**Test bằng:** _(chờ)_
+
+**Ba thứ mới so với ca 01–04, cần thực tế xác nhận:**
+1. **Ảnh nguồn 3ds Max có overlay viewport** (chữ tên camera + trục toạ độ) — prompt đã thêm câu
+   xoá. Ảnh nguồn Kujiale/SketchUp không có thứ này → **luật mới chỉ áp cho nguồn 3ds Max**.
+2. **Khung không có cửa sổ** → cố ý bỏ hẳn nắng. Xem AI có tự bịa thêm nguồn sáng/cửa sổ không.
+3. **Ghế lưng mây đan rỗng** — cố ý chỉ gọi `cane-back`, không mô tả kết cấu, để kiểm luật ca 04
+   (cụm nhấn → giao thừa) có đúng ở vật liệu khác không.
+
+**Ghi chú pipeline:** đây là **3ds Max + Corona**, không phải Kujiale. Prompt AI dùng chung được;
+nhưng **phiếu thông số thì không** — tên tham số Corona khác hoàn toàn Kujiale. Nếu cần phiếu
+thông số cho ca này thì phải xác nhận đang render bằng gì trước.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
