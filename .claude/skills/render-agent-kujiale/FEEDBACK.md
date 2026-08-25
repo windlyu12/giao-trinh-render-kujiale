@@ -36,16 +36,47 @@ biết ngay khối nào hay hỏng, và vá đúng chỗ.
 **Vào:** ảnh mẫu screenshot Xiaohongshu (khách+ăn+bếp, tông kem, cửa cuối trục) + ảnh model
 SketchUp khu bàn ăn chưa render
 **Agent xuất:** phiếu A đọc ngược + phiếu B thông số Kujiale + 2 biến thể prompt (airy / nắng xiên)
-**Test bằng:** _(chưa test)_
-**Kết quả:** _(chờ)_
-**Sai ở khối nào:** _(chờ)_
-**Sửa thành gì thì ăn:** _(chờ)_
-**Rút ra:** _(chờ)_
+**Test bằng:** bản A (airy) — image-to-image
+**Kết quả:** **ăn.** Người dùng: *"ánh sáng khá ổn"*
 
-Ghi trước để đối chiếu sau — ba nhận định của agent ở ca này cần được thực tế xác nhận hay bác bỏ:
-1. Giữ nắng thấp (EL 20–25°) để khoe vân marble + panel gỗ, thay vì tắt nắng theo ảnh mẫu
-2. Gradient chạy ngang (phải sáng → trái tối), không phải theo chiều sâu như ảnh mẫu
-3. Chỉ cho phép 1–2 điểm bóng trong khung (marble + màn TV), còn lại mờ hết
+**Cái landed đúng:**
+- Bố cục + đồ đạc giữ gần như nguyên: tủ kem trái, panel gỗ, tường marble, đèn linear + 2 đèn trụ,
+  TV, bàn chân trụ, 4 ghế boucle chân đen, cửa sổ phải, đèn chùm cầu, thảm tròn
+- **Gradient ngang phải → trái ăn rõ**, tủ kem góc trái chìm đúng ý → **nhận định 2 ĐÚNG**
+- Đèn linear tự bật và hắt quầng ấm lên tường marble — không cần mô tả riêng, chỉ cần nêu nó trong khối 5
+- Staging khối 5 landed gần hết: sách mở, tách cà phê, khăn linen vắt lệch
+
+**Cái drift (AI tự đổi):**
+- Vật liệu lệch: màu panel gỗ ấm/sáng hơn model, chi tiết tay nắm tủ kem biến mất, hướng ván sàn đổi
+- Cây khô trong bình bị đổi hẳn loại (model là cây sẫm → output thành pampas khô)
+- → **xác nhận đúng luật C8**: không dùng được cho ảnh chốt / ảnh mô tả vật liệu thi công
+
+**Sai ở khối nào:**
+- **Khối 6** — không khai tỉ lệ khung → ChatGPT/Nano Banana mặc định ra **ảnh vuông 1:1**.
+  Phải nêu tỉ lệ bằng lời trong prompt (`wide horizontal 16:9 composition`), `--ar` không ăn ở đây.
+- **Khối 2** — cụm `bright and airy` + `gentle bloom around the window` đẩy cửa sổ **hơi cháy**.
+  Với ảnh AI làm mood thì chấp nhận được; nhưng nếu lấy làm chuẩn cho render Kujiale thì đây là
+  trượt tiêu chí 3 của bộ chấm.
+
+**Nhận định 1 — CHƯA kết luận được, và lộ ra một chỗ SKILL ĐANG TỰ MÂU THUẪN:**
+Bản A không có nắng, mà **vân marble vẫn đọc tốt** — trong khi **vân gỗ panel và mặt tủ kem thì hơi bẹt**.
+Lý do có vẻ là: **vân đá là hoa văn MÀU (diffuse), không phải vân NỔI** — nên không cần sáng tạt.
+Vân gỗ và bề mặt nhám mới cần.
+
+Chỗ mâu thuẫn trong skill hiện tại:
+- `04` §2/§3 ghi marble `凹凸比例 ≈ 0` (đúng — đá bóng phẳng lì)
+- `04` §8 lại xếp "marble / đá vân lớn" vào nhóm **đòi sáng tạt** (có vẻ quá tay)
+
+→ Nghi ngờ: **tách "vân màu" khỏi "vân nổi"** trong bảng §8. Đá bóng cần *điểm phản chiếu*,
+không cần sáng tạt. Đá NHÁM (`岩板` mờ, terrazzo, đá đục) mới cần.
+**Chờ thêm 2 ca nữa mới sửa** — xem bảng cuối file.
+
+**Nhận định 3 — bằng chứng ngược nhẹ:** khung này đếm được ~3 điểm bóng (sàn, marble, màn TV)
+mà vẫn nhìn ổn. Ngưỡng "1–2" có thể hơi chặt; có lẽ nên là "≤3, và phải có chủ đích".
+Chờ thêm ca.
+
+**Sửa thành gì thì ăn:** chưa cần sửa prompt — chỉ thêm khai tỉ lệ khung vào khối 6.
+**Rút ra:** xem hai dòng đã đưa vào bảng "luật đang chờ đủ bằng chứng" bên dưới.
 
 ---
 
@@ -55,4 +86,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
-| | | |
+| **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
+| Ngưỡng điểm bóng nên là **≤3 có chủ đích**, không phải cứng 1–2 | 01 | 1/3 |
+| Prompt cho ChatGPT/Nano Banana **phải khai tỉ lệ khung bằng lời** ở khối 6, không thì ra vuông 1:1 | 01 | 1/3 |
+| Cụm `bright and airy` + `bloom` dễ đẩy cửa sổ sang cháy — cần cặp cụm ghì lại | 01 | 1/3 |
