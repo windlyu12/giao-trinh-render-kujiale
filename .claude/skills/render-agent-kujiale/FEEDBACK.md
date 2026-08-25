@@ -80,6 +80,43 @@ Chờ thêm ca.
 
 ---
 
+### 02 — 2026-08-25 — Bàn ăn (cùng model ca 01) — bản B nắng xiên
+
+**Vào:** cùng ảnh model. Bản B = bản A đổi **đúng khối 2** sang nắng xiên ấm.
+**Test bằng:** Nano Banana (ảnh ra có dấu ✦) — image-to-image
+**Kết quả:** **HỎNG.** Người dùng: *"nhìn giả quá"*
+
+**Bốn nguyên nhân, xếp theo mức phá ảnh:**
+
+1. **Cả khung tắm màu cam — mất hẳn trộn nóng–lạnh.**
+   **Đây là lỗi soạn prompt, không phải lỗi công cụ.** Khi thay khối 2, bản B **đánh rơi cụm
+   `mixed with the cool daylight`** vốn có trong bản A. Còn lại toàn nguồn ấm → không còn mốc lạnh nào
+   để mắt neo vào → ám vàng toàn ảnh.
+   Chính là lỗi C0 §2.3 + C4 §4.7 mà giáo trình đã cảnh báo: **trộn nóng–lạnh phải có chủ đích, và
+   nền phải trung tính/lạnh thì lớp nhấn ấm mới nổi.** Prompt tự vi phạm sách.
+
+2. **Nét CAD của model sống sót.** Thấy rõ đường viền đen mảnh ở: cạnh tủ cao trái, mép bàn, khung cửa,
+   viền gương, vòng đèn âm trần vẽ phẳng. Ca 01 (bản A) thì AI xoá sạch nét và vẽ lại hẳn.
+   → Prompt **thiếu câu bắt xoá nét line-art** của ảnh nguồn. Đây là thứ tố cáo "ảnh 3D" mạnh nhất trong khung.
+
+3. **AI bịa bóng lá cây đổ lên tủ kem.** Ngoài cửa không có cây nào. Đúng nghĩa `上帝之光` phiên bản AI:
+   bóng đổ từ vật không tồn tại. Cụm `raking` + `long shadow` mở đường cho nó tự thêm đạo cụ đổ bóng.
+
+4. **Vật liệu bẹt hơn ca 01.** Ghế boucle ở ca 01 ra đúng chất vải; ở đây thành mặt nhẵn như clay.
+   Sàn gỗ mất vân. Nắng gắt nuốt hết vi tương phản bề mặt.
+
+**Sai ở khối nào:** **khối 2** (nguồn sáng — mất mốc lạnh, cụm raking quá mạnh) + **khối 6**
+(chất ảnh — thiếu lệnh xoá nét CAD, thiếu khoá tông màu, thiếu tỉ lệ khung).
+
+**Sửa thành gì thì ăn:** bản B2 — giữ nắng xiên nhưng (a) trả lại mốc lạnh rõ ràng,
+(b) ghì cường độ nắng xuống "một vệt mềm" thay vì "quét cho vân hiện rõ",
+(c) thêm lệnh xoá nét CAD, (d) cấm bịa bóng từ vật không có trong cảnh, (e) khai tỉ lệ khung.
+
+**Rút ra — nhận định 1 CHƯA bị bác:** nắng xiên **có** làm vân gỗ tủ trái hiện lên rõ hơn ca 01.
+Vấn đề không phải "có nên dùng nắng xiên" mà là **liều lượng và mốc lạnh đi kèm**. Chờ B2 để chốt.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -90,3 +127,6 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | Ngưỡng điểm bóng nên là **≤3 có chủ đích**, không phải cứng 1–2 | 01 | 1/3 |
 | Prompt cho ChatGPT/Nano Banana **phải khai tỉ lệ khung bằng lời** ở khối 6, không thì ra vuông 1:1 | 01 | 1/3 |
 | Cụm `bright and airy` + `bloom` dễ đẩy cửa sổ sang cháy — cần cặp cụm ghì lại | 01 | 1/3 |
+| **Đổi khối 2 sang tông ấm thì BẮT BUỘC giữ lại một mốc lạnh** (`mixed with cool daylight` / `cool blue-grey skylight fills the shadows`), không thì cả khung ám cam | 02 | 1/3 |
+| **Prompt image-to-image từ model CAD phải có câu xoá nét line-art**, không thì viền đen sống sót và ảnh lộ ngay là 3D | 02 | 1/3 |
+| Cụm `raking` / `long shadow` mở đường cho AI **bịa vật đổ bóng** (bóng lá cây) — cần câu cấm bịa nguồn bóng | 02 | 1/3 |
