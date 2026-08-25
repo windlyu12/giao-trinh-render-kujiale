@@ -30,13 +30,51 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 | C | Cheat sheet thuật ngữ | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` | ~97 thuật ngữ Trung-Việt, in dán tường |
 | D | Từ vựng prompt AI | `content/phu-luc-d-tu-vung-prompt-ai.md` | Nguyên tắc ánh sáng → prompt Nano Banana/Midjourney |
 
+## Agent render — dùng giáo trình này để chạy việc thật
+
+Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho một agent AI**. Agent đã được đóng gói sẵn ở `.claude/skills/render-agent-kujiale/` — mở repo này bằng Claude Code là dùng được ngay (gõ `/render-agent-kujiale`, hoặc cứ hỏi thẳng "phân tích ảnh render này", "kê thông số render cho ảnh model này").
+
+**Bốn chế độ:**
+
+| Đưa vào | Agent làm gì | Nhận lại |
+|---|---|---|
+| Ảnh render / ảnh chụp nội thất **lấy trên mạng** | Đọc ngược theo 12 bước: đo góc nắng bằng tỉ lệ bóng, đọc chiều cao camera bằng đường chân trời, suy độ bóng vật liệu, nhận diện loại rèm từ hình vệt sáng | Phiếu phân tích + **bộ thông số tái dựng trong Kujiale** |
+| Ảnh **chưa render** (model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi) | Kê đơn theo đúng thứ tự rà model → template → camera → nắng → thiên quang → đẩy sáng → đèn chức năng → đèn nhấn → `高级设置` → hậu kỳ | **Phiếu thông số render Kujiale** đầy đủ + thứ tự dò |
+| Yêu cầu ảnh ý tưởng | Dựng prompt theo công thức 6 khối | Prompt cho **ChatGPT / Nano Banana / Midjourney / Google Flow** |
+| Ảnh render đã xong | Chấm theo rubric Phụ lục A | Phiếu 10 tiêu chí × 5 điểm + việc cần sửa, kèm chương để tra |
+
+**Bốn luật nền agent luôn tuân** (và đây cũng là lý do nên tin phiếu nó xuất ra):
+
+1. **Chép tỉ lệ và thứ tự, đừng chép số** — mọi con số xuất ra đều ghi rõ là *điểm xuất phát để dò*.
+2. **Luôn ghi thang đơn vị** — thang cũ / `瓦` / `%`, và không bao giờ trích quy ước "÷10" như dữ kiện của hãng.
+3. **Đánh dấu độ tin cậy từng số** — `✅` chính thức, `⚠️` cộng đồng/suy luận. Không được xoá dấu ⚠️ cho phiếu trông gọn.
+4. **Giữ ranh giới AI của C8** — prompt AI luôn kèm dòng nhắc phạm vi dùng; ảnh chốt phương án, hợp đồng, mô tả vật liệu thi công và nghiệm thu thì bắt buộc render chuẩn.
+
+**Cấu trúc agent:**
+
+```
+.claude/skills/render-agent-kujiale/
+├── SKILL.md                        ← routing 4 chế độ + luật nền
+├── references/
+│   ├── 01-doc-nguoc-anh.md         ← giao thức đọc ngược 12 bước (phần mới, không có sẵn trong content/)
+│   ├── 02-bang-tra-thong-so.md     ← hợp nhất số của C2·C3·C4·C6·C13
+│   ├── 03-cong-thuc-phong.md       ← 5 công thức phòng + 4 con đường bố đèn + nắng qua rèm
+│   ├── 04-vat-lieu-texture.md      ← 4 kênh, melamine vs acrylic, khổ thật, chẩn đoán "bệt"
+│   ├── 05-prompt-ai.md             ← 6 khối, 26 cụm, khác biệt từng công cụ
+│   └── 06-cham-anh.md              ← rubric + 12 dấu hiệu + biên độ hậu kỳ
+└── templates/                      ← 3 phiếu xuất: phân tích ảnh · thông số render · prompt AI
+```
+
+Khi `content/` được cập nhật (số ⚠️ được khoá qua Phụ lục B, UI Kujiale đổi), **sửa `content/` trước rồi đồng bộ sang `references/`** — `content/` vẫn là source of truth.
+
 ## Cấu trúc folder
 
 ```
 giao-trinh-kujiale/
 ├── README.md        ← file này
 ├── content/         ← source of truth (markdown, có citation) — cũng là kiến thức cho AI
-└── docs/            ← bản HTML đẹp cho người học (build từ content/)
+├── docs/            ← bản HTML đẹp cho người học (build từ content/)
+└── .claude/skills/  ← agent render (chạy trên kiến thức của content/)
 ```
 
 ## Build lại site sau khi sửa content
