@@ -201,3 +201,60 @@ chỉnh bằng `色温` của **từng đèn**.
 
 ⚠️ **Không duyệt chất liệu bằng dòng `极速`** — dòng này không render được vật liệu phức tạp
 (displacement/3S), vân sẽ "mất tích" oan. Soi chất liệu = `离线模式` + template dòng `室内白天/夜晚`.
+
+---
+
+## 8. Bề mặt nào ĐÒI sáng tạt — bảng quyết định giữ hay tắt nắng
+
+Đây là chỗ hay bị chép nhầm nhất khi lấy công thức từ một ảnh mẫu: **ảnh mẫu tắt nắng được không phụ
+thuộc vào gu, mà phụ thuộc vào bề mặt trong khung của nó có gì để khoe.**
+
+Một cảnh toàn tường lacquer phẳng và tủ trơn thì tắt nắng vẫn đẹp — chẳng có vân nào để mất.
+Cùng bộ số đó bê sang cảnh có marble vân lớn và panel gỗ vân dọc thì hai mảng đắt tiền nhất trong khung
+bẹt như tấm formica giả.
+
+| Bề mặt trong khung | Cần gì để "ra chất" | Tắt nắng được không |
+|---|---|---|
+| **Melamine / laminate vân gỗ** | **Sáng tạt** `掠射光` dọc theo cánh | ❌ Cần sáng tạt từ nắng xiên hoặc `灯带` dọc cánh |
+| **Veneer / gỗ tự nhiên thớ sâu** | **Sáng tạt**, mạnh hơn melamine | ❌ |
+| **Marble / đá vân lớn** | Sáng tạt để nổi vân + điểm phản chiếu | ❌ |
+| **Đá nhám, `岩板` mờ, terrazzo** | Sáng tạt nhẹ | ❌ |
+| **Gạch nhám, vữa, vi xi măng** | Sáng tạt nhẹ | ⚠️ Được nếu không phải chủ thể |
+| **Vải: nỉ, linen, nhung** | Ánh mềm hắt ở **mép nếp gấp** (*sheen*) — không phải sáng tạt | ✅ Sáng khuếch tán là đủ |
+| **Acrylic bóng gương, kính, gương** | **Điểm phản chiếu nguồn sáng**, không ăn sáng tạt | ✅ Nhưng cần có **cái gì đó để phản chiếu** — tăng `环境反射亮度` |
+| **Kim loại bóng** | Điểm phản chiếu + môi trường quanh nó | ✅ Như trên |
+| **Sơn tường mờ, lacquer trơn** | Không cần gì — không có vân | ✅ |
+
+> ## 📌 Quy tắc một dòng
+> **Bề mặt càng NHÁM và càng CÓ VÂN → càng cần sáng tạt.**
+> **Bề mặt càng BÓNG và càng PHẲNG → càng cần thứ để phản chiếu.**
+> Hai nhu cầu này ngược nhau, và một khung có cả hai thì phải phục vụ cả hai.
+
+**Cách rẻ nhất để có sáng tạt:** hạ `俯仰角` của `太阳光` xuống **20–30°** cho nắng quét dài ngang bề mặt.
+Không tốn thêm đèn nào, không tốn thêm giờ render. Cách thứ hai: `灯带` kéo **dọc** cánh tủ.
+Cách thứ ba: `射灯` xiên **30–45°** — nhưng phải có model đèn thật trên trần ở vị trí đó.
+
+**Rọi thẳng vuông góc vào mặt vân là bẹt.** Ánh đèn phẳng, đều, chiếu vuông góc = kẻ thù của vân.
+
+---
+
+## 9. Kỷ luật độ bóng — chỉ cho phép một tới hai điểm bóng trong khung
+
+Rút từ việc đọc ngược các ảnh mẫu chất lượng cao: chúng gần như **không có gì bóng**.
+Đó là chủ đích, và là lý do chúng không "lộ CG".
+
+| Số bề mặt bóng trong khung | Đọc là |
+|---|---|
+| 0 | Có thể hơi chết, thiếu điểm nhìn — trừ khi cố ý làm tông mộc |
+| **1–2** | **Vùng đúng.** Điểm bóng thành điểm nhấn vì mọi thứ quanh nó mờ |
+| 3–5 | Bắt đầu rối, mất điểm nhấn |
+| 6+ | "Cả phòng bằng nhựa bóng" — dấu hiệu 3D số 4 |
+
+Cách chọn: **điểm bóng phải rơi vào thứ đắt tiền nhất trong khung** — mặt đá bếp, tấm ốp marble,
+cánh acrylic, màn TV, một món kim loại. Sàn, tường, tủ mờ, vải thì để mờ hết.
+
+Lỗi điển hình của người mới: thấy vật liệu nào cũng chỉnh `反射光泽度` lên cho "đẹp" → cả khung bóng
+như nhau → không còn gì nổi lên, và mắt đọc ngay ra là đồ máy tính.
+
+> 💡 Khi đọc ngược một ảnh mẫu, **đếm số điểm bóng** rồi ghi vào phiếu. Nó là một trong những thứ
+> chép sang được nguyên vẹn giữa hai cảnh khác nhau — khác với số đèn.

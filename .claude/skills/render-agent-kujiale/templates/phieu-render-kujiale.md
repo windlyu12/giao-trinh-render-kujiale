@@ -31,10 +31,19 @@
 
 ---
 
-### ① Rà model *(làm trước, không tốn điểm)*
-- [ ] Soi kính/trần/tủ tìm **`重面`** (mặt trùng khít) — gốc của vệt đen loang lổ, noise cục bộ
+### ⓪ Sửa trước khi bố đèn *(không tốn điểm — và không tham số nào cứu được)*
+
+> Chạy hết `references/07-doc-model-chua-render.md`. Mỗi dòng phải **chỉ đúng chỗ trong ảnh** và
+> **neo vào một quy tắc có tên**. Nhóm MODEL xếp trên cùng vì phát hiện muộn là đắt nhất.
+
+| Thấy gì trong model | Vì sao phải sửa | Nhóm |
+|---|---|---|
+| | | MODEL / BỐ CỤC / BÀY ĐỒ / VẬT LIỆU |
+
+Bốn thứ luôn nhắc kiểm dù không thấy dấu hiệu:
+- [ ] **`重面`** ở chỗ tấm ốp giáp panel, tủ cao chạm trần, đồ áp tường
 - [ ] Đèn `面光源` **không chạm trần**
-- [ ] Kích thước đồ đúng thật (tủ không cao xuyên trần, ghế không to hơn bàn)
+- [ ] **Đếm model đèn thật trên trần** (màn 2D) — quyết định được đặt bao nhiêu `射灯` ảo
 - [ ] Khổ vân nhập đúng (**1220×2440** cho ván, không để mặc định 1000mm)
 
 ### ② Chế độ + template

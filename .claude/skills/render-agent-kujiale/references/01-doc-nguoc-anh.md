@@ -180,8 +180,21 @@ thay ô `色温`. Panel chỉ nhận **một trong hai**, hệ lưu giá trị c
 | **Chức năng** `局部照明` | Vùng sáng hơn ở sofa / bàn ăn / mặt bếp / gương | Đồ đạc chìm, không biết nhìn đâu |
 | **Nhấn** `氛围+重点` | Khe hắt trần, đèn thả, vệt rọi tranh, đèn bàn | **Ảnh bẹt** — chỉ có lớp 1 phóng to |
 
-**Kiểm gradient:** sáng có giảm dần từ cửa vào sâu phòng không? Có = đúng nguyên tắc xương sống C3.
-Sáng đều tăm tắp từ cửa đến tường trong = đèn nền tống đều, lỗi hạng 1.
+**Kiểm gradient — và đọc đúng TRỤC của nó.** Nguyên tắc xương sống của C3 hay được đọc tắt thành
+"sáng giảm dần từ cửa vào sâu phòng", nhưng câu đầy đủ là: **sáng giảm dần theo trục tính từ cửa** —
+và trục đó nằm đâu là do vị trí cửa so với camera quyết định:
+
+| Cửa sổ nằm đâu so với camera | Trục gradient | Biểu hiện trên ảnh |
+|---|---|---|
+| **Sau lưng camera** | Theo chiều sâu, xa dần | Sáng ở gần, tối dần về tường cuối |
+| **Bên hông** (trái hoặc phải) | **Ngang khung** | Sáng một bên, tối dần sang bên kia |
+| **Cuối trục, camera nhìn thẳng vào** | Theo chiều sâu, **ngược lại** | Tối ở gần, **sáng dần vào trong** — halo cuối trục |
+| Hai mặt thoáng | Hai trục chồng nhau | Tối nhất ở góc xa cả hai cửa |
+
+Đọc sai trục là hỏng cả bài: chép một bộ đèn từ ảnh cửa-cuối-trục sang cảnh cửa-bên-hông thì gradient
+chạy sai hướng, và ảnh mất luôn hướng sáng dù số đèn "đúng".
+
+Sáng đều tăm tắp không theo trục nào = đèn nền tống đều, lỗi hạng 1.
 
 **Test "tia Chúa" `上帝之光`** — cực quan trọng khi chấm ảnh người khác:
 > Mỗi vệt sáng rọi xuống phải **ứng với một model đèn thật nhìn thấy được trên trần**, hoặc hợp lý
@@ -199,6 +212,17 @@ trần / gầm tủ = 1 `灯带` (`面光源` kéo mảnh rộng 20–25 ⚠️)
 Nếu ảnh có **cột dọc thẳng đứng** (đã bật `相机矫正` hoặc chụp bằng tilt-shift), thì `俯仰角 = 0` và
 **đường chân trời nằm đúng giữa khung theo chiều dọc**. Mọi thứ ở đúng chiều cao camera sẽ nằm trên
 đường đó. Kẻ đường ngang qua giữa ảnh, xem nó cắt qua cái gì:
+
+> ## ⚠️ PHÉP ĐO NÀY CẦN KHUNG NGUYÊN VẸN
+> Nó dựa trên giả định **tâm khung đang nhìn = tâm khung gốc**. Giả định đó vỡ khi ảnh bị:
+> **crop** · **letterbox** (ảnh chụp màn hình điện thoại có thanh đen trên dưới) · có **thanh UI /
+> watermark / overlay** che mất mép · đã bị cắt lại khi hậu kỳ.
+>
+> Ảnh chụp màn hình từ Xiaohongshu, Douyin, Pinterest, Zalo **gần như luôn dính ít nhất một cái**.
+>
+> **Cách xử:** ước theo vùng nội dung thật (bỏ thanh đen hai đầu ra rồi lấy tâm vùng còn lại), rồi
+> **ghi rõ trong phiếu đây là ước lượng thô, không phải số đo**. Nếu là model của chính mình thì
+> đừng đoán — **mở panel `相机参数` đọc số thật**.
 
 | Đường giữa ảnh cắt qua | Chiều cao camera ≈ |
 |---|---|

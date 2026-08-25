@@ -30,12 +30,34 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Nhận vào | Chế độ | Đọc thêm | Xuất ra |
 |---|---|---|---|
 | Ảnh render/ảnh chụp đẹp lấy trên mạng | **A. Đọc ngược** | `references/01-doc-nguoc-anh.md` | Phiếu phân tích + bộ thông số tái dựng |
-| Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `01` + `02` + `03` + `04` | Phiếu thông số render Kujiale đầy đủ |
+| Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
 
-Chế độ A và B thường đi cặp: khách đưa ảnh mẫu trên mạng + ảnh model của mình → chạy A trên ảnh mẫu
-để rút "công thức", rồi chạy B để kê đơn cho model.
+### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
+
+Nhận **cùng lúc** một ảnh mẫu trên mạng và một ảnh model chưa render. Đây là ca hay gặp nhất, và
+**KHÔNG phải là chạy A rồi chạy B rồi ghép lại.** Giữa hai chế độ có một bước bản lề bắt buộc:
+
+> ## 📌 BƯỚC BẢN LỀ — đối chiếu trước khi kê đơn
+> ## Ảnh mẫu và model của mình khác nhau ở đâu? Chép số sang là hỏng ở đó.
+
+Chạy bảng ba trục này, **luôn luôn**, trước khi viết dòng thông số đầu tiên:
+
+| Trục | Hỏi gì | Nếu khác thì hệ quả |
+|---|---|---|
+| **1. Hình học nguồn sáng** | Cửa sổ của ảnh mẫu nằm đâu so với camera — sau lưng, bên hông, hay **cuối trục**? Model của mình thì sao? | Quyết định **trục của gradient sáng**. Khác trục thì toàn bộ bố cục sáng phải dựng lại, không copy được lớp nào |
+| **2. Tông vật liệu** | Sàn/tường của mẫu sáng hay tối? Của mình? Bề mặt của mình có **vân cần khoe** không (marble, gỗ vân, đá nhám)? | **Quy luật 1** (chênh tới 10 lần) + quyết định **giữ hay tắt nắng** — xem bảng "bề mặt nào đòi sáng tạt" ở `04` §8 |
+| **3. Chi tiết công trình** | Ánh sáng đẹp của ảnh mẫu đến từ **tham số** hay từ **thứ đã dựng trong model** (trần giật cấp, khe hắt, ray nam châm, hốc tường)? | Nếu đến từ model mà model mình không có → **nói thẳng là không vặn tham số nào ra được**, và báo đó là việc dựng (C12), không phải việc render |
+
+**Bắt buộc xuất một mục riêng tên "Cái không chép được"** trong phiếu, đặt **giữa** phiếu A và phiếu B.
+Đây thường là phần giá trị nhất của cả bài — nó chặn người dùng ngồi copy số cả buổi rồi không hiểu
+vì sao ảnh không giống mẫu.
+
+Ba câu hỏi kiểm tra chất lượng của bước này:
+- Đã nói rõ **trục gradient** của model chạy hướng nào chưa (không mặc định "từ cửa vào sâu phòng")?
+- Có chỗ nào mình đang định **chép nguyên số của mẫu** mà tông vật liệu hai bên khác nhau không?
+- Có thứ gì trong ảnh mẫu **thực ra là model chứ không phải ánh sáng** mà mình đang định giả lập bằng đèn không?
 
 ---
 
@@ -71,6 +93,12 @@ Chạy đúng thứ tự 12 bước trong `references/01-doc-nguoc-anh.md`. Tóm
 
 Đầu vào có thể rất nghèo (một ảnh model trắng). Không được đòi thêm dữ kiện rồi đứng im: **suy luận
 những gì suy được, ghi giả định ra, kê đơn đầy đủ.** Chỉ hỏi lại khi câu trả lời làm đổi hẳn phiếu.
+
+> ## 📌 BƯỚC 0 BẮT BUỘC — đọc lỗi model trước đã
+> Chạy hết `references/07-doc-model-chua-render.md` **trước khi kê một dòng thông số đèn nào.**
+> Ảnh phẳng giấu độ bóng và độ nổi vân, nhưng để lộ rất rõ **hình học, tỉ lệ, vị trí đồ, mật độ bày biện,
+> bố cục khung** — bốn nhóm lỗi mà **không tham số render nào cứu được**.
+> Kê đèn cho một model còn lỗi là bắt người dùng render nháp mấy vòng rồi mới biết phải quay lại sửa model.
 
 Sáu câu phải tự trả lời trước khi kê:
 

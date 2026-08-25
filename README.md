@@ -61,7 +61,8 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 │   ├── 03-cong-thuc-phong.md       ← 5 công thức phòng + 4 con đường bố đèn + nắng qua rèm
 │   ├── 04-vat-lieu-texture.md      ← 4 kênh, melamine vs acrylic, khổ thật, chẩn đoán "bệt"
 │   ├── 05-prompt-ai.md             ← 6 khối, 26 cụm, khác biệt từng công cụ
-│   └── 06-cham-anh.md              ← rubric + 12 dấu hiệu + biên độ hậu kỳ
+│   ├── 06-cham-anh.md              ← rubric + 12 dấu hiệu + biên độ hậu kỳ
+│   └── 07-doc-model-chua-render.md ← đọc lỗi từ ảnh model phẳng, trước khi bố đèn
 └── templates/                      ← 3 phiếu xuất: phân tích ảnh · thông số render · prompt AI
 ```
 
