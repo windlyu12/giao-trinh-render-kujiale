@@ -401,6 +401,61 @@ Ba lần vá liên tiếp cùng một họ lỗi là dấu hiệu **chạm trầ
 
 ---
 
+### 11 — 2026-08-25 — CA2 A3: feedback kỹ thuật thứ TƯ — và công thức thống nhất cả 4
+
+**Nguyên văn:** *"đây là 3 vệt của 3 cái bóng downlight, nó phi thực tế, vì nếu rọi ra vệt ở tầm
+cao thế thì không thể sáng xuống dưới mặt bàn được"*
+
+**Sự việc:** ba vệt loe sáng trên tường phải (do đèn âm trần gần tường rọi xuống). Nhưng cùng lúc
+khu bàn ăn và sàn dưới đó vẫn sáng đầy đủ. **Mâu thuẫn năng lượng:** một bộ đèn không thể vừa
+kết thúc chùm trên tường cao, vừa rót sáng xuống mặt bàn.
+
+## 🔑 CÔNG THỨC THỐNG NHẤT CẢ BỐN FEEDBACK
+
+> ## AI vẽ **HIỆU ỨNG ánh sáng** như hoạ tiết trang trí, không như **HỆ QUẢ của một nguồn phát**.
+> Nó không có khái niệm "một nguồn phát ra chừng này năng lượng rồi phân bổ đi đâu".
+> Nó ghép các mảng hiệu ứng học thuộc lại với nhau, **và không đối chiếu chúng với nhau.**
+
+| # | Feedback | Mảng hiệu ứng AI ghép vào | Mâu thuẫn |
+|---|---|---|---|
+| 1 | Hai cánh tủ đồng phẳng khác sắc độ | "tối vùng cạnh nguồn sáng cho nguồn nổi lên" | Với chính vật liệu và mặt phẳng đó |
+| 2 | Sàn sáng đều dưới dàn đèn | "sàn thì sáng" | Với hình học chùm sáng của đèn điểm |
+| 3 | Hõm vòm sáng đều tới tận đệm | "hõm có LED thì phát sáng" | Với suy giảm theo khoảng cách |
+| 4 | Vệt tường cao **+** bàn vẫn sáng | "tường có vệt loe" **và** "phòng thì sáng" — hai mảng rời | **Với nhau** — cùng một bộ đèn, hai kết quả loại trừ nhau |
+
+Feedback 4 là ca lộ liễu nhất vì nó cho thấy **hai mảng hiệu ứng được tính ĐỘC LẬP rồi chồng lên nhau**.
+
+## 🛑 DỪNG VÁ THEO HƯỚNG CŨ — bốn vòng không hội tụ
+
+| Vòng | Vá gì | Kết quả |
+|---|---|---|
+| A4 (ca 09) | Khai báo nhất quán bề mặt | Lòi ra lỗi vũng sáng + gradient hõm |
+| A5 (ca 10) | Khai báo vũng sáng + gradient | Lòi ra lỗi vệt tường mâu thuẫn năng lượng |
+
+Mỗi lần vá một biểu hiện thì lòi ra biểu hiện khác **cùng họ**. Đây không phải thiếu chữ trong
+prompt — **model không có nguồn sáng để mà mô tả.**
+
+## 💡 ĐỔI CHIẾN LƯỢC — thay vì ép AI làm ánh sáng ĐÚNG, bảo nó làm ánh sáng ĐƠN GIẢN
+
+Mọi phàn nàn của kỹ thuật đều nhắm vào **hiệu ứng ánh sáng phức tạp** (vệt loe, vũng sáng, gradient
+hõm, quầng quanh tranh). **Bỏ hết hiệu ứng đi thì không còn gì để bắt.**
+
+Ảnh sẽ **ít kịch tính hơn**, nhưng **không có mâu thuẫn vật lý nào** — và với mục đích thật của
+ảnh AI (dò không khí, mood board) thì kịch tính không phải thứ cần.
+
+→ Xem `PROMPTS-DANG-CHAY.md` mục **A6-đơn giản**.
+
+## 📌 Đường đi đúng cho đội có kỹ thuật soi ảnh
+
+| Việc | Dùng gì |
+|---|---|
+| Thăm dò phong cách, tông màu, không khí **TRƯỚC khi dựng** | ✅ AI — nhanh, rẻ, sai vật lý cũng không sao |
+| Mood board cho khách xem hướng | ✅ AI + watermark |
+| **Mọi ảnh có designer/kỹ thuật/khách soi** | ✅ **Render thật.** Suy giảm theo khoảng cách và cân bằng năng lượng là thứ engine giải đúng và miễn phí |
+| "Cứu" một ảnh render đã hỏng ánh sáng | ❌ Không. Sửa trong engine |
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -416,6 +471,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ vào `05` §0.** `physically based materials` nghi đẩy về vẻ CG — thuật ngữ engine render. Thử bỏ hẳn | 06 | 1/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 (Hệ quả).** Khối 6 tả mức bóng khác nhau giữa các vật liệu, không dùng một cụm `soft specular highlights` cho tất cả | 06 | 1/3 |
 | **Công thức 6 khối không có ô nào BẮT BUỘC tì vết** — khối 5 là "vật liệu + staging" nhưng không gì ép. Cân nhắc thêm bước soát trước khi xuất prompt | 06 | 1/3 |
+| 🔴🔴🔴 **CHÍN 4/4 — AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
 | 🔴🔴 **CHÍN 3/3 — AI KHÔNG CÓ SUY GIẢM THEO KHOẢNG CÁCH.** Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
 | **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |

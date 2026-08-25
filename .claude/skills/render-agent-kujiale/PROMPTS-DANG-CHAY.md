@@ -407,7 +407,7 @@ One pair of shoes sits turned slightly out of line on the floor beside the bench
 
 ---
 
-# 🔧 CA2 bản A5 — vá SUY GIẢM THEO KHOẢNG CÁCH (ca 09 + 10)
+# CA2 bản A5 — vá suy giảm vòng 2 (ca 09+10) — **hướng này KHÔNG hội tụ, xem A6-đơn giản**
 
 Kỹ thuật bắt thêm hai lỗi nữa, cùng gốc với ca 09: **AI không tính ánh sáng yếu dần theo khoảng cách.**
 A5 khai báo tường minh cả ba: nhất quán bề mặt · vũng sáng trên sàn · gradient trong hõm.
@@ -482,3 +482,71 @@ One pair of shoes sits turned slightly out of line on the floor beside the bench
 >
 > **Ảnh nào sẽ có người trong nghề soi → render thật.** Suy giảm theo khoảng cách là thứ
 > Corona/Kujiale giải **đúng và miễn phí**. AI để dò không khí và mood — dừng ở đó.
+
+---
+
+# ✅ CA2 bản A6-ĐƠN GIẢN — đổi chiến lược (ca 11)
+
+**Bốn vòng vá ánh sáng không hội tụ.** Mỗi lần khai báo vật lý cho một biểu hiện thì kỹ thuật lại
+bắt ra biểu hiện khác cùng họ. Gốc: **AI vẽ hiệu ứng ánh sáng như hoạ tiết, không như hệ quả của
+một nguồn phát** — nó không có nguồn sáng để mà mô tả.
+
+**Đảo hướng: đừng ép AI làm ánh sáng ĐÚNG. Bảo nó làm ánh sáng ĐƠN GIẢN.**
+Mọi phàn nàn đều nhắm vào hiệu ứng phức tạp — bỏ hiệu ứng thì không còn gì để bắt.
+Ảnh ít kịch tính hơn, nhưng **không có mâu thuẫn vật lý** — và mood board thì không cần kịch tính.
+
+```
+Photorealistic interior photograph of this exact entryway and dining area. Keep the
+camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces
+meet without drawn borders. Nothing should look like a 3D viewport.
+
+Simple, quiet, believable interior daylight. The room is filled by soft ambient light
+coming from the living area off-frame to the right, the way an overcast afternoon fills
+a hallway. Walls and ceiling are lit smoothly and evenly by that ambient light alone,
+their surfaces plain and unmarked by any fixture. The ceiling downlights and the pendant
+are switched off and read as plain objects. The arched niche is plain oak in ambient
+light. Brightness eases gently from the right side of the frame toward the left corner,
+which is the quietest part of the image. Shadows are soft, shallow and few — the kind
+daylight makes indoors on a grey day.
+
+Shot on a 35mm lens at eye level 1.1m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+Matte cream lacquer cabinetry with a fine hand-applied surface, never glassy — the sheen
+shifts slightly from door to door. Oak veneer with open pores, the grain changing from
+board to board. The curved console catches a soft satin sheen only where light grazes
+it. Dark walnut herringbone floor in a low satin finish, planks varying in tone, a faint
+wear path toward the door. Cane chair backs woven from real rattan, the weave slightly
+irregular. Cotton seat cushions with a soft matte weave and gentle creasing where people
+sit. Glazed ceramic vases with uneven glaze pooling. Everyday traces, quiet and few: a
+faint scuff on the floor near the shoes, soft dust settled on the top shelf.
+
+Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
+wood, dry woven cane, glazed ceramic.
+
+Contact shadows keep everything grounded: where the console meets the floor, under the
+bench, beneath each chair leg, behind the shoes.
+
+True photographic tonal range: whites that stop just short of pure white, the left corner
+genuinely dim, a full range in between. Neutral white balance throughout — the cream
+cabinet fronts read as near-white, not amber, and no overall tint sits over the image.
+Muted natural colour. The look of a printed magazine interior photograph.
+
+One pair of shoes sits turned slightly out of line on the floor beside the bench.
+```
+
+### Vì sao bản này khác hẳn A4/A5
+
+| A4 / A5 | A6-đơn giản |
+|---|---|
+| Khai báo **vật lý tường minh** cho từng hiệu ứng (vũng sáng, gradient hõm, tương quan bề mặt) | **Bỏ hết hiệu ứng.** Chỉ còn ánh sáng môi trường đều + gradient một chiều |
+| Đèn bật, hõm phát sáng, tường có vệt loe | **Đèn tắt**, hõm là gỗ thường, tường trơn không dấu vết đèn |
+| Kỹ thuật bắt được 4 lỗi | Không còn hiệu ứng nào để bắt |
+| Kịch tính hơn | Trầm hơn — nhưng đúng thứ mood board cần |
+
+> 📌 **Nếu cần ảnh CÓ kịch tính ánh sáng và có người trong nghề soi → render thật.**
+> Cân bằng năng lượng và suy giảm theo khoảng cách là thứ Corona/Kujiale giải đúng, miễn phí,
+> không phải đoán.
