@@ -25,10 +25,18 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 | 7 | Photorealism + case thực chiến | `content/07-photorealism-case-thuc-chien.md` | 4 trụ cột, 12 điều cấm phạm, học từ pháp sư TQ |
 | 8 | Công cụ AI — dùng và cấm | `content/08-cong-cu-ai-dung-va-cam.md` | AI ở đâu hợp lệ, ở đâu rủi ro pháp lý |
 | 9 | Luyện mắt + nguồn theo dõi | `content/09-luyen-mat-nguon-theo-doi.md` | Thói quen dài hạn sau khi đọc hết sách |
+| 10 | Ảnh vân — nguồn, chuẩn, chống lặp | `content/10-texture-nguon-chuan-va-chong-lap-van.md` | Lấy texture ở đâu, chuẩn thế nào, phá lỗi lặp vân |
+| 11 | Model và bày đồ kể chuyện | `content/11-model-va-bay-do-ke-chuyen.md` | Nhận model rác, bày đồ có hơi người |
+| 12 | Chi tiết công trình | `content/12-chi-tiet-cong-trinh.md` | Khe hắt, đèn âm trần, ray nam châm, khe gió |
+| 13 | Ánh sáng nâng cao | `content/13-anh-sang-nang-cao.md` | Bốn con đường bố đèn, nắng qua rèm voan |
+| 14 | Hậu kỳ nâng cao | `content/14-hau-ky-nang-cao.md` | Đường cong, hạt nhiễu, nước ảnh kiểu Trung Quốc |
+| 15 | Bộ phối màu nội thất | `content/15-bo-phoi-mau-noi-that.md` | Tỉ lệ 6:3:1, LRV, undertone, ba phương án cho khách chọn |
 | A | Bộ chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` | Công cụ nghiệm thu + chấm đồ án |
 | B | Phiếu khám phá app | `content/phu-luc-b-phieu-verify-app.md` | Bài tập tuần đầu — khóa số cho sách |
 | C | Cheat sheet thuật ngữ | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` | ~97 thuật ngữ Trung-Việt, in dán tường |
 | D | Từ vựng prompt AI | `content/phu-luc-d-tu-vung-prompt-ai.md` | Nguyên tắc ánh sáng → prompt Nano Banana/Midjourney |
+| E | Ngân hàng ca thực chiến | `content/phu-luc-e-ngan-hang-case.md` | Mười ca đánh đèn của designer Trung Quốc |
+| F | Ngân hàng bảng phối màu | `content/phu-luc-f-ngan-hang-bang-mau.md` | 12 bảng màu có hex + LRV, bảng tra brief, Phiếu phối màu |
 
 ## Agent render — dùng giáo trình này để chạy việc thật
 
@@ -42,6 +50,7 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 | Ảnh **chưa render** (model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi) | Kê đơn theo đúng thứ tự rà model → template → camera → nắng → thiên quang → đẩy sáng → đèn chức năng → đèn nhấn → `高级设置` → hậu kỳ | **Phiếu thông số render Kujiale** đầy đủ + thứ tự dò |
 | Yêu cầu ảnh ý tưởng | Dựng prompt theo công thức 6 khối | Prompt cho **ChatGPT / Nano Banana / Midjourney / Google Flow** |
 | Ảnh render đã xong | Chấm theo rubric Phụ lục A | Phiếu 10 tiêu chí × 5 điểm + việc cần sửa, kèm chương để tra |
+| Brief màu của khách ("hiện đại, tone sáng") | Dịch brief sang 3 khóa → mở ngân hàng bảng màu → kiểm 4 luật LRV/undertone → áp quy tắc hai ô | **Phiếu phối màu 7 ô** + 3 phương án A/B/C để khách chọn |
 
 **Bốn luật nền agent luôn tuân** (và đây cũng là lý do nên tin phiếu nó xuất ra):
 
@@ -62,8 +71,9 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 │   ├── 04-vat-lieu-texture.md      ← 4 kênh, melamine vs acrylic, khổ thật, chẩn đoán "bệt"
 │   ├── 05-prompt-ai.md             ← 6 khối, 26 cụm, khác biệt từng công cụ
 │   ├── 06-cham-anh.md              ← rubric + 12 dấu hiệu + biên độ hậu kỳ
-│   └── 07-doc-model-chua-render.md ← đọc lỗi từ ảnh model phẳng, trước khi bố đèn
-└── templates/                      ← 3 phiếu xuất: phân tích ảnh · thông số render · prompt AI
+│   ├── 07-doc-model-chua-render.md ← đọc lỗi từ ảnh model phẳng, trước khi bố đèn
+│   └── 08-phoi-mau.md              ← 7 ô, 4 luật LRV/undertone, 12 bảng màu, quy tắc hai ô
+└── templates/                      ← 4 phiếu xuất: phân tích ảnh · thông số render · prompt AI · phối màu
 ```
 
 Khi `content/` được cập nhật (số ⚠️ được khoá qua Phụ lục B, UI Kujiale đổi), **sửa `content/` trước rồi đồng bộ sang `references/`** — `content/` vẫn là source of truth.

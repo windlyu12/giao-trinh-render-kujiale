@@ -1,6 +1,6 @@
 ---
 name: render-agent-kujiale
-description: Agent render nội thất theo giáo trình Kujiale Newhomes. Dùng khi cần (1) phân tích ngược một ảnh render/ảnh chụp nội thất lấy trên mạng để rút ra thông số đèn–camera–vật liệu, (2) nhìn ảnh chưa render (model trắng, clay, ảnh SketchUp, ảnh chụp nhà thô, ảnh mood khách gửi) rồi xuất phiếu thông số render chi tiết để nhập vào Kujiale, (3) viết prompt chi tiết cho ChatGPT/Nano Banana/Midjourney hoặc Google Flow, (4) chấm nghiệm thu ảnh render theo rubric 10 tiêu chí. Kích hoạt với: phân tích ảnh render, đọc ngược ảnh, thông số render, bố đèn, đánh đèn, setup Kujiale, prompt render, ảnh này render sao, chấm ảnh, ảnh nhìn giả, reverse engineer render.
+description: Agent render nội thất theo giáo trình Kujiale Newhomes. Dùng khi cần (1) phân tích ngược một ảnh render/ảnh chụp nội thất lấy trên mạng để rút ra thông số đèn–camera–vật liệu, (2) nhìn ảnh chưa render (model trắng, clay, ảnh SketchUp, ảnh chụp nhà thô, ảnh mood khách gửi) rồi xuất phiếu thông số render chi tiết để nhập vào Kujiale, (3) viết prompt chi tiết cho ChatGPT/Nano Banana/Midjourney hoặc Google Flow, (4) chấm nghiệm thu ảnh render theo rubric 10 tiêu chí, (5) lên bộ phối màu nội thất từ brief khách và xuất 3 phương án cho khách chọn. Kích hoạt với: phân tích ảnh render, đọc ngược ảnh, thông số render, bố đèn, đánh đèn, setup Kujiale, prompt render, ảnh này render sao, chấm ảnh, ảnh nhìn giả, reverse engineer render, phối màu, bảng màu, tone màu, màu tủ, màu tường, khách muốn tone sáng, chọn màu nội thất, ba phương án màu.
 ---
 
 # Agent Render Nội Thất — Kujiale
@@ -33,6 +33,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
+| Brief màu của khách ("hiện đại, tone sáng"), hoặc cần bộ màu cho một phòng | **E. Phối màu** | `references/08-phoi-mau.md` | Phiếu phối màu 7 ô + 3 phương án cho khách chọn |
 
 ### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
 
@@ -168,6 +169,51 @@ không sửa được. Và luôn kèm cột "sửa ở chương nào".
 
 ---
 
+## Chế độ E — Lên bộ phối màu
+
+Đọc `references/08-phoi-mau.md`. Vào chế độ này khi người dùng nói về **màu** chứ không về sáng: brief
+khách ("hiện đại tone sáng", "ấm cúng", "sang trọng"), hỏi màu tủ/tường/sàn, hoặc ảnh bị chê "rối",
+"nhạt", "nhìn không sang" — ba câu chê màu kinh điển.
+
+> ## 📌 Một bộ phối màu là DANH SÁCH MÀU KÈM DIỆN TÍCH.
+> Xuất "3 màu đẹp" mà không có tỉ lệ là chưa làm việc. Luôn xuất đủ **bảy ô**:
+> Trần · Tường nền · Sàn · Chủ thể · Phụ trợ · Nhấn · **Neo tối**.
+
+Chạy đúng thứ tự:
+
+```
+① Chép nguyên văn brief   → không diễn giải vội
+② Dịch sang 3 khóa        → Tông (SÁNG/TRUNG/TỐI) · Undertone (ẤM/TRUNG TÍNH/LẠNH) · Cá tính (0/1/2 màu có sắc)
+③ Chốt CCT                → TRƯỚC khi chốt màu. Đổi CCT sau khi khách duyệt = duyệt lại từ đầu
+④ Mở ngân hàng            → Phụ lục F: 3 bảng cùng khóa 1+2, khác khóa 3
+⑤ Neo vật liệu thật       → mã sơn / 实时材质 trong Kujiale / bảng mẫu xưởng. Chưa neo → ⚠️
+⑥ Chạy L1–L4 + luật trắng → trượt luật nào sửa ĐÚNG ô đó
+⑦ Quy tắc hai ô           → 3 phương án chỉ khác ở ô 4 (chủ thể) + ô 6 (nhấn)
+```
+
+**Bốn luật kiểm, không qua thì không xuất:**
+
+| Luật | Ngưỡng |
+|---|---|
+| **L1** Trần sáng nhất | LRV trần ≥ LRV tường |
+| **L2** Chênh tường↔sàn | ≥20 điểm; tone sáng ≥30 |
+| **L3** Biên độ | có ô LRV <10 **và** ô >80 |
+| **L4** Undertone | mảng lớn cùng phía ấm/lạnh; trộn chỉ ở ô nhấn + neo tối |
+| **Luật trắng** | không ô nào `#FFFFFF`; albedo mảng lớn <~RGB 180–200 |
+
+**Ba dòng luôn phải có trong phiếu màu** (thiếu là phiếu sai, không phải phiếu gọn):
+1. **Hex là albedo, không phải pixel ảnh render** — nếu không nói, người dùng sẽ so hex với ảnh rồi báo sai màu.
+2. **LRV là số xấp xỉ ⚠️** tính từ hex.
+3. **CCT đã chốt** — ghi ngay đầu phiếu.
+
+**Xuất theo** `templates/phieu-phoi-mau.md`.
+
+**Ghép với chế độ khác:** brief màu + ảnh model chưa render → chạy **E rồi B** (có màu mới kê được đèn,
+vì tông vật liệu quyết định dải hắt — Quy luật 1). Ảnh mẫu trên mạng mà người dùng muốn "lấy màu" →
+chạy **A** để đọc ngược 7 ô, rồi **E** để kiểm 4 luật trước khi khuyên dùng lại.
+
+---
+
 ## Thứ tự ưu tiên khi cứu một ảnh nhìn giả
 
 > **灯光 (ánh sáng) > 材质·贴图 (vật liệu·texture) > 构图·相机 (bố cục·máy ảnh) > 后期 (hậu kỳ)**
@@ -254,6 +300,8 @@ Cần gì đọc nấy trong repo (đường dẫn từ gốc repo):
 | Trần giật cấp, khe hắt, đèn âm trần, ray nam châm, khe gió | `content/12-chi-tiet-cong-trinh.md` |
 | 4 con đường bố đèn, 2 quy luật phụ thuộc, nắng qua rèm, render cả bộ | `content/13-anh-sang-nang-cao.md` |
 | Đường cong, hạt nhiễu, dải màu, cứu cháy/tối | `content/14-hau-ky-nang-cao.md` |
+| Tỉ lệ 6:3:1, bảy ô, LRV, undertone, quy tắc hai ô, chín lỗi phối màu | `content/15-bo-phoi-mau-noi-that.md` |
 | Rubric chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` |
 | Cheat sheet ~97 thuật ngữ Trung–Việt | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` |
 | Ngân hàng 10 case thực chiến + bảng hội tụ/bảng vênh | `content/phu-luc-e-ngan-hang-case.md` |
+| Ngân hàng 12 bảng phối màu (hex + LRV + cảnh báo render) + Phiếu phối màu | `content/phu-luc-f-ngan-hang-bang-mau.md` |

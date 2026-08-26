@@ -45,6 +45,8 @@ CHAPTERS = [
      "Bốn con đường bố đèn, nắng qua rèm voan đọc được hình, và cách thoát khỏi việc chép số.", "#3d85fa", "ch"),
     ("14", "14-hau-ky-nang-cao.md", "14", "Chương 14", "Hậu kỳ nâng cao",
      "Đường cong, hạt nhiễu, dải màu và nước ảnh kiểu Trung Quốc — đánh bóng chứ không cứu chữa.", "#2e7afb", "ch"),
+    ("15", "15-bo-phoi-mau-noi-that.md", "15", "Chương 15", "Bộ phối màu nội thất",
+     "Tỉ lệ 6:3:1, bảy ô đặt hàng được, LRV và undertone — và cách làm ba phương án cho khách chọn.", "#2166e8", "ch"),
     ("pa", "phu-luc-a-bo-cham-anh.md", "A", "Phụ lục A", "Bộ chấm ảnh",
      "Phiếu 10 tiêu chí × 5 điểm — nghiệm thu ảnh và chấm đồ án tốt nghiệp.", "#8be3c6", "pl"),
     ("pb", "phu-luc-b-phieu-verify-app.md", "B", "Phụ lục B", "Sổ ghi nhận khi dùng app",
@@ -55,6 +57,8 @@ CHAPTERS = [
      "Nguyên tắc ánh sáng → cụm prompt tiếng Anh cho Nano Banana / Midjourney.", "#ff9fc0", "pl"),
     ("pe", "phu-luc-e-ngan-hang-case.md", "E", "Phụ lục E", "Ngân hàng ca thực chiến",
      "Mười ca đánh đèn của designer Trung Quốc, bộ từ khoá thu thêm ca, và vì sao số của họ khác nhau.", "#9be8a0", "pl"),
+    ("pf", "phu-luc-f-ngan-hang-bang-mau.md", "F", "Phụ lục F", "Ngân hàng bảng phối màu",
+     "Mười hai bảng màu có mã hex và LRV, bảng tra brief khách, và Phiếu phối màu in ra điền.", "#ffd28a", "pl"),
 ]
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -64,7 +68,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 
 
 def render_md(text: str):
-    md = markdown.Markdown(extensions=["tables", "toc"], output_format="html5")
+    md = markdown.Markdown(extensions=["tables", "toc", "fenced_code"], output_format="html5")
     html = md.convert(text)
     toc = [t for t in md.toc_tokens if t["level"] == 2]
     return html, toc

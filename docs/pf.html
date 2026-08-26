@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phụ lục F. Ngân hàng bảng phối màu — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#ffd28a;--accent-soft:color-mix(in srgb, #ffd28a 13%, transparent);}</style>
+</head>
+<body data-slug="pf">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="15" href="15.html" style="--c:#2166e8"><span class="chip">15</span><span>Bộ phối màu nội thất</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Sổ ghi nhận khi dùng app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="pf" href="pf.html" style="--c:#ffd28a"><span class="chip">F</span><span>Ngân hàng bảng phối màu</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">F</div>
+    <div class="ch-meta"><span class="tag">Phụ lục F</span><span class="tag ghost">≈ 21 phút đọc</span></div>
+    <h1 class="ch-title">Ngân hàng bảng phối màu</h1>
+    <p class="ch-hook">Mười hai bảng màu có mã hex và LRV, bảng tra brief khách, và Phiếu phối màu in ra điền.</p>
+  </header>
+  
+  <article class="content"><p>Phụ lục này là <strong>kho hàng</strong> của C15. Chương 15 dạy cách nghĩ; phụ lục này đưa thẳng <strong>12 bảng màu dùng được ngay</strong>, một <strong>bảng tra brief → bảng màu</strong>, và <strong>Phiếu phối màu</strong> in ra điền.</p>
+<p>Ba điều phải nhớ trước khi lấy bất kỳ bảng nào:</p>
+<ol>
+<li><strong>Mã hex ở đây là mã VẬT LIỆU (albedo), không phải màu bạn sẽ thấy trong ảnh render.</strong> Ảnh cuối còn phụ thuộc đèn, nắng, GI và hậu kỳ — xem C15.8.</li>
+<li><strong>LRV in kèm là ⚠️ số xấp xỉ</strong>, tính từ mã hex theo công thức độ sáng tương đối. Dùng để so tương quan giữa các ô trong cùng một bảng, không dùng để cãi với bảng màu của hãng sơn.</li>
+<li><strong>Mọi bảng đều phải neo vào vật liệu thật trước khi trình khách</strong> (C15.11). Bảng ở đây là điểm xuất phát, không phải đơn đặt hàng.</li>
+</ol>
+<hr>
+<h2 id="f1-bang-tra-nhanh-khach-noi-gi-mo-bang-nao">F.1. Bảng tra nhanh: khách nói gì → mở bảng nào</h2>
+<p>Chốt ba khóa với khách theo C15.9 rồi tra bảng này:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Khách nói</th>
+<th>Khóa 1 (tông)</th>
+<th>Khóa 2 (undertone)</th>
+<th>Mở 3 bảng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Hiện đại, tone sáng", "sáng sủa cho rộng"</td>
+<td>SÁNG</td>
+<td>ẤM hoặc TRUNG TÍNH</td>
+<td><strong>HD-01 · HD-02 · HD-03</strong></td>
+</tr>
+<tr>
+<td>"Ấm cúng", "như khách sạn", "nhìn sang"</td>
+<td>TRUNG–TỐI</td>
+<td>ẤM</td>
+<td><strong>HD-03 · HT-01 · PC-02</strong></td>
+</tr>
+<tr>
+<td>"Sang trọng", "đẳng cấp", "tối màu"</td>
+<td>TỐI</td>
+<td>ẤM</td>
+<td><strong>HT-01 · HT-03 · PC-04</strong></td>
+</tr>
+<tr>
+<td>"Trẻ trung", "cá tính", "khác người ta"</td>
+<td>TRUNG</td>
+<td>tùy</td>
+<td><strong>HT-02 · PC-04 · PC-06</strong></td>
+</tr>
+<tr>
+<td>"Đơn giản thôi", "ít đồ", "kiểu Nhật"</td>
+<td>SÁNG</td>
+<td>ẤM</td>
+<td><strong>PC-01 · HD-01 · PC-02</strong></td>
+</tr>
+<tr>
+<td>"Nhẹ nhàng", "nữ tính", "phòng cho con gái"</td>
+<td>SÁNG</td>
+<td>ẤM</td>
+<td><strong>PC-05 · PC-01 · HD-01</strong></td>
+</tr>
+<tr>
+<td>"Tân cổ điển", "có phào chỉ"</td>
+<td>SÁNG–TRUNG</td>
+<td>ẤM</td>
+<td><strong>PC-03 · HD-01 · HT-02</strong></td>
+</tr>
+<tr>
+<td>"Phòng cho bé", "vui một chút"</td>
+<td>SÁNG</td>
+<td>TRUNG TÍNH</td>
+<td><strong>PC-06 · PC-05 · HD-02</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 Ba bảng gợi ý luôn xếp theo thứ tự <strong>A an toàn → B xu hướng → C cá tính</strong> của C15.9. Cứ lấy đúng thứ tự đó mà trình.</p>
+</blockquote>
+<hr>
+<h2 id="f2-cach-oc-mot-bang-mau-trong-phu-luc-nay">F.2. Cách đọc một bảng màu trong phụ lục này</h2>
+<p>Mỗi bảng có đúng <strong>7 ô</strong> của form chuẩn, kèm bốn thông tin:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cột</th>
+<th>Nghĩa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ô</strong></td>
+<td>Một trong 7 vai: Trần · Tường nền · Sàn · Chủ thể · Phụ trợ · Nhấn · Neo tối</td>
+</tr>
+<tr>
+<td><strong>Hex</strong></td>
+<td>Mã màu vật liệu (nhập vào 基础颜色 trong Kujiale)</td>
+</tr>
+<tr>
+<td><strong>LRV ⚠️</strong></td>
+<td>Độ phản xạ xấp xỉ 0–100</td>
+</tr>
+<tr>
+<td><strong>Vật liệu thật gợi ý</strong></td>
+<td>Neo ra đời thực — loại vật liệu, không phải mã hãng (mã hãng do công ty tự điền)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kèm theo mỗi bảng: <strong>CCT khuyến nghị</strong>, <strong>số màu có sắc</strong> (khóa 3), <strong>hợp khách nào</strong>, và <strong>cảnh báo render</strong> — điều hay hỏng nhất khi dựng bảng đó trong Kujiale.</p>
+<hr>
+<h1 id="nhom-hd-hien-ai-tone-sang">NHÓM HD — HIỆN ĐẠI TONE SÁNG</h1>
+<p>Nhóm dùng nhiều nhất cho căn hộ Việt. Cả ba bảng đều: tường LRV ≥ 78, trần sáng nhất, chênh tường–sàn ≥ 29 điểm.</p>
+<h2 id="hd-01-kem-soi-be">HD-01 · Kem – sồi – be</h2>
+<p><strong>Hợp khách:</strong> gia đình trẻ, căn hộ 2–3 phòng ngủ, khách nói "sáng sủa, dễ nhìn, không cầu kỳ" · <strong>Khóa 3:</strong> 0 màu có sắc · <strong>CCT:</strong> 3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#FAF7F2</code></td>
+<td>93</td>
+<td>Sơn trắng ngả kem, mờ</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#EFE9E0</code></td>
+<td>82</td>
+<td>Sơn kem ấm</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#C8A87E</code></td>
+<td>42</td>
+<td>Sàn gỗ sồi tự nhiên, vân nhẹ</td>
+</tr>
+<tr>
+<td>Chủ thể (tủ)</td>
+<td><code>#E8E1D6</code></td>
+<td>76</td>
+<td>Melamine trắng kem mờ (哑光)</td>
+</tr>
+<tr>
+<td>Phụ trợ (rèm/sofa)</td>
+<td><code>#B4A794</code></td>
+<td>39</td>
+<td>Vải linen taupe</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#8A6F4E</code></td>
+<td>17</td>
+<td>Da nâu, gốm đất, mây tre</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#3B3833</code></td>
+<td>4</td>
+<td>Chân kim loại sơn tĩnh điện nâu đen</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Vì sao chạy được:</strong> toàn bộ nằm một phía <strong>ấm</strong>, không có màu có sắc nào để cãi nhau. Chênh tường–sàn 40 điểm nên chân tường luôn đọc rõ.
+<strong>Cảnh báo render:</strong> bộ này rất dễ ra <strong>bệt trắng</strong> nếu đẩy thiên quang cao — vì 4/7 ô nằm trên LRV 39. Bắt buộc giữ ô neo tối lộ ra trong khung hình, và đọc lại C13 về gradient sáng.</p>
+<h2 id="hd-02-trang-ghi-go-nhat-bac-au">HD-02 · Trắng – ghi – gỗ nhạt (Bắc Âu)</h2>
+<p><strong>Hợp khách:</strong> khách trẻ, chuộng Scandinavian, nhà có nhiều nắng · <strong>Khóa 3:</strong> 1 màu có sắc (xanh rêu) · <strong>CCT:</strong> 3500–4000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#FBFBFA</code></td>
+<td>96</td>
+<td>Sơn trắng trung tính</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#EDEDEA</code></td>
+<td>85</td>
+<td>Sơn trắng ngà rất nhạt</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#D8C3A5</code></td>
+<td>56</td>
+<td>Sàn gỗ tần bì / sồi nhạt</td>
+</tr>
+<tr>
+<td>Chủ thể (tủ)</td>
+<td><code>#D6D8D5</code></td>
+<td>68</td>
+<td>Melamine ghi nhạt mờ</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#9AA0A0</code></td>
+<td>35</td>
+<td>Vải ghi, thảm len xám</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#6B7F73</code></td>
+<td>20</td>
+<td>Xanh rêu nhạt: gối, tranh, cây</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#33393A</code></td>
+<td>4</td>
+<td>Khung kính đen, chân bàn đen</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> chênh tường–sàn chỉ <strong>29 điểm</strong> — sát ngưỡng. Nếu sàn bị nắng chiếu sáng lên, chân tường sẽ dính. Hạ nửa bậc sáng của sàn, hoặc chọn sàn tối hơn một bậc.
+<strong>Cảnh báo undertone:</strong> đây là bảng <strong>trung tính-lạnh duy nhất trong nhóm HD</strong>. Chỉ dùng khi sàn thật cũng nhạt/trung tính. Ghép bảng này lên sàn gỗ vàng đỏ là ca hỏng điển hình (C15.6).</p>
+<h2 id="hd-03-kem-cacao-olive-xu-huong-2026">HD-03 · Kem – cacao – olive (xu hướng 2026)</h2>
+<p><strong>Hợp khách:</strong> khách muốn "sáng nhưng phải ấm và sang", chuộng gu đang thịnh · <strong>Khóa 3:</strong> 1 màu có sắc (olive) · <strong>CCT:</strong> 3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#FBF7F1</code></td>
+<td>93</td>
+<td>Sơn trắng ngà</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#EDE4D8</code></td>
+<td>78</td>
+<td>Sơn kem, hoặc vữa mịn</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#B08D62</code></td>
+<td>29</td>
+<td>Sàn gỗ tông mật ong</td>
+</tr>
+<tr>
+<td>Chủ thể (tủ)</td>
+<td><code>#6B4F3A</code></td>
+<td>9</td>
+<td>Melamine vân óc chó / nâu cacao mờ</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#C9B79D</code></td>
+<td>49</td>
+<td>Rèm kem đậm, vải bố</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#7C7F55</code></td>
+<td>20</td>
+<td>Olive: gối, bình, tranh</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#2E2723</code></td>
+<td>2</td>
+<td>Kim loại đen mờ</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Vì sao chạy được:</strong> ô chủ thể nằm ở <strong>LRV 9</strong> — nghĩa là tủ vừa là chủ thể vừa làm luôn nhiệm vụ neo. Bộ này có biên độ sáng-tối rộng nhất nhóm HD, lên ảnh nhìn "dày" nhất.
+<strong>Cảnh báo render:</strong> tủ tối + tường sáng là ca dễ <strong>cháy tường</strong> khi kéo sáng cho tủ hiện chi tiết. Xử theo C13: đánh đèn cho tủ riêng thay vì đẩy sáng tổng.</p>
+<hr>
+<h1 id="nhom-ht-hien-ai-trung-va-toi">NHÓM HT — HIỆN ĐẠI TRUNG VÀ TỐI</h1>
+<h2 id="ht-01-ghi-khoi-oc-cho-ong">HT-01 · Ghi khói – óc chó – đồng</h2>
+<p><strong>Hợp khách:</strong> khách nam, căn hộ cao cấp, "sang, trầm, không lòe loẹt" · <strong>Khóa 3:</strong> 1 màu có sắc (đồng) · <strong>CCT:</strong> 3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#F0EFEC</code></td>
+<td>86</td>
+<td>Sơn trắng ấm</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#C9C7C2</code></td>
+<td>57</td>
+<td>Sơn ghi khói, hoặc tấm ốp vân xi măng</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#8A6A4B</code></td>
+<td>16</td>
+<td>Sàn gỗ óc chó</td>
+</tr>
+<tr>
+<td>Chủ thể (tủ/sofa)</td>
+<td><code>#5A5751</code></td>
+<td>10</td>
+<td>Melamine ghi đậm mờ, nỉ ghi chì</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#A9A49B</code></td>
+<td>37</td>
+<td>Rèm ghi sáng, thảm len</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#B08A4E</code></td>
+<td>28</td>
+<td>Đồng cổ: đèn, tay nắm, viền</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#2B2A28</code></td>
+<td>2</td>
+<td>Kim loại đen, kính khói</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> bộ tối cần <strong>nhiều lớp đèn hơn</strong> bộ sáng — bề mặt tối không dội sáng, phòng dễ ra "hang". Đọc kỹ C13 phần bố đèn cho không gian tối, và tăng số nguồn nhỏ thay vì tăng cường độ một nguồn.
+<strong>Mẹo:</strong> ô nhấn đồng chỉ đẹp khi có <strong>phản xạ nét</strong> — kiểm 反射光泽度 của vật liệu kim loại theo C5, đừng để đồng thành nhựa vàng.</p>
+<h2 id="ht-02-navy-trang-go">HT-02 · Navy – trắng – gỗ</h2>
+<p><strong>Hợp khách:</strong> khách thích có màu nhưng "màu người lớn"; hợp phòng làm việc, phòng ngủ nam · <strong>Khóa 3:</strong> 2 màu có sắc (navy + vàng đồng) · <strong>CCT:</strong> 3500–4000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#F7F6F3</code></td>
+<td>92</td>
+<td>Sơn trắng</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#E4E3DE</code></td>
+<td>77</td>
+<td>Sơn trắng ngà lạnh nhẹ</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#C2A57C</code></td>
+<td>40</td>
+<td>Sàn gỗ sồi trung tính</td>
+</tr>
+<tr>
+<td>Chủ thể (tủ)</td>
+<td><code>#2F3E52</code></td>
+<td>5</td>
+<td>Melamine / sơn navy mờ</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#9BA6B2</code></td>
+<td>37</td>
+<td>Vải ghi-xanh</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#C4A24A</code></td>
+<td>38</td>
+<td>Vàng đồng: tay nắm, đèn, khung</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#1B2430</code></td>
+<td>2</td>
+<td>Navy đậm gần đen, kim loại đen</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo undertone:</strong> navy là màu <strong>lạnh</strong>, sàn gỗ là <strong>ấm</strong> — đây là bộ <strong>cố ý trộn</strong>, và nó chỉ chạy được vì hai thứ đó không nằm cạnh nhau trên cùng mặt phẳng lớn. Nếu khách đòi thêm mảng ấm thứ ba (gạch terracotta chẳng hạn), bộ này vỡ.
+<strong>Cảnh báo render:</strong> navy dưới đèn 3000K sẽ ngả tím và xỉn. Chốt 4000K rồi mới render, đúng luật C15.7.</p>
+<h2 id="ht-03-en-mo-go-toi-da-bo">HT-03 · Đen mờ – gỗ tối – da bò</h2>
+<p><strong>Hợp khách:</strong> căn hộ độc thân, studio, showroom; khách nói "chất", "cá tính mạnh" · <strong>Khóa 3:</strong> 1 màu có sắc (da bò) · <strong>CCT:</strong> 2700–3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#EAE7E1</code></td>
+<td>80</td>
+<td>Sơn trắng ấm (giữ sáng để cứu phòng)</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#514F4A</code></td>
+<td>8</td>
+<td>Sơn đen mờ / tấm ốp sẫm</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#6E5237</code></td>
+<td>10</td>
+<td>Sàn gỗ tối</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#2A2926</code></td>
+<td>2</td>
+<td>Melamine đen mờ, kim loại đen</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#8C8579</code></td>
+<td>24</td>
+<td>Vải ghi ấm, bê tông</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#8A5A32</code></td>
+<td>13</td>
+<td>Da bò: ghế, gối, dây đeo</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#141312</code></td>
+<td>1</td>
+<td>Đen sâu nhất — khung, ray</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo:</strong> đây là bảng <strong>khó nhất</strong> trong ngân hàng, và cũng là bảng khách hay đòi rồi hối hận. Ba điều bắt buộc:
+1. <strong>Giữ trần sáng</strong> (LRV 80) — bỏ luật này là phòng thành hầm.
+2. Bộ này <strong>ăn sáng khủng khiếp</strong>: phải có ít nhất một mảng kính/nắng lớn, hoặc gấp đôi số nguồn đèn so với bộ sáng.
+3. <strong>Cảnh báo khách trước khi render</strong>: phòng tối ngoài đời sẽ tối hơn ảnh render — vì render có thể đánh sáng tùy ý, đời thật thì không. Đây là ca dễ khiếu nại nhất.</p>
+<hr>
+<h1 id="nhom-pc-theo-phong-cach">NHÓM PC — THEO PHONG CÁCH</h1>
+<h2 id="pc-01-japandi-nhat-bac-au">PC-01 · Japandi (Nhật – Bắc Âu)</h2>
+<p><strong>Hợp khách:</strong> ít đồ, chuộng gỗ mộc và sự yên tĩnh · <strong>Khóa 3:</strong> 1 màu có sắc (xanh rêu trầm) · <strong>CCT:</strong> 3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#F6F2EA</code></td>
+<td>89</td>
+<td>Sơn trắng ngà</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#E7DFD2</code></td>
+<td>74</td>
+<td>Sơn kem nhạt, vữa mịn</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#D6BE9B</code></td>
+<td>53</td>
+<td>Gỗ sồi trắng, vân nhạt</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#EFE9DF</code></td>
+<td>82</td>
+<td>Melamine trắng kem, gỗ sồi nhạt</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#A79C8B</code></td>
+<td>34</td>
+<td>Vải bố, cói, giấy</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#5F6B5A</code></td>
+<td>14</td>
+<td>Xanh rêu trầm, gốm men</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#26241F</code></td>
+<td>2</td>
+<td>Gỗ sồi nhuộm đen, thép đen mảnh</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> bộ này gần như <strong>không có tương phản</strong> ở mảng lớn (tường 74, chủ thể 82) — rất dễ ra ảnh bẹt. Cứu bằng <strong>bóng đổ và chất bề mặt</strong>, không bằng màu: vân gỗ nét, vải có sợi, nắng xiên tạo bóng dài (C13 phần nắng qua rèm).</p>
+<h2 id="pc-02-wabi-vua-at">PC-02 · Wabi – vữa đất</h2>
+<p><strong>Hợp khách:</strong> khách chuộng thô mộc, "không bóng bẩy", nhà có mảng tường lớn · <strong>Khóa 3:</strong> 0 màu có sắc · <strong>CCT:</strong> 2700–3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#F2ECE2</code></td>
+<td>84</td>
+<td>Sơn hiệu ứng mịn</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#DCCFBE</code></td>
+<td>64</td>
+<td>Vữa nghệ thuật / sơn hiệu ứng đất</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#B79C7A</code></td>
+<td>35</td>
+<td>Gỗ tông đất, hoặc gạch nung mờ</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#C4B49E</code></td>
+<td>47</td>
+<td>Gỗ mộc không phủ bóng, vải bố dày</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#9A8B78</code></td>
+<td>27</td>
+<td>Vải thô, mây, gốm</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#8E6B4A</code></td>
+<td>17</td>
+<td>Gốm đất nung, gỗ tối</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#3A322A</code></td>
+<td>3</td>
+<td>Sắt rỉ, gỗ cháy</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> cả bộ dựa vào <strong>chất bề mặt</strong>, không dựa vào màu. Nếu vật liệu chỉ có một ảnh màu không có map lồi lõm (C5.3), bảng này lên ảnh sẽ ra "phòng be nhạt nhẽo". Bắt buộc dùng vật liệu có 凹凸 và đánh đèn xiên để vân nổi lên.</p>
+<h2 id="pc-03-tan-co-ien-nhe">PC-03 · Tân cổ điển nhẹ</h2>
+<p><strong>Hợp khách:</strong> khách thích phào chỉ, "sang kiểu cổ điển nhưng không nặng" · <strong>Khóa 3:</strong> 2 màu có sắc (sage + vàng đồng) · <strong>CCT:</strong> 3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#FCFAF5</code></td>
+<td>96</td>
+<td>Sơn trắng, phào trắng</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#EFE9DC</code></td>
+<td>82</td>
+<td>Sơn kem, tấm phào ô vuông</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#B99A6B</code></td>
+<td>34</td>
+<td>Gỗ sồi tông vàng, hoặc đá vân nhạt</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#F2EEE6</code></td>
+<td>86</td>
+<td>Sơn trắng ngà cho hệ tủ phào</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#A8B4A6</code></td>
+<td>44</td>
+<td>Vải sage: rèm, ghế</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#C0A15A</code></td>
+<td>37</td>
+<td>Vàng đồng: tay nắm, đèn chùm, gương</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#2F3330</code></td>
+<td>3</td>
+<td>Chân ghế sẫm, khung tranh</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> trần 96 + chủ thể 86 + tường 82 nghĩa là <strong>ba mảng lớn nhất gần như cùng độ sáng</strong>. Bộ này sống bằng <strong>phào chỉ và bóng đổ của phào</strong> — nếu model không có phào thật (C12), render ra sẽ là hộp trắng. Đây là bảng phụ thuộc model nhiều nhất trong ngân hàng.</p>
+<h2 id="pc-04-indochine">PC-04 · Indochine</h2>
+<p><strong>Hợp khách:</strong> khách yêu chất Việt/Đông Dương, nhà phố, biệt thự · <strong>Khóa 3:</strong> 2 màu có sắc (xanh lá trầm + đỏ gạch) · <strong>CCT:</strong> 2700–3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#F3EDE1</code></td>
+<td>85</td>
+<td>Sơn kem, trần gỗ nan</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#E0D2B8</code></td>
+<td>65</td>
+<td>Sơn kem đậm, hoặc gạch bông ốp chân</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#7A5334</code></td>
+<td>11</td>
+<td>Gỗ tự nhiên tối, gạch bông</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#3E5140</code></td>
+<td>7</td>
+<td>Xanh lá trầm: tủ, cửa, khung</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#B9A176</code></td>
+<td>37</td>
+<td>Mây tre đan, vải bố</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#9C4A2F</code></td>
+<td>12</td>
+<td>Đỏ gạch, gốm, sơn mài</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#241C15</code></td>
+<td>1</td>
+<td>Gỗ đen, sắt uốn</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> bảng nhiều màu nhất ngân hàng (2 màu có sắc + gỗ tối). Bắt buộc <strong>dồn nhấn đỏ gạch vào 2–3 cụm</strong> (C15.12 lỗi 2), rải đều là hỏng ngay. Hoa văn gạch bông cần texture đúng khổ thật, đừng để lặp vân (C10).</p>
+<h2 id="pc-05-kem-hong-phan">PC-05 · Kem – hồng phấn</h2>
+<p><strong>Hợp khách:</strong> phòng ngủ nữ, phòng con gái, khách nói "nhẹ nhàng, nữ tính" · <strong>Khóa 3:</strong> 1 màu có sắc (hồng phấn) · <strong>CCT:</strong> 2700–3000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#FDFAF7</code></td>
+<td>96</td>
+<td>Sơn trắng ấm</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#F2E6E0</code></td>
+<td>81</td>
+<td>Sơn hồng phấn rất nhạt</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#D9BFA3</code></td>
+<td>55</td>
+<td>Gỗ sồi nhạt tông ấm</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#EADAD2</code></td>
+<td>72</td>
+<td>Melamine hồng kem mờ</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#C9A9A0</code></td>
+<td>43</td>
+<td>Vải hồng trầm, nhung</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#8E6E63</code></td>
+<td>18</td>
+<td>Nâu hồng, đồng hồng</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#3A302C</code></td>
+<td>3</td>
+<td>Kim loại nâu đen</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> bộ toàn LRV cao — <strong>rất dễ ra ảnh trắng bệch, mất hết sắc hồng</strong>. Hai cách chặn: (1) giữ nhấn và neo lộ rõ trong khung; (2) đừng đẩy thiên quang cao, để bóng mềm giữ lại sắc (C13). Hồng phấn dưới đèn 4000K sẽ ngả tím tái — giữ đúng 2700–3000K.</p>
+<h2 id="pc-06-ghi-xanh-go-nhat-phong-tre-em">PC-06 · Ghi xanh – gỗ nhạt (phòng trẻ em)</h2>
+<p><strong>Hợp khách:</strong> phòng bé trai/bé gái trung tính, khách không muốn "quá trẻ con" · <strong>Khóa 3:</strong> 2 màu có sắc (ghi xanh + cam vàng) · <strong>CCT:</strong> 3500–4000K</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Ô</th>
+<th>Hex</th>
+<th>LRV ⚠️</th>
+<th>Vật liệu thật gợi ý</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trần</td>
+<td><code>#FBFCFC</code></td>
+<td>97</td>
+<td>Sơn trắng</td>
+</tr>
+<tr>
+<td>Tường nền</td>
+<td><code>#E3EBEC</code></td>
+<td>82</td>
+<td>Sơn ghi xanh rất nhạt</td>
+</tr>
+<tr>
+<td>Sàn</td>
+<td><code>#DCC7A8</code></td>
+<td>59</td>
+<td>Gỗ nhạt, hoặc sàn nhựa vân gỗ</td>
+</tr>
+<tr>
+<td>Chủ thể</td>
+<td><code>#C7D6D8</code></td>
+<td>65</td>
+<td>Melamine ghi xanh nhạt</td>
+</tr>
+<tr>
+<td>Phụ trợ</td>
+<td><code>#93A9AC</code></td>
+<td>38</td>
+<td>Vải ghi xanh đậm hơn</td>
+</tr>
+<tr>
+<td>Nhấn</td>
+<td><code>#E0A24A</code></td>
+<td>42</td>
+<td>Cam vàng: đồ chơi, tranh, đèn</td>
+</tr>
+<tr>
+<td>Neo tối</td>
+<td><code>#2F3B3D</code></td>
+<td>4</td>
+<td>Khung giường, tay nắm sẫm</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cảnh báo render:</strong> chênh tường–sàn 23 điểm, chủ thể 65 sát sàn 59 — bộ này <strong>thiếu tương phản ở mảng lớn</strong> như PC-01. Cứu bằng ô nhấn cam vàng (LRV 42, màu có sắc mạnh) và ô neo. Phòng trẻ em vốn nhiều đồ nhỏ nhiều màu — <strong>đếm lại số màu có sắc sau khi bày đồ</strong>, rất dễ vọt từ 2 lên 5 mà không ai để ý (C11 về bày đồ).</p>
+<hr>
+<h2 id="f3-bang-oi-chieu-nhanh-12-bang-mau">F.3. Bảng đối chiếu nhanh 12 bảng màu</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Mã</th>
+<th>Tên</th>
+<th>Tông</th>
+<th>Undertone</th>
+<th>Màu có sắc</th>
+<th>CCT</th>
+<th>LRV tường</th>
+<th>LRV sàn</th>
+<th>Chênh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HD-01</td>
+<td>Kem – sồi – be</td>
+<td>SÁNG</td>
+<td>Ấm</td>
+<td>0</td>
+<td>3000K</td>
+<td>82</td>
+<td>42</td>
+<td>40</td>
+</tr>
+<tr>
+<td>HD-02</td>
+<td>Trắng – ghi – gỗ nhạt</td>
+<td>SÁNG</td>
+<td>Trung tính-lạnh</td>
+<td>1</td>
+<td>3500–4000K</td>
+<td>85</td>
+<td>56</td>
+<td>29</td>
+</tr>
+<tr>
+<td>HD-03</td>
+<td>Kem – cacao – olive</td>
+<td>SÁNG</td>
+<td>Ấm</td>
+<td>1</td>
+<td>3000K</td>
+<td>78</td>
+<td>29</td>
+<td>49</td>
+</tr>
+<tr>
+<td>HT-01</td>
+<td>Ghi khói – óc chó – đồng</td>
+<td>TRUNG</td>
+<td>Trung tính-ấm</td>
+<td>1</td>
+<td>3000K</td>
+<td>57</td>
+<td>16</td>
+<td>41</td>
+</tr>
+<tr>
+<td>HT-02</td>
+<td>Navy – trắng – gỗ</td>
+<td>TRUNG</td>
+<td>Trộn có chủ đích</td>
+<td>2</td>
+<td>3500–4000K</td>
+<td>77</td>
+<td>40</td>
+<td>37</td>
+</tr>
+<tr>
+<td>HT-03</td>
+<td>Đen mờ – gỗ tối – da bò</td>
+<td>TỐI</td>
+<td>Ấm</td>
+<td>1</td>
+<td>2700–3000K</td>
+<td>8</td>
+<td>10</td>
+<td>2 ⚠️</td>
+</tr>
+<tr>
+<td>PC-01</td>
+<td>Japandi</td>
+<td>SÁNG</td>
+<td>Ấm</td>
+<td>1</td>
+<td>3000K</td>
+<td>74</td>
+<td>53</td>
+<td>21</td>
+</tr>
+<tr>
+<td>PC-02</td>
+<td>Wabi vữa đất</td>
+<td>TRUNG</td>
+<td>Ấm</td>
+<td>0</td>
+<td>2700–3000K</td>
+<td>64</td>
+<td>35</td>
+<td>29</td>
+</tr>
+<tr>
+<td>PC-03</td>
+<td>Tân cổ điển</td>
+<td>SÁNG</td>
+<td>Ấm</td>
+<td>2</td>
+<td>3000K</td>
+<td>82</td>
+<td>34</td>
+<td>48</td>
+</tr>
+<tr>
+<td>PC-04</td>
+<td>Indochine</td>
+<td>TRUNG</td>
+<td>Ấm</td>
+<td>2</td>
+<td>2700–3000K</td>
+<td>65</td>
+<td>11</td>
+<td>54</td>
+</tr>
+<tr>
+<td>PC-05</td>
+<td>Kem – hồng phấn</td>
+<td>SÁNG</td>
+<td>Ấm</td>
+<td>1</td>
+<td>2700–3000K</td>
+<td>81</td>
+<td>55</td>
+<td>26</td>
+</tr>
+<tr>
+<td>PC-06</td>
+<td>Ghi xanh trẻ em</td>
+<td>SÁNG</td>
+<td>Trung tính</td>
+<td>2</td>
+<td>3500–4000K</td>
+<td>82</td>
+<td>59</td>
+<td>23</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>HT-03 chênh 2 điểm</strong> là ngoại lệ cố ý: tường tối và sàn tối gần bằng nhau. Bộ này không tách tường–sàn bằng độ sáng mà tách bằng <strong>chất</strong> (tường mờ lì vs sàn gỗ có vân và phản xạ nhẹ) và bằng <strong>ánh sáng hắt chân tường</strong>. Đây là ca duy nhất trong ngân hàng được phép phá luật LRV số 2 — và chỉ chạy được nếu bố đèn đủ giỏi.</p>
+</blockquote>
+<hr>
+<h2 id="f4-phieu-phoi-mau-form-chuan-cong-ty">F.4. PHIẾU PHỐI MÀU — form chuẩn công ty</h2>
+<p>In ra, hoặc copy phần dưới vào file mới cho từng công trình. Một phiếu cho <strong>một phòng</strong>.</p>
+<pre><code>════════════════════════════════════════════════════════════
+PHIẾU PHỐI MÀU
+Công trình: ..................... Phòng: .....................
+Người làm: ..................... Ngày: .......................
+Bảng gốc lấy từ Phụ lục F: ............ (hoặc: tự dựng)
+════════════════════════════════════════════════════════════
+
+【0】 BRIEF KHÁCH — chép nguyên văn
+&quot;................................................................&quot;
+Ảnh mood khách gửi:  □ có (đính kèm)   □ không
+
+【1】 BA KHÓA
+Khóa 1 — Tông:        □ SÁNG (tường LRV ≥75)  □ TRUNG (55–75)  □ TỐI (&lt;55)
+Khóa 2 — Undertone:   □ ẤM   □ TRUNG TÍNH   □ LẠNH
+Khóa 3 — Cá tính:     □ 0 màu có sắc   □ 1 màu   □ 2 màu
+CCT đèn đã chốt:      □ 2700–3000K   □ 3500–4000K   □ 4000K+
+                      (chốt CCT TRƯỚC khi chốt màu — C15.7)
+
+【2】 BẢY Ô
+┌───┬──────────────┬──────────┬─────┬────────┬──────────────────────┐
+│ # │ Ô            │ Hex      │ LRV │ % ước  │ Vật liệu thật + mã   │
+├───┼──────────────┼──────────┼─────┼────────┼──────────────────────┤
+│ 1 │ Trần         │ #        │     │ 15–20% │                      │
+│ 2 │ Tường nền    │ #        │     │ 25–35% │                      │
+│ 3 │ Sàn          │ #        │     │ 15–20% │                      │
+│ 4 │ Chủ thể      │ #        │     │ 15–25% │                      │
+│ 5 │ Phụ trợ      │ #        │     │  8–12% │                      │
+│ 6 │ Nhấn         │ #        │     │   5–8% │                      │
+│ 7 │ Neo tối      │ #        │     │   2–5% │                      │
+└───┴──────────────┴──────────┴─────┴────────┴──────────────────────┘
+Ô chưa neo được vào vật liệu thật: ..........................  ⚠️
+
+【3】 BA LUẬT KIỂM — không qua được thì không gửi khách
+□ LRV trần ≥ LRV tường                          (trần: ....  tường: ....)
+□ Chênh LRV tường ↔ sàn ≥ 20 (tone sáng: ≥30)   (chênh: ....)
+□ Có ô LRV &lt;10 và ô LRV &gt;80                     (thấp nhất: ....  cao nhất: ....)
+□ Mọi mảng lớn cùng phía undertone
+□ Không ô nào là #FFFFFF
+□ Số màu có sắc = đúng khóa 3 đã chốt
+
+【4】 BA PHƯƠNG ÁN TRÌNH KHÁCH — quy tắc hai ô (C15.10)
+Giữ nguyên: ô 1, 2, 3, 7      Đổi: ô 4 (chủ thể) + ô 6 (nhấn)
+
+        │ Ô 4 — Chủ thể        │ Ô 6 — Nhấn
+────────┼──────────────────────┼──────────────────────
+A An toàn│ #                    │ #
+B Xu hướng│ #                   │ #
+C Cá tính│ #                    │ #
+
+Render 3 ảnh:  □ cùng camera  □ cùng đèn  □ cùng thông số render  □ cùng hậu kỳ
+
+【5】 KẾT QUẢ
+Khách chọn: □ A   □ B   □ C   □ ghép: .........................
+Nếu ghép chéo → đã chạy lại mục 【3】?  □ rồi
+Ngày khách duyệt: ............  Người xác nhận: ...............
+════════════════════════════════════════════════════════════
+</code></pre>
+<blockquote class="pin">
+<p>📌 <strong>Phiếu này là hồ sơ, không phải giấy nháp.</strong> Lưu cùng bộ ảnh đã gửi khách. Khi khách đổi ý sau ba tháng ("sao màu tủ nhìn khác ảnh?"), phiếu là thứ trả lời được — có mã màu, có CCT, có ngày duyệt.</p>
+</blockquote>
+<hr>
+<h2 id="f5-cach-them-bang-moi-vao-ngan-hang">F.5. Cách thêm bảng mới vào ngân hàng</h2>
+<p>Ngân hàng này <strong>phải lớn dần theo công trình công ty làm</strong>, đúng như Phụ lục E lớn dần theo ca đánh đèn. Quy tắc thêm:</p>
+<ol>
+<li><strong>Chỉ thêm bảng đã render thật và khách đã duyệt</strong> — không thêm bảng lấy từ Pinterest chưa qua tay.</li>
+<li>Điền đủ <strong>7 ô + LRV + CCT + số màu có sắc</strong>, đúng khuôn F.2. Thiếu ô thì chưa thêm.</li>
+<li>Viết <strong>một dòng "hợp khách nào"</strong> — đây là thứ giúp người sau tra được.</li>
+<li>Viết <strong>một dòng cảnh báo render</strong> — chỗ chính bạn đã vấp khi làm bảng đó. Dòng này giá trị nhất.</li>
+<li>Đặt mã theo nhóm: <code>HD-xx</code> (hiện đại sáng), <code>HT-xx</code> (hiện đại trung/tối), <code>PC-xx</code> (theo phong cách).</li>
+<li>Cập nhật bảng đối chiếu F.3 và bảng tra brief F.1.</li>
+</ol>
+<blockquote class="tip">
+<p>💡 Mục tiêu sau một năm: <strong>25–30 bảng</strong>, trong đó ít nhất một nửa là bảng của chính công ty đã thi công thật — kèm ảnh render và ảnh chụp thực tế đặt cạnh nhau. Lúc đó ngân hàng này quý hơn mọi bài phối màu trên mạng, vì nó biết màu nào <em>lên ảnh</em> thế nào và màu nào <em>ra công trình</em> thế nào.</p>
+</blockquote></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="pe.html"><span class="dir">← Trước</span><div class="t">Phụ lục E · Ngân hàng ca thực chiến</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>
