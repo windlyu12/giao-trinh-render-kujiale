@@ -33,6 +33,17 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
+| **Ảnh render + sơ đồ đèn** (mặt bằng có gizmo `Sphere light` / `Rectangle light` / `Spotlight`) | **A′. Đọc sơ đồ** | `references/08-doc-so-do-den.md` **trước**, rồi `03` | Danh sách đèn phải TẮT + thứ tự chỉnh |
+
+> ### ⚡ Có sơ đồ đèn thì đọc sơ đồ TRƯỚC
+>
+> Ảnh render chỉ nói **có vấn đề**. Sơ đồ đèn nói **vấn đề nằm ở đâu**. Triệu chứng
+> *đều / bẹt / không chiều sâu* có ít nhất bốn nguyên nhân khác hẳn nhau mà nhìn ảnh không tách được.
+> Người dùng gửi ảnh render bị bẹt mà chưa gửi sơ đồ → **xin sơ đồ đèn**, rẻ hơn ba vòng đoán số.
+> Đọc theo `references/08-doc-so-do-den.md`.
+>
+> Và: **đèn sai VỊ TRÍ thì phải TẮT, không phải dìm.** Dìm một đèn vô hướng đặt giữa phòng
+> chỉ làm ảnh tối đi mà vẫn đều y nguyên.
 
 ### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
 

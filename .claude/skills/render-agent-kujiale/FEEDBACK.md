@@ -1,8 +1,9 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
-> # 📍 TRẠNG THÁI — cập nhật 2026-08-25
+> # 📍 TRẠNG THÁI — cập nhật 2026-08-26
 >
-> **Ca gần nhất: 18** — CA4 chạy Banana Pro ĂN, và lộ ra **vòng lặp Kujiale→AI→đọc ngược→Kujiale**.
+> **Ca gần nhất: 19** — có **SƠ ĐỒ ĐÈN** lần đầu. Chẩn được nguyên nhân "đều" trong 30 giây,
+> việc mà ba vòng đoán số từ ảnh render không làm nổi. → đẻ ra `references/08-doc-so-do-den.md`.
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -793,12 +794,91 @@ thấy **để tối đến đâu thì đẹp**.
 
 ---
 
+# Ca 19 — Phòng trẻ em, render lại + **SƠ ĐỒ ĐÈN**. Lần đầu chẩn được nguyên nhân thật.
+
+**Vào:** ảnh render Kujiale (vòng 3) + **ảnh chụp mặt bằng có gizmo đèn**.
+**Người dùng nói:** "kết quả render đây" (không kèm nhận xét — theo mô hình làm việc = *làm bài này cho tao*).
+
+## Ảnh vẫn bẹt — và ba vòng chỉnh số vừa rồi gần như không đổi gì
+
+| Đo | Ca 16 (gốc) | Ca 17 | Ca 19 (nay) | Bản AI ca 18 |
+|---|---|---|---|---|
+| Vùng tối nhất | ~65% value | ~62% | **~58%** | **~27%** |
+| Tỉ lệ nhấn : nền | ~1,5:1 | ~1,6:1 | **~1,8:1** | **~6:1** |
+| Vũng sáng dưới đèn bàn | không | không | **không** | có |
+
+Ba vòng, nhích 0,3 nấc. **Không phải người dùng làm sai — là tao kê sai loại thuốc.**
+
+## 🔴 Sơ đồ đèn giải thích ngay lập tức. Ảnh render thì không.
+
+Đếm được **11 nguồn** trong một phòng ngủ ~9 m². Phân lớp ra:
+
+| Lớp | Nguồn | Nhận xét |
+|---|---|---|
+| Nền | `Sphere light-4` (**giữa phòng, ngay trên giường**) · `Rectangle light-18` + `Rectangle light-23` (**hai cái chồng nhau ở cửa sổ, cùng bắn vào**) · trời qua cửa | **quá đông quân** |
+| Chức năng | `Spotlight 2-2` (gối) · `2-3` (bàn học) · `2-4` (**sát cửa, tiền cảnh**) · `2-5` (**sát cửa sổ, tiền cảnh**) | 2 cái đang ở đúng vùng phải tối |
+| Nhấn | `Rectangle light-22` (hắt kệ) · `Sphere light-5` + `Glow-10` (đèn bàn) | ổn, nhưng bị nền nuốt |
+
+**Ba lỗi VỊ TRÍ, không phải lỗi SỐ:**
+
+1. **`Sphere light-4` — đèn cầu vô hướng đặt giữa phòng.** Phát mọi hướng từ tâm → mọi mặt tường
+   nhận gần bằng nhau → gradient bị san phẳng bằng cơ học. **Không con số nào cứu được**, vì lỗi
+   nằm ở *vị trí + tính vô hướng*. Đây là thủ phạm số một.
+2. **Hai `面光源` chồng nhau ở cửa sổ.** Bù kép → đầu xa cửa được nâng ngang đầu gần cửa →
+   xoá mất trục sáng–tối mạnh nhất mà phòng có sẵn.
+3. **`Spotlight 2-4` và `2-5` nằm ở dải tiền cảnh.** Chiều sâu = tiền cảnh tối → hậu cảnh sáng.
+   Đặt đèn ở tiền cảnh là tự tay xoá chiều sâu.
+
+Cộng lại: phòng đang bị **chiếu từ mọi phía**. Đấy là định nghĩa của "đều".
+
+## 🔴🔴 Luật rút ra: ĐÈN SAI VỊ TRÍ THÌ TẮT, KHÔNG DÌM
+
+Ca 17 tao đã đúng khi nói "dìm nền", nhưng **dìm là thuốc cho lỗi CƯỜNG ĐỘ**. Ba lỗi trên là lỗi
+**HÌNH HỌC**. Dìm một đèn vô hướng đặt giữa phòng chỉ làm ảnh tối đi mà **vẫn đều y nguyên** —
+đúng như số đo ba vòng ở trên.
+
+→ Phiếu phải tách hai loại thuốc: **TẮT** (lỗi vị trí) trước, **DÌM** (lỗi cường độ) sau.
+
+## 🔴 Luật rút ra: có sơ đồ thì ĐỌC SƠ ĐỒ TRƯỚC
+
+Ảnh render nói **có vấn đề**. Sơ đồ nói **vấn đề ở đâu**. Ca 16→17→19 là ba vòng đoán số mù
+vì tao chỉ có ảnh. Có sơ đồ thì 30 giây ra nguyên nhân.
+
+→ **Từ nay: người dùng đưa ảnh render bẹt mà chưa đưa sơ đồ đèn → XIN SƠ ĐỒ.** Rẻ hơn ba vòng render.
+
+## Lỗi phụ đọc được từ ảnh
+
+- **Cụm tròn cháy trắng sau mấy con thỏ trên kệ** — `Rectangle light-22` đang lộ mặt phát,
+  hoặc `炫光` quá tay. Fix: lùi dải vào sau gờ chắn 15–20mm, hoặc hạ `炫光`.
+- **Đèn bàn có bóng mà không có vũng sáng.** Không phải đèn yếu — nền quá sáng nên vũng bị nuốt.
+  Dìm nền xong vũng sẽ tự hiện, **không đụng gì tới đèn bàn**. (Xác nhận lại luật "thứ bậc là tỉ lệ".)
+- **Bố cục:** 1/3 trái (cửa) và 1/3 phải (tường tranh + sàn trống) đều sáng và trống → nội dung
+  bị nén vào giữa. Là lỗi khung hình, không phải lỗi đèn — xem `01` bước 7c.
+
+## ⚠️ Đã vá `references/` từ 1 ca — cố ý, và đây là lý do
+
+Luật "3 ca mới vá" áp cho **LUẬT** (heuristic có thể bị đảo, như ca 03 đã chứng minh).
+Cái vá lần này là một **LOẠI ĐẦU VÀO MỚI** mà skill chưa có quy trình đọc — giống hệt tiền lệ
+file `07` (đẻ ra sau lần chạy khô đầu tiên). Bảng đọc biểu tượng và 5 bước soi là **cơ học**,
+không phải phán đoán, nên không có rủi ro bị đảo.
+
+Phần **diễn giải** (đèn cầu giữa phòng = thủ phạm số một; tắt-chứ-không-dìm) vẫn để ở bảng chờ 1/3 dưới đây.
+
+**Đã vá:** `references/08-doc-so-do-den.md` (mới) · `SKILL.md` (thêm chế độ A′ + hộp cảnh báo).
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
+| 🔴🔴 **ĐÈN SAI VỊ TRÍ THÌ TẮT, KHÔNG DÌM.** Đèn vô hướng giữa phòng · đèn ở tiền cảnh = lỗi HÌNH HỌC, không phải lỗi CƯỜNG ĐỘ. Dìm chỉ làm ảnh tối đi mà vẫn đều. Ca 16→17→19: ba vòng dìm, tỉ lệ nhích từ 1,5:1 lên 1,8:1 rồi đứng | 19 | 1/3 |
+| 🔴🔴 **CÓ SƠ ĐỒ ĐÈN THÌ ĐỌC SƠ ĐỒ TRƯỚC.** Ảnh nói *có vấn đề*, sơ đồ nói *vấn đề ở đâu*. Chưa có sơ đồ mà ảnh bẹt → **xin sơ đồ**. ✅ đã vá `08` + `SKILL.md` (là loại đầu vào mới, không phải heuristic — xem lý do ở ca 19) | 19 | vá sớm, có lý do |
+| **`球形灯`/`点光源` đặt gần tâm phòng = thủ phạm số một của "ảnh đều".** Phát mọi hướng từ giữa → san phẳng gradient bằng cơ học | 19 | 1/3 |
+| **≥2 `面光源` chồng nhau ở một ô cửa** thì đầu xa cửa bị nâng ngang đầu gần cửa → mất trục sáng–tối mạnh nhất phòng có sẵn | 19 | 1/3 |
+| **Đèn bàn/đèn ngủ không ra vũng sáng thường KHÔNG phải đèn yếu** mà là nền nuốt. Dìm nền xong vũng tự hiện, không đụng đèn bàn. (củng cố luật "thứ bậc là tỉ lệ" — ca 17 + 19) | 17, 19 | 2/3 |
 | ✅ **ĐÃ VÁ vào `05` §0 Luật 2.** Chữa lỗi prompt bằng CỤM NHẤN thì AI luôn giao thừa. Thấy thiếu gì thì thêm **cụm BÓ** (`tight`, `compact`, `low`, `even`, `restrained`, `subtle`) hoặc chỉ gọi đúng tên vật liệu rồi để model tự lo. Ba lần cùng một cơ chế: `raking...so texture reads clearly` → tắm cam + bịa bóng lá; `wide horizontal 16:9` → cắt mất tường cao; `visible looped fabric texture` → ghế xù lông | 02, 03, 04 | **3/3 — sẵn sàng vá vào `05-prompt-ai.md`** |
 | ✅✅ **ĐÃ VÁ + ĐÃ XÁC NHẬN BẰNG THỰC NGHIỆM (ca 07).** Grain thử 2 cách phát biểu đều ra 0. Tầng "lớp phủ" (hạt/tối góc/quang sai) **không prompt được**; tầng **vật liệu** thì prompt được rất tốt — phải tách bạch hai tầng khi chẩn đoán | 01, 02, 06, 07 | **đã vá** |
 | ✅ **ĐÃ VÁ vào `05` §0 Luật 3.** "Lớp nhựa phủ toàn ảnh" không sửa được bằng prompt thuần. Bộ đồ nghề chống nhựa của C14 (curve S · hạt nhiễu · tối góc) đều là bước HẬU KỲ. Mọi bản prompt phải kèm công thức hậu kỳ, không được coi ảnh AI là bản cuối | 01, 02, 06 | **3/3 — sẵn sàng vá** |
