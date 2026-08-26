@@ -2,7 +2,7 @@
 
 > # 📍 TRẠNG THÁI — cập nhật 2026-08-25
 >
-> **Ca gần nhất: 15** (đọc ngược bộ 5 ảnh 101CONCEPT). Không có việc gì treo dở.
+> **Ca gần nhất: 16** (phòng ngủ trẻ em Kujiale — màu đều, không thứ bậc). Không có việc gì treo dở.
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -633,6 +633,48 @@ làm tốt hơn hẳn mọi ảnh AI đã test.
 
 ---
 
+### 16 — 2026-08-25 — Phòng ngủ trẻ em (render Kujiale) — "màu đều quá, dễ lướt qua"
+
+**Vào:** ảnh render Kujiale, phòng ngủ trẻ em. Người dùng tự nhận xét: *"bố cục màu đang đều quá,
+chưa có điểm nhấn, cảm giác nhìn sẽ rất dễ lướt qua luôn"*.
+
+## 🔑 Chẩn đoán: BA HỆ CÙNG HỎNG MỘT KIỂU — không có thứ bậc
+
+| Hệ | Biểu hiện | Neo |
+|---|---|---|
+| **Màu** | Bốn điểm nhấn **ngang cơ** (chăn mustard · giấy confetti · mảng 6 tranh · nẹp lượn kem) → không cái nào thắng | Hạng 10 bảng 12 |
+| **Sáng** | Cực phẳng ~1,5:1. Không gradient, không vùng chìm, không nguồn chính đọc được | Hạng 1 + 2 |
+| **Bố cục** | Khung chia **bốn dải dọc đều trọng lượng**: cửa · tủ · khu học · mảng tranh | Hạng 8 |
+
+**Không phải "thiếu điểm nhấn" — là "quá nhiều thứ cùng đòi làm điểm nhấn".**
+Đúng nguyên tắc C0 §2.5 nhưng áp cho MÀU thay vì cho SÁNG: *các lớp không được ngang nhau.*
+
+**Bảng màu nằm trong một dải cực hẹp trên CẢ BA trục:** value (đều sáng) · saturation (đều nhạt) ·
+hue (đều ngả vàng ấm). Thu nhỏ về cỡ con tem thì cả ảnh thành một hình chữ nhật be — đó chính
+xác là "dễ lướt qua".
+
+## 💡 Lối ra rẻ nhất: dùng ÁNH SÁNG tạo thứ bậc mà MÀU không tạo được
+
+Màu đã chốt với khách, khó đổi. **Ánh sáng thì đổi được, và nó tạo được thứ bậc ngay cả trong
+bảng màu đơn sắc.** Ba đòn, không đụng thiết kế:
+1. **Bật đèn bàn học** — model đèn đã có sẵn trên bàn mà đang tắt. Bật lên là có ngay vũng sáng ấm
+   **đúng chỗ cần nhấn**, và hợp lệ vì có đèn thật (không dính `上帝之光`)
+2. **Đẩy mạnh đèn hắt dưới kệ** — nó đã là thứ ấm nhất khung, đang quá yếu
+3. **Hạ đèn nền phía trái** — cho mảng cửa gỗ và tường trái chìm xuống, tạo gradient phải→trái
+
+## ⚠️ LỖ HỔNG TRONG BỘ CHẤM — cần vá
+
+**Phụ lục A giả định khung hình CÓ CỬA SỔ.** Cảnh này không có cửa sổ nào → **tiêu chí 3
+(cửa sổ không cháy trắng) vô nghĩa**, và tổng 50 điểm không còn đúng.
+
+→ Cần **quy tắc N/A**: bỏ tiêu chí không áp dụng, chấm trên thang còn lại rồi quy về **%**.
+Ngưỡng giữ nguyên theo tỉ lệ: ĐẠT ≥80% · SỬA LẠI 60–79% · LÀM LẠI <60%.
+
+Chấm ca này theo quy tắc đó: **28/45 = 62% → SỬA LẠI** (ba tiêu chí ≤2: hướng sáng · tương phản ·
+bố cục lớp lang).
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -653,6 +695,9 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ `05` §7.** AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
 | ✅ **ĐÃ VÁ `05` §7.** AI không có suy giảm theo khoảng cách. Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
+| 🔴 **Bộ chấm Phụ lục A thiếu QUY TẮC N/A.** Tiêu chí 3 (cửa sổ không cháy) vô nghĩa với cảnh không cửa sổ, và tổng 50 điểm sai. Cần: bỏ tiêu chí không áp dụng → chấm trên thang còn lại → quy về %. Ngưỡng ĐẠT ≥80% · SỬA LẠI 60–79% · LÀM LẠI <60% | 16 | 1/3 |
+| **"Đều quá, không điểm nhấn" thường KHÔNG phải thiếu điểm nhấn** mà là **nhiều điểm nhấn ngang cơ**. Chẩn đoán phải đếm xem có mấy thứ đang đòi làm nhấn, rồi chọn một và dìm phần còn lại | 16 | 1/3 |
+| **Bảng màu hẹp trên cả 3 trục (value · saturation · hue) thì ÁNH SÁNG là lối ra rẻ nhất** — màu đã chốt với khách khó đổi, ánh sáng tạo được thứ bậc trong cả bảng màu đơn sắc | 16 | 1/3 |
 | **Đọc ngược một BỘ ảnh** cần thêm lớp kiểm nhất quán bộ vào `01` (nhiệt màu ≤300–500K · mức sáng ≤1 khẩu · hướng bóng · cấu trúc 1 hero ngang + N dọc). C13 §13.7 có nguyên tắc nhưng chưa vào giao thức đọc ngược | 15 | 1/3 |
 | **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
