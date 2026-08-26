@@ -434,6 +434,10 @@ pip install pillow numpy
 # B1 — kiểm máy có tách đúng mã từ tên file không (chưa ghi gì)
 python3 tools/doc-bang-mau.py <folder-anh> --dry-run
 
+# Catalogue chia nhóm bằng thư mục con thì thêm -r (script tự nhắc nếu quên);
+# tên thư mục con được ghi vào cột thu_muc_con để giữ dấu nhóm
+python3 tools/doc-bang-mau.py <folder-anh> -r --dry-run
+
 # B2 — đo thật
 python3 tools/doc-bang-mau.py <folder-anh> --out bang-neo-ancuong.csv
 

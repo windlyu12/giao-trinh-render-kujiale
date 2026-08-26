@@ -1201,6 +1201,10 @@ màu tấm mà xưởng cắt ra. Đây là việc đáng giá nhất trong cả
 # B1 — kiểm máy có tách đúng mã từ tên file không (chưa ghi gì)
 python3 tools/doc-bang-mau.py &lt;folder-anh&gt; --dry-run
 
+# Catalogue chia nhóm bằng thư mục con thì thêm -r (script tự nhắc nếu quên);
+# tên thư mục con được ghi vào cột thu_muc_con để giữ dấu nhóm
+python3 tools/doc-bang-mau.py &lt;folder-anh&gt; -r --dry-run
+
 # B2 — đo thật
 python3 tools/doc-bang-mau.py &lt;folder-anh&gt; --out bang-neo-ancuong.csv
 

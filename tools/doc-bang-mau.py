@@ -45,7 +45,7 @@ DUOI_ANH = {".jpg", ".jpeg", ".png", ".tif", ".tiff", ".bmp", ".webp"}
 
 COT = ["o", "ma", "ten", "nhom", "hex", "bien_do_van", "undertone", "be_mat",
        "ten_trong_kujiale", "ghi_chu",
-       "lrv", "lrv_p10", "lrv_p90", "lab_a", "lab_b", "wb", "file"]
+       "lrv", "lrv_p10", "lrv_p90", "lab_a", "lab_b", "wb", "thu_muc_con", "file"]
 
 
 def _nap_ham_lrv():
@@ -126,6 +126,16 @@ def so_lan_doi_cum(mat_na):
     theo_hang = float((np.diff(mat_na.astype(np.int8), axis=1) != 0).sum(axis=1).mean())
     theo_cot = float((np.diff(mat_na.astype(np.int8), axis=0) != 0).sum(axis=0).mean())
     return theo_hang, theo_cot
+
+
+def tim_anh(thu_muc, de_quy):
+    """Bỏ qua file ẩn và file rác của macOS (.DS_Store, ._MS1234.jpg — AppleDouble,
+    đuôi .jpg nhưng ruột không phải ảnh)."""
+    nguon = thu_muc.rglob("*") if de_quy else thu_muc.iterdir()
+    return sorted(p for p in nguon
+                  if p.is_file()
+                  and p.suffix.lower() in DUOI_ANH
+                  and not p.name.startswith("."))
 
 
 def nguong_otsu(gia_tri):
@@ -249,17 +259,25 @@ def main():
     ap.add_argument("--crop", type=float, default=0.6,
                     help="tỉ lệ vùng cắt giữa ảnh để đo, 0–1 (mặc định 0.6)")
     ap.add_argument("--white-ref", help="ảnh tờ giấy trắng chụp cùng buổi, để cân bằng trắng")
+    ap.add_argument("--recursive", "-r", action="store_true",
+                    help="đọc cả thư mục con (catalogue thường chia nhóm bằng thư mục)")
     args = ap.parse_args()
 
     thu_muc = Path(args.folder)
     if not thu_muc.is_dir():
         sys.exit(f"Không thấy thư mục: {thu_muc}")
-    anh = sorted(p for p in thu_muc.iterdir()
-                 if p.is_file() and p.suffix.lower() in DUOI_ANH)
+    anh = tim_anh(thu_muc, args.recursive)
+    if not anh and not args.recursive:
+        sau = tim_anh(thu_muc, True)
+        if sau:
+            sys.exit(f"Không có ảnh ngay trong {thu_muc}, nhưng có {len(sau)} ảnh ở "
+                     f"thư mục con.\n→ Chạy lại kèm --recursive")
     if not anh:
         sys.exit(f"Không có ảnh nào trong {thu_muc}")
 
     if args.dry_run:
+        print(f"Đọc {len(anh)} ảnh"
+              + (" (kể cả thư mục con)" if args.recursive else " (chỉ thư mục gốc)") + "\n")
         print(f"{'File':<42} {'Mã':<14} Tên còn lại")
         print("-" * 84)
         for p in anh:
@@ -295,7 +313,10 @@ def main():
             "ghi_chu": " · ".join(kq["canh_bao"]),
             "lrv": f"{kq['lrv']:.0f}", "lrv_p10": f"{kq['lrv_p10']:.0f}",
             "lrv_p90": f"{kq['lrv_p90']:.0f}", "lab_a": f"{kq['lab_a']:.1f}",
-            "lab_b": f"{kq['lab_b']:.1f}", "wb": nhan_wb, "file": p.name,
+            "lab_b": f"{kq['lab_b']:.1f}", "wb": nhan_wb,
+            "thu_muc_con": str(p.parent.relative_to(thu_muc)).replace(".", "", 1)
+                           if p.parent != thu_muc else "",
+            "file": p.name,
         })
 
     dich = open(args.out, "w", newline="", encoding="utf-8") if args.out else sys.stdout
