@@ -85,7 +85,18 @@ giao-trinh-kujiale/
 ├── README.md        ← file này
 ├── content/         ← source of truth (markdown, có citation) — cũng là kiến thức cho AI
 ├── docs/            ← bản HTML đẹp cho người học (build từ content/)
+├── tools/           ← công cụ nhỏ dùng khi làm việc (tính LRV, bảng neo vật liệu)
 └── .claude/skills/  ← agent render (chạy trên kiến thức của content/)
+```
+
+### tools/
+
+```bash
+# Tính LRV + kiểm 4 luật phối màu (C15.5) cho vài mã màu
+python3 tools/tinh-lrv.py "#EFE9E0" "#C8A87E" "#3B3833"
+
+# Chạy cả bảng neo vật liệu của công ty (CSV có cột hex, và cột o = số ô 1–7)
+python3 tools/tinh-lrv.py --csv tools/bang-neo-vat-lieu.csv
 ```
 
 ## Build lại site sau khi sửa content

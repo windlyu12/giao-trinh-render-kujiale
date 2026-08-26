@@ -260,7 +260,56 @@ Công ty bán đồ thật. Một bộ phối màu đẹp mà không mua đượ
 | **Màu đá bếp / đá bàn** | Vân đá thật không giống vân trong render; undertone đá dễ lệch với gỗ | Chọn đá trước, gỗ sau — đá ít lựa chọn hơn |
 | **Màu vải rèm/sofa** | Màu vải lên ảnh bao giờ cũng đậm và bão hòa hơn mẫu thật | Chọn nhạt hơn mẫu vải nửa bậc khi dựng, hoặc đối chiếu bảng mẫu render nội bộ (15.8) |
 
-## 15.12. Chín lỗi phối màu hay gặp — và cách sửa đúng chỗ
+### Ô gỗ và ô solid — hai loại ô khác hẳn bản chất
+
+Trong bảy ô, các ô neo vào tấm melamine/laminate chia làm hai loại, và **chúng không chơi cùng luật**:
+
+| | **Ô gỗ (có vân)** | **Ô solid (màu trơn)** |
+|---|---|---|
+| LRV | **Không có một giá trị** — là một dải. Phải ghi LRV **trung bình ± biên độ** (ví dụ `42 ±12`) | Một giá trị chính xác |
+| Undertone | **Mạnh và cố định** — gỗ luôn mang sắc vàng/đỏ/xám, không gỡ ra được | Yếu hơn, dễ uốn theo gỗ |
+| Ai theo ai | **Gỗ áp đặt undertone cho cả phòng** | Solid chọn **sau** gỗ, không bao giờ ngược lại |
+| Trong render | Vân tự cứu bề mặt khỏi bệt — nhưng phải đúng khổ thật, đúng hướng vân, không lặp (C5, C10) | Phẳng lì nên **lộ mọi lỗi ánh sáng**; không có bump nhẹ + độ bóng đúng là bệt ngay (C5) |
+| Hỏng kiểu gì | Lặp vân, sai hướng vân, phóng sai tỉ lệ | Bệt, trông như nhựa, lộ vệt sáng, dải màu |
+| Hay đóng ô nào | Ô 3 (sàn), ô 4 (chủ thể) | Ô 1–2 (trần, tường), ô 4 khi tủ sơn/trơn, ô 7 |
+
+**Bốn luật gỗ–solid của công ty:**
+
+1. **Một phòng tối đa 2 tông gỗ.** Nếu dùng 2 thì phải **chênh LRV ≥ 20** *và* **cùng phía undertone**. Hai tông gỗ gần nhau về độ sáng nhưng khác undertone là lỗi 7 ở mục 15.13 — lỗi làm gỗ trông giả.
+2. **Chọn gỗ trước, solid sau.** Gỗ có ít lựa chọn hơn và có sắc mạnh hơn; bắt gỗ chạy theo solid là làm ngược, và thường kết thúc bằng việc không tìm được mã gỗ nào vừa.
+3. **Solid đứng cạnh gỗ phải hoặc trung tính, hoặc lấy đúng undertone của gỗ đó.** Trắng lạnh cạnh sồi vàng là cặp hỏng kinh điển.
+4. **Sàn gỗ vân đậm rồi thì ô 4 đừng dùng solid màu mạnh** — hai mảng lớn sẽ tranh nhau, mắt không biết nhìn đâu.
+
+Bảng mã cụ thể để neo (An Cường: nhóm vân gỗ, màu trơn, vân đá, vân vải) và quy trình dựng bảng neo của công ty: **Phụ lục F mục F.7**.
+
+## 15.12. Thực tế Việt Nam: tường trắng — và hệ quả lên cả bộ màu
+
+Gần như mọi căn hộ và nhà phố công ty làm đều **sơn tường trắng hoặc gần trắng** — trắng sứ, trắng ngà, trắng ngả xám. Đây không phải hạn chế cần than phiền, đây là **dữ kiện đầu vào** làm đổi hẳn cách dựng bộ màu:
+
+> ## 📌 Tường đã trắng thì ô 2 gần như cố định.
+> ## Bài toán còn lại là **năm ô**, và **gỗ mới là thứ quyết định tông cả phòng.**
+
+Ba hệ quả thực chiến:
+
+**1. Đừng dồn thời gian vào việc chọn mã sơn.** Khách hỏi "tường sơn màu gì" — câu trả lời gần như luôn là một trong năm loại trắng ở **Phụ lục F mục F.6**. Việc đáng làm là chọn **đúng loại trắng theo undertone của gỗ**, mất ba mươi giây, rồi dành thời gian cho ô 3 và ô 4.
+
+**2. Màu tường trong ảnh render KHÔNG do mã sơn quyết định.** Tường trắng là bề mặt phản xạ khuếch tán lớn nhất phòng — nó nhận màu dội từ mọi thứ xung quanh. Sàn gỗ vàng + đèn 3000K thì tường trắng lên ảnh sẽ **ngả kem**, dù mã sơn là trắng lạnh. Đây là color bleeding (15.8), là **đúng vật lý**, không phải lỗi render.
+
+> 💡 **Câu trả lời chuẩn khi khách hỏi "sao tường trắng mà ảnh nhìn vàng":** *"Vì sàn gỗ và đèn ấm hắt lên tường — ngoài đời cũng y hệt. Muốn tường trắng đúng nghĩa thì phải đổi sàn hoặc đổi đèn sang trung tính, không phải đổi mã sơn."* Đây là câu giải thích cứu được rất nhiều vòng sửa vô ích.
+
+**3. Tường trắng lấy mất một ô tạo tương phản — phải bù ở chỗ khác.** Bộ nào cũng cần biên độ (luật L3 ở 15.5). Tường đã ở LRV 80+ thì toàn bộ phần tối phải đến từ **ô 3 (sàn)**, **ô 4 (chủ thể)** và **ô 7 (neo tối)**. Đây chính là lý do các bộ tone sáng của công ty hay bị chê "nhạt": tường trắng + sàn gỗ nhạt + tủ trắng kem = bốn ô lớn đều trên LRV 55, không còn gì để mắt bấu vào.
+
+**Bảng quy đổi nhanh — tường trắng thì kéo tương phản ở đâu:**
+
+| Nếu sàn là | Thì ô 4 (chủ thể) nên | Vì |
+|---|---|---|
+| Gỗ nhạt (LRV > 50) | **Đậm** — LRV dưới 30, hoặc gỗ tối, hoặc solid đậm | Không có ô này thì cả phòng trôi |
+| Gỗ trung (LRV 30–50) | Tự do — sáng hay đậm đều chạy | Đây là ca dễ nhất |
+| Gỗ tối (LRV < 30) | **Sáng** — trắng kem, ghi nhạt | Sàn đã gánh phần tối rồi |
+
+Trong cả ba trường hợp, **ô 7 (neo tối) vẫn bắt buộc có** — nó nhỏ nhưng không ai thay được.
+
+## 15.13. Chín lỗi phối màu hay gặp — và cách sửa đúng chỗ
 
 | # | Lỗi | Dấu hiệu trên ảnh | Sửa ở đâu |
 |---|---|---|---|
@@ -276,7 +325,7 @@ Công ty bán đồ thật. Một bộ phối màu đẹp mà không mua đượ
 
 Lỗi 5 và 7 là hai lỗi **người mới không tự nhìn ra** — thường phải người khác chỉ. Khi ảnh "thấy sai mà không biết sai đâu", soi hai lỗi này trước.
 
-## 15.13. Checklist trước khi trình khách
+## 15.14. Checklist trước khi trình khách
 
 - [ ] Phiếu phối màu (Phụ lục F) điền đủ **7 ô**, ô nào cũng có mã hex + LRV
 - [ ] Ghi rõ **CCT đèn** đã chốt ở đầu phiếu

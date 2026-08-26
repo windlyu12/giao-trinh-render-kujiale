@@ -35,15 +35,18 @@ Xuất **đầy đủ**, dán là dùng được. Không xuất mảnh, không b
 
 ### 【2】 Bảy ô
 
-| # | Ô | Hex | LRV ⚠️ | % ước | Vật liệu thật + mã | Neo? |
-|---|---|---|---|---|---|---|
-| 1 | Trần | `#` | | 15–20% | | ☐ |
-| 2 | Tường nền | `#` | | 25–35% | | ☐ |
-| 3 | Sàn | `#` | | 15–20% | | ☐ |
-| 4 | Chủ thể | `#` | | 15–25% | | ☐ |
-| 5 | Phụ trợ | `#` | | 8–12% | | ☐ |
-| 6 | Nhấn | `#` | | 5–8% | | ☐ |
-| 7 | **Neo tối** | `#` | | 2–5% | | ☐ |
+| # | Ô | Hex | LRV ⚠️ | % ước | Loại | Vật liệu thật + mã | Neo? |
+|---|---|---|---|---|---|---|---|
+| 1 | Trần | `#` | | 15–20% | sơn | | ☐ |
+| 2 | Tường nền | `#` | | 25–35% | sơn | *(mặc định VN: trắng — chọn theo undertone của gỗ)* | ☐ |
+| 3 | Sàn | `#` | | 15–20% | **gỗ** / đá | | ☐ |
+| 4 | Chủ thể | `#` | | 15–25% | **gỗ / solid** | *(mã An Cường)* | ☐ |
+| 5 | Phụ trợ | `#` | | 8–12% | vải | | ☐ |
+| 6 | Nhấn | `#` | | 5–8% | — | | ☐ |
+| 7 | **Neo tối** | `#` | | 2–5% | — | | ☐ |
+
+**Ô gỗ:** ghi LRV dạng `trung bình ± biên độ` (vd `42 ±12`) — gỗ không có một giá trị LRV.
+**Thứ tự chọn:** gỗ trước → solid sau → sơn tường theo undertone của gỗ. Không bao giờ ngược lại.
 
 **Ô chưa neo được vào vật liệu thật:** .................. ⚠️
 *Ô chưa neo → chỉ dùng cho mood board. Ảnh khách ký duyệt / kèm hợp đồng / mô tả vật liệu thi công bắt
@@ -94,6 +97,7 @@ Ba câu hỏi luôn tự trả lời:
 
 | Việc | Công cụ |
 |---|---|
+| Tính LRV + kiểm luật từ hex | `python3 tools/tinh-lrv.py "#EFE9E0" "#C8A87E"` hoặc `--csv tools/bang-neo-vat-lieu.csv` |
 | Đổi màu hàng loạt mặt tủ | `材质刷` (chổi vật liệu — phím **M**) |
 | Đổi vân/kiểu tủ định chế | `定制样式刷` (phím **N**), `定制纹理刷` |
 | Nhập màu | `材质编辑` → `基础颜色` (nhập hex); độ bóng chỉnh ở `反射光泽度`, **không** đẩy màu lên trắng để "sáng hơn" |

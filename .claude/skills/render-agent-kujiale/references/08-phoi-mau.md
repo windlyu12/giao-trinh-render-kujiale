@@ -15,6 +15,10 @@ Ba luật này cộng thêm vào 4 luật nền ở `SKILL.md`:
    nói rõ điều này — nếu không, người dùng sẽ so mã hex với pixel ảnh render rồi báo "sai màu".
 7. **Chốt CCT trước khi chốt màu.** Phiếu màu nào cũng phải ghi CCT ở đầu. Đổi CCT sau khi khách duyệt
    màu = duyệt lại từ đầu.
+8. **Mặc định thị trường Việt: tường TRẮNG.** Ô 2 gần như cố định → bài toán thật là năm ô, và **gỗ
+   quyết định tông cả phòng**. Đừng bắt người dùng chọn mã sơn tường — xem §11.
+9. **Ô gỗ và ô solid không chơi cùng luật.** Gỗ không có một LRV mà có một dải; gỗ áp đặt undertone.
+   Chọn gỗ trước, solid sau — xem §12.
 
 ---
 
@@ -202,3 +206,83 @@ lỗi này trước.
 - Không hứa "màu này lên ảnh sẽ đúng như bảng". Luôn kèm dòng albedo ≠ pixel.
 - Không tự ý đổi ô sàn khi người dùng đã nói sàn là nhà có sẵn — thay vào đó cảnh báo bộ màu nào
   không chạy được trên sàn đó.
+
+---
+
+## 11. Thực tế Việt Nam — tường trắng
+
+Gần như mọi công trình của công ty sơn tường trắng/gần trắng. Ba hệ quả bắt buộc áp vào mọi phiếu:
+
+**a) Ô 2 chọn theo undertone của gỗ, không theo sở thích.** Thang trắng (mã tham chiếu của sách,
+không phải mã hãng — chi tiết ở `content/phu-luc-f-ngan-hang-bang-mau.md` §F.6):
+
+| Loại | Hex | LRV ⚠️ | Đi với gỗ nào |
+|---|---|---|---|
+| Trắng thuần | `#FAFAFA` | 96 | trần, phòng tắm/kho |
+| Trắng lạnh | `#F0F2F3` | 89 | gỗ xám tro, gỗ tẩy trắng |
+| Trắng trung tính | `#F2F1EE` | 90 | **an toàn nhất — mặc định khi chưa rõ gỗ** |
+| Trắng ngà | `#F5F2EA` | 89 | sồi vàng, tần bì, gỗ mật ong — **phổ biến nhất VN** |
+| Kem | `#EFE9E0` | 82 | gỗ ấm đậm, óc chó |
+
+**b) Màu tường trong ảnh do sàn + CCT quyết định, không do mã sơn.** Khi người dùng hỏi "tường trắng
+sao ảnh vàng": đó là color bleeding, đúng vật lý. Muốn tường trắng đúng nghĩa thì đổi sàn hoặc đổi CCT
+sang trung tính — **không đổi mã sơn**.
+
+**c) Tường trắng lấy mất một ô tương phản** → phần tối phải đến từ ô 3, ô 4, ô 7:
+
+| Sàn | Ô 4 nên |
+|---|---|
+| Gỗ nhạt (LRV > 50) | **đậm** (LRV < 30) — nếu không cả phòng trôi |
+| Gỗ trung (30–50) | tự do |
+| Gỗ tối (< 30) | **sáng** — sàn đã gánh phần tối |
+
+Ô 7 (neo tối) **luôn bắt buộc** trong cả ba trường hợp.
+
+---
+
+## 12. Ô gỗ vs ô solid, và neo vào bảng mã An Cường
+
+| | Ô gỗ (vân) | Ô solid (trơn) |
+|---|---|---|
+| LRV | một **dải** — ghi `trung bình ± biên độ` (vd `42 ±12`) | một giá trị |
+| Undertone | mạnh, cố định — **áp đặt cho cả phòng** | yếu, uốn theo gỗ |
+| Thứ tự chọn | **chọn trước** | chọn sau |
+| Render | vân tự cứu khỏi bệt, nhưng phải đúng khổ + hướng vân + không lặp (C5, C10) | phẳng → lộ mọi lỗi sáng; cần bump nhẹ + gloss đúng |
+| Hay đóng ô | 3 (sàn), 4 (chủ thể) | 1–2, 4 (tủ trơn), 7 |
+
+**Bốn luật gỗ–solid:**
+1. Một phòng tối đa **2 tông gỗ**; nếu 2 thì chênh LRV ≥ 20 **và** cùng phía undertone.
+2. Chọn gỗ trước, solid sau — không bao giờ ngược lại.
+3. Solid cạnh gỗ phải trung tính, hoặc lấy đúng undertone của gỗ đó.
+4. Sàn gỗ vân đậm rồi thì ô 4 đừng dùng solid màu mạnh — hai mảng lớn tranh nhau.
+
+**Neo vào An Cường — cái gì được nói, cái gì không:**
+
+- ✅ Được nói: bảng melamine An Cường có ~**300–350 mã** (một số nguồn nói 400+), chia nhóm **màu trơn ·
+  vân gỗ · vân đá · vân vải** (+ giả da, digital); họ gỗ gồm sồi, tần bì, phong, dẻ gai, tràm, teak,
+  óc chó, long não, anh đào.
+- ❌ **KHÔNG được bịa mã cụ thể.** Sách không chép mã từ trang đại lý (lệch phiên bản catalogue).
+  Nguồn đúng duy nhất là **bảng mẫu vật lý của xưởng**.
+- Khi người dùng cần mã: hướng dẫn dựng **bảng neo vật liệu công ty** theo quy trình 7 bước ở §F.7
+  (chụp bảng mẫu có tờ A4 làm mốc → cân bằng trắng → hút màu 31×31 → gỗ hút 3 điểm → ghi CSV →
+  chạy `tools/tinh-lrv.py` → dựng vào thư viện Kujiale, đặt tên trùng mã An Cường).
+- Trong phiếu, ô nào chưa có mã thì ghi ⚠️ "chưa neo" — **không bịa cho phiếu trông đầy**.
+
+---
+
+## 13. Bộ từ khoá tiếng Trung (khi người dùng muốn tự tra)
+
+Bộ đầy đủ + từ điển màu Việt–Trung: `content/phu-luc-f-ngan-hang-bang-mau.md` §F.8. Cụm hay dùng nhất:
+
+| Nhu cầu | Từ khoá |
+|---|---|
+| Tỉ lệ, lý thuyết | `色彩比例 6:3:1` · `背景色 主角色 配角色 点缀色` |
+| Hệ màu trung tính | `莫兰迪色 家装` · `高级灰 配色` · `低饱和 配色` |
+| Phong cách đang lên ⚠️ | `中古风 装修` (tăng mạnh) · `静奢风 配色` (cao cấp) · `原木风 配色` (ổn định) |
+| Phong cách đang nguội ⚠️ | `奶油风 配色` — vẫn hợp gu Việt, nhưng đừng bán là "mới nhất" |
+| Màu cánh tủ | `柜门 颜色 搭配` · `木饰面 颜色 搭配` |
+| Bài kể ca hỏng (quý nhất) | `装修 配色 翻车` · `配色 避坑` |
+| Thao tác Kujiale | `酷家乐 一键换色` · `酷家乐 材质 颜色 修改` |
+
+⚠️ Khi khuyên chép bộ màu của designer TQ: nhắc rằng nhà họ **không mặc định tường trắng**, trần cao
+hơn và cửa sổ lớn hơn — bộ của họ thường có ô 2 là màu. Chép mà quên điều đó là chép hụt một ô.

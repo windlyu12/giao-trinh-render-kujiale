@@ -222,7 +222,7 @@ Nhóm dùng nhiều nhất cho căn hộ Việt. Cả ba bảng đều: tường
 | Nhấn | `#9C4A2F` | 12 | Đỏ gạch, gốm, sơn mài |
 | Neo tối | `#241C15` | 1 | Gỗ đen, sắt uốn |
 
-**Cảnh báo render:** bảng nhiều màu nhất ngân hàng (2 màu có sắc + gỗ tối). Bắt buộc **dồn nhấn đỏ gạch vào 2–3 cụm** (C15.12 lỗi 2), rải đều là hỏng ngay. Hoa văn gạch bông cần texture đúng khổ thật, đừng để lặp vân (C10).
+**Cảnh báo render:** bảng nhiều màu nhất ngân hàng (2 màu có sắc + gỗ tối). Bắt buộc **dồn nhấn đỏ gạch vào 2–3 cụm** (C15.13 lỗi 2), rải đều là hỏng ngay. Hoa văn gạch bông cần texture đúng khổ thật, đừng để lặp vân (C10).
 
 ## PC-05 · Kem – hồng phấn
 
@@ -358,3 +358,197 @@ Ngân hàng này **phải lớn dần theo công trình công ty làm**, đúng 
 6. Cập nhật bảng đối chiếu F.3 và bảng tra brief F.1.
 
 > 💡 Mục tiêu sau một năm: **25–30 bảng**, trong đó ít nhất một nửa là bảng của chính công ty đã thi công thật — kèm ảnh render và ảnh chụp thực tế đặt cạnh nhau. Lúc đó ngân hàng này quý hơn mọi bài phối màu trên mạng, vì nó biết màu nào *lên ảnh* thế nào và màu nào *ra công trình* thế nào.
+
+---
+
+## F.6. Ô 2 — thang trắng tường cho thị trường Việt
+
+Gần như 100% công trình của công ty sơn tường **trắng hoặc gần trắng**. Nên ô 2 không phải là bài toán "chọn màu gì" mà là **"chọn trắng nào"** — và câu trả lời quyết bởi **undertone của gỗ** ở ô 3/ô 4, không quyết bởi sở thích.
+
+### Năm loại trắng — chọn theo gỗ, không chọn theo cảm giác
+
+⚠️ Mã hex dưới đây là **mã tham chiếu của sách** để dựng trong Kujiale, **không phải mã của hãng sơn nào**. Cột cuối để công ty điền mã hãng thật sau khi đối chiếu bảng màu giấy.
+
+| Loại trắng | Hex tham chiếu | LRV ⚠️ | Undertone | Đi với gỗ nào | Mã hãng thật (điền) |
+|---|---|---|---|---|---|
+| **Trắng thuần** | `#FAFAFA` | 96 | Không | Chỉ khi cần trần trắng tuyệt đối, hoặc phòng tắm/kho | |
+| **Trắng lạnh** (ngả xám-xanh) | `#F0F2F3` | 89 | Lạnh | Gỗ xám tro, gỗ tẩy trắng, bộ ghi-lạnh | |
+| **Trắng trung tính** | `#F2F1EE` | 90 | Rất nhẹ, gần trung tính | **An toàn nhất** — chạy được với hầu hết gỗ | |
+| **Trắng ngà / trắng sứ** | `#F5F2EA` | 89 | Ấm nhẹ | Sồi vàng, tần bì, gỗ mật ong — **gu phổ biến nhất VN** | |
+| **Kem** | `#EFE9E0` | 82 | Ấm rõ | Gỗ ấm đậm, óc chó, bộ kem-cacao | |
+
+**Luật chọn trong mười giây:**
+
+```
+Gỗ ngả VÀNG/ĐỎ  → trắng ngà, hoặc kem nếu muốn ấm hơn
+Gỗ ngả XÁM/TRO  → trắng lạnh, hoặc trắng trung tính
+Không chắc gỗ ngả gì → trắng trung tính (không bao giờ sai hẳn)
+```
+
+> ⚠️ **Về mã bán chạy nhất thị trường (Jotun 9918 "Morning Fog"):** đây là mã trắng được dùng nhiều nhất trong nhà ở Việt Nam. Nhưng các nguồn mô tả nó **chỏi nhau** — nơi gọi là *trắng lạnh ngả xám nhẹ*, nơi gọi là *undertone vàng-xám*. Sách **không chốt** undertone của mã này. Cách xử lý đúng: lấy mẫu sơn thật (hoặc bảng màu giấy của hãng), đặt cạnh tờ A4 trắng dưới ánh sáng ban ngày, tự đọc undertone, hút màu ra hex, rồi ghi vào **bảng neo vật liệu công ty** (F.7). Một lần làm, hết tranh cãi mãi mãi.
+
+### Ba điều về tường trắng trong render
+
+1. **Không bao giờ nhập `#FFFFFF`.** Tường là mảng phản xạ lớn nhất — trắng tinh làm ánh sáng dội gần như vô hạn: cháy sáng, GI loang, render chậm hơn. Trắng "an toàn" quanh RGB 180–200 (C15.8).
+2. **Màu tường trong ảnh do sàn và đèn quyết định, không do mã sơn.** Sàn gỗ vàng + 3000K → tường trắng lên ảnh ngả kem. Đây là color bleeding, đúng vật lý, không phải lỗi.
+3. **Tường trắng lấy mất một ô tạo tương phản.** Toàn bộ phần tối phải đến từ ô 3, ô 4 và ô 7 — xem bảng quy đổi ở **C15.12**.
+
+---
+
+## F.7. Ô 3 và ô 4 — neo vào bảng mã An Cường
+
+Đây là hai ô quyết định bộ màu (vì ô 2 đã gần như cố định — F.6), và cũng là hai ô **phải mua được**. Với công ty, "mua được" nghĩa là có mã trong bảng mẫu An Cường mà xưởng đang cầm.
+
+### Cái gì đã chắc, cái gì phải tự khoá
+
+✅ **Chắc** (nhiều nguồn phân phối thống nhất): bảng melamine An Cường có khoảng **300–350 mã** (một số nguồn nói 400+ sau các đợt bổ sung), chia thành các nhóm: **màu trơn** (solid) · **vân gỗ** · **vân đá** · **vân vải** · và các nhóm đặc biệt mới (giả da, digital). Nhóm vân gỗ trải theo các họ gỗ quen: **sồi (Oak) · tần bì (Ash) · phong (Maple) · dẻ gai (Beech) · tràm (Acacia) · teak · óc chó (Walnut) · long não · anh đào (Cherry)**, từ tông hiện đại tới giả cổ.
+
+⚠️ **Chưa khoá:** danh sách mã cụ thể và quy ước ký hiệu bề mặt. Sách **cố tình không chép mã từ các trang bán hàng** — mã in trên web đại lý hay lệch phiên bản catalogue, và chép sai một mã là sai cả đơn hàng. **Nguồn đúng duy nhất là bảng mẫu vật lý mà xưởng đang dùng.**
+
+> ## 📌 Việc phải làm một lần: dựng BẢNG NEO VẬT LIỆU CÔNG TY.
+> Sau khi có bảng này, mọi phiếu phối màu đều neo được trong ba mươi giây, và ảnh render dùng đúng
+> màu tấm mà xưởng cắt ra. Đây là việc đáng giá nhất trong cả chương màu.
+
+### Quy trình dựng bảng neo (nửa buổi, làm một lần)
+
+| Bước | Việc | Chi tiết |
+|---|---|---|
+| 1 | **Chụp bảng mẫu thật** | Ánh sáng ban ngày gián tiếp (cạnh cửa sổ, **không nắng gắt, không đèn vàng**). Đặt **một tờ A4 trắng** vào trong khung hình làm mốc |
+| 2 | **Cân bằng trắng theo tờ A4** | Photoshop/Lightroom: dùng eyedropper cân bằng trắng bấm vào tờ giấy. Bỏ qua bước này thì mọi hex thu được đều lệch |
+| 3 | **Hút màu** | Eyedropper để **Sample Size 31×31** (lấy trung bình, không lấy một điểm ảnh) |
+| 4 | **Với ô gỗ: hút 3 điểm** | Chỗ vân sáng nhất · chỗ vân tối nhất · vùng trung bình → ghi **LRV trung bình ± biên độ** |
+| 5 | **Ghi vào bảng** | Theo đúng cột ở dưới, lưu dạng CSV dùng chung |
+| 6 | **Tính LRV** | Chạy `tools/tinh-lrv.py` (xem cuối mục này) → có LRV + cảnh báo luật |
+| 7 | **Dựng vào Kujiale** | Tạo thư viện vật liệu công ty theo `实时材质制作工具` (C5.2), đặt tên **trùng mã An Cường** |
+
+Bước 7 là bước biến bảng giấy thành thứ dùng được: từ đó chọn màu **trong thư viện công ty**, không chọn trong thư viện chung của Kujiale — vừa nhanh, vừa không bao giờ chọn phải màu không mua được.
+
+### Khuôn bảng neo — điền vào
+
+| Mã An Cường | Tên | Nhóm | Hex đo được | LRV ⚠️ | Biên độ vân | Undertone | Bề mặt | Tên trong thư viện Kujiale |
+|---|---|---|---|---|---|---|---|---|
+| | | gỗ / solid / đá / vải | `#` | | ±.. (gỗ) hoặc — (solid) | ấm/lạnh/trung | mờ/bóng/sần | |
+
+**Số dòng tối thiểu để bảng dùng được** — không cần đủ 350 mã, chỉ cần **bộ dùng thật của công ty**:
+
+| Nhóm | Số mã nên có | Vì sao |
+|---|---|---|
+| **Vân gỗ sáng** (sồi, tần bì, phong) | 4–6 | Phủ hầu hết ô 3 và ô 4 của các bộ tone sáng |
+| **Vân gỗ trung** (mật ong, teak) | 3–4 | Ô 3 của các bộ ấm |
+| **Vân gỗ tối** (óc chó, gỗ nhuộm) | 3–4 | Ô 4 tạo tương phản, ô 7 |
+| **Solid trắng/kem** | 3–4 | Ô 4 của các bộ tone sáng |
+| **Solid ghi** (nhạt → đậm) | 3–4 | Ô 4 trung tính, chạy được với mọi gỗ |
+| **Solid đậm** (đen, navy, xanh rêu) | 3–4 | Ô 4 cá tính + ô 7 |
+| **Vân đá** | 2–3 | Mặt bếp, mặt bàn |
+
+Tổng khoảng **25–30 mã** là đủ chạy 90% công trình. Bảng nhỏ mà đúng thì hơn hẳn catalogue 350 mã mà không ai đo.
+
+### Gỗ và solid — đọc bảng mẫu bằng mắt nghề
+
+Phần nguyên lý ở **C15.11**. Ba điều thực hành khi cầm bảng mẫu trên tay:
+
+1. **Gỗ: đọc biên độ vân trước, đọc màu sau.** Hai mã gỗ cùng LRV trung bình 45 nhưng một mã vân êm (biên độ ±6) và một mã vân gắt (±18) sẽ cho hai kết quả render khác hẳn. Vân gắt trên mảng tủ lớn = rối; vân êm trên mảng lớn = an toàn nhưng dễ chán.
+2. **Solid: sờ bề mặt.** Solid **mờ hoàn toàn** an toàn nhất cho mảng lớn. Solid **bóng** đẹp trên ảnh nhưng ngoài đời lộ vân tay và xước — và trong render phải chỉnh `反射光泽度` rất cao mới ra chất, sai một chút là ra "nhựa" (C5.4).
+3. **Solid có vân sần (bề mặt nhám)** là lựa chọn cứu ô 4 khỏi bệt: nó cho bump nhẹ mà không cho vân gỗ, hợp với các bộ tối giản. Trong Kujiale phải nhớ gán map `凹凸` cho nó, nếu không thì render ra vẫn là mặt phẳng chết.
+
+### Công cụ tính LRV
+
+Repo có sẵn `tools/tinh-lrv.py`. Dùng hai cách:
+
+```bash
+# Cách 1 — tính nhanh vài mã
+python3 tools/tinh-lrv.py "#EFE9E0" "#C8A87E" "#3B3833"
+
+# Cách 2 — chạy cả bảng neo (CSV có cột "hex")
+python3 tools/tinh-lrv.py --csv tools/bang-neo-vat-lieu.csv
+```
+
+Chạy với CSV thì công cụ in luôn **LRV từng dòng** và **kết quả kiểm bốn luật** của bộ 7 ô nếu CSV có cột `o` (số thứ tự ô).
+
+---
+
+## F.8. Bộ từ khoá tiếng Trung — tự tra bảng phối màu
+
+Người làm nghề Trung Quốc viết về phối màu nội thất nhiều và cụ thể hơn hẳn tài liệu tiếng Anh (họ hay đăng kèm mã màu và ảnh thi công thật). Đây là bộ từ khoá dán thẳng vào ô tìm kiếm **小红书** / **抖音** / **知乎**.
+
+### Nhóm 1 — Tra theo phong cách (kèm tình hình xu hướng)
+
+| Từ khoá | Nghĩa | Ghi chú xu hướng ⚠️ |
+|---|---|---|
+| `奶油风 配色` | Phong cách kem | Đang **giảm nhiệt** — lượng tìm kiếm xuống ba quý liên tiếp. Vẫn hợp khách Việt, nhưng đừng bán là "mới nhất" |
+| `原木风 配色` | Phong cách gỗ mộc | Ổn định, an toàn, hợp gu Việt nhất |
+| `中古风 装修` | Mid-century (đồ cổ điển thập niên 50–70) | **Đang tăng mạnh** — bài viết tăng ~186% so với cùng kỳ. Đây là chỗ lấy ý tưởng mới |
+| `静奢风 配色` | "Quiet luxury" — sang mà kín tiếng | Hướng chủ đạo của phân khúc cao cấp 2026 |
+| `侘寂风 配色` | Wabi-sabi | Hợp bảng PC-02 |
+| `极简风 配色` / `现代简约` | Tối giản / hiện đại giản lược | Nền tảng, luôn có bài tốt |
+| `法式 奶油 配色` | Pháp pha kem | Hợp khách thích tân cổ điển nhẹ |
+| `新中式 配色` | Tân Trung Hoa | Tham khảo cho khách thích Á Đông; gần Indochine |
+
+### Nhóm 2 — Tra theo hệ màu
+
+| Từ khoá | Nghĩa | Dùng khi |
+|---|---|---|
+| `莫兰迪色 家装` | Hệ màu Morandi — màu pha xám, giảm bão hòa | Khách nói "nhẹ nhàng, không chói" |
+| `高级灰 配色` | "Ghi cao cấp" | Bộ trung tính, tìm được rất nhiều ví dụ |
+| `低饱和 配色` | Màu bão hòa thấp | Cùng họ với hai từ trên |
+| `无彩色 搭配` | Phối vô sắc (đen–trắng–ghi) | Khách nói "đơn giản, không màu mè" |
+| `邻近色 搭配` | Phối màu lân cận | Bộ êm, ít rủi ro |
+| `撞色 搭配` | Phối màu đối chọi | Khi khách đòi cá tính mạnh |
+| `色彩比例 6:3:1` | Tỉ lệ 6:3:1 | Bài giảng tỉ lệ, có sơ đồ |
+| `背景色 主角色 配角色 点缀色` | Bốn vai màu | Đúng hệ khái niệm của C15.2 |
+
+### Nhóm 3 — Tra theo vật liệu và bề mặt
+
+| Từ khoá | Nghĩa |
+|---|---|
+| `木饰面 颜色 搭配` | Phối màu gỗ ốp |
+| `柜门 颜色 搭配` | Phối màu cánh tủ — đúng ô 4 |
+| `岩板 颜色` | Màu đá thiêu kết (mặt bếp, mặt bàn) |
+| `墙漆 颜色 奶油白` | Sơn tường trắng kem |
+| `原木色 搭配 什么颜色` | "Màu gỗ mộc hợp với màu gì" |
+| `胡桃木 配色` | Phối màu gỗ óc chó |
+
+### Nhóm 4 — Tra theo phòng
+
+| Từ khoá | Phòng |
+|---|---|
+| `客厅 配色 方案` | Phòng khách |
+| `卧室 配色 方案` | Phòng ngủ |
+| `儿童房 配色` | Phòng trẻ em |
+| `厨房 柜门 颜色` | Bếp |
+| `小户型 配色 显大` | Căn nhỏ — phối màu cho trông rộng |
+
+### Nhóm 5 — Hai cụm quý nhất: bài kể chuyện hỏng
+
+| Từ khoá | Nghĩa | Vì sao quý |
+|---|---|---|
+| `装修 配色 翻车` | "Lật xe" = làm hỏng | Bài kể ca hỏng dạy nhanh hơn bài khoe ảnh đẹp — và thường có ảnh trước/sau |
+| `配色 避坑` | Tránh hố | Tổng hợp lỗi thường gặp, đối chiếu được với chín lỗi ở C15.13 |
+| `一房一色 翻车` | Mỗi phòng một màu, hỏng | Đúng lỗi 9 của C15.13 |
+
+### Nhóm 6 — Thao tác trong Kujiale
+
+| Từ khoá | Tìm được gì |
+|---|---|
+| `酷家乐 材质 颜色 修改` | Đổi màu vật liệu |
+| `酷家乐 一键换色` | Đổi màu hàng loạt — phục vụ quy tắc hai ô |
+| `酷家乐 自定义 材质 上传` | Tạo vật liệu riêng (dựng thư viện công ty ở F.7) |
+
+### Từ điển màu Việt – Trung (để đọc kết quả tìm được)
+
+| Việt | Trung | Việt | Trung |
+|---|---|---|---|
+| Trắng ngà / trắng sứ | 象牙白 / 奶白 | Ghi (xám) | 灰色 |
+| Kem | 奶油色 / 米白 | Ghi ấm (greige) | 灰咖 / 奶咖 |
+| Be | 米色 | Taupe | 灰褐色 |
+| Nâu cacao | 可可棕 | Đen mờ | 哑光黑 |
+| Gỗ sồi | 橡木 | Gỗ óc chó | 胡桃木 |
+| Gỗ tần bì | 白蜡木 | Gỗ mộc / màu gỗ nguyên bản | 原木色 |
+| Xanh rêu | 墨绿 | Olive | 橄榄绿 |
+| Navy | 藏蓝 / 深蓝 | Terracotta / đỏ gạch | 陶土色 / 砖红 |
+| Vân đá | 岩板纹 / 大理石纹 | Vân vải | 布纹 |
+| Mờ (matt) | 哑光 | Bóng | 高光 |
+
+> 💡 **Bốn luật lọc kết quả** (giống mọi chương): sắp theo `最新` · ưu tiên bài **có mã màu cụ thể hoặc ảnh thi công thật** · bỏ bài `AI一键` · lưu lại bài hay vào ngân hàng theo khuôn **F.5**.
+>
+> Khác với bài số đèn, bài phối màu **không cần** đúng đời template Kujiale — nguyên lý màu không đổi theo phiên bản phần mềm. Nhưng vẫn phải đổi tư duy khi áp vào công trình Việt: nhà Trung Quốc hay có trần cao hơn, cửa sổ lớn hơn và **tường không mặc định trắng** — nên bộ màu của họ thường có ô 2 là màu, còn ta thì ô 2 gần như luôn trắng (F.6). Chép bộ màu của họ mà quên điều này là chép hụt một ô.
