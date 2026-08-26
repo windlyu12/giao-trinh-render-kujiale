@@ -1,9 +1,10 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
-> # 📍 TRẠNG THÁI — cập nhật 2026-08-26 (ca 20)
+> # 📍 TRẠNG THÁI — cập nhật 2026-08-26 (ca 21)
 >
-> **Ca gần nhất: 20** — 🔴 **CÓ SỐ THẬT TỪ APP.** Lần đầu đọc được panel thuộc tính đèn Kujiale.
-> Gỡ được chỗ tắc lớn nhất của giáo trình. Luật to nhất: **`%` là MẬT ĐỘ, không phải LƯU LƯỢNG.**
+> **Ca gần nhất: 21** — ✅ **Kujiale ĐẠT hai mốc số** lần đầu (tối nhất ~27%, tỉ lệ ~6:1).
+> Nhưng phiếu của tao đẩy cả khung sang ám cam. **Lỗi của tao, không phải của người render.**
+> Luật mới: dìm nền + đẩy nhấn = tự động đẩy khung về phía ẤM, phải khoá mốc lạnh.
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -937,12 +938,82 @@ mà C4 coi là xương sống. → cấm dải **3800–4500K** trong cảnh n�
 
 ---
 
+# Ca 21 — Kujiale ĐẠT mốc. Và tao làm ám cam cả khung.
+
+**Vào:** ảnh render vòng 5, sau khi chạy hết phiếu ca 20.
+
+## ✅ Hai mốc số ĐẠT — lần đầu sau 6 vòng
+
+| Đo | Ca 16 | Ca 19 | Ca 20 | **Ca 21** | Bản AI (mốc) |
+|---|---|---|---|---|---|
+| Vùng tối nhất | ~65% | ~58% | ~42% | **~27%** ✅ | ~27% |
+| Tỉ lệ nhấn : nền | 1,5:1 | 1,8:1 | ~3:1 | **~6:1** ✅ | ~6:1 |
+| Vũng sáng đèn bàn | không | không | không | **CÓ** ✅ | có |
+
+Đèn bàn giờ đổ vũng thật trên mặt bàn, hắt lên tường confetti và tràn sang tường tranh.
+Gradient phải→trái dốc thật. **Kujiale bắt kịp bản AI về cấu trúc ánh sáng.**
+
+Cái làm nên chuyện: **luật `%` × diện tích** ở ca 20. Đèn bàn từ 50% lên vài trăm % nghe vô lý
+nhưng đúng, vì cầu r50mm ở 50% chỉ bằng 1/145 đèn diện 1,16 m² ở 200%.
+
+## 🔴🔴 LỖI CỦA PHIẾU: dìm nền + đẩy nhấn = ĐẨY CẢ KHUNG SANG ẤM
+
+Cả khung giờ ám cam. Cánh tủ melamine trắng kem đọc ra màu hổ phách. Không còn mốc lạnh nào.
+Ảnh chuyển từ *phòng trẻ em ban ngày* thành *cảnh đèn buổi tối*.
+
+**Nguyên nhân là số học trong phiếu của tao**, không phải người render làm sai:
+
+| Tao kê | Hệ quả lên trục nhiệt |
+|---|---|
+| `Rectangle light-18` (6500K) 200% → 80–100% | nguồn **lạnh** ÷2 |
+| `Omni Light-5` (đèn bàn) 50% → 300–600% | nguồn **ấm** ×6–12 |
+| Mọi đèn nhân tạo 4000K → 2700–3000K | phần ấm còn **ấm thêm** |
+
+Cộng lại: trục nóng–lạnh xoay **12–24 lần** về phía ấm chỉ trong một phiếu. Tao không hề tính tới.
+
+> **LUẬT:** trong gần như mọi cảnh nội thất, **nền = nguồn LẠNH (trời)** và **nhấn = nguồn ẤM (đèn)**.
+> Nên **mọi thao tác "dìm nền, đẩy nhấn" tự động đẩy cả khung sang ấm.**
+> Phiếu bắt buộc có **dòng khoá mốc lạnh**: sau khi dìm, vùng tối phải **vẫn đọc được là lạnh**.
+> Kiểm bằng cách soi một bề mặt trắng ở vùng bóng — còn hơi xanh xám là đạt, ngả vàng là hỏng.
+
+**Cùng một cơ chế với lỗi ca 02** (đổi khối 2 sang tông ấm trong prompt AI mà quên giữ
+`mixed with the cool daylight` → cả khung tắm cam). Khác công cụ, khác tầng, **cùng một lỗi**.
+→ nâng lên **2/3**.
+
+## 🔴 Mâu thuẫn tao kê mà không nhận ra: `扩散角` phục vụ hai việc ngược nhau
+
+Tao kê hạ `Area light scattering angle` 85° → 60° để gradient dốc. Đúng cho **chiều sâu**,
+nhưng nó đồng thời **cắt mất phần toả rộng vốn đang bơm ánh lạnh vào vùng bóng** → góp phần ám cam.
+
+> Hai việc phải **tách nguồn**, không ép một đèn làm cả hai:
+> - **Trục sáng (gradient dốc)** → `面光源` bù cửa sổ, góc tán **hẹp** 60–70°
+> - **Ánh lạnh trong bóng** → `天光` / sky light ở panel render, **không** phải đèn diện
+>
+> Ép một `面光源` làm cả hai thì mất một trong hai, chắc chắn.
+
+## Còn lại chưa xử
+
+- **Cụm tròn cháy trắng sau đám thỏ vẫn nguyên** — `Rectangle light-22` `Width 20mm` chưa nới.
+- **Mảng tủ áo trắng giữa khung thành vùng chết** — chiếm ~35% khung, không có gì xảy ra trên đó
+  sau khi `Spotlight 2-2` bị hạ từ 300% xuống. Cần một chút sáng tạt liếm mặt cánh tủ.
+- **Chưa xem panel `天光` / `太阳光`** — toàn bộ phân tích 3 ca vừa rồi mới chỉ dựa vào đèn nhân tạo.
+
+## Ghi nhận về cách làm việc
+
+Sáu vòng, và bước ăn tiền nhất **không phải vòng nào chỉnh số** — là vòng **người dùng gửi panel thật**
+(ca 20). Trước đó tao đoán mù, sau đó tao tính được. → củng cố luật "xin sơ đồ/panel trước khi kê số".
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
+| 🔴🔴 **DÌM NỀN + ĐẨY NHẤN = TỰ ĐỘNG ĐẨY KHUNG SANG ẤM.** Nền thường là nguồn lạnh (trời), nhấn thường là nguồn ấm (đèn) → mọi phiếu "dìm nền đẩy nhấn" xoay trục nhiệt. Phiếu **bắt buộc** có dòng khoá mốc lạnh + phép kiểm (soi bề mặt trắng trong bóng: còn xanh xám = đạt, ngả vàng = hỏng). Cùng cơ chế với lỗi ca 02 ở prompt AI | 02, 21 | **2/3** |
+| 🔴 **`扩散角` phục vụ hai việc NGƯỢC NHAU** — hẹp = gradient dốc, rộng = bơm ánh lạnh vào bóng. Phải tách nguồn: gradient giao cho `面光源` hẹp, ánh lạnh trong bóng giao cho `天光`. Ép một đèn làm cả hai thì mất một | 21 | 1/3 |
+| ✅ **Luật `%` × diện tích ĂN THẬT** (ca 20 → 21): đẩy đèn bàn từ 50% lên vài trăm % ra đúng vũng sáng, hai mốc số đều đạt. Không còn là suy luận | 20, 21 | **2/3, đã có thực nghiệm** |
 | 🔴🔴🔴 **`%` LÀ MẬT ĐỘ, KHÔNG PHẢI LƯU LƯỢNG.** Lưu lượng ≈ `%` × diện tích. Dải LED rộng 20mm ở 350% yếu hơn đèn diện 1,16 m² ở 200% **27 lần**. Cấm so `%` giữa hai đèn khác kích thước. ✅ đã vá `08` B2 (số đọc thẳng từ app, không phải suy luận) | 20 | vá sớm — dữ kiện app |
 | 🔴 **`Affect specular`/`影响高光` mặc định TẮT** → mọi bề mặt ra matte → góp phần bệnh "bệt/nhựa" của `04` §4. Đèn nhấn phải BẬT | 20 | 1/3 |
 | 🔴 **Cấm nhiệt độ màu dải 3800–4500K trong cảnh nội thất ấm** — nó không lạnh không ấm, hoà tan cặp nóng–lạnh. Tách hẳn: trời 5500–6500K, nhân tạo 2700–3000K | 20 | 1/3 |

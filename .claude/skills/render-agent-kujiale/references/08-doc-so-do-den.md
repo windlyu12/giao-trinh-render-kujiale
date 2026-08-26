@@ -181,3 +181,33 @@ Cái **4000K** không lạnh cũng không ấm — nó **làm đục cả hai đ
    nguồn lơ lửng cách trần 280mm trong khi đèn âm trần đã model nằm sát trần. Đặt sát trần.
 4. **Dải LED quá mảnh thì cháy** — `Width 20mm` ở 350% cho ra cụm tròn cháy trắng. Nới **35–40mm**
    để mềm, hoặc lùi vào sau gờ chắn 15–20mm.
+
+
+## B7. 🔴🔴 KHOÁ MỐC LẠNH — dòng bắt buộc của mọi phiếu dìm nền
+
+Trong gần như mọi cảnh nội thất: **nền = nguồn LẠNH** (trời, `天光`, `面光源` bù cửa sổ 5500–6500K)
+và **nhấn = nguồn ẤM** (đèn bàn, hắt kệ, rọi 2700–3000K).
+
+> ⇒ **Mọi thao tác "dìm nền, đẩy nhấn" tự động xoay cả khung sang ẤM.**
+
+Ca 21 xoay trục **12–24 lần** chỉ trong một phiếu (lạnh ÷2, ấm ×6–12, lại còn hạ K của phần ấm),
+và không ai nhận ra cho tới khi nhìn ảnh: cánh tủ melamine trắng kem đọc ra màu hổ phách.
+
+**Phép kiểm, chạy trên mọi ảnh sau khi dìm nền:**
+soi một **bề mặt trắng nằm trong vùng bóng** (cánh tủ, tường, ga giường).
+- Còn hơi **xanh xám** → đạt, trục nóng–lạnh còn sống.
+- Ngả **vàng/cam** → hỏng, phải bơm lại nguồn lạnh trước khi làm gì khác.
+
+**Cách bơm lại mà không mất chiều sâu vừa xây được:** đừng đẩy `面光源` bù cửa sổ lên
+(nó sẽ san phẳng gradient trở lại). Đẩy **`天光` / sky light ở panel render** — nó là ambient,
+nó bơm lạnh vào vùng bóng mà gần như không đụng tới trục sáng.
+
+### Hệ quả: `扩散角` phục vụ hai việc ngược nhau
+
+| Việc | Cần góc tán |
+|---|---|
+| Gradient dốc, chiều sâu | **hẹp** 55–70° |
+| Bơm ánh lạnh vào vùng bóng | **rộng** 85°+ |
+
+**Đừng ép một đèn làm cả hai** — mất một trong hai, chắc chắn.
+Tách: gradient giao cho `面光源`; ánh lạnh trong bóng giao cho `天光`.
