@@ -423,6 +423,49 @@ Không chắc gỗ ngả gì → trắng trung tính (không bao giờ sai hẳn
 
 Bước 7 là bước biến bảng giấy thành thứ dùng được: từ đó chọn màu **trong thư viện công ty**, không chọn trong thư viện chung của Kujiale — vừa nhanh, vừa không bao giờ chọn phải màu không mua được.
 
+### Đường tắt: đã có sẵn folder bitmap màu thì để máy đo
+
+Nếu An Cường (hoặc xưởng) đã đưa **folder ảnh, mỗi ảnh một mã, tên file có chứa mã**, thì bỏ qua bước
+2–6 ở trên — chạy `tools/doc-bang-mau.py` một lần ra cả bảng:
+
+```bash
+pip install pillow numpy
+
+# B1 — kiểm máy có tách đúng mã từ tên file không (chưa ghi gì)
+python3 tools/doc-bang-mau.py <folder-anh> --dry-run
+
+# B2 — đo thật
+python3 tools/doc-bang-mau.py <folder-anh> --out bang-neo-ancuong.csv
+
+# B3 — nếu là ẢNH CHỤP: chụp thêm tờ A4 trắng cùng buổi rồi cân bằng trắng theo nó
+python3 tools/doc-bang-mau.py <folder-anh> --white-ref giay-trang.jpg --out bang-neo-ancuong.csv
+```
+
+Máy đo được **bốn thứ mà hút màu bằng tay không cho**:
+
+| Cột | Máy làm gì | Vì sao hơn làm tay |
+|---|---|---|
+| `hex` | Trung bình **trong không gian linear light** rồi mới đổi về sRGB | Hút một điểm ảnh là ăn may; trung bình thẳng trên sRGB thì lệch tối |
+| `lrv` + `lrv_p10/p90` | Trung bình và phân vị của độ sáng cả vùng đo | Ra luôn **biên độ vân** — thứ mắt không đo nổi |
+| `undertone` | Đổi sang **CIELAB**, xét dấu `b*` (vàng ↔ xanh) | Không phải cãi nhau "cái này ngả vàng hay ngả xám" |
+| `nhom` | Đoán **gỗ / solid** theo biên độ, mờ ranh giới thì ghi `?` | Nhất quán giữa mọi người đo |
+
+Script còn cắm cờ vào cột `ghi_chu` khi ảnh **cháy sáng** (màu đo được đã sai), **quá tối**, hoặc
+**nghi chứa nhiều ô màu** (phá giả định một ảnh một mã). Có cờ thì soi tay dòng đó.
+
+> ## ⚠️ Cột `wb` là chỗ phải đọc kỹ.
+> `wb = ref` — đã cân bằng trắng theo tờ giấy, hex tin được ở mức cao.
+> `wb = raw ⚠️` — **chưa cân bằng**: hex đang mang theo nhiệt độ đèn lúc chụp. So sánh **giữa các mã
+> trong cùng folder** thì vẫn tin được (mọi ảnh lệch như nhau), nhưng **đừng đem so với mã hãng ngoài
+> folder**, và đừng dán con số đó vào hợp đồng.
+>
+> File **quét hoặc xuất từ catalogue số** thì không cần `--white-ref` — script tự nhận ra nền trắng đều
+> và nhắc.
+
+Ba cột `o` · `be_mat` · `ten_trong_kujiale` script **cố tình để trống** — đó là phần người điền: ô nào
+trong bộ 7 ô, bề mặt mờ/bóng/sần (phải sờ tấm thật mới biết), và tên vật liệu tương ứng trong thư viện
+Kujiale. Điền xong thì chạy tiếp `tools/tinh-lrv.py --csv` để kiểm bốn luật.
+
 ### Khuôn bảng neo — điền vào
 
 | Mã An Cường | Tên | Nhóm | Hex đo được | LRV ⚠️ | Biên độ vân | Undertone | Bề mặt | Tên trong thư viện Kujiale |

@@ -23,7 +23,7 @@
 <main class="main"><div class="page">
   <header class="ch-head">
     <div class="ch-no">F</div>
-    <div class="ch-meta"><span class="tag">Phụ lục F</span><span class="tag ghost">≈ 34 phút đọc</span></div>
+    <div class="ch-meta"><span class="tag">Phụ lục F</span><span class="tag ghost">≈ 36 phút đọc</span></div>
     <h1 class="ch-title">Ngân hàng bảng phối màu</h1>
     <p class="ch-hook">Mười hai bảng màu có mã hex và LRV, bảng tra brief khách, và Phiếu phối màu in ra điền.</p>
   </header>
@@ -1193,6 +1193,66 @@ màu tấm mà xưởng cắt ra. Đây là việc đáng giá nhất trong cả
 </tbody>
 </table></div>
 <p>Bước 7 là bước biến bảng giấy thành thứ dùng được: từ đó chọn màu <strong>trong thư viện công ty</strong>, không chọn trong thư viện chung của Kujiale — vừa nhanh, vừa không bao giờ chọn phải màu không mua được.</p>
+<h3 id="uong-tat-a-co-san-folder-bitmap-mau-thi-e-may-o">Đường tắt: đã có sẵn folder bitmap màu thì để máy đo</h3>
+<p>Nếu An Cường (hoặc xưởng) đã đưa <strong>folder ảnh, mỗi ảnh một mã, tên file có chứa mã</strong>, thì bỏ qua bước
+2–6 ở trên — chạy <code>tools/doc-bang-mau.py</code> một lần ra cả bảng:</p>
+<pre><code class="language-bash">pip install pillow numpy
+
+# B1 — kiểm máy có tách đúng mã từ tên file không (chưa ghi gì)
+python3 tools/doc-bang-mau.py &lt;folder-anh&gt; --dry-run
+
+# B2 — đo thật
+python3 tools/doc-bang-mau.py &lt;folder-anh&gt; --out bang-neo-ancuong.csv
+
+# B3 — nếu là ẢNH CHỤP: chụp thêm tờ A4 trắng cùng buổi rồi cân bằng trắng theo nó
+python3 tools/doc-bang-mau.py &lt;folder-anh&gt; --white-ref giay-trang.jpg --out bang-neo-ancuong.csv
+</code></pre>
+<p>Máy đo được <strong>bốn thứ mà hút màu bằng tay không cho</strong>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cột</th>
+<th>Máy làm gì</th>
+<th>Vì sao hơn làm tay</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hex</code></td>
+<td>Trung bình <strong>trong không gian linear light</strong> rồi mới đổi về sRGB</td>
+<td>Hút một điểm ảnh là ăn may; trung bình thẳng trên sRGB thì lệch tối</td>
+</tr>
+<tr>
+<td><code>lrv</code> + <code>lrv_p10/p90</code></td>
+<td>Trung bình và phân vị của độ sáng cả vùng đo</td>
+<td>Ra luôn <strong>biên độ vân</strong> — thứ mắt không đo nổi</td>
+</tr>
+<tr>
+<td><code>undertone</code></td>
+<td>Đổi sang <strong>CIELAB</strong>, xét dấu <code>b*</code> (vàng ↔ xanh)</td>
+<td>Không phải cãi nhau "cái này ngả vàng hay ngả xám"</td>
+</tr>
+<tr>
+<td><code>nhom</code></td>
+<td>Đoán <strong>gỗ / solid</strong> theo biên độ, mờ ranh giới thì ghi <code>?</code></td>
+<td>Nhất quán giữa mọi người đo</td>
+</tr>
+</tbody>
+</table></div>
+<p>Script còn cắm cờ vào cột <code>ghi_chu</code> khi ảnh <strong>cháy sáng</strong> (màu đo được đã sai), <strong>quá tối</strong>, hoặc
+<strong>nghi chứa nhiều ô màu</strong> (phá giả định một ảnh một mã). Có cờ thì soi tay dòng đó.</p>
+<blockquote class="warn">
+<h2 id="cot-wb-la-cho-phai-oc-ky">⚠️ Cột <code>wb</code> là chỗ phải đọc kỹ.</h2>
+<p><code>wb = ref</code> — đã cân bằng trắng theo tờ giấy, hex tin được ở mức cao.
+<code>wb = raw ⚠️</code> — <strong>chưa cân bằng</strong>: hex đang mang theo nhiệt độ đèn lúc chụp. So sánh <strong>giữa các mã
+trong cùng folder</strong> thì vẫn tin được (mọi ảnh lệch như nhau), nhưng <strong>đừng đem so với mã hãng ngoài
+folder</strong>, và đừng dán con số đó vào hợp đồng.</p>
+<p>File <strong>quét hoặc xuất từ catalogue số</strong> thì không cần <code>--white-ref</code> — script tự nhận ra nền trắng đều
+và nhắc.</p>
+</blockquote>
+<p>Ba cột <code>o</code> · <code>be_mat</code> · <code>ten_trong_kujiale</code> script <strong>cố tình để trống</strong> — đó là phần người điền: ô nào
+trong bộ 7 ô, bề mặt mờ/bóng/sần (phải sờ tấm thật mới biết), và tên vật liệu tương ứng trong thư viện
+Kujiale. Điền xong thì chạy tiếp <code>tools/tinh-lrv.py --csv</code> để kiểm bốn luật.</p>
 <h3 id="khuon-bang-neo-ien-vao">Khuôn bảng neo — điền vào</h3>
 <div class="table-scroll"><table>
 <thead>

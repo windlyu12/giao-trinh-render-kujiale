@@ -97,6 +97,11 @@ python3 tools/tinh-lrv.py "#EFE9E0" "#C8A87E" "#3B3833"
 
 # Chạy cả bảng neo vật liệu của công ty (CSV có cột hex, và cột o = số ô 1–7)
 python3 tools/tinh-lrv.py --csv tools/bang-neo-vat-lieu.csv
+
+# Đọc cả folder bitmap màu (An Cường...) thành CSV bảng neo — một ảnh một mã
+pip install pillow numpy
+python3 tools/doc-bang-mau.py <folder-anh> --dry-run          # kiểm tách mã từ tên file
+python3 tools/doc-bang-mau.py <folder-anh> --out bang-neo.csv
 ```
 
 ## Build lại site sau khi sửa content
