@@ -198,9 +198,16 @@ soi một **bề mặt trắng nằm trong vùng bóng** (cánh tủ, tường, 
 - Còn hơi **xanh xám** → đạt, trục nóng–lạnh còn sống.
 - Ngả **vàng/cam** → hỏng, phải bơm lại nguồn lạnh trước khi làm gì khác.
 
-**Cách bơm lại mà không mất chiều sâu vừa xây được:** đừng đẩy `面光源` bù cửa sổ lên
-(nó sẽ san phẳng gradient trở lại). Đẩy **`天光` / sky light ở panel render** — nó là ambient,
-nó bơm lạnh vào vùng bóng mà gần như không đụng tới trục sáng.
+**Cách bơm lại — RẼ NHÁNH theo lớp phòng (xem `03-cong-thuc-phong.md` §Cửa nhìn ra đâu):**
+
+- **Phòng có trời thật** → đẩy **`天光` / sky light ở panel render**, đừng đẩy `面光源` bù cửa sổ
+  (nó sẽ san phẳng gradient trở lại). `天光` là ambient, bơm lạnh vào bóng mà gần như không đụng trục sáng.
+- **Phòng chỉ mở ra lô-gia / giếng trời / hành lang** → **không có `天光` để bơm.** Vặn nó là vặn vào chỗ trống.
+  Lấy mốc lạnh bằng ba cách khác:
+  1. `溢色修正` (khử tràn màu) **tăng** — chặn màu ấm bò vào vùng bóng qua GI. ⚠️ chưa verify trong app.
+  2. Giữ vùng tối **TRUNG TÍNH** thay vì làm nó lạnh — xám trung tính cạnh hổ phách thì mắt tự đọc ra lạnh.
+  3. Giữ `面光源` bù cửa ở **6500K** dù ánh dội lô-gia thật là 4500–5500K. Sai vật lý ở mức
+     không ai nhìn ra, mà là **mốc lạnh duy nhất** còn lại. Đổi đi thì mất trắng.
 
 ### Hệ quả: `扩散角` phục vụ hai việc ngược nhau
 

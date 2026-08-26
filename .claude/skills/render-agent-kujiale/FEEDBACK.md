@@ -1,10 +1,10 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
-> # 📍 TRẠNG THÁI — cập nhật 2026-08-26 (ca 21)
+> # 📍 TRẠNG THÁI — cập nhật 2026-08-26 (ca 22)
 >
-> **Ca gần nhất: 21** — ✅ **Kujiale ĐẠT hai mốc số** lần đầu (tối nhất ~27%, tỉ lệ ~6:1).
-> Nhưng phiếu của tao đẩy cả khung sang ám cam. **Lỗi của tao, không phải của người render.**
-> Luật mới: dìm nền + đẩy nhấn = tự động đẩy khung về phía ẤM, phải khoá mốc lạnh.
+> **Ca gần nhất: 22** — 🔴 **HỎI KIẾN TRÚC TRƯỚC KHI KÊ ĐÈN.** Phòng chỉ có cửa ra **lô-gia kỹ thuật**
+> (máy giặt + cục nóng) → gần như không có ánh trời. Sáu vòng bẹt trước đó phần lớn là do
+> **bơm một nguồn trời giả 1,16 m² @200% vào căn phòng không có trời.**
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -1005,12 +1005,73 @@ Sáu vòng, và bước ăn tiền nhất **không phải vòng nào chỉnh s�
 
 ---
 
+# Ca 22 — 🔴 Người dùng nói ra kiến trúc, và nó lật lại cách đọc cả 6 vòng
+
+**Người dùng nói:** *"phòng đó chỉ có 1 nguồn ánh sáng từ logia dọc để máy giặt và cục nóng điều hoà
+nên gần như 2 nguồn ánh sáng đấy không ảnh hưởng đến chất lượng render ảnh"*.
+
+## Tao kê sai bước ① của phiếu ca 21
+
+Tao bảo *"bơm lại ánh lạnh qua `天光` / sky light"*. **Không chạy được.**
+Ánh trời phải xuyên qua một lô-gia — sàn của căn hộ trên làm mái, tường hai bên, trong đó còn
+máy giặt và cục nóng. `天光` và `太阳光` gần như không tới được cửa phòng. Vặn chúng là vặn vào chỗ trống.
+
+## 🔴🔴 Và nó lật lại nguyên nhân gốc của 6 vòng bẹt
+
+`Rectangle light-18` — **1,16 m² @ 200% @ 6500K** — được cỡ như một cửa sổ **nhìn ra trời mở**.
+Phòng này nhìn ra **lô-gia kín**. Ánh sáng tới cửa là ánh **dội** từ tường/sàn lô-gia:
+ước lượng còn **10–20%** so với cửa nhìn trời, và **ngả trung tính–ấm**, không phải 6500K trong veo.
+
+> **Bốn vòng ảnh bẹt kem không phải lỗi vặn số. Là lỗi BƠM MỘT NGUỒN TRỜI GIẢ VÀO PHÒNG KHÔNG CÓ TRỜI.**
+> Nguồn nền quá lớn + vô hướng + phủ khắp = định nghĩa của "đều". Mọi thao tác sau đó chỉ là
+> gỡ hậu quả của một quyết định sai từ bước dựng đèn.
+
+Và ảnh ám cam ở ca 21 — mà tao gọi là "lỗi" — **thực ra là bộ mặt THẬT của căn phòng này.**
+Một phòng ngủ chỉ mở ra lô-gia kỹ thuật thì đúng là phòng do đèn của chính nó thắp sáng.
+
+## 🔴🔴🔴 LUẬT: HỎI CỬA SỔ NHÌN RA ĐÂU, TRƯỚC KHI KÊ MỘT DÒNG ĐÈN NÀO
+
+Không phải *"có cửa sổ không"* mà là **cửa sổ nhìn ra CÁI GÌ**:
+
+| Cửa nhìn ra | Ánh tới cửa (so với trời mở) | Nhiệt màu thực | Nguồn nền nên cỡ |
+|---|---|---|---|
+| Trời mở, không vật cản | 100% | 6000–6500K | to, sáng |
+| Ban công hở, có lan can | 60–80% | 5500–6500K | to, vừa |
+| **Lô-gia / giếng trời / hộp kỹ thuật** | **10–20%** | **4500–5500K**, ngả trung tính–ấm | **nhỏ, mờ** |
+| Hành lang chung / phòng khác | 5–10% | theo đèn phòng đó | rất nhỏ |
+| Không có cửa (phòng lõi) | 0% | — | không có |
+
+Bốn hàng dưới cùng đều là **phòng do đèn nhân tạo thắp**. Kê chúng như phòng có trời thì
+chắc chắn ra ảnh bẹt, **bất kể vặn số giỏi đến đâu**.
+
+## Sửa lại luật B7 (khoá mốc lạnh) cho lớp phòng này
+
+B7 nói *"bơm lạnh qua `天光`"*. Đúng cho phòng có trời. **Phòng lô-gia thì không có `天光` để bơm.**
+Ở đây mốc lạnh phải lấy bằng cách khác:
+
+1. **Chặn màu ấm tràn vào bóng qua GI** — `溢色修正` (khử tràn màu) tăng lên. ⚠️ chưa verify trong app.
+2. **Giữ vùng tối TRUNG TÍNH thay vì làm nó lạnh.** Xám trung tính đặt cạnh hổ phách thì mắt
+   **tự đọc ra lạnh** (tương phản đồng thời). Không cần nguồn lạnh nào.
+3. **Giữ `Rectangle light-18` ở 6500K** dù số thật của ánh dội lô-gia là 4500–5500K.
+   Sai vật lý ở mức không ai nhìn ra, mà là **mốc lạnh duy nhất** còn lại của khung. Đổi đi thì mất trắng.
+
+## Ghi nhận về quy trình
+
+Dữ kiện này người dùng **có sẵn từ đầu** và nó **quyết định toàn bộ phiếu**. Tao không hỏi.
+Mode B trong `SKILL.md` có "sáu câu phải tự trả lời" nhưng **không có câu nào hỏi cửa sổ nhìn ra đâu**.
+→ vá vào `07` và `SKILL.md` như câu hỏi bắt buộc.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
+| 🔴🔴🔴 **HỎI CỬA SỔ NHÌN RA ĐÂU trước khi kê đèn** — không phải "có cửa sổ không". Lô-gia/giếng trời/hộp kỹ thuật chỉ cho **10–20%** ánh so với trời mở, và ngả trung tính–ấm. Kê phòng lô-gia như phòng có trời → **ảnh bẹt, bất kể vặn số giỏi đến đâu**. Đây là nguyên nhân gốc của 4 vòng bẹt ca 16–19 | 22 | vá ngay — dữ kiện kiến trúc, không phải heuristic |
+| 🔴 **B7 phải rẽ nhánh theo lớp phòng.** Phòng có trời: bơm lạnh qua `天光`. Phòng lô-gia: không có `天光` để bơm → giữ vùng tối **trung tính** (mắt tự đọc ra lạnh cạnh hổ phách) + `溢色修正` chặn GI ấm tràn vào bóng | 22 | 1/3 |
+| **Nguồn nền quá LỚN + vô hướng thì không vặn số nào cứu được** — cùng họ với luật ca 19 (đèn sai vị trí thì tắt). Ở đây là đèn sai **cỡ**: `面光源` 1,16 m² là cỡ của cửa nhìn trời mở, đặt vào phòng lô-gia | 19, 22 | 2/3 |
 | 🔴🔴 **DÌM NỀN + ĐẨY NHẤN = TỰ ĐỘNG ĐẨY KHUNG SANG ẤM.** Nền thường là nguồn lạnh (trời), nhấn thường là nguồn ấm (đèn) → mọi phiếu "dìm nền đẩy nhấn" xoay trục nhiệt. Phiếu **bắt buộc** có dòng khoá mốc lạnh + phép kiểm (soi bề mặt trắng trong bóng: còn xanh xám = đạt, ngả vàng = hỏng). Cùng cơ chế với lỗi ca 02 ở prompt AI | 02, 21 | **2/3** |
 | 🔴 **`扩散角` phục vụ hai việc NGƯỢC NHAU** — hẹp = gradient dốc, rộng = bơm ánh lạnh vào bóng. Phải tách nguồn: gradient giao cho `面光源` hẹp, ánh lạnh trong bóng giao cho `天光`. Ép một đèn làm cả hai thì mất một | 21 | 1/3 |
 | ✅ **Luật `%` × diện tích ĂN THẬT** (ca 20 → 21): đẩy đèn bàn từ 50% lên vài trăm % ra đúng vũng sáng, hai mốc số đều đạt. Không còn là suy luận | 20, 21 | **2/3, đã có thực nghiệm** |

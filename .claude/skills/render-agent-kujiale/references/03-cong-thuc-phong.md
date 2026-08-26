@@ -239,3 +239,38 @@ chọn `造型线` → tick **`灯带`** → vào `剖面` chỉnh **`灯槽宽�
 
 Chọn model đèn có **vành và độ sâu thật**, đừng lấy model dẹt như miếng dán — vành tạo bóng đổ nhỏ
 quanh mép, đúng thứ não đọc là "đèn thật lắp vào trần thật".
+
+
+---
+
+# 🔴 Cửa sổ nhìn ra ĐÂU — hỏi trước khi kê một dòng đèn nào
+
+Câu hỏi **không phải** *"phòng có cửa sổ không"*. Là **cửa sổ nhìn ra CÁI GÌ**.
+Sai câu này thì mọi con số phía sau đều sai, và **không vặn số nào cứu được**.
+
+| Cửa nhìn ra | Ánh tới cửa (so trời mở) | Nhiệt màu thực tới cửa | `面光源` bù cửa nên cỡ |
+|---|---|---|---|
+| Trời mở, không vật cản | 100% | 6000–6500K | To, sáng. Diện tích ≈ ô cửa |
+| Ban công hở có lan can | 60–80% | 5500–6500K | To, vừa |
+| **Lô-gia / giếng trời / hộp kỹ thuật** | **10–20%** | **4500–5500K**, trung tính–ấm | **Nhỏ và mờ.** ≈ 1/5 mức phòng có trời |
+| Hành lang chung / phòng khác | 5–10% | theo đèn phòng bên | Rất nhỏ |
+| Không cửa (phòng lõi) | 0% | — | Không có |
+
+**Bốn hàng dưới đều là PHÒNG DO ĐÈN NHÂN TẠO THẮP.** Kê chúng như phòng có trời thì
+chắc chắn ra ảnh bẹt kem — nguồn nền quá lớn, vô hướng, phủ khắp = định nghĩa của "đều".
+
+## Nhận dạng lô-gia trên mặt bằng
+
+Ô ban công **thụt vào trong khối nhà**, có sàn tầng trên làm mái, tường hai bên kín.
+Dấu hiệu chắc nhất: **trong đó có máy giặt, cục nóng điều hoà, chậu rửa, giá phơi**.
+Có mấy thứ đó thì đó là **lô-gia kỹ thuật**, không phải ban công ngắm cảnh —
+và phòng mở ra nó là phòng gần như không có ánh trời.
+
+## Hệ quả lên cách kê đèn
+
+1. **Đừng vặn `天光` / `太阳光`.** Chúng không tới được cửa. Vặn là vặn vào chỗ trống.
+2. **`面光源` bù cửa phải nhỏ và mờ.** Một tấm 1,16 m² @ 200% là cỡ của cửa nhìn trời mở —
+   đặt vào phòng lô-gia thì nó **trở thành nguồn nền áp đảo** và san phẳng mọi thứ.
+3. **Chấp nhận đây là cảnh đèn.** Ảnh sẽ ấm, sẽ tối hơn, sẽ có vùng chìm sâu.
+   Đó là **bộ mặt thật** của phòng, không phải lỗi render. Đừng cố kéo nó về "ban ngày tươi sáng".
+4. **Mốc lạnh lấy theo `08` §B7 nhánh lô-gia** — giữ vùng tối trung tính, đừng đi tìm nguồn lạnh.

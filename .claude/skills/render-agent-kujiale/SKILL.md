@@ -111,6 +111,17 @@ những gì suy được, ghi giả định ra, kê đơn đầy đủ.** Chỉ 
 > bố cục khung** — bốn nhóm lỗi mà **không tham số render nào cứu được**.
 > Kê đèn cho một model còn lỗi là bắt người dùng render nháp mấy vòng rồi mới biết phải quay lại sửa model.
 
+> ## 🔴 CÂU HỎI SỐ 0 — CỬA SỔ NHÌN RA ĐÂU?
+> **Không phải** *"có cửa sổ không"*. Là **nhìn ra CÁI GÌ**: trời mở · ban công hở ·
+> **lô-gia kỹ thuật** (có máy giặt/cục nóng) · hành lang · không có cửa.
+>
+> Lô-gia chỉ cho **10–20%** ánh so với trời mở. Kê phòng lô-gia như phòng có trời thì ra
+> **ảnh bẹt kem, và không vặn số nào cứu được** — đây là nguyên nhân gốc của 4 vòng hỏng ở ca 16–19.
+> Bảng đầy đủ ở `references/03-cong-thuc-phong.md` cuối file.
+>
+> Ảnh model không cho biết điều này. **Không suy được thì HỎI** — đây là một trong số rất ít
+> câu đáng chặn lại để hỏi, vì trả lời sai thì cả phiếu sai.
+
 Sáu câu phải tự trả lời trước khi kê:
 
 | Câu | Vì sao quyết định phiếu |
