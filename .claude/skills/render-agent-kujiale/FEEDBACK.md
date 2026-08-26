@@ -635,6 +635,10 @@ làm tốt hơn hẳn mọi ảnh AI đã test.
 
 ### 16 — 2026-08-25 — Phòng ngủ trẻ em (render Kujiale) — "màu đều quá, dễ lướt qua"
 
+> 📌 **Ca đầu tiên xuất PHIẾU THÔNG SỐ KUJIALE thật** (16 ca trước toàn prompt AI).
+> Phiếu gồm: 3 phương án màu xếp theo mức đụng thiết kế + phiếu đèn/camera/`高级设置` đầy đủ.
+> **Chờ feedback thực tế sau khi render.**
+
 **Vào:** ảnh render Kujiale, phòng ngủ trẻ em. Người dùng tự nhận xét: *"bố cục màu đang đều quá,
 chưa có điểm nhấn, cảm giác nhìn sẽ rất dễ lướt qua luôn"*.
 
