@@ -25,7 +25,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
    marketing (bắt buộc watermark "Ảnh minh họa AI" **trên ảnh**), sửa nháp tại chỗ khi tư vấn.
    Khi agent xuất prompt AI, luôn đính kèm một dòng cảnh báo phạm vi dùng.
 
-## Năm chế độ — chọn theo thứ bạn nhận được
+## Chế độ — chọn theo thứ bạn nhận được
 
 | Nhận vào | Chế độ | Đọc thêm | Xuất ra |
 |---|---|---|---|
@@ -33,7 +33,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
-| **Việc dính tới CLIP VIDEO**: cần một clip cho TikTok/Facebook · hỏi chi phí/giới hạn video Kujiale · dựng lộ trình máy ảnh · ghép render với cảnh quay điện thoại · chấm một clip đã dựng | **E. Video** | `references/09-video-clip.md` | `templates/phieu-clip-video.md` — nửa 1 kê đơn clip, hoặc nửa 2 chấm clip |
+| **Việc dính tới CLIP VIDEO**: cần một clip cho TikTok/Facebook · hỏi chi phí/giới hạn video Kujiale · dựng lộ trình máy ảnh · ghép render với cảnh quay điện thoại · chấm một clip đã dựng | **F. Video** | `references/09-video-clip.md` | `templates/phieu-clip-video.md` — nửa 1 kê đơn clip, hoặc nửa 2 chấm clip |
 
 ### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
 
@@ -169,7 +169,7 @@ không sửa được. Và luôn kèm cột "sửa ở chương nào".
 
 ---
 
-## Chế độ E — Clip video
+## Chế độ F — Clip video
 
 Đọc `references/09-video-clip.md`. Xuất theo `templates/phieu-clip-video.md` — **nửa 1** khi người dùng
 cần một clip, **nửa 2** khi họ đưa clip đã dựng để nghiệm thu.

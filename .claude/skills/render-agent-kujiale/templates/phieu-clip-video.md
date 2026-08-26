@@ -1,4 +1,4 @@
-# Mẫu — PHIẾU CLIP VIDEO (chế độ E)
+# Mẫu — PHIẾU CLIP VIDEO (chế độ F)
 
 Phiếu này có **hai nửa**. Dùng nửa nào thì xuất **trọn vẹn nửa đó**, không xuất mảnh.
 

@@ -1,6 +1,6 @@
 # Video clip — kê đơn lộ trình máy ảnh và chấm clip
 
-Gói kiến thức cho **chế độ E**. Hợp nhất C16 (xuất video), C17 (đường đi máy ảnh),
+Gói kiến thức cho **chế độ F**. Hợp nhất C16 (xuất video), C17 (đường đi máy ảnh),
 C18 (hậu kỳ clip dọc), C19 (nội dung ra khách).
 
 Ba luật nền của SKILL.md vẫn áp nguyên. Thêm **một luật riêng của video**:
