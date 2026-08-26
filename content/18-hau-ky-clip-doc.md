@@ -1,4 +1,4 @@
-# C17. Hậu kỳ clip dọc — từ file Kujiale tới video đăng được
+# C18. Hậu kỳ clip dọc — từ file Kujiale tới video đăng được
 
 > **Sau chương này bạn làm được:**
 > - Đặt quy ước xuất và đặt tên file để không bao giờ phải render lại vì lỡ ghi đè
@@ -22,9 +22,9 @@
 
 ---
 
-## 17.1. Quy ước xuất — quyết định trước khi render, không phải sau
+## 18.1. Quy ước xuất — quyết định trước khi render, không phải sau
 
-Kujiale tính tiền theo thời lượng (C15), nên mỗi giây render dư là 额度 vứt đi. Nguyên tắc: **render đúng cái sẽ dùng, ở độ nét đủ dùng, dọc sẵn nếu được.**
+Kujiale tính tiền theo thời lượng (C16), nên mỗi giây render dư là 额度 vứt đi. Nguyên tắc: **render đúng cái sẽ dùng, ở độ nét đủ dùng, dọc sẵn nếu được.**
 
 | Việc | Chốt thế nào |
 |---|---|
@@ -54,7 +54,7 @@ Quy ước tên: `[Căn]_[Phòng]_[Độ nét]_[phiên bản]`.
 
 ---
 
-## 17.2. Vì sao render và cảnh quay điện thoại "chỏi" nhau
+## 18.2. Vì sao render và cảnh quay điện thoại "chỏi" nhau
 
 Hai loại hình khác nhau về **bản chất vật lý**, không phải về thẩm mỹ:
 
@@ -67,11 +67,11 @@ Hai loại hình khác nhau về **bản chất vật lý**, không phải về 
 | Nhoè chuyển động | Thường không có | **Luôn có** khi chuyển động |
 | Quang sai / tối góc | Không | Có — đặc trưng ống kính điện thoại |
 
-Sáu dòng này chính là sáu việc phải làm ở 17.4. Mỗi dòng là một cách người xem nhận ra "cái này là 3D".
+Sáu dòng này chính là sáu việc phải làm ở 18.4. Mỗi dòng là một cách người xem nhận ra "cái này là 3D".
 
 ---
 
-## 17.3. Dạng 1 — clip toàn render
+## 18.3. Dạng 1 — clip toàn render
 
 Clip 20–40 giây toàn hình dựng dễ **đều đều gây chán**, vì máy 3D quá mượt và không có gì bất ngờ. Việc của khâu dựng là tạo **nhịp**, **điểm dừng** và **điểm nhấn**.
 
@@ -102,13 +102,13 @@ Clip 20–40 giây toàn hình dựng dễ **đều đều gây chán**, vì má
 
 **Speed ramp (`曲线变速`):** vào phòng chậm → lướt nhanh giữa phòng → chậm lại ở điểm đẹp. Thao tác: chọn clip → `变速` → `曲线变速` → `自定义`; thêm/bớt điểm bằng nút +/−; kéo điểm **lên = nhanh**, **xuống = chậm**.
 
-**Âm thanh:** render không có tiếng hiện trường — nó "vô hồn" theo đúng nghĩa đen. Thêm tiếng môi trường nhẹ (tiếng phố xa, tiếng chim ngoài ban công) và foley (bước chân, tiếng cửa) thì clip sống hẳn lên. Chi tiết ở C18.
+**Âm thanh:** render không có tiếng hiện trường — nó "vô hồn" theo đúng nghĩa đen. Thêm tiếng môi trường nhẹ (tiếng phố xa, tiếng chim ngoài ban công) và foley (bước chân, tiếng cửa) thì clip sống hẳn lên. Chi tiết ở C19.
 
 ---
 
-## 17.4. Dạng 2 — b-roll render xen clip quay thật ⭐ TRỌNG TÂM
+## 18.4. Dạng 2 — b-roll render xen clip quay thật ⭐ TRỌNG TÂM
 
-Đây là dạng ra khách tốt nhất (lý do ở C18) và cũng là dạng khó nhất về kỹ thuật.
+Đây là dạng ra khách tốt nhất (lý do ở C19) và cũng là dạng khó nhất về kỹ thuật.
 
 **Độ dài đoạn render xen vào: 3 giây là vừa nhất, tối đa 5 giây.** Đủ để khoe mà chưa kịp lộ chất render. Quá 5 giây, mắt bắt đầu nhận ra sự "quá hoàn hảo".
 
@@ -196,7 +196,7 @@ Hai cách:
 
 ---
 
-## 17.5. Dạng 3 — so sánh trước và sau
+## 18.5. Dạng 3 — so sánh trước và sau
 
 "Trước–sau" tạo khoảnh khắc "wow" tức thì và chứng minh năng lực. **Điểm hỏng chí mạng: hai bên không cùng một góc nhìn** — não người xem không so sánh được, hiệu ứng mất sạch.
 
@@ -239,7 +239,7 @@ Hai cách:
 
 ---
 
-## 17.6. Chọn phần mềm dựng
+## 18.6. Chọn phần mềm dựng
 
 | Công cụ | Ưu | Nhược | Kết luận |
 |---|---|---|---|
@@ -256,7 +256,7 @@ Hai cách:
 
 ---
 
-## 17.7. Quy trình một clip, có mốc thời gian
+## 18.7. Quy trình một clip, có mốc thời gian
 
 | Bước | Việc | Thời gian |
 |---|---|---|
@@ -280,7 +280,7 @@ Hai cách:
 
 ---
 
-## 17.8. Chuẩn xuất cuối
+## 18.8. Chuẩn xuất cuối
 
 | Thông số | TikTok | Facebook Reels |
 |---|---|---|
@@ -317,15 +317,15 @@ Tạo một bản nháp CapCut khung 1080×1920 với: lớp grain phủ toàn t
 *Tiêu chí đạt:* người khác mở bản nháp lên, thả clip vào, xuất được ngay mà không phải chỉnh gì về khung và vùng an toàn.
 
 **Bài 2 — Bài luyện mắt quan trọng nhất chương:**
-Lấy một đoạn render 3 giây và một đoạn quay điện thoại cùng phòng. Ghép cạnh nhau, **xuất bản A không chỉnh gì**. Rồi chạy đủ sáu kỹ thuật ở 17.4, **xuất bản B**. Xem cả hai trên điện thoại thật, không phải trên màn máy tính.
+Lấy một đoạn render 3 giây và một đoạn quay điện thoại cùng phòng. Ghép cạnh nhau, **xuất bản A không chỉnh gì**. Rồi chạy đủ sáu kỹ thuật ở 18.4, **xuất bản B**. Xem cả hai trên điện thoại thật, không phải trên màn máy tính.
 *Tiêu chí đạt:* đưa bản B cho một người không làm nghề xem, hỏi "đoạn nào là hình dựng" — họ chỉ sai hoặc phải xem lại mới đoán được.
 
 **Bài 3 — Trước–sau khớp góc:**
-Chọn một căn có ảnh chụp thô. Dựng camera Kujiale khớp đúng góc ảnh chụp theo quy trình 5 bước ở 17.5. Xuất clip trước–sau kiểu **lật qua lật lại**, giữ trước 2 s / sau 3 s, cắt trúng nhịp.
+Chọn một căn có ảnh chụp thô. Dựng camera Kujiale khớp đúng góc ảnh chụp theo quy trình 5 bước ở 18.5. Xuất clip trước–sau kiểu **lật qua lật lại**, giữ trước 2 s / sau 3 s, cắt trúng nhịp.
 *Tiêu chí đạt:* đặt hai khung hình chồng lên nhau, các mốc cố định (góc tường, cạnh cửa sổ) lệch không quá một phần mười chiều rộng khung.
 
 **Bài 4 — Xuất và soi trên máy thật:**
-Xuất bản cuối theo chuẩn 17.8. Đăng ở chế độ riêng tư lên cả TikTok lẫn Facebook. Soi trên điện thoại.
+Xuất bản cuối theo chuẩn 18.8. Đăng ở chế độ riêng tư lên cả TikTok lẫn Facebook. Soi trên điện thoại.
 *Tiêu chí đạt:* không chữ nào bị nút che ở cả hai nền tảng; hình không vỡ ở cảnh nhiều chi tiết; không thấy dải màu loang trên tường trơn.
 
 ## Checklist tự chấm
@@ -346,10 +346,10 @@ Xuất bản cuối theo chuẩn 17.8. Đăng ở chế độ riêng tư lên c�
 
 | Hiện tượng | Nguyên nhân | Cách sửa |
 |---|---|---|
-| Đoạn render "chỏi" hẳn ra khỏi clip | Chưa chỉnh màu, chưa có grain, quá nét, đứng yên tuyệt đối | Chạy đủ sáu kỹ thuật 17.4; ưu tiên grain + chỉnh màu trước |
+| Đoạn render "chỏi" hẳn ra khỏi clip | Chưa chỉnh màu, chưa có grain, quá nét, đứng yên tuyệt đối | Chạy đủ sáu kỹ thuật 18.4; ưu tiên grain + chỉnh màu trước |
 | Hình quá mượt, trông giả | Máy 3D chuyển động quá đều, thiếu nhoè chuyển động | Thêm rung giả ±1–2%, grain, làm mờ chuyển động nhẹ; **tránh tua trên 2×** |
 | Người xem bình luận "cái này là hình 3D à" | Grain quá ít, `锐化` quá cao | **Tăng grain, giảm `锐化`, thêm rung** — theo đúng thứ tự đó |
-| Chuyển cảnh gây chóng mặt | Máy Kujiale bay quá nhanh / quay đầu quá gấp | Sửa ở gốc: giảm tốc trong Kujiale (C16); tạm thời giảm tốc đoạn đó ở CapCut |
+| Chuyển cảnh gây chóng mặt | Máy Kujiale bay quá nhanh / quay đầu quá gấp | Sửa ở gốc: giảm tốc trong Kujiale (C17); tạm thời giảm tốc đoạn đó ở CapCut |
 | Chữ bị nút TikTok/FB che | Đặt chữ ngoài vùng an toàn | Giữ trong ~896×1306 px; cách đáy ≥ 484 px |
 | Clip lên nền tảng bị nén vỡ hình | Bitrate thấp + cảnh nhiều chi tiết; dải màu bị vỡ | Xuất 8–12 Mbps; **thêm chút grain để phá vỡ dải màu**; tránh mảng chuyển màu trơn lớn |
 | Nhạc lệch nhịp cắt | Cắt không trúng beat | Dùng `踩点` (đánh dấu nhịp) trong CapCut, cắt trúng điểm nhịp |
@@ -360,7 +360,7 @@ Xuất bản cuối theo chuẩn 17.8. Đăng ở chế độ riêng tư lên c�
 ## Nguồn số liệu
 
 **Chính thức:**
-- Cơ chế 视频额度 (15 giây = 1 额度), độ nét ảnh hưởng mức tiêu hao: Kujiale bài 3FO4K4WM9WHW — xem C15
+- Cơ chế 视频额度 (15 giây = 1 额度), độ nét ảnh hưởng mức tiêu hao: Kujiale bài 3FO4K4WM9WHW — xem C16
 - `全景图小视频` 5/20 lượt/ngày, cố định 15 giây, một phòng: Kujiale bài 3FO4JYHXYBMA
 - Bản `极速` hỗ trợ 16:9 / 4:3 / 3:4 / 1:1, đổi tỉ lệ không giãn khung: thông báo 《酷家乐极速版渲染上线》
 - Độ nét 480P/720P/1080P và giới hạn ban ngày: Kujiale bài 3FO4K4WNDBNE

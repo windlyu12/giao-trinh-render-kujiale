@@ -1,7 +1,7 @@
 # Video clip — kê đơn lộ trình máy ảnh và chấm clip
 
-Gói kiến thức cho **chế độ E**. Hợp nhất C15 (xuất video), C16 (đường đi máy ảnh),
-C17 (hậu kỳ clip dọc), C18 (nội dung ra khách).
+Gói kiến thức cho **chế độ E**. Hợp nhất C16 (xuất video), C17 (đường đi máy ảnh),
+C18 (hậu kỳ clip dọc), C19 (nội dung ra khách).
 
 Ba luật nền của SKILL.md vẫn áp nguyên. Thêm **một luật riêng của video**:
 
@@ -164,26 +164,26 @@ Lướt trong 3 giây đầu → ghi lại **cái gì làm mình lướt**. Vẫ
 
 | # | Tiêu chí | ĐẠT (4–5đ) | Lỗi điển hình (1–2đ) | Sửa ở |
 |---|---|---|---|---|
-| 1 | **Không gây chóng mặt** | Xem hết không nôn nao | Đi nhanh + FOV rộng + xoay gấp | C16 §16.2 |
-| 2 | **Mỗi đoạn một chuyển động** | Tiến, HOẶC xoay, HOẶC nâng | Vừa tiến vừa xoay vừa nâng → "như lái xe trong game" | C16 §16.2 |
-| 3 | **Vào–ra mềm** | Đầu/cuối đoạn chậm lại | Khựng ở hai đầu (điểm mốc đặt đều) | C16 §16.3 (điểm mốc kép) |
-| 4 | **Độ cao và FOV đúng** | 1500–1600 mm, FOV cố định trong đoạn | Máy quá thấp; hình "thở" phồng-xẹp | C16 §16.4 |
+| 1 | **Không gây chóng mặt** | Xem hết không nôn nao | Đi nhanh + FOV rộng + xoay gấp | C17 §17.2 |
+| 2 | **Mỗi đoạn một chuyển động** | Tiến, HOẶC xoay, HOẶC nâng | Vừa tiến vừa xoay vừa nâng → "như lái xe trong game" | C17 §17.2 |
+| 3 | **Vào–ra mềm** | Đầu/cuối đoạn chậm lại | Khựng ở hai đầu (điểm mốc đặt đều) | C17 §17.3 (điểm mốc kép) |
+| 4 | **Độ cao và FOV đúng** | 1500–1600 mm, FOV cố định trong đoạn | Máy quá thấp; hình "thở" phồng-xẹp | C17 §17.4 |
 
 ### Nhóm 2 — ĐỘ CHỎI RENDER ↔ QUAY THẬT (3 tiêu chí — nặng nhất với clip lai)
 
 | # | Tiêu chí | ĐẠT | Lỗi điển hình | Sửa ở |
 |---|---|---|---|---|
-| 5 | **Màu khớp** | Mảng tường trắng/gỗ hai bên cùng tông | Render ám vàng rực hẳn so với đoạn quay | C17 §17.4 ① |
-| 6 | **Chất liệu khớp** | Grain phủ đều toàn clip; render không nét hơn hẳn | Render sạch bong, sắc lạnh giữa clip có hạt | C17 §17.4 ②④ |
-| 7 | **Mối nối giấu được** | Người ngoài không chỉ đúng hết chỗ nối | Cắt lộ; dùng chuyển cảnh sặc sỡ | C17 §17.4 ⑤ |
+| 5 | **Màu khớp** | Mảng tường trắng/gỗ hai bên cùng tông | Render ám vàng rực hẳn so với đoạn quay | C18 §18.4 ① |
+| 6 | **Chất liệu khớp** | Grain phủ đều toàn clip; render không nét hơn hẳn | Render sạch bong, sắc lạnh giữa clip có hạt | C18 §18.4 ②④ |
+| 7 | **Mối nối giấu được** | Người ngoài không chỉ đúng hết chỗ nối | Cắt lộ; dùng chuyển cảnh sặc sỡ | C18 §18.4 ⑤ |
 
 ### Nhóm 3 — NHỊP VÀ NỘI DUNG (3 tiêu chí)
 
 | # | Tiêu chí | ĐẠT | Lỗi điển hình | Sửa ở |
 |---|---|---|---|---|
-| 8 | **Ba giây đầu giữ chân** | Mở bằng kết quả/nỗi đau/biến hình | Mở bằng lia chậm qua phòng trống | C18 §18.3 |
-| 9 | **Nhịp cắt** | Cảnh đổi mỗi 2–4 s, cắt trúng beat | Một cú máy dài đều đều; nhạc lệch nhịp | C17 §17.3, C18 §18.4 |
-| 10 | **Đăng được ngay** | Chữ trong vùng an toàn, xuất đúng chuẩn, có ghi "Hình minh hoạ 3D" | Chữ bị nút che; hình vỡ khi nén; không ghi minh bạch | C17 §17.8, C18 §18.8 |
+| 8 | **Ba giây đầu giữ chân** | Mở bằng kết quả/nỗi đau/biến hình | Mở bằng lia chậm qua phòng trống | C19 §19.3 |
+| 9 | **Nhịp cắt** | Cảnh đổi mỗi 2–4 s, cắt trúng beat | Một cú máy dài đều đều; nhạc lệch nhịp | C18 §18.3, C19 §19.4 |
+| 10 | **Đăng được ngay** | Chữ trong vùng an toàn, xuất đúng chuẩn, có ghi "Hình minh hoạ 3D" | Chữ bị nút che; hình vỡ khi nén; không ghi minh bạch | C18 §18.8, C19 §19.8 |
 
 **Ngưỡng:** **ĐẠT ≥ 40** (không tiêu chí nào ≤ 2, qua test mở màn) · **SỬA LẠI 30–39** ·
 **LÀM LẠI < 30**.
@@ -193,7 +193,7 @@ giây thì người dựng không sửa được. Luôn kèm cột "sửa ở ch
 
 ### Thứ tự ưu tiên khi cứu một clip nhìn giả
 
-> **Đường đi máy (C16) > độ chỏi render↔thật (C17 §17.4) > nhịp cắt (C17 §17.3) > chữ và xuất file**
+> **Đường đi máy (C17) > độ chỏi render↔thật (C18 §18.4) > nhịp cắt (C18 §18.3) > chữ và xuất file**
 
 Và chẩn đoán 3 bước trước khi đề xuất bất cứ thao tác CapCut nào:
 ```

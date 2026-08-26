@@ -33,7 +33,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
-| **Việc dính tới CLIP VIDEO**: cần một clip cho TikTok/Facebook · hỏi chi phí/giới hạn video Kujiale · dựng lộ trình máy ảnh · ghép render với cảnh quay điện thoại · chấm một clip đã dựng | **E. Video** | `references/08-video-clip.md` | `templates/phieu-clip-video.md` — nửa 1 kê đơn clip, hoặc nửa 2 chấm clip |
+| **Việc dính tới CLIP VIDEO**: cần một clip cho TikTok/Facebook · hỏi chi phí/giới hạn video Kujiale · dựng lộ trình máy ảnh · ghép render với cảnh quay điện thoại · chấm một clip đã dựng | **E. Video** | `references/09-video-clip.md` | `templates/phieu-clip-video.md` — nửa 1 kê đơn clip, hoặc nửa 2 chấm clip |
 
 ### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
 
@@ -171,7 +171,7 @@ không sửa được. Và luôn kèm cột "sửa ở chương nào".
 
 ## Chế độ E — Clip video
 
-Đọc `references/08-video-clip.md`. Xuất theo `templates/phieu-clip-video.md` — **nửa 1** khi người dùng
+Đọc `references/09-video-clip.md`. Xuất theo `templates/phieu-clip-video.md` — **nửa 1** khi người dùng
 cần một clip, **nửa 2** khi họ đưa clip đã dựng để nghiệm thu.
 
 Bốn luật nền vẫn áp nguyên. Thêm một luật riêng và ba việc bắt buộc:
@@ -289,10 +289,10 @@ Cần gì đọc nấy trong repo (đường dẫn từ gốc repo):
 | Trần giật cấp, khe hắt, đèn âm trần, ray nam châm, khe gió | `content/12-chi-tiet-cong-trinh.md` |
 | 4 con đường bố đèn, 2 quy luật phụ thuộc, nắng qua rèm, render cả bộ | `content/13-anh-sang-nang-cao.md` |
 | Đường cong, hạt nhiễu, dải màu, cứu cháy/tối | `content/14-hau-ky-nang-cao.md` |
-| Xuất video: dạng nào, 视频额度, giới hạn, dọc 9:16, năm thứ máy không làm được | `content/15-xuat-video-kujiale.md` |
-| Đường đi máy ảnh: `关键帧`, chống say hình, 4 lộ trình mẫu, đặt máy cho khung dọc | `content/16-duong-di-may-anh.md` |
-| Hậu kỳ clip: 6 kỹ thuật ghép render↔quay thật, trước–sau, chuẩn xuất, vùng an toàn | `content/17-hau-ky-clip-doc.md` |
-| Nội dung clip: 6 dạng, ba giây đầu, tỉ lệ thật/render, quy đổi Trung→Việt, minh bạch 3D | `content/18-noi-dung-clip-ra-khach.md` |
+| Xuất video: dạng nào, 视频额度, giới hạn, dọc 9:16, năm thứ máy không làm được | `content/16-xuat-video-kujiale.md` |
+| Đường đi máy ảnh: `关键帧`, chống say hình, 4 lộ trình mẫu, đặt máy cho khung dọc | `content/17-duong-di-may-anh.md` |
+| Hậu kỳ clip: 6 kỹ thuật ghép render↔quay thật, trước–sau, chuẩn xuất, vùng an toàn | `content/18-hau-ky-clip-doc.md` |
+| Nội dung clip: 6 dạng, ba giây đầu, tỉ lệ thật/render, quy đổi Trung→Việt, minh bạch 3D | `content/19-noi-dung-clip-ra-khach.md` |
 | Rubric chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` |
 | Cheat sheet ~97 thuật ngữ Trung–Việt | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` |
 | Ngân hàng 10 case thực chiến + bảng hội tụ/bảng vênh | `content/phu-luc-e-ngan-hang-case.md` |

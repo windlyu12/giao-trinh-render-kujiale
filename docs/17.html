@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chương 17. Hậu kỳ clip dọc — Giáo trình Render Kujiale</title>
+<title>Chương 17. Đường đi máy ảnh — Giáo trình Render Kujiale</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<style>:root{--accent:#3959de;--accent-soft:color-mix(in srgb, #3959de 13%, transparent);}</style>
+<style>:root{--accent:#3d55da;--accent-soft:color-mix(in srgb, #3d55da 13%, transparent);}</style>
 </head>
 <body data-slug="17">
 <div id="progress"></div>
@@ -17,679 +17,566 @@
     <span class="name">Giáo trình<br>Render Kujiale</span>
     <span class="kelvin-bar"></span>
   </a>
-  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="15" href="15.html" style="--c:#2470f2"><span class="chip">15</span><span>Xuất video từ Kujiale</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="16" href="16.html" style="--c:#2b64e8"><span class="chip">16</span><span>Đường đi máy ảnh</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="17" href="17.html" style="--c:#3959de"><span class="chip">17</span><span>Hậu kỳ clip dọc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="18" href="18.html" style="--c:#484ed4"><span class="chip">18</span><span>Nội dung clip ra khách</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="16" href="16.html" style="--c:#2f5ee2"><span class="chip">16</span><span>Xuất video từ Kujiale</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="17" href="17.html" style="--c:#3d55da"><span class="chip">17</span><span>Đường đi máy ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="18" href="18.html" style="--c:#4b4dd2"><span class="chip">18</span><span>Hậu kỳ clip dọc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="19" href="19.html" style="--c:#5946ca"><span class="chip">19</span><span>Nội dung clip ra khách</span><span class="done-dot"></span></a></div>
   <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Sổ ghi nhận khi dùng app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
 </nav>
 <main class="main"><div class="page">
   <header class="ch-head">
     <div class="ch-no">17</div>
-    <div class="ch-meta"><span class="tag">Chương 17</span><span class="tag ghost">≈ 25 phút đọc</span></div>
-    <h1 class="ch-title">Hậu kỳ clip dọc</h1>
-    <p class="ch-hook">Kéo render về phía cảnh quay thật, ghép b-roll không chỏi, xuất chuẩn TikTok–Facebook.</p>
+    <div class="ch-meta"><span class="tag">Chương 17</span><span class="tag ghost">≈ 22 phút đọc</span></div>
+    <h1 class="ch-title">Đường đi máy ảnh</h1>
+    <p class="ch-hook">Điểm mốc, tốc độ, góc nhìn — làm clip dạo quanh mượt và không gây chóng mặt.</p>
   </header>
-  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#luat-so-mot-cua-ca-chuong">📌 LUẬT SỐ MỘT CỦA CẢ CHƯƠNG</a></li><li><a href="#keo-render-ve-phia-quay-that-khong-bao-gio-keo-nguoc-lai">KÉO RENDER VỀ PHÍA QUAY THẬT. KHÔNG BAO GIỜ KÉO NGƯỢC LẠI.</a></li><li><a href="#171-quy-uoc-xuat-quyet-inh-truoc-khi-render-khong-phai-sau">17.1. Quy ước xuất — quyết định trước khi render, không phải sau</a></li><li><a href="#172-vi-sao-render-va-canh-quay-ien-thoai-choi-nhau">17.2. Vì sao render và cảnh quay điện thoại "chỏi" nhau</a></li><li><a href="#173-dang-1-clip-toan-render">17.3. Dạng 1 — clip toàn render</a></li><li><a href="#174-dang-2-b-roll-render-xen-clip-quay-that-trong-tam">17.4. Dạng 2 — b-roll render xen clip quay thật ⭐ TRỌNG TÂM</a></li><li><a href="#meo-cua-dan-dung-phim-phu-mot-lop-grain-len-toan-bo-timeline-ca-oan-quay-that-lan-oan-render-thay-vi-chi-them-vao-render">📌 Mẹo của dân dựng phim: phủ MỘT lớp grain lên TOÀN BỘ timeline — cả đoạn quay thật lẫn đoạn render — thay vì chỉ thêm vào render.</a></li><li><a href="#175-dang-3-so-sanh-truoc-va-sau">17.5. Dạng 3 — so sánh trước và sau</a></li><li><a href="#khong-co-anh-that-thi-dung-render-phong-trong-lam-truoc-cung-mot-camera-khop-goc-tuyet-oi-va-ton-them-rat-it">📌 Không có ảnh thật thì dựng render phòng trống làm "trước". Cùng một camera, khớp góc tuyệt đối, và tốn thêm rất ít 额度.</a></li><li><a href="#176-chon-phan-mem-dung">17.6. Chọn phần mềm dựng</a></li><li><a href="#177-quy-trinh-mot-clip-co-moc-thoi-gian">17.7. Quy trình một clip, có mốc thời gian</a></li><li><a href="#178-chuan-xuat-cuoi">17.8. Chuẩn xuất cuối</a></li><li><a href="#mot-file-10801920-h264-aac-30fps-8-mbps-mp4-dung-uoc-cho-ca-tiktok-lan-facebook-khong-can-xuat-hai-ban">Một file 1080×1920, H.264, AAC, 30fps, ~8 Mbps, MP4 dùng được cho cả TikTok lẫn Facebook. Không cần xuất hai bản.</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li><li><a href="#tu-tra-video-thuc-chien">Tự tra video thực chiến</a></li></ol></details>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#canh-bao-au-chuong-bon-thu-kujiale-khong-co">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — BỐN THỨ KUJIALE KHÔNG CÓ</a></li><li><a href="#171-uong-i-uoc-dung-the-nao">17.1. Đường đi được dựng thế nào</a></li><li><a href="#172-vi-sao-nguoi-xem-chong-mat-co-che-khong-phai-ung-i-nhanh">17.2. Vì sao người xem chóng mặt — cơ chế, không phải "đừng đi nhanh"</a></li><li><a href="#1-i-cham-2-moi-oan-chi-mot-chuyen-ong-3-goc-nhin-6075-4-gia-ease-hai-au">① Đi chậm · ② Mỗi đoạn CHỈ MỘT chuyển động · ③ Góc nhìn 60–75° · ④ Giả ease hai đầu</a></li><li><a href="#173-ieu-khien-uoc-gi-cai-nao-oi-giua-chung-cai-nao-co-inh">17.3. Điều khiển được gì — cái nào đổi giữa chừng, cái nào cố định</a></li><li><a href="#at-hai-iem-moc-rat-gan-nhau-o-au-oan-hai-iem-moc-gan-nhau-o-cuoi-oan-cac-iem-giua-thua-hon">Đặt HAI điểm mốc rất gần nhau ở ĐẦU đoạn, HAI điểm mốc gần nhau ở CUỐI đoạn, các điểm giữa thưa hơn.</a></li><li><a href="#174-so-that-cho-can-ho-chung-cu-6090-m2-tran-27-m">17.4. Số thật cho căn hộ chung cư 60–90 m², trần 2,7 m</a></li><li><a href="#chu-y-chieu-cao-may-quay-video-khac-chieu-cao-may-chup-anh-tinh">📌 CHÚ Ý — chiều cao máy quay video KHÁC chiều cao máy chụp ảnh tĩnh</a></li><li><a href="#175-at-may-sao-cho-cat-doc-916-van-u-hinh">17.5. Đặt máy sao cho cắt dọc 9:16 vẫn đủ hình</a></li><li><a href="#176-bon-lo-trinh-mau">17.6. Bốn lộ trình mẫu</a></li><li><a href="#177-sau-loi-lam-hong-mot-clip-dao-quanh">17.7. Sáu lỗi làm hỏng một clip dạo quanh</a></li><li><a href="#178-ghep-nhieu-oan-ngan-hay-xuat-mot-oan-dai">17.8. Ghép nhiều đoạn ngắn hay xuất một đoạn dài?</a></li><li><a href="#voi-tiktokfacebook-xuat-nhieu-oan-ngan-moi-oan-mot-chuyen-ong-310-giay-roi-ghep-o-capcut">Với TikTok/Facebook: xuất nhiều đoạn ngắn — mỗi đoạn MỘT chuyển động, 3–10 giây — rồi ghép ở CapCut.</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li><li><a href="#tu-tra-video-thuc-chien">Tự tra video thực chiến</a></li></ol></details>
   <article class="content"><blockquote class="tip">
 <p><strong>Sau chương này bạn làm được:</strong>
-- Đặt quy ước xuất và đặt tên file để không bao giờ phải render lại vì lỡ ghi đè
-- Dựng ba dạng clip: toàn render · render xen quay thật · so sánh trước–sau
-- Kéo đoạn render về phía cảnh quay điện thoại bằng sáu kỹ thuật cụ thể, có số
-- Chọn đúng kiểu chuyển cảnh, và biết kiểu nào làm lộ "mùi phần mềm"
-- Xuất một file dùng được cho cả TikTok lẫn Facebook, chữ không bị nút che
-- Lưu một bản mẫu để clip thứ hai trở đi làm trong 45 phút thay vì 2 tiếng</p>
+- Dựng đường đi bằng <code>关键帧</code> và hiểu vì sao Kujiale không có "đồ thị tốc độ" như 3ds Max
+- Đặt tốc độ, chiều cao, góc nhìn sao cho người xem không chóng mặt — có số để bắt đầu
+- Giả được hiệu ứng vào–ra mượt (ease) bằng cách bố trí điểm mốc, dù máy không có nút đó
+- Chạy được bốn lộ trình mẫu: vào nhà · đi hết căn một hơi · xoay quanh điểm nhấn · b-roll
+- Đặt máy sao cho <strong>cắt dọc 9:16 vẫn đủ hình</strong> — nghĩ trước, thay vì cắt bừa lúc dựng
+- Biết sáu lỗi làm hỏng một clip dạo quanh và chặn từng lỗi ở đâu</p>
 </blockquote>
 <hr>
+<blockquote class="warn">
+<h2 id="canh-bao-au-chuong-bon-thu-kujiale-khong-co">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — BỐN THỨ KUJIALE KHÔNG CÓ</h2>
+<p>Trước khi tìm mãi không thấy nút, biết trước cho đỡ mất thời gian. Kujiale <strong>không có</strong>:</p>
+<ol>
+<li><strong>Nút ease-in / ease-out</strong> (vào chậm – ra chậm)</li>
+<li><strong>Mẫu tốc độ <code>慢</code>/<code>中</code>/<code>快</code></strong> (chậm/vừa/nhanh)</li>
+<li><strong>Rung tay cầm</strong> (handheld shake) — chuyển động của Kujiale phẳng lì như ray trượt</li>
+<li><strong>Phát hiện va chạm</strong> (collision detection) — <strong>máy đi xuyên tường tự do, không ai chặn bạn</strong></li>
+</ol>
+<p>Cả bốn đều mô phỏng được: ba cái đầu bằng cách bố trí điểm mốc khéo + hậu kỳ CapCut (C18); cái thứ tư thì <strong>chỉ có mắt bạn và nút Play xem trước</strong> lo được.</p>
+<p>Và <strong>không có đồ thị tốc độ (curve editor)</strong> như 3ds Max/After Effects. Mọi kỹ thuật kéo đồ thị bạn thấy trong tutorial 3ds Max không áp được ở đây — chương này mượn <em>nguyên lý</em>, rồi dịch thành thao tác đặt điểm mốc.</p>
+</blockquote>
+<hr>
+<h2 id="171-uong-i-uoc-dung-the-nao">17.1. Đường đi được dựng thế nào</h2>
+<p>Cơ chế: <strong>ĐIỂM MỐC + NỘI SUY TỰ ĐỘNG</strong>. Bạn không vẽ đường bằng tay.</p>
+<p><code>Video hoàn chỉnh
+  └── nhiều 片段 (piànduàn — đoạn)
+        └── mỗi đoạn chứa nhiều 关键帧 (guānjiànzhēn — điểm mốc / keyframe)
+              └── Kujiale TỰ TÍNH chuyển động trơn giữa hai điểm mốc kề nhau</code></p>
+<p>Ba cách tạo đường đi, tài khoản cá nhân dùng được cả ba:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cách</th>
+<th>Thao tác</th>
+<th>Khi nào dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nhập từ <code>镜头库</code></strong> (thư viện cú máy)</td>
+<td>Chọn cú máy gợi ý theo phòng → bấm <code>导入</code> (nhập)</td>
+<td>Làm nhanh, b-roll, người mới</td>
+</tr>
+<tr>
+<td><strong>Thủ công bằng <code>关键帧</code></strong></td>
+<td>Đặt cú máy đầu → <code>添加片段</code> (thêm đoạn) → chỉnh cú máy tiếp → lặp lại</td>
+<td>Kiểm soát chính xác — cách chính của chương này</td>
+</tr>
+<tr>
+<td><strong><code>一键导入全屋漫游镜头</code></strong></td>
+<td>Một chạm nhập cú máy dạo cả nhà</td>
+<td>Nháp nhanh cả căn rồi sửa</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Năm mẫu chuyển động (<code>运镜</code>) có sẵn:</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tên</th>
+<th>Nghĩa</th>
+<th>Dùng cho</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>直线</code></td>
+<td>Đi thẳng</td>
+<td>Đẩy vào phòng, đi dọc hành lang</td>
+</tr>
+<tr>
+<td><code>曲线</code></td>
+<td>Đi cong</td>
+<td>Vòng qua bàn ăn, lượn quanh đảo bếp</td>
+</tr>
+<tr>
+<td><code>垂直</code></td>
+<td>Nâng / hạ</td>
+<td>Mở từ chi tiết sàn lên toàn cảnh</td>
+</tr>
+<tr>
+<td><code>环拍</code></td>
+<td>Xoay quanh một điểm</td>
+<td>Khoe một chủ thể: đảo bếp, vách TV</td>
+</tr>
+<tr>
+<td><code>聚焦</code></td>
+<td>Lấy nét vào chủ thể</td>
+<td>Giữ mắt người xem ở một vật</td>
+</tr>
+</tbody>
+</table></div>
+<p>Có nút <strong>Play xem trước</strong> đường đi — <strong>miễn phí, dùng trước khi trả 额度</strong>, luôn luôn.</p>
+<hr>
+<h2 id="172-vi-sao-nguoi-xem-chong-mat-co-che-khong-phai-ung-i-nhanh">17.2. Vì sao người xem chóng mặt — cơ chế, không phải "đừng đi nhanh"</h2>
+<p>Say khi xem video gọi là <strong>vection</strong>: ảo giác tự chuyển động khi mắt thấy cảnh chạy mà tai trong báo cơ thể đang đứng yên. Nghiên cứu trên PLOS One (Kooijman và cộng sự, journal.pone.0175305) đo được <em>"VIMS increases with vection strength"</em> — chứng say do thị giác tăng theo cường độ vection (tương quan R² = 0,48).</p>
+<p>Ba thứ <strong>trong tay bạn</strong> làm vection mạnh lên:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Yếu tố</th>
+<th>Vì sao gây say</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Đi quá nhanh</strong></td>
+<td>Dòng chảy hình ảnh (optical flow) toàn màn hình tăng vọt → não đọc là "tôi đang lao đi" nhưng thân không động</td>
+</tr>
+<tr>
+<td><strong>Góc nhìn quá rộng</strong></td>
+<td>Optical flow ở <strong>rìa khung</strong> tăng mạnh — đúng vùng nhạy vection nhất. Game Accessibility Guidelines: <em>"If the field of view is significantly different to what the eye/brain expects to see, it can result in motion sickness"</em></td>
+</tr>
+<tr>
+<td><strong>Xoay / lắc gấp</strong></td>
+<td>Vector chuyển động đổi hướng đột ngột — xung đột thị giác–tiền đình lớn nhất khi quay</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Số gốc đến từ nghiên cứu VR</strong> (kính VR có góc nhìn 110°, mạnh hơn màn phẳng nhiều). Áp cho video xem trên điện thoại là <strong>ngưỡng thận trọng</strong> — thực tế màn phẳng chịu được rộng hơn chút. Nhưng giữ trong dải khuyến nghị vẫn là vùng an toàn nhất, và <strong>không mất gì</strong>.</p>
+</blockquote>
+<p><strong>Bốn quyết định chống say, xếp theo sức nặng:</strong></p>
+<blockquote>
+<h2 id="1-i-cham-2-moi-oan-chi-mot-chuyen-ong-3-goc-nhin-6075-4-gia-ease-hai-au">① Đi chậm · ② Mỗi đoạn CHỈ MỘT chuyển động · ③ Góc nhìn 60–75° · ④ Giả ease hai đầu</h2>
+</blockquote>
+<p>Quyết định ② là quyết định người mới hay phá nhất: vừa tiến vừa xoay vừa nâng máy trong cùng một đoạn. Kết quả là thứ chuyển động không ai quay được ngoài đời — mắt đọc ngay ra "game", và bụng thì cồn cào.</p>
+<hr>
+<h2 id="173-ieu-khien-uoc-gi-cai-nao-oi-giua-chung-cai-nao-co-inh">17.3. Điều khiển được gì — cái nào đổi giữa chừng, cái nào cố định</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tham số</th>
+<th>Nghĩa</th>
+<th>Cấp điều khiển</th>
+<th>Đổi giữa chừng?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>高度</code></td>
+<td>Độ cao máy</td>
+<td><code>关键帧</code></td>
+<td><strong>Có</strong> — nâng/hạ dọc tuyến</td>
+</tr>
+<tr>
+<td><code>俯仰角度</code></td>
+<td>Góc ngẩng / cúi</td>
+<td><code>关键帧</code></td>
+<td><strong>Có</strong></td>
+</tr>
+<tr>
+<td><code>视野范围</code></td>
+<td>Trường nhìn (FOV)</td>
+<td><code>关键帧</code></td>
+<td><strong>Có</strong> — nhưng nên hạn chế đổi, xem lỗi "thở ống kính"</td>
+</tr>
+<tr>
+<td><code>相机裁剪</code></td>
+<td>Cắt khung</td>
+<td><code>关键帧</code></td>
+<td><strong>Có</strong></td>
+</tr>
+<tr>
+<td><code>聚焦</code></td>
+<td>Điểm lấy nét</td>
+<td><code>片段</code></td>
+<td>❌ Cố định trong cả đoạn</td>
+</tr>
+<tr>
+<td><code>相机矫正</code></td>
+<td>Sửa méo phối cảnh (dựng thẳng đường đứng)</td>
+<td><code>片段</code></td>
+<td>❌ Cố định trong cả đoạn</td>
+</tr>
+</tbody>
+</table></div>
+<p>Chỉnh thô trên mặt bằng <strong>2D</strong>: di chuyển, xoay, đảo chiều (<code>移动</code> / <code>旋转</code> / <code>反向</code>) cả đường đi cùng lúc.</p>
+<h3 id="toc-o-su-that-thang-than">Tốc độ — sự thật thẳng thắn</h3>
+<p><strong>Không có ô nhập "m/s". Không có ô "tổng thời lượng".</strong> Tốc độ = <strong>khoảng cách giữa hai điểm mốc ÷ thời gian đoạn</strong>. Muốn chậm lại: kéo hai điểm mốc lại gần nhau <strong>hoặc</strong> kéo dài thời gian đoạn.</p>
+<h3 id="gia-ease-meo-quan-trong-nhat-chuong">Giả ease — mẹo quan trọng nhất chương</h3>
+<p>Kujiale không có nút vào chậm – ra chậm. Nhưng nội suy tự động thì luôn chạy. Nên:</p>
+<blockquote>
+<h2 id="at-hai-iem-moc-rat-gan-nhau-o-au-oan-hai-iem-moc-gan-nhau-o-cuoi-oan-cac-iem-giua-thua-hon">Đặt HAI điểm mốc rất gần nhau ở ĐẦU đoạn, HAI điểm mốc gần nhau ở CUỐI đoạn, các điểm giữa thưa hơn.</h2>
+<p>Máy sẽ tự chạy <strong>chậm → nhanh → chậm</strong>. Đó chính là ease.</p>
+</blockquote>
+<p>Cả chương gọi cặp điểm này là <strong>"điểm mốc kép"</strong>. Nó xuất hiện ở đầu và cuối cả bốn lộ trình mẫu bên dưới.</p>
+<p><em>(Nguyên lý mượn từ Lumion — phần mềm có sẵn nút này: "we ticked the 'ease in smooth' and 'ease out smooth' buttons to ensure a consistent camera speed". Kujiale không có nút, ta làm bằng tay.)</em></p>
+<hr>
+<h2 id="174-so-that-cho-can-ho-chung-cu-6090-m2-tran-27-m">17.4. Số thật cho căn hộ chung cư 60–90 m², trần 2,7 m</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hạng mục</th>
+<th>Dải dùng được ngay</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tốc độ di chuyển</strong></td>
+<td><strong>0,4–0,7 m/s</strong> — chậm hơn đi bộ (1,2–1,4 m/s). Quy đổi sang Kujiale: đoạn dài ~3 m thì kéo <strong>5–7 giây</strong></td>
+<td>⚠️ Mượn — dolly điện ảnh chạy 0,3–0,8 m/s</td>
+</tr>
+<tr>
+<td><strong>Độ cao máy khi đi ngang</strong></td>
+<td><strong>1500–1600 mm</strong></td>
+<td>⚠️ Mượn — Chaos/V-Ray: <em>"standard 1,750mm–1,800mm eye-level"</em>; Bluent CAD: <em>"eye level (5–6 feet)"</em></td>
+</tr>
+<tr>
+<td>Đi thấp (nhấn sàn, chi tiết thấp)</td>
+<td>700–900 mm — làm không gian trông rộng, trần cao</td>
+<td>⚠️ Mượn từ điện ảnh</td>
+</tr>
+<tr>
+<td>Đi cao (mở toàn cảnh)</td>
+<td>1800–2000 mm — bao quát bố cục, dùng ngắn</td>
+<td>⚠️ Mượn</td>
+</tr>
+<tr>
+<td><strong>Góc nhìn <code>视野范围</code></strong></td>
+<td><strong>60–75°</strong></td>
+<td>⚠️ Mượn — Game Accessibility Guidelines: <em>"60 degrees for TV, 90 degrees for monitor"</em></td>
+</tr>
+<tr>
+<td>Góc nhìn tối đa an toàn</td>
+<td><strong>~80° trong phòng nhỏ, không vượt</strong></td>
+<td>⚠️ Mượn — MDPI Applied Sciences vol.14, 2231 (2024)</td>
+</tr>
+<tr>
+<td>Thời lượng clip 2 phòng ngủ</td>
+<td><strong>25–40 giây</strong></td>
+<td>⚠️ Mượn — Trim Render: <em>"recommended length is 30-60 seconds"</em></td>
+</tr>
+<tr>
+<td>Thời lượng clip 3 phòng ngủ</td>
+<td><strong>40–60 giây</strong></td>
+<td>⚠️ Mượn</td>
+</tr>
+<tr>
+<td>B-roll một chuyển động</td>
+<td><strong>3–5 giây</strong></td>
+<td>⚠️ Mượn</td>
+</tr>
+</tbody>
+</table></div>
 <blockquote class="pin">
-<h2 id="luat-so-mot-cua-ca-chuong">📌 LUẬT SỐ MỘT CỦA CẢ CHƯƠNG</h2>
-<h2 id="keo-render-ve-phia-quay-that-khong-bao-gio-keo-nguoc-lai">KÉO RENDER VỀ PHÍA QUAY THẬT. KHÔNG BAO GIỜ KÉO NGƯỢC LẠI.</h2>
-<p>Cảnh quay bằng điện thoại là "chuẩn thực tế" mà người xem tin. Render phải hạ mình xuống cho khớp: mềm đi, có hạt, hơi rung, bớt rực.</p>
-<p>Làm ngược — chỉnh cảnh quay thật cho "sạch" như render — thì <strong>cả hai đoạn cùng giả</strong>, và clip hỏng theo cách không sửa được.</p>
-<p>Luật này là em ruột của luật ở C14: <em>thêm hạt nhiễu để ảnh hết "nhựa"</em>. Ở video thì phải làm mạnh tay hơn, vì chuyển động phơi bày sự hoàn hảo rõ hơn ảnh tĩnh nhiều.</p>
-</blockquote>
-<hr>
-<h2 id="171-quy-uoc-xuat-quyet-inh-truoc-khi-render-khong-phai-sau">17.1. Quy ước xuất — quyết định trước khi render, không phải sau</h2>
-<p>Kujiale tính tiền theo thời lượng (C15), nên mỗi giây render dư là 额度 vứt đi. Nguyên tắc: <strong>render đúng cái sẽ dùng, ở độ nét đủ dùng, dọc sẵn nếu được.</strong></p>
+<h2 id="chu-y-chieu-cao-may-quay-video-khac-chieu-cao-may-chup-anh-tinh">📌 CHÚ Ý — chiều cao máy quay video KHÁC chiều cao máy chụp ảnh tĩnh</h2>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Việc</th>
-<th>Chốt thế nào</th>
+<th></th>
+<th>Chiều cao</th>
+<th>Nguồn</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Chia đoạn</td>
-<td>Mỗi phòng / mỗi cú máy <strong>một đoạn 8–15 giây</strong></td>
+<td><strong>Ảnh tĩnh nội thất</strong> (C6)</td>
+<td><strong>800–1200 mm</strong></td>
+<td>✅ <strong>Số CHÍNH THỨC của Kujiale</strong> (bài 3FO4K4W2BGW1)</td>
 </tr>
 <tr>
-<td>Độ nét</td>
-<td><strong>1080P</strong> cho clip toàn render · <strong>720P</strong> cho b-roll 3–5 giây xen vào clip quay thật</td>
-</tr>
-<tr>
-<td>Tỉ lệ khung</td>
-<td>Dọc nhất <code>构图比</code> cho phép; không có 9:16 thì lấy 3:4 (cắt thêm chút là ra 9:16 — mất ít hơn hẳn so với cắt từ 16:9)</td>
-</tr>
-<tr>
-<td>Dư đầu đuôi</td>
-<td><strong>Dư 1 giây mỗi đầu.</strong> Đủ cho chuyển cảnh "ăn" vài khung và cắt trúng nhịp nhạc. Đừng dư 3–5 giây kiểu quay phim chuyên nghiệp — ở đây dư là tiền</td>
+<td><strong>Video dạo quanh</strong> (chương này)</td>
+<td><strong>1500–1600 mm</strong></td>
+<td>⚠️ Số mượn từ archviz phương Tây</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Cây thư mục — dùng chung cả công ty:</strong></p>
-<p><code>/DuAn_TenKhachHang_Ma/
-   /01_Render_Goc/        ← file tải từ Kujiale, TUYỆT ĐỐI KHÔNG SỬA, KHÔNG GHI ĐÈ
-       CanHo_A12_Bep_1080p_v1.mp4
-       CanHo_A12_PhongKhach_1080p_v1.mp4
-   /02_Quay_That/
-       A12_bep_quay_30fps.mp4
-   /03_Nhac_Chu/
-   /04_Draft_CapCut/
-   /05_Xuat_Cuoi/
-       A12_TikTok_1080x1920_final.mp4</code></p>
-<p>Quy ước tên: <code>[Căn]_[Phòng]_[Độ nét]_[phiên bản]</code>.</p>
-<blockquote class="warn">
-<p>⚠️ <strong>Thư mục 01 là thư mục bất khả xâm phạm.</strong> Ghi đè một file render gốc = mất 额度 để render lại. Đây là quy ước rẻ nhất và bị vi phạm nhiều nhất.</p>
+<p><strong>Không phải sách tự mâu thuẫn.</strong> Hai việc khác nhau:
+- Ảnh tĩnh <strong>hạ máy xuống</strong> để thấy nhiều mặt sàn, tôn tỉ lệ đồ đạc, cho khung ảnh "sang" kiểu tạp chí. Máy đứng yên nên thấp không sao.
+- Video <strong>nâng máy lên tầm mắt người đang đi</strong> vì bộ não người xem đang tự đặt mình vào vị trí người đi trong nhà. Đi ở độ cao 1000 mm là đang bò — não đọc ra ngay, và đó là một trong những lý do clip trông "như lái xe trong game".</p>
+<p><strong>Chép nhầm số của C6 sang đây là lỗi hay gặp nhất khi chuyển từ làm ảnh sang làm video.</strong></p>
+<p>Ghi chú về chi phí: Super Renders Farm nêu <em>"A 60-second architectural walkthrough at 30 fps requires 1,800 individual frames"</em> — mỗi giây là một chuỗi khung hình render riêng. <strong>Giữ clip ngắn không chỉ vì nhịp, mà còn vì 额度</strong> (C16).</p>
 </blockquote>
+<h3 id="i-qua-cua-va-hanh-lang-hep">Đi qua cửa và hành lang hẹp</h3>
+<p>Bốn việc, làm đủ cả bốn:
+1. Đặt <strong>một điểm mốc ngay giữa khung cửa</strong>.
+2. Hướng nhìn <strong>thẳng theo trục hành lang</strong>, đừng chéo.
+3. <strong>Giảm góc nhìn về ~60°</strong> để đỡ méo hai mép tường.
+4. <strong>Đi chậm lại</strong> ở đoạn này.</p>
+<p>Và vì không có phát hiện va chạm: tự canh <strong>tâm máy cách tường ≥ 0,4 m</strong>.</p>
 <hr>
-<h2 id="172-vi-sao-render-va-canh-quay-ien-thoai-choi-nhau">17.2. Vì sao render và cảnh quay điện thoại "chỏi" nhau</h2>
-<p>Hai loại hình khác nhau về <strong>bản chất vật lý</strong>, không phải về thẩm mỹ:</p>
+<h2 id="175-at-may-sao-cho-cat-doc-916-van-u-hinh">17.5. Đặt máy sao cho cắt dọc 9:16 vẫn đủ hình</h2>
+<p>Đây là phần C16 hứa sẽ nói kỹ. Nếu chưa chắc <code>构图比</code> của bạn có 9:16 gốc hay không (đa số trường hợp là chưa chắc), thì <strong>giả định sẽ phải cắt dọc</strong> và dựng cảnh theo giả định đó. Không mất gì, mà cứu được cả buổi làm.</p>
+<p><strong>Ba luật đặt máy cho khung dọc:</strong></p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Đặc điểm</th>
-<th>Render Kujiale</th>
-<th>Quay điện thoại</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Độ nét</td>
-<td>Nét đều toàn khung, sắc lạnh</td>
-<td>Nét ở giữa, mờ dần ra rìa</td>
-</tr>
-<tr>
-<td>Nhiễu</td>
-<td><strong>Sạch tuyệt đối</strong></td>
-<td>Có hạt, nhất là vùng tối</td>
-</tr>
-<tr>
-<td>Rung</td>
-<td>Đứng yên / mượt tuyệt đối</td>
-<td>Rung tay nhẹ, liên tục</td>
-</tr>
-<tr>
-<td>Màu</td>
-<td>Chuẩn theo mẫu đèn (thường ám vàng ấm)</td>
-<td>Ám theo đèn phòng thật, cân bằng trắng lệch</td>
-</tr>
-<tr>
-<td>Nhoè chuyển động</td>
-<td>Thường không có</td>
-<td><strong>Luôn có</strong> khi chuyển động</td>
-</tr>
-<tr>
-<td>Quang sai / tối góc</td>
-<td>Không</td>
-<td>Có — đặc trưng ống kính điện thoại</td>
-</tr>
-</tbody>
-</table></div>
-<p>Sáu dòng này chính là sáu việc phải làm ở 17.4. Mỗi dòng là một cách người xem nhận ra "cái này là 3D".</p>
-<hr>
-<h2 id="173-dang-1-clip-toan-render">17.3. Dạng 1 — clip toàn render</h2>
-<p>Clip 20–40 giây toàn hình dựng dễ <strong>đều đều gây chán</strong>, vì máy 3D quá mượt và không có gì bất ngờ. Việc của khâu dựng là tạo <strong>nhịp</strong>, <strong>điểm dừng</strong> và <strong>điểm nhấn</strong>.</p>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Phần</th>
-<th>Thời lượng</th>
+<th>Luật</th>
 <th>Nội dung</th>
-<th>Kỹ thuật</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mở</td>
-<td>0–3 s</td>
-<td>Cú máy ấn tượng nhất (thường phòng khách nhìn thẳng)</td>
-<td>Vào thẳng, <strong>không fade</strong></td>
-</tr>
-<tr>
-<td>Thân</td>
-<td>3–30 s</td>
-<td>Đi qua từng phòng theo tuyến hợp lý (cửa → khách → bếp → ngủ → tắm)</td>
-<td>Cắt đoạn theo phòng, chuyển cảnh ở ngưỡng cửa</td>
-</tr>
-<tr>
-<td>Kết</td>
-<td>30–40 s</td>
-<td>Quay lại góc đẹp nhất + đứng yên 2 giây cho câu chốt/logo</td>
-<td>Chậm dần rồi dừng</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Cắt nhiều đoạn ngắn, đừng để một cú máy dài.</strong> Người xem TikTok lướt nhanh: cảnh đổi mỗi <strong>2–4 giây</strong> giữ chân tốt hơn hẳn một cú máy liền 30 giây. Cắt đoạn còn giúp khớp nhịp nhạc.</p>
-<p><strong>Chuyển giữa các phòng:</strong>
-- <strong>Ngưỡng cửa làm điểm cắt tự nhiên</strong> — camera đi qua khung cửa thì cắt.
-- <strong>Match cut theo chuyển động</strong>: kết đoạn A đang tiến về phía cửa, mở đoạn B cũng đang tiến vào. Mắt đọc là liền mạch.</p>
-<p><strong>Tua nhanh bao nhiêu là còn tự nhiên:</strong></p>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Đoạn</th>
-<th>Tốc độ</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hành lang, đoạn nối, không có gì đặc biệt</td>
-<td>1,25× – 1,5×</td>
-</tr>
-<tr>
-<td>Lướt qua phòng phụ</td>
-<td>1,5× – 2×</td>
-</tr>
-<tr>
-<td>Khu vực đẹp cần khoe (bếp, đảo bếp, đầu giường)</td>
-<td><strong>1,0× hoặc 0,75× chậm lại</strong></td>
-</tr>
-</tbody>
-</table></div>
-<blockquote class="warn">
-<p>⚠️ <strong>Trên 2× là bắt đầu lộ giả</strong> với video 3D, vì thiếu nhoè chuyển động. Buộc phải tua nhanh thì thêm chút làm mờ chuyển động.</p>
-</blockquote>
-<p><strong>Chèn ảnh tĩnh (效果图) — nên làm.</strong> Chèn 1–2 giây ảnh render chất lượng cao vào điểm nhấn tạo "nhịp thở", cho người xem kịp đọc chi tiết. Ảnh tĩnh thường nét và đẹp hơn từng khung của video, và là chỗ tốt để đặt câu chốt hoặc giá.
-<strong>Mẹo:</strong> cho ảnh tĩnh phóng to chậm (<code>缩放</code> + keyframe, kiểu Ken Burns) để không bị "khựng" giữa video đang động.</p>
-<p><strong>Speed ramp (<code>曲线变速</code>):</strong> vào phòng chậm → lướt nhanh giữa phòng → chậm lại ở điểm đẹp. Thao tác: chọn clip → <code>变速</code> → <code>曲线变速</code> → <code>自定义</code>; thêm/bớt điểm bằng nút +/−; kéo điểm <strong>lên = nhanh</strong>, <strong>xuống = chậm</strong>.</p>
-<p><strong>Âm thanh:</strong> render không có tiếng hiện trường — nó "vô hồn" theo đúng nghĩa đen. Thêm tiếng môi trường nhẹ (tiếng phố xa, tiếng chim ngoài ban công) và foley (bước chân, tiếng cửa) thì clip sống hẳn lên. Chi tiết ở C18.</p>
-<hr>
-<h2 id="174-dang-2-b-roll-render-xen-clip-quay-that-trong-tam">17.4. Dạng 2 — b-roll render xen clip quay thật ⭐ TRỌNG TÂM</h2>
-<p>Đây là dạng ra khách tốt nhất (lý do ở C18) và cũng là dạng khó nhất về kỹ thuật.</p>
-<p><strong>Độ dài đoạn render xen vào: 3 giây là vừa nhất, tối đa 5 giây.</strong> Đủ để khoe mà chưa kịp lộ chất render. Quá 5 giây, mắt bắt đầu nhận ra sự "quá hoàn hảo".</p>
-<p><strong>Đặt ở đâu:</strong> rải đều, chèn vào giữa các nhịp, <strong>không dồn một cục</strong>. Công thức hay dùng:</p>
-<p><code>quay thật (hook) → 3s render (khoe kết quả) → quay thật (giải thích)
-   → 3s render (góc khác) → quay thật + câu chốt</code></p>
-<p><strong>Tránh mở đầu bằng render</strong> — người xem nghi "quảng cáo" rồi lướt.</p>
-<h3 id="1-chinh-mau-cho-khop-quan-trong-nhat">① Chỉnh màu cho khớp — quan trọng nhất</h3>
-<p>Làm ở <strong>đoạn render</strong>, kéo nó về phía cảnh quay thật. Công cụ: CapCut → <code>调节</code> (điều chỉnh).</p>
-<p><strong>Điểm tham chiếu để so bằng mắt:</strong> chọn <strong>một mảng tường trắng, một mảng gỗ, hoặc da người</strong> xuất hiện ở cả hai loại hình; chỉnh cho mảng đó trông cùng màu. Bản điện thoại không có ống hút màu, nên so bằng mắt qua điểm tham chiếu là cách chính.</p>
-<p>Render Kujiale thường ám vàng, tương phản cao, bão hoà cao. Hướng chỉnh điển hình:</p>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Thông số</th>
-<th>Hướng chỉnh đoạn render</th>
 <th>Vì sao</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>色温</code> (nhiệt độ màu)</td>
-<td>Giảm nhẹ về xanh nếu render ám vàng; tăng nếu cảnh quay thật ám vàng hơn</td>
-<td>Khớp cân bằng trắng</td>
+<td><strong>① Chủ thể nằm trên trục dọc giữa</strong></td>
+<td>Sofa, giường, đảo bếp đặt giữa khung theo chiều ngang</td>
+<td>Cắt dọc là cắt hai mép trái–phải. Thứ gì ở mép thì mất</td>
 </tr>
 <tr>
-<td><code>色调</code> (tint)</td>
-<td>Chỉnh nhẹ về xanh lá / hồng cho khớp da người</td>
-<td>Khớp ám màu đèn phòng</td>
+<td><strong>② Đi theo chiều sâu, không quét ngang</strong></td>
+<td>Ưu tiên <code>直线</code> tiến/lùi; hạn chế lia ngang dài</td>
+<td>Khung dọc <strong>ăn chiều sâu rất tốt và ăn chiều ngang rất tệ</strong>. Một cú lia ngang trong khung dọc chỉ thấy được một phần ba nội dung</td>
 </tr>
 <tr>
-<td><code>饱和度</code> (bão hoà)</td>
-<td><strong>Giảm 5–15</strong></td>
-<td>Render rực hơn thực tế</td>
-</tr>
-<tr>
-<td><code>对比度</code> (tương phản)</td>
-<td><strong>Giảm 5–10</strong></td>
-<td>Render tương phản gắt hơn</td>
-</tr>
-<tr>
-<td><code>高光</code> (vùng sáng)</td>
-<td>Giảm nhẹ</td>
-<td>Kéo vùng sáng render về mức camera chịu được</td>
-</tr>
-<tr>
-<td><code>阴影</code> (vùng tối)</td>
-<td>Tăng nhẹ (mở vùng tối)</td>
-<td>Camera điện thoại ít chi tiết ở vùng tối gắt</td>
-</tr>
-</tbody>
-</table></div>
-<p>Bản <code>剪映专业版</code> trên máy tính có <strong>HSL</strong> và <strong><code>曲线</code></strong>: dùng HSL chỉnh riêng màu gỗ/tường; dùng đường cong <strong>kéo nhẹ chân đen lên</strong> (lifted blacks) để giả cảm giác camera — video camera hiếm khi có đen tuyệt đối. Nguyên lý đường cong đã học ở C14.</p>
-<h3 id="2-them-hat-nhieu-buoc-han-gan-manh-nhat">② Thêm hạt nhiễu — bước hàn gắn mạnh nhất</h3>
-<p><strong>Grain phủ lên cả hai đoạn làm chúng thành "cùng một chất liệu".</strong> Đây là kỹ thuật ăn tiền nhất của cả chương.</p>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Nơi làm</th>
-<th>Thao tác</th>
-<th>Mức</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CapCut điện thoại</td>
-<td><code>特效</code> → <code>基础</code>/<code>复古</code> → <code>噪点胶片</code> / <code>老电影</code> / <code>颗粒噪点</code></td>
-<td><strong>30–60%</strong></td>
-</tr>
-<tr>
-<td>CapCut điện thoại (bản mới)</td>
-<td><code>调节</code> → <code>噪点</code> (nằm dưới <code>锐化</code>)</td>
-<td><strong>15–40</strong></td>
-</tr>
-<tr>
-<td><code>剪映专业版</code> máy tính</td>
-<td><code>特效</code> → <code>噪点</code> → chọn <strong><code>小颗粒</code></strong> (hạt nhỏ)</td>
-<td><code>小颗粒</code> khớp 1080p tốt nhất; tránh <code>大颗粒</code></td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Vùng sáng chịu grain cao hơn (40–60); vùng tối để thấp (15–30)</strong> — để cao ở vùng tối thì hạt vón cục và xuất hiện màu loang.</p>
-<blockquote class="pin">
-<h2 id="meo-cua-dan-dung-phim-phu-mot-lop-grain-len-toan-bo-timeline-ca-oan-quay-that-lan-oan-render-thay-vi-chi-them-vao-render">📌 Mẹo của dân dựng phim: phủ MỘT lớp grain lên TOÀN BỘ timeline — cả đoạn quay thật lẫn đoạn render — thay vì chỉ thêm vào render.</h2>
-<p>Cách làm chuẩn nhất: xuất một lớp grain riêng rồi phủ lên bằng chế độ hoà trộn <code>叠加</code> (overlay) hoặc <code>柔光</code> (soft light). Đồng nhất chất liệu tuyệt đối.</p>
-</blockquote>
-<h3 id="3-rung-tay-gia-rat-nhe-thoi">③ Rung tay giả — rất nhẹ thôi</h3>
-<p>Hai cách:
-- <strong>Nhanh:</strong> <code>特效</code> → <code>抖动</code> (rung) cường độ thấp.
-- <strong>Chính xác hơn — dùng keyframe trên đoạn render:</strong>
-  1. Phóng to đoạn render lên <strong>103–105%</strong> (để có chỗ xê dịch mà không lòi mép).
-  2. Mỗi khoảng <strong>0,5 giây</strong> thêm một keyframe chỉnh <code>位置</code>: <strong>X: +2% → −2%</strong>, <strong>Y: +1% → −1%</strong>.</p>
-<p><strong>Biên độ tự nhiên là ±1–2%.</strong> Mạnh hơn thành "giả bộ rung", lộ liễu hơn cả không rung. (Hướng dẫn 剪映 phổ biến khuyên cường độ <code>抖动</code> khoảng 5% để <em>"mô phỏng cảm giác quay tay, tránh hình quá đứng như thật"</em>.)</p>
-<h3 id="4-xu-ly-lech-o-net">④ Xử lý lệch độ nét</h3>
-<ul>
-<li>Render quá nét → <code>调节</code> → <strong><code>锐化</code> kéo về âm / giảm</strong>; hoặc thêm <code>模糊</code> → <code>高斯模糊</code> (làm mờ Gauss) cường độ <strong>3–5%</strong>, rất nhẹ.</li>
-<li><strong>Nhoè chuyển động giả:</strong> đoạn render đang chuyển động thì dùng <code>曲线变速</code> nhẹ hoặc hiệu ứng làm mờ chuyển động ở chỗ máy đi nhanh.</li>
-<li><strong>Giảm nét ở rìa khung:</strong> thêm mask blur nhẹ quanh mép — mô phỏng ống kính điện thoại nét giữa mờ rìa.</li>
-</ul>
-<h3 id="5-chon-kieu-chuyen-canh">⑤ Chọn kiểu chuyển cảnh</h3>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Kiểu</th>
-<th>Khi nào dùng</th>
-<th>Ghi chú</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Cắt thẳng</strong> (hard cut)</td>
-<td>Hai cảnh cùng nhịp, cùng hướng chuyển động</td>
-<td>Sạch, hiện đại, hợp TikTok</td>
-</tr>
-<tr>
-<td><strong>Match cut</strong> (theo chuyển động)</td>
-<td>Render và quay thật cùng đang tiến/quét cùng hướng</td>
-<td>⭐ <strong>Giấu mối nối tốt nhất — ưu tiên</strong></td>
-</tr>
-<tr>
-<td><strong>Speed ramp</strong></td>
-<td>Nối một cảnh động sang render</td>
-<td>Che khác biệt bằng tốc độ</td>
-</tr>
-<tr>
-<td><strong>Whip pan</strong> (quét nhanh)</td>
-<td>Chuyển phòng</td>
-<td>Tạo động lực, che mối nối</td>
-</tr>
-<tr>
-<td><strong>Dissolve</strong> (mờ dần)</td>
-<td>Chuyển "trước → sau", chuyển tâm trạng</td>
-<td>Ít dùng cho b-roll — trông "cũ"</td>
-</tr>
-</tbody>
-</table></div>
-<blockquote class="warn">
-<p>⚠️ <strong>Đừng đụng vào kho hiệu ứng chuyển cảnh sặc sỡ</strong> (xoay 3D, lật trang, hào quang). Đó là dấu hiệu số một của clip nghiệp dư, và với clip có render thì nó đóng đinh cảm giác "đồ hoạ máy tính". Hướng dẫn dựng của TQ nói thẳng: khoảng 90% hiệu ứng "炫酷" (hào nhoáng) nên tránh.</p>
-</blockquote>
-<h3 id="6-bon-thu-thuat-lam-render-bot-cg">⑥ Bốn thủ thuật làm render bớt "CG"</h3>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Thủ thuật</th>
-<th>Thao tác CapCut</th>
-<th>Mô phỏng cái gì</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Tối bốn góc</strong> (vignette)</td>
-<td><code>特效</code> → <code>暗角</code>, cường độ nhẹ</td>
-<td>Ống kính thật; dẫn mắt vào giữa</td>
-</tr>
-<tr>
-<td><strong>Quang sai màu</strong> (chromatic aberration)</td>
-<td><code>特效</code> → <code>色差</code>/<code>故障</code> <strong>cực nhẹ</strong></td>
-<td>Viền màu đỏ/xanh mảnh ở cạnh tương phản cao</td>
-</tr>
-<tr>
-<td><strong>Quầng sáng</strong> (halation/bloom)</td>
-<td><code>特效</code> → <code>光晕</code> nhẹ ở vùng đèn sáng</td>
-<td>Ánh sáng loang trên cảm biến thật</td>
-</tr>
-<tr>
-<td><strong>Nâng chân đen</strong> (lifted blacks)</td>
-<td><code>曲线</code> kéo điểm đen lên chút</td>
-<td>Video camera không có đen tuyệt đối</td>
+<td><strong>③ Chừa "đất" trên và dưới</strong></td>
+<td>Đừng cắt cụt trần, đừng cắt cụt chân tường</td>
+<td>Khung dọc cao — trần và sàn là hai thứ <strong>được thêm</strong> so với khung ngang. Tận dụng: thấy trần giật cấp, thấy hắt sáng, thấy vân sàn</td>
 </tr>
 </tbody>
 </table></div>
 <blockquote class="tip">
-<p>💡 <strong>Khi quay thật, cố quay cùng góc, cùng độ cao, cùng hướng đi với cú máy render.</strong> Match cut sẽ mượt gấp mấy lần, và việc chỉnh màu cũng dễ hơn vì hai bên nhìn cùng một thứ.</p>
+<p>💡 <strong>Cách kiểm nhanh mà không tốn gì:</strong> trong lúc xem Play preview, lấy ngón tay che hai bên màn hình chừa lại dải giữa cỡ một phần ba. Dải đó chính là khung dọc sau khi cắt. Chủ thể có còn nằm trong dải đó suốt cả đoạn không?</p>
 </blockquote>
 <hr>
-<h2 id="175-dang-3-so-sanh-truoc-va-sau">17.5. Dạng 3 — so sánh trước và sau</h2>
-<p>"Trước–sau" tạo khoảnh khắc "wow" tức thì và chứng minh năng lực. <strong>Điểm hỏng chí mạng: hai bên không cùng một góc nhìn</strong> — não người xem không so sánh được, hiệu ứng mất sạch.</p>
-<h3 id="chon-kieu-bo-cuc">Chọn kiểu bố cục</h3>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Kiểu</th>
-<th>Cách làm</th>
-<th>Hợp khung dọc?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Cắt thẳng theo nhịp</strong></td>
-<td>Đặt "trước" rồi "sau" nối nhau, cắt trúng tiếng nhạc</td>
-<td>⭐ <strong>Hiệu quả nhất</strong> — đơn giản, mạnh, giữ trọn khung</td>
-</tr>
-<tr>
-<td><strong>Lật qua lật lại</strong></td>
-<td>Cắt qua lại 2–3 lần trước ↔ sau cùng góc</td>
-<td>⭐ Rất tốt — nhấn mạnh sự thay đổi</td>
-</tr>
-<tr>
-<td><strong>Kéo thanh trượt</strong> (slider wipe)</td>
-<td><code>画中画</code> + <code>线性蒙版</code> + <code>关键帧</code> kéo mask từ trái sang phải</td>
-<td>Tốt nhưng khó — cần hai hình khớp góc <strong>tuyệt đối</strong></td>
-</tr>
-<tr>
-<td><strong>Chia đôi màn hình</strong></td>
-<td>Hai video cạnh nhau</td>
-<td>❌ Kém cho khung dọc — mỗi bên quá nhỏ</td>
-</tr>
-</tbody>
-</table></div>
-<blockquote class="warn">
-<p>⚠️ <strong>Chưa tìm được số liệu hiệu suất chính thức của TikTok</strong> so sánh các kiểu này. Khuyến nghị trên dựa vào đặc tính khung dọc và thực hành phổ biến — hãy tự A/B test trên kênh của công ty.</p>
+<h2 id="176-bon-lo-trinh-mau">17.6. Bốn lộ trình mẫu</h2>
+<blockquote>
+<p>Quy ước ghi điểm mốc: <strong>[vị trí | chiều cao | hướng nhìn | góc nhìn]</strong></p>
 </blockquote>
-<p><strong>Thao tác slider wipe trong 剪映:</strong> đưa đoạn "sau" vào track chính; đưa ảnh/đoạn "trước" lên <code>画中画</code>; thêm <code>线性蒙版</code> cho lớp "trước", xoay 90°; đặt 4 <code>关键帧</code> — keyframe đầu kéo mask sang trái hết cỡ, keyframe cuối kéo sang phải hết cỡ. Thêm một dải trắng đi cùng để làm "thanh trượt".</p>
-<h3 id="canh-khop-goc-cho-hay-hong-nhat">Canh khớp góc — chỗ hay hỏng nhất</h3>
-<p><strong>Quy trình chuẩn: chụp thật trước, dựng render sau.</strong></p>
-<ol>
-<li><strong>Chụp ảnh căn thô trước</strong>, ghi lại: chiều cao máy (đứng chụp ngang tầm mắt ~1,5 m), đứng ở đâu (<strong>đánh dấu vị trí chân bằng băng dính trên sàn</strong>), bật <strong>lưới 3×3</strong> trên điện thoại để canh đường chân trời.</li>
-<li>Ghi tiêu cự: điện thoại thường ~26–28 mm tương đương ở ống kính chính. <strong>Không dùng góc siêu rộng 0.5× — méo, không khớp được.</strong></li>
-<li><strong>Vào Kujiale dựng máy khớp theo ảnh thật:</strong> <code>相机高度</code> ~1,5 m, chỉnh góc nhìn cho khớp độ rộng ảnh chụp, đặt máy đúng chỗ đã đứng, hướng trùng hướng đã chụp.</li>
-<li>Dùng <strong><code>我的视角</code> → <code>保存视角</code></strong> (góc nhìn của tôi → lưu góc nhìn) để không mất góc.</li>
-<li>Mở ảnh chụp thật cạnh màn hình làm tham chiếu; canh một mốc cố định (góc tường, cạnh cửa sổ) trùng nhau.</li>
-</ol>
-<p><strong>Không có ảnh chụp căn thô thì lấy gì làm "trước"?</strong></p>
+<h3 id="lo-trinh-a-vao-nha-khoang-1215-giay">Lộ trình A — "VÀO NHÀ" · khoảng 12–15 giây</h3>
+<p>Mở từ cửa chính, đi vào, mở ra không gian chung.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Nguồn "trước"</th>
-<th>Chất lượng</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ảnh chủ đầu tư gửi</td>
-<td>Tốt nếu đúng góc — thường lệch, phải chọn ảnh gần nhất</td>
-</tr>
-<tr>
-<td><strong>Render phòng trống trong Kujiale</strong> (dựng lại căn thô)</td>
-<td>⭐ <strong>Khớp góc hoàn hảo</strong> — vì cùng camera với render "sau"</td>
-</tr>
-<tr>
-<td>Mặt bằng 2D</td>
-<td>Khá — chuyển "sơ đồ → thực tế"; kém "wow" hơn</td>
-</tr>
-</tbody>
-</table></div>
-<blockquote class="pin">
-<h2 id="khong-co-anh-that-thi-dung-render-phong-trong-lam-truoc-cung-mot-camera-khop-goc-tuyet-oi-va-ton-them-rat-it">📌 Không có ảnh thật thì dựng render phòng trống làm "trước". Cùng một camera, khớp góc tuyệt đối, và tốn thêm rất ít 额度.</h2>
-</blockquote>
-<p><strong>Nhịp:</strong> giữ <strong>"trước" 1,5–2 giây</strong> (đủ để người xem đọc hiện trạng) → lật sang "sau" <strong>đúng nhịp nhạc</strong> → giữ <strong>"sau" 2,5–3 giây</strong> (lâu hơn vì đây là phần muốn khoe).</p>
-<p><strong>Chữ:</strong> tối giản — "TRƯỚC / SAU" hoặc "Bàn giao thô / Hoàn thiện", đặt trong vùng an toàn. Hình đã nói nhiều rồi; chữ chỉ để định hướng.</p>
-<hr>
-<h2 id="176-chon-phan-mem-dung">17.6. Chọn phần mềm dựng</h2>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Công cụ</th>
-<th>Ưu</th>
-<th>Nhược</th>
-<th>Kết luận</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>CapCut / 剪映</strong> (điện thoại + PC)</td>
-<td>Dễ nhất; đủ grain/rung/biến tốc/HSL; đồng bộ hai máy; giao diện tiếng Trung quen với người dùng Kujiale</td>
-<td>Bản quốc tế và bản Trung khác kho nhạc/hiệu ứng</td>
-<td>⭐ <strong>Tốt nhất cho người không chuyên</strong></td>
-</tr>
-<tr>
-<td><strong><code>剪映专业版</code></strong> (máy tính, bản Trung)</td>
-<td>Grain theo cỡ hạt, HSL, đường cong, keyframe đầy đủ</td>
-<td>Cần máy tính; cần tài khoản 抖音</td>
-<td>⭐ Cho đoạn cần chỉnh màu kỹ</td>
-</tr>
-<tr>
-<td><strong>VN Editor</strong></td>
-<td>Của người Việt, giao diện tiếng Việt, kho nhạc VN</td>
-<td>Ít tính năng nâng cao (grain, HSL hạn chế)</td>
-<td>Cho clip đơn giản</td>
-</tr>
-<tr>
-<td><strong>DaVinci Resolve</strong></td>
-<td>Chỉnh màu mạnh nhất, khớp màu chuyên nghiệp</td>
-<td>Khó, nặng máy, học lâu</td>
-<td>Không khuyến nghị cho người mới</td>
-</tr>
-<tr>
-<td><strong>Canva</strong></td>
-<td>Nhiều mẫu chữ, làm trước–sau nhanh</td>
-<td>Yếu về grain/màu/biến tốc</td>
-<td>Cho clip thiên đồ hoạ và chữ</td>
-</tr>
-<tr>
-<td><strong>InShot</strong></td>
-<td>Đơn giản, nhanh</td>
-<td>Bản free có watermark</td>
-<td>Cho người thích siêu đơn giản</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Chọn CapCut/剪映.</strong> Người thiết kế đã quen giao diện tiếng Trung của Kujiale nên <code>剪映专业版</code> là lựa chọn quen tay và mạnh nhất; muốn kho nhạc và hashtag hợp thị trường Việt thì dùng CapCut bản quốc tế.</p>
-<blockquote class="warn">
-<p>⚠️ <strong>Rủi ro cần công ty tự kiểm:</strong> CapCut từng bị chặn ở Mỹ ngày 19/01/2025 theo luật PAFACA (khoảng 48 giờ, rồi được khôi phục ngày 21/01/2025); Ấn Độ cấm vĩnh viễn từ 2020. Tính tới giữa 2026 vẫn hoạt động ở phần lớn quốc gia. <strong>Chưa tìm được thông tin xác thực riêng về tình trạng pháp lý tại Việt Nam</strong> — nên giữ sẵn phương án <strong>VN Editor</strong> (đơn giản) hoặc <strong>DaVinci Resolve</strong> (chỉnh màu kỹ) nếu công ty gặp rào cản.</p>
-</blockquote>
-<hr>
-<h2 id="177-quy-trinh-mot-clip-co-moc-thoi-gian">17.7. Quy trình một clip, có mốc thời gian</h2>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Bước</th>
-<th>Việc</th>
+<th>#</th>
+<th>Điểm mốc</th>
 <th>Thời gian</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>Lên khung cảnh Kujiale + đặt máy dọc + chọn độ nét</td>
-<td>15–30 phút</td>
+<td><strong>[Ngoài cửa chính, lùi 1 m | 1550 mm | nhìn thẳng vào cửa | 60°]</strong> — <strong>điểm mốc kép</strong> (khởi động chậm)</td>
+<td>—</td>
 </tr>
 <tr>
 <td>2</td>
-<td>Đặt render (thao tác) + chờ đám mây render</td>
-<td>10 phút thao tác + chờ</td>
+<td><strong>[Ngay giữa khung cửa | 1550 mm | thẳng theo trục sảnh | 60°]</strong> — đẩy tới, chậm</td>
+<td>3–4 s</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Quay bổ sung bằng điện thoại (nếu cần)</td>
-<td>20–40 phút</td>
+<td><strong>[Cuối sảnh, chớm vào phòng khách | 1550 mm | bắt đầu hé sang sofa | 65°]</strong></td>
+<td>4–5 s</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Tải render + đổ file vào thư mục theo quy ước</td>
-<td>5 phút</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Dựng thô: xếp đoạn, cắt theo nhịp</td>
-<td>20–30 phút</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Chỉnh màu khớp + grain + rung + chuyển cảnh</td>
-<td>20–30 phút</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Thêm chữ (trong vùng an toàn) + nhạc</td>
-<td>15 phút</td>
-</tr>
-<tr>
-<td>8</td>
-<td><strong>Xem lại trên điện thoại thật</strong> + sửa</td>
-<td>10 phút</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Xuất + đăng</td>
-<td>5–10 phút</td>
+<td><strong>[Giữa phòng khách | 1550 mm | dừng nhấn ở sofa/vách TV | 70°]</strong> — <strong>điểm mốc kép cuối</strong> (dừng mềm), giữ 2 s</td>
+<td>2 s</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>Tổng công dựng (không tính chờ render): ~1,5–2,5 giờ cho clip đầu tiên; còn ~45–60 phút khi đã có bản mẫu.</strong></p>
-<h3 id="ban-mau-lam-mot-lan-dung-mai">Bản mẫu — làm một lần, dùng mãi</h3>
-<ul>
-<li><strong><code>剪映专业版</code>:</strong> làm xong một clip chuẩn → lưu thành <code>草稿模板</code> (mẫu bản nháp); hoặc copy cả bản nháp rồi thay <code>素材</code> (đổi video, giữ nguyên chỉnh màu/grain/chữ/nhạc).</li>
-<li><strong>Cách thực dụng nhất:</strong> giữ một "bản nháp mẫu" đã cài sẵn: khung 1080×1920 · lớp grain phủ toàn timeline · khung chữ đặt sẵn trong vùng an toàn · nhạc. Mỗi lần chỉ thay clip nguồn.</li>
-<li>CapCut cũng cho lưu tổ hợp hiệu ứng/bộ lọc đã chỉnh, để tái dùng thông số chỉnh màu khớp render ↔ quay thật.</li>
-</ul>
-<hr>
-<h2 id="178-chuan-xuat-cuoi">17.8. Chuẩn xuất cuối</h2>
+<p><strong>Vì sao:</strong> cửa tạo "điểm vào" tâm lý cho người xem; đẩy chậm qua cửa hẹp với góc nhìn 60° chống méo hai mép; kết ở điểm nhấn chính của căn.</p>
+<h3 id="lo-trinh-b-mot-hoi-khong-cat-khoang-4060-giay-23-phong-ngu">Lộ trình B — "MỘT HƠI KHÔNG CẮT" · khoảng 40–60 giây (2–3 phòng ngủ)</h3>
+<p>Thứ tự phòng: <strong>cửa → phòng khách → bàn ăn/bếp → hành lang → phòng ngủ chính</strong> (→ phòng ngủ phụ nếu 3 PN).</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Thông số</th>
-<th>TikTok</th>
-<th>Facebook Reels</th>
+<th>#</th>
+<th>Điểm mốc</th>
+<th>Thời gian</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Độ phân giải</td>
-<td><strong>1080×1920</strong></td>
-<td>1080×1920</td>
+<td>1</td>
+<td>[Cửa chính | 1550 | thẳng vào | 60°]</td>
+<td>—</td>
 </tr>
 <tr>
-<td>Tỉ lệ</td>
-<td>9:16</td>
-<td>9:16</td>
+<td>2</td>
+<td>[Phòng khách, lướt ngang qua sofa | 1550 | hơi chếch sang cửa sổ | 65°]</td>
+<td>8–10 s</td>
 </tr>
 <tr>
-<td>fps</td>
-<td><strong>30</strong> (dùng 60 nếu chuyển động nhanh)</td>
-<td>30 hoặc 60</td>
+<td>3</td>
+<td>[Khu bàn ăn, <code>曲线</code> vòng nhẹ | 1500 | nhìn bàn ăn/đảo bếp | 65°]</td>
+<td>8–10 s</td>
 </tr>
 <tr>
-<td>Codec hình</td>
-<td><strong>H.264 main profile, level 4.1+</strong></td>
-<td>H.264</td>
+<td>4</td>
+<td>[Đầu hành lang | 1550 | thẳng trục hành lang | <strong>60°</strong>]</td>
+<td>5–6 s</td>
 </tr>
 <tr>
-<td>Codec tiếng</td>
-<td><strong>AAC-LC, stereo, 44.1 kHz, ≥128 kbps</strong></td>
-<td>AAC</td>
+<td>5</td>
+<td>[Cửa phòng ngủ chính | 1500 | mở vào đầu giường | 68°]</td>
+<td>8–10 s</td>
 </tr>
 <tr>
-<td>Vỏ file</td>
-<td><strong>MP4</strong></td>
-<td>MP4</td>
+<td>6</td>
+<td>[Trong phòng ngủ, dừng nhấn | 1500 | giường + cửa sổ | 70°]</td>
+<td>dừng 2 s</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Vì sao thứ tự này:</strong> đi theo <strong>mạch sinh hoạt thật</strong> của người ở — vào nhà → sinh hoạt chung → riêng tư. Phòng riêng để cuối tạo cao trào. Hành lang là "đoạn nối" nên giữ <strong>ngắn, thẳng, góc nhìn hẹp</strong> để không lê thê và không méo.</p>
+<blockquote class="warn">
+<p>⚠️ <strong>Lộ trình B là lộ trình đắt nhất và rủi ro nhất.</strong> Một đoạn 50 giây tốn khoảng 4 额度 (C16) và sai một chỗ là render lại cả. Với TikTok/Facebook, <strong>cách khôn hơn là cắt B thành 5 đoạn ngắn rồi ghép ở CapCut</strong> — xem 17.8.</p>
+</blockquote>
+<h3 id="lo-trinh-c-xoay-quanh-iem-nhan-68-giay">Lộ trình C — "XOAY QUANH ĐIỂM NHẤN" (<code>环拍</code>) · 6–8 giây</h3>
+<p>Quanh bàn ăn / đảo bếp / vách TV. Điểm mốc: <strong>[bán kính nhỏ 1,5–2 m | 1300–1500 mm | luôn hướng tâm vào chủ thể | 65°]</strong>, xoay <strong>90–120°</strong>.</p>
+<p><strong>Đừng xoay trọn 360°</strong> — vừa lê thê vừa dễ say. Hai đầu đặt điểm mốc kép để vào/ra mềm.</p>
+<p><strong>Vì sao:</strong> chuyển động vòng làm nổi khối chủ thể; bán kính nhỏ + góc xoay vừa phải giữ optical flow thấp.</p>
+<h3 id="lo-trinh-d-b-roll-mot-chuyen-ong-on-35-giay">Lộ trình D — "B-ROLL" một chuyển động đơn · 3–5 giây</h3>
+<p>Một cú <strong>đẩy tới</strong> chậm vào kệ trang trí / bình hoa / góc cây xanh:
+<strong>[cách 2 m | 1400 mm | thẳng vào vật | 60°] → [cách 0,8 m | 1400 mm | giữ vật ở tâm | 60°]</strong>
+Không xoay. Không đổi độ cao. Không đổi góc nhìn.</p>
+<p><strong>Vì sao:</strong> b-roll là "gia vị" để xen vào clip quay thật (C18, C19). Một chuyển động duy nhất thì luôn mượt và luôn dễ khớp nhịp nhạc. <strong>Đây cũng là lộ trình rẻ nhất</strong> — 3 giây, để 720P là đủ.</p>
+<hr>
+<h2 id="177-sau-loi-lam-hong-mot-clip-dao-quanh">17.7. Sáu lỗi làm hỏng một clip dạo quanh</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Lỗi</th>
+<th>Cơ chế</th>
+<th>Cách chặn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Người xem chóng mặt</strong></td>
+<td>Đi nhanh + góc nhìn rộng + xoay gấp → optical flow rìa mạnh → vection cao</td>
+<td>Tốc độ 0,4–0,7 m/s; góc nhìn 60–75°; <strong>mỗi đoạn một chuyển động</strong>; giả ease hai đầu</td>
 </tr>
 <tr>
-<td>Bitrate</td>
-<td>6–8,5 Mbps ở 30fps; 8–12 Mbps ở 60fps</td>
-<td>5–10 Mbps</td>
+<td><strong>Xuyên tường / xuyên đồ</strong></td>
+<td><strong>Không có phát hiện va chạm</strong> — máy đi xuyên tự do</td>
+<td>Tự canh điểm mốc cách tường ≥ 0,4 m; <strong>bắt buộc Play xem trước toàn tuyến</strong> trước khi render</td>
 </tr>
 <tr>
-<td>Dung lượng</td>
-<td>≤287,6 MB (iOS trong app) · ~72 MB (Android trong app) · tới 4 GB qua web/TikTok Studio</td>
-<td>≤4 GB</td>
+<td><strong>Đi qua chỗ tối om</strong></td>
+<td>Đèn chỉ đủ cho một góc tĩnh, các góc khác chưa đánh</td>
+<td>Đánh đèn <strong>theo cả tuyến máy chạy</strong>, không chỉ một khung (C4, C13)</td>
+</tr>
+<tr>
+<td><strong>Lộ mảng chưa hoàn thiện / tường trống</strong></td>
+<td>Cảnh đẹp một góc nhưng tuyến máy quét qua vùng chưa dựng xong</td>
+<td>Duyệt preview; <strong>đừng chĩa vào tường trống quá 1–2 giây</strong></td>
+</tr>
+<tr>
+<td><strong>Đèn nhấp nháy</strong> (<code>忽明忽暗</code>)</td>
+<td>Tham số đèn đổi giữa các khung; độ nét thấp</td>
+<td>Render 1080P hoặc <code>极致1080p</code>; tránh <code>灯光动画</code> đổi mạnh khi máy đang chạy; dùng <code>降低帧率</code></td>
+</tr>
+<tr>
+<td><strong>Video "thở" ống kính</strong></td>
+<td>Đổi <code>视野范围</code> liên tục giữa các điểm mốc</td>
+<td><strong>Cố định góc nhìn trong mỗi đoạn.</strong> Chỉ đổi khi sang đoạn mới, và đổi ít</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Có nên đi giật lùi không?</strong> Ưu tiên <strong>luôn đi tới</strong>. Chỉ dùng lùi để <strong>mở ra (reveal)</strong> một không gian rộng — ví dụ lùi từ bàn ăn ra để lộ cả phòng khách. Lùi liên tục làm người xem mất phương hướng.</p>
+<hr>
+<h2 id="178-ghep-nhieu-oan-ngan-hay-xuat-mot-oan-dai">17.8. Ghép nhiều đoạn ngắn hay xuất một đoạn dài?</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Tiêu chí</th>
+<th>Nhiều đoạn ngắn rồi ghép</th>
+<th>Một đoạn dài liền</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>额度</strong></td>
+<td>Hỏng đoạn nào render lại đoạn đó</td>
+<td>Hỏng là render lại cả clip</td>
+</tr>
+<tr>
+<td>Khâu dựng</td>
+<td>Dễ đổi thứ tự, chèn b-roll, khớp nhịp nhạc</td>
+<td>Cứng, khó sửa nhịp</td>
+</tr>
+<tr>
+<td>Chuyển động</td>
+<td>Phải tự lo chuyển cảnh giữa các đoạn</td>
+<td>Liền mạch sẵn</td>
+</tr>
+<tr>
+<td>Nhịp TikTok</td>
+<td><strong>Chủ động cắt theo beat</strong></td>
+<td>Bị động</td>
 </tr>
 </tbody>
 </table></div>
 <blockquote>
-<h2 id="mot-file-10801920-h264-aac-30fps-8-mbps-mp4-dung-uoc-cho-ca-tiktok-lan-facebook-khong-can-xuat-hai-ban">Một file <strong>1080×1920, H.264, AAC, 30fps, ~8 Mbps, MP4</strong> dùng được cho cả TikTok lẫn Facebook. Không cần xuất hai bản.</h2>
+<h2 id="voi-tiktokfacebook-xuat-nhieu-oan-ngan-moi-oan-mot-chuyen-ong-310-giay-roi-ghep-o-capcut">Với TikTok/Facebook: xuất nhiều đoạn ngắn — mỗi đoạn MỘT chuyển động, 3–10 giây — rồi ghép ở CapCut.</h2>
+<p>Chỉ dùng một đoạn dài khi khách đòi xem "một hơi không cắt" để duyệt phương án. Đó là hai mục đích khác nhau.</p>
 </blockquote>
-<p><strong>Đừng xuất master 50 Mbps</strong> — TikTok nén lại mọi file trên khoảng 15 Mbps, nên bitrate thừa chỉ làm file nặng chứ không đẹp hơn.</p>
-<h3 id="vung-an-toan-giu-chu-khoi-bi-nut-che">Vùng an toàn — giữ chữ khỏi bị nút che</h3>
+<p><strong>Cắt ở đâu cho tự nhiên:</strong> dùng <strong>ngưỡng cửa làm điểm cắt</strong>. Camera đi qua khung cửa thì cắt sang đoạn sau — mắt người xem đọc đó là chuyển phòng, không đọc là "mối nối".</p>
+<h3 id="bang-va-lo-hong-kujiale-bang-capcut">Bảng vá lỗ hổng Kujiale bằng CapCut / 剪映</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>Nền tảng</th>
-<th>Trên</th>
-<th>Dưới</th>
-<th>Phải</th>
-<th>Trái</th>
-<th>Còn lại</th>
+<th>Kujiale KHÔNG có</th>
+<th>Làm gì ở CapCut (chi tiết C18)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>TikTok</strong></td>
-<td>~130 px</td>
-<td><strong>~484 px</strong></td>
-<td>~140 px</td>
-<td>~44 px</td>
-<td><strong>~896×1306 px giữa khung</strong></td>
+<td>Ease vào–ra mượt</td>
+<td><code>曲线变速</code> (biến tốc theo đường cong) — kéo cong đầu/cuối clip</td>
 </tr>
 <tr>
-<td>Facebook / Instagram Reels</td>
-<td>~220 px</td>
-<td>~420 px</td>
-<td>—</td>
-<td>—</td>
-<td>~1010×1280 px</td>
+<td>Chậm mượt (slow-motion)</td>
+<td><code>平滑慢动作</code> — nội suy khung để chậm không giật</td>
+</tr>
+<tr>
+<td>Rung tay cầm tự nhiên</td>
+<td>Hiệu ứng <code>抖动</code> cường độ thấp, hoặc keyframe dịch ±1–2%</td>
+</tr>
+<tr>
+<td>Khớp nhịp nhạc</td>
+<td>Cắt theo beat, dùng <code>踩点</code> (tự nhận nhịp)</td>
+</tr>
+<tr>
+<td>Xuất dọc 9:16</td>
+<td>Đặt khung 1080×1920, crop hoặc thêm nền mờ</td>
 </tr>
 </tbody>
 </table></div>
-<p>Giữ <strong>chữ, logo, giá, câu chốt</strong> trong vùng giữa. Đáy là chỗ nguy hiểm nhất — caption và nút chiếm gần 500 px.</p>
-<blockquote class="warn">
-<p>⚠️ Số vùng an toàn tổng hợp từ các nguồn hướng dẫn chuyên ngành 2026, <strong>không phải tài liệu chính thức của TikTok</strong>, và giao diện đổi theo thời gian (tháng 1/2026 TikTok mở rộng vùng phải thêm ~20 px cho nút "Add to Playlist"). <strong>Xem trước bằng công cụ kiểm vùng an toàn, hoặc đơn giản là đăng thử ở chế độ riêng tư rồi soi trên điện thoại thật.</strong></p>
-</blockquote>
 <hr>
 <h2 id="thuc-hanh">Thực hành</h2>
-<p><strong>Bài 1 — Dựng bản mẫu của công ty (làm một lần, cả team dùng):</strong>
-Tạo một bản nháp CapCut khung 1080×1920 với: lớp grain phủ toàn timeline · khung chữ đặt sẵn cách đáy ≥ 484 px và cách đỉnh ≥ 130 px · một bài nhạc mặc định. Lưu lại, đặt tên rõ ràng, chia sẻ cho cả team.
-<em>Tiêu chí đạt:</em> người khác mở bản nháp lên, thả clip vào, xuất được ngay mà không phải chỉnh gì về khung và vùng an toàn.</p>
-<p><strong>Bài 2 — Bài luyện mắt quan trọng nhất chương:</strong>
-Lấy một đoạn render 3 giây và một đoạn quay điện thoại cùng phòng. Ghép cạnh nhau, <strong>xuất bản A không chỉnh gì</strong>. Rồi chạy đủ sáu kỹ thuật ở 17.4, <strong>xuất bản B</strong>. Xem cả hai trên điện thoại thật, không phải trên màn máy tính.
-<em>Tiêu chí đạt:</em> đưa bản B cho một người không làm nghề xem, hỏi "đoạn nào là hình dựng" — họ chỉ sai hoặc phải xem lại mới đoán được.</p>
-<p><strong>Bài 3 — Trước–sau khớp góc:</strong>
-Chọn một căn có ảnh chụp thô. Dựng camera Kujiale khớp đúng góc ảnh chụp theo quy trình 5 bước ở 17.5. Xuất clip trước–sau kiểu <strong>lật qua lật lại</strong>, giữ trước 2 s / sau 3 s, cắt trúng nhịp.
-<em>Tiêu chí đạt:</em> đặt hai khung hình chồng lên nhau, các mốc cố định (góc tường, cạnh cửa sổ) lệch không quá một phần mười chiều rộng khung.</p>
-<p><strong>Bài 4 — Xuất và soi trên máy thật:</strong>
-Xuất bản cuối theo chuẩn 17.8. Đăng ở chế độ riêng tư lên cả TikTok lẫn Facebook. Soi trên điện thoại.
-<em>Tiêu chí đạt:</em> không chữ nào bị nút che ở cả hai nền tảng; hình không vỡ ở cảnh nhiều chi tiết; không thấy dải màu loang trên tường trơn.</p>
+<p><strong>Bài 1 — Lộ trình A, làm cho đúng chứ không làm cho nhanh:</strong>
+Dựng lộ trình A trên một căn đã có. Bốn điểm mốc, có điểm mốc kép ở đầu và cuối. Bấm Play xem trước, sửa tới khi: không xuyên tường, không có giây nào chĩa vào tường trống, không có đoạn nào tối om.
+<em>Tiêu chí đạt:</em> xem preview ba lần liên tiếp mà không thấy chỗ nào gợn. Render 720P một bản để kiểm.</p>
+<p><strong>Bài 2 — Thử ease bằng mắt:</strong>
+Cùng một đoạn đi 3 m. Render hai bản 720P: bản 1 đặt điểm mốc <strong>đều nhau</strong>; bản 2 đặt <strong>điểm mốc kép</strong> ở hai đầu. Xem cạnh nhau trên điện thoại.
+<em>Tiêu chí đạt:</em> nói được bằng lời khác biệt bạn thấy, và giải thích được nó đến từ đâu. (Đây là bài đáng làm nhất chương — sau bài này bạn không bao giờ đặt điểm mốc đều nữa.)</p>
+<p><strong>Bài 3 — Bộ b-roll cho một căn:</strong>
+Làm <strong>năm</strong> đoạn lộ trình D, mỗi đoạn 3–5 giây, 720P, vào năm chi tiết khác nhau (bình hoa, kệ sách, góc cây, tay nắm tủ bếp, đầu giường).
+<em>Tiêu chí đạt:</em> năm file rời, tổng chi phí không quá 2 额度, và cả năm đều <strong>lọt trong dải dọc giữa khung</strong> khi che hai bên màn hình.</p>
+<p><strong>Bài 4 — Kiểm dọc trước khi trả tiền:</strong>
+Lấy lộ trình B (hoặc bản nháp của nó). Xem preview, che hai bên màn hình chỉ chừa dải giữa. Ghi lại <strong>từng giây</strong> mà chủ thể rơi ra khỏi dải đó.
+<em>Tiêu chí đạt:</em> sửa được đường đi để không còn giây nào rơi ra ngoài, <strong>trước khi</strong> bấm render.</p>
 <h2 id="checklist-tu-cham">Checklist tự chấm</h2>
 <ul>
-<li class="task"><label><input type="checkbox" data-key="17-t1"><span>Nhớ luật số một: kéo render về phía quay thật, không bao giờ ngược lại</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t2"><span>Không bao giờ ghi đè file trong thư mục <code>01_Render_Goc</code></span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t3"><span>Kể được sáu khác biệt vật lý giữa render và cảnh quay điện thoại</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t4"><span>Chạy đủ sáu kỹ thuật ghép b-roll, biết mức của từng thứ</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t5"><span>Đoạn render xen vào không quá 5 giây, không đặt ở mở đầu clip</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t6"><span>Phủ grain lên toàn timeline, không chỉ lên đoạn render</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t7"><span>Rung tay giả giữ trong ±1–2%, không hơn</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t8"><span>Không dùng hiệu ứng chuyển cảnh sặc sỡ</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t9"><span>Trước–sau: khớp góc trước, rồi mới chọn kiểu bố cục</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t10"><span>Xuất đúng chuẩn 1080×1920 / H.264 / AAC / 30fps / ~8 Mbps</span></label></li>
-<li class="task"><label><input type="checkbox" data-key="17-t11"><span>Chữ nằm trong ~896×1306 px giữa khung</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t1"><span>Giải thích được cơ chế điểm mốc + nội suy, và vì sao không có đồ thị tốc độ</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t2"><span>Nhớ bốn thứ Kujiale không có, và cách vá từng thứ</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t3"><span>Đặt được điểm mốc kép để giả ease, và thấy được khác biệt bằng mắt</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t4"><span>Thuộc dải: tốc độ 0,4–0,7 m/s · cao 1500–1600 mm · góc nhìn 60–75°</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t5"><span><strong>Không chép nhầm chiều cao 800–1200 mm của ảnh tĩnh sang video</strong></span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t6"><span>Mỗi <code>片段</code> chỉ một chuyển động — không vừa tiến vừa xoay vừa nâng</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t7"><span>Luôn bấm Play xem trước toàn tuyến trước khi trả 额度</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t8"><span>Đặt máy theo ba luật khung dọc, và biết cách che màn hình để kiểm</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="17-t9"><span>Chạy được cả bốn lộ trình mẫu mà không cần mở lại sách</span></label></li>
 </ul>
 <h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
 <div class="table-scroll"><table>
@@ -702,79 +589,73 @@ Xuất bản cuối theo chuẩn 17.8. Đăng ở chế độ riêng tư lên c�
 </thead>
 <tbody>
 <tr>
-<td>Đoạn render "chỏi" hẳn ra khỏi clip</td>
-<td>Chưa chỉnh màu, chưa có grain, quá nét, đứng yên tuyệt đối</td>
-<td>Chạy đủ sáu kỹ thuật 17.4; ưu tiên grain + chỉnh màu trước</td>
+<td>Clip trông "như lái xe trong game"</td>
+<td>Đi nhanh + máy quá thấp + nhiều chuyển động cùng lúc</td>
+<td>Chậm về 0,4–0,7 m/s; nâng máy lên 1500–1600 mm; tách mỗi chuyển động ra một đoạn</td>
 </tr>
 <tr>
-<td>Hình quá mượt, trông giả</td>
-<td>Máy 3D chuyển động quá đều, thiếu nhoè chuyển động</td>
-<td>Thêm rung giả ±1–2%, grain, làm mờ chuyển động nhẹ; <strong>tránh tua trên 2×</strong></td>
+<td>Xem xong thấy nôn nao</td>
+<td>Vection cao — góc nhìn rộng và xoay gấp</td>
+<td><strong>Giảm tốc thêm 30% và hạ góc nhìn về 60° trước khi nghĩ tới bất cứ cách nào khác</strong></td>
 </tr>
 <tr>
-<td>Người xem bình luận "cái này là hình 3D à"</td>
-<td>Grain quá ít, <code>锐化</code> quá cao</td>
-<td><strong>Tăng grain, giảm <code>锐化</code>, thêm rung</strong> — theo đúng thứ tự đó</td>
+<td>Máy chui qua tường</td>
+<td>Không có phát hiện va chạm</td>
+<td>Điểm mốc cách tường ≥ 0,4 m; Play xem trước</td>
 </tr>
 <tr>
-<td>Chuyển cảnh gây chóng mặt</td>
-<td>Máy Kujiale bay quá nhanh / quay đầu quá gấp</td>
-<td>Sửa ở gốc: giảm tốc trong Kujiale (C16); tạm thời giảm tốc đoạn đó ở CapCut</td>
+<td>Vào/ra đoạn bị "khựng"</td>
+<td>Điểm mốc đặt đều nhau</td>
+<td>Đặt điểm mốc kép hai đầu; hoặc <code>曲线变速</code> ở CapCut</td>
 </tr>
 <tr>
-<td>Chữ bị nút TikTok/FB che</td>
-<td>Đặt chữ ngoài vùng an toàn</td>
-<td>Giữ trong ~896×1306 px; cách đáy ≥ 484 px</td>
+<td>Hình bị "thở" phồng lên xẹp xuống</td>
+<td>Góc nhìn đổi liên tục giữa các điểm mốc</td>
+<td>Cố định <code>视野范围</code> trong mỗi đoạn</td>
 </tr>
 <tr>
-<td>Clip lên nền tảng bị nén vỡ hình</td>
-<td>Bitrate thấp + cảnh nhiều chi tiết; dải màu bị vỡ</td>
-<td>Xuất 8–12 Mbps; <strong>thêm chút grain để phá vỡ dải màu</strong>; tránh mảng chuyển màu trơn lớn</td>
+<td>Đi qua cửa thấy tường bị kéo méo</td>
+<td>Góc nhìn quá rộng ở chỗ hẹp</td>
+<td>Về 60° tại điểm mốc giữa cửa; đi thẳng trục, đừng chéo</td>
 </tr>
 <tr>
-<td>Nhạc lệch nhịp cắt</td>
-<td>Cắt không trúng beat</td>
-<td>Dùng <code>踩点</code> (đánh dấu nhịp) trong CapCut, cắt trúng điểm nhịp</td>
+<td>Cắt dọc xong mất hết tủ bếp hai bên</td>
+<td>Đặt máy theo tư duy khung ngang</td>
+<td>Ba luật khung dọc ở 17.5; kiểm bằng cách che hai bên màn hình</td>
 </tr>
 <tr>
-<td>Màu render ám vàng</td>
-<td>Mẫu đèn ấm trong Kujiale</td>
-<td>Sửa ở gốc: đổi mẫu sang trắng trung tính khi render; tạm thời hạ <code>色温</code> ở CapCut</td>
-</tr>
-<tr>
-<td>Răng cưa ở cạnh tủ sau khi nén</td>
-<td>Render độ nét thấp + nén của nền tảng</td>
-<td>Render 1080P; làm mềm rìa nhẹ (giảm <code>锐化</code> / mờ 3%); <strong>tránh 480P cho cảnh nhiều cạnh thẳng</strong></td>
-</tr>
-<tr>
-<td>Video giật do lệch fps</td>
-<td>Kujiale ghép với clip quay 60fps trong cùng timeline</td>
-<td><strong>Đặt project một fps thống nhất (30fps)</strong>; ép mọi clip về 30fps trước khi ghép; hoặc quay điện thoại ở 30fps</td>
+<td>Clip lê thê, người xem lướt</td>
+<td>Một đoạn dài, không có b-roll</td>
+<td>Cắt xuống ≤ 30 giây (2 PN); tăng số cảnh b-roll; xem nhịp ở C18, C19</td>
 </tr>
 </tbody>
 </table></div>
 <h2 id="nguon-so-lieu">Nguồn số liệu</h2>
-<p><strong>Chính thức:</strong>
-- Cơ chế 视频额度 (15 giây = 1 额度), độ nét ảnh hưởng mức tiêu hao: Kujiale bài 3FO4K4WM9WHW — xem C15
-- <code>全景图小视频</code> 5/20 lượt/ngày, cố định 15 giây, một phòng: Kujiale bài 3FO4JYHXYBMA
-- Bản <code>极速</code> hỗ trợ 16:9 / 4:3 / 3:4 / 1:1, đổi tỉ lệ không giãn khung: thông báo 《酷家乐极速版渲染上线》
-- Độ nét 480P/720P/1080P và giới hạn ban ngày: Kujiale bài 3FO4K4WNDBNE</p>
-<p><strong>Chuyên ngành / cộng đồng (đã đánh ⚠️ trong bài):</strong>
-- Nguyên tắc "làm render xấu đi cho khớp cảnh quay": Ebal Studios, School of Motion, Creative Bloq, D5 Render
-- Thông số CapCut (grain 30–60% / 15–40, rung ±1–2% hoặc ~5%, mờ 3–5%, chỉnh màu 5–15): hướng dẫn cộng đồng 剪映 + thực hành archviz — <strong>khoảng khuyến nghị, cần tinh chỉnh theo từng clip</strong>
-- Thông số xuất TikTok/Facebook 2026 và vùng an toàn (130/484/140/44 px): tổng hợp hướng dẫn chuyên ngành (EzUGC, AdConvert, Kreatli) — <strong>không phải tài liệu chính thức của TikTok</strong>
-- Tình trạng pháp lý CapCut: luật PAFACA Mỹ 19/01/2025, khôi phục 21/01/2025, thoả thuận TikTok USDS đóng 22/01/2026; Ấn Độ cấm từ 2020. <strong>Tình trạng tại Việt Nam chưa xác thực được</strong></p>
-<p><strong>Chờ verify (Phụ lục B mục I):</strong>
-- I2 danh sách <code>构图比</code> có 9:16 không (quyết định có phải cắt dọc ở CapCut hay không)
-- I3 FPS Kujiale xuất ra — quyết định có phải ép fps trước khi ghép hay không</p>
+<p><strong>Chính thức (Kujiale help center):</strong>
+- Cơ chế <code>片段</code> + <code>关键帧</code>, tham số theo cấp điểm mốc/đoạn: bài 3FO4K4WPG7V7
+- Năm mẫu <code>运镜</code> (<code>直线</code>/<code>曲线</code>/<code>垂直</code>/<code>环拍</code>/<code>聚焦</code>), chỉnh 2D, Play xem trước: bài 3FO4K4VIJARH
+- Nhập từ <code>镜头库</code>, <code>一键导入全屋漫游镜头</code>: bài 3FO4K4WP3YVJ
+- Đèn nhấp nháy và <code>降低帧率</code>: bài 3FO4K4WD5QAG
+- <strong>Chiều cao camera ảnh tĩnh 800–1200 mm</strong> (dùng để đối chiếu): bài 3FO4K4W2BGW1 — xem C6
+- Mốc ra mắt 02/2021, nâng 漫游视频 2.0 ngày 14/09/2021: China Daily 29/04/2021</p>
+<p><strong>Mượn từ ngành khác (đã đánh ⚠️ — dải khởi điểm, không phải thông số của Kujiale):</strong>
+- Cơ chế vection và VIMS: PLOS One journal.pone.0175305 (Kooijman và cộng sự)
+- Ngưỡng góc nhìn: Game Accessibility Guidelines · MDPI Applied Sciences vol.14, 2231 (2024)
+- Chiều cao tầm mắt archviz: Chaos/V-Ray, Bluent CAD
+- Nguyên lý ease và rung tay cầm: tài liệu Lumion (lumion.com/blog)
+- Thời lượng khuyến nghị: Trim Render, Super Renders Farm
+- Tốc độ dolly điện ảnh 0,3–0,8 m/s: thực hành quay phim</p>
+<p><strong>Chờ verify trên app (Phụ lục B mục I):</strong>
+- I3 FPS xuất · I4 thời lượng tối đa một clip · I7 số <code>片段</code>/<code>关键帧</code> tối đa
+- Hai bài help nên mở trực tiếp để bổ sung: <code>漫游视频-基础设置</code> (3FO4K4WPIS5Y) và <code>漫游视频如何生成渲染</code> (3FO4K4WPDWMI)</p>
 <hr>
 <h2 id="tu-tra-video-thuc-chien">Tự tra video thực chiến</h2>
 <blockquote class="pin">
 <p>📌 <strong>Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.</strong></p>
-<p>Chương vừa rồi dựng khung: kỹ thuật nào, mức nào, theo thứ tự nào. Nhưng thao tác CapCut thì <strong>xem người ta quay màn hình nhanh hơn đọc nhiều lần</strong> — nhất là các bước có keyframe và mask.</p>
-<p><strong>Đọc chương xong, tra vài video về đúng kỹ thuật đang cần, rồi quay lại làm.</strong></p>
+<p>Chương vừa rồi dựng khung: cơ chế đường đi, số nào an toàn, lộ trình nào chạy được. Nhưng cảm giác "đoạn này đi nhanh quá" thì <strong>chỉ có xem nhiều clip của người khác mới quen mắt.</strong></p>
+<p><strong>Đọc chương xong, tra vài video về đúng đường đi máy ảnh, rồi quay lại làm.</strong></p>
 </blockquote>
-<p>Dán nguyên cụm vào ô tìm kiếm của <strong>小红书</strong>, <strong>抖音 (Douyin)</strong> hoặc YouTube:</p>
+<p>Dán nguyên cụm vào ô tìm kiếm của <strong>小红书</strong> hoặc <strong>抖音 (Douyin)</strong>:</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -784,40 +665,36 @@ Xuất bản cuối theo chuẩn 17.8. Đăng ở chế độ riêng tư lên c�
 </thead>
 <tbody>
 <tr>
-<td><code>剪映 噪点 教程</code></td>
-<td>Thêm hạt nhiễu — kỹ thuật hàn gắn quan trọng nhất</td>
+<td><code>酷家乐 漫游视频 运镜</code></td>
+<td>Cách đi máy trong Kujiale</td>
 </tr>
 <tr>
-<td><code>剪映 曲线变速</code></td>
-<td>Biến tốc theo đường cong, làm ease</td>
+<td><code>酷家乐 关键帧 相机</code></td>
+<td>Đặt điểm mốc, chỉnh máy</td>
 </tr>
 <tr>
-<td><code>剪映 抖动 手持感</code></td>
-<td>Giả rung tay cầm</td>
+<td><code>酷家乐 镜头库</code></td>
+<td>Thư viện cú máy có sẵn</td>
 </tr>
 <tr>
-<td><code>剪映 蒙版 前后对比</code></td>
-<td>Kéo thanh trượt trước–sau bằng mask</td>
+<td><code>室内 漫游动画 镜头</code></td>
+<td>Đường đi máy cho video nội thất nói chung</td>
 </tr>
 <tr>
-<td><code>剪映 踩点 卡点</code></td>
-<td>Cắt trúng nhịp nhạc</td>
+<td><code>一镜到底 装修</code></td>
+<td>Clip đi hết căn một hơi</td>
 </tr>
 <tr>
-<td><code>效果图 实拍 混剪</code></td>
-<td>Ghép render với cảnh quay thật</td>
-</tr>
-<tr>
-<td><code>CapCut match render footage</code></td>
-<td>Cùng chủ đề, nguồn tiếng Anh</td>
+<td><code>D5渲染器 动画 运镜</code></td>
+<td>Nguyên lý đi máy — phần mềm khác nhưng tư duy chung</td>
 </tr>
 </tbody>
 </table></div>
 <blockquote class="tip">
-<p>💡 <strong>Bốn quy tắc lọc:</strong> sắp theo <code>最新</code> · ưu tiên video <strong>quay màn hình có hiện số trên thanh trượt</strong> · bỏ video chỉ khoe thành phẩm không chỉ thao tác · <strong>thấy clip nào của người TQ ghép render vào quay thật mà bạn không nhận ra chỗ nối — lưu lại và xem đi xem lại</strong>. Đó là bài luyện mắt tốt nhất cho chương này.</p>
+<p>💡 <strong>Bốn quy tắc lọc, dùng cho mọi từ khoá:</strong> sắp theo <code>最新</code> (mới nhất) · ưu tiên bài <strong>quay màn hình thao tác thật</strong>, bỏ bài chỉ khoe thành phẩm · bỏ bài <code>AI一键</code> (quảng cáo) · <strong>xem clip nào thấy chóng mặt thì mở lại bảng 17.7 xem nó phạm lỗi nào</strong> — đó là cách luyện mắt nhanh nhất.</p>
 </blockquote></article>
   <button class="mark-read" id="mark-read"></button>
-  <nav class="pager"><a class="prev" href="16.html"><span class="dir">← Trước</span><div class="t">Chương 16 · Đường đi máy ảnh</div></a><a class="next" href="18.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 18 · Nội dung clip ra khách</div></a></nav>
+  <nav class="pager"><a class="prev" href="16.html"><span class="dir">← Trước</span><div class="t">Chương 16 · Xuất video từ Kujiale</div></a><a class="next" href="18.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 18 · Hậu kỳ clip dọc</div></a></nav>
 </div></main>
 <script src="reader.js"></script>
 </body>

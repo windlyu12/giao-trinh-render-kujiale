@@ -1,4 +1,4 @@
-# C16. Đường đi máy ảnh — làm cho mượt và có nhịp
+# C17. Đường đi máy ảnh — làm cho mượt và có nhịp
 
 > **Sau chương này bạn làm được:**
 > - Dựng đường đi bằng `关键帧` và hiểu vì sao Kujiale không có "đồ thị tốc độ" như 3ds Max
@@ -19,13 +19,13 @@
 > 3. **Rung tay cầm** (handheld shake) — chuyển động của Kujiale phẳng lì như ray trượt
 > 4. **Phát hiện va chạm** (collision detection) — **máy đi xuyên tường tự do, không ai chặn bạn**
 >
-> Cả bốn đều mô phỏng được: ba cái đầu bằng cách bố trí điểm mốc khéo + hậu kỳ CapCut (C17); cái thứ tư thì **chỉ có mắt bạn và nút Play xem trước** lo được.
+> Cả bốn đều mô phỏng được: ba cái đầu bằng cách bố trí điểm mốc khéo + hậu kỳ CapCut (C18); cái thứ tư thì **chỉ có mắt bạn và nút Play xem trước** lo được.
 >
 > Và **không có đồ thị tốc độ (curve editor)** như 3ds Max/After Effects. Mọi kỹ thuật kéo đồ thị bạn thấy trong tutorial 3ds Max không áp được ở đây — chương này mượn *nguyên lý*, rồi dịch thành thao tác đặt điểm mốc.
 
 ---
 
-## 16.1. Đường đi được dựng thế nào
+## 17.1. Đường đi được dựng thế nào
 
 Cơ chế: **ĐIỂM MỐC + NỘI SUY TỰ ĐỘNG**. Bạn không vẽ đường bằng tay.
 
@@ -58,7 +58,7 @@ Có nút **Play xem trước** đường đi — **miễn phí, dùng trước k
 
 ---
 
-## 16.2. Vì sao người xem chóng mặt — cơ chế, không phải "đừng đi nhanh"
+## 17.2. Vì sao người xem chóng mặt — cơ chế, không phải "đừng đi nhanh"
 
 Say khi xem video gọi là **vection**: ảo giác tự chuyển động khi mắt thấy cảnh chạy mà tai trong báo cơ thể đang đứng yên. Nghiên cứu trên PLOS One (Kooijman và cộng sự, journal.pone.0175305) đo được *"VIMS increases with vection strength"* — chứng say do thị giác tăng theo cường độ vection (tương quan R² = 0,48).
 
@@ -80,7 +80,7 @@ Quyết định ② là quyết định người mới hay phá nhất: vừa ti
 
 ---
 
-## 16.3. Điều khiển được gì — cái nào đổi giữa chừng, cái nào cố định
+## 17.3. Điều khiển được gì — cái nào đổi giữa chừng, cái nào cố định
 
 | Tham số | Nghĩa | Cấp điều khiển | Đổi giữa chừng? |
 |---|---|---|---|
@@ -110,7 +110,7 @@ Cả chương gọi cặp điểm này là **"điểm mốc kép"**. Nó xuất 
 
 ---
 
-## 16.4. Số thật cho căn hộ chung cư 60–90 m², trần 2,7 m
+## 17.4. Số thật cho căn hộ chung cư 60–90 m², trần 2,7 m
 
 | Hạng mục | Dải dùng được ngay | Nguồn |
 |---|---|---|
@@ -137,7 +137,7 @@ Cả chương gọi cặp điểm này là **"điểm mốc kép"**. Nó xuất 
 >
 > **Chép nhầm số của C6 sang đây là lỗi hay gặp nhất khi chuyển từ làm ảnh sang làm video.**
 
-> Ghi chú về chi phí: Super Renders Farm nêu *"A 60-second architectural walkthrough at 30 fps requires 1,800 individual frames"* — mỗi giây là một chuỗi khung hình render riêng. **Giữ clip ngắn không chỉ vì nhịp, mà còn vì 额度** (C15).
+> Ghi chú về chi phí: Super Renders Farm nêu *"A 60-second architectural walkthrough at 30 fps requires 1,800 individual frames"* — mỗi giây là một chuỗi khung hình render riêng. **Giữ clip ngắn không chỉ vì nhịp, mà còn vì 额度** (C16).
 
 ### Đi qua cửa và hành lang hẹp
 
@@ -151,9 +151,9 @@ Và vì không có phát hiện va chạm: tự canh **tâm máy cách tường 
 
 ---
 
-## 16.5. Đặt máy sao cho cắt dọc 9:16 vẫn đủ hình
+## 17.5. Đặt máy sao cho cắt dọc 9:16 vẫn đủ hình
 
-Đây là phần C15 hứa sẽ nói kỹ. Nếu chưa chắc `构图比` của bạn có 9:16 gốc hay không (đa số trường hợp là chưa chắc), thì **giả định sẽ phải cắt dọc** và dựng cảnh theo giả định đó. Không mất gì, mà cứu được cả buổi làm.
+Đây là phần C16 hứa sẽ nói kỹ. Nếu chưa chắc `构图比` của bạn có 9:16 gốc hay không (đa số trường hợp là chưa chắc), thì **giả định sẽ phải cắt dọc** và dựng cảnh theo giả định đó. Không mất gì, mà cứu được cả buổi làm.
 
 **Ba luật đặt máy cho khung dọc:**
 
@@ -167,7 +167,7 @@ Và vì không có phát hiện va chạm: tự canh **tâm máy cách tường 
 
 ---
 
-## 16.6. Bốn lộ trình mẫu
+## 17.6. Bốn lộ trình mẫu
 
 > Quy ước ghi điểm mốc: **[vị trí | chiều cao | hướng nhìn | góc nhìn]**
 
@@ -199,7 +199,7 @@ Thứ tự phòng: **cửa → phòng khách → bàn ăn/bếp → hành lang �
 
 **Vì sao thứ tự này:** đi theo **mạch sinh hoạt thật** của người ở — vào nhà → sinh hoạt chung → riêng tư. Phòng riêng để cuối tạo cao trào. Hành lang là "đoạn nối" nên giữ **ngắn, thẳng, góc nhìn hẹp** để không lê thê và không méo.
 
-> ⚠️ **Lộ trình B là lộ trình đắt nhất và rủi ro nhất.** Một đoạn 50 giây tốn khoảng 4 额度 (C15) và sai một chỗ là render lại cả. Với TikTok/Facebook, **cách khôn hơn là cắt B thành 5 đoạn ngắn rồi ghép ở CapCut** — xem 16.8.
+> ⚠️ **Lộ trình B là lộ trình đắt nhất và rủi ro nhất.** Một đoạn 50 giây tốn khoảng 4 额度 (C16) và sai một chỗ là render lại cả. Với TikTok/Facebook, **cách khôn hơn là cắt B thành 5 đoạn ngắn rồi ghép ở CapCut** — xem 17.8.
 
 ### Lộ trình C — "XOAY QUANH ĐIỂM NHẤN" (`环拍`) · 6–8 giây
 
@@ -215,11 +215,11 @@ Một cú **đẩy tới** chậm vào kệ trang trí / bình hoa / góc cây x
 **[cách 2 m | 1400 mm | thẳng vào vật | 60°] → [cách 0,8 m | 1400 mm | giữ vật ở tâm | 60°]**
 Không xoay. Không đổi độ cao. Không đổi góc nhìn.
 
-**Vì sao:** b-roll là "gia vị" để xen vào clip quay thật (C17, C18). Một chuyển động duy nhất thì luôn mượt và luôn dễ khớp nhịp nhạc. **Đây cũng là lộ trình rẻ nhất** — 3 giây, để 720P là đủ.
+**Vì sao:** b-roll là "gia vị" để xen vào clip quay thật (C18, C19). Một chuyển động duy nhất thì luôn mượt và luôn dễ khớp nhịp nhạc. **Đây cũng là lộ trình rẻ nhất** — 3 giây, để 720P là đủ.
 
 ---
 
-## 16.7. Sáu lỗi làm hỏng một clip dạo quanh
+## 17.7. Sáu lỗi làm hỏng một clip dạo quanh
 
 | Lỗi | Cơ chế | Cách chặn |
 |---|---|---|
@@ -234,7 +234,7 @@ Không xoay. Không đổi độ cao. Không đổi góc nhìn.
 
 ---
 
-## 16.8. Ghép nhiều đoạn ngắn hay xuất một đoạn dài?
+## 17.8. Ghép nhiều đoạn ngắn hay xuất một đoạn dài?
 
 | Tiêu chí | Nhiều đoạn ngắn rồi ghép | Một đoạn dài liền |
 |---|---|---|
@@ -250,7 +250,7 @@ Không xoay. Không đổi độ cao. Không đổi góc nhìn.
 
 ### Bảng vá lỗ hổng Kujiale bằng CapCut / 剪映
 
-| Kujiale KHÔNG có | Làm gì ở CapCut (chi tiết C17) |
+| Kujiale KHÔNG có | Làm gì ở CapCut (chi tiết C18) |
 |---|---|
 | Ease vào–ra mượt | `曲线变速` (biến tốc theo đường cong) — kéo cong đầu/cuối clip |
 | Chậm mượt (slow-motion) | `平滑慢动作` — nội suy khung để chậm không giật |
@@ -300,8 +300,8 @@ Lấy lộ trình B (hoặc bản nháp của nó). Xem preview, che hai bên m�
 | Vào/ra đoạn bị "khựng" | Điểm mốc đặt đều nhau | Đặt điểm mốc kép hai đầu; hoặc `曲线变速` ở CapCut |
 | Hình bị "thở" phồng lên xẹp xuống | Góc nhìn đổi liên tục giữa các điểm mốc | Cố định `视野范围` trong mỗi đoạn |
 | Đi qua cửa thấy tường bị kéo méo | Góc nhìn quá rộng ở chỗ hẹp | Về 60° tại điểm mốc giữa cửa; đi thẳng trục, đừng chéo |
-| Cắt dọc xong mất hết tủ bếp hai bên | Đặt máy theo tư duy khung ngang | Ba luật khung dọc ở 16.5; kiểm bằng cách che hai bên màn hình |
-| Clip lê thê, người xem lướt | Một đoạn dài, không có b-roll | Cắt xuống ≤ 30 giây (2 PN); tăng số cảnh b-roll; xem nhịp ở C17, C18 |
+| Cắt dọc xong mất hết tủ bếp hai bên | Đặt máy theo tư duy khung ngang | Ba luật khung dọc ở 17.5; kiểm bằng cách che hai bên màn hình |
+| Clip lê thê, người xem lướt | Một đoạn dài, không có b-roll | Cắt xuống ≤ 30 giây (2 PN); tăng số cảnh b-roll; xem nhịp ở C18, C19 |
 
 ## Nguồn số liệu
 
@@ -346,4 +346,4 @@ Dán nguyên cụm vào ô tìm kiếm của **小红书** hoặc **抖音 (Douy
 | `一镜到底 装修` | Clip đi hết căn một hơi |
 | `D5渲染器 动画 运镜` | Nguyên lý đi máy — phần mềm khác nhưng tư duy chung |
 
-> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài **quay màn hình thao tác thật**, bỏ bài chỉ khoe thành phẩm · bỏ bài `AI一键` (quảng cáo) · **xem clip nào thấy chóng mặt thì mở lại bảng 16.7 xem nó phạm lỗi nào** — đó là cách luyện mắt nhanh nhất.
+> 💡 **Bốn quy tắc lọc, dùng cho mọi từ khoá:** sắp theo `最新` (mới nhất) · ưu tiên bài **quay màn hình thao tác thật**, bỏ bài chỉ khoe thành phẩm · bỏ bài `AI一键` (quảng cáo) · **xem clip nào thấy chóng mặt thì mở lại bảng 17.7 xem nó phạm lỗi nào** — đó là cách luyện mắt nhanh nhất.

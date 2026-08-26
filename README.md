@@ -2,9 +2,10 @@
 
 Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) bản Trung Quốc, biên soạn từ các gói deep research (help center chính thức + cộng đồng designer TQ), cập nhật theo UI 2025-2026.
 
-**Hai khối:** C0–C14 + Phụ lục A–E là khối **ảnh tĩnh** — từ "biết dùng" lên "nước ảnh không nhận ra là 3D". C15–C18 là khối **video** — từ file render Kujiale tới clip dọc đăng TikTok/Facebook ra được khách.
+**Khối ảnh tĩnh (C0–C14 + phụ lục):** từ "biết dùng" lên "nước ảnh không nhận ra là 3D".
+**Khối video (C16–C19):** từ file render Kujiale tới clip dọc đăng TikTok/Facebook ra được khách.
 
-**Phiên bản:** v1.1 (2026-08-26) — bổ sung khối video C15–C18 và mục I của Phụ lục B. Một số con số vẫn chờ khoá qua Phụ lục B.
+**Phiên bản:** v1.1 (2026-08-26) — bổ sung khối video C16–C19 và mục I của Phụ lục B. Một số con số vẫn chờ khoá qua Phụ lục B.
 
 ## Dành cho ai, dùng thế nào
 
@@ -27,19 +28,20 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 | 7 | Photorealism + case thực chiến | `content/07-photorealism-case-thuc-chien.md` | 4 trụ cột, 12 điều cấm phạm, học từ pháp sư TQ |
 | 8 | Công cụ AI — dùng và cấm | `content/08-cong-cu-ai-dung-va-cam.md` | AI ở đâu hợp lệ, ở đâu rủi ro pháp lý |
 | 9 | Luyện mắt + nguồn theo dõi | `content/09-luyen-mat-nguon-theo-doi.md` | Thói quen dài hạn sau khi đọc hết sách |
-| 10 | Ảnh vân — nguồn, chuẩn, chống lặp | `content/10-texture-nguon-chuan-va-chong-lap-van.md` | Lấy ảnh vân ở đâu, chuẩn thế nào, phá lỗi lặp vân |
-| 11 | Model và bày đồ kể chuyện | `content/11-model-va-bay-do-ke-chuyen.md` | Nhận model rác, bày đồ có hơi người, bản địa hoá khách Việt |
+| 10 | Ảnh vân — nguồn, chuẩn, chống lặp | `content/10-texture-nguon-chuan-va-chong-lap-van.md` | Lấy texture ở đâu, chuẩn thế nào, phá lỗi lặp vân |
+| 11 | Model và bày đồ kể chuyện | `content/11-model-va-bay-do-ke-chuyen.md` | Nhận model rác, bày đồ có hơi người |
 | 12 | Chi tiết công trình | `content/12-chi-tiet-cong-trinh.md` | Khe hắt, đèn âm trần, ray nam châm, khe gió |
-| 13 | Ánh sáng nâng cao | `content/13-anh-sang-nang-cao.md` | Bốn con đường bố đèn, nắng qua rèm, thoát khỏi việc chép số |
-| 14 | Hậu kỳ nâng cao | `content/14-hau-ky-nang-cao.md` | Đường cong, hạt nhiễu, dải màu, nước ảnh kiểu Trung Quốc |
-| 15 | Xuất video từ Kujiale | `content/15-xuat-video-kujiale.md` | Làm được gì, tốn bao nhiêu 额度, dọc 9:16 được không? |
-| 16 | Đường đi máy ảnh | `content/16-duong-di-may-anh.md` | Điểm mốc, tốc độ, góc nhìn — clip mượt và không gây chóng mặt |
-| 17 | Hậu kỳ clip dọc | `content/17-hau-ky-clip-doc.md` | Kéo render về phía quay thật + chuẩn xuất TikTok/Facebook |
-| 18 | Nội dung clip ra khách | `content/18-noi-dung-clip-ra-khach.md` | Sáu dạng clip nhà ở, ba giây đầu, quy đổi Trung → Việt |
+| 13 | Ánh sáng nâng cao | `content/13-anh-sang-nang-cao.md` | Bốn con đường bố đèn, nắng qua rèm voan |
+| 14 | Hậu kỳ nâng cao | `content/14-hau-ky-nang-cao.md` | Đường cong, hạt nhiễu, nước ảnh kiểu Trung Quốc |
+| 16 | Xuất video từ Kujiale | `content/16-xuat-video-kujiale.md` | Làm được gì, tốn bao nhiêu 额度, dọc 9:16 được không? |
+| 17 | Đường đi máy ảnh | `content/17-duong-di-may-anh.md` | Điểm mốc, tốc độ, góc nhìn — clip mượt và không gây chóng mặt |
+| 18 | Hậu kỳ clip dọc | `content/18-hau-ky-clip-doc.md` | Kéo render về phía quay thật + chuẩn xuất TikTok/Facebook |
+| 19 | Nội dung clip ra khách | `content/19-noi-dung-clip-ra-khach.md` | Sáu dạng clip nhà ở, ba giây đầu, quy đổi Trung → Việt |
 | A | Bộ chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` | Công cụ nghiệm thu + chấm đồ án |
 | B | Phiếu khám phá app | `content/phu-luc-b-phieu-verify-app.md` | Bài tập tuần đầu — khóa số cho sách |
 | C | Cheat sheet thuật ngữ | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` | ~97 thuật ngữ Trung-Việt, in dán tường |
 | D | Từ vựng prompt AI | `content/phu-luc-d-tu-vung-prompt-ai.md` | Nguyên tắc ánh sáng → prompt Nano Banana/Midjourney |
+| E | Ngân hàng ca thực chiến | `content/phu-luc-e-ngan-hang-case.md` | Mười ca đánh đèn của designer Trung Quốc |
 
 ## Agent render — dùng giáo trình này để chạy việc thật
 
@@ -75,7 +77,7 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 │   ├── 05-prompt-ai.md             ← 6 khối, 26 cụm, khác biệt từng công cụ
 │   ├── 06-cham-anh.md              ← rubric + 12 dấu hiệu + biên độ hậu kỳ
 │   ├── 07-doc-model-chua-render.md ← đọc lỗi từ ảnh model phẳng, trước khi bố đèn
-│   └── 08-video-clip.md            ← hợp nhất số của C15·C16·C17·C18 + rubric chấm clip
+│   └── 09-video-clip.md            ← hợp nhất số của C16·C17·C18·C19 + rubric chấm clip
 └── templates/                      ← 4 phiếu xuất: phân tích ảnh · thông số render · prompt AI · clip video
 ```
 

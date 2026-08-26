@@ -165,16 +165,16 @@ Kết quả: ☐ xem hết ☐ lướt ở giây ......  Vì: ..................
 
 | # | Tiêu chí | Điểm | Chỗ hỏng *(ghi MỐC GIÂY)* | Sửa ở |
 |---|---|---|---|---|
-| 1 | Không gây chóng mặt | /5 | | C16 §16.2 |
-| 2 | Mỗi đoạn một chuyển động | /5 | | C16 §16.2 |
-| 3 | Vào–ra mềm (ease) | /5 | | C16 §16.3 |
-| 4 | Độ cao và FOV đúng | /5 | | C16 §16.4 |
-| 5 | **Màu khớp render ↔ quay thật** | /5 | | C17 §17.4 ① |
-| 6 | **Chất liệu khớp (grain, độ nét)** | /5 | | C17 §17.4 ②④ |
-| 7 | **Mối nối giấu được** | /5 | | C17 §17.4 ⑤ |
-| 8 | Ba giây đầu giữ chân | /5 | | C18 §18.3 |
-| 9 | Nhịp cắt và nhạc | /5 | | C17 §17.3, C18 §18.4 |
-| 10 | Đăng được ngay (vùng an toàn, chuẩn xuất, ghi minh hoạ 3D) | /5 | | C17 §17.8, C18 §18.8 |
+| 1 | Không gây chóng mặt | /5 | | C17 §17.2 |
+| 2 | Mỗi đoạn một chuyển động | /5 | | C17 §17.2 |
+| 3 | Vào–ra mềm (ease) | /5 | | C17 §17.3 |
+| 4 | Độ cao và FOV đúng | /5 | | C17 §17.4 |
+| 5 | **Màu khớp render ↔ quay thật** | /5 | | C18 §18.4 ① |
+| 6 | **Chất liệu khớp (grain, độ nét)** | /5 | | C18 §18.4 ②④ |
+| 7 | **Mối nối giấu được** | /5 | | C18 §18.4 ⑤ |
+| 8 | Ba giây đầu giữ chân | /5 | | C19 §19.3 |
+| 9 | Nhịp cắt và nhạc | /5 | | C18 §18.3, C19 §19.4 |
+| 10 | Đăng được ngay (vùng an toàn, chuẩn xuất, ghi minh hoạ 3D) | /5 | | C18 §18.8, C19 §19.8 |
 
 **Tổng: ... / 50**
 
@@ -185,7 +185,7 @@ Kết quả: ☐ xem hết ☐ lướt ở giây ......  Vì: ..................
 
 ### Việc cần sửa — theo đúng thứ tự ưu tiên
 
-> **Đường đi máy (C16) > độ chỏi render↔thật (C17) > nhịp cắt > chữ và xuất file**
+> **Đường đi máy (C17) > độ chỏi render↔thật (C18) > nhịp cắt > chữ và xuất file**
 
 | Ưu tiên | Việc | Sửa ở đâu | Có phải render lại không? |
 |---|---|---|---|

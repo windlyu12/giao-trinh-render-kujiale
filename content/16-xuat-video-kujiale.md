@@ -1,4 +1,4 @@
-# C15. Xuất video từ Kujiale — làm được gì, mất bao nhiêu, vướng ở đâu
+# C16. Xuất video từ Kujiale — làm được gì, mất bao nhiêu, vướng ở đâu
 
 > **Sau chương này bạn làm được:**
 > - Chọn đúng công cụ trong sáu dạng "video/ảnh động" của Kujiale — và không nhầm 漫游视频 với 全屋漫游
@@ -20,23 +20,23 @@
 >
 > **Hệ quả 3 — sai một chỗ là trả tiền lại cả đoạn.** Không có chuyện "render lại giây thứ 12". Đây là lý do gốc của lời khuyên xuyên suốt ba chương 15–17: **xuất nhiều đoạn ngắn, đừng xuất một đoạn dài.**
 >
-> **→ Chương này là chương tiền bạc và giới hạn. Đọc xong mới sang C16 dựng đường đi máy ảnh.**
+> **→ Chương này là chương tiền bạc và giới hạn. Đọc xong mới sang C17 dựng đường đi máy ảnh.**
 
 ---
 
-## 15.1. Ba câu hỏi trả lời trước khi bấm bất cứ nút nào
+## 16.1. Ba câu hỏi trả lời trước khi bấm bất cứ nút nào
 
 | Câu hỏi | Trả lời ở đâu |
 |---|---|
-| Tài khoản của mình có render video không, tới độ nét nào? | 15.2 + 15.4 |
-| Một clip tốn bao nhiêu, và tốn theo cái gì? | 15.6 |
-| Ra file khung ngang hay khung dọc? | 15.5 — **câu vướng nhất, đọc kỹ** |
+| Tài khoản của mình có render video không, tới độ nét nào? | 16.2 + 16.4 |
+| Một clip tốn bao nhiêu, và tốn theo cái gì? | 16.6 |
+| Ra file khung ngang hay khung dọc? | 16.5 — **câu vướng nhất, đọc kỹ** |
 
 Trả lời sai câu ba là hỏng nhiều nhất: người ta dựng cả buổi, render xong mới phát hiện phải cắt dọc, mất hai phần ba bề ngang, tủ bếp hai bên bay hết.
 
 ---
 
-## 15.2. Bản đồ sáu dạng "video / ảnh động" — đừng chọn nhầm
+## 16.2. Bản đồ sáu dạng "video / ảnh động" — đừng chọn nhầm
 
 Kujiale gọi nhiều thứ khác nhau là "video". Sáu dạng dưới đây phục vụ sáu việc khác nhau:
 
@@ -61,7 +61,7 @@ Kujiale gọi nhiều thứ khác nhau là "video". Sáu dạng dưới đây ph
 
 ### Chọn dạng nào
 
-- **Đăng TikTok/Facebook, cần kiểm soát:** `漫游视频`. Cả C16 và C17 viết cho dạng này.
+- **Đăng TikTok/Facebook, cần kiểm soát:** `漫游视频`. Cả C17 và C18 viết cho dạng này.
 - **Cần nhanh, chấp nhận mẫu có sẵn:** `轻渲视频`. Mẫu của nó thường đã ở khung dọc vì gắn thẳng với 抖音 — đây là **lối tắt nhanh nhất để có clip dọc**.
 - **Gửi khách xem nhanh một phòng:** `全景图导出小视频`. Gần như miễn phí (tính theo lượt/ngày, không ăn 视频额度) nhưng cố định 15 giây, xoay tại chỗ, một phòng.
 
@@ -69,7 +69,7 @@ Kujiale gọi nhiều thứ khác nhau là "video". Sáu dạng dưới đây ph
 
 ---
 
-## 15.3. Giới hạn kỹ thuật — số nào chắc, số nào chưa
+## 16.3. Giới hạn kỹ thuật — số nào chắc, số nào chưa
 
 | Thông số | Giá trị | Độ tin cậy |
 |---|---|---|
@@ -90,7 +90,7 @@ Kujiale gọi nhiều thứ khác nhau là "video". Sáu dạng dưới đây ph
 
 ---
 
-## 15.4. Câu hỏi sống còn: Kujiale xuất dọc 9:16 được không?
+## 16.4. Câu hỏi sống còn: Kujiale xuất dọc 9:16 được không?
 
 **Trả lời thẳng: chưa có tài liệu công khai nào xác nhận có 9:16 gốc cho `漫游视频`.**
 
@@ -113,15 +113,15 @@ Tách rõ hai chuyện, vì trên mạng người ta hay trộn:
 
 | Cách | Được | Mất | Khi nào dùng |
 |---|---|---|---|
-| **Dựng cảnh sao cho cắt dọc vẫn đủ** | Không mất gì, đầy màn hình | Phải nghĩ trước lúc đặt máy | ⭐ **Tốt nhất — luôn ưu tiên.** Xem C16 |
+| **Dựng cảnh sao cho cắt dọc vẫn đủ** | Không mất gì, đầy màn hình | Phải nghĩ trước lúc đặt máy | ⭐ **Tốt nhất — luôn ưu tiên.** Xem C17 |
 | Cắt cúp giữa khung (crop) | Đầy màn hình, không viền đen | Cắt dọc từ 16:9 **mất khoảng 68% bề ngang**; từ 3:4 mất ít hơn nhiều | Khi chủ thể nằm giữa khung |
 | Đặt khung + nền mờ (`画布模糊`) | Giữ trọn khung ngang | Hình nhỏ lại, nhiều khoảng trống trên dưới | Khi cần thấy cả phòng rộng |
 
-**Cách dựng cảnh cho "cắt dọc vẫn đủ"** (chi tiết ở C16): đặt máy sao cho chủ thể chính — sofa, giường, đảo bếp — nằm trên **trục dọc giữa khung**; cho máy đi theo **chiều sâu** (tiến/lùi) thay vì quét ngang. Khung dọc ăn chiều sâu rất tốt và ăn chiều ngang rất tệ.
+**Cách dựng cảnh cho "cắt dọc vẫn đủ"** (chi tiết ở C17): đặt máy sao cho chủ thể chính — sofa, giường, đảo bếp — nằm trên **trục dọc giữa khung**; cho máy đi theo **chiều sâu** (tiến/lùi) thay vì quét ngang. Khung dọc ăn chiều sâu rất tốt và ăn chiều ngang rất tệ.
 
 ---
 
-## 15.5. Chi phí — 视频额度, và chỗ nó gặp 核豆
+## 16.5. Chi phí — 视频额度, và chỗ nó gặp 核豆
 
 ### Con số chắc chắn nhất của cả chương
 
@@ -152,14 +152,14 @@ Nguyên văn bài chính thức 3FO4K4WM9WHW (cập nhật 03/04/2026): *"视频
 | Việc | Cách làm | Vì sao |
 |---|---|---|
 | Chia đoạn | Mỗi phòng / mỗi cú máy **một đoạn 8–15 giây** | Sai đoạn nào render lại đoạn đó, không trả tiền lại cho cả clip |
-| Chọn độ nét theo vai trò | **1080P** cho clip toàn-render · **720P** cho b-roll ngắn 3–5 giây xen vào clip quay thật | B-roll 3 giây lên điện thoại, sau khi thêm hạt nhiễu (C17) thì 720P không ai nhận ra |
+| Chọn độ nét theo vai trò | **1080P** cho clip toàn-render · **720P** cho b-roll ngắn 3–5 giây xen vào clip quay thật | B-roll 3 giây lên điện thoại, sau khi thêm hạt nhiễu (C18) thì 720P không ai nhận ra |
 | Dư đầu đuôi | Dư **1 giây mỗi đầu**, không hơn | Khâu dựng cần chỗ cho chuyển cảnh "ăn" vài khung và cắt trúng nhịp nhạc. Quay phim chuyên nghiệp dư 3–5 giây; ở đây dư nhiều là đốt 额度 |
 | Đoạn xoay quanh phòng | Dùng `全景图小视频` thay vì `漫游视频` | Tính theo lượt/ngày, không ăn 额度 |
 | Xem trước | Bấm **Play xem trước đường đi** trong Kujiale trước khi trả 额度 | Miễn phí. Bắt được lỗi xuyên tường, quét vào tường trống |
 
 ---
 
-## 15.6. Thời gian chờ và hàng đợi đêm
+## 16.6. Thời gian chờ và hàng đợi đêm
 
 | Việc | Sự thật |
 |---|---|
@@ -171,7 +171,7 @@ Nguyên văn bài chính thức 3FO4K4WM9WHW (cập nhật 03/04/2026): *"视频
 
 ---
 
-## 15.7. Năm thứ Kujiale KHÔNG làm được
+## 16.7. Năm thứ Kujiale KHÔNG làm được
 
 Phần này quan trọng ngang phần làm được — nó chặn bạn hứa với sếp hoặc với khách thứ máy không có.
 
@@ -181,7 +181,7 @@ Phần này quan trọng ngang phần làm được — nó chặn bạn hứa v
 | **Đèn khác nhau ở các đoạn khác nhau trong cùng một clip** | ❌ Mẫu đèn đặt ở `基础设置` áp cho **toàn bộ video**. Muốn đèn biến đổi phải dùng `灯光动画` — đó là hiệu ứng, không phải đặt đèn tĩnh khác nhau cho từng `片段` | ✅ `灯光动画` có (3FO4K4VHSONT) |
 | **Ngày chuyển sang đêm trong một clip** | ⚠️ Làm được **một phần** qua `阳光动画` (dịch góc chiếu nắng) kết hợp `灯光动画` | ✅ có `阳光动效` |
 | **Vật liệu phức tạp đầy đủ như ảnh tĩnh ở bản xem trước ban ngày** | ❌ Bản `白天480/720` **giản lược mạnh**: `体积光` (tia sáng thể tích) và `辉光` (quầng sáng) *"不支持，场景中存在会被删除"* (không hỗ trợ, có trong cảnh sẽ bị xoá); `窗纱`/`玻璃` (rèm voan/kính) *"大部分会出现问题，建议使用材质替换为实时材质"* | ✅ 3FO4K4WNDBNE |
-| **Chống xuyên tường khi đi máy** | ❌ **Không có phát hiện va chạm.** Máy đi xuyên tường tự do — bạn tự canh. Xem C16 | — |
+| **Chống xuyên tường khi đi máy** | ❌ **Không có phát hiện va chạm.** Máy đi xuyên tường tự do — bạn tự canh. Xem C17 | — |
 
 > ## 📌 Luật vàng của chương: **luôn lấy bản đêm 720/1080P làm chuẩn.**
 > Bản `白天480/720` chỉ để xem đường đi máy và bố cục đèn. Đừng bao giờ gửi khách bản đó, và đừng bao giờ kết luận "vật liệu này lỗi" dựa trên bản đó.
@@ -190,7 +190,7 @@ Phần này quan trọng ngang phần làm được — nó chặn bạn hứa v
 
 ---
 
-## 15.8. Bẫy phiên bản 2024–2026
+## 16.8. Bẫy phiên bản 2024–2026
 
 | Mốc | Đổi gì | Hệ quả với bạn |
 |---|---|---|
@@ -199,29 +199,29 @@ Phần này quan trọng ngang phần làm được — nó chặn bạn hứa v
 | **08/2025** | **Gộp lối vào render thành 3 chế độ** (xem C1, C2) | Nút `视频` riêng lẻ trong video hướng dẫn cũ **không còn tồn tại** — vào `离线模式` |
 | **01/03/2026** | Áp quyền lợi hội viên cá nhân mới, **lần đầu đưa 核豆 vào** (cao cấp 1200 核豆/tháng) | Mọi bảng giá tính bằng vé đều lỗi thời |
 | **03/04/2026** | Video chuyển sang **`视频额度` theo tuần** (15s = 1 额度); tài khoản mua/gia hạn mới dần ngừng được tặng vé | Đây là hệ đang chạy |
-| **Không rõ ngày** | Có hẳn bài *"视频工具结构升级"* (nâng cấp cấu trúc công cụ video, mã 3FO4K4WQG6NN) | **Mọi ảnh chụp menu video cũ có thể đã sai vị trí** — luôn ưu tiên đường vào ở bảng 15.2 |
+| **Không rõ ngày** | Có hẳn bài *"视频工具结构升级"* (nâng cấp cấu trúc công cụ video, mã 3FO4K4WQG6NN) | **Mọi ảnh chụp menu video cũ có thể đã sai vị trí** — luôn ưu tiên đường vào ở bảng 16.2 |
 
 **Tài liệu đã lỗi thời, cẩn trọng khi trích:** bài `轻渲教程个人版` (cập nhật 10/2022) và bài `白天480/720` (10/2022) vẫn mô tả theo **hệ vé cũ** — số vé và quy tắc phát trong đó không còn khớp hệ 额度 2026. Phần mô tả kỹ thuật (vật liệu bị giản lược) thì vẫn dùng được; phần tiền bạc thì bỏ.
 
 ---
 
-## 15.9. Quy trình mười bước — từ cảnh đã dựng tới file MP4
+## 16.9. Quy trình mười bước — từ cảnh đã dựng tới file MP4
 
-Chương này lo bước 1–7. C16 lo đường đi máy (bước 3). C17 lo bước 8–10.
+Chương này lo bước 1–7. C17 lo đường đi máy (bước 3). C18 lo bước 8–10.
 
 ```
 ① Rà model + đánh đèn      → như đã học C4, C13. Đèn phải đủ cho CẢ TUYẾN máy chạy,
                               không chỉ một góc tĩnh
 ② Đổi 窗纱/玻璃 → 实时材质   → tránh lỗi biến màu đen/tím khi render video
-③ 渲染 → 漫游视频           → dựng đường đi bằng 关键帧, hoặc nhập từ 镜头库  ← C16
+③ 渲染 → 漫游视频           → dựng đường đi bằng 关键帧, hoặc nhập từ 镜头库  ← C17
 ④ Bấm PLAY xem trước       → MIỄN PHÍ. Soi xuyên tường, vùng tối, tường trống
 ⑤ 基础设置                  → chọn 构图比 (dọc nhất có thể) + mẫu đèn ĐÊM
 ⑥ 生成视频                  → chọn 1080p (hoặc 极致1080p nếu cảnh có 灯光动画)
                               → ĐỌC mức tiêu hao 额度 hiện trên hộp thoại trước khi xác nhận
 ⑦ Chờ render               → xem tiến độ ở 图册; đặt vào cuối buổi cho rẻ và đỡ chờ
-⑧ Tải MP4 về               → đổ vào thư mục theo quy ước, KHÔNG ghi đè bản gốc   ← C17
-⑨ Dựng ở CapCut/剪映        → khung 9:16, ghép đoạn, chỉnh màu, hạt nhiễu, nhạc  ← C17
-⑩ Xuất + đăng              → 1080×1920, H.264, AAC, 30fps, ~8 Mbps              ← C17
+⑧ Tải MP4 về               → đổ vào thư mục theo quy ước, KHÔNG ghi đè bản gốc   ← C18
+⑨ Dựng ở CapCut/剪映        → khung 9:16, ghép đoạn, chỉnh màu, hạt nhiễu, nhạc  ← C18
+⑩ Xuất + đăng              → 1080×1920, H.264, AAC, 30fps, ~8 Mbps              ← C18
 ```
 
 > ⚠️ **Bước ④ là bước người ta hay bỏ và hay hối hận nhất.** Xem trước không tốn 额度. Render xong mới thấy máy chui qua tường thì mất cả đoạn.
@@ -257,8 +257,8 @@ Cùng một phòng khách, tạo ba thứ: (a) một `漫游视频` 10 giây đi
 
 | Hiện tượng | Nguyên nhân | Cách sửa |
 |---|---|---|
-| Không tìm thấy nút render video | UI đã gộp 3 chế độ từ 08/2025; video chỉ có ở `离线模式` | Vào `离线模式`; đường vào theo bảng 15.2 |
-| Render xong mới biết phải cắt dọc, mất hai bên khung | Không chốt tỉ lệ khung từ đầu | Chốt `构图比` ở `基础设置` **trước** khi render; dựng cảnh cho cắt dọc vẫn đủ (C16) |
+| Không tìm thấy nút render video | UI đã gộp 3 chế độ từ 08/2025; video chỉ có ở `离线模式` | Vào `离线模式`; đường vào theo bảng 16.2 |
+| Render xong mới biết phải cắt dọc, mất hai bên khung | Không chốt tỉ lệ khung từ đầu | Chốt `构图比` ở `基础设置` **trước** khi render; dựng cảnh cho cắt dọc vẫn đủ (C17) |
 | Rèm voan/kính bị đen hoặc tím trong video | Vật liệu phức tạp bị giản lược ở chế độ video | Đổi sang `实时材质` trước khi render; lấy bản đêm 720/1080P làm chuẩn |
 | Video mất `体积光`, mất quầng sáng so với ảnh tĩnh | Đang xem bản `白天480/720` — hai hiệu ứng này bị **xoá khỏi cảnh** | Render lại ở bản đêm 720/1080P |
 | Đèn nhấp nháy giữa các khung | Tham số đèn đổi giữa các khung; độ nét thấp | Render 1080P hoặc `极致1080p`; dùng nút `降低帧率`; tránh `灯光动画` đổi mạnh khi máy đang chạy |

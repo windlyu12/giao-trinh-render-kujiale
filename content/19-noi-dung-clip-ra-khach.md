@@ -1,4 +1,4 @@
-# C18. Nội dung clip — học người Trung Quốc, làm cho khách Việt
+# C19. Nội dung clip — học người Trung Quốc, làm cho khách Việt
 
 > **Sau chương này bạn làm được:**
 > - Chọn đúng một trong sáu dạng clip nhà ở, biết dạng nào ra view và dạng nào ra khách
@@ -20,7 +20,7 @@
 
 ---
 
-## 18.1. Vì sao ngành nội thất Trung Quốc đổ hết vào video ngắn
+## 19.1. Vì sao ngành nội thất Trung Quốc đổ hết vào video ngắn
 
 Vài con số làm nền, để hiểu họ không làm cho vui:
 
@@ -32,7 +32,7 @@ Vài con số làm nền, để hiểu họ không làm cho vui:
 
 ---
 
-## 18.2. Sáu dạng clip nhà ở — dạng nào ra view, dạng nào ra khách
+## 19.2. Sáu dạng clip nhà ở — dạng nào ra view, dạng nào ra khách
 
 | Dạng | Độ dài dùng thật | Ra view hay ra khách | Độ khó |
 |---|---|---|---|
@@ -71,7 +71,7 @@ Não người phản ứng cực mạnh với tương phản. Số liệu ngành
 | 12–20 | Tổng cảnh "sau", nhấn 2–3 điểm giải quyết vấn đề (thiếu sáng, chật) |
 | 20–25 | Câu chốt + lời mời |
 
-**Với chung cư bàn giao thô — bối cảnh của công ty:** cảnh "trước" là **thật** (quay công trình), cảnh "sau" là **render**. Đây chính là dạng lai mà kỹ thuật ở C17 phục vụ.
+**Với chung cư bàn giao thô — bối cảnh của công ty:** cảnh "trước" là **thật** (quay công trình), cảnh "sau" là **render**. Đây chính là dạng lai mà kỹ thuật ở C18 phục vụ.
 
 ### Dạng 3 — Mặt bằng biến 3D
 
@@ -104,11 +104,11 @@ Dạng "tránh hố" (`避坑`) chạy rất tốt ở TQ — ⚠️ một bài 
 
 Quay màn hình quá trình dựng trong Kujiale, tua nhanh, kết bằng render hoàn thiện theo nhịp nhạc. ⚠️ Ra view và giải trí tốt hơn ra khách.
 
-### Dạng 6 — Ghép quay thật + render → mục 18.5, dạng quan trọng nhất với công ty
+### Dạng 6 — Ghép quay thật + render → mục 19.5, dạng quan trọng nhất với công ty
 
 ---
 
-## 18.3. Ba giây đầu cho clip có hình dựng
+## 19.3. Ba giây đầu cho clip có hình dựng
 
 **Vì sao khác clip quay thật:** video quay thật có "sức thuyết phục tự nhiên" — người xem mặc định đó là sự thật. Render mất lợi thế đó: người xem **biết là dựng**, nên phản xạ đầu tiên là hoài nghi ("ảnh ảo") hoặc lướt qua vì "lại quảng cáo".
 
@@ -136,9 +136,9 @@ Với khán giả đang cảnh giác, giả vờ render là ảnh thật sẽ **
 
 ---
 
-## 18.4. Nhịp cắt và chống "cảm giác nhựa" ở dạng video
+## 19.4. Nhịp cắt và chống "cảm giác nhựa" ở dạng video
 
-C17 lo phần kỹ thuật hậu kỳ. Phần này lo phần **dựng cảnh và thiết kế cảm giác** — làm từ trong Kujiale.
+C18 lo phần kỹ thuật hậu kỳ. Phần này lo phần **dựng cảnh và thiết kế cảm giác** — làm từ trong Kujiale.
 
 **Độ giữ một cảnh:**
 
@@ -154,10 +154,10 @@ C17 lo phần kỹ thuật hậu kỳ. Phần này lo phần **dựng cảnh và
 
 | Tầng | Thao tác | Làm ở đâu |
 |---|---|---|
-| **Máy quay** | Chuyển động nhẹ liên tục, không đứng yên chết + nhoè chuyển động nhẹ | C16 (đường đi) + C17 (rung giả) |
-| **Quang học** | Xoá phông (`景深`) + quang sai tinh tế + quầng sáng | Kujiale + C17 |
-| **Nội cảnh** | Nắng dịch chuyển (`阳光动画`); rèm bay / người đi qua thì **Kujiale không làm được** (C15) | C15 |
-| **Màu** | Chỉnh màu ấm thay vì trắng-xám vô hồn; **cân bằng sáng trong–ngoài cửa sổ** (ngoài cửa sổ cháy trắng là lỗi kinh điển khiến render giả) | C3, C13, C17 |
+| **Máy quay** | Chuyển động nhẹ liên tục, không đứng yên chết + nhoè chuyển động nhẹ | C17 (đường đi) + C18 (rung giả) |
+| **Quang học** | Xoá phông (`景深`) + quang sai tinh tế + quầng sáng | Kujiale + C18 |
+| **Nội cảnh** | Nắng dịch chuyển (`阳光动画`); rèm bay / người đi qua thì **Kujiale không làm được** (C16) | C16 |
+| **Màu** | Chỉnh màu ấm thay vì trắng-xám vô hồn; **cân bằng sáng trong–ngoài cửa sổ** (ngoài cửa sổ cháy trắng là lỗi kinh điển khiến render giả) | C3, C13, C18 |
 | **Vật liệu** | Bề mặt có bào mòn vi mô — tránh "quá mới" | C5, C10 |
 | **Âm thanh** | Tiếng môi trường + foley + nhạc nền + lời thoại | Mục dưới |
 
@@ -174,7 +174,7 @@ Render không có âm thanh hiện trường. Phải **thiết kế** nó:
 
 ---
 
-## 18.5. Ghép quay thật + render — dạng quan trọng nhất
+## 19.5. Ghép quay thật + render — dạng quan trọng nhất
 
 **Nguyên lý:** cảnh quay thật cung cấp **bằng chứng**; render cung cấp **kết quả / tương lai / cái chưa xây xong**. Ghép đúng thì vừa tin vừa đẹp. Đây là dạng giải quyết trực tiếp định kiến "render không đáng tin".
 
@@ -201,11 +201,11 @@ Render không có âm thanh hiện trường. Phải **thiết kế** nó:
 | 25–35 | Render tổng cảnh hoàn thiện |
 | 35–40 | Câu chốt + lời mời inbox/Zalo |
 
-**Năm việc để hai loại hình không chỏi** (kỹ thuật chi tiết ở C17): khớp màu · khớp hạt nhiễu · **cùng tiêu cự và cùng độ cao máy** · khớp tốc độ chuyển động · **cắt tại điểm khớp** (một chuyển động hoặc vật thể chung).
+**Năm việc để hai loại hình không chỏi** (kỹ thuật chi tiết ở C18): khớp màu · khớp hạt nhiễu · **cùng tiêu cự và cùng độ cao máy** · khớp tốc độ chuyển động · **cắt tại điểm khớp** (một chuyển động hoặc vật thể chung).
 
 ---
 
-## 18.6. Đo cái gì — lượt lưu quan trọng hơn lượt thích
+## 19.6. Đo cái gì — lượt lưu quan trọng hơn lượt thích
 
 Đây là phát hiện có **số thật xác minh được**, không phải nhận định.
 
@@ -225,7 +225,7 @@ Render không có âm thanh hiện trường. Phải **thiết kế** nó:
 
 ---
 
-## 18.7. Quy đổi sang Việt Nam
+## 19.7. Quy đổi sang Việt Nam
 
 ### Cái KHÔNG bê sang được
 
@@ -265,7 +265,7 @@ Render không có âm thanh hiện trường. Phải **thiết kế** nó:
 
 ---
 
-## 18.8. Minh bạch "Hình minh hoạ 3D" — và lý do pháp lý
+## 19.8. Minh bạch "Hình minh hoạ 3D" — và lý do pháp lý
 
 > ## Ghi "Hình minh hoạ 3D" trên mọi đoạn render. Đây không phải phép lịch sự — đây là quản trị rủi ro.
 
@@ -286,8 +286,8 @@ Lấy một căn đã render. Dựng **ba clip 15 giây**, khác nhau **duy nh�
 *Tiêu chí đạt:* đăng cả ba (cách nhau vài ngày, cùng khung giờ), ghi lại tỷ lệ xem hết của từng bản. Chốt được bản nào hợp với kênh của công ty **bằng số, không bằng cảm tính**.
 
 **Bài 2 — Clip ghép thật + render đầu tiên:**
-Chọn một công trình đang thi công. Quay 60 giây cảnh thật bằng điện thoại. Render 3–4 đoạn b-roll 3 giây (720P, theo lộ trình D của C16). Dựng theo cấu trúc 25–40 giây ở 18.5, giữ tỉ lệ ~65% thật / ~35% render, ghi "Hình minh hoạ 3D" trên mọi đoạn render.
-*Tiêu chí đạt:* clip xuất đúng chuẩn C17; đưa cho người ngoài xem, họ **không chỉ đúng hết** các mối nối giữa thật và render.
+Chọn một công trình đang thi công. Quay 60 giây cảnh thật bằng điện thoại. Render 3–4 đoạn b-roll 3 giây (720P, theo lộ trình D của C17). Dựng theo cấu trúc 25–40 giây ở 19.5, giữ tỉ lệ ~65% thật / ~35% render, ghi "Hình minh hoạ 3D" trên mọi đoạn render.
+*Tiêu chí đạt:* clip xuất đúng chuẩn C18; đưa cho người ngoài xem, họ **không chỉ đúng hết** các mối nối giữa thật và render.
 
 **Bài 3 — Nội dung chỉ Việt Nam mới có:**
 Dựng một clip 20–25 giây về **phương án ban thờ** hoặc **bố trí bếp theo phong thuỷ** cho một căn hộ cụ thể. Dùng dạng "giải thích phương án".
@@ -318,9 +318,9 @@ Chọn một dự án chung cư đang bàn giao ở Hà Nội. Lấy đúng mặ
 | Tỷ lệ xem hết thấp | Hỏng ở ba giây đầu | Sửa mở đầu **trước khi** sửa bất cứ thứ gì khác. Ngưỡng creator TQ dùng: **xem hết (hoặc 5 giây) < 60% là phải sửa hook** |
 | Bị bình luận "ảnh ảo", "làm gì đẹp thế" | Clip toàn render, không có bằng chứng thật | Ghép cảnh công trình thật; ghi "Hình minh hoạ 3D"; định vị "làm thật" |
 | Clip đẹp nhưng "vô hồn" | Không có âm thanh thiết kế; không có chuyển động nội cảnh | Thêm tiếng môi trường + foley + nhạc; thêm `阳光动画`; máy chuyển động nhẹ liên tục |
-| Người xem chóng mặt, lướt sớm | Đường đi máy sai từ gốc | Về C16 — giảm tốc, hạ góc nhìn |
+| Người xem chóng mặt, lướt sớm | Đường đi máy sai từ gốc | Về C17 — giảm tốc, hạ góc nhìn |
 | Clip trông "cũ", nghiệp dư | Lạm dụng hiệu ứng chuyển cảnh hào nhoáng | Chỉ dùng cắt cứng / hoà tan / loé trắng |
-| Khách khiếu nại "khác với hình đã xem" | Render mô tả vật liệu không đúng thứ sẽ thi công | Đây là rủi ro pháp lý thật (án lệ 18.8). Render đúng vật liệu sẽ dùng; ghi chú minh bạch; đối chiếu C8 |
+| Khách khiếu nại "khác với hình đã xem" | Render mô tả vật liệu không đúng thứ sẽ thi công | Đây là rủi ro pháp lý thật (án lệ 19.8). Render đúng vật liệu sẽ dùng; ghi chú minh bạch; đối chiếu C8 |
 
 ## Nguồn số liệu
 
@@ -339,7 +339,7 @@ Chọn một dự án chung cư đang bàn giao ở Hà Nội. Lấy đúng mặ
 - Việt Nam: Luật Quảng cáo số 16/2012/QH13
 
 **⚠️ Thứ cấp hoặc suy luận — coi là giả thuyết để test, không phải chân lý:**
-- Douyin và Xiaohongshu **chặn crawl rất chặt**, nên các ca RED/Douyin ở 18.6 là số qua bài phân tích (知乎, woshipm, 搜狐, i黑马), **có thể có màu marketing**
+- Douyin và Xiaohongshu **chặn crawl rất chặt**, nên các ca RED/Douyin ở 19.6 là số qua bài phân tích (知乎, woshipm, 搜狐, i黑马), **có thể có màu marketing**
 - Con số "191 vạn thích" của một video animation biệt thự tuyết lưu hành trên một blog CSDN: **KHÔNG xác minh chéo được — không trích như sự thật**
 - Tỉ lệ thật/render 60–70% / 30–40%: suy luận theo logic tin cậy, **không có nguồn ngành**
 - Độ giữ cảnh 2–4 giây, "dạng nào ra khách": phần lớn là quan sát của người viết blog/agency
