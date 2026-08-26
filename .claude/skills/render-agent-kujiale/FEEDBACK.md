@@ -2,7 +2,7 @@
 
 > # 📍 TRẠNG THÁI — cập nhật 2026-08-25
 >
-> **Ca gần nhất: 16** (phòng ngủ trẻ em Kujiale — màu đều, không thứ bậc). Không có việc gì treo dở.
+> **Ca gần nhất: 17** (render lại phòng trẻ em — vẫn bẹt, lỗi xếp sai trọng số trong phiếu ca 16).
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -687,6 +687,48 @@ bố cục lớp lang).
 
 ---
 
+### 17 — 2026-08-25 — Phòng trẻ em, render lại theo phiếu ca 16 — VẪN BẸT
+
+**Người dùng:** *"kết quả của kujiale đây, nhìn vẫn rất nhà chán"*
+
+**Đã đổi thật:** đệm ghế vàng · nẹp lượn chuyển xanh olive (đúng màu đề xuất) · đèn hắt kệ giờ
+nhìn thấy được (hai vạch sáng dưới kệ).
+**Chưa đổi:** ánh sáng nền · camera · bố cục. Tương phản vẫn ≈1,5:1, góc trái vẫn sáng ngang khu học,
+vẫn không có bóng tiếp xúc.
+
+## 🔴 LỖI TRONG PHIẾU CỦA AGENT — xếp sai thứ tự đòn
+
+Phiếu ca 16 xếp **"hạ đèn nền phía trái"** ở **bước ⑥**, sau tất cả đèn nhấn, và mô tả nó như một
+việc phụ (*"150–200 hoặc bỏ hẳn"*). **Sai.** Nó phải là **bước ①** và là đòn mạnh nhất.
+
+> ## 📌 THỨ BẬC LÀ **TỈ LỆ**, KHÔNG PHẢI GIÁ TRỊ TUYỆT ĐỐI
+> Nền 100 · nhấn 120 → **không ai thấy**.
+> Nền 40 · nhấn 120 → **nổ ra**.
+>
+> **Muốn nhấn nổi lên thì phải DÌM phần còn lại xuống, không phải đẩy nhấn lên.**
+> Đèn hắt kệ ở ca này *đã được bật và nhìn thấy được* — mà vẫn vô nghĩa, vì nền quá sáng.
+
+Đây là cùng một sai lầm kiểu "quá tay THÊM" của luật ca 04, nhưng ở tầng **thứ tự công việc**:
+agent kê một danh sách đúng nhưng **sắp sai trọng số**, nên người dùng làm phần dễ trước
+(đổi màu, bật đèn nhấn) và bỏ phần quyết định.
+
+## ⚠️ Nghi vấn cần kiểm ngay — `自动曝光`
+
+Nếu **`自动曝光` (Auto Exposure) đang BẬT** thì mọi nỗ lực dìm nền đều bị hệ thống tự bù lại,
+và **không bao giờ tạo được tương phản**. Phiếu có ghi TẮT nhưng nằm lẫn trong bảng `高级设置`.
+→ **Phải kiểm cái này TRƯỚC khi vặn bất kỳ đèn nào.**
+
+## 🧱 Giới hạn thật — không phải mọi thứ là lỗi render
+
+Khung này có một **mảng chết rất lớn**: cái tủ trắng phẳng chiếm gần trọn giữa khung, và camera
+đang nhìn thẳng vào nó. Render giỏi mấy cũng **không biến một mảng phẳng lớn thành thứ đáng nhìn**.
+→ Đòn bố cục (dời camera để tủ thôi làm trung tâm) là thứ **duy nhất** giải được, và nó chưa được làm.
+
+**Ba hệ hỏng, mới chạm vào một (màu), và chạm chưa đủ** — nhấn olive mới có **một điểm lẻ ở góc**
+bị giường che gần hết, chưa thành ba điểm tạo đường dẫn mắt như phương án A.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -707,6 +749,9 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ `05` §7.** AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
 | ✅ **ĐÃ VÁ `05` §7.** AI không có suy giảm theo khoảng cách. Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
+| 🔴🔴 **THỨ BẬC LÀ TỈ LỆ, KHÔNG PHẢI GIÁ TRỊ TUYỆT ĐỐI.** Muốn nhấn nổi thì **DÌM NỀN**, không phải đẩy nhấn. Phiếu phải xếp "hạ đèn nền" là **bước ①**, không phải bước phụ ở cuối. Ca 17: đèn hắt kệ đã bật và thấy được mà vẫn vô nghĩa vì nền quá sáng | 17 | 1/3 |
+| 🔴 **Kiểm `自动曝光` TRƯỚC khi vặn đèn.** Nếu nó bật thì hệ tự bù lại mọi nỗ lực dìm nền → không bao giờ tạo được tương phản. Phải là dòng đầu phiếu, không nằm lẫn trong bảng `高级设置` | 17 | 1/3 |
+| **Phiếu phải xếp đòn theo TRỌNG SỐ, không theo trình tự kỹ thuật.** Người dùng làm phần dễ trước và bỏ phần quyết định nếu nó nằm cuối danh sách | 17 | 1/3 |
 | 🔴 **Bộ chấm Phụ lục A thiếu QUY TẮC N/A.** Tiêu chí 3 (cửa sổ không cháy) vô nghĩa với cảnh không cửa sổ, và tổng 50 điểm sai. Cần: bỏ tiêu chí không áp dụng → chấm trên thang còn lại → quy về %. Ngưỡng ĐẠT ≥80% · SỬA LẠI 60–79% · LÀM LẠI <60% | 16 | 1/3 |
 | **"Đều quá, không điểm nhấn" thường KHÔNG phải thiếu điểm nhấn** mà là **nhiều điểm nhấn ngang cơ**. Chẩn đoán phải đếm xem có mấy thứ đang đòi làm nhấn, rồi chọn một và dìm phần còn lại | 16 | 1/3 |
 | **Bảng màu hẹp trên cả 3 trục (value · saturation · hue) thì ÁNH SÁNG là lối ra rẻ nhất** — màu đã chốt với khách khó đổi, ánh sáng tạo được thứ bậc trong cả bảng màu đơn sắc | 16 | 1/3 |
