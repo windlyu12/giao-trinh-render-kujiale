@@ -2,7 +2,7 @@
 
 > # 📍 TRẠNG THÁI — cập nhật 2026-08-25
 >
-> **Ca gần nhất: 17** (render lại phòng trẻ em — vẫn bẹt, lỗi xếp sai trọng số trong phiếu ca 16).
+> **Ca gần nhất: 18** — CA4 chạy Banana Pro ĂN, và lộ ra **vòng lặp Kujiale→AI→đọc ngược→Kujiale**.
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -729,6 +729,70 @@ bị giường che gần hết, chưa thành ba điểm tạo đường dẫn m�
 
 ---
 
+### 18 — 2026-08-25 — CA4 chạy Banana Pro: **ĂN**, và lộ ra một VÒNG LẶP MỚI
+
+**Người dùng:** *"dùng prompt mày đưa để ren trên AI thì nước ảnh lại khá là tốt"*
+
+**Ảnh AI làm được đúng ba thứ mà bản Kujiale đang thiếu:**
+1. **Gradient dốc phải→trái** — góc trái, trần trái, cửa gỗ chìm hẳn. Bản Kujiale không có vùng nào chìm
+2. **Đèn bàn tạo vũng sáng thật** trên mặt bàn + hắt lên tường confetti
+3. **Ba điểm olive thành đường dẫn mắt** — gối · gáy sách · thảm. Đúng phương án A
+
+Tương phản đọc được ≈ **6:1**, so với ≈1,5:1 của bản Kujiale.
+
+## 🔑 KHÔNG MÂU THUẪN với kết luận ca 09–14 — mà LÀM RÕ nó
+
+| Tầng | AI | Engine |
+|---|---|---|
+| **Thẩm mỹ tổng thể** — gradient, vùng chìm, điểm nhấn, nước ảnh | ✅ **Rất giỏi** (học từ hàng triệu ảnh chụp đẹp) | Phụ thuộc tay người bố đèn |
+| **Vật lý cục bộ** — vũng sáng đúng, gradient trong hõm, nhất quán bề mặt | ❌ Sai (ca 09–11) | ✅ Đúng, miễn phí |
+
+**Kết luận cũ giữ nguyên cho khâu GIAO ẢNH.** Cái bổ sung: **AI là công cụ ĐỊNH HƯỚNG cho render.**
+
+## 🔄 VÒNG LẶP MỚI — thứ đáng giá nhất rút ra được
+
+```
+① Render Kujiale nháp
+② Đưa ảnh nháp vào AI kèm prompt theo khung §7
+   → ra bản "ĐÚNG THÌ TRÔNG THẾ NÀO"
+③ ĐỌC NGƯỢC bản AI (chế độ A) → ra thông số cần chỉnh
+④ Render lại Kujiale theo thông số đó
+```
+
+Bước ② + ③ biến AI thành **ảnh mẫu hoàn hảo**: cùng cảnh, cùng model, cùng bố cục — thứ mà đi tìm
+ảnh mẫu trên mạng không bao giờ có được. Designer hết phải mò, có **đích cụ thể để nhắm**.
+
+Đây mạnh hơn cả cách dùng đề xuất ở CA4 ("thăm dò phương án"). Nó là **chuyển thẩm mỹ của AI thành
+thông số của engine.**
+
+## Đọc ngược ảnh AI → thông số Kujiale
+
+| Tham số | Hiện tại | Theo ảnh AI | Ghi chú |
+|---|---|---|---|
+| Tỉ lệ nhấn : nền | ≈1,5:1 | **≈6:1** | Đây là con số đích |
+| `天光` ngoài khung | 300–400 | **100–130** | Thấp hơn cả mức 150–200 đề xuất ở ca 17 |
+| `筒灯` | 100–150 | **40–60** hoặc tắt 1 chiếc | |
+| Đèn hắt kệ | 600–800 | **giữ nguyên** | |
+| Đèn bàn | 30–40 | **40–60** | Ảnh AI cho vũng rõ hơn |
+| Đèn bù trái | 150–200 | **BỎ HẲN** | |
+
+**Vùng tối nhất trong ảnh AI xuống tới ~25–30% value.** Bản Kujiale hiện không có vùng nào dưới 60%.
+→ Designer phải **"dám để tối" mạnh hơn nhiều so với bản năng** — hạng 2 bảng 12. Ảnh AI vừa cho họ
+thấy **để tối đến đâu thì đẹp**.
+
+## ⚠️ Ảnh AI này KHÔNG giao khách được — vật liệu đã lệch
+
+| Thứ | Kujiale | AI |
+|---|---|---|
+| Ghế | khung kim loại mảnh, đệm vàng | khung gỗ sẫm, lưng mây, đệm trắng — **tao đặt hàng trong prompt**, hợp lệ |
+| Cửa gỗ | sồi sáng | nâu sẫm hẳn — **AI tự đổi**, cần kiểm là đổi vật liệu hay chỉ do nằm trong bóng |
+| Sàn | gỗ sáng | sẫm hơn — **AI tự đổi** |
+| Bục giường | trắng + gỗ sáng | gỗ sẫm — **AI tự đổi** |
+
+Đúng như C8 dự báo. Dùng làm **ảnh tham chiếu nội bộ** thì rất nên; **giao khách thì không**.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -749,6 +813,8 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ `05` §7.** AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
 | ✅ **ĐÃ VÁ `05` §7.** AI không có suy giảm theo khoảng cách. Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
+| 🔴🔴 **VÒNG LẶP: Kujiale nháp → AI (khung §7) → ĐỌC NGƯỢC bản AI → thông số Kujiale → render lại.** AI thành ảnh mẫu hoàn hảo vì cùng cảnh cùng model. Chuyển **thẩm mỹ của AI thành thông số của engine** | 18 | 1/3 |
+| **AI giỏi tầng THẨM MỸ TỔNG THỂ (gradient, vùng chìm, điểm nhấn, nước ảnh), dở tầng VẬT LÝ CỤC BỘ.** Engine ngược lại. Không mâu thuẫn ca 09–14 — làm rõ nó | 18 | 1/3 |
 | 🔴🔴 **THỨ BẬC LÀ TỈ LỆ, KHÔNG PHẢI GIÁ TRỊ TUYỆT ĐỐI.** Muốn nhấn nổi thì **DÌM NỀN**, không phải đẩy nhấn. Phiếu phải xếp "hạ đèn nền" là **bước ①**, không phải bước phụ ở cuối. Ca 17: đèn hắt kệ đã bật và thấy được mà vẫn vô nghĩa vì nền quá sáng | 17 | 1/3 |
 | 🔴 **Kiểm `自动曝光` TRƯỚC khi vặn đèn.** Nếu nó bật thì hệ tự bù lại mọi nỗ lực dìm nền → không bao giờ tạo được tương phản. Phải là dòng đầu phiếu, không nằm lẫn trong bảng `高级设置` | 17 | 1/3 |
 | **Phiếu phải xếp đòn theo TRỌNG SỐ, không theo trình tự kỹ thuật.** Người dùng làm phần dễ trước và bỏ phần quyết định nếu nó nằm cuối danh sách | 17 | 1/3 |
