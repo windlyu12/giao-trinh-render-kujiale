@@ -638,6 +638,14 @@ làm tốt hơn hẳn mọi ảnh AI đã test.
 > 📌 **Ca đầu tiên xuất PHIẾU THÔNG SỐ KUJIALE thật** (16 ca trước toàn prompt AI).
 > Phiếu gồm: 3 phương án màu xếp theo mức đụng thiết kế + phiếu đèn/camera/`高级设置` đầy đủ.
 > **Chờ feedback thực tế sau khi render.**
+>
+> 📌 **Cách dùng AI đúng nhất tìm được sau 16 ca:** không phải để thay render, mà để
+> **thăm dò phương án thiết kế TRƯỚC khi bỏ công render**. Sai vật lý cũng không sao — cái cần biết
+> là "thêm olive vào có nổi lên không", "dồn sáng vào khu học có ăn không". Prompt ở `PROMPTS-DANG-CHAY.md` **CA 4**.
+>
+> **Mẹo chiến lược mới (CA 4):** đặt **vùng sáng của ánh sáng môi trường** và **vị trí các bộ đèn** vào
+> **CÙNG MỘT CHỖ**. Ngay cả khi AI không tính được vũng sáng của đèn, kết quả vẫn đọc đúng vì gradient
+> môi trường đã làm sẵn việc đó. Chờ xác nhận.
 
 **Vào:** ảnh render Kujiale, phòng ngủ trẻ em. Người dùng tự nhận xét: *"bố cục màu đang đều quá,
 chưa có điểm nhấn, cảm giác nhìn sẽ rất dễ lướt qua luôn"*.

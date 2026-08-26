@@ -8,6 +8,7 @@
 > | Cảnh sảnh vào + bàn ăn (3ds Max) | **CA2 bản A8** — cuối file, đã hội tụ ✅ |
 > | Cảnh bàn ăn marble + panel gỗ | CA1 bản B3 — chưa test |
 > | Cảnh phòng khách hẹp (sửa ảnh đã render) | CA3 — chưa test |
+> | **Phòng ngủ trẻ em — sửa thứ bậc màu + sáng** | **CA4** — cuối file, chưa test |
 > | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
 >
 > Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
@@ -650,3 +651,80 @@ Khác A7 đúng hai chỗ, và cả hai đều là **gỡ bó**, không phải t
 |---|---|
 | `Brightness eases **gently**` | `falls away **steeply**` + góc trái `sinks into genuine shadow` |
 | `Neutral white balance **throughout**, no overall tint` | `Two colour temperatures live together` — đèn ấm chọi trời lạnh |
+
+---
+
+# CA 4 — Phòng ngủ trẻ em: test phương án sửa bằng Banana Pro
+
+**Vào:** ảnh render Kujiale đã hoàn thiện. **Việc:** test trước phương án sửa (thứ bậc màu + ánh sáng)
+trên AI, **trước khi render lại thật** — để biết hướng đúng chưa mà không tốn `核豆`.
+
+> 📌 **Đây là cách dùng AI đúng nhất tìm được sau 16 ca:** không phải để thay render,
+> mà để **thăm dò phương án thiết kế trước khi bỏ công render**. Sai vật lý cũng không sao —
+> cái cần biết là "thêm olive vào có nổi lên không", "dồn sáng vào khu học có ăn không".
+
+**Mẹo chiến lược riêng của ca này:** đặt **vùng sáng của ánh sáng môi trường** và **vị trí các bộ đèn**
+vào **CÙNG MỘT CHỖ** (khu học tập). Như thế ngay cả khi AI không tính được vũng sáng của đèn,
+kết quả vẫn đọc ra đúng — vì gradient môi trường đã làm sẵn việc đó.
+
+```
+Photorealistic interior photograph of this exact children's bedroom. Keep the camera
+angle, room layout, furniture positions, cabinetry proportions and material types
+exactly as in the source image — do not move or remove any built-in element.
+
+It is daytime. Soft ambient daylight fills the room and does all of the lighting work,
+and it falls away steeply from right to left: the study nook and the desk are the
+brightest, most open part of the frame; the bed sits comfortable in the middle; the
+timber door and the wall at the far left sink into genuine soft shadow — the darkest,
+quietest corner of the picture. This falloff is the strongest tonal movement in the image.
+
+Two colour temperatures live together. The daylight is cool and clean; the fixtures are
+warm. The black desk lamp is switched on and glows warm 3000K over the desktop, and a
+warm LED strip under the shelf lights the underside of the shelf and the top of the desk.
+The two recessed ceiling downlights read as small warm discs. At this hour the fixtures
+light only themselves and their immediate surface — none of them washes the room, casts
+a pool across the floor, or throws a patch on a wall. Their warmth lands in the same
+place the daylight is strongest, so the study nook clearly reads as the heart of the room.
+
+Shot on a 35mm lens at eye level 1.0m, a child's eye height. Vertical lines stay
+perfectly vertical, natural undistorted perspective. Keep the same framing and crop as
+the source image.
+
+Introduce one single accent colour, muted olive green, and repeat it in exactly three
+places: a small round olive rug at the foot of the bed, one olive cushion among the
+white bedding, and a few olive book spines on the shelf. Nothing else changes colour.
+The mustard duvet becomes one shade deeper and slightly richer. The desk chair frame
+becomes dark stained timber so it separates from the pale wall behind it.
+
+Matte cream lacquer wardrobe doors with a fine hand-applied surface, never glassy — the
+sheen shifts slightly from door to door. Light oak trim with open pores, grain changing
+from board to board. Light oak flooring in a low satin finish, planks varying in tone.
+Cotton bedding with soft matte weave and gentle creasing where someone has sat. The
+confetti wallpaper stays as a quiet texture behind the shelf, not a competing pattern.
+Everyday traces, quiet and few: an open notebook on the desk, the duvet turned back at
+one corner.
+
+Each material carries its own level of sheen — chalky walls, satin cabinet fronts, oiled
+oak, soft cotton, matte paper.
+
+Contact shadows keep everything grounded: under the bed platform, beneath each chair
+leg, where the wardrobe meets the floor, under the shelf.
+
+Deep photographic tonal range: the left corner genuinely dark, whites stopping just
+short of pure white, a full rich range in between. The image has somewhere bright for
+the eye to land and somewhere dark to rest. Muted natural colour. The look of a printed
+magazine interior photograph.
+```
+
+### Xem gì khi test
+
+| Câu hỏi | Vì sao quan trọng |
+|---|---|
+| **Nheo mắt — điểm sáng nhất có rơi vào khu học không?** | Kiểm cả gradient lẫn ý đồ thứ bậc |
+| **Thu nhỏ cỡ con tem — còn đọc được không?** | Test mà bản gốc đang trượt |
+| **Ba điểm olive có tạo thành một đường dẫn mắt không?** | Kiểm phương án màu A **trước khi mua đồ thật** |
+| Góc trái có chìm không | |
+| Chăn mustard đậm hơn có thắng được confetti không | |
+
+⚠️ **Kết quả này KHÔNG dùng để giao khách** — chỉ để chốt hướng. Chốt xong thì render lại bằng
+Kujiale theo phiếu thông số.
