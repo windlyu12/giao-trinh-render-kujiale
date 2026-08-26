@@ -1,9 +1,9 @@
 # Sổ phản hồi — tích trước, sửa skill sau
 
-> # 📍 TRẠNG THÁI — cập nhật 2026-08-26
+> # 📍 TRẠNG THÁI — cập nhật 2026-08-26 (ca 20)
 >
-> **Ca gần nhất: 19** — có **SƠ ĐỒ ĐÈN** lần đầu. Chẩn được nguyên nhân "đều" trong 30 giây,
-> việc mà ba vòng đoán số từ ảnh render không làm nổi. → đẻ ra `references/08-doc-so-do-den.md`.
+> **Ca gần nhất: 20** — 🔴 **CÓ SỐ THẬT TỪ APP.** Lần đầu đọc được panel thuộc tính đèn Kujiale.
+> Gỡ được chỗ tắc lớn nhất của giáo trình. Luật to nhất: **`%` là MẬT ĐỘ, không phải LƯU LƯỢNG.**
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -868,13 +868,88 @@ Phần **diễn giải** (đèn cầu giữa phòng = thủ phạm số một; t
 
 ---
 
+# Ca 20 — 🔴 SỐ THẬT TỪ APP. Phòng trẻ em vòng 4.
+
+**Vào:** ảnh render vòng 4 + sơ đồ đèn + **4 panel thuộc tính đèn chụp thẳng từ Kujiale**.
+Giao diện app là **tiếng Anh**, không phải tiếng Trung như giáo trình giả định.
+
+## Người dùng đã làm vòng 1 (TẮT) và nó ĂN
+
+Tắt `Spotlight 2-4`, `2-5`, `Rectangle light-23`. Còn 7 nguồn.
+
+| Đo | Ca 19 | Ca 20 |
+|---|---|---|
+| Vùng tối nhất | ~58% value | **~40–45%** |
+| Gradient phải→trái | gần như không | **thấy rõ**, tường trái đổ tối về phía cửa |
+
+Ba vòng dìm số trước đó nhích 0,3 nấc. **Một vòng tắt đèn sai vị trí nhích 13–18 nấc.**
+→ Luật ca 19 (**tắt, đừng dìm**) lên **2/3**.
+
+## 🔴🔴 LUẬT LỚN NHẤT: `%` LÀ MẬT ĐỘ, KHÔNG PHẢI LƯU LƯỢNG
+
+Số đọc được:
+
+| Đèn | `Brightness` | `Lighting Color` | Kích thước | Diện tích | **% × dt** |
+|---|---|---|---|---|---|
+| `Rectangle light-18` bù cửa sổ | 200% | 6500K | 639×1815 | 1,16 m² | **232** |
+| `Rectangle light-22` hắt kệ | **350%** | 3500K | 1228×20 | 0,025 m² | **8,6** |
+| `Spotlight 2-2` gối | 300% | 4000K | — | — | — |
+| `Omni Light-5` đèn bàn | 50% | 3500K | cầu r50 | 0,031 m² | **1,6** |
+
+Nhìn cột `Brightness` thì đèn hắt kệ **350%** là mạnh nhất phòng. Nhìn cột cuối thì nó
+**yếu hơn đèn bù cửa sổ 27 lần**, đèn bàn yếu hơn **145 lần**.
+
+**Đây là lý do thật của việc "bật đèn nhấn mà không thấy gì" suốt ca 16→19.** Không phải người dùng
+làm nhẹ tay — họ đã để 350%, con số cao nhất phòng. Cái bẫy nằm ở chỗ **panel không hiện lưu lượng**,
+chỉ hiện mật độ, và mắt người đọc `350% > 200%` là mạnh hơn.
+
+⚠️ Cần thí nghiệm chốt (ghi trong `08` B2): nhân đôi `Length` giữ nguyên `%`, render so sánh.
+Sáng lên → mật độ. Sáng như cũ → lưu lượng.
+
+## 🔴 `Affect specular` / `影响高光` mặc định TẮT
+
+Thấy TẮT trên cả `Spotlight 2-2` lẫn `Omni Light-5`. Đèn không sinh điểm bóng →
+mọi bề mặt đọc ra matte đồng loạt → **đúng triệu chứng "bệt/nhựa"** của `04` §4.
+Nghi là **mặc định của Kujiale**, tức là mọi scene chưa ai đụng vào đều đang bị.
+
+## 🔴 Nhiệt độ màu ở DẢI GIỮA làm đục cả hai đầu
+
+Bộ `6500 / 4000 / 3500K`. Cái **4000K** không lạnh cũng không ấm. Nó hoà tan cặp nóng–lạnh
+mà C4 coi là xương sống. → cấm dải **3800–4500K** trong cảnh nội thất ấm.
+
+## Lỗi số khác đọc thẳng từ panel
+
+- `Area light scattering angle` **85°** (mặc định) trên đèn bù cửa sổ — gần bán cầu → toả khắp → bẹt.
+- `Spotlight` đặt `Height 2600mm` trong phòng trần `2880mm` → nguồn lơ lửng cách trần 280mm
+  trong khi đèn âm trần đã model nằm sát trần. Lệch giữa **nguồn sáng** và **vật phát sáng**.
+- `Rectangle light-22` `Width 20mm` @ 350% → cụm tròn cháy trắng sau đồ trên kệ. Nguồn quá mảnh = gắt.
+
+## Ghi chú giao diện
+
+- App chạy **tiếng Anh**. Giáo trình đang viết theo UI tiếng Trung → mọi phiếu từ nay
+  phải kê **cả ba thứ tiếng**, đừng chỉ kê tiếng Trung.
+- **Bẫy tên:** cây scene ghi `Sphere light-5`, panel thuộc tính ghi `Omni Light - 5 Properties`.
+- `Sphere light-4` (giữa phòng) icon **xám** trong khi mọi đèn khác **vàng** — chưa xác nhận
+  là đang tắt hay là đèn màu trắng. Đang chờ người dùng kiểm.
+
+**Đã vá:** `references/08-doc-so-do-den.md` Phần B (B1–B6) — bảng nhãn 3 thứ tiếng, luật mật độ,
+`Affect specular`, cấm dải nhiệt giữa, thí nghiệm xác nhận thang `%`.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
 
 | Luật nghi ngờ | Gặp ở ca | Đã đủ 3 chưa |
 |---|---|---|
-| 🔴🔴 **ĐÈN SAI VỊ TRÍ THÌ TẮT, KHÔNG DÌM.** Đèn vô hướng giữa phòng · đèn ở tiền cảnh = lỗi HÌNH HỌC, không phải lỗi CƯỜNG ĐỘ. Dìm chỉ làm ảnh tối đi mà vẫn đều. Ca 16→17→19: ba vòng dìm, tỉ lệ nhích từ 1,5:1 lên 1,8:1 rồi đứng | 19 | 1/3 |
+| 🔴🔴🔴 **`%` LÀ MẬT ĐỘ, KHÔNG PHẢI LƯU LƯỢNG.** Lưu lượng ≈ `%` × diện tích. Dải LED rộng 20mm ở 350% yếu hơn đèn diện 1,16 m² ở 200% **27 lần**. Cấm so `%` giữa hai đèn khác kích thước. ✅ đã vá `08` B2 (số đọc thẳng từ app, không phải suy luận) | 20 | vá sớm — dữ kiện app |
+| 🔴 **`Affect specular`/`影响高光` mặc định TẮT** → mọi bề mặt ra matte → góp phần bệnh "bệt/nhựa" của `04` §4. Đèn nhấn phải BẬT | 20 | 1/3 |
+| 🔴 **Cấm nhiệt độ màu dải 3800–4500K trong cảnh nội thất ấm** — nó không lạnh không ấm, hoà tan cặp nóng–lạnh. Tách hẳn: trời 5500–6500K, nhân tạo 2700–3000K | 20 | 1/3 |
+| **App có thể chạy UI tiếng ANH.** Giáo trình viết theo UI tiếng Trung → phiếu phải kê cả 3 thứ tiếng. Bẫy tên: scene `Sphere light-5` ↔ panel `Omni Light - 5` | 20 | 1/3 |
+| **`Area light scattering angle` mặc định 85° là quá rộng** cho đèn bù cửa sổ — gần bán cầu → gradient bẹt. Hạ 55–65° | 20 | 1/3 |
+| **Cao độ nguồn sáng phải khớp vật phát sáng đã model.** Spotlight ở 2600mm trong trần 2880mm = nguồn lơ lửng dưới đèn âm trần | 20 | 1/3 |
+| 🔴🔴 **ĐÈN SAI VỊ TRÍ THÌ TẮT, KHÔNG DÌM.** ✅ **Xác nhận ca 20:** một vòng tắt nhích 13–18 nấc value, trong khi ba vòng dìm trước đó nhích 0,3 nấc. Đèn vô hướng giữa phòng · đèn ở tiền cảnh = lỗi HÌNH HỌC, không phải lỗi CƯỜNG ĐỘ. Dìm chỉ làm ảnh tối đi mà vẫn đều. Ca 16→17→19: ba vòng dìm, tỉ lệ nhích từ 1,5:1 lên 1,8:1 rồi đứng | 19, 20 | 2/3 |
 | 🔴🔴 **CÓ SƠ ĐỒ ĐÈN THÌ ĐỌC SƠ ĐỒ TRƯỚC.** Ảnh nói *có vấn đề*, sơ đồ nói *vấn đề ở đâu*. Chưa có sơ đồ mà ảnh bẹt → **xin sơ đồ**. ✅ đã vá `08` + `SKILL.md` (là loại đầu vào mới, không phải heuristic — xem lý do ở ca 19) | 19 | vá sớm, có lý do |
 | **`球形灯`/`点光源` đặt gần tâm phòng = thủ phạm số một của "ảnh đều".** Phát mọi hướng từ giữa → san phẳng gradient bằng cơ học | 19 | 1/3 |
 | **≥2 `面光源` chồng nhau ở một ô cửa** thì đầu xa cửa bị nâng ngang đầu gần cửa → mất trục sáng–tối mạnh nhất phòng có sẵn | 19 | 1/3 |

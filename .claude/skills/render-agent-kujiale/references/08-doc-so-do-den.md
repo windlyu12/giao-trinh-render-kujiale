@@ -91,3 +91,93 @@ và có đèn nhấn nào đang rọi vào thứ **không đáng** không. Đây
 2. **Tắt trước, chỉnh số sau.** Render một lần sau khi tắt để thấy phòng thật sự cần gì,
    rồi mới bật lại từng cái một. Ngược lại thì không bao giờ biết cái nào đang hại.
 3. **Đèn nhấn không cứu được nền sáng.** Xem `03-cong-thuc-phong.md` — muốn nhấn nổi thì hạ nền.
+
+---
+
+# PHẦN B — Bảng tham số đèn, đọc từ app thật
+
+> ✅ **Số ĐÃ THẤY TRONG APP** (ca 20, bản Kujiale giao diện **tiếng Anh**, 2026-08).
+> Khác với phần lớn giáo trình còn ⚠️. Nhưng vẫn là **một** bản dựng trên **một** máy — gặp máy khác
+> giao diện tiếng Trung thì đối chiếu theo bảng dịch dưới, đừng giả định số giống nhau.
+
+## B1. Bảng dịch nhãn — EN ↔ 中文 ↔ Việt
+
+Panel `面光源` / **Rectangle light**:
+
+| Giao diện EN | 中文 | Tiếng Việt | Đơn vị | Ghi chú |
+|---|---|---|---|---|
+| `Status` | `开关` | Bật/tắt | on–off | |
+| `Double sided` | `双面发光` | Phát hai mặt | on–off | Bù cửa sổ để **OFF** — chỉ bắn vào phòng |
+| `Lighting Color` | `色温` | Nhiệt độ màu | **K** | Thanh trượt đỏ→xanh |
+| `Brightness` | `亮度` | Độ sáng | **%** | **Vượt được 100%** — quan sát tới 350% |
+| `Area light scattering angle` | `面光源扩散角` | Góc tán đèn diện | **°** | Nhỏ = định hướng = gradient dốc |
+| `Height` | `高度` | Cao độ tâm đèn | mm | Tính từ sàn |
+| `Front View` / `Side View` | `正视图` / `侧视图` | Nhìn chính diện / cạnh | — | Ô số bên trái = **góc xoay**. `0°` = ngang, `180°` = chiếu thẳng xuống |
+| `Length` / `Width` | `长` / `宽` | Dài / Rộng | mm | **Xem B2 — đây là ô quan trọng nhất panel** |
+| `Apply the light properties to...` | `应用灯光属性到…` | Áp thuộc tính sang đèn khác | — | Đồng bộ hàng loạt |
+
+Panel `聚光灯` / **Spotlight** và `点光源` / **Omni Light** — thêm:
+
+| Giao diện EN | 中文 | Tiếng Việt | Ghi chú |
+|---|---|---|---|
+| `Affect specular` (`Global` \| `Separate`) | `影响高光` | Ảnh hưởng điểm bóng | ⚠️ **Quan sát thấy mặc định TẮT** — xem B4 |
+| `Radius` | `半径` | Bán kính cầu sáng | Nhỏ → bóng gắt; lớn → bóng mềm |
+
+⚠️ **Bẫy đặt tên:** cây scene ghi `Sphere light-5`, panel thuộc tính mở ra **`Omni Light - 5 Properties`**.
+Cùng một đèn, hai tên. Đừng đi tìm đèn thứ hai.
+
+## B2. 🔴🔴 `%` LÀ MẬT ĐỘ, KHÔNG PHẢI LƯU LƯỢNG
+
+Đây là cái bẫy tốn nhiều vòng render nhất. Bảng số thật của một phòng ngủ 9 m²:
+
+| Đèn | `Brightness` | Kích thước | Diện tích | **% × diện tích** |
+|---|---|---|---|---|
+| `Rectangle light-18` — bù cửa sổ | 200% | 639 × 1815 | **1,16 m²** | **232** |
+| `Rectangle light-22` — hắt kệ | **350%** | 1228 × 20 | 0,025 m² | **8,6** |
+| `Omni Light-5` — đèn bàn | 50% | cầu r = 50 | 0,031 m² | **1,6** |
+
+Nhìn cột `Brightness`: đèn hắt kệ **350%** trông như đèn mạnh nhất phòng.
+Nhìn cột cuối: nó **yếu hơn đèn bù cửa sổ 27 lần**. Đèn bàn yếu hơn **145 lần**.
+
+> **Không bao giờ so `%` giữa hai đèn khác kích thước.** Nhân với diện tích rồi mới so.
+> Một dải LED rộng 20mm ở 350% vẫn là một cái đèn tí hon.
+
+⚠️ **Cần thí nghiệm xác nhận** (chưa verify — engine có thể chuẩn hoá % theo tổng lưu lượng thay vì mật độ):
+> Đặt một `面光源` ở `100%`, render, chụp lại. Nhân đôi `Length`, giữ nguyên `100%`, render lại.
+> **Sáng lên rõ** → `%` là mật độ, phải nhân diện tích (bảng trên đúng).
+> **Sáng như cũ** → `%` là tổng lưu lượng, diện tích chỉ đổi độ mềm bóng.
+> Một phút chạy, chốt được một câu hỏi treo của cả giáo trình.
+
+## B3. Thang độ sáng — chốt được một phần
+
+Giáo trình treo ba thang song song (0–800 · `瓦` · `%`). Bản này chạy thang **`%`**,
+và **`%` không dừng ở 100** — quan sát 50 / 200 / 300 / 350%.
+→ `100%` **không phải trần**, chỉ là mốc mặc định. Quy đổi sang thang 0–800 vẫn ⚠️ chưa có cơ sở.
+
+## B4. 🔴 `Affect specular` / `影响高光` mặc định TẮT — một phần của bệnh "bệt"
+
+Thấy TẮT trên cả `Spotlight` lẫn `Omni Light`. Tắt = đèn đó **không sinh điểm bóng** trên vật liệu.
+Hệ quả: mặt bàn gỗ, khung kim loại, sơn bóng đều mất sparkle → đọc ra như **matte đồng loạt**,
+đúng triệu chứng "bệt / nhựa" ở `04-vat-lieu-texture.md` §4.
+
+- **Đèn nhấn → BẬT.** Đèn bàn, hắt kệ, rọi tranh tồn tại để tạo điểm bóng.
+- **Đèn nền bù cửa sổ → để tắt cũng được.** Nó không phải nguồn tạo highlight.
+
+## B5. Nhiệt độ màu — cấm dải giữa
+
+Bộ quan sát được: `6500K` (trời) · `4000K` (rọi) · `3500K` (hắt kệ + đèn bàn).
+Cái **4000K** không lạnh cũng không ấm — nó **làm đục cả hai đầu** và xoá luôn cặp nóng–lạnh.
+
+> Cảnh nội thất ấm: trời **5500–6500K**, đèn nhân tạo **2700–3000K**.
+> **Không để đèn nào ở dải 3800–4500K.** Có nó thì mọi nỗ lực trộn nóng–lạnh đều bị hoà tan.
+
+## B6. Bốn lỗi số khác, đọc thẳng từ panel
+
+1. **Đèn nhấn yếu hơn đèn nền** — đèn bàn 50% trong khi bù cửa sổ 200%. Nhấn yếu hơn nền
+   thì không đời nào ra vũng sáng. Xem luật "thứ bậc là TỈ LỆ" ở `03-cong-thuc-phong.md`.
+2. **`Area light scattering angle` để mặc định 85°** — gần bán cầu → toả khắp → gradient bẹt.
+   Muốn dốc thì hạ **55–65°**.
+3. **Cao độ đèn rọi không khớp vật đã dựng** — `Spotlight` ở `2600mm` trong phòng trần `2880mm`:
+   nguồn lơ lửng cách trần 280mm trong khi đèn âm trần đã model nằm sát trần. Đặt sát trần.
+4. **Dải LED quá mảnh thì cháy** — `Width 20mm` ở 350% cho ra cụm tròn cháy trắng. Nới **35–40mm**
+   để mềm, hoặc lùi vào sau gờ chắn 15–20mm.
