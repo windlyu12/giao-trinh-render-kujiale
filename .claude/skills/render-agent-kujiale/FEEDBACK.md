@@ -2,7 +2,7 @@
 
 > # 📍 TRẠNG THÁI — cập nhật 2026-08-25
 >
-> **Đang tạm dừng, chờ ca mới.** Không có việc gì treo dở.
+> **Ca gần nhất: 15** (đọc ngược bộ 5 ảnh 101CONCEPT). Không có việc gì treo dở.
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -571,6 +571,68 @@ không phải bỏ kịch tính.
 
 ---
 
+### 15 — 2026-08-25 — Đọc ngược BỘ 5 ẢNH (101CONCEPT) — kiểu ca mới
+
+**Vào:** bộ 5 ảnh render hoàn thiện của một studio, cùng một căn. Không phải model, không phải 1 ảnh.
+**Chế độ:** A (đọc ngược) — nhưng ở cấp **BỘ**, chưa có trong `01-doc-nguoc-anh.md`.
+
+## 🔑 GIÁ TRỊ LỚN NHẤT — bộ này chứng minh trực tiếp kết luận ca 09–14
+
+Cảnh **ban ngày nhưng bật hết đèn**, đèn **gánh chiếu sáng thật** — đúng thứ mà bản A7/A8 phải
+**né** vì AI không làm được. Ở đây nó **đẹp và thuyết phục hoàn toàn**: vòng LED viền trần mâm tròn,
+LED chạy dọc mọi đường cong, đèn âm trần, đèn rọi ray, đèn thả, đèn tường — tất cả cùng lúc,
+không mâu thuẫn năng lượng ở đâu cả.
+
+> **Vì sao được:** đây là **render engine thật** (Corona/V-Ray), nó **giải truyền sáng**.
+> Đúng cái AI không có. Bộ này là bằng chứng trực quan cho luật `05` §7.5:
+> **ảnh khoe hiệu ứng chiếu sáng → render thật, đừng AI.**
+
+## Kiểu ca mới cần bổ sung vào skill: ĐỌC NGƯỢC MỘT BỘ
+
+`01-doc-nguoc-anh.md` viết cho **một ảnh**. Bộ ảnh cần thêm một lớp kiểm — **nhất quán bộ**
+(C13 §13.7 đã có nguyên tắc nhưng chưa đưa vào giao thức đọc ngược):
+
+| Kiểm | Bộ này |
+|---|---|
+| Nhiệt màu giữa các ảnh (≤300–500K) | ✅ đều ~3000K ấm |
+| Mức sáng tổng (≤~1 khẩu) | ✅ |
+| Hướng đổ bóng | ✅ cùng một bộ đèn, không có bóng cứng nên không lệch được |
+| Cấu trúc bộ | ✅ 1 ảnh ngang toàn cảnh (hero) + 4 ảnh dọc 4:5 cận (chuẩn MXH) |
+
+## Cái làm bộ này thật — đáng chép nhất
+
+1. **Robot hút bụi dưới gầm tủ buffet** (ảnh 5) — chi tiết đời sống đắt nhất bộ
+2. **Màn hình bật AutoCAD + Windows thật + figure Marvel** trên bàn làm việc (ảnh 2)
+3. **Điều hòa hiện 23°C**
+4. **Tường sơn hiệu ứng có vân loang** (limewash/microcement) — không phẳng lì, đây là thứ chống "nhựa"
+5. **Cửa sổ KHÔNG cháy** — vẫn thấy nhà đối diện lờ mờ sau rèm voan
+6. Da sofa có nếp thật, khăn mustard rũ tự nhiên
+7. Hậu kỳ có grain nhẹ và tông film
+
+## Lỗi đọc được
+
+| Lỗi | Ở đâu | Hạng bảng 12 |
+|---|---|---|
+| **FOV quá rộng** — tủ TV trái bị kéo dài, mép phải méo | Ảnh 1 | 6 |
+| **Quạt trần bị cắt ngang đỉnh khung**, chiếm diện tích lớn mà không trọn hình | Ảnh 2, 3 | 8 |
+| **Cây lá kép hơi đều màu, lá phẳng** | Ảnh 2, 4, 5 | 7 |
+| Vòng LED viền trần sáng đều tuyệt đối (dải thật có biến thiên) | Ảnh 1 | 12 |
+| Tường sơn hiệu ứng vài chỗ hơi lặp vân | Ảnh 3 | 5 |
+
+## Chấm Phụ lục A
+
+| Ảnh | Điểm | Ghi chú |
+|---|---|---|
+| 1 (hero ngang) | **40/50** ĐẠT | Trừ ở góc máy (FOV rộng, méo rìa) và tương phản (high-key hơi phẳng) |
+| 5 (bàn ăn) | **≈44/50** ĐẠT | Ảnh mạnh nhất bộ — bố cục sạch, không méo, staging dày |
+| 2 (sofa + góc làm việc) | **≈38/50** SỬA LẠI | Quạt cắt đỉnh khung kéo tiêu chí bố cục xuống |
+| 3, 4 | **≈41–42/50** ĐẠT | |
+
+Cửa sổ không cháy (tiêu chí 3) và hậu kỳ (tiêu chí 10) đều **5/5** ở cả bộ — hai chỗ mà bộ này
+làm tốt hơn hẳn mọi ảnh AI đã test.
+
+---
+
 ## Luật đang chờ đủ bằng chứng
 
 Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 1–2 lần. Đủ 3 ca thì nâng lên `references/`.
@@ -591,6 +653,7 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | ✅ **ĐÃ VÁ `05` §7.** AI vẽ HIỆU ỨNG ánh sáng như hoạ tiết, không như HỆ QUẢ của một nguồn phát.** Nó ghép các mảng hiệu ứng học thuộc mà không đối chiếu với nhau (vệt tường cao + bàn vẫn sáng = mâu thuẫn năng lượng). **Prompt không sửa được vì model không có nguồn sáng để mô tả.** Chiến lược đúng: bảo AI làm ánh sáng ĐƠN GIẢN, bỏ hết hiệu ứng | 09, 10, 11 | **4/4 — sẵn sàng vá** |
 | ✅ **ĐÃ VÁ `05` §7.** AI không có suy giảm theo khoảng cách. Ba biểu hiện: (a) bề mặt đồng phẳng đồng chất khác sắc độ · (b) sàn sáng đều, không có vũng sáng dưới đèn âm trần · (c) nguồn dải sáng đều toàn hõm thay vì gradient. **Ghì được câu chữ, không sửa được bản chất** → ảnh có người trong nghề soi thì RENDER, đừng AI | 09, 10 (×3 biểu hiện) | **3/3 — sẵn sàng vá** |
 | 🔴 **NHÓM LỖI THỨ TƯ: logic truyền sáng.** AI không giải truyền sáng → trật tự sáng–tối đảo ngược giữa các bề mặt đồng phẳng đồng chất. Ghì được bằng cách khai báo tương quan tường minh, nhưng KHÔNG đảm bảo. Thêm lý do **kỹ thuật** (độc lập với pháp lý) cho ranh giới C8 | 09 | 1/3 |
+| **Đọc ngược một BỘ ảnh** cần thêm lớp kiểm nhất quán bộ vào `01` (nhiệt màu ≤300–500K · mức sáng ≤1 khẩu · hướng bóng · cấu trúc 1 hero ngang + N dọc). C13 §13.7 có nguyên tắc nhưng chưa vào giao thức đọc ngược | 15 | 1/3 |
 | **Kiểu ca "ảnh đã render → sửa lỗi" cần đường nối D→C trong SKILL.md**, và phải tách ba nhóm lỗi: pixel (AI sửa) · khung hình (render lại/crop) · lớp phủ (hậu kỳ) | 08 | 1/3 |
 | **Sáng tạt không phân biệt bề mặt nào đáng khoe.** Bật nắng xiên để nổi vân gỗ thì đồng thời nổi luôn lông vải, sợi thảm, hạt nhiễu. Cảnh có vải xù (boucle, nhung, thảm lông) phải ghì vật liệu lại khi dùng sáng tạt | 04 | 1/3 |
 | **Vân MÀU (đá bóng) không cần sáng tạt; chỉ vân NỔI + bề mặt nhám mới cần.** Tách khỏi bảng `04` §8 | 01 | 1/3 |
