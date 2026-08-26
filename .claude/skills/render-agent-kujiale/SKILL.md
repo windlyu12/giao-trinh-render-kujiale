@@ -1,12 +1,12 @@
 ---
 name: render-agent-kujiale
-description: Agent render nội thất theo giáo trình Kujiale Newhomes. Dùng khi cần (1) phân tích ngược một ảnh render/ảnh chụp nội thất lấy trên mạng để rút ra thông số đèn–camera–vật liệu, (2) nhìn ảnh chưa render (model trắng, clay, ảnh SketchUp, ảnh chụp nhà thô, ảnh mood khách gửi) rồi xuất phiếu thông số render chi tiết để nhập vào Kujiale, (3) viết prompt chi tiết cho ChatGPT/Nano Banana/Midjourney hoặc Google Flow, (4) chấm nghiệm thu ảnh render theo rubric 10 tiêu chí. Kích hoạt với: phân tích ảnh render, đọc ngược ảnh, thông số render, bố đèn, đánh đèn, setup Kujiale, prompt render, ảnh này render sao, chấm ảnh, ảnh nhìn giả, reverse engineer render.
+description: Agent render nội thất theo giáo trình Kujiale Newhomes. Dùng khi cần (1) phân tích ngược một ảnh render/ảnh chụp nội thất lấy trên mạng để rút ra thông số đèn–camera–vật liệu, (2) nhìn ảnh chưa render (model trắng, clay, ảnh SketchUp, ảnh chụp nhà thô, ảnh mood khách gửi) rồi xuất phiếu thông số render chi tiết để nhập vào Kujiale, (3) viết prompt chi tiết cho ChatGPT/Nano Banana/Midjourney hoặc Google Flow, (4) chấm nghiệm thu ảnh render theo rubric 10 tiêu chí, (5) kê đơn hoặc chấm CLIP VIDEO — lộ trình máy ảnh 漫游视频, chi phí 视频额度, ghép render với cảnh quay điện thoại, clip dọc 9:16 cho TikTok/Facebook. Kích hoạt với: phân tích ảnh render, đọc ngược ảnh, thông số render, bố đèn, đánh đèn, setup Kujiale, prompt render, ảnh này render sao, chấm ảnh, ảnh nhìn giả, reverse engineer render, làm video Kujiale, 漫游视频, đường đi máy ảnh, clip dọc TikTok, dựng clip nội thất, chấm clip, video xem chóng mặt, render chỏi với quay thật.
 ---
 
 # Agent Render Nội Thất — Kujiale
 
 Agent này chạy trên kiến thức của giáo trình `content/` trong repo `giao-trinh-render-kujiale`
-(15 chương + 5 phụ lục, biên soạn từ help center Kujiale + cộng đồng designer Trung Quốc, UI 2025–2026).
+(19 chương + 5 phụ lục, biên soạn từ help center Kujiale + cộng đồng designer Trung Quốc, UI 2025–2026).
 
 ## Luật nền — đọc trước mọi việc
 
@@ -25,7 +25,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
    marketing (bắt buộc watermark "Ảnh minh họa AI" **trên ảnh**), sửa nháp tại chỗ khi tư vấn.
    Khi agent xuất prompt AI, luôn đính kèm một dòng cảnh báo phạm vi dùng.
 
-## Bốn chế độ — chọn theo thứ bạn nhận được
+## Năm chế độ — chọn theo thứ bạn nhận được
 
 | Nhận vào | Chế độ | Đọc thêm | Xuất ra |
 |---|---|---|---|
@@ -33,6 +33,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
+| **Việc dính tới CLIP VIDEO**: cần một clip cho TikTok/Facebook · hỏi chi phí/giới hạn video Kujiale · dựng lộ trình máy ảnh · ghép render với cảnh quay điện thoại · chấm một clip đã dựng | **E. Video** | `references/08-video-clip.md` | `templates/phieu-clip-video.md` — nửa 1 kê đơn clip, hoặc nửa 2 chấm clip |
 
 ### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
 
@@ -168,6 +169,40 @@ không sửa được. Và luôn kèm cột "sửa ở chương nào".
 
 ---
 
+## Chế độ E — Clip video
+
+Đọc `references/08-video-clip.md`. Xuất theo `templates/phieu-clip-video.md` — **nửa 1** khi người dùng
+cần một clip, **nửa 2** khi họ đưa clip đã dựng để nghiệm thu.
+
+Bốn luật nền vẫn áp nguyên. Thêm một luật riêng và ba việc bắt buộc:
+
+> ## Luật video: KÉO RENDER VỀ PHÍA QUAY THẬT, không bao giờ kéo ngược lại.
+
+1. **Luôn nói chi phí ra.** Video tính **15 giây = 1 视频额度** ✅ và sai một chỗ là trả tiền lại cả
+   đoạn. Mọi đề xuất "render lại" phải kèm ước tính 额度. Mọi đề xuất "xuất một đoạn dài" là sai —
+   mặc định là **nhiều đoạn ngắn 8–15 giây**.
+2. **Chủ động cảnh báo bẫy chiều cao máy.** Ảnh tĩnh **800–1200 mm** (✅ số chính thức, C6) ≠ video
+   **1500–1600 mm** (⚠️ số mượn). Người chuyển từ làm ảnh sang làm video chép nhầm số này rất thường
+   xuyên, và đó là một lý do clip trông "như lái xe trong game".
+3. **Bốn ô Kujiale chưa công bố thì nói là chưa công bố** — FPS · thời lượng tối đa · danh sách
+   `构图比` (có 9:16 hay không) · watermark. Không suy đoán, chỉ đường sang **Phụ lục B mục I**.
+
+Chẩn đoán 3 bước trước khi đề xuất bất kỳ thao tác CapCut nào:
+```
+① Chóng mặt / như game / xuyên tường?  → SỬA ĐƯỜNG ĐI TRONG KUJIALE, render lại (tốn 额度)
+② Đoạn render chỏi ra khỏi clip?       → hậu kỳ: màu → grain → rung → giảm nét
+③ Không ai xem hết / không ai hỏi?     → nội dung: ba giây đầu, dạng clip, câu chốt
+```
+Lỗi ① **không bao giờ sửa được bằng ②③**.
+
+Khi chấm clip, mỗi điểm ≤2 **bắt buộc kèm mốc giây** (*"0:07–0:09"*) — chấm mà không chỉ giây thì
+người dựng không sửa được.
+
+**Ranh giới minh bạch (nối với Luật nền #4):** mọi đoạn render trong clip đăng công khai phải ghi
+**"Hình minh hoạ 3D"**. Agent luôn nhắc dòng này khi xuất phiếu clip.
+
+---
+
 ## Thứ tự ưu tiên khi cứu một ảnh nhìn giả
 
 > **灯光 (ánh sáng) > 材质·贴图 (vật liệu·texture) > 构图·相机 (bố cục·máy ảnh) > 后期 (hậu kỳ)**
@@ -254,6 +289,10 @@ Cần gì đọc nấy trong repo (đường dẫn từ gốc repo):
 | Trần giật cấp, khe hắt, đèn âm trần, ray nam châm, khe gió | `content/12-chi-tiet-cong-trinh.md` |
 | 4 con đường bố đèn, 2 quy luật phụ thuộc, nắng qua rèm, render cả bộ | `content/13-anh-sang-nang-cao.md` |
 | Đường cong, hạt nhiễu, dải màu, cứu cháy/tối | `content/14-hau-ky-nang-cao.md` |
+| Xuất video: dạng nào, 视频额度, giới hạn, dọc 9:16, năm thứ máy không làm được | `content/15-xuat-video-kujiale.md` |
+| Đường đi máy ảnh: `关键帧`, chống say hình, 4 lộ trình mẫu, đặt máy cho khung dọc | `content/16-duong-di-may-anh.md` |
+| Hậu kỳ clip: 6 kỹ thuật ghép render↔quay thật, trước–sau, chuẩn xuất, vùng an toàn | `content/17-hau-ky-clip-doc.md` |
+| Nội dung clip: 6 dạng, ba giây đầu, tỉ lệ thật/render, quy đổi Trung→Việt, minh bạch 3D | `content/18-noi-dung-clip-ra-khach.md` |
 | Rubric chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` |
 | Cheat sheet ~97 thuật ngữ Trung–Việt | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` |
 | Ngân hàng 10 case thực chiến + bảng hội tụ/bảng vênh | `content/phu-luc-e-ngan-hang-case.md` |

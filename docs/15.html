@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chương 15. Xuất video từ Kujiale — Giáo trình Render Kujiale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>:root{--accent:#2470f2;--accent-soft:color-mix(in srgb, #2470f2 13%, transparent);}</style>
+</head>
+<body data-slug="15">
+<div id="progress"></div>
+<button id="nav-toggle" aria-label="Mục lục">☰</button>
+<nav class="sidebar">
+  <a class="brand" href="index.html">
+    <span class="kicker">Newhomes · Nội bộ</span>
+    <span class="name">Giáo trình<br>Render Kujiale</span>
+    <span class="kelvin-bar"></span>
+  </a>
+  <div class="nav-group"><div class="label">Sách chính</div><a class="nav-item" data-nav-slug="00" href="00.html" style="--c:#ffab5e"><span class="chip">0</span><span>Con mắt ánh sáng</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="01" href="01.html" style="--c:#ffb96f"><span class="chip">1</span><span>Làm chủ Kujiale bản Trung Quốc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="02" href="02.html" style="--c:#ffc987"><span class="chip">2</span><span>Quy trình render và thông số</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="03" href="03.html" style="--c:#ffd89a"><span class="chip">3</span><span>Ánh sáng tự nhiên</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="04" href="04.html" style="--c:#ffe7b0"><span class="chip">4</span><span>Đèn thủ công</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="05" href="05.html" style="--c:#f2ecd8"><span class="chip">5</span><span>Vật liệu</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="06" href="06.html" style="--c:#d9e4ee"><span class="chip">6</span><span>Camera, bố cục, hậu kỳ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="07" href="07.html" style="--c:#b9d3f2"><span class="chip">7</span><span>Photorealism và case thực chiến</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="08" href="08.html" style="--c:#9cc2f4"><span class="chip">8</span><span>Công cụ AI — dùng và cấm</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="09" href="09.html" style="--c:#7fb0f6"><span class="chip">9</span><span>Luyện mắt và nguồn theo dõi</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="10" href="10.html" style="--c:#6ea6f7"><span class="chip">10</span><span>Ảnh vân — nguồn, chuẩn, chống lặp</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="11" href="11.html" style="--c:#5d9bf8"><span class="chip">11</span><span>Model và bày đồ kể chuyện</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="12" href="12.html" style="--c:#4d90f9"><span class="chip">12</span><span>Chi tiết công trình</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="13" href="13.html" style="--c:#3d85fa"><span class="chip">13</span><span>Ánh sáng nâng cao</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="14" href="14.html" style="--c:#2e7afb"><span class="chip">14</span><span>Hậu kỳ nâng cao</span><span class="done-dot"></span></a><a class="nav-item active" data-nav-slug="15" href="15.html" style="--c:#2470f2"><span class="chip">15</span><span>Xuất video từ Kujiale</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="16" href="16.html" style="--c:#2b64e8"><span class="chip">16</span><span>Đường đi máy ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="17" href="17.html" style="--c:#3959de"><span class="chip">17</span><span>Hậu kỳ clip dọc</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="18" href="18.html" style="--c:#484ed4"><span class="chip">18</span><span>Nội dung clip ra khách</span><span class="done-dot"></span></a></div>
+  <div class="nav-group"><div class="label">Phụ lục — công cụ</div><a class="nav-item" data-nav-slug="pa" href="pa.html" style="--c:#8be3c6"><span class="chip">A</span><span>Bộ chấm ảnh</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pb" href="pb.html" style="--c:#74d4e6"><span class="chip">B</span><span>Sổ ghi nhận khi dùng app</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pc" href="pc.html" style="--c:#d4b9ff"><span class="chip">C</span><span>Cheat sheet thuật ngữ</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pd" href="pd.html" style="--c:#ff9fc0"><span class="chip">D</span><span>Từ vựng prompt AI</span><span class="done-dot"></span></a><a class="nav-item" data-nav-slug="pe" href="pe.html" style="--c:#9be8a0"><span class="chip">E</span><span>Ngân hàng ca thực chiến</span><span class="done-dot"></span></a></div>
+</nav>
+<main class="main"><div class="page">
+  <header class="ch-head">
+    <div class="ch-no">15</div>
+    <div class="ch-meta"><span class="tag">Chương 15</span><span class="tag ghost">≈ 22 phút đọc</span></div>
+    <h1 class="ch-title">Xuất video từ Kujiale</h1>
+    <p class="ch-hook">Làm được gì, mất bao nhiêu 额度, vướng ở đâu — và câu hỏi dọc 9:16 trả lời dứt điểm.</p>
+  </header>
+  <details class="page-toc"><summary>Trong chương này</summary><ol><li><a href="#canh-bao-au-chuong-video-khong-phai-anh-dai-ra">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — VIDEO KHÔNG PHẢI ẢNH DÀI RA</a></li><li><a href="#151-ba-cau-hoi-tra-loi-truoc-khi-bam-bat-cu-nut-nao">15.1. Ba câu hỏi trả lời trước khi bấm bất cứ nút nào</a></li><li><a href="#152-ban-o-sau-dang-video-anh-ong-ung-chon-nham">15.2. Bản đồ sáu dạng "video / ảnh động" — đừng chọn nhầm</a></li><li><a href="#153-gioi-han-ky-thuat-so-nao-chac-so-nao-chua">15.3. Giới hạn kỹ thuật — số nào chắc, số nào chưa</a></li><li><a href="#154-cau-hoi-song-con-kujiale-xuat-doc-916-uoc-khong">15.4. Câu hỏi sống còn: Kujiale xuất dọc 9:16 được không?</a></li><li><a href="#mo-app-bam-vao-chup-man-hinh-danh-sach-co-916-thi-render-thang-doc-khong-co-thi-lay-ti-le-doc-nhat-co-uoc-34-roi-cat-not-o-capcut">📌 Mở app, bấm vào 构图比, chụp màn hình danh sách. Có 9:16 thì render thẳng dọc. Không có thì lấy tỉ lệ dọc nhất có được (3:4) rồi cắt nốt ở CapCut.</a></li><li><a href="#155-chi-phi-va-cho-no-gap">15.5. Chi phí — 视频额度, và chỗ nó gặp 核豆</a></li><li><a href="#moi-15-giay-video-1-o-net-cang-cao-cang-ton-nhieu">Mỗi 15 giây video = 1 视频额度. Độ nét càng cao càng tốn nhiều.</a></li><li><a href="#156-thoi-gian-cho-va-hang-oi-em">15.6. Thời gian chờ và hàng đợi đêm</a></li><li><a href="#157-nam-thu-kujiale-khong-lam-uoc">15.7. Năm thứ Kujiale KHÔNG làm được</a></li><li><a href="#luat-vang-cua-chuong-luon-lay-ban-em-7201080p-lam-chuan">📌 Luật vàng của chương: luôn lấy bản đêm 720/1080P làm chuẩn.</a></li><li><a href="#158-bay-phien-ban-20242026">15.8. Bẫy phiên bản 2024–2026</a></li><li><a href="#159-quy-trinh-muoi-buoc-tu-canh-a-dung-toi-file-mp4">15.9. Quy trình mười bước — từ cảnh đã dựng tới file MP4</a></li><li><a href="#thuc-hanh">Thực hành</a></li><li><a href="#checklist-tu-cham">Checklist tự chấm</a></li><li><a href="#loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</a></li><li><a href="#nguon-so-lieu">Nguồn số liệu</a></li><li><a href="#tu-tra-video-thuc-chien">Tự tra video thực chiến</a></li></ol></details>
+  <article class="content"><blockquote class="tip">
+<p><strong>Sau chương này bạn làm được:</strong>
+- Chọn đúng công cụ trong sáu dạng "video/ảnh động" của Kujiale — và không nhầm 漫游视频 với 全屋漫游
+- Biết tài khoản cá nhân bậc cao cấp render được video tới đâu, trần độ phân giải ở đâu
+- Tính được chi phí một clip theo 视频额度 và biết vì sao mỗi giây render dư là tiền vứt đi
+- Trả lời dứt khoát câu "Kujiale xuất dọc 9:16 cho TikTok được không" — và biết đường vòng chắc ăn
+- Kể được năm thứ Kujiale <strong>không</strong> làm được, để không hứa với sếp thứ máy không có
+- Chạy được quy trình mười bước từ cảnh đã dựng tới file MP4 nằm trong máy</p>
+</blockquote>
+<hr>
+<blockquote class="warn">
+<h2 id="canh-bao-au-chuong-video-khong-phai-anh-dai-ra">⚠️ CẢNH BÁO ĐẦU CHƯƠNG — VIDEO KHÔNG PHẢI ẢNH DÀI RA</h2>
+<p>Kujiale render video bằng cách <strong>render từng khung hình một</strong> (逐帧渲染) trên đám mây, cùng engine với ảnh tĩnh. Một giây video là 24–30 tấm ảnh xếp liền nhau.</p>
+<p><strong>Hệ quả 1 — tiền.</strong> Mọi thứ đắt lên theo thời lượng, không theo số cảnh. Clip 40 giây tốn gấp bốn clip 10 giây, dù đẹp hơn không đáng kể.</p>
+<p><strong>Hệ quả 2 — thời gian.</strong> Con số "render 10 giây" mà Kujiale quảng cáo là cho <strong>ảnh tĩnh</strong>. Video lâu hơn nhiều lần vì phải xếp hàng render cả chuỗi khung.</p>
+<p><strong>Hệ quả 3 — sai một chỗ là trả tiền lại cả đoạn.</strong> Không có chuyện "render lại giây thứ 12". Đây là lý do gốc của lời khuyên xuyên suốt ba chương 15–17: <strong>xuất nhiều đoạn ngắn, đừng xuất một đoạn dài.</strong></p>
+<p><strong>→ Chương này là chương tiền bạc và giới hạn. Đọc xong mới sang C16 dựng đường đi máy ảnh.</strong></p>
+</blockquote>
+<hr>
+<h2 id="151-ba-cau-hoi-tra-loi-truoc-khi-bam-bat-cu-nut-nao">15.1. Ba câu hỏi trả lời trước khi bấm bất cứ nút nào</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Câu hỏi</th>
+<th>Trả lời ở đâu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tài khoản của mình có render video không, tới độ nét nào?</td>
+<td>15.2 + 15.4</td>
+</tr>
+<tr>
+<td>Một clip tốn bao nhiêu, và tốn theo cái gì?</td>
+<td>15.6</td>
+</tr>
+<tr>
+<td>Ra file khung ngang hay khung dọc?</td>
+<td>15.5 — <strong>câu vướng nhất, đọc kỹ</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Trả lời sai câu ba là hỏng nhiều nhất: người ta dựng cả buổi, render xong mới phát hiện phải cắt dọc, mất hai phần ba bề ngang, tủ bếp hai bên bay hết.</p>
+<hr>
+<h2 id="152-ban-o-sau-dang-video-anh-ong-ung-chon-nham">15.2. Bản đồ sáu dạng "video / ảnh động" — đừng chọn nhầm</h2>
+<p>Kujiale gọi nhiều thứ khác nhau là "video". Sáu dạng dưới đây phục vụ sáu việc khác nhau:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Dạng (tên TQ)</th>
+<th>Đường vào</th>
+<th>Dùng làm gì</th>
+<th>Ai dùng được</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>漫游视频</strong> (video dạo quanh)</td>
+<td>Rê chuột lên nút <code>渲染</code> → <code>漫游视频</code>; hoặc <code>工作台</code> → <code>方案详情</code> → <code>漫游视频</code></td>
+<td><strong>Clip chính để đăng mạng xã hội.</strong> Tự đặt đường đi máy ảnh (<code>运镜</code>), ghép nhiều đoạn</td>
+<td>✅ <code>所有用户</code> (mọi người dùng)</td>
+</tr>
+<tr>
+<td><strong>轻渲视频</strong> (video render nhẹ)</td>
+<td><code>工作台</code> → <code>我的应用</code> → <code>轻渲视频</code></td>
+<td>Áp mẫu có sẵn, làm hàng loạt, một chạm chia sẻ</td>
+<td>✅ <code>所有用户</code>, <strong>không cần hội viên</strong></td>
+</tr>
+<tr>
+<td><strong>模板视频 / 剪辑成片 / 视频美化</strong></td>
+<td>Trong bộ công cụ video</td>
+<td>Ghép nhạc nền, chèn chữ bìa, dựng thành phẩm ngay trong Kujiale</td>
+<td>✅ <code>所有用户</code></td>
+</tr>
+<tr>
+<td><strong>全景图导出小视频</strong> (toàn cảnh → clip ngắn)</td>
+<td>Trong trình xem <code>全景图</code></td>
+<td>Clip xoay 360° tại chỗ, <strong>cố định 15 giây</strong>, <strong>chỉ một phòng</strong></td>
+<td>✅ <code>所有用户</code> — free 5 lượt/ngày, trả phí 20 lượt/ngày</td>
+</tr>
+<tr>
+<td><strong>生长动画 / 灯光动画 / 阳光动画 / 模型动效</strong></td>
+<td>Trong <code>漫游视频</code> → <code>动画效果</code></td>
+<td>Đồ nội thất mọc lên, đèn biến đổi, nắng dịch chuyển, mở cánh tủ</td>
+<td>✅ <code>所有用户</code></td>
+</tr>
+<tr>
+<td><strong>AI视频 / AI工具箱-视频混剪</strong></td>
+<td>Menu trên cùng → <code>AI</code> → <code>AI视频</code></td>
+<td>Ghép clip + lồng tiếng AI Trung/Anh tự động</td>
+<td>⚠️ Mới, tài liệu mỏng — thử trước khi đưa vào quy trình</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<p>📌 <strong>Đừng nhầm 漫游视频 với 全屋漫游.</strong> Hai cái tên gần như nhau, hai thứ khác hẳn:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th><code>漫游视频</code> ✅ cái bạn cần</th>
+<th><code>全屋漫游</code> / <code>720云全景</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ra cái gì</td>
+<td><strong>File MP4</strong> đăng TikTok/Facebook được</td>
+<td>Ảnh 720° tương tác, quét QR để xem</td>
+</tr>
+<tr>
+<td>Bản chất</td>
+<td>Video có chuyển động máy <strong>do bạn dựng</strong></td>
+<td>Người xem <strong>tự xoay</strong> bằng tay</td>
+</tr>
+<tr>
+<td>Đường vào</td>
+<td><code>渲染</code> → <code>漫游视频</code></td>
+<td><code>渲染</code> → <code>全景图</code> → <code>生成3D全屋漫游</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Gửi khách xem nhà thì <code>全屋漫游</code> tuyệt vời. Nhưng nó không đăng lên TikTok được — TikTok chỉ ăn file video.</p>
+</blockquote>
+<h3 id="chon-dang-nao">Chọn dạng nào</h3>
+<ul>
+<li><strong>Đăng TikTok/Facebook, cần kiểm soát:</strong> <code>漫游视频</code>. Cả C16 và C17 viết cho dạng này.</li>
+<li><strong>Cần nhanh, chấp nhận mẫu có sẵn:</strong> <code>轻渲视频</code>. Mẫu của nó thường đã ở khung dọc vì gắn thẳng với 抖音 — đây là <strong>lối tắt nhanh nhất để có clip dọc</strong>.</li>
+<li><strong>Gửi khách xem nhanh một phòng:</strong> <code>全景图导出小视频</code>. Gần như miễn phí (tính theo lượt/ngày, không ăn 视频额度) nhưng cố định 15 giây, xoay tại chỗ, một phòng.</li>
+</ul>
+<blockquote class="tip">
+<p>💡 <strong>Mẹo tiết kiệm đáng giá nhất chương này:</strong> những đoạn chỉ cần "xoay nhìn quanh phòng" thì dùng <strong>全景图小视频</strong> (tính theo lượt/ngày) thay vì <code>漫游视频</code> (ăn 额度 theo giây). Để dành 额度 cho các cú máy đi xuyên phòng — thứ mà toàn cảnh không làm được.</p>
+</blockquote>
+<hr>
+<h2 id="153-gioi-han-ky-thuat-so-nao-chac-so-nao-chua">15.3. Giới hạn kỹ thuật — số nào chắc, số nào chưa</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Thông số</th>
+<th>Giá trị</th>
+<th>Độ tin cậy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Độ phân giải</td>
+<td><strong>480p / 720p / 1080p</strong></td>
+<td>✅ Chính thức (3FO4K4WMJGUR: <em>"1080p已经是最高分辨率了"</em> — 1080p đã là cao nhất)</td>
+</tr>
+<tr>
+<td>Trần của tài khoản cá nhân</td>
+<td><strong>1080P</strong>, kể cả bậc cao cấp</td>
+<td>✅ Chính thức</td>
+</tr>
+<tr>
+<td>Chế độ chất lượng đặc biệt</td>
+<td><strong>极致1080p</strong> (cực nét 1080p) — khử nhấp nháy, dùng khi cảnh có <code>灯光动画</code></td>
+<td>✅ Chính thức (3FO4K4WN7V2R)</td>
+</tr>
+<tr>
+<td>Chế độ xem trước nhanh</td>
+<td><strong>白天480/720</strong> — chỉ để xem đường đi máy, <em>"以夜间720/1080P为准"</em> (lấy bản đêm 720/1080P làm chuẩn)</td>
+<td>✅ Chính thức (3FO4K4WNDBNE)</td>
+</tr>
+<tr>
+<td>Chế độ render</td>
+<td><strong>Chỉ <code>离线模式</code></strong> (chế độ offline) mới render được video</td>
+<td>✅ Chính thức — xem C1, C2</td>
+</tr>
+<tr>
+<td>Định dạng file</td>
+<td><strong>MP4</strong></td>
+<td>⚠️ Cộng đồng — chưa có bài help chính thức</td>
+</tr>
+<tr>
+<td><strong>FPS xuất ra</strong></td>
+<td><strong>Chưa công bố</strong></td>
+<td>⚠️ Có nút <code>降低帧率</code> (giảm tốc độ khung) để chữa nhấp nháy → chắc chắn tồn tại một FPS mặc định, nhưng không ai công bố là bao nhiêu</td>
+</tr>
+<tr>
+<td><strong>Thời lượng tối đa một clip</strong></td>
+<td><strong>Chưa công bố</strong></td>
+<td>⚠️ Không có số ở bất kỳ nguồn nào</td>
+</tr>
+<tr>
+<td>Số <code>片段</code> / <code>关键帧</code> tối đa</td>
+<td><strong>Chưa công bố</strong></td>
+<td>⚠️</td>
+</tr>
+<tr>
+<td>Watermark cho tài khoản cá nhân</td>
+<td><strong>Chưa có tuyên bố rõ ràng</strong></td>
+<td>⚠️ Kiểm trong app</td>
+</tr>
+<tr>
+<td>Kênh alpha / render phân lớp (<code>分层</code>)</td>
+<td><strong>Không có bằng chứng hỗ trợ</strong></td>
+<td>⚠️ Coi như không có với tài khoản cá nhân</td>
+</tr>
+<tr>
+<td>Hạn mức tần suất theo tuần</td>
+<td>⚠️ Số lưu hành trên 知乎 (480p 100 lượt/tuần · 720p 50 · 1080p 5) là của <strong>专业会员</strong>, <strong>không phải bậc cao cấp cá nhân</strong>, và có từ <strong>trước</strong> đợt đổi hệ 额度 tháng 4/2026</td>
+<td>⚠️ Chỉ dùng để hình dung xu hướng "1080P đắt hơn hẳn" — <strong>đừng chép vào báo giá</strong></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="warn">
+<p>⚠️ <strong>Bốn ô "chưa công bố" ở trên là bốn ô bạn khoá được trong mười phút</strong> khi mở app: FPS, thời lượng tối đa, danh sách tỉ lệ khung, watermark. Ghi vào <strong>Phụ lục B mục I</strong> rồi báo quản lý cập nhật sách.</p>
+</blockquote>
+<hr>
+<h2 id="154-cau-hoi-song-con-kujiale-xuat-doc-916-uoc-khong">15.4. Câu hỏi sống còn: Kujiale xuất dọc 9:16 được không?</h2>
+<p><strong>Trả lời thẳng: chưa có tài liệu công khai nào xác nhận có 9:16 gốc cho <code>漫游视频</code>.</strong></p>
+<p>Tách rõ hai chuyện, vì trên mạng người ta hay trộn:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Điều</th>
+<th>Trạng thái</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Có nút đổi tỉ lệ khung <code>构图比</code> trong bước <code>基础设置</code></td>
+<td>✅ <strong>Chính thức có</strong> — bài 3FO4K4WM9WHW ghi rõ <em>"直接点击不同构图比按钮，可进行切换最终生成的视频构图比"</em> (bấm các nút tỉ lệ khác nhau để đổi tỉ lệ khung của video xuất ra)</td>
+</tr>
+<tr>
+<td>Danh sách giá trị chọn được <strong>gồm những gì</strong></td>
+<td>⚠️ <strong>Không được công bố.</strong> Không có bài nào liệt kê</td>
+</tr>
+<tr>
+<td>Bản render <code>极速</code> (siêu tốc) hỗ trợ 16:9, 4:3, 3:4, 1:1 và đổi tỉ lệ <strong>không làm giãn khung hình</strong></td>
+<td>✅ Có trong thông báo chính thức 《酷家乐极速版渲染上线》 — nhưng <strong>đây là danh sách của bản 极速, không phải bằng chứng cho <code>漫游视频</code></strong></td>
+</tr>
+<tr>
+<td>Cộng đồng dùng gì cho phòng nhỏ</td>
+<td>⚠️ 知乎 (p/661888134): <em>"在小空间中，我们一般使用4：3的构图比例"</em> (không gian nhỏ thường dùng tỉ lệ 4:3)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Kết luận dùng được ngay:</strong></p>
+<blockquote class="pin">
+<h2 id="mo-app-bam-vao-chup-man-hinh-danh-sach-co-916-thi-render-thang-doc-khong-co-thi-lay-ti-le-doc-nhat-co-uoc-34-roi-cat-not-o-capcut">📌 Mở app, bấm vào <code>构图比</code>, chụp màn hình danh sách. Có 9:16 thì render thẳng dọc. Không có thì lấy tỉ lệ dọc nhất có được (3:4) rồi cắt nốt ở CapCut.</h2>
+<p>Đừng ngồi tranh luận. Mười giây là biết. Ghi vào Phụ lục B mục I2.</p>
+</blockquote>
+<p><strong>Ba đường chuyển ngang → dọc, xếp theo mức thiệt:</strong></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Cách</th>
+<th>Được</th>
+<th>Mất</th>
+<th>Khi nào dùng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dựng cảnh sao cho cắt dọc vẫn đủ</strong></td>
+<td>Không mất gì, đầy màn hình</td>
+<td>Phải nghĩ trước lúc đặt máy</td>
+<td>⭐ <strong>Tốt nhất — luôn ưu tiên.</strong> Xem C16</td>
+</tr>
+<tr>
+<td>Cắt cúp giữa khung (crop)</td>
+<td>Đầy màn hình, không viền đen</td>
+<td>Cắt dọc từ 16:9 <strong>mất khoảng 68% bề ngang</strong>; từ 3:4 mất ít hơn nhiều</td>
+<td>Khi chủ thể nằm giữa khung</td>
+</tr>
+<tr>
+<td>Đặt khung + nền mờ (<code>画布模糊</code>)</td>
+<td>Giữ trọn khung ngang</td>
+<td>Hình nhỏ lại, nhiều khoảng trống trên dưới</td>
+<td>Khi cần thấy cả phòng rộng</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Cách dựng cảnh cho "cắt dọc vẫn đủ"</strong> (chi tiết ở C16): đặt máy sao cho chủ thể chính — sofa, giường, đảo bếp — nằm trên <strong>trục dọc giữa khung</strong>; cho máy đi theo <strong>chiều sâu</strong> (tiến/lùi) thay vì quét ngang. Khung dọc ăn chiều sâu rất tốt và ăn chiều ngang rất tệ.</p>
+<hr>
+<h2 id="155-chi-phi-va-cho-no-gap">15.5. Chi phí — 视频额度, và chỗ nó gặp 核豆</h2>
+<h3 id="con-so-chac-chan-nhat-cua-ca-chuong">Con số chắc chắn nhất của cả chương</h3>
+<blockquote>
+<h2 id="moi-15-giay-video-1-o-net-cang-cao-cang-ton-nhieu">Mỗi 15 giây video = 1 视频额度. Độ nét càng cao càng tốn nhiều.</h2>
+</blockquote>
+<p>Nguyên văn bài chính thức 3FO4K4WM9WHW (cập nhật 03/04/2026): <em>"视频额度权益正式上线，生成渲染视频可使用，</em><em>每15秒视频消耗1额度</em><em>"</em> và <em>"选择不同的清晰度会显示不同的消耗额度"</em> (chọn độ nét khác nhau sẽ hiện mức tiêu hao khác nhau).</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Quy tắc</th>
+<th>Nội dung</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đơn vị tính</td>
+<td>15 giây = 1 额度</td>
+<td>✅ 3FO4K4WM9WHW</td>
+</tr>
+<tr>
+<td>Ảnh hưởng độ nét</td>
+<td>Nét cao hơn → tốn 额度 nhiều hơn (mức cụ thể hiện trong hộp thoại)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Chu kỳ phát</td>
+<td><strong>Thứ Hai phát 额度 của tuần, tối Chủ nhật hết hạn</strong> — không cộng dồn</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Render lỗi</td>
+<td>Hoàn lại dưới dạng <strong><code>视频券</code>, hạn 1 tuần</strong></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>额度</code> khác <code>券</code> thế nào</td>
+<td><code>额度</code> = quyền lợi tặng kèm tài khoản, không có vé thực thể · <code>券</code> = tự mua hoặc trúng thưởng</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Tài khoản mới</td>
+<td><em>"新购买和续约账号会陆续停止送券"</em> — mua mới/gia hạn sẽ dần <strong>ngừng được tặng券</strong>, chuyển sang hệ 额度 tuần</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>核豆 của bậc cao cấp</td>
+<td><strong>1200 核豆/tháng</strong>, phát mỗi 30 ngày (thiếu 30 ngày thì tính theo ngày)</td>
+<td>✅ 3FO4K4WPKVPL</td>
+</tr>
+<tr>
+<td>Bậc cao cấp mua thêm được gì</td>
+<td><strong><code>720P视频渲染券</code></strong> + các loại vé ảnh 3K/4K/6K + 核豆</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="hai-ieu-khong-co-so-ung-bia">Hai điều KHÔNG có số — đừng bịa</h3>
+<ol>
+<li><strong>Một video tốn bao nhiêu 核豆, hay giá RMB mỗi 核豆.</strong> Không trang chính thức nào nêu. Hai hệ đơn vị đang chạy song song (video tính bằng <code>视频额度</code> theo giây, ảnh tĩnh tính bằng vé/核豆 theo tấm) và <strong>Kujiale không cho hệ số quy đổi</strong>.</li>
+<li><strong>Video đắt gấp mấy lần ảnh tĩnh.</strong> Cùng lý do trên. Muốn biết thì mở hộp thoại <code>生成视频</code>, chụp mức tiêu hao hiện trên đó — đó là con số duy nhất đúng cho tài khoản của bạn tại thời điểm đó.</li>
+</ol>
+<blockquote class="pin">
+<p>📌 <strong>Giáo trình này cố tình không in bảng giá cứng cho video</strong>, đúng như đã làm với 核豆 ở C1. Bảng giá cứng hết hạn nhanh hơn tốc độ in sách.</p>
+</blockquote>
+<h3 id="cach-tieu-khon-ngoan">Cách tiêu 额度 khôn ngoan</h3>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Cách làm</th>
+<th>Vì sao</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chia đoạn</td>
+<td>Mỗi phòng / mỗi cú máy <strong>một đoạn 8–15 giây</strong></td>
+<td>Sai đoạn nào render lại đoạn đó, không trả tiền lại cho cả clip</td>
+</tr>
+<tr>
+<td>Chọn độ nét theo vai trò</td>
+<td><strong>1080P</strong> cho clip toàn-render · <strong>720P</strong> cho b-roll ngắn 3–5 giây xen vào clip quay thật</td>
+<td>B-roll 3 giây lên điện thoại, sau khi thêm hạt nhiễu (C17) thì 720P không ai nhận ra</td>
+</tr>
+<tr>
+<td>Dư đầu đuôi</td>
+<td>Dư <strong>1 giây mỗi đầu</strong>, không hơn</td>
+<td>Khâu dựng cần chỗ cho chuyển cảnh "ăn" vài khung và cắt trúng nhịp nhạc. Quay phim chuyên nghiệp dư 3–5 giây; ở đây dư nhiều là đốt 额度</td>
+</tr>
+<tr>
+<td>Đoạn xoay quanh phòng</td>
+<td>Dùng <code>全景图小视频</code> thay vì <code>漫游视频</code></td>
+<td>Tính theo lượt/ngày, không ăn 额度</td>
+</tr>
+<tr>
+<td>Xem trước</td>
+<td>Bấm <strong>Play xem trước đường đi</strong> trong Kujiale trước khi trả 额度</td>
+<td>Miễn phí. Bắt được lỗi xuyên tường, quét vào tường trống</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="156-thoi-gian-cho-va-hang-oi-em">15.6. Thời gian chờ và hàng đợi đêm</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Việc</th>
+<th>Sự thật</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Xem tiến độ</td>
+<td>Vào <code>图册</code> (thư viện ảnh) xem <em>"正在渲染的视频任务以及等待时长"</em> (tác vụ video đang render và thời gian chờ) — ✅ chính thức</td>
+</tr>
+<tr>
+<td>Render mất bao lâu</td>
+<td>⚠️ Nguồn cộng đồng nói cảnh phức tạp mất <strong>5–15 phút</strong>; một tài liệu khác nói 1080P có thể tới <strong>~1 giờ</strong>. Hai con số này chỏi nhau và <strong>cả hai đều không phải số chính thức</strong> — đo trên tài khoản mình rồi ghi vào Phụ lục B</td>
+</tr>
+<tr>
+<td>Hàng đợi đêm rẻ hơn</td>
+<td>Cơ chế phân biệt thời đoạn <strong>có tồn tại</strong>: tài liệu <code>棚拍</code> nêu ban ngày (6:00–20:00) khi render sẽ hiện lựa chọn thời điểm, <em>"夜间渲染更优惠"</em> (render ban đêm ưu đãi hơn). ⚠️ Nhưng mức ưu đãi cụ thể <strong>cho <code>漫游视频</code> thì chưa công bố</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Việc thực tế rút ra:</strong> đặt render video vào cuối buổi chiều, để máy chạy qua đêm, sáng hôm sau tải về và dựng. Đừng đặt render lúc 9 giờ sáng rồi ngồi chờ.</p>
+<hr>
+<h2 id="157-nam-thu-kujiale-khong-lam-uoc">15.7. Năm thứ Kujiale KHÔNG làm được</h2>
+<p>Phần này quan trọng ngang phần làm được — nó chặn bạn hứa với sếp hoặc với khách thứ máy không có.</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Muốn</th>
+<th>Sự thật</th>
+<th>Nguồn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rèm bay, người đi qua, nước chảy, mèo chạy ngang</strong></td>
+<td>❌ <strong>Không có mô phỏng vật lý.</strong> Chỉ có <code>生长动画</code> (đồ mọc lên), <code>模型动效</code>, <code>行业动效</code> (mở/đóng cánh tủ, cửa, cửa sổ)</td>
+<td>Nhóm <code>动画效果</code> chính thức không có mục nào cho nước/người/rèm</td>
+</tr>
+<tr>
+<td><strong>Đèn khác nhau ở các đoạn khác nhau trong cùng một clip</strong></td>
+<td>❌ Mẫu đèn đặt ở <code>基础设置</code> áp cho <strong>toàn bộ video</strong>. Muốn đèn biến đổi phải dùng <code>灯光动画</code> — đó là hiệu ứng, không phải đặt đèn tĩnh khác nhau cho từng <code>片段</code></td>
+<td>✅ <code>灯光动画</code> có (3FO4K4VHSONT)</td>
+</tr>
+<tr>
+<td><strong>Ngày chuyển sang đêm trong một clip</strong></td>
+<td>⚠️ Làm được <strong>một phần</strong> qua <code>阳光动画</code> (dịch góc chiếu nắng) kết hợp <code>灯光动画</code></td>
+<td>✅ có <code>阳光动效</code></td>
+</tr>
+<tr>
+<td><strong>Vật liệu phức tạp đầy đủ như ảnh tĩnh ở bản xem trước ban ngày</strong></td>
+<td>❌ Bản <code>白天480/720</code> <strong>giản lược mạnh</strong>: <code>体积光</code> (tia sáng thể tích) và <code>辉光</code> (quầng sáng) <em>"不支持，场景中存在会被删除"</em> (không hỗ trợ, có trong cảnh sẽ bị xoá); <code>窗纱</code>/<code>玻璃</code> (rèm voan/kính) <em>"大部分会出现问题，建议使用材质替换为实时材质"</em></td>
+<td>✅ 3FO4K4WNDBNE</td>
+</tr>
+<tr>
+<td><strong>Chống xuyên tường khi đi máy</strong></td>
+<td>❌ <strong>Không có phát hiện va chạm.</strong> Máy đi xuyên tường tự do — bạn tự canh. Xem C16</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="pin">
+<h2 id="luat-vang-cua-chuong-luon-lay-ban-em-7201080p-lam-chuan">📌 Luật vàng của chương: <strong>luôn lấy bản đêm 720/1080P làm chuẩn.</strong></h2>
+<p>Bản <code>白天480/720</code> chỉ để xem đường đi máy và bố cục đèn. Đừng bao giờ gửi khách bản đó, và đừng bao giờ kết luận "vật liệu này lỗi" dựa trên bản đó.</p>
+<p><strong>Trước khi render video, đổi <code>窗纱</code>/<code>玻璃</code> sang <code>实时材质</code> (vật liệu thời gian thực)</strong> để tránh lỗi biến màu đen/tím.</p>
+</blockquote>
+<hr>
+<h2 id="158-bay-phien-ban-20242026">15.8. Bẫy phiên bản 2024–2026</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Mốc</th>
+<th>Đổi gì</th>
+<th>Hệ quả với bạn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>02/2021</strong></td>
+<td>Kujiale ra bộ <code>渲染视频</code> (漫游视频, 生长动画, 灯光动画, 模型动画)</td>
+<td>Mọi tài liệu trước mốc này không có video</td>
+</tr>
+<tr>
+<td><strong>14/09/2021</strong></td>
+<td>Nâng lên <strong>漫游视频 2.0</strong></td>
+<td>Ảnh chụp UI cũ hơn không còn khớp</td>
+</tr>
+<tr>
+<td><strong>08/2025</strong></td>
+<td><strong>Gộp lối vào render thành 3 chế độ</strong> (xem C1, C2)</td>
+<td>Nút <code>视频</code> riêng lẻ trong video hướng dẫn cũ <strong>không còn tồn tại</strong> — vào <code>离线模式</code></td>
+</tr>
+<tr>
+<td><strong>01/03/2026</strong></td>
+<td>Áp quyền lợi hội viên cá nhân mới, <strong>lần đầu đưa 核豆 vào</strong> (cao cấp 1200 核豆/tháng)</td>
+<td>Mọi bảng giá tính bằng vé đều lỗi thời</td>
+</tr>
+<tr>
+<td><strong>03/04/2026</strong></td>
+<td>Video chuyển sang <strong><code>视频额度</code> theo tuần</strong> (15s = 1 额度); tài khoản mua/gia hạn mới dần ngừng được tặng vé</td>
+<td>Đây là hệ đang chạy</td>
+</tr>
+<tr>
+<td><strong>Không rõ ngày</strong></td>
+<td>Có hẳn bài <em>"视频工具结构升级"</em> (nâng cấp cấu trúc công cụ video, mã 3FO4K4WQG6NN)</td>
+<td><strong>Mọi ảnh chụp menu video cũ có thể đã sai vị trí</strong> — luôn ưu tiên đường vào ở bảng 15.2</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tài liệu đã lỗi thời, cẩn trọng khi trích:</strong> bài <code>轻渲教程个人版</code> (cập nhật 10/2022) và bài <code>白天480/720</code> (10/2022) vẫn mô tả theo <strong>hệ vé cũ</strong> — số vé và quy tắc phát trong đó không còn khớp hệ 额度 2026. Phần mô tả kỹ thuật (vật liệu bị giản lược) thì vẫn dùng được; phần tiền bạc thì bỏ.</p>
+<hr>
+<h2 id="159-quy-trinh-muoi-buoc-tu-canh-a-dung-toi-file-mp4">15.9. Quy trình mười bước — từ cảnh đã dựng tới file MP4</h2>
+<p>Chương này lo bước 1–7. C16 lo đường đi máy (bước 3). C17 lo bước 8–10.</p>
+<p><code>① Rà model + đánh đèn      → như đã học C4, C13. Đèn phải đủ cho CẢ TUYẾN máy chạy,
+                              không chỉ một góc tĩnh
+② Đổi 窗纱/玻璃 → 实时材质   → tránh lỗi biến màu đen/tím khi render video
+③ 渲染 → 漫游视频           → dựng đường đi bằng 关键帧, hoặc nhập từ 镜头库  ← C16
+④ Bấm PLAY xem trước       → MIỄN PHÍ. Soi xuyên tường, vùng tối, tường trống
+⑤ 基础设置                  → chọn 构图比 (dọc nhất có thể) + mẫu đèn ĐÊM
+⑥ 生成视频                  → chọn 1080p (hoặc 极致1080p nếu cảnh có 灯光动画)
+                              → ĐỌC mức tiêu hao 额度 hiện trên hộp thoại trước khi xác nhận
+⑦ Chờ render               → xem tiến độ ở 图册; đặt vào cuối buổi cho rẻ và đỡ chờ
+⑧ Tải MP4 về               → đổ vào thư mục theo quy ước, KHÔNG ghi đè bản gốc   ← C17
+⑨ Dựng ở CapCut/剪映        → khung 9:16, ghép đoạn, chỉnh màu, hạt nhiễu, nhạc  ← C17
+⑩ Xuất + đăng              → 1080×1920, H.264, AAC, 30fps, ~8 Mbps              ← C17</code></p>
+<blockquote class="warn">
+<p>⚠️ <strong>Bước ④ là bước người ta hay bỏ và hay hối hận nhất.</strong> Xem trước không tốn 额度. Render xong mới thấy máy chui qua tường thì mất cả đoạn.</p>
+</blockquote>
+<hr>
+<h2 id="thuc-hanh">Thực hành</h2>
+<p><strong>Bài 1 — Khoá bốn ô trống của chương (15 phút, làm sớm nhất có thể):</strong>
+Mở một phương án bất kỳ → <code>渲染</code> → <code>漫游视频</code> → <code>基础设置</code>. Chụp màn hình bốn thứ: (a) <strong>danh sách đầy đủ của <code>构图比</code></strong> — có 9:16 không; (b) hộp thoại <code>生成视频</code> với <strong>mức tiêu hao 额度</strong> cho 720p và cho 1080p của cùng một đoạn; (c) chỗ nào ghi <strong>FPS</strong> hoặc nút <code>降低帧率</code>; (d) khi đặt đoạn dài dần, tới độ dài nào thì <strong>báo vượt giới hạn</strong>.
+<em>Tiêu chí đạt:</em> điền được bốn dòng vào Phụ lục B mục I, mỗi dòng kèm một ảnh chụp màn hình.</p>
+<p><strong>Bài 2 — Đo giá thật của một clip:</strong>
+Lấy một phòng đã dựng xong. Đặt một đoạn 15 giây. Ghi mức 额度 hiện ra ở 480p, 720p, 1080p. Rồi đặt đoạn 30 giây, ghi lại ba mức đó lần nữa.
+<em>Tiêu chí đạt:</em> trả lời được bằng số: "clip 30 giây 1080P của công ty mình tốn ___ 额度, tức ___ % quota tuần" — và nói được 720p rẻ hơn 1080p bao nhiêu lần.</p>
+<p><strong>Bài 3 — Ba dạng cho cùng một phòng:</strong>
+Cùng một phòng khách, tạo ba thứ: (a) một <code>漫游视频</code> 10 giây đi từ cửa vào; (b) một <code>全景图小视频</code> 15 giây; (c) một clip từ <code>轻渲视频</code> dùng mẫu có sẵn.
+<em>Tiêu chí đạt:</em> nói được mỗi dạng tốn gì, mất bao lâu, ra khung ngang hay dọc, và <strong>dạng nào bạn sẽ dùng cho công việc hằng ngày</strong> — kèm lý do bằng số, không phải cảm tính.</p>
+<h2 id="checklist-tu-cham">Checklist tự chấm</h2>
+<ul>
+<li class="task"><label><input type="checkbox" data-key="15-t1"><span>Phân biệt được <code>漫游视频</code> và <code>全屋漫游</code>, nói được cái nào ra file MP4</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t2"><span>Biết video chỉ render được ở <code>离线模式</code>, trần 1080P với tài khoản cá nhân</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t3"><span>Nhớ con số 15 giây = 1 额度 và biết quota hết hạn tối Chủ nhật</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t4"><span>Mở được hộp thoại <code>生成视频</code> và đọc mức tiêu hao trước khi bấm xác nhận</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t5"><span>Đã tự kiểm danh sách <code>构图比</code> trên app, biết chắc có 9:16 hay không</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t6"><span>Kể được năm thứ Kujiale không làm được (rèm bay, người đi, đèn khác theo đoạn, vật liệu ở bản ngày, chống xuyên tường)</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t7"><span>Nhớ đổi <code>窗纱</code>/<code>玻璃</code> sang <code>实时材质</code> trước khi render video</span></label></li>
+<li class="task"><label><input type="checkbox" data-key="15-t8"><span>Luôn bấm Play xem trước trước khi trả 额度</span></label></li>
+</ul>
+<h2 id="loi-thuong-gap-trong-chuong-nay">Lỗi thường gặp trong chương này</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Hiện tượng</th>
+<th>Nguyên nhân</th>
+<th>Cách sửa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Không tìm thấy nút render video</td>
+<td>UI đã gộp 3 chế độ từ 08/2025; video chỉ có ở <code>离线模式</code></td>
+<td>Vào <code>离线模式</code>; đường vào theo bảng 15.2</td>
+</tr>
+<tr>
+<td>Render xong mới biết phải cắt dọc, mất hai bên khung</td>
+<td>Không chốt tỉ lệ khung từ đầu</td>
+<td>Chốt <code>构图比</code> ở <code>基础设置</code> <strong>trước</strong> khi render; dựng cảnh cho cắt dọc vẫn đủ (C16)</td>
+</tr>
+<tr>
+<td>Rèm voan/kính bị đen hoặc tím trong video</td>
+<td>Vật liệu phức tạp bị giản lược ở chế độ video</td>
+<td>Đổi sang <code>实时材质</code> trước khi render; lấy bản đêm 720/1080P làm chuẩn</td>
+</tr>
+<tr>
+<td>Video mất <code>体积光</code>, mất quầng sáng so với ảnh tĩnh</td>
+<td>Đang xem bản <code>白天480/720</code> — hai hiệu ứng này bị <strong>xoá khỏi cảnh</strong></td>
+<td>Render lại ở bản đêm 720/1080P</td>
+</tr>
+<tr>
+<td>Đèn nhấp nháy giữa các khung</td>
+<td>Tham số đèn đổi giữa các khung; độ nét thấp</td>
+<td>Render 1080P hoặc <code>极致1080p</code>; dùng nút <code>降低帧率</code>; tránh <code>灯光动画</code> đổi mạnh khi máy đang chạy</td>
+</tr>
+<tr>
+<td>Hết 额度 giữa tuần</td>
+<td>Render đoạn dài ở 1080P cho mọi thứ</td>
+<td>Chia đoạn ngắn; b-roll để 720P; đoạn xoay tại chỗ chuyển sang <code>全景图小视频</code></td>
+</tr>
+<tr>
+<td>Quota tự nhiên biến mất</td>
+<td>额度 phát thứ Hai, <strong>hết hạn tối Chủ nhật</strong>, không cộng dồn</td>
+<td>Lên lịch render trong tuần; vé hoàn do render lỗi cũng chỉ hạn 1 tuần</td>
+</tr>
+<tr>
+<td>Sửa một chỗ nhỏ phải trả tiền lại cả clip</td>
+<td>Xuất một đoạn dài liền</td>
+<td>Xuất nhiều đoạn ngắn 8–15 giây, ghép ở CapCut</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="nguon-so-lieu">Nguồn số liệu</h2>
+<p><strong>Chính thức (Kujiale help center):</strong>
+- <code>漫游视频</code> mở cho <code>所有用户</code>: bài 3FO4K4VIH0IS, 3FO4K4VIJARH
+- <strong>视频额度 — 15 giây = 1 额度</strong>, chu kỳ tuần, hoàn vé khi lỗi: bài 3FO4K4WM9WHW (cập nhật 03/04/2026) — con số chắc nhất của chương
+- Quyền lợi hội viên cá nhân, 核豆 1200/tháng bậc cao cấp: bài 3FO4K4WPKVPL (cập nhật 04/08/2026, hiệu lực 01/03/2026)
+- Trần 1080p, <code>轻渲视频</code> không cần hội viên: bài 3FO4K4WMJGUR
+- Bản ngày 480/720 giản lược vật liệu, <code>体积光</code>/<code>辉光</code> bị xoá: bài 3FO4K4WNDBNE
+- <code>极致1080p</code>: bài 3FO4K4WN7V2R · <code>灯光动画</code> ra mắt: bài 3FO4K4VHSONT
+- <code>全景图小视频</code> (5 lượt/ngày free, 20 lượt/ngày trả phí, 15 giây, một phòng): bài 3FO4JYHXYBMA
+- Nâng cấp cấu trúc công cụ video: bài 3FO4K4WQG6NN
+- Mốc ra mắt bộ 渲染视频 02/2021, nâng 2.0 ngày 14/09/2021: China Daily 29/04/2021</p>
+<p><strong>Cộng đồng / chưa xác nhận (đã đánh ⚠️ trong bài):</strong>
+- Định dạng MP4 · thời gian render 5–15 phút: trang mirror pc-kujiale.com.cn
+- Hạn mức tuần 480p/720p/1080p: 知乎 zhuanlan p/611538440 — <strong>của 专业会员, trước 04/2026</strong>
+- Tỉ lệ 4:3 cho không gian nhỏ: 知乎 zhuanlan p/661888134</p>
+<p><strong>Chờ verify trên app (Phụ lục B mục I):</strong>
+- I1 mức tiêu hao 额度 theo độ nét · I2 danh sách <code>构图比</code> có 9:16 không · I3 FPS xuất
+- I4 thời lượng tối đa một clip · I5 watermark · I6 thời gian render thật</p>
+<hr>
+<h2 id="tu-tra-video-thuc-chien">Tự tra video thực chiến</h2>
+<blockquote class="pin">
+<p>📌 <strong>Sách này cho bạn ĐƯỜNG ĐI. Video cho bạn ĐÔI TAY.</strong></p>
+<p>Chương vừa rồi dựng khung: công cụ nào làm được gì, tốn bao nhiêu, vướng ở đâu. Nhưng thao tác thật — bấm chỗ nào, hộp thoại hiện ra sao — thì <strong>xem người ta quay màn hình học nhanh hơn đọc nhiều lần.</strong></p>
+<p><strong>Đọc chương xong, tra vài video về đúng chức năng xuất video, rồi quay lại làm.</strong></p>
+</blockquote>
+<p>Dán nguyên cụm vào ô tìm kiếm của <strong>小红书</strong> hoặc <strong>抖音 (Douyin)</strong>:</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Từ khoá</th>
+<th>Tìm được gì</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>酷家乐 漫游视频 教程</code></td>
+<td>Hướng dẫn video dạo quanh từ đầu tới cuối</td>
+</tr>
+<tr>
+<td><code>酷家乐 视频额度</code></td>
+<td>Cách tính phí video mới nhất</td>
+</tr>
+<tr>
+<td><code>酷家乐 轻渲视频</code></td>
+<td>Dạng video render nhẹ, làm hàng loạt</td>
+</tr>
+<tr>
+<td><code>酷家乐 全景图 小视频</code></td>
+<td>Clip 15 giây xuất từ ảnh toàn cảnh</td>
+</tr>
+<tr>
+<td><code>酷家乐 视频 竖版</code></td>
+<td>Người TQ làm clip dọc từ Kujiale thế nào</td>
+</tr>
+<tr>
+<td><code>酷家乐 灯光动画</code></td>
+<td>Hiệu ứng đèn biến đổi</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote class="tip">
+<p>💡 <strong>Bốn quy tắc lọc, dùng cho mọi từ khoá:</strong> sắp theo <code>最新</code> (mới nhất) · ưu tiên bài có <strong>ảnh chụp hộp thoại kèm số</strong> · bỏ bài <code>AI一键</code> (quảng cáo) · <strong>mọi bài nói về tiền mà đăng trước 04/2026 thì bỏ phần tiền, chỉ giữ phần thao tác</strong> — hệ 额度 đã đổi.</p>
+</blockquote></article>
+  <button class="mark-read" id="mark-read"></button>
+  <nav class="pager"><a class="prev" href="14.html"><span class="dir">← Trước</span><div class="t">Chương 14 · Hậu kỳ nâng cao</div></a><a class="next" href="16.html"><span class="dir">Tiếp theo →</span><div class="t">Chương 16 · Đường đi máy ảnh</div></a></nav>
+</div></main>
+<script src="reader.js"></script>
+</body>
+</html>

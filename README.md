@@ -1,8 +1,10 @@
 # Giáo trình Render Kujiale — Newhomes Ocean Park
 
-Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) bản Trung Quốc, biên soạn từ 11 gói deep research (help center chính thức + cộng đồng designer TQ), cập nhật theo UI 2025-2026.
+Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) bản Trung Quốc, biên soạn từ các gói deep research (help center chính thức + cộng đồng designer TQ), cập nhật theo UI 2025-2026.
 
-**Phiên bản:** v1 (2026-08-07) — một số con số chờ khóa qua Phụ lục B → sẽ lên v1.1.
+**Hai khối:** C0–C14 + Phụ lục A–E là khối **ảnh tĩnh** — từ "biết dùng" lên "nước ảnh không nhận ra là 3D". C15–C18 là khối **video** — từ file render Kujiale tới clip dọc đăng TikTok/Facebook ra được khách.
+
+**Phiên bản:** v1.1 (2026-08-26) — bổ sung khối video C15–C18 và mục I của Phụ lục B. Một số con số vẫn chờ khoá qua Phụ lục B.
 
 ## Dành cho ai, dùng thế nào
 
@@ -25,6 +27,15 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 | 7 | Photorealism + case thực chiến | `content/07-photorealism-case-thuc-chien.md` | 4 trụ cột, 12 điều cấm phạm, học từ pháp sư TQ |
 | 8 | Công cụ AI — dùng và cấm | `content/08-cong-cu-ai-dung-va-cam.md` | AI ở đâu hợp lệ, ở đâu rủi ro pháp lý |
 | 9 | Luyện mắt + nguồn theo dõi | `content/09-luyen-mat-nguon-theo-doi.md` | Thói quen dài hạn sau khi đọc hết sách |
+| 10 | Ảnh vân — nguồn, chuẩn, chống lặp | `content/10-texture-nguon-chuan-va-chong-lap-van.md` | Lấy ảnh vân ở đâu, chuẩn thế nào, phá lỗi lặp vân |
+| 11 | Model và bày đồ kể chuyện | `content/11-model-va-bay-do-ke-chuyen.md` | Nhận model rác, bày đồ có hơi người, bản địa hoá khách Việt |
+| 12 | Chi tiết công trình | `content/12-chi-tiet-cong-trinh.md` | Khe hắt, đèn âm trần, ray nam châm, khe gió |
+| 13 | Ánh sáng nâng cao | `content/13-anh-sang-nang-cao.md` | Bốn con đường bố đèn, nắng qua rèm, thoát khỏi việc chép số |
+| 14 | Hậu kỳ nâng cao | `content/14-hau-ky-nang-cao.md` | Đường cong, hạt nhiễu, dải màu, nước ảnh kiểu Trung Quốc |
+| 15 | Xuất video từ Kujiale | `content/15-xuat-video-kujiale.md` | Làm được gì, tốn bao nhiêu 额度, dọc 9:16 được không? |
+| 16 | Đường đi máy ảnh | `content/16-duong-di-may-anh.md` | Điểm mốc, tốc độ, góc nhìn — clip mượt và không gây chóng mặt |
+| 17 | Hậu kỳ clip dọc | `content/17-hau-ky-clip-doc.md` | Kéo render về phía quay thật + chuẩn xuất TikTok/Facebook |
+| 18 | Nội dung clip ra khách | `content/18-noi-dung-clip-ra-khach.md` | Sáu dạng clip nhà ở, ba giây đầu, quy đổi Trung → Việt |
 | A | Bộ chấm ảnh | `content/phu-luc-a-bo-cham-anh.md` | Công cụ nghiệm thu + chấm đồ án |
 | B | Phiếu khám phá app | `content/phu-luc-b-phieu-verify-app.md` | Bài tập tuần đầu — khóa số cho sách |
 | C | Cheat sheet thuật ngữ | `content/phu-luc-c-cheat-sheet-thuat-ngu.md` | ~97 thuật ngữ Trung-Việt, in dán tường |
@@ -34,7 +45,7 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 
 Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho một agent AI**. Agent đã được đóng gói sẵn ở `.claude/skills/render-agent-kujiale/` — mở repo này bằng Claude Code là dùng được ngay (gõ `/render-agent-kujiale`, hoặc cứ hỏi thẳng "phân tích ảnh render này", "kê thông số render cho ảnh model này").
 
-**Bốn chế độ:**
+**Năm chế độ:**
 
 | Đưa vào | Agent làm gì | Nhận lại |
 |---|---|---|
@@ -42,6 +53,7 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 | Ảnh **chưa render** (model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi) | Kê đơn theo đúng thứ tự rà model → template → camera → nắng → thiên quang → đẩy sáng → đèn chức năng → đèn nhấn → `高级设置` → hậu kỳ | **Phiếu thông số render Kujiale** đầy đủ + thứ tự dò |
 | Yêu cầu ảnh ý tưởng | Dựng prompt theo công thức 6 khối | Prompt cho **ChatGPT / Nano Banana / Midjourney / Google Flow** |
 | Ảnh render đã xong | Chấm theo rubric Phụ lục A | Phiếu 10 tiêu chí × 5 điểm + việc cần sửa, kèm chương để tra |
+| **Việc dính tới clip video** — cần một clip TikTok/Facebook, hỏi chi phí `视频额度`, dựng lộ trình máy ảnh, hoặc đưa clip đã dựng để nghiệm thu | Kê cấu trúc clip theo giây → danh sách đoạn cần render kèm ước tính `额度` → điểm mốc từng đoạn → sáu kỹ thuật kéo render về phía cảnh quay thật → chuẩn xuất. Hoặc chấm clip theo 10 tiêu chí (máy ảnh · độ chỏi render↔thật · nhịp) | **Phiếu clip video** — nửa kê đơn hoặc nửa chấm, mọi điểm trừ đều kèm **mốc giây** |
 
 **Bốn luật nền agent luôn tuân** (và đây cũng là lý do nên tin phiếu nó xuất ra):
 
@@ -62,8 +74,9 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 │   ├── 04-vat-lieu-texture.md      ← 4 kênh, melamine vs acrylic, khổ thật, chẩn đoán "bệt"
 │   ├── 05-prompt-ai.md             ← 6 khối, 26 cụm, khác biệt từng công cụ
 │   ├── 06-cham-anh.md              ← rubric + 12 dấu hiệu + biên độ hậu kỳ
-│   └── 07-doc-model-chua-render.md ← đọc lỗi từ ảnh model phẳng, trước khi bố đèn
-└── templates/                      ← 3 phiếu xuất: phân tích ảnh · thông số render · prompt AI
+│   ├── 07-doc-model-chua-render.md ← đọc lỗi từ ảnh model phẳng, trước khi bố đèn
+│   └── 08-video-clip.md            ← hợp nhất số của C15·C16·C17·C18 + rubric chấm clip
+└── templates/                      ← 4 phiếu xuất: phân tích ảnh · thông số render · prompt AI · clip video
 ```
 
 Khi `content/` được cập nhật (số ⚠️ được khoá qua Phụ lục B, UI Kujiale đổi), **sửa `content/` trước rồi đồng bộ sang `references/`** — `content/` vẫn là source of truth.

@@ -160,6 +160,27 @@ Kujiale **có** chuyển được giao diện sang tiếng Anh. Nhưng nhãn ti�
 
 ---
 
+## I. Video — nhóm nhiều ô trống nhất của cả sách
+
+Chương 15, 16, 17 phải viết với **sáu ô để trống** vì Kujiale không công bố. Sáu ô này khoá được trong **mười lăm phút mở app** — và ô I2 quyết định cả quy trình dựng clip của công ty.
+
+| # | Việc cần làm | Kết quả điền |
+|---|---|---|
+| **I1** | Vào `渲染` → `漫游视频` → đặt một đoạn 15 giây → mở hộp thoại `生成视频`. Chụp **mức tiêu hao 额度** hiện ra ở **480p / 720p / 1080p**. Sách chỉ có quy tắc gốc "15 giây = 1 额度" ✅, **không có hệ số theo độ nét** | |
+| **I2** ⛔ | **Bấm vào `构图比` ở bước `基础设置` → chụp DANH SÁCH ĐẦY ĐỦ các tỉ lệ chọn được. CÓ 9:16 KHÔNG?** Đây là ô quan trọng nhất nhóm: có 9:16 gốc thì bỏ hẳn bước cắt dọc ở CapCut (C15 §15.4, C17) | |
+| **I3** | Tìm chỗ nào ghi **FPS** xuất ra, hoặc mở nút `降低帧率`. Sách chỉ biết là "tồn tại một FPS mặc định", không biết bao nhiêu. Số này quyết định có phải ép fps khi ghép với clip quay điện thoại không (C17) | |
+| **I4** | Kéo dài một đoạn dần lên: **tới độ dài nào thì báo vượt giới hạn?** Ghi cả số `片段` và `关键帧` tối đa nếu app báo | |
+| **I5** | Tải một video về, xem **có watermark không**. Sách không có tuyên bố rõ ràng nào | |
+| **I6** | Bấm giờ **thời gian render thật** một đoạn 15 giây ở 720p và 1080p. Hai nguồn cộng đồng chỏi nhau (5–15 phút vs ~1 giờ) — đo lấy số của mình | |
+| I7 | Đặt render **ban ngày** (6:00–20:00): có hiện lựa chọn thời điểm và **ưu đãi render đêm** cho `漫游视频` không? Mức ưu đãi bao nhiêu | |
+| I8 | ✅ `漫游视频` mở cho `所有用户`, trần **1080P** với tài khoản cá nhân. Liếc xác nhận | |
+| I9 | `轻渲视频`: mẫu có sẵn của nó **đã ở khung dọc chưa**? Nếu rồi thì đây là lối tắt nhanh nhất để có clip dọc | |
+| I10 | `全景图导出小视频`: xác nhận **số lượt/ngày** của tài khoản công ty (sách ghi free 5, trả phí 20) và clip có đúng 15 giây không | |
+
+> 📌 **I2 làm trước, làm ngay.** Mười giây bấm chuột. Kết quả quyết định cả C15 §15.4 lẫn quy trình dựng ở C17 — và quyết định luôn việc mỗi clip có mất thêm một bước cắt dọc hay không.
+
+---
+
 ## Khi nào coi như đủ để cập nhật sách
 
 Không cần điền hết sổ. Đủ **một trong ba** điều kiện dưới là báo quản lý:
