@@ -9,6 +9,7 @@
 > | Cảnh bàn ăn marble + panel gỗ | CA1 bản B3 — chưa test |
 > | Cảnh phòng khách hẹp (sửa ảnh đã render) | CA3 — chưa test |
 > | **Phòng ngủ trẻ em — sửa thứ bậc màu + sáng** | **CA4** — cuối file, chưa test |
+> | **Căn hộ compact — bộ 5 khung SketchUp (khách · bếp · bàn ăn)** | **CA5 bản S1–S5** — cuối file, chưa test |
 > | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
 >
 > Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
@@ -728,3 +729,336 @@ magazine interior photograph.
 
 ⚠️ **Kết quả này KHÔNG dùng để giao khách** — chỉ để chốt hướng. Chốt xong thì render lại bằng
 Kujiale theo phiếu thông số.
+
+---
+
+# CA 5 — Căn hộ compact, bộ 5 khung (SketchUp / clay, có lưới overlay)
+
+**Nguồn:** 5 ảnh viewport SketchUp phong cách clay + line — **không phải Kujiale**, không phải render.
+Đọc được hình học, bố cục, chủng loại vật liệu; **không đọc được độ bóng và độ nổi vân**.
+
+**Đặc điểm chung quyết định cách viết prompt:**
+
+| Điểm | Hệ quả |
+|---|---|
+| Cả 5 ảnh có **lưới trắng chia 3×3 đè lên ảnh** | Phải thêm câu xoá overlay — thứ CA1/CA2 chưa gặp. Không xoá thì AI vẽ luôn lưới thành khe trần/chỉ nẹp |
+| Nét CAD đen viền mọi bề mặt | Câu `Remove every CAD outline and edge line` như CA2 |
+| **Cửa sổ nằm CUỐI TRỤC** ở khung 1·2·3·4 (không phải bên hông như CA1) | Gradient chạy **theo chiều sâu**: cuối phòng sáng → tiền cảnh chìm. Chép trục ngang của CA1 sang là hỏng |
+| Khung 5 (bếp) là khung **duy nhất** nguồn sáng bên hông (cửa kính đen bên phải) | Gradient ngang phải→trái |
+| Sàn gỗ **sẫm**, tường + tủ **kem/trắng trơn đều** | Đúng nhóm "AI hay ra nhựa" của §0 — tủ trắng và mặt đá phải tả riêng, không gộp |
+| Sofa + ghế ăn **nỉ olive**, không phải boucle | **Đừng viết `boucle`, đừng viết `woven`** — dính bẫy ca 04. Gọi `matte woven upholstery with a fine nap` |
+| Khung 4 có **gương vòm lớn** | Chỗ AI bịa nhiều nhất — phải khai báo gương phản chiếu ĐÚNG cái gì đang đứng trước nó |
+
+**Áp sẵn khung `05` §7.4** (đèn bật nhưng không gánh chiếu sáng · gradient dốc · giữ trộn nóng–lạnh).
+Cả 5 bản **cố ý không có nắng xiên**: rèm voan phủ kín cửa ở khung 1–4, và nắng xiên vào sàn gỗ sẫm
++ tủ trắng trơn là công thức ra ảnh tắm cam của ca 02.
+
+⚠️ **Phạm vi dùng:** mood board / thăm dò phong cách / nháp tại chỗ khi tư vấn.
+**CẤM** ảnh khách ký duyệt · ảnh kèm hợp đồng/báo giá · ảnh mô tả vật liệu sẽ thi công · ảnh nghiệm thu.
+**Riêng bản S5 (bếp) là ca rủi ro cao nhất** — vân đá backsplash và vân cánh gỗ là thứ AI bịa đẹp hơn
+tấm thật, và đúng là hạng mục khách soi khi nghiệm thu.
+
+---
+
+## 🔄 CA5 bản S1 — góc rộng phòng khách + bàn ăn (CHƯA TEST)
+
+```
+Photorealistic interior photograph of this exact living room in a compact modern apartment.
+Keep the camera angle, room layout, furniture positions, cabinetry proportions and material
+types exactly as in the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line, and remove the
+white grid lines overlaid across the frame. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+It is daytime. Soft daylight coming through the sheer curtains of the full-height balcony
+window at the far end of the room does all the lighting work, and it falls away steeply
+toward the camera: the curtain wall and the floor in front of it are bright and open, the
+round coffee table and the olive sofa sit comfortable in the middle, and the dining chairs
+and the timber door in the near left foreground sink into genuine shadow — the darkest,
+quietest part of the frame. This falloff is the strongest tonal movement in the picture.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. The washi paper globe pendant on its black cable glows warm 3000K from
+within, the small recessed ceiling downlights read as small warm discs, and the black track
+spotlight reads as a warm point. At this hour they light only themselves — none of them
+brightens the room, casts a pool on the floor, or throws a patch of light on a wall. Their
+warmth reads against the cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.15m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+The white TV wall is matte lacquer panelling with a fine hand-applied surface, never glassy —
+the sheen shifts very slightly from panel to panel and the recessed joints read as shadow,
+not as drawn lines. The tall cabinet and the low TV console are light oak laminate with open
+pores, the grain changing from door to door. The television is a dark glass rectangle holding
+a soft blurred reflection of the curtain behind the camera. The sofa and the dining chairs
+are olive upholstery with a fine matte nap that goes slightly lighter where it curves toward
+the light. The round coffee table is honed white stone, faintly chalky to the touch. The rug
+is a wool pile with a soft cream ground and pale ochre mottling, its edge sitting flat on
+dark oak flooring in a low satin finish, planks varying in tone. The dining table is a pale
+stone slab with quiet veining. Everyday traces, quiet and few: books stacked slightly askew
+on the console, one cushion pressed out of shape on the sofa.
+
+Each material carries its own level of sheen — chalky walls, satin lacquer panels, oiled oak,
+matte olive upholstery, honed stone, dark glass.
+
+Contact shadows keep everything grounded: under the sofa base, under the three legs of the
+coffee table where they meet the rug, along the edge of the rug on the floorboards, and
+beneath each dining chair leg.
+
+Deep photographic tonal range: the near left corner genuinely dark, whites stopping just
+short of pure white, and a full rich range in between. The image has somewhere bright for the
+eye to land and somewhere dark to rest. Muted natural colour. The look of a printed magazine
+interior photograph.
+
+One dining chair sits pulled back a little from the table, turned slightly out of line.
+```
+
+---
+
+## 🔄 CA5 bản S2 — chính diện phòng khách, một điểm tụ (CHƯA TEST)
+
+```
+Photorealistic interior photograph of this exact living room in a compact modern apartment,
+seen straight down its axis. Keep the camera angle, room layout, furniture positions,
+cabinetry proportions and material types exactly as in the source image — do not add, remove
+or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line, and remove the
+white grid lines overlaid across the frame. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+It is daytime. Soft daylight through the sheer curtains of the full-height balcony window at
+the end of the axis does all the lighting work, and it falls away steeply toward the camera:
+the curtain and the floor beneath it are the brightest, most open part of the frame; the
+coffee table, the rug and the olive sofa sit comfortable in the middle; the two timber doors
+and the wall panels at the left and right edges of the foreground sink into genuine shadow —
+the darkest, quietest parts of the picture. This falloff is the strongest tonal movement in
+the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. The washi paper globe pendant glows warm 3000K from within, the recessed
+ceiling downlights read as small warm discs, and the black track spotlight reads as a warm
+point. At this hour they light only themselves — none of them brightens the room, casts a
+pool on the floor, or throws a patch of light on a wall. Their warmth reads against the cool
+daylight instead of tinting the whole picture. Beyond the sheer curtain the outdoor view stays
+soft and low in contrast, pale and readable rather than burning out to white.
+
+Shot on a 35mm lens at eye level 1.15m, two-point perspective straight down the room.
+Vertical lines stay perfectly vertical, natural undistorted perspective. Keep the same framing
+and crop as the source image.
+
+The white wall panelling is matte lacquer with a fine hand-applied surface, never glassy — the
+recessed joints read as shadow, not as drawn lines. The tall cabinet and the low TV console
+are light oak laminate with open pores, the grain changing from door to door. The television
+is a dark glass rectangle holding a soft blurred reflection of the curtain light. The sofa is
+olive upholstery with a fine matte nap, lighter where it curves toward the window. The framed
+abstract print on the right wall is matte paper behind glass with one faint soft highlight.
+The round coffee table is honed white stone. The rug is wool pile, cream with pale ochre
+mottling, lying flat on dark oak flooring in a low satin finish, planks varying in tone. The
+robot vacuum is matte white plastic with a soft dust line along its lower rim. Everyday
+traces, quiet and few: books stacked slightly askew on the console, a cushion pressed out of
+shape.
+
+Each material carries its own level of sheen — chalky walls, satin lacquer panels, oiled oak,
+matte olive upholstery, honed stone, dark glass, matte plastic.
+
+Contact shadows keep everything grounded: under the sofa base, under the coffee table legs on
+the rug, along the rug edge on the floorboards, and a small tight shadow under the robot
+vacuum.
+
+Deep photographic tonal range: the foreground corners genuinely dark, whites stopping just
+short of pure white, and a full rich range in between. The image has somewhere bright for the
+eye to land and somewhere dark to rest. Muted natural colour. The look of a printed magazine
+interior photograph.
+
+A tabby cat lies curled and asleep on the arm of the sofa.
+```
+
+---
+
+## 🔄 CA5 bản S3 — cận cảnh sofa + tranh (khung gần vuông) (CHƯA TEST)
+
+```
+Photorealistic interior photograph of this exact seating corner in a compact modern
+apartment. Keep the camera angle, room layout, furniture positions, wall panelling
+proportions and material types exactly as in the source image — do not add, remove or move
+any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line, and remove the
+white grid lines overlaid across the frame. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+It is daytime. Soft daylight through the sheer curtain along the left edge of the frame does
+all the lighting work, and it falls away steeply to the right: the curtain and the floor
+beside it are bright and open, the olive sofa and the framed print are comfortable in the
+middle, and the timber door and the wall at the right edge sink into genuine shadow — the
+darkest, quietest part of the picture. This falloff is the strongest tonal movement in the
+image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. The washi paper globe pendant above glows warm 3000K from within and the
+recessed downlights read as small warm discs. At this hour they light only themselves — none
+of them brightens the room, casts a pool on the floor, or throws a patch of light on the wall
+behind the sofa. Their warmth reads against the cool daylight instead of tinting the whole
+picture.
+
+Shot on a 50mm lens at seated eye level 1.0m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+The wall behind the sofa is matte lacquer panelling with a fine hand-applied surface, never
+glassy — the recessed joints read as shadow, not as drawn lines. The framed abstract print is
+matte paper behind glass, carrying one faint soft highlight from the window. The sofa is olive
+upholstery with a fine matte nap that goes noticeably lighter along the curved backrest facing
+the window and darker in the seams; the seat cushions crease gently where people sit. The
+patterned cushion is a slubby terracotta weave. The round coffee table is honed white stone,
+faintly chalky. The glass vase holding dried grasses is thin and clear, with a bright rim
+where the window light passes through it. The floor is dark oak in a low satin finish, planks
+varying in tone. The timber door is ash veneer with a matt lacquer and a black lever handle.
+Everyday traces, quiet and few: a magazine left open on the table, the corner of the rug
+slightly turned up.
+
+Each material carries its own level of sheen — chalky walls, satin lacquer panels, matte olive
+upholstery, honed stone, clear glass, oiled oak, matt black metal.
+
+Contact shadows keep everything grounded: under the sofa base, where the coffee table legs
+meet the rug, and where the rug edge lies on the floorboards.
+
+Deep photographic tonal range: the right side genuinely dark, whites stopping just short of
+pure white, and a full rich range in between. The image has somewhere bright for the eye to
+land and somewhere dark to rest. Muted natural colour. The look of a printed magazine interior
+photograph.
+
+The dried grasses lean a little to one side in the vase.
+```
+
+---
+
+## 🔄 CA5 bản S4 — bàn ăn nhìn về phòng khách (CHƯA TEST)
+
+```
+Photorealistic interior photograph of this exact dining area looking through to the living
+room of a compact modern apartment. Keep the camera angle, room layout, furniture positions,
+cabinetry proportions and material types exactly as in the source image — do not add, remove
+or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line, and remove the
+white grid lines overlaid across the frame. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+It is daytime. Soft daylight through the sheer curtains of the balcony window at the far end
+of the living room does all the lighting work, and it falls away steeply toward the camera:
+the curtain and the living room floor are the brightest, most open part of the frame; the
+dining table and chairs are comfortable in the middle; the tall cabinetry along the left wall
+and the ceiling above the camera sink into genuine shadow — the darkest, quietest part of the
+picture. This falloff is the strongest tonal movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. The long black linear pendant over the dining table carries a row of small
+clear glass globes that glow warm 3000K, the paper globe pendant further down the room glows
+warm as well, and the recessed downlights read as small warm discs. At this hour they light
+only themselves — none of them brightens the room, casts a pool on the table, or throws a
+patch of light on a wall. Their warmth reads against the cool daylight instead of tinting the
+whole picture.
+
+The tall arched mirror on the right reflects only what genuinely stands in front of it — the
+olive armchair, the curtain and a slice of the room — softly, and a little darker and cooler
+than the room itself. It is a mirror, not a second window.
+
+Shot on a 35mm lens at eye level 1.2m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+The tall cabinetry on the left is matte cream lacquer with a fine hand-applied surface, never
+glassy — the sheen shifts slightly from door to door and the recessed joints read as shadow,
+not as drawn lines. The dining table is a pale stone slab with quiet veining and a honed,
+faintly chalky surface, on a dark stained timber base. The dining chairs are olive upholstery
+with a fine matte nap over dark stained timber frames, lighter where the curved backs face the
+window. The floor is dark oak in a low satin finish, planks varying in tone, with a faint wear
+path toward the living room. The arched mirror has a slim matt black frame. Everyday traces,
+quiet and few: an open book left face-down on the table, one chair turned slightly out of
+line.
+
+Each material carries its own level of sheen — chalky walls, satin cream lacquer, honed stone,
+matte olive upholstery, oiled oak, clear glass, matt black metal.
+
+Contact shadows keep everything grounded: beneath each chair leg, under the table base, where
+the tall cabinetry meets the floor, and a small tight shadow under the robot vacuum.
+
+Deep photographic tonal range: the ceiling and the left cabinetry genuinely dark, whites
+stopping just short of pure white, and a full rich range in between. The image has somewhere
+bright for the eye to land and somewhere dark to rest. Muted natural colour. The look of a
+printed magazine interior photograph.
+
+The white flowers in the bowl on the table lean a little toward the window.
+```
+
+---
+
+## 🔄 CA5 bản S5 — bếp chính diện (CHƯA TEST — ca rủi ro vật liệu cao nhất)
+
+```
+Photorealistic interior photograph of this exact galley kitchen in a compact modern apartment,
+seen straight on. Keep the camera angle, room layout, appliance positions, cabinetry
+proportions and material types exactly as in the source image — do not add, remove or move any
+object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line, and remove the
+white grid lines overlaid across the frame. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+It is daytime. Soft daylight through the black-framed glass door on the right does all the
+lighting work, and it falls away steeply to the left: the worktop near the hob and the plant
+by the door are bright and open, the sink and the middle of the run are comfortable, and the
+tall fridge housing and the timber door at the far left sink into genuine shadow — the
+darkest, quietest part of the frame. This falloff is the strongest tonal movement in the
+picture.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. The recessed ceiling downlights read as small warm discs. At this hour they
+light only themselves — none of them brightens the room, casts a pool on the worktop, or
+throws a scallop of light on the splashback. Their warmth reads against the cool daylight
+instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.5m, square to the cabinet run. Vertical lines stay
+perfectly vertical, natural undistorted perspective. Keep the same framing and crop as the
+source image.
+
+The upper cabinet doors are flat matte white lacquer with a fine hand-applied surface, never
+glassy — the sheen shifts very slightly from door to door and the shadow gaps between them
+read as shadow, not as drawn lines. The base cabinets are wood-grain laminate in a warm
+greige, framed shaker fronts, the grain running vertically and changing from door to door,
+with slim matt black bar handles that carry one narrow highlight each. The worktop and the
+splashback are white stone with soft grey veining, honed rather than polished, the veining
+varying in density and never repeating as a pattern. The extractor and the induction hob are
+dark glass, each holding a soft blurred reflection rather than reading as a flat black
+rectangle. The fridge and the sink are brushed stainless steel with a fine directional grain
+and a soft, broken reflection of the room. The floor is dark oak in a low satin finish, planks
+varying in tone. Everyday traces, quiet and few: a few water spots drying on the steel around
+the sink, a faint fingerprint near one handle.
+
+Each material carries its own level of sheen — chalky walls, matte white lacquer, wood-grain
+laminate, honed stone, brushed steel, dark glass, matt black metal.
+
+Contact shadows keep everything grounded: under the overhang of the worktop along the whole
+run, beneath the plinth where the base cabinets meet the floor, under the toaster and the
+utensil jar, and under the plant pot by the door.
+
+Deep photographic tonal range: the left end of the run genuinely dark, whites stopping just
+short of pure white, and a full rich range in between. The image has somewhere bright for the
+eye to land and somewhere dark to rest. Muted natural colour. The look of a printed magazine
+interior photograph.
+
+One wooden spoon leans out of the utensil jar toward the hob.
+```
+
+### Xem gì khi test cả 5 bản
+
+| Câu hỏi | Vì sao |
+|---|---|
+| **Lưới trắng 3×3 có sạch không?** | Câu xoá overlay là thứ mới của ca này — chưa từng test |
+| Gradient có chạy **theo chiều sâu** không (S1–S4) | Khác trục của CA1; nếu AI vẫn kéo gradient ngang thì khối 2 phải viết lại |
+| **Tủ trắng và mặt đá có ra nhựa không** | Nhóm trơn-đều, đúng chỗ §0 cảnh báo |
+| **Nỉ olive có ra vải không, hay lại xù lông** | Đã cố ý tránh `boucle` và `woven` sau ca 04 |
+| **Gương vòm ở S4 phản chiếu đúng hay bịa** | Chưa có ca nào test gương |
+| S5: **vân đá backsplash có bị AI bịa đẹp hơn tấm thật không** | Đúng cái bẫy pháp lý C8 |
