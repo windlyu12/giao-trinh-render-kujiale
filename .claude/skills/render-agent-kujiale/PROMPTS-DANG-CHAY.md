@@ -9,7 +9,8 @@
 > | Cảnh bàn ăn marble + panel gỗ | CA1 bản B3 — chưa test |
 > | Cảnh phòng khách hẹp (sửa ảnh đã render) | CA3 — chưa test |
 > | **Phòng ngủ trẻ em — sửa thứ bậc màu + sáng** | **CA4** — cuối file, chưa test |
-> | **Căn hộ compact — bộ 5 khung SketchUp (khách · bếp · bàn ăn)** | **CA5 bản S1–S5** — cuối file, chưa test |
+> | **Cả một CĂN, nhiều góc, cần đồng bộ** | **CA5 bản M** — cuối file. Một prompt chạy mọi góc, không sửa chữ nào |
+> | Căn hộ compact — khoá riêng từng khung | CA5 bản S1–S5 — chỉ dùng khi một khung trượt nặng dưới bản M |
 > | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
 >
 > Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
@@ -1062,3 +1063,112 @@ One wooden spoon leans out of the utensil jar toward the hob.
 | **Nỉ olive có ra vải không, hay lại xù lông** | Đã cố ý tránh `boucle` và `woven` sau ca 04 |
 | **Gương vòm ở S4 phản chiếu đúng hay bịa** | Chưa có ca nào test gương |
 | S5: **vân đá backsplash có bị AI bịa đẹp hơn tấm thật không** | Đúng cái bẫy pháp lý C8 |
+
+---
+
+## 🔄 CA5 bản M — PROMPT TỔNG THỂ CẢ CĂN, dùng chung cho mọi khung (CHƯA TEST)
+
+**Vì sao có bản này:** S1–S5 tả riêng từng khung → mỗi ảnh dễ ra một căn nhà khác nhau, đúng lỗi
+C13.7 cảnh báo (*"bộ 8 ảnh nhìn như 8 căn khác nhau"*). Bản M dịch luật **"một bộ ánh sáng duy nhất,
+render cả bộ bằng đúng bộ đó"** sang prompt AI.
+
+**Ba thứ C13.7 bắt nhất quán → ba câu tương ứng trong prompt:**
+
+| C13.7 | Câu trong bản M |
+|---|---|
+| Nhiệt màu chênh ≤300–500K | `Keep the same white balance … in every frame of the set` |
+| Mức sáng chênh ≤1 khẩu | `… and the same overall exposure in every frame of the set` |
+| Hướng đổ bóng giống hệt | `Shadows … fall in the same direction throughout the set` |
+
+**Khác S1–S5 về cấu trúc:** luật ánh sáng viết dạng **tổng quát theo nguồn**, không theo địa danh
+của từng khung — `the part of the room nearest that glazing is bright … the corner furthest from it
+sinks into genuine shadow`. Nhờ vậy một prompt chạy đúng cho cả 5 góc mà không phải sửa chữ nào.
+Ba khoá riêng của S4/S5 (gương vòm, mặt đá, kính đen) được giữ dưới dạng **luật chung áp cho mọi khung**.
+
+```
+Photorealistic interior photographs of this exact compact modern apartment. Every image belongs
+to one single set of the same home, shot in one session. Keep the camera angle, room layout,
+furniture positions, cabinetry proportions and material types exactly as in each source image —
+do not add, remove or move any object.
+
+Render each one as a continuous photograph. Remove every CAD outline and edge line, and remove
+the white grid lines overlaid across the frame. Surfaces meet without drawn borders. Nothing
+should look like a 3D viewport.
+
+One consistent light for the whole set. It is late morning on a bright overcast day, and soft
+daylight from the full-height glazing — the balcony window in the living room and the glazed
+door beside the kitchen — does all the lighting work in every frame. In each image the part of
+the room nearest that glazing is bright and open, the middle of the frame is comfortable, and
+the corner furthest from it — a timber door, a run of tall cabinetry, a foreground wall — sinks
+into genuine shadow, the darkest and quietest part of the picture. This falloff is the strongest
+tonal movement in every image and it always runs outward from the glazing. Shadows stay soft and
+fall in the same direction throughout the set, with no direct sun patch anywhere.
+
+Two colour temperatures live together in every frame. The daylight is cool and clean; the
+fixtures are warm. The washi paper globe pendant, the black linear pendant carrying a row of
+small clear glass globes, the recessed ceiling downlights and the black track spot are switched
+on and clearly visible, glowing warm 3000K. At this hour they light only themselves — none of
+them brightens a room, casts a pool on the floor, or throws a patch of light on a wall. Their
+warmth reads against the cool daylight instead of tinting the picture. Keep the same white
+balance and the same overall exposure in every frame of the set.
+
+Shot on a 35mm lens at eye level 1.15m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as each source image.
+
+One material palette across the whole apartment. Walls and tall cabinetry are matte lacquer,
+white to cream, with a fine hand-applied surface, never glassy — the sheen shifts very slightly
+from panel to panel and the recessed joints read as shadow, not as drawn lines. Light oak
+laminate on the TV cabinet, the console and the kitchen base units, open-pored, the grain
+changing from door to door. Worktops, splashback, coffee table and dining table are white stone,
+honed rather than polished, the veining soft, varying in density and never repeating as a
+pattern. The sofa and every dining chair are olive upholstery with a fine matte nap that goes
+lighter where it curves toward the light and darker in the seams. Dark oak flooring throughout
+in a low satin finish, planks varying in tone. Matt black metal on handles, lever handles,
+pendant frames and the glazed door. The televisions, the induction hob and the extractor are
+dark glass holding a soft blurred reflection of the room, never flat black rectangles. Brushed
+stainless steel on the fridge and the sink, a fine directional grain with a soft broken
+reflection. Any mirror reflects only what genuinely stands in front of it, softly, a little
+darker and cooler than the room itself. Sheer curtains stay translucent and keep their fold
+structure, and the view beyond them stays pale, soft and readable rather than burning out to
+white.
+
+Everyday traces in each frame, quiet and few: books stacked slightly askew, a cushion pressed
+out of shape, faint water spots drying by the sink.
+
+Each material carries its own level of sheen — chalky walls, satin lacquer, oiled oak, matte
+olive upholstery, honed stone, brushed steel, dark glass, matt black metal.
+
+Contact shadows keep everything grounded in every frame: under the sofa and cabinet bases,
+beneath every chair and table leg, along the edge of the rug on the floorboards, under the
+worktop overhang and the kitchen plinth.
+
+Deep photographic tonal range in every image: the corner furthest from the glazing genuinely
+dark, whites stopping just short of pure white, and a full rich range in between. Each image has
+somewhere bright for the eye to land and somewhere dark to rest. Muted natural colour. The look
+of one printed magazine feature on a single apartment.
+
+Wherever it appears in the frame, one dining chair sits pulled back a little from the table,
+turned slightly out of line.
+```
+
+### Cách chạy bản M
+
+1. **Một hội thoại duy nhất cho cả bộ** — ChatGPT giữ ngữ cảnh, ảnh sau bám ảnh trước.
+2. **Dán prompt + 1 ảnh mỗi lượt.** Prompt **không đổi một chữ** qua cả 5 lượt — đó là toàn bộ ý nghĩa
+   của bản này. Dán nhiều ảnh một lượt cũng chạy, nhưng bố cục bám kém hơn.
+3. **Ảnh mốc chạy đầu tiên: khung chính diện phòng khách** — nhiều vật liệu nhất, dễ soi nhất.
+   Mốc đạt rồi mới chạy 4 khung còn lại.
+4. Tỉ lệ khung chọn trong **cài đặt**, không viết vào prompt (bẫy ca 03).
+
+### Xem gì khi test — soi theo BỘ, không soi từng ảnh
+
+| Câu hỏi | Vì sao |
+|---|---|
+| **Xếp 5 ảnh cạnh nhau — có ra cùng một căn không?** | Đây là thứ bản M sinh ra để giải |
+| Trắng của tủ ở 5 ảnh có cùng một sắc không | Ngưỡng nhiệt màu ≤300–500K của C13.7 |
+| Ảnh nào sáng vống hoặc tối hẳn so với 4 ảnh kia | Ngưỡng mức sáng ≤1 khẩu |
+| Bóng ở 5 ảnh có đổ cùng hướng không | Cùng một mặt trời |
+| Luật gradient tổng quát có ăn ở khung bếp không | Khung duy nhất sáng từ bên hông — chỗ dễ trượt nhất của bản M |
+
+> 📌 **Nếu một khung cụ thể trượt nặng** thì mới rơi về bản S tương ứng cho riêng khung đó —
+> và chấp nhận khung đó hơi lệch bộ. Đừng sửa bản M theo một khung: sửa là hỏng nhất quán cả bộ.
