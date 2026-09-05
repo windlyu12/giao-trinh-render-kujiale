@@ -11,6 +11,7 @@
 > | **Phòng ngủ trẻ em — sửa thứ bậc màu + sáng** | **CA4** — cuối file, chưa test |
 > | **Cả một CĂN, nhiều góc, cần đồng bộ** | **CA5 bản M** — cuối file. Một prompt chạy mọi góc, không sửa chữ nào |
 > | Căn hộ compact — khoá riêng từng khung | CA5 bản S1–S5 — chỉ dùng khi một khung trượt nặng dưới bản M |
+> | **Phòng ngủ master — 4 góc, cùng căn với bản M** | **CA5 bản N** — cuối file. Rèm sáo · tủ cánh kính · gương pebble |
 > | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
 >
 > Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
@@ -1172,3 +1173,105 @@ turned slightly out of line.
 
 > 📌 **Nếu một khung cụ thể trượt nặng** thì mới rơi về bản S tương ứng cho riêng khung đó —
 > và chấp nhận khung đó hơi lệch bộ. Đừng sửa bản M theo một khung: sửa là hỏng nhất quán cả bộ.
+
+---
+
+## 🔄 CA5 bản N — PHÒNG NGỦ MASTER, prompt tổng thể 4 góc (CHƯA TEST)
+
+**Cùng căn với bản M**, nên **cố ý giữ nguyên `late morning on a bright overcast day`** và cùng câu khoá
+white balance / exposure — để 5 ảnh khu sinh hoạt và 4 ảnh phòng ngủ ghép được thành **một bộ**.
+Đổi giờ ở đây là phá luôn tính nhất quán của cả bộ (C13.7).
+
+**Nguồn sáng đổi trục so với bản M:** phòng ngủ sáng từ **cửa sổ bên phải có rèm sáo nhôm**,
+không phải kính suốt trần cuối trục. Luật gradient vẫn viết dạng tổng quát theo nguồn nên
+một prompt chạy được cả 4 góc.
+
+### Năm bẫy riêng của phòng này — đã khoá sẵn trong prompt
+
+| Bẫy | Vì sao nguy | Câu khoá |
+|---|---|---|
+| **Rèm sáo nhôm** | Sáng xiên qua lá sáo = vệt sọc — AI vẽ sọc bịa khắp tường, đúng họ lỗi ca 02 | `slats are tilted open and the light passing them is soft and even — no hard stripes` |
+| **Cánh tủ kính vòm có quần áo treo sau** | AI rất hay biến kính thành gương đặc, hoặc đổi luôn đồ treo | `the clothes hanging behind them stay visible and slightly blurred by the glass` |
+| **Gương pebble mặt đen trong model** | Model để đen tuyền → AI giữ nguyên thành lỗ đen | `reflects only what genuinely stands in front of it … not a black void` |
+| **Chăn ga trắng — mảng trơn đều lớn nhất khung** | Đúng nhóm ra nhựa của §0 | Tả riêng: `crisp white cotton … real creases`, không gộp dòng liệt kê |
+| **Runner ren xù + ghế nhung** | Bẫy `boucle` ca 04 — nhấn texture là ra xù lông / nhung nhựa | Chỉ gọi tên vật liệu, bó bằng `fine`, `soft nap` |
+
+Thêm một câu chưa từng có ở CA1–CA5: **xoá nhãn hồng ở mép dưới ảnh** (watermark của bản xuất SketchUp).
+
+```
+Photorealistic interior photographs of this exact master bedroom in a modern apartment. Every
+image belongs to one single set of the same room, shot in one session. Keep the camera angle,
+room layout, furniture positions, cabinetry proportions and material types exactly as in each
+source image — do not add, remove or move any object.
+
+Render each one as a continuous photograph. Remove every CAD outline and edge line, remove the
+white grid lines overlaid across the frame, and remove the small pink label at the bottom edge.
+Surfaces meet without drawn borders. Nothing should look like a 3D viewport.
+
+One consistent light for the whole set. It is late morning on a bright overcast day, and soft
+daylight through the window with the black-framed aluminium venetian blind does all the lighting
+work in every frame. The slats are tilted open and the light passing them is soft and even — no
+hard stripes are cast across the room. In each image the part of the room nearest that window is
+bright and open, the bed and the panelled headboard wall are comfortable, and the corner
+furthest from it — the tall wardrobe run, the ceiling, a foreground wall — sinks into genuine
+shadow, the darkest and quietest part of the picture. This falloff is the strongest tonal
+movement in every image and it always runs outward from the window. Shadows stay soft and fall
+in the same direction throughout the set, with no direct sun patch anywhere.
+
+Two colour temperatures live together in every frame. The daylight is cool and clean; the
+fixtures are warm. The stacked-sphere ceramic table lamp on the console glows warm 3000K, and
+the recessed ceiling downlights and the black track spot read as small warm discs. At this hour
+they light only themselves — none of them brightens the room, casts a pool on the floor, or
+throws a patch of light on a wall. Their warmth reads against the cool daylight instead of
+tinting the picture. Keep the same white balance and the same overall exposure in every frame of
+the set.
+
+Shot on a 35mm lens at eye level 1.15m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as each source image.
+
+One material palette across the whole room. The headboard wall is large-format matte cream
+lacquer panelling with a fine hand-applied surface, never glassy — the slim recessed joints read
+as shadow, not as drawn lines. The wardrobe run is light oak laminate with open pores, the grain
+changing from door to door, with painted cream framed fronts and slim matt black handles; its
+arched doors are clear glass, softly reflective, and the clothes hanging behind them stay
+visible and slightly blurred by the glass; the mirrored panel inside reflects only what
+genuinely stands in front of it. The bed is taupe leather-look upholstery, matte, creasing
+softly along its seams. The bedding is crisp white cotton with real creases and soft folds where
+it falls over the bed edge, a grey knit throw laid across the foot, and a runner in taupe and
+charcoal with a fine ruffled surface. The printed terracotta cushion is a fine woven cotton. The
+wall-hung console is light oak with a fluted drawer front and a small matt black knob. The lamp
+is white glazed ceramic, its glaze pooling slightly. The pebble-shaped mirror in its thin walnut
+frame reflects only what genuinely stands in front of it — a soft, slightly darker and cooler
+picture of the room, not a black void. The chair is navy velvet with a soft matte nap that goes
+lighter where it curves toward the window. Dark oak flooring in a low satin finish, planks
+varying in tone, with a cream wool rug lying flat on it. Beyond the blind the city view stays
+pale, soft and low in contrast, readable rather than burning out to white.
+
+Everyday traces in each frame, quiet and few: a book left open on the console, one hanger
+slightly out of line behind the glass door.
+
+Each material carries its own level of sheen — chalky walls, satin lacquer panels, oiled oak,
+matte leather, crisp cotton, velvet nap, glazed ceramic, clear glass, matt black metal.
+
+Contact shadows keep everything grounded in every frame: under the bed base, where the wardrobe
+meets the floor, on the wall beneath the wall-hung console, beneath each chair leg, and along
+the edge of the rug on the floorboards.
+
+Deep photographic tonal range in every image: the corner furthest from the window genuinely
+dark, whites stopping just short of pure white, and a full rich range in between. Each image has
+somewhere bright for the eye to land and somewhere dark to rest. Muted natural colour. The look
+of one printed magazine feature on a single apartment.
+
+The duvet is turned back at one corner, as if someone has just got up.
+```
+
+### Xem gì khi test
+
+| Câu hỏi | Vì sao |
+|---|---|
+| **Tường và giường có bị vẽ sọc rèm sáo không** | Câu khoá mới, chưa từng test ở ca nào |
+| **Gương pebble ra gương hay vẫn là lỗ đen** | Model để đen tuyền — chỗ AI dễ giữ nguyên nhất |
+| **Cánh kính vòm: còn thấy quần áo sau kính không** | Nếu thành gương đặc là mất hạng mục tủ khách trả tiền |
+| **Ga trắng có ra vải hay ra nhựa** | Mảng trơn đều lớn nhất khung |
+| Ghế nhung có xù không, runner có xù không | Bẫy ca 04 |
+| Xếp 4 ảnh cạnh nhau — có ra cùng một phòng, cùng giờ không | Mục đích chính của bản tổng thể |
