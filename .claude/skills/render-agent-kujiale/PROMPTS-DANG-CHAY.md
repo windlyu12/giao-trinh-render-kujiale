@@ -12,6 +12,7 @@
 > | **Cả một CĂN, nhiều góc, cần đồng bộ** | **CA5 bản M** — cuối file. Một prompt chạy mọi góc, không sửa chữ nào |
 > | Căn hộ compact — khoá riêng từng khung | CA5 bản S1–S5 — chỉ dùng khi một khung trượt nặng dưới bản M |
 > | **Phòng ngủ master — 4 góc, cùng căn với bản M** | **CA5 bản N** — cuối file. Rèm sáo · tủ cánh kính · gương pebble |
+> | **Phòng ngủ nhỏ — 4 góc, cùng căn** | **CA5 bản P** — cuối file. Cửa sổ bên TRÁI · hồng phấn · thảm hoạ tiết |
 > | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
 >
 > Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
@@ -1275,3 +1276,111 @@ The duvet is turned back at one corner, as if someone has just got up.
 | **Ga trắng có ra vải hay ra nhựa** | Mảng trơn đều lớn nhất khung |
 | Ghế nhung có xù không, runner có xù không | Bẫy ca 04 |
 | Xếp 4 ảnh cạnh nhau — có ra cùng một phòng, cùng giờ không | Mục đích chính của bản tổng thể |
+
+---
+
+## 🔄 CA5 bản P — PHÒNG NGỦ NHỎ, prompt tổng thể 4 góc (CHƯA TEST)
+
+**Cùng căn với bản M và N** → giữ nguyên `late morning on a bright overcast day` + cùng câu khoá
+white balance/exposure. Cả 13 ảnh (5 khu sinh hoạt + 4 master + 4 phòng nhỏ) ghép thành **một bộ**.
+
+**Nguồn sáng đảo trục so với bản N:** phòng này cửa sổ **bên TRÁI**, master bên phải.
+Luật gradient viết dạng tổng quát theo nguồn nên không phải sửa gì khác ngoài chữ "left".
+
+> ## ⚠️ ĐỪNG BÊ NGUYÊN CÂU XOÁ OVERLAY CỦA BẢN N SANG
+> Bản N có câu `remove the small pink label at the bottom edge`. Bộ ảnh phòng nhỏ **không có nhãn đó**,
+> nhưng **có chăn hồng, ghế hồng và khăn trải hồng**. Để nguyên câu ấy là chủ động mời AI xoá nhầm
+> đúng hạng mục màu nhấn của phòng. Thay bằng câu xoá **vệt guide xanh** ở mép khung.
+>
+> 📌 Luật rút ra: **câu xoá overlay phải khớp với overlay THẬT có trong bộ ảnh đang chạy** —
+> nó không phải câu bất biến chép từ bản trước.
+
+### Sáu bẫy riêng của phòng này
+
+| Bẫy | Nếu không khoá | Câu khoá |
+|---|---|---|
+| **Đầu giường lượn sóng bọc nỉ** | AI nắn về đầu giường chữ nhật thường | `its scalloped wave-shaped top edge exactly as drawn` |
+| **Hồng phấn** (chăn, ghế, khăn) | Đẩy thành hồng kẹo bão hoà | `the pinks stay dusty and muted, never candy-bright` |
+| **Tranh trừu tượng nhiều màu** | AI vẽ lại tranh khác, hoặc đẩy bão hoà | `keeping its muted sage, blush and rust exactly as in the source` |
+| **Thảm hoạ tiết** | AI bịa hoa văn mới | `its pattern staying exactly as in the source` |
+| **Ga trắng + tường kem trơn đều** | Ra nhựa | Tả riêng `crisp white cotton … real creases` |
+| **Cánh tủ kính vòm có quần áo treo** | Thành gương đặc, mất hạng mục tủ | `clothes … stay visible and slightly blurred by the glass` |
+
+```
+Photorealistic interior photographs of this exact bedroom in a modern apartment. Every image
+belongs to one single set of the same room, shot in one session. Keep the camera angle, room
+layout, furniture positions, cabinetry proportions and material types exactly as in each source
+image — do not add, remove or move any object.
+
+Render each one as a continuous photograph. Remove every CAD outline and edge line, remove the
+white grid lines overlaid across the frame, and remove the small green guide marks at the frame
+edges. Surfaces meet without drawn borders. Nothing should look like a 3D viewport.
+
+One consistent light for the whole set. It is late morning on a bright overcast day, and soft
+daylight through the window on the left, with its black-framed aluminium venetian blind, does
+all the lighting work in every frame. The slats are tilted open and the light passing them is
+soft and even — no hard stripes are cast across the room. In each image the part of the room
+nearest that window is bright and open, the bed and the panelled headboard wall are comfortable,
+and the corner furthest from it — the tall wardrobe run, the ceiling, a foreground wall — sinks
+into genuine shadow, the darkest and quietest part of the picture. This falloff is the strongest
+tonal movement in every image and it always runs outward from the window. Shadows stay soft and
+fall in the same direction throughout the set, with no direct sun patch anywhere.
+
+Two colour temperatures live together in every frame. The daylight is cool and clean; the
+fixtures are warm. The recessed ceiling downlights are switched on and read as small warm discs.
+At this hour they light only themselves — none of them brightens the room, casts a pool on the
+floor, or throws a patch of light on a wall. Their warmth reads against the cool daylight
+instead of tinting the picture. Keep the same white balance and the same overall exposure in
+every frame of the set.
+
+Shot on a 35mm lens at eye level 1.15m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as each source image.
+
+One material palette across the whole room. The headboard wall is large-format matte cream
+lacquer panelling with a fine hand-applied surface, never glassy — the slim recessed joints read
+as shadow, not as drawn lines. The bed is ivory upholstery in a fine matte weave with a soft
+nap, keeping its scalloped wave-shaped top edge exactly as drawn, the fabric creasing gently
+where the headboard curves. The bedding is crisp white cotton with real creases and soft folds
+where it falls over the bed edge, a taupe under-sheet, a grey linen cushion, and a dusty pink
+coverlet folded across the bed; the pinks stay dusty and muted, never candy-bright. The
+wall-hung desk wrapping the corner under the window is light oak with fluted drawer fronts and
+small matt black knobs. The chair is dusty rose upholstery in a fine matte weave with upholstered
+legs. The wardrobe run is light oak laminate with open pores, the grain changing from door to
+door, with painted cream framed fronts and slim matt black handles; its arched doors are clear
+glass, softly reflective, and the clothes hanging behind them stay visible and slightly blurred
+by the glass. The framed abstract painting is matte paper behind glass, keeping its muted sage,
+blush and rust exactly as in the source, with one faint soft highlight from the window. Dark oak
+flooring in a low satin finish, planks varying in tone, with a cream wool rug lying flat on it,
+its soft olive pattern staying exactly as in the source. Ceramic vases with dried flowers, a
+glass reed diffuser and a small blush lidded box sit on the desk, each catching light according
+to its own surface. Beyond the blind the city view stays pale, soft and low in contrast,
+readable rather than burning out to white.
+
+Everyday traces in each frame, quiet and few: a book left open on the desk, the pink coverlet
+slightly rumpled where someone has sat.
+
+Each material carries its own level of sheen — chalky walls, satin lacquer panels, oiled oak,
+matte upholstery, crisp cotton, glazed ceramic, clear glass, matt black metal.
+
+Contact shadows keep everything grounded in every frame: under the bed base, on the wall
+beneath the wall-hung desk, beneath each chair leg, where the wardrobe meets the floor, and
+along the edge of the rug on the floorboards.
+
+Deep photographic tonal range in every image: the corner furthest from the window genuinely
+dark, whites stopping just short of pure white, and a full rich range in between. Each image has
+somewhere bright for the eye to land and somewhere dark to rest. Muted natural colour. The look
+of one printed magazine feature on a single apartment.
+
+The chair sits turned slightly away from the desk, as if someone has just stood up.
+```
+
+### Xem gì khi test
+
+| Câu hỏi | Vì sao |
+|---|---|
+| **Đầu giường còn lượn sóng không** | Hình dạng đặc trưng nhất của phòng, chưa test bao giờ |
+| **Hồng có ra phấn hay ra kẹo** | Màu nhấn duy nhất — sai là hỏng cả phòng |
+| **Tranh có bị vẽ lại / đẩy bão hoà không** | Mảng màu mạnh nhất khung |
+| **Hoa văn thảm có bị bịa lại không** | Chưa ca nào test thảm hoạ tiết |
+| Ga trắng ra vải hay ra nhựa · quần áo sau kính còn thấy không | Như bản N |
+| Xếp 4 ảnh cạnh nhau, rồi xếp chung với bộ master — cùng một căn không | Mục đích của cả ba bản M·N·P |
