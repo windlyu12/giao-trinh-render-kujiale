@@ -832,3 +832,37 @@ Ghi ở đây khi thấy một thứ **có vẻ** là luật nhưng mới gặp 
 | **Đổi khối 2 sang tông ấm thì BẮT BUỘC giữ lại một mốc lạnh** (`mixed with cool daylight` / `cool blue-grey skylight fills the shadows`), không thì cả khung ám cam | 02 | 1/3 |
 | **Prompt image-to-image từ model CAD phải có câu xoá nét line-art**, không thì viền đen sống sót và ảnh lộ ngay là 3D | 02 | 1/3 |
 | Cụm `raking` / `long shadow` mở đường cho AI **bịa vật đổ bóng** (bóng lá cây) — cần câu cấm bịa nguồn bóng | 02 | 1/3 |
+
+---
+
+## Ca 19 — CA5 bản 🅓 (sảnh trường CĐ, ChatGPT): chữ ĂN, màu + bề mặt HỎNG
+
+**Lần đầu chữ trên tường ra đúng chính tả** (`HaNoi Polytechnic College`, `TECHNOLOGY`, logo HPC)
+— khối khoá chữ đặt **ngay sau khối xoá nét CAD**, trước khối ánh sáng. Đáng nâng thành luật nếu lặp lại.
+
+**Phản hồi:** *"màu nó giả quá, nhất là bề mặt vật liệu"*.
+
+**Ba lỗi đều truy được về câu chữ của chính prompt — không phải giới hạn công cụ:**
+
+| Lỗi | Cụm gây ra | Luật đã có mà prompt tự vi phạm |
+|---|---|---|
+| Sàn thành gương | `polished ... broad soft reflection` **+** `wet-looking terrazzo` | §0 Luật 2 — hai cụm nhấn cùng hướng thì AI giao thừa |
+| Vải ghế ra nhựa | 6 chữ cho bề mặt **chiếm nhiều diện tích nhất khung** | §0 Hệ quả — nhóm trơn-đều phải tả riêng, tả kỹ |
+| Bão hoà kêu như nhựa | Cả prompt chỉ có `Muted natural colour` ở cuối | *(chưa có luật — xem dưới)* |
+
+**Rút ra:** khung §7.4 có ô cho *bề mặt* và ô cho *độ bóng*, **không có ô nào cho BẢNG MÀU**.
+Với cảnh nội thất công cộng (tường sơn màu thương hiệu, vải bọc màu, cây xanh) thì bảng màu
+**chính là thứ tố cáo ảnh AI trước cả vật liệu** — mắt đọc "bão hoà cao đều tay" là filter.
+
+Thêm một quan sát: liệt kê 6 mức sheen ngang nhau thì AI đẩy **tất cả** lên mức bóng nhất.
+Chỉ định **đúng một vật thể được phép bóng** thì nó mới có thang bậc để xếp.
+
+### Luật đề xuất (chờ đủ 3 ca)
+
+| Luật nghi ngờ | Gặp ở ca | Đủ 3 chưa |
+|---|---|---|
+| 🔴 **Khung §7.4 thiếu KHỐI BẢNG MÀU.** Phải có một khối bó bão hoà gọi đích danh từng màu (`chalky navy` chứ không `blue`, `dusty sage` chứ không `green`, `olive` chứ không `plants`). `Muted natural colour` ở cuối prompt không ghì được gì | 19 | 1/3 |
+| 🔴 **Chỉ định ĐÚNG MỘT vật thể được phép bóng.** Liệt kê nhiều mức sheen ngang nhau → AI đẩy tất cả lên mức bóng nhất. Cho một mốc bóng + tuyên bố phần còn lại matte/satin thì mới ra thang bậc | 19 | 1/3 |
+| **Diện tích quyết định độ dài mô tả.** Bề mặt chiếm nhiều pixel nhất phải được tả dài nhất, không phải tả theo thứ tự liệt kê vật liệu | 19 | 1/3 |
+| **Khối khoá CHỮ đặt ngay sau khối xoá nét CAD (trước khối ánh sáng) thì chữ ra đúng chính tả** — lần đầu ăn sau nhiều ca né chữ | 19 | 1/3 |
+| **Lệnh tắt màn hình (`the screen is switched off`) KHÔNG ăn khi texture nguồn có nội dung mạnh** (màn `Windows 10`). Thuộc tầng "thứ đã dựng trong model" — sửa model, không sửa prompt | 19 | 1/3 |

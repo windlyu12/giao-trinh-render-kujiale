@@ -1050,3 +1050,107 @@ One of the tall plants leans very slightly toward the daylight.
 | Thảm navy có "nuốt" sáng hơn terrazzo không? | Kiểm hai mức sheen có tách được không |
 | Mảng graphic xanh có hắt xanh ra cả phòng không? | Nếu có là sai — nó chỉ được sáng chính nó |
 | Góc tối nhất có thật sự tối không? | Gradient dốc — thứ tạo chiều sâu |
+
+## 🔄 CA5 bản 🅓-2 — vá màu + bề mặt (ca 19)
+
+**Kết quả bản 🅓:** người dùng — *"màu nó giả quá, nhất là bề mặt vật liệu"*.
+
+**Ăn:** chữ `HaNoi Polytechnic College` + `TECHNOLOGY` ra **đúng chính tả** (lần đầu chữ ăn) ·
+sạch nét CAD · đèn không gánh chiếu sáng, không có vũng sáng bịa · bố cục giữ nguyên.
+
+**Hỏng — và ba lỗi đầu là do PROMPT EM VIẾT, không phải do model:**
+
+| Lỗi | Cụm gây ra | Cơ chế |
+|---|---|---|
+| **Sàn thành gương**, phản chiếu ghế rõ nét | `polished ... broad soft reflection` **+** `wet-looking terrazzo` ở khối sheen | Hai cụm nhấn cùng hướng — đúng Luật 2 |
+| **Vải ghế ra nhựa**, không sợi, không đường may | Chỉ có `soft matte weave and gentle creasing` — 6 chữ cho bề mặt **lớn nhất khung** | Tả quá ngắn so với vật liệu khác |
+| **Bão hoà quá cao**, xanh navy + xanh lá kêu như nhựa | Cả prompt chỉ có `Muted natural colour` ở cuối | Một cụm 3 chữ không ghì nổi cả bảng màu |
+| Trần lam gỗ ra tấm nhựa in vân | `each batten slightly different in tone` | Chưa tả vân + khe tối |
+| Gradient bẹt, không có vùng tối thật | — | Khối 2 đúng nhưng bị bảng màu sáng đè |
+| Màn hình vẫn hiện `Windows 10` | `switched off` không ăn | Texture nguồn quá mạnh → **sửa model** |
+
+```
+Photorealistic interior photograph of this exact student lounge in a college building. Keep the
+camera angle, room layout, furniture positions, wall panel proportions and material types exactly
+as in the source image — do not add, remove or move any object, and keep the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders.
+
+Keep the wall lettering exactly as in the source image and correctly spelled: the HPC logo mark with
+the words "HaNoi Polytechnic College" on the white hexagon-patterned panel, and the word
+"TECHNOLOGY" in white capitals on the dark blue angled panel. Same fonts, same positions, same
+sizes. The wall-mounted screen is switched off: a dark grey-black panel showing nothing, its glass
+holding one soft dim reflection of the room. The hinged display board on the blue wall holds plain
+cream paper sheets with a faint printed pattern and no readable words.
+
+It is daytime. Soft cool daylight from the glazed partition off-frame to the left does all of the
+lighting work, and it falls away steeply across the room: the white hexagon panel and the seating in
+front of it are the brightest, most open part of the frame; the middle of the seating cluster is
+comfortable; the dark blue panel on the right, the oak shelving beside it and the ceiling above them
+sink into genuine shadow — the darkest, quietest part of the picture. This falloff is the strongest
+tonal movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the fixtures are
+warm. The recessed ceiling downlights read as small warm discs and a thin warm line traces the
+ceiling recess. At this hour they light only themselves — none of them brightens the room, casts a
+pool on the floor, or throws a patch of light on a wall.
+
+Shot on a 35mm lens at eye level 1.3m. Vertical lines stay perfectly vertical, natural undistorted
+perspective. Keep the same framing and crop as the source image.
+
+Colour is muted and slightly desaturated, the way a real camera records paint and fabric. The wall
+blue is a deep chalky navy, not a bright saturated blue. The upholstery green is a dusty sage with
+grey in it, not emerald. The plants read olive and a little dull. The timber is a soft mid-brown
+with grey undertones rather than orange. Nothing in the frame is a pure, fully saturated colour.
+
+The floor is honed grey terrazzo with a matte, slightly chalky surface: it absorbs light rather than
+mirroring it, so each object leaves only a faint soft darkening beneath it instead of a reflected
+copy, and a broad dull glow spreads across it near the daylight.
+
+The ceiling is real sawn timber battens — open grain running the length of each batten, tone
+shifting from board to board between pale and slightly warmer, a dark shadow line in every gap.
+
+The blue panel is matte emulsion paint with a faint roller texture, chalky and completely
+non-reflective, its tone drifting very slightly across the large plane. The white hexagon panel is a
+printed graphic under a low-sheen laminate, its panel joints faintly visible.
+
+The modular seats are upholstered in a flat, tightly woven wool fabric — a fine weave just readable
+at this distance, a visible stitched seam along every facet edge, corners slightly rounded and
+softened with use, shallow creases where the top surface takes weight.
+
+The drum tables are oak veneer with grain changing from table to table under a matte lacquer; their
+pale tops are a fine matte laminate with a faint dusty bloom. The hexagonal stools are covered in
+felted grey and blue fabric, slightly fuzzy where the panels meet. The oak shelving is wood-grain
+laminate with open pores. The low platform is oak flooring in a satin finish, planks varying in tone.
+
+Everyday traces, quiet and few: a faint scuff along the nosing of the timber platform, dust settled
+on the top shelf, a light wear path across the floor in front of the seating.
+
+One material in the frame is genuinely reflective — the dark glass of the switched-off screen.
+Everything else is matte or satin: chalky paint, matte woven upholstery, dry open-grain timber,
+honed floor.
+
+Contact shadows keep everything grounded: a dark tight shadow directly under each modular seat and
+each stool, under the drum tables, where the timber platform meets the floor, under the planters.
+
+Deep photographic tonal range: the corner behind the shelving, the shadow under the platform and the
+underside of every seat are genuinely dark — dark enough that detail almost disappears. Whites stop
+just short of pure white. The look of a printed magazine interior photograph.
+
+One modular seat sits turned slightly out of line with the rest of the cluster.
+```
+
+### Đổi gì so với bản 🅓 *(bảng bổ sung — prompt trên đã đầy đủ)*
+
+| Chỗ | 🅓 | 🅓-2 | Vì |
+|---|---|---|---|
+| Sàn | `polished ... broad soft reflection` · `wet-looking terrazzo` | `honed ... absorbs light rather than mirroring it` + tả **vệt tối dưới chân đồ** thay cho ảnh phản chiếu | Bỏ cả hai cụm nhấn cùng hướng |
+| **mới** | — | Cả khối **bó bão hoà**, gọi đích danh từng màu (`chalky navy`, `dusty sage`, `olive`, `grey undertones`) | `Muted natural colour` 3 chữ không ghì nổi |
+| Vải ghế | 1 dòng | Cả đoạn: sợi dệt · **đường may từng mặt** · góc mòn · nếp lún | Bề mặt lớn nhất khung mà tả ngắn nhất |
+| Trần lam | `slightly different in tone` | + vân chạy dọc thanh + **khe tối giữa mỗi thanh** | Khe tối là thứ tách "lam thật" khỏi "tấm in" |
+| Sheen | Liệt kê 6 mức ngang nhau | **Chỉ định ĐÚNG MỘT thứ bóng** (kính màn hình), còn lại matte/satin | Cho AI một thang bậc thay vì 6 lựa chọn |
+| Tối | `genuinely dark` | + `dark enough that detail almost disappears` và chỉ đích danh 3 chỗ | Ép có vùng tối thật |
+
+⚠️ **Đừng bó tay vào cụm vải.** `a fine weave just readable at this distance` là bó có chủ ý —
+thêm `visible`/`detailed`/`textured` vào là ra ghế xù lông (ca 04).
