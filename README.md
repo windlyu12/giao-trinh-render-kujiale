@@ -34,7 +34,7 @@ Sách tự học render nội thất photorealism bằng Kujiale (酷家乐) b�
 
 Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho một agent AI**. Agent đã được đóng gói sẵn ở `.claude/skills/render-agent-kujiale/` — mở repo này bằng Claude Code là dùng được ngay (gõ `/render-agent-kujiale`, hoặc cứ hỏi thẳng "phân tích ảnh render này", "kê thông số render cho ảnh model này").
 
-**Bốn chế độ:**
+**Năm chế độ:**
 
 | Đưa vào | Agent làm gì | Nhận lại |
 |---|---|---|
@@ -42,6 +42,7 @@ Ngoài việc cho người đọc, `content/` còn là **kho kiến thức cho m
 | Ảnh **chưa render** (model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi) | Kê đơn theo đúng thứ tự rà model → template → camera → nắng → thiên quang → đẩy sáng → đèn chức năng → đèn nhấn → `高级设置` → hậu kỳ | **Phiếu thông số render Kujiale** đầy đủ + thứ tự dò |
 | Yêu cầu ảnh ý tưởng | Dựng prompt theo công thức 6 khối | Prompt cho **ChatGPT / Nano Banana / Midjourney / Google Flow** |
 | Ảnh render đã xong | Chấm theo rubric Phụ lục A | Phiếu 10 tiêu chí × 5 điểm + việc cần sửa, kèm chương để tra |
+| **Model chưa có màu**, ảnh nhà bàn giao, hoặc câu hỏi *"căn này màu gì / sofa màu gì"* | Đọc hiện trạng (sàn → bếp → đá/kính bếp) → chọn bộ trong **thư viện 24 tone** của công ty → gán màu từng bề mặt | **Phiếu màu**: 6 ô HEX + tỷ lệ, cái gì màu gì, mã An Cường để so mẫu, khối màu cho prompt AI |
 
 **Bốn luật nền agent luôn tuân** (và đây cũng là lý do nên tin phiếu nó xuất ra):
 

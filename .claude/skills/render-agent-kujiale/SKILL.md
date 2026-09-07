@@ -1,6 +1,6 @@
 ---
 name: render-agent-kujiale
-description: Agent render nội thất theo giáo trình Kujiale Newhomes. Dùng khi cần (1) phân tích ngược một ảnh render/ảnh chụp nội thất lấy trên mạng để rút ra thông số đèn–camera–vật liệu, (2) nhìn ảnh chưa render (model trắng, clay, ảnh SketchUp, ảnh chụp nhà thô, ảnh mood khách gửi) rồi xuất phiếu thông số render chi tiết để nhập vào Kujiale, (3) viết prompt chi tiết cho ChatGPT/Nano Banana/Midjourney hoặc Google Flow, (4) chấm nghiệm thu ảnh render theo rubric 10 tiêu chí. Kích hoạt với: phân tích ảnh render, đọc ngược ảnh, thông số render, bố đèn, đánh đèn, setup Kujiale, prompt render, ảnh này render sao, chấm ảnh, ảnh nhìn giả, reverse engineer render.
+description: Agent render nội thất theo giáo trình Kujiale Newhomes. Dùng khi cần (1) phân tích ngược một ảnh render/ảnh chụp nội thất lấy trên mạng để rút ra thông số đèn–camera–vật liệu, (2) nhìn ảnh chưa render (model trắng, clay, ảnh SketchUp, ảnh chụp nhà thô, ảnh mood khách gửi) rồi xuất phiếu thông số render chi tiết để nhập vào Kujiale, (3) viết prompt chi tiết cho ChatGPT/Nano Banana/Midjourney hoặc Google Flow, (4) chấm nghiệm thu ảnh render theo rubric 10 tiêu chí, (5) chọn bộ màu và kê màu từng bề mặt cho căn hộ bàn giao theo thư viện 24 tone của công ty. Kích hoạt với: phân tích ảnh render, đọc ngược ảnh, thông số render, bố đèn, đánh đèn, setup Kujiale, prompt render, ảnh này render sao, chấm ảnh, ảnh nhìn giả, reverse engineer render, chọn màu, phối màu, bộ tone, bảng màu, căn này màu gì, sofa màu gì, tường màu gì, mã màu, mã An Cường, tone Japandi, tone hiện đại.
 ---
 
 # Agent Render Nội Thất — Kujiale
@@ -25,7 +25,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
    marketing (bắt buộc watermark "Ảnh minh họa AI" **trên ảnh**), sửa nháp tại chỗ khi tư vấn.
    Khi agent xuất prompt AI, luôn đính kèm một dòng cảnh báo phạm vi dùng.
 
-## Bốn chế độ — chọn theo thứ bạn nhận được
+## Năm chế độ — chọn theo thứ bạn nhận được
 
 | Nhận vào | Chế độ | Đọc thêm | Xuất ra |
 |---|---|---|---|
@@ -33,6 +33,7 @@ Bốn luật này ghi đè mọi con số agent sắp xuất ra. Vi phạm là s
 | Ảnh chưa render: model trắng, clay, SketchUp, ảnh nhà thô, mặt bằng, ảnh mood khách gửi | **B. Kê đơn** | `07` **trước**, rồi `02` + `03` + `04` | Mục *Sửa trước khi bố đèn* + phiếu thông số render đầy đủ |
 | Cần ảnh ý tưởng bằng AI | **C. Prompt** | `references/05-prompt-ai.md` | Prompt ChatGPT/Nano Banana/Midjourney/Google Flow |
 | Ảnh render đã xong, cần nghiệm thu | **D. Chấm** | `references/06-cham-anh.md` | Phiếu chấm 10 tiêu chí + việc cần sửa |
+| Model chưa có màu, ảnh nhà bàn giao, hoặc câu hỏi "căn này màu gì / sofa màu gì" | **E. Kê màu** | `references/08-mau-va-phoi-mau.md` | Phiếu màu: bộ tone đã chọn + màu từng bề mặt + khối màu cho prompt AI |
 
 ### A+B — ca phổ biến nhất: ảnh mẫu + model của mình
 
@@ -108,6 +109,7 @@ Sáu câu phải tự trả lời trước khi kê:
 | Cửa sổ ở đâu, mấy mặt thoáng, có ban công/lô gia không? | Số lớp `递推光` (2 lớp không ban công, 3 lớp có ban công) |
 | Ngày hay đêm? | Đảo nhiệt màu + đảo tỉ lệ nền/nhấn |
 | Tông vật liệu sáng hay tối? | **Quy luật 1:** dải hắt phòng sáng 300–800, phòng tối 2000–6000 — chênh 10 lần |
+| **Đã chốt bộ màu chưa?** | Model chưa có màu thì **chạy chế độ E trước** — chọn bộ trầm mà kê đèn theo phòng sáng là sai từ gốc |
 | Có rèm không, loại gì? | **Quy luật 2:** có rèm kéo hết cỡ, không rèm cho vừa mắt; loại rèm quyết `阴影柔和度` |
 | Ảnh dùng làm gì? | Quyết trường phái tone + cỡ render + camera (duyệt phương án / tạp chí / catalogue / dọc MXH) |
 
@@ -148,6 +150,9 @@ là đơn vô dụng: người dùng sẽ vặn 5 nút cùng lúc rồi không b
   thứ ảnh bẹt vô hướng mà bảng 12 nguyên nhân xếp hạng 1.
 - Gọi đúng tên vật liệu nghề: `matte melamine cabinetry`, `wood-grain laminate`,
   `high-gloss acrylic panels`, `quartz stone countertop` — không gọi thì AI mặc định gỗ tự nhiên kiểu Âu Mỹ.
+- **Màu thì lấy từ `08-mau-va-phoi-mau.md` §8** — dùng **tên tiếng Anh**, không đưa HEX vào prompt (AI không
+  đọc HEX chính xác). Chỉ gọi **một** màu nhấn, và luôn kèm từ chỉ độ tươi (`muted`/`dusty`/`soft`/`deep`),
+  bỏ ra là AI trả về màu bão hòa kiểu quảng cáo.
 - Negative: chọn 2–3 dòng đúng bệnh, đừng dán cả bảng. Công cụ không có ô negative (Nano Banana) →
   diễn đạt ngược thành mô tả dương tính.
 - **Luôn đính dòng cảnh báo phạm vi dùng theo Luật nền #4.**
@@ -165,6 +170,63 @@ SỬA LẠI 30–39 / LÀM LẠI <30.
 
 Mỗi điểm ≤2 **bắt buộc kèm một câu chỉ đúng chỗ trong ảnh** — điểm thấp không chỉ chỗ thì người làm
 không sửa được. Và luôn kèm cột "sửa ở chương nào".
+
+---
+
+## Chế độ E — Kê màu
+
+Đọc `references/08-mau-va-phoi-mau.md`. Thư viện 24 tone (12 Japandi + 12 hiện đại) là **bộ nội bộ của
+công ty**, không phải chuẩn ngành.
+
+> ## 📌 CHỌN THEO HIỆN TRẠNG TRƯỚC, THEO PHONG CÁCH SAU
+> Sàn nâu đỏ mà ép bộ đất nung vào là hỏng, dù khách thích đất nung.
+> Chạy §2 (sàn → bếp → đá/kính bếp) **trước khi mở bảng màu**. Hỏi phong cách ở bước cuối, không phải bước đầu.
+
+Bốn thứ ghi đè mọi màu agent sắp xuất ra:
+
+1. **HEX là ý đồ thiết kế, KHÔNG phải mã vật liệu.** Mã An Cường là **ứng viên để cầm mẫu ra so**.
+   Cấm viết `MS 432 SC = #82654F`. Ảnh decor trên web là ảnh chụp tấm mẫu dưới đèn không rõ — và riêng
+   vân gỗ thì **không tồn tại một HEX duy nhất**. Phiếu màu dùng được để **render**, chưa dùng được để
+   **chốt thi công**.
+2. **Sàn, cửa, tủ bếp, tường bàn giao là hiện trạng bị khóa.** Tỷ lệ chỉ tính trên phần thiết kế bổ sung
+   nhìn thấy trong khung chính. Chung cư gần như không ai sơn lại toàn nhà — **mặc định ô N là tường đã có**,
+   và mảng nhấn thật sự đến từ **sofa / rèm / thảm / đầu giường**.
+3. **Chỉ một mảng nhấn A.** Sofa olive *hoặc* tủ olive, không phải cả hai. Rèm không bao giờ dùng A.
+4. **Bộ M05–M08 không có điểm đen** (ô D là kim loại sáng, LRV 17–27). Kê bốn bộ này thì phải **thêm một
+   điểm tối riêng ~2%** ngoài ô D, nếu không ảnh ra xám bợt — đúng lỗi "không dám để tối" hạng 2 của bảng 12.
+
+Thứ tự chạy:
+
+```
+① Đọc hiện trạng    → sàn ngả gì · bếp loại nào · đá/kính bếp có màu rõ không · tường có sơn lại không
+② Chọn bộ           → §2, ra 1 bộ chốt + 1 bộ dự phòng, nói rõ VÌ SAO
+③ Đổ bảng màu       → 6 ô HEX + LRV + tỷ lệ (tổng 100%)
+④ Gán từng bề mặt   → §6, bề mặt hiện trạng ghi GIỮ, không gán màu thiết kế
+⑤ Bẫy của bộ đó     → chép cột "Điểm cần kiểm tra" + những gì đọc thêm được từ ảnh
+⑥ Mã vật liệu       → ứng viên để cầm mẫu; ghi rõ ô A thường là VẢI mà thư viện chưa có mã
+⑦ Khối màu prompt   → tên tiếng Anh, KHÔNG đưa HEX vào prompt
+⑧ Thứ tự dò         → mỗi lần đổi một ô, khóa camera/exposure/white balance
+```
+
+**Xuất theo** `templates/phieu-mau.md`.
+
+**Không chào hai bộ cùng cụm nhấn cho cùng một khách** — họ sẽ thấy hai ảnh giống nhau và mất tin.
+Cột "Trùng nhấn với" ở §4 cho biết bộ nào cùng cụm.
+
+**Ngoài phạm vi thì nói thẳng.** Thư viện phủ đúng một hiện trạng: căn hộ 50–75 m² bàn giao, sàn khách–bếp
+nâu hoặc tối, bếp trắng/ngà hoặc gỗ, và chỉ có tone cho **khách–ăn**. Gặp sàn gỗ sáng, sàn xám, nhà phố,
+nhà thô, văn phòng, hoặc cần bộ riêng cho phòng ngủ/phòng tắm → nêu bộ gần nhất, nói rõ mình đã tự điều
+chỉnh gì, **đừng ép một bộ vào rồi im lặng**. Ghi ca đó vào `FEEDBACK.md`.
+
+### E ghép với các chế độ khác
+
+- **B + E** — ca hay gặp: một ảnh model trắng, cần cả đèn cả màu. Chạy `07` (lỗi model) → **E** (chọn bộ) →
+  **B** (kê đèn). Màu phải chốt trước khi kê đèn, vì **Quy luật 1** (tông vật liệu sáng hay tối) đổi dải
+  hắt tới 10 lần — chọn bộ trầm mà kê đèn theo phòng sáng là sai từ gốc.
+- **C + E** — mọi prompt AI cho căn hộ bàn giao đều lấy khối 5 từ §8 của `08`. Chỉ gọi **một** màu nhấn,
+  luôn kèm từ chỉ độ tươi (`muted`/`dusty`/`soft`/`deep`).
+- **D + E** — khi chấm ảnh, nếu ảnh bợt thì soi luôn: bộ có phải M05–M08 và đã thêm điểm đen chưa;
+  màu A có bị kéo sang mảng thứ hai không.
 
 ---
 
