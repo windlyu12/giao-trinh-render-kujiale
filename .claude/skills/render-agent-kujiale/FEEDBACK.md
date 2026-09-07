@@ -866,3 +866,46 @@ Chỉ định **đúng một vật thể được phép bóng** thì nó mới c
 | **Diện tích quyết định độ dài mô tả.** Bề mặt chiếm nhiều pixel nhất phải được tả dài nhất, không phải tả theo thứ tự liệt kê vật liệu | 19 | 1/3 |
 | **Khối khoá CHỮ đặt ngay sau khối xoá nét CAD (trước khối ánh sáng) thì chữ ra đúng chính tả** — lần đầu ăn sau nhiều ca né chữ | 19 | 1/3 |
 | **Lệnh tắt màn hình (`the screen is switched off`) KHÔNG ăn khi texture nguồn có nội dung mạnh** (màn `Windows 10`). Thuộc tầng "thứ đã dựng trong model" — sửa model, không sửa prompt | 19 | 1/3 |
+
+---
+
+## Ca 20 — Hành lang biển bảng trường CĐ: **KHUNG §7.4 CHỈ ĐÚNG CHO NHÀ Ở**
+
+Người dùng chỉ ra: *"mày đang quen với bề mặt melamine hơn, còn cái này toàn nhựa với mica,
+độ tương phản khác hoàn toàn nhau"*.
+
+**Đúng, và đây là lỗ hổng của cả `04-vat-lieu-texture.md` lẫn khung §7.4.** Toàn bộ ngôn ngữ tả
+vật liệu của giáo trình là ngôn ngữ **nội thất nhà ở**: `open pores`, `grain changing from board to
+board`, `planks varying in tone`, `worn edges`, `wear path`. Dán bộ chữ đó lên một bức tường
+**mica + in UV + chữ nổi** thì sai từ gốc — những bề mặt đó **không có vân để mà biến thiên.**
+
+### Bảng đối chiếu — hai họ vật liệu, hai cách tả hoàn toàn khác
+
+| | Melamine / gỗ / đá (nhà ở) | **Mica · acrylic · in UV · chữ nổi (biển bảng)** |
+|---|---|---|
+| Nguồn chi tiết | **Vân bề mặt** | **CẠNH, KHE GHÉP, ĐỘ DÀY TẤM** — mặt phẳng hoàn toàn trơn |
+| Highlight | Rộng, mềm, tán đều | **Hẹp, sắc, chói** — một vệt specular nhỏ |
+| Bóng đổ | Mềm, khuếch tán | **Cứng, mỏng, sát mép** — tấm dày 3–5mm nổi khỏi tường |
+| Tì vết đúng | Xước, mòn, vệt đi lại | **Vân tay · bụi tĩnh điện bám mép dưới · xước xoáy tơ nhện** |
+| Nguồn tương phản | **Ánh sáng** (gradient) | **VẬT LIỆU** (matte sơn chọi bóng mica, navy chọi trắng) |
+| Dải tông | Trung tính, ấm | **Cao — đen thật + specular trắng cùng khung** |
+
+### Hệ quả cho prompt — phải đảo ngược ba chỗ
+
+1. **Bỏ hết ngôn ngữ vân.** Thay bằng ngôn ngữ **phù điêu**: mọi thứ nổi khỏi tường mấy mm,
+   mỗi tấm một bóng đổ sắc, mỗi cạnh cắt một vệt sáng mảnh.
+2. **Đừng ghì bão hoà như ca 19.** Ca 19 phải dìm màu vì đó là vải + sơn thật. Ở đây màu in UV
+   **vốn dĩ bão hoà** — dìm là sai thực tế. Chỉ cần nói `matte laminate softens them slightly`.
+3. **Đừng bắt ánh sáng tạo tương phản.** Hành lang thật thì đèn trần chiếu **ĐỀU** — đó là sự
+   thật vật lý, và may mắn thay cũng là thứ AI vẽ ít sai nhất (không có vũng sáng đơn lẻ để sai).
+   Tương phản để vật liệu lo.
+
+### Luật đề xuất (chờ đủ 3 ca)
+
+| Luật nghi ngờ | Gặp ở ca | Đủ 3 chưa |
+|---|---|---|
+| 🔴🔴 **`04-vat-lieu-texture.md` và khung §7.4 chỉ phủ họ vật liệu NHÀ Ở.** Cần một mục riêng cho họ **biển bảng / thương mại**: mica, acrylic, in UV, alu, chữ nổi, hộp đèn. Ngôn ngữ tả đảo ngược hoàn toàn — chi tiết ở cạnh chứ không ở mặt | 20 | 1/3 |
+| 🔴 **Hỏi "tương phản của cảnh này đến từ ÁNH SÁNG hay từ VẬT LIỆU?" trước khi viết khối 2.** Cảnh nhà ở: ánh sáng. Cảnh biển bảng/thương mại: vật liệu. Trả lời sai thì đánh gradient dốc lên một bức tường vốn phải chiếu đều | 20 | 1/3 |
+| **Hành lang / không gian công cộng không cửa sổ là ca "đèn phải gánh" — §7.5 xếp vào nhóm RENDER THẬT.** Nhưng có ngoại lệ: khi đèn là **một dãy đồng đều** thì không còn vũng sáng đơn lẻ để AI vẽ sai. Cần bổ sung ngoại lệ này vào §7.5 | 20 | 1/3 |
+| **Cảnh nhiều chữ (biển bảng, infographic) phải khai báo hai tầng chữ:** tiêu đề lớn khoá cứng từng ký tự · thân bài nhỏ cho ra **dạng chữ mờ không đọc được**. Ép AI viết chữ nhỏ là mời nó bịa | 20 | 1/3 |
+| **Hạt nhiễu hậu kỳ phải giảm cho cảnh bề mặt bóng.** Amount 12–15 của C14 hợp với vải/gỗ; rắc lên mặt mica bóng thì thành bẩn. Cảnh biển bảng: 6–10 | 20 | 1/3 |

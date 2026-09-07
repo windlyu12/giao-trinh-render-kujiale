@@ -1154,3 +1154,249 @@ One modular seat sits turned slightly out of line with the rest of the cluster.
 
 ⚠️ **Đừng bó tay vào cụm vải.** `a fine weave just readable at this distance` là bó có chủ ý —
 thêm `visible`/`detailed`/`textured` vào là ra ghế xù lông (ca 04).
+
+---
+
+# CA 6 — Hành lang biển bảng trường CĐ (SketchUp, 4 góc)
+
+**Nguồn:** 4 ảnh viewport SketchUp — hành lang + hệ biển bảng thương hiệu HaNoi Polytechnic College.
+
+> ## 📌 HỌ VẬT LIỆU KHÁC HẲN 5 CA TRƯỚC — ĐỌC TRƯỚC KHI SỬA PROMPT
+> Đây **không phải** nội thất nhà ở. Toàn bộ mặt tường là **mica/acrylic cắt laser, in UV trên alu,
+> chữ nổi, hộp đèn**. Sàn **vinyl cuộn**, trần **thạch cao**.
+>
+> | | Melamine/gỗ (5 ca trước) | **Mica/acrylic/in UV (ca này)** |
+> |---|---|---|
+> | Chi tiết nằm ở | **vân bề mặt** | **cạnh cắt · khe ghép · độ dày tấm** |
+> | Highlight | rộng, mềm | **hẹp, sắc, chói** |
+> | Bóng đổ | mềm | **cứng, mỏng, sát mép tấm** |
+> | Tì vết | xước, mòn, vệt đi lại | **vân tay · bụi tĩnh điện mép dưới · xước xoáy** |
+> | **Tương phản đến từ** | **ÁNH SÁNG** | **VẬT LIỆU** (sơn matte chọi mica bóng) |
+>
+> ⚠️ **Đừng bó bão hoà như ca 19.** Ca 19 là vải + sơn thật nên phải dìm màu. Màu in UV **vốn dĩ
+> bão hoà** — dìm là sai thực tế. Chỉ cần `matte laminate softens them slightly`.
+>
+> ⚠️ **Đừng đánh gradient dốc.** Hành lang thật thì dãy đèn trần chiếu **ĐỀU**. May mắn là dãy đèn
+> đồng đều cũng chính là thứ AI vẽ ít sai nhất — không có vũng sáng đơn lẻ nào để sai.
+
+**Hai tầng chữ — bắt buộc khai báo tách bạch:** tiêu đề lớn khoá cứng từng ký tự · thân bài nhỏ cho ra
+**dạng chữ mờ không đọc được**. Ép AI viết chữ nhỏ là mời nó bịa. Chữ Hán trong model là placeholder
+→ prompt thay bằng tiêu đề tiếng Anh.
+
+## 🅐 Ảnh 1 — elevation sảnh, tấm mica lớn + chữ nổi dọc
+
+```
+Photorealistic interior photograph of this exact college corridor signage wall. Keep the camera
+angle, wall layout, panel positions and proportions exactly as in the source image — do not add,
+remove or move any element, and keep the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders.
+
+Two levels of text, handled differently. The large text is locked and correctly spelled: "LOGO" as a
+blue graphic mark and "Hanoi Polytechnic College" in blue capitals on the white acrylic plaque, and
+"BELIEVE IN YOURSELF" in white capitals running vertically on the blue fin. The small text inside
+the numbered arrow panels on the right is fine printed body copy, far too small to read at this
+distance — it reads as soft even grey lines of type. The large numerals 01 02 03 04 05 05 stay
+sharp and legible.
+
+Everything on this wall is signage, not joinery. Every panel stands a few millimetres proud of the
+wall and you can read that thickness: a short hard-edged shadow runs along the bottom and one side of
+each panel, and each laser-cut edge catches a thin bright line. The white acrylic plaque is glossy —
+it returns one narrow hard specular highlight from the ceiling lights rather than a broad soft sheen,
+carries faint spiral polishing swirls, a few fingerprints near its lower corners, and a line of static
+dust clinging along its bottom edge. The raised lettering is solid acrylic with a matte face and a
+glossy return edge, each letter throwing its own small crisp shadow onto the wall behind. The
+numbered arrow panels are flat UV prints on aluminium composite under a matte laminate: perfectly
+even colour whose only detail is the hairline joint between panels, their printed blues still
+saturated but slightly calmed by the matte finish. The blue wall itself is matte emulsion with a
+faint roller texture, chalky and non-reflective. The small lightbox at the left glows evenly from
+within through opal acrylic, perfectly smooth, no hotspot.
+
+The contrast in this picture comes from the materials, not from the lighting: matte paint against
+glossy acrylic, deep navy against near-white, so the image holds real blacks and real speculars
+while the lighting itself stays even.
+
+The ceiling is painted gypsum board, matte white-grey, with fine flush joint lines and recessed
+linear luminaires. They are on at a neutral 4000K and light the corridor evenly, the way real
+corridor lighting does — steady and slightly cool, easing off gently toward the dark navy panels at
+the right. The floor is sheet vinyl in grey with a fine speckled fleck, its matte PU wear layer
+giving only a soft broad low sheen and a faint darkening beneath the wall, never a mirrored copy of
+anything.
+
+Shot on a 35mm lens at eye level 1.5m, square-on to the wall. Vertical lines stay perfectly vertical,
+natural undistorted perspective. Keep the same framing and crop as the source image.
+
+Everyday traces, quiet and few: fingerprints low on the white plaque, a fine line of dust along the
+bottom edge of the raised lettering, one panel joint very slightly wider than its neighbours.
+
+Deep photographic tonal range: the navy arrow panels at the right genuinely dark, the acrylic
+speculars punching to near-white, and a full range in between. The look of a printed architectural
+photograph.
+```
+
+## 🅑 Ảnh 2 — hành lang một điểm tụ, hộp đèn cuối trục
+
+```
+Photorealistic interior photograph of this exact college corridor. Keep the camera angle, corridor
+layout, door positions, wall panel proportions and material types exactly as in the source image —
+do not add, remove or move any element, and keep the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders.
+
+The only large text is locked and correctly spelled: "BELIEVE IN YOURSELF" in white capitals running
+vertically on the blue fin at the right, and "YOUR LOGO / COMPANY NAME" on the illuminated panel at
+the end of the corridor. Any smaller lettering on the doors and side panels is too small to read at
+this distance and reads as soft grey marks.
+
+The backlit opal acrylic panel closing the far end of the corridor is the brightest thing in the
+frame, glowing evenly from within with a perfectly smooth surface and no hotspot. The recessed
+linear luminaires in the gypsum ceiling are on at a neutral 4000K and light the corridor evenly, the
+way real corridor lighting does — steady, slightly cool, with the near foreground walls falling into
+the quietest, darkest part of the picture. There are no dramatic pools of light on the floor; the
+corridor simply gets brighter as it approaches the glowing end wall.
+
+Everything on these walls is signage and door joinery, not furniture. The blue and navy wall panels
+are flat UV prints and painted panels standing a few millimetres proud of the wall: each one casts a
+short hard-edged shadow along one side, and each cut edge catches a thin bright line. The painted
+navy is matte emulsion with a faint roller texture, chalky and non-reflective. The pale blue panels
+are matte laminate, perfectly even in colour, their only detail the hairline joints between sheets.
+The doors are flush laminate leaves with slim stainless pull handles that carry one narrow bright
+specular each and a haze of fingerprints around the grip. The vertical fin sign is acrylic with a
+matte face and a glossy return edge.
+
+The ceiling is painted gypsum board, matte white-grey, in a regular grid of panels with fine flush
+joints. The floor is sheet vinyl in grey with a fine speckled fleck, its matte PU wear layer giving
+only a soft broad low sheen — beneath the glowing end panel it lifts into a wide dull glow rather
+than a mirror image, and a faint scuff path runs down the centre of the corridor where people walk.
+
+The contrast in this picture comes from the materials and from the glowing end wall, not from
+dramatic lighting: matte paint against glossy acrylic, deep navy against near-white.
+
+Shot on a 35mm lens at eye level 1.5m, looking straight down the corridor. Vertical lines stay
+perfectly vertical, natural undistorted perspective. Keep the same framing and crop as the source
+image.
+
+Everyday traces, quiet and few: fingerprints around the door handles, a faint scuff along the skirting
+at the left, a fine line of dust on the top edge of the fin sign.
+
+Deep photographic tonal range: the foreground walls genuinely dark, the lightbox stopping just short
+of pure white, and a full range in between. The look of a printed architectural photograph.
+```
+
+## 🅒 Ảnh 3 — góc nghiêng, biển chữ nổi + dãy mũi tên + infographic màu
+
+```
+Photorealistic interior photograph of this exact college corridor. Keep the camera angle, corridor
+layout, panel positions and proportions exactly as in the source image — do not add, remove or move
+any element, and keep the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders.
+
+Two levels of text, handled differently. The large text is locked and correctly spelled: "BELIEVE IN
+YOURSELF" in white capitals running vertically on the dark fin at the left, and the raised sign on
+the dark plaque reads "HANOI POLYTECHNIC COLLEGE" in brushed metal capitals beside its logo mark. On
+the coloured infographic panel at the right the headings read TEAM, GOAL, STRATEGY, MARKETING,
+PROMOTION, BENEFIT beside the numerals 01 to 06. All other body copy on both panels is fine printed
+type, far too small to read at this distance — it reads as soft even grey lines. The large numerals
+01 02 03 04 05 05 on the arrow panels stay sharp.
+
+Everything on these walls is signage, not joinery. Every panel stands a few millimetres proud of the
+wall and you can read that thickness: a short hard-edged shadow along one side of each panel, and a
+thin bright line along each laser-cut edge. The raised metal lettering has a brushed face with fine
+parallel grain and a bright polished return edge, each letter casting its own small crisp shadow onto
+the dark plaque behind. The dark plaque itself is a satin-finish panel that returns one soft
+elongated highlight. The arrow panels and the coloured infographic are flat UV prints on aluminium
+composite under a matte laminate — perfectly even colour, their only detail the hairline joints
+between sheets; the printed reds, yellows, teals and blues stay saturated as printed ink does,
+slightly calmed by the matte finish rather than glowing. The blue wall is matte emulsion with a faint
+roller texture, chalky and non-reflective.
+
+The contrast in this picture comes from the materials, not from the lighting: matte paint against
+satin metal, deep navy against printed white.
+
+The ceiling is painted gypsum board, matte white-grey, in a regular grid of panels with fine flush
+joints and recessed luminaires. They are on at a neutral 4000K and light the corridor evenly, the way
+real corridor lighting does — steady and slightly cool, easing off into the corridor receding at the
+centre, which is the quietest, darkest part of the picture. The floor is sheet vinyl in grey with a
+fine speckled fleck, its matte PU wear layer giving only a soft broad low sheen and a faint darkening
+where it meets the wall, never a mirrored copy.
+
+Shot on a 35mm lens at eye level 1.5m. Vertical lines stay perfectly vertical, natural undistorted
+perspective. Keep the same framing and crop as the source image.
+
+Everyday traces, quiet and few: a fine line of dust along the bottom edge of the raised lettering, a
+faint scuff on the skirting, one panel joint very slightly wider than its neighbours.
+
+Deep photographic tonal range: the receding corridor genuinely dark, the printed whites stopping just
+short of pure white, and a full range in between. The look of a printed architectural photograph.
+```
+
+## 🅓 Ảnh 4 — elevation dãy 4 bảng nội dung
+
+```
+Photorealistic interior photograph of this exact college corridor content wall. Keep the camera
+angle, wall layout, panel positions and proportions exactly as in the source image — do not add,
+remove or move any element, and keep the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders.
+
+Two levels of text, handled differently. Each of the four white panels carries one large blue heading,
+locked and correctly spelled, left to right: "COMPANY PROFILE", "CORPORATE CULTURE", "CORPORATE
+HISTORY", "ENTERPRISE SERVICES". Everything below each heading is fine printed body copy, far too
+small to read at this distance — it reads as soft even grey lines of type filling neat columns. The
+small photographs set into the lower part of each panel read as soft blue-toned images without
+legible detail.
+
+Everything on this wall is signage, not joinery. Each white panel stands a few millimetres proud of
+the blue wall and you can read that thickness: a short hard-edged shadow runs down one side and along
+the bottom of every panel, and each cut edge catches a thin bright line. The panels are flat UV prints
+on aluminium composite under a matte laminate — perfectly even colour whose only detail is the
+hairline joint between sheets, holding one broad soft reflection of the ceiling luminaires rather than
+a sharp mirrored one. The blue wall behind is matte emulsion with a faint roller texture, chalky and
+non-reflective, its tone drifting very slightly across the large plane. The pale blue vertical bands
+are the same paint in a lighter shade with a crisp masked edge. The flush doors at the left are
+laminate leaves with slim stainless pull handles carrying one narrow bright specular each.
+
+The contrast in this picture comes from the materials, not from the lighting: matte blue paint against
+crisp printed white, so the image holds a deep blue field and clean bright panels while the lighting
+itself stays even.
+
+The ceiling is painted gypsum board, matte white-grey, in a regular grid of panels with fine flush
+joints and recessed luminaires. They are on at a neutral 4000K and light the wall evenly, the way real
+corridor lighting does — steady and slightly cool, easing off gently toward the left end of the wall.
+The floor is sheet vinyl in grey with a fine speckled fleck, its matte PU wear layer giving only a soft
+broad low sheen and a faint darkening where it meets the skirting, never a mirrored copy.
+
+Shot on a 35mm lens at eye level 1.5m, square-on to the wall. Vertical lines stay perfectly vertical,
+natural undistorted perspective. Keep the same framing and crop as the source image.
+
+Everyday traces, quiet and few: a fine line of dust along the top edge of one panel, a faint scuff on
+the skirting below, one panel joint very slightly wider than its neighbours.
+
+Deep photographic tonal range: the blue wall in the shadowed left end genuinely dark, the printed
+whites stopping just short of pure white, and a full range in between. The look of a printed
+architectural photograph.
+```
+
+## ⚠️ Hậu kỳ cho ca này KHÁC ca nhà ở
+
+| Bước | Cảnh nhà ở (C14) | **Cảnh biển bảng** |
+|---|---|---|
+| Hạt nhiễu | Amount 12–15 | **6–10** — rắc nhiều lên mặt mica bóng thì thành bẩn, không thành thật |
+| Đường cong S | vào 64→57 · 192→198 | **giữ nguyên hoặc mạnh hơn một chút** — vật liệu bóng chịu tương phản |
+| Hạ bão hoà dải lục | −5 → −10 | **BỎ** — màu in UV vốn bão hoà, dìm là sai thực tế |
+| Khử ám | có | có |
+
+## Xem gì khi test
+
+| Câu hỏi | Bắt lỗi gì |
+|---|---|
+| **Mỗi tấm có bóng đổ sắc ở mép dưới không?** | Không có = AI vẽ tấm phẳng dán decal, mất hết phù điêu |
+| Highlight trên mica là **vệt hẹp** hay **mảng loang rộng**? | Loang rộng = AI đang tả nó như melamine |
+| Chữ nhỏ có ra dạng "vệt xám không đọc được" không, hay AI bịa chữ méo? | Kiểm chiến lược hai tầng chữ |
+| Sàn vinyl có mờ hơn hẳn đá không? | Ca 19 — cấm sàn gương |
+| Tiêu đề lớn có đúng chính tả không? | Vẫn phải soi, kể cả đã khoá |
