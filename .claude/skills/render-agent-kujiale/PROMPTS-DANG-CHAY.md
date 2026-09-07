@@ -728,3 +728,325 @@ magazine interior photograph.
 
 ⚠️ **Kết quả này KHÔNG dùng để giao khách** — chỉ để chốt hướng. Chốt xong thì render lại bằng
 Kujiale theo phiếu thông số.
+
+---
+
+# CA 5 — Sảnh + khu sinh hoạt chung trường CĐ (SketchUp viewport, 5 góc)
+
+**Nguồn:** 5 ảnh viewport SketchUp shading trắng — sảnh lễ tân + khu lounge sinh viên của
+HaNoi Polytechnic College. Đọc được hình học/bố cục; **không đọc được vật liệu thật**.
+
+**Đặc điểm quyết định cách đánh đèn: KHÔNG có cửa sổ trời rõ trong 4/5 khung.** Chỉ ảnh 3 và 5
+thấy vách kính. Không gian công cộng nằm trong lõi tầng → theo A7/A8: **sáng trời (từ vách kính
+ngoài khung) gánh chiếu sáng, mọi bộ đèn bật nhưng chỉ sáng chính nó.**
+
+⚠️ **Bẫy riêng của ca này — CHỮ TRÊN TƯỜNG.** Ba khung có chữ: `HaNoi Polytechnic College`,
+`TECHNOLOGY`, logo `HPC`. Diffusion model **luôn** bóp méo chữ. Prompt có khoá chữ nhưng
+**không tin được** — phải soi và sửa lại bằng Photoshop. Đây là lỗi tầng "bố cục/khung hình"
+của §7.1, prompt không sửa được.
+
+⚠️ **Ba thứ trong model phải xử lý, không phải việc của đèn:**
+| Thứ | Ở ảnh | Xử |
+|---|---|---|
+| Màn TV hiện màn hình `Windows 10` | 2, 4 | Prompt cho tắt màn → panel tối có phản chiếu mềm |
+| Poster chữ Trung `文化解读` / `BEGONIA` | 2, 4 | Prompt đổi thành bảng trưng bày trơn, không chữ nước ngoài |
+| Đèn thả đơn treo lệch trục trước mảng graphic | 1, 5 | **Sửa model** — prompt không sửa được vị trí |
+
+## 🅐 Ảnh 1 — quầy lễ tân chính diện
+
+```
+Photorealistic interior photograph of this exact college reception lobby. Keep the camera
+angle, room layout, furniture positions, counter proportions, ceiling design and material
+types exactly as in the source image — do not add, remove or move any object, and keep the
+frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet
+without drawn borders. Nothing should look like a 3D viewport or a SketchUp model.
+
+It is daytime. Soft cool daylight from the glazed entrance wall behind and to the left of the
+camera does all of the lighting work, and it falls away steeply into the room: the front edge
+of the stone counter and the timber block in front of it are the brightest, most open part of
+the frame; the timber-clad back wall is comfortable; the display niche at the far left and the
+ceiling above the counter sink into genuine shadow — the darkest, quietest part of the picture.
+This falloff is the strongest tonal movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. The row of six small black cylinder pendants and the single pendant beside
+them are switched on and glow warm 3000K at their apertures; the long linear light box in the
+ceiling reads as an even soft white line; the large printed technology graphic behind the
+counter glows quietly from within, its blue staying on the panel itself, its glass joints
+faintly visible. At this hour none of them brightens the room, casts a pool on the floor, or
+throws a patch of light on a wall — their warmth reads against the cool daylight instead of
+tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.2m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+The counter front is a pale grey marble-look sintered stone slab, honed rather than polished,
+its veining running continuously across the panel. The lower desk block is wood-grain laminate
+with open pores, the grain changing from panel to panel, catching a low satin sheen only along
+its top edge. The back wall is wood-grain laminate in a warmer tone; the side walls are large
+grey marble-look porcelain slabs, matte. The ceiling is a timber batten acoustic ceiling, each
+batten slightly different in tone, with soft shadow between the battens. The floor is dark navy
+carpet tile, dense and low-pile, swallowing light rather than reflecting it. The two aluminium
+desktop computers sit switched off, their screens dark and softly reflective. Everyday traces,
+quiet and few: a faint scuff along the base of the counter, a light haze of fingerprints on the
+stone edge where people lean.
+
+Each material carries its own level of sheen — matte carpet, honed stone, satin laminate, dry
+timber battens, glossy screen glass.
+
+Contact shadows keep everything grounded: where the counter meets the carpet, under the timber
+desk block, beneath the vase, along the base of the display shelving.
+
+Deep photographic tonal range: the left niche and the ceiling recess genuinely dark, whites
+stopping just short of pure white, and a full rich range in between. The image has somewhere
+bright for the eye to land and somewhere dark to rest. The look of a printed magazine interior
+photograph.
+
+The slim branch arrangement leans slightly off-centre in its glass vase on the timber block.
+```
+
+## 🅑 Ảnh 2 — khu lounge nhìn chéo, tường TECHNOLOGY
+
+```
+Photorealistic interior photograph of this exact student lounge in a college building. Keep the
+camera angle, room layout, furniture positions, wall panel proportions and material types
+exactly as in the source image — do not add, remove or move any object, and keep the frame free
+of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet
+without drawn borders. Nothing should look like a 3D viewport or a SketchUp model.
+
+Keep the wall lettering exactly as in the source image and correctly spelled: the HPC logo mark
+with the words "HaNoi Polytechnic College" on the white hexagon-patterned panel, and the word
+"TECHNOLOGY" in white capitals on the dark blue angled panel. Same fonts, same positions, same
+sizes. The wall-mounted screen is switched off and reads as a dark matte panel holding a soft
+blurred reflection of the room. The hinged display board on the blue wall carries plain
+untitled printed sheets, no foreign text.
+
+It is daytime. Soft cool daylight from the glazed façade off-frame to the right does all of the
+lighting work, and it falls away steeply across the room: the high bar counter and the
+hexagon-printed wall on the right are the brightest, most open part of the frame; the modular
+seating in the middle is comfortable; the tall oak cabinet, the mustard chairs and the corner
+behind them sink into genuine shadow — the darkest, quietest part of the picture. This falloff
+is the strongest tonal movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the fixtures
+are warm. The recessed ceiling downlights read as small warm discs and a thin warm line traces
+the ceiling recess above the blue panel. At this hour they light only themselves — none of them
+brightens the room, casts a pool on the floor, or throws a patch of light on a wall. Their
+warmth reads against the cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.3m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+The dark blue angled panel is painted matte, chalky and completely non-reflective, its colour
+shifting very slightly across the plane. The white panel beside it is a printed hexagon graphic
+under a low-sheen laminate. The oak tall cabinet and open shelving are wood-grain laminate with
+open pores, the grain changing from door to door, satin only where light grazes them. The
+modular seating is upholstered in sage green and warm grey woven fabric with a soft matte weave
+and gentle creasing where people sit. The round side tables are oak drums with pale grey
+laminate tops. The dark green pouffe is knitted wool with visible loops. The mustard chairs are
+moulded plastic with a soft satin shell. The floor is polished grey terrazzo with fine aggregate
+and a broad soft reflection, and a low oak platform runs along the wall. Everyday traces, quiet
+and few: a faint scuff on the edge of the timber platform, a light wear path across the terrazzo
+toward the bar.
+
+Each material carries its own level of sheen — chalky paint, satin laminate, dry oak, matte
+upholstery, wet-looking terrazzo, glossy screen glass.
+
+Contact shadows keep everything grounded: under each modular seat, beneath the pouffe, where the
+timber platform meets the floor, under the planter.
+
+Deep photographic tonal range: the left corner and the shadow under the platform genuinely dark,
+whites stopping just short of pure white, and a full rich range in between. The image has
+somewhere bright for the eye to land and somewhere dark to rest. The look of a printed magazine
+interior photograph.
+
+One modular seat sits turned slightly out of line with the rest of the cluster.
+```
+
+## 🅒 Ảnh 3 — góc rộng, vách kính trái + quầy lễ tân phải
+
+```
+Photorealistic interior photograph of this exact college lobby seen from the lounge. Keep the
+camera angle, room layout, furniture positions, glazed partition proportions, ceiling design and
+material types exactly as in the source image — do not add, remove or move any object, and keep
+the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet
+without drawn borders. Nothing should look like a 3D viewport or a SketchUp model.
+
+It is daytime. Soft cool daylight from the full-height glazed partition on the left does all of
+the lighting work, and it falls away steeply across the room: the glass doors and the floor in
+front of them are the brightest, most open part of the frame; the meeting room behind the glass
+and the plants beside it are comfortable; the reception counter on the right and the ceiling
+above it sink into genuine shadow — the darkest, quietest part of the picture. This falloff is
+the strongest tonal movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the fixtures
+are warm. The row of small black cylinder pendants over the counter and the single pendant beside
+them are switched on and glow warm 3000K at their apertures; the long linear light box in the
+ceiling reads as an even soft white line; the printed technology graphic at the right edge glows
+quietly from within, its blue staying on the panel itself. At this hour none of them brightens
+the room, casts a pool on the floor, or throws a patch of light on a wall — their warmth reads
+against the cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.3m. Vertical lines stay perfectly vertical, natural undistorted
+perspective. Keep the same framing and crop as the source image.
+
+The glazed partitions are clear tempered glass in slim frames with brushed stainless pull handles,
+the glass carrying faint vertical reflections and a few soft smudges near the handles. The
+reception counter is a pale grey marble-look sintered stone slab, honed, with a wood-grain laminate
+block in front of it. The columns are large grey marble-look porcelain slabs, matte. The ceiling is
+a timber batten acoustic ceiling, each batten slightly different in tone, with soft shadow between
+the battens. The floor changes from polished grey terrazzo in the foreground to dark navy carpet
+tile at the reception area, the joint clean and straight. The modular seats are upholstered in sage
+green and warm grey woven fabric with a soft matte weave; the round side tables are oak drums with
+pale grey laminate tops. The planters are ribbed ceramic with an uneven matte glaze. Everyday
+traces, quiet and few: soft smudges on the glass around the handles, a faint wear path across the
+terrazzo toward the doors.
+
+Each material carries its own level of sheen — matte carpet, wet-looking terrazzo, honed stone,
+dry timber battens, clear glass, glazed ceramic.
+
+Contact shadows keep everything grounded: under each modular seat, beneath the planters, where the
+counter meets the carpet, along the base of the glass partitions.
+
+Deep photographic tonal range: the ceiling above the counter and the shadow under the seating
+genuinely dark, whites stopping just short of pure white, and a full rich range in between. The
+image has somewhere bright for the eye to land and somewhere dark to rest. The look of a printed
+magazine interior photograph.
+
+One of the tall plants leans very slightly toward the daylight.
+```
+
+## 🅓 Ảnh 4 — tường HPC chính diện, bục gỗ
+
+```
+Photorealistic interior photograph of this exact student lounge in a college building. Keep the
+camera angle, room layout, furniture positions, wall panel proportions and material types exactly
+as in the source image — do not add, remove or move any object, and keep the frame free of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders. Nothing should look like a 3D viewport or a SketchUp model.
+
+Keep the wall lettering exactly as in the source image and correctly spelled: the HPC logo mark
+with the words "HaNoi Polytechnic College" on the white hexagon-patterned panel, and the word
+"TECHNOLOGY" in white capitals on the dark blue angled panel. Same fonts, same positions, same
+sizes. The wall-mounted screen is switched off and reads as a dark matte panel holding a soft
+blurred reflection of the room. The hinged display board carries plain untitled printed sheets, no
+foreign text.
+
+It is daytime. Soft cool daylight from the glazed partition off-frame to the left does all of the
+lighting work, and it falls away steeply across the wall: the white hexagon-printed panel and the
+seating in front of it are the brightest, most open part of the frame; the modular seating in the
+middle is comfortable; the dark blue angled panel on the right, the oak shelving behind it and the
+ceiling above sink into genuine shadow — the darkest, quietest part of the picture. This falloff is
+the strongest tonal movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the fixtures are
+warm. The recessed ceiling downlights read as small warm discs and a thin warm line traces the
+ceiling recess above the blue panel. At this hour they light only themselves — none of them brightens
+the room, casts a pool on the floor, or throws a patch of light on a wall. Their warmth reads against
+the cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.3m. Vertical lines stay perfectly vertical, natural undistorted
+perspective. Keep the same framing and crop as the source image.
+
+The dark blue angled panel is painted matte, chalky and completely non-reflective, its colour shifting
+very slightly across the plane. The white panel is a printed hexagon graphic under a low-sheen
+laminate, its joints faintly visible. The oak shelving is wood-grain laminate with open pores, the
+grain changing from board to board. The low platform is oak flooring in a satin finish, planks varying
+in tone. The modular seating is upholstered in sage green and warm grey woven fabric with a soft matte
+weave and gentle creasing where people sit; the round tables are oak drums with pale grey laminate
+tops. The hexagonal stools are matte white and matte blue laminate. The floor is polished grey terrazzo
+with fine aggregate and a broad soft reflection. Everyday traces, quiet and few: a faint scuff along
+the nosing of the timber platform, a light wear path across the terrazzo in front of the seating.
+
+Each material carries its own level of sheen — chalky paint, satin laminate, dry oak, matte upholstery,
+wet-looking terrazzo, glossy screen glass.
+
+Contact shadows keep everything grounded: under each modular seat, beneath the hexagonal stools, where
+the timber platform meets the terrazzo, under the planters.
+
+Deep photographic tonal range: the shadow under the platform and the right-hand corner genuinely dark,
+whites stopping just short of pure white, and a full rich range in between. The image has somewhere
+bright for the eye to land and somewhere dark to rest. The look of a printed magazine interior
+photograph.
+
+One modular seat sits turned slightly out of line with the rest of the cluster.
+```
+
+## 🅔 Ảnh 5 — nhìn từ lounge về quầy lễ tân, đối xứng
+
+```
+Photorealistic interior photograph of this exact college reception lobby seen from the lounge. Keep
+the camera angle, room layout, furniture positions, counter proportions, ceiling design and material
+types exactly as in the source image — do not add, remove or move any object, and keep the frame free
+of people.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line; surfaces meet without
+drawn borders. Nothing should look like a 3D viewport or a SketchUp model.
+
+It is daytime. Soft cool daylight from the glazed doors on the right of the frame does all of the
+lighting work, and it falls away steeply across the room: the right-hand plants and the near end of
+the counter are the brightest, most open part of the frame; the modular seating in the foreground is
+comfortable; the left-hand corner behind the tall plants and the ceiling above the counter sink into
+genuine shadow — the darkest, quietest part of the picture. This falloff is the strongest tonal
+movement in the image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the fixtures are
+warm. The row of six small black cylinder pendants and the single pendant beside them are switched on
+and glow warm 3000K at their apertures; the long linear light box in the ceiling reads as an even soft
+white line; the large printed technology graphic behind the counter glows quietly from within, its blue
+staying on the panel itself, its glass joints faintly visible. At this hour none of them brightens the
+room, casts a pool on the floor, or throws a patch of light on a wall — their warmth reads against the
+cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.2m. Vertical lines stay perfectly vertical, natural undistorted
+perspective. Keep the same framing and crop as the source image.
+
+The counter front is a pale grey marble-look sintered stone slab, honed rather than polished, its
+veining running continuously across the panel; the lower desk block is wood-grain laminate with open
+pores, satin only along its top edge. The columns are large grey marble-look porcelain slabs, matte.
+The ceiling is a timber batten acoustic ceiling, each batten slightly different in tone, with soft
+shadow between the battens. The floor changes from polished grey terrazzo in the foreground to dark
+navy carpet tile at the reception area, the joint clean and straight. The modular seating is
+upholstered in sage green and warm grey woven fabric with a soft matte weave and gentle creasing where
+people sit; the round side tables are oak drums with pale grey laminate tops. The planters are ribbed
+ceramic with an uneven matte glaze. Everyday traces, quiet and few: a faint scuff along the base of the
+counter, a light wear path across the terrazzo toward the desk.
+
+Each material carries its own level of sheen — matte carpet, wet-looking terrazzo, honed stone, satin
+laminate, dry timber battens, glazed ceramic.
+
+Contact shadows keep everything grounded: under each modular seat, beneath the planters, where the
+counter meets the carpet, under the timber desk block.
+
+Deep photographic tonal range: the ceiling above the counter and the left corner genuinely dark, whites
+stopping just short of pure white, and a full rich range in between. The image has somewhere bright for
+the eye to land and somewhere dark to rest. The look of a printed magazine interior photograph.
+
+One of the tall plants leans very slightly toward the daylight.
+```
+
+## Cách chạy trong ChatGPT
+
+1. **Mỗi lần một ảnh + một prompt.** Nhồi 5 ảnh cùng lúc là ra ảnh lai bố cục.
+2. Đưa **ảnh viewport gốc** kèm prompt — image-to-image, không tả chay.
+3. Tỉ lệ khung: **đừng gọi tên tỉ lệ** (ca 03). Prompt đã có `Keep the same framing and crop`.
+4. Sai thì sửa **đúng một khối**, rồi **dán lại cả prompt** — không sửa mảnh.
+5. **Chạy hậu kỳ 2 phút** theo mục HẬU KỲ BẮT BUỘC ở trên. Không kèm là xuất thiếu.
+
+## Xem gì khi test
+
+| Câu hỏi | Bắt lỗi gì |
+|---|---|
+| **Chữ `HaNoi Polytechnic College` / `TECHNOLOGY` có đúng chính tả không?** | Lỗi cố hữu của diffusion — gần như chắc phải sửa Photoshop |
+| Sàn có vũng sáng dưới từng đèn downlight không? | Nếu **có** là AI lại tự vẽ truyền sáng — vá bằng cách nhấn lại câu `light only themselves` |
+| Trần lam gỗ có ra từng thanh riêng, có bóng giữa các thanh không? | Bề mặt lặp đều — chỗ AI hay ra nhựa |
+| Thảm navy có "nuốt" sáng hơn terrazzo không? | Kiểm hai mức sheen có tách được không |
+| Mảng graphic xanh có hắt xanh ra cả phòng không? | Nếu có là sai — nó chỉ được sáng chính nó |
+| Góc tối nhất có thật sự tối không? | Gradient dốc — thứ tạo chiều sâu |
