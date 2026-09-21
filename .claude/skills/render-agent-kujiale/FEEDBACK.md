@@ -2,7 +2,8 @@
 
 > # 📍 TRẠNG THÁI — cập nhật 2026-08-25
 >
-> **Ca gần nhất: 18** — CA4 chạy Banana Pro ĂN, và lộ ra **vòng lặp Kujiale→AI→đọc ngược→Kujiale**.
+> **Ca gần nhất: 19** — CA5 phòng khách Ocean Park walnut, prompt ChatGPT tả chay, **chưa test**.
+> Ca 18: CA4 chạy Banana Pro ĂN, và lộ ra **vòng lặp Kujiale→AI→đọc ngược→Kujiale**.
 >
 > ### Đã chốt
 > - **Prompt AI cho cảnh ban ngày đã HỘI TỤ** sau 14 ca / 8 đời. Khung dùng lại được ở
@@ -790,6 +791,35 @@ thấy **để tối đến đâu thì đẹp**.
 | Bục giường | trắng + gỗ sáng | gỗ sẫm — **AI tự đổi** |
 
 Đúng như C8 dự báo. Dùng làm **ảnh tham chiếu nội bộ** thì rất nên; **giao khách thì không**.
+
+---
+
+### 19 — 2026-09-21 — Phòng khách Ocean Park, walnut An Cường MS 333SC — CHƯA TEST
+
+**Vào:** không có ảnh model, không có ảnh mẫu. Chỉ mô tả bằng lời: kệ TV + ốp vách TV walnut
+MS 333SC Columbia Walnut, sofa nỉ, bàn trà mặt marble, **sàn gỗ cũng walnut**, tường chủ đầu tư
+sơn trắng ngà. Khách nam >50, hiện đại. Bộ màu tổng thể chốt ở lượt trước (trắng ngà + greige +
+walnut + xanh rêu + đen mờ/đồng xước).
+**Agent xuất:** CA5 trong `PROMPTS-DANG-CHAY.md` — bản A tả chay + bản B image-to-image.
+**Test bằng:** ChatGPT (dự kiến) — **công cụ mới**, chưa có ca nào trong sổ chạy trên ChatGPT.
+
+**Ba thứ mới cần thực tế xác nhận:**
+1. **Tả chay lần đầu.** 18 ca trước đều image-to-image. Khung §7 viết cho ảnh nguồn; bản A phải tự
+   dựng hình học bằng lời (cửa lô gia cuối trục, vách TV trái, sofa phải, trần 2,6 m). Xem ChatGPT có
+   giữ được bố cục tả bằng lời không, hay tự bịa cửa sổ thêm.
+2. **Cảnh toàn walnut** (sàn + vách + kệ cùng mã). Prompt cố ép tách bằng: sàn sáng hơn một nấc và
+   ấm hơn · ván dọc trục · vách có khe âm dọc · sáng tạt từ cuối trục. Xem có tách được không hay
+   dính một khối nâu.
+3. **ChatGPT với ba thứ đã calibrate trên Banana Pro:** câu khoá layout · lệnh xoá nét CAD (bản B) ·
+   grain. Dự đoán grain vẫn = 0 → hậu kỳ.
+
+**Quyết định cố ý, ghi để sau này đối chiếu:** chọn trời âm u đều, **không nắng xiên** — vì ca 02
+cho thấy nắng gắt nuốt vi tương phản và mở đường bịa bóng, mà cảnh này vật liệu đã sẫm. Vân walnut
+trông chờ vào hình học (sáng đi dọc vách) chứ không vào cụm `raking`.
+
+**Kết quả:** chờ.
+**Sai ở khối nào:** chờ.
+**Rút ra:** để trống.
 
 ---
 

@@ -9,6 +9,7 @@
 > | Cảnh bàn ăn marble + panel gỗ | CA1 bản B3 — chưa test |
 > | Cảnh phòng khách hẹp (sửa ảnh đã render) | CA3 — chưa test |
 > | **Phòng ngủ trẻ em — sửa thứ bậc màu + sáng** | **CA4** — cuối file, chưa test |
+> | **Phòng khách Ocean Park — walnut An Cường MS 333SC, ChatGPT** | **CA5** — cuối file, chưa test. Có bản tả chay + bản image-to-image |
 > | **Sau MỌI bản prompt** | Mục **HẬU KỲ BẮT BUỘC** — không kèm là xuất thiếu |
 >
 > Các bản A3→A7, B, B2, A4, A5, A6 giữ lại **chỉ để truy vết vì sao**. Đừng dùng lại.
@@ -728,3 +729,190 @@ magazine interior photograph.
 
 ⚠️ **Kết quả này KHÔNG dùng để giao khách** — chỉ để chốt hướng. Chốt xong thì render lại bằng
 Kujiale theo phiếu thông số.
+
+---
+
+# CA 5 — Phòng khách Vinhomes Ocean Park, walnut An Cường MS 333SC (ChatGPT, CHƯA TEST)
+
+**Vào:** không có ảnh model, không có ảnh mẫu. Chỉ có mô tả: kệ TV + ốp vách TV walnut MS 333SC
+Columbia Walnut, sofa nỉ, bàn trà mặt marble, sàn gỗ cũng walnut, tường chủ đầu tư sơn trắng ngà.
+Khách nam trên 50 tuổi, phong cách hiện đại. Bộ màu tổng thể đã chốt ở lượt trước: nền trắng ngà +
+greige, walnut chủ đạo, nhấn xanh rêu, kim loại đen mờ chính + đồng xước phụ.
+
+**Công cụ:** ChatGPT tạo ảnh. Khác series CA2 (Banana Pro) → **ba thứ phải test lại**: câu khoá layout
+có giữ được không · lệnh xoá nét CAD có ăn không · grain có ăn không (dự đoán: không, chuyển hậu kỳ).
+
+**Giả định hình học (vì không có model):** căn 2PN–3PN bố cục ống, phòng khách mở ra lô gia bằng cửa
+kính trượt cao kịch trần ở **cuối trục**; trần hoàn thiện ~2,6 m; camera đứng ở khu bàn ăn nhìn về
+lô gia, vách TV bên trái, sofa bên phải. Sai giả định thì đổi đoạn 1 của bản A rồi xuất lại cả bản.
+
+**Hai quyết định ánh sáng cố ý:**
+1. Trời **âm u đều** thay vì nắng xiên — sàn + vách cùng walnut, nắng gắt sẽ nuốt vi tương phản và
+   mở đường cho AI bịa bóng (ca 02). Vân gỗ nổi nhờ **sáng tạt từ cuối trục dọc theo vách TV**, là
+   hình học chứ không phải cụm `raking`.
+2. Sàn và vách cùng mã nhưng **ép khác nhau**: sàn sáng hơn một nấc, ấm hơn, ván dọc trục; vách có
+   khe âm dọc. Không tách là ra một khối nâu.
+
+> ⚠️ **Phạm vi dùng:** mood board / thăm dò tông màu trước khi dựng Kujiale. **CẤM** dùng làm ảnh
+> chốt, ảnh kèm báo giá, ảnh mô tả mã MS 333SC sẽ thi công. AI sẽ tự ngả màu walnut (ca 01, 18).
+
+## Bản A — tả chay (không có ảnh model)
+
+```
+Photorealistic interior photograph of a modern living room in a Vinhomes Ocean Park
+apartment in Hanoi, horizontal frame. A compact rectangular room about 4 m wide with a
+finished ceiling around 2.6 m: a flat white plaster ceiling with three small recessed
+downlights. At the far end of the room a full-height aluminium-framed sliding glass door
+opens onto a narrow loggia; beyond the glass, softly out of focus, neighbouring apartment
+towers and treetops, correctly exposed and never white. The camera stands in the dining
+zone looking down the room toward that glass door, so the TV wall runs along the left
+side and the sofa sits along the right.
+
+It is a bright overcast late morning. Soft daylight from the loggia glass does all the
+lighting work, and it falls away steeply down the length of the room: the floor and
+furniture near the glass are bright and open, the middle of the room is comfortable, and
+the near end of the TV wall and the corner behind the sofa sink into genuine soft shadow
+— the darkest, quietest part of the frame. This falloff is the strongest tonal movement
+in the picture. Because the light comes from the end of the room, it grazes along the
+walnut TV wall at a shallow angle and the wood grain reads with depth. The sky is evenly
+overcast, so the light is soft and shadowless apart from gentle contact shadows; every
+shadow in the picture belongs to an object that is in the room.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. A warm 3000K LED strip runs under the floating TV cabinet and glows as
+a soft warm line on the wood behind it; the three recessed downlights read as small warm
+discs in the ceiling; a slim black floor lamp beside the sofa is switched on, its warm
+bulb visible under a linen shade. At this hour they light only themselves — none of them
+brightens the room, casts a pool on the floor, or throws a patch of light on a wall.
+Their warmth reads against the cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.1 m. Vertical lines stay perfectly vertical, natural
+undistorted perspective.
+
+The TV wall on the left is clad in wood-grain melamine panels in a medium-dark walnut,
+called Columbia Walnut: straight, calm grain, a cocoa brown with a slight grey undertone.
+The panels are flat and matte, separated by narrow vertical shadow gaps, and the grain
+shifts subtly from panel to panel. A long floating TV cabinet in the same walnut melamine
+hangs on this wall, two flat doors with a slim brushed-bronze bar handle on each; above
+it a large black TV screen, switched off, faintly mirroring the room. The floor is
+engineered wood in the same walnut tone, long planks laid lengthwise down the room in a
+low matte finish, each plank slightly different in tone so the floor never reads as one
+sheet; the floor is a shade lighter and warmer than the wall panels, so wall and floor
+read as two different surfaces. The walls are the developer's off-white paint, a warm
+ivory: dead matte, chalky, with the faint fine texture of a paint roller, never glossy;
+the ceiling is the same matte white.
+
+A three-seat sofa in a warm grey woven upholstery fabric, tight flat weave with a low
+even nap, soft cushions with gentle creasing where someone has sat; two cushions in deep
+moss green and one in oatmeal. In front of it a low rectangular coffee table with a
+polished marble top, cream ground with soft grey and faint gold veining, catching one
+clean reflection of the loggia glass, on slim matte black steel legs. A low-pile taupe
+rug under the table, one edge slightly rumpled. Two-layer curtains at the loggia door: a
+sheer white voile drawn across the glass and a heavy sand-coloured blackout curtain
+gathered to one side. One tall plant with dark green leaves in a plain ceramic pot
+standing in the darker corner near the camera. Everyday traces, quiet and few: a ceramic
+tea set with two small cups on the marble table, a folded newspaper and a pair of
+reading glasses beside it, the remote lying slightly askew.
+
+Each material carries its own level of sheen — chalky matte walls, matte walnut panels
+with a faint satin along the grain, low-satin wood floor, polished marble, soft matte
+fabric, brushed bronze handles, a black TV screen that mirrors softly.
+
+Contact shadows keep everything grounded: under the sofa, beneath each coffee-table leg,
+under the floating TV cabinet where it meets the wall, under the rug edge, at the base of
+the plant pot.
+
+Deep photographic tonal range: the near corner genuinely dark, whites stopping just
+short of pure white, and a full rich range in between. The image has somewhere bright
+for the eye to land and somewhere dark to rest. Muted natural colour. The look of a
+printed magazine interior photograph.
+```
+
+## Bản B — image-to-image (khi có ảnh model SketchUp / Kujiale trắng)
+
+```
+Photorealistic interior photograph of this exact living room. Keep the camera angle,
+room layout, furniture positions, cabinetry proportions and material types exactly as in
+the source image — do not add, remove or move any object.
+
+Render it as a continuous photograph. Remove every CAD outline and edge line. Surfaces
+meet without drawn borders. Nothing should look like a 3D viewport.
+
+It is a bright overcast late morning. Soft daylight from the loggia glass door does all
+the lighting work, and it falls away steeply across the room: the floor and furniture
+nearest the glass are bright and open, the middle is comfortable, and the part of the
+room farthest from the glass sinks into genuine soft shadow — the darkest, quietest part
+of the frame. This falloff is the strongest tonal movement in the picture. The daylight
+grazes along the walnut TV wall so the wood grain reads with depth. The sky is evenly
+overcast, so the light is soft and shadowless apart from gentle contact shadows; every
+shadow in the picture belongs to an object that is in the source image.
+
+Two colour temperatures live together in the frame. The daylight is cool and clean; the
+fixtures are warm. Every light fitting that exists in the source image is switched on
+and reads warm 3000K: the LED strip under the floating TV cabinet as a soft warm line on
+the wood behind it, recessed downlights as small warm discs in the ceiling, any lamp as
+a warm bulb under its shade. At this hour they light only themselves — none of them
+brightens the room, casts a pool on the floor, or throws a patch of light on a wall.
+Their warmth reads against the cool daylight instead of tinting the whole picture.
+
+Shot on a 35mm lens at eye level 1.1 m. Vertical lines stay perfectly vertical, natural
+undistorted perspective. Keep the same framing and crop as the source image.
+
+The TV wall paneling is wood-grain melamine in a medium-dark walnut, called Columbia
+Walnut: straight, calm grain, a cocoa brown with a slight grey undertone. The panels are
+flat and matte, separated by narrow shadow gaps, and the grain shifts subtly from panel
+to panel. The TV cabinet is the same walnut melamine, flat doors with a slim
+brushed-bronze bar handle on each; the TV screen is switched off and faintly mirrors the
+room. The floor is engineered wood in the same walnut tone, long planks in a low matte
+finish, each plank slightly different in tone so the floor never reads as one sheet; the
+floor is a shade lighter and warmer than the wall panels, so wall and floor read as two
+different surfaces. The walls are the developer's off-white paint, a warm ivory: dead
+matte, chalky, with the faint fine texture of a paint roller, never glossy; the ceiling
+is the same matte white.
+
+The sofa is a warm grey woven upholstery fabric, tight flat weave with a low even nap,
+soft cushions with gentle creasing where someone has sat; two cushions in deep moss green
+and one in oatmeal. The coffee table has a polished marble top, cream ground with soft
+grey and faint gold veining, catching one clean reflection of the glass door, on slim
+matte black steel legs. The rug is low-pile taupe, one edge slightly rumpled. The
+curtains are two layers: a sheer white voile across the glass and a heavy sand-coloured
+blackout curtain gathered to one side. Everyday traces, quiet and few: a ceramic tea set
+with two small cups on the marble table, a folded newspaper and a pair of reading glasses
+beside it, the remote lying slightly askew.
+
+Each material carries its own level of sheen — chalky matte walls, matte walnut panels
+with a faint satin along the grain, low-satin wood floor, polished marble, soft matte
+fabric, brushed bronze handles, a black TV screen that mirrors softly.
+
+Contact shadows keep everything grounded: under the sofa, beneath each coffee-table leg,
+under the floating TV cabinet where it meets the wall, under the rug edge.
+
+Deep photographic tonal range: the corner farthest from the glass genuinely dark, whites
+stopping just short of pure white, and a full rich range in between. The image has
+somewhere bright for the eye to land and somewhere dark to rest. Muted natural colour.
+The look of a printed magazine interior photograph.
+```
+
+**Rồi chạy mục HẬU KỲ BẮT BUỘC ở giữa file.** Không chạy là chưa xong.
+
+### Xem gì khi test
+
+| Câu hỏi | Vì sao |
+|---|---|
+| Sàn và vách TV có tách được thành hai bề mặt không, hay dính thành một khối nâu | Rủi ro lớn nhất của cảnh toàn walnut |
+| Nheo mắt — điểm sáng nhất có nằm ở cửa lô gia và sàn gần cửa không, góc gần camera có chìm không | Kiểm gradient dốc |
+| Kính lô gia có cháy trắng không, còn thấy toà đối diện không | Tiêu chí 3 bộ chấm |
+| Màu walnut ra nâu-xám hay ngả cam | Nếu ngả cam là khối 3, mất mốc lạnh |
+| Sofa nỉ có xù lông không | Kiểm cụm bó `tight flat weave, low even nap` trên ChatGPT |
+| Tường trắng ngà có ra nhựa không | Bề mặt trơn đều màu, nhóm hay hỏng nhất |
+| Grain / tối góc có ăn không | Dự đoán KHÔNG — xác nhận để chốt luật cho ChatGPT |
+
+### Sai thì sửa khối nào
+
+| Sai gì | Sửa khối |
+|---|---|
+| Sáng đều bẹt, không có góc chìm | 2 — đoạn "falls away steeply" |
+| Cả khung ngả cam | 3 — kiểm còn câu "daylight is cool and clean" không |
+| Góc rộng, méo mép, trần lệch | 4 |
+| Walnut sai màu, sàn dính vách | 5 — đoạn vật liệu |
+| Quá mượt, không hạt | Hậu kỳ, không sửa prompt |
