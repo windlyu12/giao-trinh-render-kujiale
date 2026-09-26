@@ -75,8 +75,11 @@ giao-trinh-kujiale/
 ├── README.md        ← file này
 ├── content/         ← source of truth (markdown, có citation) — cũng là kiến thức cho AI
 ├── docs/            ← bản HTML đẹp cho người học (build từ content/)
+│   └── can-ho-3d/   ← mô hình 3D căn 2PN Japandi (không build từ content/, xem README trong đó)
 └── .claude/skills/  ← agent render (chạy trên kiến thức của content/)
 ```
+
+Mô hình 3D xem online tại https://windlyu12.github.io/giao-trinh-render-kujiale/can-ho-3d/
 
 ## Build lại site sau khi sửa content
 

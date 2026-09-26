@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Mô hình 3D căn hộ 2 phòng ngủ phong cách Japandi">
+<style>html,body{margin:0}</style>
+<title>Căn hộ 2PN Japandi 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#e8e4dc; --panel:rgba(251,249,245,.93); --ink:#2a2622; --muted:#6d655b; --line:#d6cfc3;
+  --accent:#6e4d37; --accent-ink:#fbf8f3; --chip:#f0ebe3;
+  --font:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1a1714; --panel:rgba(34,30,26,.93); --ink:#ece6dc; --muted:#a79d90; --line:#3e3730;
+    --accent:#c9a67e; --accent-ink:#1a1714; --chip:#2b2621; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1a1714; --panel:rgba(34,30,26,.93); --ink:#ece6dc; --muted:#a79d90; --line:#3e3730;
+  --accent:#c9a67e; --accent-ink:#1a1714; --chip:#2b2621; color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);overflow:hidden}
+#stage{position:fixed;inset:0}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.panel{position:fixed;left:16px;top:calc(16px + env(safe-area-inset-top,0px));width:300px;max-width:calc(100% - 32px);
+  background:var(--panel);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:10px;padding:14px 16px;
+  display:flex;flex-direction:column;gap:12px;box-shadow:0 6px 24px rgba(40,30,20,.08);max-height:calc(100% - 32px);overflow:auto}
+.eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-size:18px;line-height:1.25;margin:2px 0 0;font-weight:700;text-wrap:balance}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.spec{background:var(--chip);border-radius:6px;padding:6px 8px}
+.spec b{display:block;font-family:var(--mono);font-size:13px;font-weight:500;font-variant-numeric:tabular-nums}
+.spec span{font-size:10.5px;color:var(--muted)}
+.group{display:flex;flex-direction:column;gap:6px}
+.seg{display:flex;gap:4px;flex-wrap:wrap}
+.seg button,.tog{font:inherit;font-size:12.5px;border:1px solid var(--line);background:transparent;color:var(--ink);
+  border-radius:6px;padding:5px 9px;cursor:pointer}
+.seg button[aria-pressed="true"],.tog[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.seg button:focus-visible,.tog:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sw{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:11.5px}
+.sw div{display:flex;align-items:center;gap:6px;min-width:0}
+.sw i{width:14px;height:14px;border-radius:3px;flex:none;border:1px solid rgba(0,0,0,.12)}
+.hint{font-size:11.5px;color:var(--muted);line-height:1.45;margin:0}
+#info{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--panel);border:1px solid var(--line);
+  border-radius:8px;padding:10px 12px;font-size:12.5px;min-width:200px;max-width:calc(100% - 32px)}
+#info .n{font-weight:600;margin-bottom:3px}
+#info .d{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lbl{position:absolute;transform:translate(-50%,-50%);font-size:11px;font-weight:600;color:#2a2622;background:rgba(251,249,245,.85);
+  padding:2px 6px;border-radius:4px;white-space:nowrap;pointer-events:none;letter-spacing:.02em}
+#labels{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#toggle{display:none}
+@media (max-width:640px){
+  .panel{width:auto;right:16px;padding:12px}
+  .panel.collapsed .body{display:none}
+  #toggle{display:inline-block;align-self:flex-start}
+  #info{left:16px;right:16px}
+}
+</style>
+
+</head><body>
+<div id="stage"></div>
+<div id="labels"></div>
+<aside class="panel" id="panel">
+  <div>
+    <div class="eyebrow">Japandi · gỗ MDF An Cường</div>
+    <h1>Căn hộ 2 phòng ngủ</h1>
+  </div>
+  <button class="tog" id="toggle" aria-pressed="false">Ẩn bảng điều khiển</button>
+  <div class="body" style="display:flex;flex-direction:column;gap:12px">
+    <div class="specs">
+      <div class="spec"><b id="sW">–</b><span>Rộng (m)</span></div>
+      <div class="spec"><b id="sD">–</b><span>Sâu (m)</span></div>
+      <div class="spec"><b id="sH">–</b><span>Trần (m)</span></div>
+    </div>
+    <div class="group">
+      <div class="eyebrow">Góc nhìn</div>
+      <div class="seg" id="views">
+        <button data-v="persp" aria-pressed="true">Phối cảnh</button>
+        <button data-v="top" aria-pressed="false">Trên xuống</button>
+        <button data-v="living" aria-pressed="false">Trong phòng khách</button>
+        <button data-v="bed" aria-pressed="false">Trong PN master</button>
+      </div>
+    </div>
+    <div class="group">
+      <div class="eyebrow">Cắt ngang</div>
+      <div class="seg" id="cut">
+        <button data-c="full" aria-pressed="true">Không cắt</button>
+        <button data-c="1.4" aria-pressed="false">Cắt 1.4 m</button>
+        <button data-c="0.9" aria-pressed="false">Cắt 0.9 m</button>
+      </div>
+    </div>
+    <div class="group">
+      <div class="eyebrow">Ánh sáng</div>
+      <div class="seg" id="light">
+        <button data-t="day" aria-pressed="true">Ban ngày</button>
+        <button data-t="night" aria-pressed="false">Buổi tối</button>
+      </div>
+    </div>
+    <div class="group">
+      <div class="eyebrow">Hiển thị</div>
+      <div class="seg" id="layers">
+        <button data-l="noithat" aria-pressed="true">Nội thất</button>
+        <button data-l="decor" aria-pressed="true">Trang trí</button>
+        <button data-l="cua" aria-pressed="true">Cửa</button>
+        <button data-l="den" aria-pressed="true">Đèn</button>
+        <button data-l="kinh" aria-pressed="true">Kính</button>
+        <button data-l="tran" aria-pressed="false">Trần</button>
+        <button data-l="labels" aria-pressed="true">Tên phòng</button>
+      </div>
+    </div>
+    <div class="group">
+      <div class="eyebrow">Bảng vật liệu</div>
+      <div class="sw" id="swatches"></div>
+    </div>
+    <p class="hint">Kéo để xoay, cuộn để phóng to, chuột phải hoặc hai ngón để di chuyển. Bấm vào một món để xem tên, kích thước và vật liệu.</p>
+  </div>
+</aside>
+<div id="info"><div class="n" id="iN">Chưa chọn</div><div class="d" id="iD">Bấm vào tủ, giường, cửa…</div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+<script src="model.js"></script>
+<script>
+const MODEL = buildModel();
+(function(){
+  const [W,D] = MODEL.size, H = MODEL.height;
+  document.getElementById('sW').textContent = W.toFixed(2);
+  document.getElementById('sD').textContent = D.toFixed(2);
+  document.getElementById('sH').textContent = H.toFixed(2);
+
+  const SW = [['#c9a67e','Sồi tự nhiên (MDF phủ melamine)'],['#6e4d37','Óc chó (điểm nhấn)'],['#e8e2d6','Trắng kem mờ'],
+              ['#2d2b29','Đen mờ (tay nắm, khung)'],['#ddd3c2','Vải linen be'],['#98a18a','Xanh xô thơm'],['#cdb08a','Sàn gỗ sồi'],['#ecE9e3','Đá thạch anh trắng']];
+  document.getElementById('swatches').innerHTML = SW.map(([c,n])=>`<div><i style="background:${c}"></i><span>${n}</span></div>`).join('');
+  const MAT_NAME = {wood:'Gỗ MDF phủ melamine/laminate', fabric:'Vải', metal:'Kim loại sơn tĩnh điện', glass:'Kính cường lực', mirror:'Gương',
+    ceramic:'Sứ / gốm', stone:'Đá thạch anh', paint:'Sơn nước', floor_wood:'Sàn gỗ công nghiệp vân sồi', floor_tile:'Gạch granite mờ 600×600',
+    lamp:'Đèn', plant:'Cây xanh', screen:'Màn hình / kính đen'};
+
+  const stage = document.getElementById('stage');
+  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  stage.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.03, 200);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.maxPolarAngle = Math.PI*0.495; controls.minDistance = 0.3;
+
+  const hemi = new THREE.HemisphereLight(0xfffaf2, 0x8a7f72, 0.72); scene.add(hemi);
+  const sun = new THREE.DirectionalLight(0xfff4e6, 0.72);
+  sun.position.set(9, 11, -3); sun.castShadow = true;
+  sun.shadow.mapSize.set(2048,2048);
+  Object.assign(sun.shadow.camera,{left:-8,right:8,top:8,bottom:-8,near:1,far:40});
+  sun.shadow.bias = -0.0006; sun.shadow.normalBias = 0.01;
+  scene.add(sun);
+
+  // ---------- kết cấu vẽ bằng canvas ----------
+  function woodFloorTex(){
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 1024; const g = c.getContext('2d');
+    const rows = 6, ph = c.height/rows; let seed = 7; const rnd = ()=> (seed = (seed*9301+49297)%233280)/233280;
+    for(let r=0;r<rows;r++){
+      let x = -rnd()*c.width*0.6;
+      while(x < c.width){
+        const len = c.width*(0.45+rnd()*0.4), l = 66+rnd()*10, hue = 32+rnd()*6;
+        g.fillStyle = `hsl(${hue},38%,${l}%)`; g.fillRect(x, r*ph, len, ph);
+        g.globalAlpha = .12; g.strokeStyle = '#6e4d37';
+        for(let k=0;k<7;k++){ const y = r*ph + rnd()*ph; g.beginPath(); g.moveTo(x,y);
+          g.bezierCurveTo(x+len*.3,y+(rnd()-.5)*10,x+len*.7,y+(rnd()-.5)*10,x+len,y+(rnd()-.5)*6); g.stroke(); }
+        g.globalAlpha = .45; g.fillStyle = '#8b6f52'; g.fillRect(x, r*ph, 2, ph); g.globalAlpha = 1;
+        x += len;
+      }
+      g.fillStyle = 'rgba(110,80,55,.45)'; g.fillRect(0, r*ph, c.width, 2);
+    }
+    const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(1/1.2, 1/1.14);
+    t.anisotropy = renderer.capabilities.getMaxAnisotropy(); return t;
+  }
+  function tileTex(){
+    const c = document.createElement('canvas'); c.width = c.height = 512; const g = c.getContext('2d');
+    for(let i=0;i<2;i++) for(let j=0;j<2;j++){ g.fillStyle = `hsl(38,9%,${80+((i+j)%2)*2}%)`; g.fillRect(i*256,j*256,256,256); }
+    g.strokeStyle = '#a79f93'; g.lineWidth = 3; for(let k=0;k<=512;k+=256){ g.beginPath(); g.moveTo(k,0); g.lineTo(k,512); g.moveTo(0,k); g.lineTo(512,k); g.stroke(); }
+    const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(1/1.2, 1/1.2); return t;
+  }
+  const TEX = {floor_wood: woodFloorTex(), floor_tile: tileTex()};
+
+  const mats = {};
+  function mat(e){
+    const k = e.color+'|'+e.mat+'|'+(e.opacity??1);
+    if(mats[k]) return mats[k];
+    const op = e.opacity ?? 1, P = {color:e.color, roughness:.8, metalness:0, transparent:op<1, opacity:op, depthWrite:op>=1};
+    switch(e.mat){
+      case 'wood': P.roughness=.62; break;
+      case 'fabric': P.roughness=.97; break;
+      case 'metal': P.roughness=.4; P.metalness=.5; break;
+      case 'glass': P.roughness=.05; P.metalness=.1; break;
+      case 'mirror': P.roughness=.04; P.metalness=.95; P.color='#e7eef0'; break;
+      case 'ceramic': P.roughness=.25; break;
+      case 'stone': P.roughness=.3; break;
+      case 'screen': P.roughness=.15; P.metalness=.3; break;
+      case 'plant': P.roughness=.85; P.flatShading=true; break;
+      case 'lamp': P.roughness=.9; P.emissive=new THREE.Color('#ffd7a0'); P.emissiveIntensity=0; break;
+      case 'floor_wood': case 'floor_tile': P.map=TEX[e.mat]; P.color='#ffffff'; P.roughness=e.mat==='floor_wood'?.55:.45; break;
+    }
+    if(e.mat==='mirror'||e.mat==='glass') P.envMapIntensity = 1;
+    return mats[k] = new THREE.MeshStandardMaterial(P);
+  }
+  const edgeMat = new THREE.LineBasicMaterial({color:0x3a3029, transparent:true, opacity:.22});
+
+  const root = new THREE.Group(); root.position.set(-W/2, 0, -D/2); scene.add(root);
+  const meshes = [];
+  const lampSpots = [];
+  const EDGE_GROUPS = {tuong:1, cot:1, cua:1, noithat:1};
+
+  MODEL.elements.forEach(e=>{
+    let geo, baseY = e.y0;
+    if(e.cyl){
+      const [cx,cz,r] = e.cyl;
+      if((e.axis||'y')==='y'){ const h=e.y1-e.y0; if(h<=0) return; geo = new THREE.CylinderGeometry(r,r,h,28); geo.translate(cx,h/2,cz); }
+      else { geo = new THREE.CylinderGeometry(r,r,e.len,20); if(e.axis==='x') geo.rotateZ(Math.PI/2); else geo.rotateX(Math.PI/2);
+             geo.translate(cx, e.yc - e.y0, cz); }
+    } else if(e.sph){
+      const [cx,cz,cy,r,sy] = e.sph; geo = new THREE.SphereGeometry(r, 14, 10); geo.scale(1,sy,1); geo.translate(cx, cy - e.y0, cz);
+    } else {
+      const h = e.y1-e.y0; if(h<=0) return;
+      const s = new THREE.Shape(); e.poly.forEach((p,i)=> i? s.lineTo(p[0],-p[1]) : s.moveTo(p[0],-p[1]));
+      (e.holes||[]).forEach(hp=>{ const P = new THREE.Path(); hp.forEach((p,i)=> i? P.lineTo(p[0],-p[1]) : P.moveTo(p[0],-p[1])); s.holes.push(P); });
+      geo = new THREE.ExtrudeGeometry(s, {depth:h, bevelEnabled:false}); geo.rotateX(-Math.PI/2);
+    }
+    const m = new THREE.Mesh(geo, mat(e));
+    m.position.y = baseY;
+    const op = e.opacity ?? 1;
+    m.castShadow = e.group!=='san' && e.group!=='tran' && op>=1 && e.mat!=='lamp';
+    m.receiveShadow = true;
+    m.userData = e;
+    if(EDGE_GROUPS[e.group] && !e.cyl && !e.sph && e.mat!=='fabric'){
+      m.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo, 30), edgeMat));
+    }
+    if(e.mat==='lamp' && (e.lamp || e.sph)){ lampSpots.push(new THREE.Vector3(
+      (e.cyl? e.cyl[0] : e.sph[0]) - W/2, (e.y0+e.y1)/2 - 0.1, (e.cyl? e.cyl[1] : e.sph[1]) - D/2)); }
+    root.add(m); meshes.push(m);
+  });
+
+  // đèn buổi tối: đèn thả + đèn phòng
+  const nightLights = [];
+  lampSpots.slice(0,6).forEach(p=>{ const L = new THREE.PointLight(0xffc98a, 0.7, 3.5, 2); L.position.copy(p); nightLights.push(L); });
+  MODEL.labels.forEach(l=>{ const L = new THREE.PointLight(0xffe0b8, 0.85, 6, 2); L.position.set(l.x-W/2, H-0.25, l.z-D/2); nightLights.push(L); });
+
+
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(60,60), new THREE.ShadowMaterial({opacity:.12}));
+  ground.rotation.x = -Math.PI/2; ground.position.y = -0.121; ground.receiveShadow = true; scene.add(ground);
+
+  const labelWrap = document.getElementById('labels');
+  const labels = MODEL.labels.map(l=>{
+    const el = document.createElement('div'); el.className='lbl'; el.textContent=l.name; labelWrap.appendChild(el);
+    return {el, v:new THREE.Vector3(l.x - W/2, 0.05, l.z - D/2)};
+  });
+
+  const state = {cut:null, hidden:new Set(['tran']), labels:true, night:false};
+  function applyVisibility(){
+    meshes.forEach(m=>{
+      const e = m.userData;
+      let vis = !state.hidden.has(e.group);
+      m.scale.y = 1;
+      if(vis && state.cut!=null && e.group!=='san'){
+        if(e.group==='tran' || e.y0 >= state.cut) vis = false;
+        else if(!e.sph && (e.axis||'y')==='y' && e.y1 > state.cut){ const h=e.y1-e.y0; m.scale.y = (state.cut-e.y0)/h; }
+      }
+      m.visible = vis;
+    });
+    labelWrap.style.display = state.labels ? '' : 'none';
+  }
+  function applyLight(){
+    const n = state.night;
+    hemi.intensity = n ? 0.2 : 0.72; sun.intensity = n ? 0.0 : 0.72; sun.castShadow = !n;
+    nightLights.forEach(L=> n ? scene.add(L) : scene.remove(L));
+    Object.values(mats).forEach(M=>{ if(M.emissive && M.emissiveIntensity!==undefined && M.emissive.r>0.9) M.emissiveIntensity = n ? 1.2 : 0; });
+    renderer.setClearColor(0x000000, 0);
+  }
+
+  function setView(v){
+    const r = Math.max(W,D);
+    camera.fov = (v==='living'||v==='bed') ? 62 : 42; camera.updateProjectionMatrix();
+    const P = (x,z)=> [x - W/2, z - D/2];   // toạ độ mặt bằng (m) -> cảnh
+    if(v==='top'){ controls.target.set(0,0,0); camera.position.set(0, r*1.9, 0.0001); }
+    else if(v==='living'){ const [tx,tz]=P(8.6,1.0), [cx,cz]=P(4.8,3.35); controls.target.set(tx,1.0,tz); camera.position.set(cx,1.6,cz); }
+    else if(v==='bed'){ const [tx,tz]=P(7.6,6.3), [cx,cz]=P(9.25,3.7); controls.target.set(tx,0.8,tz); camera.position.set(cx,1.65,cz); }
+    else { controls.target.set(0,0.6,0); camera.position.set(r*0.55, r*1.3, r*0.95); }
+    controls.update();
+  }
+
+  function seg(id, fn){
+    document.getElementById(id).addEventListener('click', ev=>{
+      const b = ev.target.closest('button'); if(!b) return;
+      [...ev.currentTarget.children].forEach(x=>x.setAttribute('aria-pressed', x===b)); fn(b);
+    });
+  }
+  seg('views', b=>{
+    const v = b.dataset.v; setView(v);
+    // góc nhìn trong phòng: bật trần, bỏ cắt cho chân thực
+    if(v==='living'||v==='bed'){ state.hidden.delete('tran'); document.querySelector('[data-l="tran"]').setAttribute('aria-pressed',true);
+      state.cut=null; [...document.getElementById('cut').children].forEach((x,i)=>x.setAttribute('aria-pressed', i===0)); state.labels=false;
+      document.querySelector('[data-l="labels"]').setAttribute('aria-pressed',false); }
+    applyVisibility();
+  });
+  seg('cut', b=>{ state.cut = b.dataset.c==='full' ? null : parseFloat(b.dataset.c); applyVisibility(); });
+  seg('light', b=>{ state.night = b.dataset.t==='night'; applyLight(); });
+  document.getElementById('layers').addEventListener('click', ev=>{
+    const b = ev.target.closest('button'); if(!b) return;
+    const on = b.getAttribute('aria-pressed')!=='true'; b.setAttribute('aria-pressed', on);
+    const l = b.dataset.l;
+    if(l==='labels') state.labels = on; else on ? state.hidden.delete(l) : state.hidden.add(l);
+    applyVisibility();
+  });
+  const panel = document.getElementById('panel'), tg = document.getElementById('toggle');
+  tg.addEventListener('click', ()=>{ const c = panel.classList.toggle('collapsed');
+    tg.textContent = c ? 'Hiện bảng điều khiển' : 'Ẩn bảng điều khiển'; tg.setAttribute('aria-pressed', c); });
+
+  // chọn món
+  const ray = new THREE.Raycaster(), ptr = new THREE.Vector2();
+  let picked = null, downAt = null;
+  const hiMat = new THREE.MeshStandardMaterial({color:0xd9b98f, roughness:.6, emissive:0x6e4d37, emissiveIntensity:.35});
+  renderer.domElement.addEventListener('pointerdown', e=>{ downAt=[e.clientX,e.clientY]; });
+  renderer.domElement.addEventListener('pointerup', e=>{
+    if(!downAt || Math.hypot(e.clientX-downAt[0], e.clientY-downAt[1])>5) return;
+    const r = renderer.domElement.getBoundingClientRect();
+    ptr.set(((e.clientX-r.left)/r.width)*2-1, -((e.clientY-r.top)/r.height)*2+1);
+    ray.setFromCamera(ptr, camera);
+    const hit = ray.intersectObjects(meshes.filter(m=>m.visible && m.userData.group!=='san' && m.userData.group!=='tran'), false)[0];
+    if(picked){ picked.material = picked.userData._m; picked=null; }
+    const iN = document.getElementById('iN'), iD = document.getElementById('iD');
+    if(!hit){ iN.textContent='Chưa chọn'; iD.textContent='Bấm vào tủ, giường, cửa…'; return; }
+    picked = hit.object; picked.userData._m = picked.material; picked.material = hiMat;
+    const bb = new THREE.Box3().setFromObject(picked); const s = new THREE.Vector3(); bb.getSize(s);
+    const ud = picked.userData, mm = v=>Math.round(v*1000);
+    iN.textContent = ud.name;
+    iD.innerHTML = `${mm(s.x)} × ${mm(s.z)} × cao ${mm(s.y)} mm<br>${MAT_NAME[ud.mat]||''} · <span style="display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;background:${ud.color}"></span> ${ud.color}`;
+  });
+
+  function resize(){ const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w,h,false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+  addEventListener('resize', resize); resize();
+  setView('persp'); applyVisibility(); applyLight();
+
+  const v = new THREE.Vector3();
+  (function loop(){
+    controls.update(); renderer.render(scene, camera);
+    if(state.labels){ const w = stage.clientWidth, h = stage.clientHeight;
+      labels.forEach(L=>{ v.copy(L.v).project(camera); L.el.style.display = v.z>1?'none':'';
+        L.el.style.left = ((v.x+1)/2*w)+'px'; L.el.style.top = ((1-v.y)/2*h)+'px'; }); }
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+
+</body></html>
